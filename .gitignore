@@ -1,0 +1,31 @@
+# ---- Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ---- Local runtime data: AI models (hundreds of MB), hosted images, secret key, logs
+data/
+backups/
+*.log
+
+# ---- HD YouTube helper: cloned + built on each machine (see README, "HD YouTube")
+pot-provider/
+node_modules/
+
+# ---- Secrets: never commit these
+.env
+.env.*
+!.env.example
+
+# ---- Test artifacts (generated on demand)
+tests/samples/
+tests/out/
+
+# ---- OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

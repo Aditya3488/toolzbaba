@@ -1,0 +1,47 @@
+# Production stack: the app + Caddy (HTTPS).   Start with:
+#   docker compose -f docker-compose.prod.yml up -d --build
+name: toolzbaba
+
+services:
+  toolzbaba:
+    build: .
+    restart: unless-stopped
+    init: true # reaps helper processes cleanly
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      TRUSTED_PROXY: "1" # the real visitor IP comes from Caddy / Cloudflare headers
+    volumes:
+      - data:/data # hosted images, AI models, secret key
+      - jobs:/tmp/vd_jobs # finished files wait here (auto-deleted after 30 min)
+    expose:
+      - "8000" # only Caddy can reach the app; it is NOT published to the internet
+    mem_limit: ${APP_MEM_LIMIT:-6g}
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - toolzbaba
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data # certificates + access log
+      - caddy_config:/config
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+volumes:
+  data:
+  jobs:
+  caddy_data:
+  caddy_config:

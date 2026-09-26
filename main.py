@@ -1,0 +1,72 @@
+import atexit
+import os
+import socket
+import subprocess
+
+from fastapi import FastAPI, Request
+from fastapi.exception_handlers import http_exception_handler
+from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
+
+import config
+import core
+import downloader
+import pages
+import security
+import toolkit
+import tools  # noqa: F401 - importing registers every tool
+from tools import cdn
+
+BASE = os.path.dirname(__file__)
+STATIC = os.path.join(BASE, "static")
+POT_SERVER = os.path.join(BASE, "pot-provider", "server", "build", "main.js")
+
+
+def start_pot_provider():
+    """Start the bgutil PO-token server (needed for HD YouTube) unless it's already up."""
+    if config.DOWNLOADER_MODE == "off":
+        return
+    if not os.path.exists(POT_SERVER):
+        return
+    with socket.socket() as s:
+        if s.connect_ex(("127.0.0.1", 4416)) == 0:
+            return
+    proc = subprocess.Popen(
+        ["node", POT_SERVER],
+        cwd=os.path.dirname(POT_SERVER),
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    atexit.register(proc.terminate)
+
+
+class Assets(StaticFiles):
+    """Static files with a 1-hour cache so browsers and Cloudflare don't refetch on every visit."""
+
+    async def get_response(self, path, scope):
+        resp = await super().get_response(path, scope)
+        if resp.status_code == 200:
+            resp.headers["Cache-Control"] = "public, max-age=3600"
+        return resp
+
+
+start_pot_provider()
+app = FastAPI(title=config.SITE_NAME, docs_url=None, redoc_url=None, openapi_url=None)  # no public API docs
+app.middleware("http")(security.guard)
+app.include_router(pages.router)
+app.include_router(core.router)
+app.include_router(downloader.router)
+app.include_router(toolkit.router)
+app.include_router(cdn.router)
+
+
+@app.exception_handler(StarletteHTTPException)
+async def not_found(request: Request, exc: StarletteHTTPException):
+    path = request.url.path
+    if exc.status_code == 404 and "text/html" in request.headers.get("accept", "") and not path.startswith(("/api/", "/i/")):
+        return pages.not_found_page()
+    return await http_exception_handler(request, exc)
+
+
+core.start_cleanup()
+app.mount("/assets", Assets(directory=os.path.join(STATIC, "assets")), name="assets")

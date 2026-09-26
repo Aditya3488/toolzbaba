@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--HEAD-->
+<style>
+  .urlbar { display:flex; gap:10px; }
+  .urlbar input { padding:15px 16px; font-size:1.02rem; border-radius:14px; }
+  .thumb { width:180px; border-radius:12px; aspect-ratio:16/9; object-fit:cover; background:var(--bg2); flex:none; box-shadow:var(--shadow); }
+  .meta { display:flex; gap:16px; align-items:flex-start; }
+  .meta h2 { margin:0 0 4px; font-size:1.12rem; } .meta p { margin:0; color:var(--muted); font-size:.9rem; }
+  #items { max-height:360px; overflow-y:auto; margin-top:12px; border:1px solid var(--border); border-radius:13px; background:var(--card); }
+  .item { display:flex; gap:12px; align-items:center; padding:9px 12px; border-bottom:1px solid var(--border); cursor:pointer; }
+  .item:hover { background:var(--bg2); } .item:last-child { border-bottom:0; }
+  .item img { width:86px; aspect-ratio:16/9; object-fit:cover; border-radius:7px; background:var(--bg2); flex:none; }
+  .item span { flex:1; min-width:0; font-size:.9rem; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+  .item small { color:var(--faint); flex:none; }
+  .phead { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .platforms { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 4px; align-items:center; color:var(--faint); font-size:.85rem; }
+  .actions select { width:auto; min-width:150px; }
+  @media (max-width:560px) { .meta { flex-direction:column; } .thumb { width:100%; } .urlbar { flex-wrap:wrap; } .urlbar input { flex:1 1 100%; } .urlbar .btn { flex:1; } }
+</style>
+</head>
+<body>
+<header id="top" data-site="{{SITE_NAME}}"></header>
+<div class="page cat-download" id="content" style="max-width:900px">
+  <div class="crumb"><a href="/">All tools</a> / Download</div>
+  <div class="thead">
+    <div class="ic" id="dlic"></div>
+    <div>
+      <h1>Video Downloader</h1>
+      <p class="sub">Paste a link, pick the quality, and save the video or just the audio. Playlists download as a ZIP.</p>
+      <div class="badges"><span class="badge ok">Auto-deleted after 30 min</span><span class="badge">1,600+ sites</span><span class="badge">MP4 &amp; MP3</span></div>
+    </div>
+  </div>
+
+  <div class="card hidden" id="gate">
+    <h2>Login required</h2>
+    <p class="sub" style="margin-bottom:14px">The downloader is private on this site. Enter the password to continue.</p>
+    <form id="loginForm" class="urlbar">
+      <input type="password" id="pw" placeholder="Password" autocomplete="current-password" required>
+      <button class="btn" type="submit">Log in</button>
+    </form>
+    <div class="status" id="gateStatus"></div>
+  </div>
+  <div class="card hidden" id="off"><h2>Not available</h2><p class="sub" style="margin:0">The downloader is turned off on this site.</p></div>
+
+  <div class="card hidden" id="dlcard">
+    <form id="form" class="urlbar">
+      <input type="url" id="url" placeholder="Paste a video or playlist link, e.g. https://..." required autofocus aria-label="Video link">
+      <button class="btn sec" id="pasteBtn" type="button">Paste</button>
+      <button class="btn" id="fetchBtn" type="submit">Fetch</button>
+    </form>
+    <div class="platforms" style="margin-top:14px"><span>Works with</span><span class="chip">YouTube</span><span class="chip">Instagram</span><span class="chip">X / Twitter</span><span class="chip">TikTok</span><span class="chip">Facebook</span><span class="chip">Vimeo</span><span class="chip">Reddit</span><span class="chip">SoundCloud</span><span>and more</span></div>
+
+    <div id="preview" class="hidden" style="margin-top:18px">
+      <div class="meta">
+        <img class="thumb" id="thumb" alt="">
+        <div><h2 id="title"></h2><p id="details"></p></div>
+      </div>
+      <div class="actions">
+        <select id="quality" style="width:auto"></select>
+        <button class="btn" id="videoBtn" type="button">Download video</button>
+        <button class="btn sec" id="audioBtn" type="button">Download MP3</button>
+      </div>
+    </div>
+
+    <div id="plist" class="hidden" style="margin-top:18px">
+      <div class="phead">
+        <div><h2 id="ptitle" style="margin-bottom:4px"></h2><p id="pdetails" style="margin:0;color:var(--muted);font-size:.9rem"></p></div>
+        <label class="chk"><input type="checkbox" id="pall" checked> Select all</label>
+      </div>
+      <div id="items"></div>
+      <div class="actions">
+        <select id="pquality" style="width:auto">
+          <option value="best">Best quality</option><option value="1080">1080p</option>
+          <option value="720">720p</option><option value="480">480p</option><option value="360">360p</option>
+        </select>
+        <button class="btn" id="pvideoBtn" type="button">Download video ZIP</button>
+        <button class="btn sec" id="paudioBtn" type="button">Download MP3 ZIP</button>
+      </div>
+    </div>
+
+    <div class="bar" id="bar"><i id="fill"></i></div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <p class="footnote">Only download content you own or have permission to save. DRM-protected videos are not supported.</p>
+</div>
+<script src="/assets/common.js"></script>
+<script>
+HT.header('dl'); HT.footer();
+document.getElementById('dlic').append(HT.toolIcon('downloader'));
+document.getElementById('pasteBtn').addEventListener('click', async () => {
+  try { const t = (await navigator.clipboard.readText()).trim(); if (t) { document.getElementById('url').value = t; document.getElementById('form').requestSubmit(); } else HT.toast('Your clipboard is empty'); }
+  catch { HT.toast('Allow clipboard access, or paste with Ctrl+V'); }
+});
+async function gateInit() {
+  const c = await HT.config();
+  document.getElementById('dlcard').classList.toggle('hidden', !['open', 'ok'].includes(c.downloader));
+  document.getElementById('gate').classList.toggle('hidden', c.downloader !== 'login');
+  document.getElementById('off').classList.toggle('hidden', c.downloader !== 'off');
+}
+document.getElementById('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const r = await fetch('/api/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: document.getElementById('pw').value }) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) { document.getElementById('gateStatus').className = 'status err'; document.getElementById('gateStatus').textContent = d.detail || 'Could not log in.'; return; }
+  location.reload();
+});
+gateInit();
+const $ = id => document.getElementById(id);
+let poll = null;
+let playlist = null; // { title, entries } when a playlist link was fetched
+
+function setStatus(msg, err = false) { $('status').textContent = msg; $('status').className = 'status' + (err ? ' err' : ''); }
+function fmtDuration(s) { if (!s) return ''; const m = Math.floor(s / 60); return `${m}:${String(Math.round(s % 60)).padStart(2, '0')}`; }
+const dlButtons = () => [$('videoBtn'), $('audioBtn'), $('pvideoBtn'), $('paudioBtn')];
+const show = (id, on) => $(id).classList.toggle('hidden', !on);
+
+function renderPlaylist(d) {
+  playlist = d;
+  $('ptitle').textContent = d.title;
+  $('pdetails').textContent = [d.site, d.uploader, d.entries.length + ' videos'].filter(Boolean).join(' · ')
+    + (d.truncated ? ' (showing the first ' + d.entries.length + ')' : '');
+  $('pall').checked = true;
+  const box = $('items'); box.textContent = '';
+  d.entries.forEach((e, i) => {
+    const row = document.createElement('label'); row.className = 'item';
+    const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = true; cb.dataset.i = i;
+    cb.onchange = updateSelection;
+    const img = document.createElement('img'); img.loading = 'lazy'; img.alt = ''; if (e.thumbnail) img.src = e.thumbnail;
+    const t = document.createElement('span'); t.textContent = e.title;
+    const du = document.createElement('small'); du.textContent = fmtDuration(e.duration);
+    row.append(cb, img, t, du); box.append(row);
+  });
+  updateSelection();
+  show('plist', true);
+}
+
+function selected() { return [...document.querySelectorAll('#items input:checked')].map(c => playlist.entries[c.dataset.i]); }
+function updateSelection() {
+  const n = selected().length;
+  $('pall').checked = n === playlist.entries.length;
+  $('pvideoBtn').textContent = `Download ${n} video${n === 1 ? '' : 's'} (ZIP)`;
+  $('paudioBtn').textContent = `Download ${n} MP3${n === 1 ? '' : 's'} (ZIP)`;
+  $('pvideoBtn').disabled = $('paudioBtn').disabled = n === 0;
+}
+$('pall').onchange = () => { document.querySelectorAll('#items input').forEach(c => c.checked = $('pall').checked); updateSelection(); };
+
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  clearInterval(poll); playlist = null;
+  show('preview', false); show('plist', false); $('bar').style.display = 'none';
+  $('fetchBtn').disabled = true; setStatus('Fetching info...');
+  try {
+    const r = await fetch('/api/info?url=' + encodeURIComponent($('url').value));
+    const d = await r.json();
+    if (r.status === 401) { location.reload(); return; }
+    if (!r.ok) throw new Error(d.detail);
+    if (d.playlist) renderPlaylist(d);
+    else {
+      $('thumb').src = d.thumbnail || '';
+      $('title').textContent = d.title || 'Untitled';
+      $('details').textContent = [d.site, d.uploader, fmtDuration(d.duration)].filter(Boolean).join(' · ');
+      $('quality').innerHTML = '<option value="best">Best quality</option>' +
+        d.heights.filter(h => [1080, 720, 480, 360].includes(h) || h > 1080)
+          .map(h => `<option value="${h}">${h}p</option>`).join('');
+      show('preview', true);
+    }
+    setStatus('');
+  } catch (err) { setStatus(err.message, true); }
+  $('fetchBtn').disabled = false;
+});
+
+async function startDownload(quality, body) {
+  clearInterval(poll);
+  dlButtons().forEach(b => b.disabled = true);
+  $('bar').style.display = 'block'; $('fill').style.width = '0';
+  setStatus('Starting...');
+  try {
+    const r = await fetch('/api/jobs', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ quality, ...body }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail);
+    poll = setInterval(() => check(d.id), 800);
+  } catch (err) { finish(err.message); }
+}
+
+async function check(id) {
+  const s = await (await fetch('/api/jobs/' + id)).json();
+  $('fill').style.width = (s.progress || 0) + '%';
+  const which = s.total > 1 ? `Video ${s.index}/${s.total} · ` : '';
+  const skipped = s.failed ? ` · ${s.failed} skipped` : '';
+  if (s.status === 'downloading') setStatus(`${which}Downloading ${Math.round(s.progress || 0)}% ${s.speed ? '· ' + s.speed : ''} ${s.eta ? '· ' + s.eta + ' left' : ''}${skipped}`);
+  else if (s.status === 'processing') setStatus(`${which}Processing...${skipped}`);
+  else if (s.status === 'done') {
+    finish('');
+    setStatus('Done! Your download should start automatically.' + (s.failed ? ` (${s.failed} video(s) could not be downloaded and were skipped)` : ''));
+    const a = document.createElement('a'); a.href = `/api/jobs/${id}/file`; a.download = s.filename; a.click();
+  } else if (s.status === 'error') finish(s.error || 'Download failed.');
+}
+
+function finish(err) {
+  clearInterval(poll);
+  dlButtons().forEach(b => b.disabled = false);
+  if (playlist) updateSelection();
+  if (err) { $('bar').style.display = 'none'; setStatus(err, true); }
+}
+
+const single = q => startDownload(q, { url: $('url').value });
+const multi = q => startDownload(q, { urls: selected().map(e => e.url), title: playlist.title });
+$('videoBtn').onclick = () => single($('quality').value);
+$('audioBtn').onclick = () => single('audio');
+$('pvideoBtn').onclick = () => multi($('pquality').value);
+$('paudioBtn').onclick = () => multi('audio');
+</script>
+</body>
+</html>

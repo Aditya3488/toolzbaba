@@ -1,0 +1,409 @@
+{
+ "categories": [
+  {
+   "id": "download",
+   "name": "Download"
+  },
+  {
+   "id": "image",
+   "name": "Image"
+  },
+  {
+   "id": "ai",
+   "name": "AI & Enhance"
+  },
+  {
+   "id": "pdf",
+   "name": "PDF & Documents"
+  },
+  {
+   "id": "video",
+   "name": "Video & GIF"
+  },
+  {
+   "id": "util",
+   "name": "Utilities"
+  }
+ ],
+ "tools": [
+  {
+   "slug": "downloader",
+   "href": "/downloader",
+   "cat": "download",
+   "icon": "⬇️",
+   "name": "Video Downloader",
+   "desc": "Paste a link from YouTube, Instagram, X, TikTok and 1,600+ sites. Get video or MP3.",
+   "kind": "server"
+  },
+  {
+   "slug": "compress-image",
+   "cat": "image",
+   "icon": "📦",
+   "name": "Compress Image",
+   "desc": "Shrink JPG, PNG and WebP files with little visible loss.",
+   "kind": "server",
+   "js": "server-image",
+   "about": "Reduce the file size of JPG, PNG, WebP, GIF, AVIF and HEIC images. Pick the quality and the output format, limit the width, and compress up to 40 images at once. PNG files can be shrunk further by reducing their colours, and the result shows exactly how much each file shrank.",
+   "popular": true
+  },
+  {
+   "slug": "resize-image",
+   "cat": "image",
+   "icon": "📐",
+   "name": "Resize Image",
+   "desc": "Change size by pixels, percentage or fit-in-box. Batch supported.",
+   "kind": "client",
+   "js": "image-basic",
+   "about": "Change the size of one or many images by width, height, percentage, or by fitting them inside a box. Downscaling is done in steps so text and thin lines stay sharp. Everything happens in your browser, and you can save as PNG, JPG or WebP.",
+   "popular": true
+  },
+  {
+   "slug": "crop-image",
+   "cat": "image",
+   "icon": "✂️",
+   "name": "Crop Image",
+   "desc": "Drag to crop with aspect ratio presets (1:1, 16:9, 4:5...).",
+   "kind": "client",
+   "js": "image-basic",
+   "about": "Crop a picture by dragging a box over it, or type exact pixel values. Lock the shape to 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 or 3:4, then save as PNG, JPG or WebP. The crop is done in your browser at full resolution."
+  },
+  {
+   "slug": "convert-image",
+   "cat": "image",
+   "icon": "🔄",
+   "name": "Image Format Converter",
+   "desc": "Convert between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO. Opens HEIC too.",
+   "kind": "server",
+   "js": "server-image",
+   "about": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO. iPhone HEIC photos are supported as input. Choose the quality, and pick a background colour for formats that cannot be transparent. Convert up to 40 files at once.",
+   "popular": true
+  },
+  {
+   "slug": "rotate-flip",
+   "cat": "image",
+   "icon": "🔃",
+   "name": "Rotate & Flip",
+   "desc": "Rotate by 90° or any angle, and flip horizontally or vertically.",
+   "kind": "client",
+   "js": "image-basic",
+   "about": "Rotate an image by 90, 180 or 270 degrees, straighten it by a few degrees to level a horizon, and flip it horizontally or vertically. The preview updates live and the work is done in your browser."
+  },
+  {
+   "slug": "social-resizer",
+   "cat": "image",
+   "icon": "📱",
+   "name": "Social Media Resizer",
+   "desc": "One image → the right size for Instagram, Facebook, X, LinkedIn, YouTube, Pinterest.",
+   "kind": "client",
+   "js": "image-social",
+   "about": "Turn one image into the right size for Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok and WhatsApp posts, stories, covers and profile pictures. Choose to crop to fill or to fit the whole image with a blurred background, then download all sizes in one ZIP."
+  },
+  {
+   "slug": "thumbnail-generator",
+   "cat": "image",
+   "icon": "🎬",
+   "name": "Thumbnail Generator",
+   "desc": "Make a thumbnail from an image or any frame of a video, with optional title text.",
+   "kind": "client",
+   "js": "image-social",
+   "about": "Create a thumbnail from an image or from any frame of a video. Pick a size such as 1280x720, add a headline with an outline, boost colours, and keep the file under a size limit such as YouTube's 2 MB. It runs in your browser, so your video never leaves your device."
+  },
+  {
+   "slug": "exif-remover",
+   "cat": "image",
+   "icon": "🛡️",
+   "name": "EXIF Remover",
+   "desc": "Strip GPS location, camera and date info from photos before sharing.",
+   "kind": "server",
+   "js": "server-image",
+   "about": "Photos often carry hidden details such as GPS location, camera model and the time they were taken. This tool removes that metadata. JPEG files are cleaned without re-encoding, so picture quality is not affected, and you see what was found in each file."
+  },
+  {
+   "slug": "watermark",
+   "cat": "image",
+   "icon": "💧",
+   "name": "Watermark Adder",
+   "desc": "Add a text or logo watermark. Position it, tile it, set opacity. Batch supported.",
+   "kind": "client",
+   "js": "image-design",
+   "about": "Add a text or logo watermark to your images. Choose the position or tile it across the picture, set the opacity, size and rotation, and process many images at once. Everything runs in your browser."
+  },
+  {
+   "slug": "pixelate",
+   "cat": "image",
+   "icon": "🧩",
+   "name": "Pixelate Image",
+   "desc": "Pixelate the whole picture or just a selected area (hide plates, text, faces).",
+   "kind": "client",
+   "js": "image-design",
+   "about": "Pixelate a whole image or only the area you select, or pixelate everything except an area. Use it to hide licence plates, text, documents or faces. It runs in your browser."
+  },
+  {
+   "slug": "meme-generator",
+   "cat": "image",
+   "icon": "😂",
+   "name": "Meme Generator",
+   "desc": "Top and bottom text in classic meme style, or a caption bar.",
+   "kind": "client",
+   "js": "image-design",
+   "about": "Make a meme from any picture with classic top and bottom text, or put a caption bar above the image. Adjust the size and colours and download as JPG, PNG or WebP. It runs in your browser."
+  },
+  {
+   "slug": "collage-maker",
+   "cat": "image",
+   "icon": "🖼️",
+   "name": "Collage Maker",
+   "desc": "Combine 2–9 photos into a grid or featured layout.",
+   "kind": "client",
+   "js": "image-design",
+   "about": "Combine two to nine photos into a collage with grid, row, column or featured layouts. Set the canvas size, spacing, border, rounded corners and background colour, then download it. Everything runs in your browser."
+  },
+  {
+   "slug": "screenshot-beautifier",
+   "cat": "image",
+   "icon": "✨",
+   "name": "Screenshot Beautifier",
+   "desc": "Put a screenshot on a gradient with a window frame, shadow and rounded corners.",
+   "kind": "client",
+   "js": "image-design",
+   "about": "Make a plain screenshot look polished. Place it on a gradient or solid background with a macOS or browser window frame, rounded corners, shadow and padding, in shapes such as 16:9 or square. It runs in your browser."
+  },
+  {
+   "slug": "favicon-generator",
+   "cat": "image",
+   "icon": "⭐",
+   "name": "Favicon Generator",
+   "desc": "Create favicon.ico, Apple touch icon, Android icons and manifest from one image.",
+   "kind": "client",
+   "js": "utils",
+   "about": "Create a full favicon package from one image: favicon.ico, 16x16 and 32x32 PNGs, an Apple touch icon, Android icons, a web manifest and the HTML snippet to paste into your site. It runs in your browser."
+  },
+  {
+   "slug": "image-to-svg",
+   "cat": "image",
+   "icon": "🔷",
+   "name": "Image to SVG",
+   "desc": "Trace logos, icons and drawings into scalable vector SVG.",
+   "kind": "server",
+   "js": "server-image",
+   "about": "Trace logos, icons and simple drawings into scalable SVG vector graphics. Choose a preset for logos, photos or black and white line art. Vector files stay sharp at any size."
+  },
+  {
+   "slug": "remove-background",
+   "cat": "ai",
+   "icon": "🪄",
+   "name": "Background Remover",
+   "desc": "Cut out the subject and get a transparent PNG.",
+   "kind": "server",
+   "js": "server-ai",
+   "about": "Remove the background from a photo with AI and get a transparent PNG or WebP. Choose a model for general photos, people or anime and illustrations. Works on products, portraits, pets and objects.",
+   "popular": true
+  },
+  {
+   "slug": "replace-background",
+   "cat": "ai",
+   "icon": "🌅",
+   "name": "Replace Background",
+   "desc": "Swap the background for a colour, gradient, blur or another photo.",
+   "kind": "server",
+   "js": "server-ai",
+   "about": "Replace the background of a photo with a solid colour, a gradient, a blurred copy of the original, another photo, or nothing at all. The subject is cut out automatically with AI."
+  },
+  {
+   "slug": "upscale-image",
+   "cat": "ai",
+   "icon": "🔍",
+   "name": "Image Upscaler",
+   "desc": "Enlarge 2×–4× with AI and keep details sharp.",
+   "kind": "server",
+   "js": "server-ai",
+   "about": "Enlarge small or blurry pictures 2x, 3x or 4x with an AI upscaler that keeps details sharp, or use the fast mode for very large images. Best for pictures up to about 2.5 megapixels.",
+   "popular": true
+  },
+  {
+   "slug": "face-blur",
+   "cat": "ai",
+   "icon": "🙈",
+   "name": "Face Blur",
+   "desc": "Detect faces automatically and blur, pixelate or cover them.",
+   "kind": "server",
+   "js": "server-ai",
+   "about": "Detect faces automatically and blur, pixelate or cover them with a black shape. Adjust the strength, the area around each face and the detection sensitivity. Useful before sharing photos of other people."
+  },
+  {
+   "slug": "anime-style",
+   "cat": "ai",
+   "icon": "🌸",
+   "name": "Anime Style Transfer",
+   "desc": "Turn a photo into anime-style art (Hayao or Shinkai look).",
+   "kind": "server",
+   "js": "server-ai",
+   "about": "Turn a photo into anime-style artwork using an AI style-transfer model. Choose the soft, painterly Hayao look or the vivid, cinematic Shinkai look."
+  },
+  {
+   "slug": "image-to-pdf",
+   "cat": "pdf",
+   "icon": "📄",
+   "name": "Image to PDF",
+   "desc": "Combine images into one PDF. Choose page size and order.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Combine images into a single PDF. Choose A4, US Letter, A5 or the image's own size, set the orientation and margins, and reorder the pages. HEIC, PNG, JPG, WebP and more are supported.",
+   "popular": true
+  },
+  {
+   "slug": "pdf-to-image",
+   "cat": "pdf",
+   "icon": "🏞️",
+   "name": "PDF to Image",
+   "desc": "Turn PDF pages into PNG, JPG or WebP images.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Convert PDF pages to PNG, JPG or WebP images. Pick the resolution from 72 to 300 DPI and choose all pages or a range such as 1-3,5. Multiple pages are delivered as a ZIP."
+  },
+  {
+   "slug": "pdf-merge",
+   "cat": "pdf",
+   "icon": "🔗",
+   "name": "Merge PDF",
+   "desc": "Join several PDFs into one, in the order you choose.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Join several PDF files into one document in the order you choose. Reorder the files before merging. Password-protected PDFs need the password removed first.",
+   "popular": true
+  },
+  {
+   "slug": "pdf-split",
+   "cat": "pdf",
+   "icon": "📑",
+   "name": "Split PDF",
+   "desc": "Split by page ranges, every N pages, or extract selected pages.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Split a PDF into single pages, into groups of N pages, into custom page ranges, or extract selected pages into one new PDF. Results are delivered as a ZIP when there are several files."
+  },
+  {
+   "slug": "pdf-compress",
+   "cat": "pdf",
+   "icon": "📉",
+   "name": "Compress PDF",
+   "desc": "Reduce PDF file size by recompressing images.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Reduce the size of a PDF by recompressing its images and cleaning up its structure. Choose light, balanced or strong compression. Works best on PDFs with photos or scanned pages."
+  },
+  {
+   "slug": "docx-to-pdf",
+   "cat": "pdf",
+   "icon": "📝",
+   "name": "Word to PDF",
+   "desc": "Convert DOCX, DOC, ODT, RTF, PPTX or XLSX to PDF.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Convert Word documents (DOCX, DOC), OpenDocument text, RTF, plain text, PowerPoint and Excel files to PDF. The conversion is done on the server with LibreOffice."
+  },
+  {
+   "slug": "pdf-to-docx",
+   "cat": "pdf",
+   "icon": "📃",
+   "name": "PDF to Word",
+   "desc": "Convert a PDF into an editable Word document.",
+   "kind": "server",
+   "js": "server-pdf",
+   "about": "Convert a PDF into an editable Word document. It works best on PDFs with real text. Scanned PDFs are just pictures of pages and cannot be turned into editable text without OCR."
+  },
+  {
+   "slug": "video-converter",
+   "cat": "video",
+   "icon": "🎞️",
+   "name": "Video Converter",
+   "desc": "Convert to MP4, WebM, MKV, MOV, AVI, or extract audio as MP3, M4A, WAV.",
+   "kind": "server",
+   "js": "server-video",
+   "about": "Convert video to MP4, WebM, MKV, MOV or AVI, or extract the audio as MP3, M4A, WAV, OGG or FLAC. Choose the quality and scale the resolution down if needed. Files up to 2 GB are supported."
+  },
+  {
+   "slug": "video-to-gif",
+   "cat": "video",
+   "icon": "🌀",
+   "name": "Video to GIF",
+   "desc": "Turn any clip into a high-quality animated GIF.",
+   "kind": "server",
+   "js": "server-video",
+   "about": "Turn a part of any video into an animated GIF. Set the start time, length, frames per second and width. A palette is generated for each GIF to keep colours clean.",
+   "popular": true
+  },
+  {
+   "slug": "gif-to-video",
+   "cat": "video",
+   "icon": "📹",
+   "name": "GIF to Video",
+   "desc": "Convert GIFs to small MP4 or WebM videos.",
+   "kind": "server",
+   "js": "server-video",
+   "about": "Convert GIF animations into much smaller MP4 or WebM videos, and repeat the animation if you want a longer clip. Videos load faster and play smoothly on phones."
+  },
+  {
+   "slug": "video-trimmer",
+   "cat": "video",
+   "icon": "⏱️",
+   "name": "Video Trimmer",
+   "desc": "Cut a section out of a video. Preview and pick start and end.",
+   "kind": "server",
+   "js": "server-video",
+   "about": "Cut a section out of a video or audio file. Preview it, mark the start and end, and choose an exact cut or a fast, lossless cut that snaps to the nearest keyframe."
+  },
+  {
+   "slug": "video-compressor",
+   "cat": "video",
+   "icon": "⚡",
+   "name": "Video Compressor",
+   "desc": "Make videos smaller by quality level or a target file size.",
+   "kind": "server",
+   "js": "server-video",
+   "about": "Make a video smaller by choosing a quality level or a target file size in MB, for example to fit an email or chat upload limit. You can also lower the resolution.",
+   "popular": true
+  },
+  {
+   "slug": "color-palette",
+   "cat": "util",
+   "icon": "🎨",
+   "name": "Color Palette Extractor",
+   "desc": "Pull the main colours out of any image. Copy HEX, RGB, CSS.",
+   "kind": "client",
+   "js": "utils",
+   "about": "Extract the dominant colours from any image. Copy HEX, RGB and HSL values, export CSS variables or JSON, download the palette as an image, and click the picture to pick an exact colour. It runs in your browser."
+  },
+  {
+   "slug": "qr-code",
+   "cat": "util",
+   "icon": "🔳",
+   "name": "QR Code Generator",
+   "desc": "URL, text, Wi-Fi, email, phone or contact card. PNG or SVG, with colours and logo.",
+   "kind": "client",
+   "js": "utils",
+   "about": "Create QR codes for links, text, Wi-Fi networks, WhatsApp chats, email, phone numbers, SMS and contact cards. Choose colours and dot style, add a logo in the middle, and download as PNG or SVG.",
+   "popular": true
+  },
+  {
+   "slug": "base64",
+   "cat": "util",
+   "icon": "🔤",
+   "name": "Base64 Converter",
+   "desc": "Encode or decode text and files. Get data URIs for images.",
+   "kind": "client",
+   "js": "utils",
+   "about": "Encode and decode Base64 for text (with full Unicode support) and files. Get data URIs for images, or turn a Base64 string back into a downloadable file. It runs in your browser."
+  },
+  {
+   "slug": "image-cdn",
+   "cat": "util",
+   "icon": "☁️",
+   "name": "Image to CDN Link",
+   "desc": "Upload an image and get direct links in every format (JPG, PNG, WebP, AVIF...) with resize options.",
+   "kind": "server",
+   "js": "cdn",
+   "about": "Upload an image and get direct links to it in JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO formats. Add ?w=800 to any link to resize it. Converted versions are cached for fast loading."
+  }
+ ]
+}

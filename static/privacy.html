@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--HEAD-->
+</head>
+<body>
+<header id="top" data-site="{{SITE_NAME}}"></header>
+<main class="prose">
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: {{UPDATED}}</p>
+<p>{{SITE_NAME}} ({{SITE_URL}}) offers free online tools for images, PDFs, video and files. This page explains, in plain language, what happens to your data. We keep it minimal.</p>
+
+<h2>Tools that run in your browser</h2>
+<p>Most image tools (resize, crop, rotate, watermark, collage, meme, QR code, colour palette, Base64, favicon and similar) work entirely inside your browser. Your files are <b>not uploaded</b> and we never see them.</p>
+
+<h2>Tools that run on our server</h2>
+<p>Some tools need server software: compressing and converting files, PDF and Word tools, video and GIF tools, AI tools (background removal, upscaling, face blur, anime style), image to SVG, and the image link service. For these:</p>
+<ul>
+<li>Your file is uploaded over an encrypted connection and processed by open-source software running on our own server. We do not send your files to third-party AI or conversion services.</li>
+<li>Files are kept only while they are processed and for a short time afterwards so you can download the result. They are deleted automatically, normally within 30 minutes.</li>
+<li>We do not look at your files, sell them, or use them to train AI models.</li>
+</ul>
+
+<h2>Image links (hosting)</h2>
+<p>If you use the "Image to CDN Link" tool, your image is stored on our server so the links keep working. Anyone who has a link can view the image, so do not upload anything private. The image is kept until you delete it (using the delete button in the tool, which works from the browser you uploaded from), until it is removed under our <a href="/terms">Terms</a>, or until any automatic clean-up period configured on the site expires. To have an image removed, see <a href="/takedown">Report content</a>.</p>
+
+<h2>Video downloader</h2>
+<p>When you use the downloader, the link you enter is sent to our server, which fetches the video from the website you named. That website sees our server's address, not yours. Downloaded files are deleted automatically, normally within 30 minutes. Only use it for content you have the right to save.</p>
+
+<h2>Cookies and local storage</h2>
+<ul>
+<li>We do not use advertising or tracking cookies at the time of writing. If that changes, this page will be updated before it does.</li>
+<li>If the downloader is protected by a password and you log in, we set one small functional cookie (<code>tz_dl</code>) to remember your login for up to 30 days.</li>
+<li>The image link tool stores the list of images you uploaded, and their delete keys, in your browser's local storage on your device only.</li>
+</ul>
+
+<h2>Logs and security</h2>
+<p>Like any website, our web server, and services in front of it such as Cloudflare, may record technical information such as your IP address, the time and the page or tool requested. We use this to keep the site secure, prevent abuse and enforce fair-use limits (for example, limiting how many files one visitor can process per hour). Such logs are kept only for a limited period.</p>
+
+<h2>Children</h2>
+<p>The site is not directed at children under 13 and we do not knowingly collect personal information from them.</p>
+
+<h2>Your choices</h2>
+<p>You can stop using the site at any time, clear your browser's local storage to remove your saved image list, and ask us to delete a hosted image by <a href="/takedown">contacting us</a>.</p>
+
+<h2>Changes and contact</h2>
+<p>We may update this policy and will change the date above when we do. Questions: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
+</main>
+<script src="/assets/common.js"></script>
+<script>HT.header(); HT.footer();</script>
+</body>
+</html>

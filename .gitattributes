@@ -1,0 +1,16 @@
+# Normalise line endings so Windows and Mac/Linux teammates don't fight over them
+* text=auto
+
+# These MUST stay LF or they break inside Linux containers / servers
+*.sh text eol=lf
+Dockerfile text eol=lf
+Caddyfile text eol=lf
+
+# Binary files: never touch
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.gif binary
+*.pdf binary

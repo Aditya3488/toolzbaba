@@ -1,0 +1,34 @@
+# Caddy = the web server in front of the app. It gets and renews the HTTPS certificate by itself.
+{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	# allow big uploads (the app enforces per-tool limits)
+	request_body {
+		max_size 2200MB
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+
+	reverse_proxy toolzbaba:8000 {
+		flush_interval -1
+		transport http {
+			response_header_timeout 20m
+		}
+	}
+
+	# keep access logs for about a week (the privacy policy says logs are kept for a limited time)
+	log {
+		output file /data/access.log {
+			roll_size 20MiB
+			roll_keep 5
+			roll_keep_for 168h
+		}
+	}
+}
+
+www.{$SITE_DOMAIN} {
+	redir https://{$SITE_DOMAIN}{uri} permanent
+}

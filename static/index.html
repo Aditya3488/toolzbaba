@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--HEAD-->
+</head>
+<body>
+<header id="top" data-site="{{SITE_NAME}}"></header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-copy">
+    <span class="eyebrow"><i></i><span id="count">36</span> free tools &middot; no sign-up</span>
+    <h1>Every file tool you need, <span class="grad">in one place</span></h1>
+    <p class="lead">Compress and edit images, work with PDFs, convert video, remove backgrounds with AI and more. Most tools run right in your browser, so your files never leave your device.</p>
+    <div class="bigsearch" id="bigsearch">
+      <input id="q" type="search" placeholder="Search tools: compress, pdf, gif..." autocomplete="off" aria-label="Search tools">
+      <kbd>/</kbd>
+    </div>
+    <div class="chips" id="popular"></div>
+    <div class="trust" id="trust"></div>
+    </div>
+    <div class="hero-art"><img src="/assets/brand/hero-art.webp" alt="Toolz Baba, a friendly sage in sunglasses working on a laptop surrounded by tool icons" width="780" height="452" fetchpriority="high"></div>
+  </div>
+</section>
+
+<div class="catbar" id="catbar"><div class="catbar-in" id="cats" role="tablist" aria-label="Tool categories"></div></div>
+<main class="wrap" id="list">
+  <div class="sec-h"><h2>Loading tools...</h2></div>
+  <div class="grid"><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+</main>
+<p class="wrap footnote" id="empty" hidden style="text-align:center">No tools match that search. Try a shorter word like "pdf" or "image".</p>
+
+<section class="why" aria-label="Why use this site">
+  <div><i data-i="lock"></i><b>Private by design</b><p>Most tools run inside your browser. For the rest, files are processed on our server and deleted automatically.</p></div>
+  <div><i data-i="bolt"></i><b>Fast and free</b><p>No sign-up, no watermarks, no daily quotas. Open a tool, drop your file, done.</p></div>
+  <div><i data-i="grid"></i><b>Everything in one place</b><p>Images, PDFs, video, GIFs, QR codes and AI tools, so you stop hunting for a different site each time.</p></div>
+</section>
+
+<script src="/assets/common.js"></script>
+<script>
+(async () => {
+  HT.header('tools'); HT.footer();
+  const el = HT.el;
+  const bs = document.getElementById('bigsearch'); bs.prepend(HT.svg(HT.ICON.search));
+  document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
+  const [data, cfg] = await Promise.all([HT.loadTools(), HT.config()]);
+  const tools = data.tools.filter(t => !(t.slug === 'downloader' && cfg.downloader === 'off'));
+  document.getElementById('count').textContent = tools.length;
+  const href = t => t.href || '/tool/' + t.slug;
+
+  // popular chips + trust row
+  const pop = document.getElementById('popular'); pop.append(el('span', { text: 'Popular:' }));
+  tools.filter(t => t.popular).slice(0, 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
+  const trust = document.getElementById('trust');
+  [['check', 'Free, no sign-up'], ['lock', 'Files stay private'], ['bolt', 'Fast in your browser']].forEach(([i, t]) => trust.append(el('span', {}, HT.svg(HT.ICON[i]), t)));
+
+  // sections
+  const list = document.getElementById('list'); list.textContent = '';
+  const sections = [];
+  for (const c of data.categories) {
+    const items = tools.filter(t => t.cat === c.id); if (!items.length) continue;
+    const sec = el('section', { 'data-cat': c.id, id: c.id, class: 'cat-' + c.id }, el('div', { class: 'sec-h' }, el('h2', { text: c.name }), el('span', { text: items.length + (items.length === 1 ? ' tool' : ' tools') })), el('div', { class: 'grid' }, items.map(t => { const a = HT.cardFor(t); a.dataset.q = (t.name + ' ' + t.desc + ' ' + t.slug).toLowerCase(); return a; })));
+    sections.push({ c, sec, n: items.length }); list.append(sec);
+  }
+
+  // category tabs (filter)
+  const cats = document.getElementById('cats'); let active = 'all';
+  const tabs = [{ id: 'all', name: 'All', n: tools.length }, ...sections.map(s => ({ id: s.c.id, name: s.c.name, n: s.n }))].map(t =>
+    el('button', { class: 'pilltab' + (t.id === 'all' ? ' on' : ''), type: 'button', role: 'tab', 'data-id': t.id, onclick: () => setCat(t.id, true) }, t.name, ' ', el('em', { text: t.n })));
+  tabs.forEach(t => cats.append(t));
+  function setCat(id, scroll) {
+    active = id; tabs.forEach(t => t.classList.toggle('on', t.dataset.id === id));
+    sections.forEach(s => s.sec.classList.toggle('hidden', id !== 'all' && s.c.id !== id));
+    try { history.replaceState(null, '', id === 'all' ? location.pathname : '#' + id); } catch { }
+    if (scroll) document.getElementById('catbar').scrollIntoView({ block: 'start' });
+    filter();
+  }
+
+  // search
+  const q = document.getElementById('q');
+  function filter() {
+    const term = q.value.trim().toLowerCase(); let any = false;
+    sections.forEach(s => {
+      let n = 0;
+      s.sec.querySelectorAll('.tcard').forEach(a => { const show = !term || term.split(/\s+/).every(w => a.dataset.q.includes(w)); a.classList.toggle('hidden', !show); n += show; });
+      const hiddenByCat = active !== 'all' && s.c.id !== active && !term;
+      s.sec.classList.toggle('hidden', !n || (active !== 'all' && s.c.id !== active && !term));
+      any = any || (n > 0 && !hiddenByCat);
+    });
+    document.getElementById('empty').hidden = any;
+  }
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', e => { if (e.key === 'Enter') { const a = document.querySelector('#list .tcard:not(.hidden)'); if (a) location.href = a.href; } });
+  const hash = location.hash.slice(1); if (hash && sections.some(s => s.c.id === hash)) setCat(hash, false);
+  addEventListener('hashchange', () => { const h = location.hash.slice(1); if (sections.some(s => s.c.id === h)) setCat(h, true); else if (!h) setCat('all', false); });
+  // shadow under the sticky tab bar once it sticks
+  const bar = document.getElementById('catbar');
+  addEventListener('scroll', () => bar.classList.toggle('stuck', bar.getBoundingClientRect().top <= 60), { passive: true });
+})();
+</script>
+</body>
+</html>
