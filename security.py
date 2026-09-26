@@ -37,7 +37,8 @@ for part in filter(None, os.environ.get("RATE_LIMITS", "").split(",")):
 
 HEAVY_TOOLS = {"video-converter", "video-to-gif", "gif-to-video", "video-trimmer", "video-compressor",
                "remove-background", "replace-background", "upscale-image", "anime-style", "face-blur",
-               "pdf-to-docx", "docx-to-pdf", "pdf-compress", "image-to-svg"}
+               "pdf-to-docx", "docx-to-pdf", "pdf-compress", "image-to-svg",
+               "passport-photo-maker", "video-merger", "video-speed", "audio-cutter"}
 
 
 def client_ip(request: Request) -> str:

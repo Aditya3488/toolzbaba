@@ -97,7 +97,7 @@ def not_found_page() -> HTMLResponse:
 def home():
     site = {"@context": "https://schema.org", "@type": "WebSite", "name": config.SITE_NAME, "url": config.SITE_URL + "/"}
     return render("index.html", title=f"{config.SITE_NAME} – {config.TAGLINE}",
-                  desc="Compress and resize images, edit PDFs, convert video, remove backgrounds with AI and more. 35+ free online tools, no sign-up. Many run right in your browser.",
+                  desc=f"Compress and resize images, edit PDFs, convert video, remove backgrounds with AI and more. {len(tools_data()['tools'])} free online tools, no sign-up. Many run right in your browser.",
                   path="/", jsonld=[site])
 
 

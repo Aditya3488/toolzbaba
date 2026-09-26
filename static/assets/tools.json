@@ -18,7 +18,11 @@
   },
   {
    "id": "video",
-   "name": "Video & GIF"
+   "name": "Video & Audio"
+  },
+  {
+   "id": "dev",
+   "name": "Text & Developer"
   },
   {
    "id": "util",
@@ -44,7 +48,7 @@
    "kind": "server",
    "js": "server-image",
    "about": "Reduce the file size of JPG, PNG, WebP, GIF, AVIF and HEIC images. Pick the quality and the output format, limit the width, and compress up to 40 images at once. PNG files can be shrunk further by reducing their colours, and the result shows exactly how much each file shrank.",
-   "popular": true
+   "popular": 1
   },
   {
    "slug": "resize-image",
@@ -54,8 +58,7 @@
    "desc": "Change size by pixels, percentage or fit-in-box. Batch supported.",
    "kind": "client",
    "js": "image-basic",
-   "about": "Change the size of one or many images by width, height, percentage, or by fitting them inside a box. Downscaling is done in steps so text and thin lines stay sharp. Everything happens in your browser, and you can save as PNG, JPG or WebP.",
-   "popular": true
+   "about": "Change the size of one or many images by width, height, percentage, or by fitting them inside a box. Downscaling is done in steps so text and thin lines stay sharp. Everything happens in your browser, and you can save as PNG, JPG or WebP."
   },
   {
    "slug": "crop-image",
@@ -75,8 +78,7 @@
    "desc": "Convert between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO. Opens HEIC too.",
    "kind": "server",
    "js": "server-image",
-   "about": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO. iPhone HEIC photos are supported as input. Choose the quality, and pick a background colour for formats that cannot be transparent. Convert up to 40 files at once.",
-   "popular": true
+   "about": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO. iPhone HEIC photos are supported as input. Choose the quality, and pick a background colour for formats that cannot be transparent. Convert up to 40 files at once."
   },
   {
    "slug": "rotate-flip",
@@ -189,6 +191,39 @@
    "about": "Trace logos, icons and simple drawings into scalable SVG vector graphics. Choose a preset for logos, photos or black and white line art. Vector files stay sharp at any size."
   },
   {
+   "slug": "resize-image-to-kb",
+   "cat": "image",
+   "icon": "⚖️",
+   "name": "Resize Photo & Signature to KB",
+   "kind": "client",
+   "js": "image-kb",
+   "desc": "Make a photo or signature an exact size in pixels/cm and under 20, 50 or 100 KB. For exam and job forms.",
+   "about": "Government and exam forms often want a photo or signature of an exact size and a file size such as 20-50 KB. Enter the size in pixels, centimetres, millimetres or inches, set the minimum and maximum KB, and the tool finds the best JPG quality that fits. It can also set 200 or 300 DPI. Everything runs in your browser, so your photo is never uploaded.",
+   "popular": 2
+  },
+  {
+   "slug": "passport-photo-maker",
+   "cat": "image",
+   "icon": "🪪",
+   "name": "Passport Photo Maker",
+   "kind": "server",
+   "js": "server-image",
+   "desc": "Turn a selfie into a passport or ID photo: plain background, correct size, and a print sheet with many copies.",
+   "about": "Upload a front-facing photo. The tool removes the background with AI, puts the person on a plain white, blue, grey or red background, crops the head to the right size and position for common sizes such as 35x45 mm and 51x51 mm (2x2 inch), and can lay out a 4x6 inch, 5x7 inch or A4 sheet with cutting guides so you can print several copies at once. Always check your country's exact rules for size, expression and background.",
+   "popular": 6
+  },
+  {
+   "slug": "image-to-text",
+   "cat": "image",
+   "icon": "🔤",
+   "name": "Image to Text (OCR)",
+   "kind": "client",
+   "js": "ocr",
+   "desc": "Extract text from a photo, screenshot or scanned PDF. Works with English and Hindi. Runs in your browser.",
+   "about": "Read the text in a photo, a screenshot or a scanned PDF and copy it or save it as a .txt file. It supports English and Hindi (or both at once). The OCR engine runs entirely inside your browser, so your documents stay on your device. For best results use a sharp, straight, well-lit image.",
+   "popular": 3
+  },
+  {
    "slug": "remove-background",
    "cat": "ai",
    "icon": "🪄",
@@ -197,7 +232,7 @@
    "kind": "server",
    "js": "server-ai",
    "about": "Remove the background from a photo with AI and get a transparent PNG or WebP. Choose a model for general photos, people or anime and illustrations. Works on products, portraits, pets and objects.",
-   "popular": true
+   "popular": 4
   },
   {
    "slug": "replace-background",
@@ -218,7 +253,7 @@
    "kind": "server",
    "js": "server-ai",
    "about": "Enlarge small or blurry pictures 2x, 3x or 4x with an AI upscaler that keeps details sharp, or use the fast mode for very large images. Best for pictures up to about 2.5 megapixels.",
-   "popular": true
+   "popular": 8
   },
   {
    "slug": "face-blur",
@@ -249,7 +284,7 @@
    "kind": "server",
    "js": "server-pdf",
    "about": "Combine images into a single PDF. Choose A4, US Letter, A5 or the image's own size, set the orientation and margins, and reorder the pages. HEIC, PNG, JPG, WebP and more are supported.",
-   "popular": true
+   "popular": 9
   },
   {
    "slug": "pdf-to-image",
@@ -270,7 +305,7 @@
    "kind": "server",
    "js": "server-pdf",
    "about": "Join several PDF files into one document in the order you choose. Reorder the files before merging. Password-protected PDFs need the password removed first.",
-   "popular": true
+   "popular": 5
   },
   {
    "slug": "pdf-split",
@@ -313,6 +348,56 @@
    "about": "Convert a PDF into an editable Word document. It works best on PDFs with real text. Scanned PDFs are just pictures of pages and cannot be turned into editable text without OCR."
   },
   {
+   "slug": "organize-pdf",
+   "cat": "pdf",
+   "icon": "🗂️",
+   "name": "Organize PDF Pages",
+   "kind": "server",
+   "js": "pdf-visual",
+   "desc": "Reorder, delete and rotate PDF pages visually: drag thumbnails, then save a new PDF.",
+   "about": "See every page of your PDF as a thumbnail. Drag pages to reorder them, click to rotate or delete them, then save a new PDF. The thumbnails are drawn in your browser; the file is uploaded only when you press Save, and deleted from the server shortly after."
+  },
+  {
+   "slug": "sign-pdf",
+   "cat": "pdf",
+   "icon": "✍️",
+   "name": "Sign PDF",
+   "kind": "server",
+   "js": "pdf-visual",
+   "desc": "Draw, type or upload your signature and place it on any page of a PDF.",
+   "about": "Create a signature by drawing it, typing your name in a handwriting style, or uploading a picture, then drag it to the right spot on any page and resize it. You can sign several pages in one go. This adds a visual signature image; it is not a certificate-based digital signature."
+  },
+  {
+   "slug": "pdf-page-numbers",
+   "cat": "pdf",
+   "icon": "🔢",
+   "name": "Add Page Numbers to PDF",
+   "kind": "server",
+   "js": "server-pdf",
+   "desc": "Add page numbers to a PDF: choose position, format, start number and which page to begin on.",
+   "about": "Add page numbers to every page of a PDF. Choose the position (top or bottom, left, centre or right), the format (1, Page 1, Page 1 of 10), the first number, the size and colour, and skip a cover page if you need to. Rotated pages are handled correctly."
+  },
+  {
+   "slug": "protect-pdf",
+   "cat": "pdf",
+   "icon": "🔒",
+   "name": "Protect PDF with Password",
+   "kind": "server",
+   "js": "server-pdf",
+   "desc": "Lock a PDF with a password using AES-256 encryption. Optionally block printing or copying.",
+   "about": "Add a password so that only people who know it can open your PDF. The file is encrypted with AES-256. You can also choose whether printing, copying text and editing are allowed. Keep the password safe: it cannot be recovered."
+  },
+  {
+   "slug": "unlock-pdf",
+   "cat": "pdf",
+   "icon": "🔓",
+   "name": "Unlock PDF (Remove Password)",
+   "kind": "server",
+   "js": "server-pdf",
+   "desc": "Remove the open-password from a PDF when you know the password.",
+   "about": "If you know a PDF's password and are tired of typing it, this saves a copy that opens without one. It only works when you enter the correct password: it does not crack or bypass protection."
+  },
+  {
    "slug": "video-converter",
    "cat": "video",
    "icon": "🎞️",
@@ -331,7 +416,7 @@
    "kind": "server",
    "js": "server-video",
    "about": "Turn a part of any video into an animated GIF. Set the start time, length, frames per second and width. A palette is generated for each GIF to keep colours clean.",
-   "popular": true
+   "popular": 7
   },
   {
    "slug": "gif-to-video",
@@ -361,8 +446,97 @@
    "desc": "Make videos smaller by quality level or a target file size.",
    "kind": "server",
    "js": "server-video",
-   "about": "Make a video smaller by choosing a quality level or a target file size in MB, for example to fit an email or chat upload limit. You can also lower the resolution.",
-   "popular": true
+   "about": "Make a video smaller by choosing a quality level or a target file size in MB, for example to fit an email or chat upload limit. You can also lower the resolution."
+  },
+  {
+   "slug": "audio-cutter",
+   "cat": "video",
+   "icon": "🎵",
+   "name": "Audio Cutter (MP3 Cutter)",
+   "kind": "server",
+   "js": "server-video",
+   "desc": "Cut a section from an MP3, WAV or any audio or video file. Preview it, add fades, save as MP3, M4A, WAV, OGG or FLAC.",
+   "about": "Trim a song or recording to just the part you want, for example a ringtone. Preview the file, mark the start and end, add a fade in and fade out if you like, and save as MP3, M4A, WAV, OGG or FLAC. You can also pull the audio out of a video and cut it at the same time."
+  },
+  {
+   "slug": "video-merger",
+   "cat": "video",
+   "icon": "🎬",
+   "name": "Video Merger",
+   "kind": "server",
+   "js": "server-video",
+   "desc": "Join several video clips into one MP4, in the order you choose. Different sizes and formats are fine.",
+   "about": "Combine two or more clips into a single MP4. Clips with different resolutions, frame rates or formats are matched automatically, and clips without sound are handled too. Reorder the clips before you merge."
+  },
+  {
+   "slug": "video-speed",
+   "cat": "video",
+   "icon": "⏩",
+   "name": "Video Speed Changer",
+   "kind": "server",
+   "js": "server-video",
+   "desc": "Speed a video up (timelapse) or slow it down, from 0.25x to 8x. Audio pitch is kept natural.",
+   "about": "Make a video faster for a timelapse or slower for slow motion, anywhere from 0.25x to 8x. The sound is sped up or slowed down with its pitch preserved, or you can mute it."
+  },
+  {
+   "slug": "json-formatter",
+   "cat": "dev",
+   "icon": "🧾",
+   "name": "JSON Formatter & Validator",
+   "kind": "client",
+   "js": "text-tools",
+   "desc": "Pretty-print, minify and validate JSON. Shows the exact line and column of any error.",
+   "about": "Paste JSON to make it readable with 2 or 4 spaces or tabs, minify it, sort the keys, or check whether it is valid. If there is a mistake, the tool points to the line and column. Everything happens in your browser."
+  },
+  {
+   "slug": "word-counter",
+   "cat": "dev",
+   "icon": "📝",
+   "name": "Word & Character Counter",
+   "kind": "client",
+   "js": "text-tools",
+   "desc": "Count words, characters, sentences and paragraphs, with reading time and top keywords.",
+   "about": "Paste or type text to see the number of words, characters (with and without spaces), sentences and paragraphs, plus estimated reading and speaking time and the most used words. It works with English and Hindi text."
+  },
+  {
+   "slug": "case-converter",
+   "cat": "dev",
+   "icon": "🔠",
+   "name": "Case Converter",
+   "kind": "client",
+   "js": "text-tools",
+   "desc": "Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more.",
+   "about": "Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE and more with one click, then copy the result."
+  },
+  {
+   "slug": "password-generator",
+   "cat": "dev",
+   "icon": "🔑",
+   "name": "Password Generator",
+   "kind": "client",
+   "js": "text-tools",
+   "desc": "Create strong random passwords. Choose length and characters, and see how strong they are.",
+   "about": "Generate strong random passwords using your browser's secure random number generator. Choose the length and which characters to include, skip look-alike characters, create several at once, and see an estimate of the strength. Passwords are never sent anywhere."
+  },
+  {
+   "slug": "hash-uuid-generator",
+   "cat": "dev",
+   "icon": "#️⃣",
+   "name": "Hash & UUID Generator",
+   "kind": "client",
+   "js": "text-tools",
+   "desc": "Generate UUIDs and MD5, SHA-1, SHA-256, SHA-384 or SHA-512 hashes of text and files.",
+   "about": "Create random UUIDs (version 4 and time-ordered version 7), and calculate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 checksums of text or of a file to check a download. The file is read in your browser and never uploaded."
+  },
+  {
+   "slug": "url-encoder",
+   "cat": "dev",
+   "icon": "🔗",
+   "name": "URL Encoder & Decoder",
+   "kind": "client",
+   "js": "text-tools",
+   "desc": "Encode or decode URLs and text, and take a URL apart into its host, path and query parameters.",
+   "about": "Encode text so it is safe to put in a URL, decode percent-encoded text, and split a full URL into its parts (protocol, host, path and query parameters) to read or edit them."
   },
   {
    "slug": "color-palette",
@@ -383,7 +557,7 @@
    "kind": "client",
    "js": "utils",
    "about": "Create QR codes for links, text, Wi-Fi networks, WhatsApp chats, email, phone numbers, SMS and contact cards. Choose colours and dot style, add a logo in the middle, and download as PNG or SVG.",
-   "popular": true
+   "popular": 10
   },
   {
    "slug": "base64",

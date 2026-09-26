@@ -1,0 +1,6 @@
+{
+  "name": "toolzbaba-tests",
+  "private": true,
+  "description": "Browser tests for Toolz Baba (run with: node browser_tools.js)",
+  "devDependencies": { "playwright-core": "^1.50.0" }
+}

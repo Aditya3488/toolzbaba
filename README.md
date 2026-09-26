@@ -2,9 +2,10 @@
 
 **All tools. One place. Free forever.** ([toolzbaba.com](https://toolzbaba.com))
 
-A self-hosted web app with 36 everyday file tools plus a link downloader: image tools, AI tools, PDF and
-document tools, video/GIF tools and utilities. Most tools run entirely in the visitor's browser; the heavy ones
-(video, AI, PDF conversion) run on the Python server.
+A self-hosted web app with 53 everyday tools plus a link downloader: image tools (including photo-to-KB for exam
+forms, passport photos and OCR), AI tools, PDF and document tools (organize, sign, protect...), video/audio tools
+and text/developer utilities. Most tools run entirely in the visitor's browser; the heavy ones (video, AI, PDF
+conversion) run on the Python server. The full list is in `static/assets/tools.json`.
 
 - **Backend:** Python 3.11+ / FastAPI, Pillow, PyMuPDF, ffmpeg, ONNX models (rembg, Real-ESRGAN, AnimeGAN, YuNet), yt-dlp
 - **Frontend:** plain HTML + CSS + vanilla JavaScript (no build step, no npm for the site itself)
@@ -145,7 +146,10 @@ toolzbaba/
 ├─ tools/                Server-side tools
 │  ├─ image_tools.py     compress, convert, EXIF remover, image->PDF, image->SVG
 │  ├─ pdf_tools.py       PDF <-> image, merge, split, compress, PDF <-> Word
+│  ├─ pdf_extra.py       organize (reorder/delete/rotate), sign, page numbers, protect, unlock
 │  ├─ video_tools.py     converter, video->GIF, GIF->video, trimmer, compressor (ffmpeg)
+│  ├─ av_extra.py        audio cutter, video merger, video speed changer
+│  ├─ passport.py        passport / ID photo maker (AI cut-out + face-based crop + print sheet)
 │  ├─ ai_tools.py        background remove/replace, upscaler, face blur, anime style
 │  ├─ cdn.py             image hosting with on-the-fly format conversion (/i/<id>.<fmt>)
 │  └─ imgutil.py         shared Pillow helpers
@@ -157,8 +161,8 @@ toolzbaba/
 │     ├─ tools.json      THE tool list: name, description, category, SEO "about" text
 │     ├─ tools/*.js      one file per tool group (browser tools and server-tool forms)
 │     ├─ brand/          logo, favicons, hero art (generated, see brand-source/)
-│     └─ vendor/         jszip, qrcode (vendored, no CDN)
-├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, login, limits ...)
+│     └─ vendor/         jszip, qrcode, pdf.js (PDF previews), tesseract.js + English/Hindi data (OCR): vendored, no CDN
+├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, login, limits ...), browser_tools.js (UI flows)
 ├─ brand-source/         original logo/favicon + script that regenerates everything in assets/brand
 ├─ deploy/, docker-compose*.yml, Dockerfile, .env.example, DEPLOY.md     production setup
 └─ scripts/              setup-pot-provider.{ps1,sh}
@@ -224,10 +228,15 @@ Missing icons fall back to a blue grid symbol.
 Start the app (`start.bat`), then in another terminal:
 
 ```bash
-python tests/smoke_api.py        # calls every server tool with generated sample files (30 checks)
+python tests/smoke_api.py        # calls every server tool with generated sample files (49 checks)
 python tests/smoke_api.py pdf    # only checks whose name contains "pdf"
 python tests/smoke_web.py        # SEO pages, downloader login, rate limits, upload cap, brand assets (47 checks)
+
+cd tests && npm install          # once: playwright-core (uses your installed Chrome/Edge, downloads no browser)
+node browser_tools.js            # drives the newer tools in a real browser: OCR, PDF organize/sign, photo-to-KB, ... (17 flows)
+node browser_tools.js pdf ocr    # only flows whose name contains "pdf" or "ocr"
 ```
+- `browser_tools.js` needs the sample files that `smoke_api.py` creates in `tests/samples/` (run that once first). Set `BROWSER_PATH` if no Chrome/Edge is found, `BASE_URL` for another port. Failure screenshots go to `tests/out/`.
 - `smoke_web.py` starts its own throw-away servers on ports 8801-8804, so it doesn't touch your running app.
 - Put a portrait photo at `tests/samples/face.jpg` if you want the face-blur / AI checks to be meaningful (it is git-ignored).
 - The tests need the packages from `requirements.txt` only. "docx -> pdf" is expected to report "LibreOffice is not installed" if it isn't.
@@ -317,4 +326,6 @@ Built on excellent open-source projects: [yt-dlp](https://github.com/yt-dlp/yt-d
 [rembg](https://github.com/danielgatis/rembg), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN),
 [AnimeGANv3](https://github.com/TachibanaYoshino/AnimeGANv3), [YuNet / OpenCV](https://opencv.org),
 [VTracer](https://github.com/visioncortex/vtracer), [bgutil-ytdlp-pot-provider](https://github.com/Brainicism/bgutil-ytdlp-pot-provider),
-[JSZip](https://stuk.github.io/jszip/) and [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator).
+[JSZip](https://stuk.github.io/jszip/), [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator),
+[pdf.js](https://mozilla.github.io/pdf.js/) and [tesseract.js](https://github.com/naptha/tesseract.js) with the
+[tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) language files (all Apache-2.0).

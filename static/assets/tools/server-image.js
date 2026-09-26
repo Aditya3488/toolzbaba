@@ -33,3 +33,19 @@ HT.register('image-to-svg', root => HT.serverTool(root, {
   hint: 'Works best on logos, icons and flat illustrations',
   fields: [{ name: 'preset', label: 'Type of image', type: 'select', options: [['logo', 'Logo / icon / illustration'], ['photo', 'Photo (more detail, bigger file)'], ['bw', 'Black & white line art']] }],
 }));
+
+HT.register('passport-photo-maker', root => HT.serverTool(root, {
+  slug: 'passport-photo-maker', accept: 'image/*,.heic,.heif,.avif', max: 1, action: 'Make passport photo', compare: true,
+  hint: 'Use a clear, front-facing photo with your whole head visible and even lighting',
+  notice: 'The first run downloads the AI models to the server, so it can take a minute. After that it is fast.',
+  fields: [
+    { name: 'size', label: 'Photo size', type: 'select', options: [['35x45', '35 × 45 mm (used by many countries)'], ['51x51', '51 × 51 mm / 2 × 2 inch (US visa and others)'], ['33x48', '33 × 48 mm'], ['25x35', '25 × 35 mm (small ID)'], ['custom', 'Custom size...']] },
+    { name: 'width_mm', label: 'Width (mm)', type: 'number', value: 35, min: 15, max: 100, showIf: v => v.size === 'custom' },
+    { name: 'height_mm', label: 'Height (mm)', type: 'number', value: 45, min: 15, max: 130, showIf: v => v.size === 'custom' },
+    { name: 'background', label: 'Background', type: 'select', options: [['white', 'White'], ['lightgray', 'Light grey'], ['blue', 'Blue'], ['red', 'Red'], ['custom', 'Custom colour...']] },
+    { name: 'custom_color', label: 'Colour', type: 'color', value: '#ffffff', showIf: v => v.background === 'custom' },
+    { name: 'head', label: 'Head size', type: 'select', options: [['auto', 'Standard'], ['smaller', 'A little smaller'], ['larger', 'A little larger']], help: 'Countries differ. Check the rules for your document.' },
+    { name: 'sheet', label: 'Print sheet', type: 'select', options: [['4x6', '4 × 6 inch (photo lab)'], ['5x7', '5 × 7 inch'], ['a4', 'A4'], ['none', 'No sheet: only the single photo']] },
+    { name: 'copies', label: 'Copies on the sheet', type: 'number', value: 0, min: 0, max: 60, showIf: v => v.sheet !== 'none', help: '0 = as many as fit.' },
+  ],
+}));

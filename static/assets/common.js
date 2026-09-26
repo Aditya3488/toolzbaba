@@ -382,6 +382,23 @@
     'qr-code': '<rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/><path d="M14 14h2.6v2.6M20.5 14v.01M14 20.5v.01M17.6 20.5h2.9v-2.9"/>',
     base64: '<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.6 5l-3.2 14"/>',
     'image-cdn': '<path d="M7 18.5a4.5 4.5 0 0 1-.6-8.9 6 6 0 0 1 11.7.9A4 4 0 0 1 17.5 18.5z"/><path d="M12 15.5v-5m0 0-2.2 2.2M12 10.5l2.2 2.2"/>',
+    'resize-image-to-kb': '<path d="M12 4v15M6 20h12M6.5 7.5h11"/><path d="M6.5 7.5L3.5 14a3 3 0 0 0 6 0zM17.5 7.5L14.5 14a3 3 0 0 0 6 0z"/>',
+    'passport-photo-maker': '<rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M6.8 18.5c.8-2.8 2.9-4.2 5.2-4.2s4.4 1.4 5.2 4.2"/>',
+    'image-to-text': '<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M8.5 9h7M8.5 12h7M8.5 15h4"/>',
+    'organize-pdf': '<rect x="3.5" y="3.5" width="9" height="11" rx="2"/><rect x="11.5" y="9.5" width="9" height="11" rx="2"/><path d="M6.5 18l-2-2 2-2M4.5 16H8"/>',
+    'sign-pdf': '<path d="M14.5 4.5l5 5L9 20H4v-5z"/><path d="M12.5 6.5l5 5"/>',
+    'pdf-page-numbers': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><path d="M10.6 11.5L9.9 17M13.6 11.5L12.9 17M8.8 13.3h5.6M8.4 15.4h5.6"/>',
+    'protect-pdf': '<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.6"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><path d="M12 14.6v2.6"/>',
+    'unlock-pdf': '<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.6"/><path d="M8 10.5V7.5a4 4 0 0 1 7.4-2.1"/><path d="M12 14.6v2.6"/>',
+    'audio-cutter': '<path d="M4 10v4M8 6.5v11M12 3v18M16 7v10M20 10v4"/>',
+    'video-merger': '<rect x="2.5" y="7" width="8" height="10" rx="2.2"/><rect x="13.5" y="7" width="8" height="10" rx="2.2"/><path d="M10.5 12h3"/>',
+    'video-speed': '<path d="M4.5 17.5a8.5 8.5 0 1 1 15 0"/><path d="M12 14l4-4.5"/><circle cx="12" cy="14.4" r="1.3"/>',
+    'json-formatter': '<path d="M9 4C7 4 6 5 6 7v2c0 1.5-1 2.5-2.5 3C5 12.5 6 13.5 6 15v2c0 2 1 3 3 3M15 4c2 0 3 1 3 3v2c0 1.5 1 2.5 2.5 3-1.5.5-2.5 1.5-2.5 3v2c0 2-1 3-3 3"/>',
+    'word-counter': '<path d="M4 6h16M4 11h10M4 16h16M4 21h7"/>',
+    'case-converter': '<path d="M3 18l4.4-11L11.8 18M4.7 14.2h5.4"/><circle cx="17.6" cy="14.6" r="3.2"/><path d="M20.8 11.6V18"/>',
+    'password-generator': '<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/>',
+    'hash-uuid-generator': '<path d="M9.5 4L7.5 20M16.5 4l-2 16M4 9h16M3.5 15h16"/>',
+    'url-encoder': '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
     // extras used on the home page
     lock: '<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>',
     bolt: '<path d="M13.2 2.8L5 13.6h6.2L10 21.2l8.2-10.8H12z"/>',
@@ -401,6 +418,11 @@
     'video-to-gif': 'purple', 'gif-to-video': 'blue', 'video-trimmer': 'orange', 'video-compressor': 'amber', 'color-palette': 'pink', 'qr-code': 'indigo',
     base64: 'teal', 'image-cdn': 'blue', lock: 'green', bolt: 'amber', toolbox: 'purple', grid: 'blue',
   };
+  Object.assign(TOOL_COLOR, {
+    'resize-image-to-kb': 'green', 'passport-photo-maker': 'blue', 'image-to-text': 'purple', 'organize-pdf': 'orange', 'sign-pdf': 'indigo',
+    'pdf-page-numbers': 'amber', 'protect-pdf': 'red', 'unlock-pdf': 'green', 'audio-cutter': 'pink', 'video-merger': 'blue', 'video-speed': 'teal',
+    'json-formatter': 'indigo', 'word-counter': 'blue', 'case-converter': 'amber', 'password-generator': 'red', 'hash-uuid-generator': 'purple', 'url-encoder': 'teal',
+  });
   // HT.toolIcon('compress-image') -> <span class="ticon"> gradient tile with the white glyph. size: 'xs' | undefined (fills its box)
   HT.toolIcon = (key, size) => {
     const [c1, c2] = PAL[TOOL_COLOR[key] || 'blue'], span = document.createElement('span');
@@ -477,13 +499,13 @@
     const popular = el('div', {}, el('h4', { text: 'Popular' }), el('ul', {}));
     const f = el('footer', { class: 'foot' }, el('div', { class: 'foot-in' },
       el('div', { class: 'foot-brand' }, el('a', { href: '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy' })), el('p', { text: 'Free everyday file tools. Many run right in your browser, so your files stay on your device.' })),
-      col('Tools', [['Image tools', '/#image'], ['AI tools', '/#ai'], ['PDF & documents', '/#pdf'], ['Video & GIF', '/#video'], ['Utilities', '/#util']]),
+      col('Tools', [['Image tools', '/#image'], ['AI tools', '/#ai'], ['PDF & documents', '/#pdf'], ['Video & audio', '/#video'], ['Text & developer', '/#dev'], ['Utilities', '/#util']]),
       popular,
       col('Company', [['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
-    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/tool/' + t.slug, text: t.name })))); });
+    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/tool/' + t.slug, text: t.name })))); });
   };
 
   const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/tool/' + t.slug },

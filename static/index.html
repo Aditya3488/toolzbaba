@@ -52,7 +52,7 @@
 
   // popular chips + trust row
   const pop = document.getElementById('popular'); pop.append(el('span', { text: 'Popular:' }));
-  tools.filter(t => t.popular).slice(0, 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
+  tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
   const trust = document.getElementById('trust');
   [['check', 'Free, no sign-up'], ['lock', 'Files stay private'], ['bolt', 'Fast in your browser']].forEach(([i, t]) => trust.append(el('span', {}, HT.svg(HT.ICON[i]), t)));
 

@@ -43,7 +43,11 @@ def req(port, method, path, headers=None, data=None):
         resp = urllib.request.urlopen(r, timeout=30)
         return resp.status, resp.headers, resp.read()
     except urllib.error.HTTPError as e:
-        return e.code, e.headers, e.read()
+        try:
+            body = e.read()
+        except (ConnectionError, OSError):  # the server may hang up right after sending the status line
+            body = b""
+        return e.code, e.headers, body
     except (ConnectionError, urllib.error.URLError):
         return 0, {}, b""  # server rejected and hung up while we were still uploading (Windows shows this as a reset)
 

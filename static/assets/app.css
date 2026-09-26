@@ -30,7 +30,7 @@
 }
 /* category colours (set --cc on any ancestor) */
 .cat-download { --cc:#f59e0b; } .cat-image { --cc:#6366f1; } .cat-ai { --cc:#ec4899; }
-.cat-pdf { --cc:#ef4444; } .cat-video { --cc:#0ea5e9; } .cat-util { --cc:#10b981; }
+.cat-pdf { --cc:#ef4444; } .cat-video { --cc:#0ea5e9; } .cat-util { --cc:#10b981; } .cat-dev { --cc:#8b5cf6; }
 
 /* ============================================================ base */
 * { box-sizing:border-box; }
@@ -310,3 +310,21 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .why i { background:none; width:46px; height:46px; margin-bottom:12px; display:block; }
 .chip { align-items:center; } .chip .ticon.xs { margin-right:0; }
 @media (max-width:560px) { .thead .ic { width:56px; height:56px; } }
+
+/* ============================================================ visual PDF tools */
+.pgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:14px; }
+.pcard { background:var(--card2); border:1px solid var(--border); border-radius:14px; padding:10px; display:flex; flex-direction:column; align-items:center; gap:8px; cursor:grab; transition:box-shadow .15s,border-color .15s,opacity .15s; }
+.pcard.over { border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-ring); } .pcard.dragging { opacity:.45; }
+.pcard.deleted { opacity:.45; } .pcard.deleted .pthumb::after { content:"Deleted"; position:absolute; inset:0; display:grid; place-items:center; background:color-mix(in srgb,var(--bg) 70%,transparent); color:var(--err); font-weight:700; }
+.pthumb { position:relative; width:150px; height:200px; display:grid; place-items:center; background:var(--bg2); border-radius:8px; overflow:hidden; border:1px solid var(--border); }
+.pthumb canvas { display:block; flex:none; box-shadow:0 2px 8px rgba(0,0,0,.18); transition:transform .18s; }
+.pnum { font-size:.8rem; font-weight:600; color:var(--muted); }
+.pbtns { display:flex; gap:4px; } .pbtns button { width:30px; height:28px; border:1px solid var(--border2); border-radius:8px; background:var(--card); color:var(--text); cursor:pointer; font-size:.85rem; }
+.pbtns button:hover { border-color:var(--accent); color:var(--accent); }
+.linkbtn { border:0; background:none; color:var(--err); font:inherit; font-size:.8rem; cursor:pointer; padding:2px 6px; } .linkbtn:hover { text-decoration:underline; }
+.sigpad { width:100%; height:auto; display:block; touch-action:none; cursor:crosshair; background:#fff; }
+.sigstage { position:relative; display:inline-block; max-width:100%; border:1px solid var(--border2); box-shadow:var(--shadow); background:#fff; user-select:none; touch-action:none; }
+.sigbox { position:absolute; box-sizing:border-box; } .sigbox img { width:100%; height:100%; display:block; pointer-events:none; object-fit:fill; }
+.sigbox.live { outline:2px dashed var(--accent); cursor:move; background:rgba(10,79,245,.06); }
+.sighandle { position:absolute; right:-8px; bottom:-8px; width:16px; height:16px; border-radius:50%; background:var(--accent); border:2px solid #fff; cursor:nwse-resize; }
+.sigx { position:absolute; right:-8px; top:-8px; width:20px; height:20px; border-radius:50%; border:0; background:var(--err); color:#fff; cursor:pointer; line-height:1; }

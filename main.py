@@ -1,4 +1,5 @@
 import atexit
+import mimetypes
 import os
 import socket
 import subprocess
@@ -16,6 +17,9 @@ import security
 import toolkit
 import tools  # noqa: F401 - importing registers every tool
 from tools import cdn
+
+mimetypes.add_type("text/javascript", ".mjs")  # pdf.js ships as ES modules; Windows can map these wrongly
+mimetypes.add_type("application/wasm", ".wasm")
 
 BASE = os.path.dirname(__file__)
 STATIC = os.path.join(BASE, "static")

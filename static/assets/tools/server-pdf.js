@@ -47,3 +47,43 @@ HT.register('pdf-to-docx', root => HT.serverTool(root, {
   slug: 'pdf-to-docx', accept: PDF, max: 1, action: 'Convert to Word', compare: false,
   hint: 'Works best on text-based PDFs (not scans). Up to 50 MB.',
 }));
+
+// ---------------------------------------------------------------- page numbers / protect / unlock
+HT.register('pdf-page-numbers', root => HT.serverTool(root, {
+  slug: 'pdf-page-numbers', accept: PDF, max: 1, action: 'Add page numbers', compare: false, hint: 'Up to 200 MB',
+  fields: [
+    { name: 'position', label: 'Position', type: 'select', value: 'bc', options: [['bc', 'Bottom centre'], ['br', 'Bottom right'], ['bl', 'Bottom left'], ['tc', 'Top centre'], ['tr', 'Top right'], ['tl', 'Top left']] },
+    { name: 'format', label: 'Format', type: 'select', options: [['n', '1, 2, 3'], ['page_n', 'Page 1, Page 2'], ['page_n_of_total', 'Page 1 of 10'], ['n_of_total', '1 / 10'], ['dash', '- 1 -']] },
+    { name: 'start', label: 'First number', type: 'number', value: 1, min: 0 },
+    { name: 'first_page', label: 'Start numbering on page', type: 'number', value: 1, min: 1, help: 'Use 2 to leave a cover page without a number.' },
+    { name: 'font_size', label: 'Font size', type: 'range', min: 7, max: 30, value: 11, unit: 'pt' },
+    { name: 'margin', label: 'Distance from the edge (mm)', type: 'number', value: 12, min: 4, max: 60 },
+    { name: 'color', label: 'Colour', type: 'color', value: '#333333' },
+  ],
+}));
+
+const showPasswords = (form, names) => {
+  const box = HT.el('label', { class: 'chk', style: { marginTop: '4px' } }, HT.el('input', { type: 'checkbox', onchange: e => names.forEach(n => (form.ctl[n].type = e.target.checked ? 'text' : 'password')) }), 'Show password');
+  form.el.append(HT.el('div', { class: 'field' }, box));
+};
+
+HT.register('protect-pdf', root => HT.serverTool(root, {
+  slug: 'protect-pdf', accept: PDF, max: 1, action: 'Protect PDF', compare: false, hint: 'Up to 200 MB',
+  notice: 'Keep your password safe: nobody, including this site, can recover it.',
+  fields: [
+    { name: 'password', label: 'Password', type: 'password', placeholder: 'at least 4 characters' },
+    { name: 'password2', label: 'Repeat password', type: 'password' },
+    { name: 'allow_print', label: 'Allow printing', type: 'checkbox', value: true },
+    { name: 'allow_copy', label: 'Allow copying text', type: 'checkbox' },
+    { name: 'allow_edit', label: 'Allow editing and filling forms', type: 'checkbox' },
+  ],
+  buildOptions: v => { if (v.password !== v.password2) throw new Error('The two passwords are not the same.'); const { password2, ...rest } = v; return rest; },
+  onReady: ({ form }) => showPasswords(form, ['password', 'password2']),
+}));
+
+HT.register('unlock-pdf', root => HT.serverTool(root, {
+  slug: 'unlock-pdf', accept: PDF, max: 1, action: 'Remove password', compare: false, hint: 'Up to 200 MB',
+  notice: 'You need to know the password. This tool does not crack passwords.',
+  fields: [{ name: 'password', label: 'PDF password', type: 'password' }],
+  onReady: ({ form }) => showPasswords(form, ['password']),
+}));

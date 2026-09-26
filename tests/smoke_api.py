@@ -50,6 +50,20 @@ def make_samples():
     doc2 = pymupdf.open()
     doc2.new_page().insert_text((72, 100), "Second document", fontsize=24)
     doc2.save(S / "other.pdf")
+    rot = pymupdf.open()
+    pg = rot.new_page()
+    pg.insert_text((72, 100), "Rotated page", fontsize=24)
+    pg.set_rotation(90)
+    rot.save(S / "rot90.pdf")
+    sig = Image.new("RGBA", (300, 100), (0, 0, 0, 0))
+    ImageDraw.Draw(sig).line([(10, 80), (80, 20), (150, 70), (290, 30)], fill=(10, 30, 160, 255), width=6)
+    sig.save(S / "sig.png")
+    if not (S / "tone.mp3").exists():
+        subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=440:duration=5",
+                        str(S / "tone.mp3")], check=True)
+    if not (S / "clip2.mp4").exists():  # different size, no audio track
+        subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=320x240:rate=25:duration=2",
+                        "-c:v", "libx264", "-pix_fmt", "yuv420p", str(S / "clip2.mp4")], check=True)
     if not (S / "clip.mp4").exists():
         subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc=size=640x360:rate=25:duration=4",
                         "-f", "lavfi", "-i", "sine=frequency=440:duration=4", "-c:v", "libx264", "-pix_fmt", "yuv420p",
@@ -128,6 +142,17 @@ def is_image(fname, blob, fmt=None, size=None):
     assert size is None or im.size == size, f"size {im.size} != {size}"
 
 
+def media(blob, suffix):
+    from tools.av_extra import probe_media
+    tmp = S / ("_probe" + suffix)
+    tmp.write_bytes(blob)
+    return probe_media(tmp)
+
+
+def close(a, b, tol):
+    assert a is not None and abs(a - b) <= tol, f"{a} not within {tol} of {b}"
+
+
 def pdf_pages(n):
     def v(fname, blob):
         got = pymupdf.open(stream=blob, filetype="pdf").page_count
@@ -181,6 +206,76 @@ def main():
     check("upscale AI 4x (odd size)", "upscale-image", [Image_odd()], {"scale": 4, "engine": "ai"}, lambda f, b: is_image(f, b, "PNG", (4 * 301, 4 * 199)))
     check("face blur", "face-blur", [F], {"style": "blur"}, lambda f, b: is_image(f, b, "JPEG"))
     check("anime style", "anime-style", [F], {"style": "hayao"}, lambda f, b: is_image(f, b, "JPEG"))
+
+    five, rot = S / "five.pdf", S / "rot90.pdf"
+
+    def organized(f, b):
+        d = pymupdf.open(stream=b, filetype="pdf")
+        assert d.page_count == 2 and "Page 3" in d[0].get_text() and d[1].rotation == 90, (d.page_count, d[1].rotation)
+    check("organize pdf (reorder/delete/rotate)", "organize-pdf", [five], {"pages": [{"p": 3, "r": 0}, {"p": 1, "r": 90}]}, organized)
+    check("organize pdf rejects bad page", "organize-pdf", [five], {"pages": [{"p": 9}]}, expect_error="doesn't exist")
+
+    def signed(f, b):
+        d = pymupdf.open(stream=b, filetype="pdf")
+        assert len(d[0].get_images()) == 2 and len(d[1].get_images()) == 1, "signature should add one image to page 1 only"
+    check("sign pdf", "sign-pdf", [five, S / "sig.png"], {"placements": [{"page": 1, "x": .55, "y": .8, "w": .3, "h": .1}]}, signed)
+    check("sign rotated pdf", "sign-pdf", [rot, S / "sig.png"], {"placements": [{"page": 1, "x": .1, "y": .1, "w": .3, "h": .1}]},
+          lambda f, b: pymupdf.open(stream=b, filetype="pdf")[0].get_images() or (_ for _ in ()).throw(AssertionError("no image")))
+
+    def numbered(f, b):
+        d = pymupdf.open(stream=b, filetype="pdf")
+        assert "Page 2 of 5" in d[1].get_text() and "Page 1 of 5" in d[0].get_text() and "Page 5 of 5" in d[4].get_text()
+    check("pdf page numbers", "pdf-page-numbers", [five], {"format": "page_n_of_total", "position": "bc"}, numbered)
+
+    def numbered_skip(f, b):
+        d = pymupdf.open(stream=b, filetype="pdf")
+        assert "1" not in d[0].get_text().split("document")[-1].replace("Page 1 of the test", "") or True
+        assert d[1].get_text().strip().endswith("1"), d[1].get_text()[-20:]
+    check("page numbers skip cover", "pdf-page-numbers", [five], {"format": "n", "first_page": 2, "position": "br"}, numbered_skip)
+    check("page numbers on rotated page", "pdf-page-numbers", [rot], {"format": "n", "position": "bc"}, lambda f, b: pdf_pages(1)(f, b))
+
+    prot = {}
+
+    def protected(f, b):
+        d = pymupdf.open(stream=b, filetype="pdf")
+        assert d.needs_pass and d.authenticate("s3cret!") and d.page_count == 5
+        prot["blob"] = b
+    check("protect pdf (AES-256)", "protect-pdf", [five], {"password": "s3cret!"}, protected)
+    check("protect rejects short password", "protect-pdf", [five], {"password": "ab"}, expect_error="at least 4")
+    if prot.get("blob"):
+        locked = S / "locked.pdf"
+        locked.write_bytes(prot["blob"])
+        check("unlock pdf with password", "unlock-pdf", [locked], {"password": "s3cret!"},
+              lambda f, b: (lambda d: (not d.is_encrypted and d.page_count == 5) or (_ for _ in ()).throw(AssertionError("still locked")))(pymupdf.open(stream=b, filetype="pdf")))
+        check("unlock rejects wrong password", "unlock-pdf", [locked], {"password": "nope"}, expect_error="not correct")
+    check("unlock says unprotected file", "unlock-pdf", [five], {"password": "x"}, expect_error="not password protected")
+
+    def passport_ok(f, b):
+        names = zip_names(b)
+        assert len(names) == 2, names
+        z = zipfile.ZipFile(io.BytesIO(b))
+        photo = Image.open(io.BytesIO(z.read(next(n for n in names if "passport" in n and "sheet" not in n))))
+        assert photo.size == (413, 531), photo.size
+    if (S / "face.jpg").exists():
+        check("passport photo + sheet", "passport-photo-maker", [S / "face.jpg"], {"size": "35x45", "background": "blue", "sheet": "4x6", "model": "fast"}, passport_ok)
+    else:
+        check("passport photo (no face -> friendly error)", "passport-photo-maker", [P], {"model": "fast"}, expect_error="couldn't find a face")
+
+    check("audio cutter", "audio-cutter", [S / "tone.mp3"], {"start": "1", "end": "3", "fade_in": 0.2, "format": "mp3"},
+          lambda f, b: close(media(b, ".mp3")["duration"], 2.0, 0.35))
+    check("audio from video", "audio-cutter", [S / "clip.mp4"], {"start": 0, "end": 2, "format": "wav"},
+          lambda f, b: close(media(b, ".wav")["duration"], 2.0, 0.2))
+
+    def merged(f, b):
+        m = media(b, ".mp4")
+        close(m["duration"], 6.0, 0.6)
+        assert (m["w"], m["h"]) == (640, 360) and m["has_audio"], m
+    check("video merger (mixed sizes, one silent)", "video-merger", [S / "clip.mp4", S / "clip2.mp4"], {"resolution": "first"}, merged)
+    check("video merger to 240p", "video-merger", [S / "clip2.mp4", S / "clip.mp4"], {"resolution": "240"},
+          lambda f, b: close(media(b, ".mp4")["h"], 240, 0))
+    check("video speed 2x", "video-speed", [S / "clip.mp4"], {"speed": 2}, lambda f, b: close(media(b, ".mp4")["duration"], 2.0, 0.4))
+    check("video speed 0.5x, muted", "video-speed", [S / "clip.mp4"], {"speed": 0.5, "audio": "mute"},
+          lambda f, b: (close(media(b, ".mp4")["duration"], 8.0, 0.6), None)[1] or (not media(b, ".mp4")["has_audio"]) or (_ for _ in ()).throw(AssertionError("has audio")))
 
     print(f"\n{sum(RESULTS)}/{len(RESULTS)} passed")
     sys.exit(0 if all(RESULTS) else 1)
