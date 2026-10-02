@@ -11,6 +11,12 @@ conversion) run on the Python server. The full list is in `static/assets/tools.j
 - **Frontend:** plain HTML + CSS + vanilla JavaScript (no build step, no npm for the site itself)
 - **Deploy:** Docker + Caddy (HTTPS) on a small VPS behind Cloudflare, see [DEPLOY.md](DEPLOY.md)
 
+> **Free hosting without a server (the `cloudflare-pages` branch).** Every tool also runs in the visitor's browser:
+> MuPDF (PDF), ffmpeg.wasm (video), ONNX Runtime (AI) and image codecs compiled to WebAssembly, in
+> `static/assets/engine/`. `python build.py` turns the site into plain files in `dist/` that Cloudflare Pages hosts
+> for free, always on, with nothing to keep running. Only the video downloader needs the Python server and is left
+> out. See [Hosting on Cloudflare Pages](#hosting-on-cloudflare-pages-free) below.
+
 ---
 
 ## Quick start
@@ -300,6 +306,45 @@ Before exposing it: keep `DOWNLOADER_MODE=password` (or `off`), put Cloudflare i
 pages reviewed by a lawyer.
 
 ---
+
+## Hosting on Cloudflare Pages (free)
+
+The static version needs no server: the visitor's browser does all the work, and Cloudflare Pages serves the files
+(free, unlimited traffic, always on). Only "Image to CDN Link" stores data, in Cloudflare KV (free: 1 GB, about 250
+uploads a day), through the small functions in `functions/`.
+
+**Try it locally** (Python 3.10+; Node.js only for the local Cloudflare preview):
+
+```bash
+python build.py
+npx wrangler pages dev dist --kv CDN
+```
+
+**Set it up on Cloudflare** (once):
+
+1. Cloudflare dashboard > **Workers & Pages** > **Create** > **Pages** > **Connect to Git**, pick this repository.
+2. Build settings: framework **None**, build command `python3 build.py`, output directory `dist`. Production branch:
+   the branch you deploy from.
+3. Environment variables (optional): `SITE_URL` (default `https://toolzbaba.com`), `SITE_NAME`, `CONTACT_EMAIL`,
+   `SITE_TAGLINE`, `HEAD_EXTRA` (e.g. Search Console or AdSense tags), `CDN_RETENTION_DAYS` (default 90),
+   and the secret `ADMIN_KEY` to delete any hosted image: `curl -X DELETE -H "X-Admin-Key: ..." https://toolzbaba.com/api/cdn/<id>`.
+4. **Workers & Pages** > **KV** > create a namespace (e.g. `toolzbaba-cdn`), then in the Pages project
+   **Settings** > **Bindings** add a KV namespace binding named `CDN`. Without it the site works and only image
+   hosting says it is switched off.
+5. **Custom domains** > add `toolzbaba.com` (and `www.toolzbaba.com`). Cloudflare points the DNS at Pages.
+
+Every push to the production branch then rebuilds and publishes the site in a minute or two.
+
+**How it fits together**
+
+- `build.py` renders what the Python server used to: every page with its SEO tags, sitemap, robots, manifest,
+  plus `_headers` and `_redirects` from `deploy/pages/`.
+- `HT.upload` / `HT.poll` in `common.js` run a tool's "engine" (`static/assets/engine/<name>.js`, named in
+  `tools.json`) on the visitor's device, so the tool screens are the same as with the server.
+- Big files (ffmpeg core, some AI models) are stored in parts because Pages allows 25 MiB per file; the engines join
+  them after download.
+- The AI tool pages are cross-origin isolated (see `deploy/pages/_headers`) so the AI can use several CPU cores.
+- Licences of the bundled libraries and models: [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Troubleshooting
 
