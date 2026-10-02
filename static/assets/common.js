@@ -2,6 +2,11 @@
 (() => {
   const HT = (window.HT = { tools: {} });
   HT.register = (slug, fn) => { HT.tools[slug] = fn; };
+  // build.py stamps this file's URL with ?v=<build version>; the site's own scripts and data loaded later carry the
+  // same stamp, so a new deploy never mixes with old cached files (third-party libraries have versioned folders)
+  const VERSION = (document.currentScript && new URL(document.currentScript.src).searchParams.get('v')) || '';
+  HT.ver = url => VERSION && url.startsWith('/assets/') && !url.startsWith('/assets/vendor/') && !url.startsWith('/assets/models/')
+    ? url + (url.includes('?') ? '&' : '?') + 'v=' + VERSION : url;
 
   // ---------------------------------------------------------------- tiny DOM helper
   HT.el = (tag, attrs = {}, ...kids) => {
@@ -53,7 +58,7 @@
   };
 
   const scripts = {};
-  HT.loadScript = src => scripts[src] || (scripts[src] = new Promise((res, rej) => { const s = el('script', { src }); s.onload = res; s.onerror = () => rej(new Error('Could not load ' + src)); document.head.append(s); }));
+  HT.loadScript = src => (src = HT.ver(src), scripts[src] || (scripts[src] = new Promise((res, rej) => { const s = el('script', { src }); s.onload = res; s.onerror = () => rej(new Error('Could not load ' + src)); document.head.append(s); })));
 
   // ---------------------------------------------------------------- files / images / downloads
   HT.download = (blobOrUrl, name) => {
@@ -482,9 +487,9 @@
   // ---------------------------------------------------------------- page chrome
   let cfgP = null, toolsP = null;
   // site settings: written by build.py for the static site (the old Python server answered /api/config)
-  HT.config = () => cfgP || (cfgP = fetch('/assets/site.json').then(r => { if (!r.ok) throw r; return r.json(); })
+  HT.config = () => cfgP || (cfgP = fetch(HT.ver('/assets/site.json')).then(r => { if (!r.ok) throw r; return r.json(); })
     .catch(() => fetch('/api/config').then(r => r.json())).catch(() => ({ siteName: 'Toolz Baba', contactEmail: '' })));
-  HT.loadTools = () => toolsP || (toolsP = fetch('/assets/tools.json').then(r => r.json()));
+  HT.loadTools = () => toolsP || (toolsP = fetch(HT.ver('/assets/tools.json')).then(r => r.json()));
   const catOf = (data, id) => data.categories.find(c => c.id === id);
 
   // light / dark / auto

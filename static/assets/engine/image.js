@@ -222,7 +222,7 @@
   };
   function trace(imgd, opts) {
     return new Promise((res, rej) => {
-      const w = new Worker('/assets/engine/svg-worker.js');
+      const w = new Worker(HT.ver('/assets/engine/svg-worker.js'));
       w.onmessage = e => { w.terminate(); e.data.error ? rej(new Error(e.data.error)) : res(e.data.svg); };
       w.onerror = e => { w.terminate(); rej(new Error('Tracing failed: ' + (e.message || 'unknown error'))); };
       w.postMessage({ imgd, opts });

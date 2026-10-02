@@ -11,10 +11,11 @@ Standard library only, so it runs on Cloudflare's build machines without install
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
-import re
 import os
+import re
 import shutil
 import time
 from pathlib import Path
@@ -31,6 +32,20 @@ HEAD_EXTRA = os.environ.get("HEAD_EXTRA", "")
 GTM_ID = os.environ.get("GTM_ID", "GTM-T3R5TWTD").strip()
 if GTM_ID and not re.fullmatch(r"GTM-[A-Z0-9]+", GTM_ID):
     raise SystemExit(f"GTM_ID must look like GTM-XXXXXXX, got {GTM_ID!r}")
+
+
+# Version stamp for the site's own CSS/JS/data (?v=...), so a new deploy never mixes with files still cached from the
+# previous one. Libraries and AI models live in versioned folders/names and are left alone.
+def _assets_version() -> str:
+    h = hashlib.sha256()
+    for f in sorted((STATIC / "assets").rglob("*")):
+        rel = f.relative_to(STATIC / "assets").as_posix()
+        if f.is_file() and not rel.startswith(("vendor/", "models/")):
+            h.update(rel.encode() + b"/" + f.read_bytes())
+    return h.hexdigest()[:10]
+
+
+VERSION = _assets_version()
 
 # Google Tag Manager snippets: the script as high in <head> as possible, the noscript part right after <body>
 GTM_HEAD = """<!-- Google Tag Manager -->
@@ -88,7 +103,7 @@ def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: 
         f'<meta name="twitter:title" content="{esc(title)}">',
         f'<meta name="twitter:description" content="{esc(clip(desc))}">',
         f'<meta name="twitter:image" content="{esc(img)}">',
-        '<link rel="stylesheet" href="/assets/app.css">',
+        f'<link rel="stylesheet" href="/assets/app.css?v={VERSION}">',
     ]
     for block in jsonld or []:
         tags.append('<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>")
@@ -102,6 +117,7 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
     subs = {"SITE_NAME": SITE_NAME, "SITE_URL": SITE_URL, "CONTACT_EMAIL": CONTACT_EMAIL,
             "UPDATED": time.strftime("%d %B %Y", time.gmtime((STATIC / file).stat().st_mtime)), **(extra or {})}
     text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex))
+    text = text.replace('<script src="/assets/common.js"></script>', f'<script src="/assets/common.js?v={VERSION}"></script>')
     if GTM_ID:
         text = text.replace("<body>", "<body>\n" + GTM_BODY.replace("{id}", GTM_ID), 1)
     for k, v in subs.items():
