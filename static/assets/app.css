@@ -29,7 +29,7 @@
   --checker:conic-gradient(#232839 25%,#1a1e2d 0 50%,#232839 0 75%,#1a1e2d 0) 0 0/16px 16px; color-scheme:dark;
 }
 /* category colours (set --cc on any ancestor) */
-.cat-download { --cc:#f59e0b; } .cat-image { --cc:#6366f1; } .cat-ai { --cc:#ec4899; }
+.cat-image { --cc:#6366f1; } .cat-ai { --cc:#ec4899; }
 .cat-pdf { --cc:#ef4444; } .cat-video { --cc:#0ea5e9; } .cat-util { --cc:#10b981; } .cat-dev { --cc:#8b5cf6; }
 
 /* ============================================================ base */

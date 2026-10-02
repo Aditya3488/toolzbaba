@@ -45,8 +45,8 @@
   const el = HT.el;
   const bs = document.getElementById('bigsearch'); bs.prepend(HT.svg(HT.ICON.search));
   document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
-  const [data, cfg] = await Promise.all([HT.loadTools(), HT.config()]);
-  const tools = data.tools.filter(t => !(t.slug === 'downloader' && cfg.downloader === 'off'));
+  const data = await HT.loadTools();
+  const tools = data.tools;
   document.getElementById('count').textContent = tools.length;
   const href = t => t.href || '/tool/' + t.slug;
 

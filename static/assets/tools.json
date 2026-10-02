@@ -1,10 +1,6 @@
 {
  "categories": [
   {
-   "id": "download",
-   "name": "Download"
-  },
-  {
    "id": "image",
    "name": "Image"
   },
@@ -30,15 +26,6 @@
   }
  ],
  "tools": [
-  {
-   "slug": "downloader",
-   "href": "/downloader",
-   "cat": "download",
-   "icon": "⬇️",
-   "name": "Video Downloader",
-   "desc": "Paste a link from YouTube, Instagram, X, TikTok and 1,600+ sites. Get video or MP3.",
-   "kind": "server"
-  },
   {
    "slug": "compress-image",
    "cat": "image",

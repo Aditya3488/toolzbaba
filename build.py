@@ -27,8 +27,6 @@ CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "hello@toolzbaba.com")
 TAGLINE = os.environ.get("SITE_TAGLINE", "Free online image, PDF, video and file tools")
 HEAD_EXTRA = os.environ.get("HEAD_EXTRA", "")
 
-# pages only the old server version had (the video downloader needs a server to fetch videos)
-DROP_TOOLS = {"downloader"}
 LEGAL = {  # path -> (file, title, description)
     "privacy": ("privacy.html", "Privacy Policy", "How {site} handles your files, data and cookies."),
     "terms": ("terms.html", "Terms of Use", "The rules for using {site}."),
@@ -111,10 +109,9 @@ def build():
     shutil.copytree(STATIC / "assets", DIST / "assets")
 
     data = json.loads((STATIC / "assets" / "tools.json").read_text("utf-8"))
-    data["tools"] = [t for t in data["tools"] if t["slug"] not in DROP_TOOLS]
     (DIST / "assets" / "tools.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
     (DIST / "assets" / "site.json").write_text(json.dumps(
-        {"siteName": SITE_NAME, "tagline": TAGLINE, "contactEmail": CONTACT_EMAIL, "downloader": "off"}), "utf-8")
+        {"siteName": SITE_NAME, "tagline": TAGLINE, "contactEmail": CONTACT_EMAIL}), "utf-8")
     tools = data["tools"]
 
     # home

@@ -1,13 +1,10 @@
-"""Shared plumbing: job store, temp dirs, cleanup, URL safety, job status/file routes."""
-import ipaddress
+"""Shared plumbing: job store, temp dirs, cleanup, job status/file routes."""
 import os
 import shutil
-import socket
 import tempfile
 import threading
 import time
 import uuid
-from urllib.parse import urlparse
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
@@ -38,22 +35,6 @@ def new_job(**extra) -> tuple[str, dict, str]:
     jobs[job_id] = {"status": "downloading", "progress": 0, "speed": "", "eta": "",
                     "index": 1, "total": 1, "failed": 0, "info": None, **extra}
     return job_id, jobs[job_id], job_dir
-
-
-def check_url(url: str) -> str:
-    """Only allow public http(s) URLs (blocks localhost / private-network targets)."""
-    url = url.strip()
-    p = urlparse(url)
-    if p.scheme not in ("http", "https") or not p.hostname:
-        raise HTTPException(400, "Please enter a valid http(s) link.")
-    try:
-        for info in socket.getaddrinfo(p.hostname, None):
-            ip = ipaddress.ip_address(info[4][0])
-            if ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_reserved:
-                raise HTTPException(400, "That address is not allowed.")
-    except socket.gaierror:
-        raise HTTPException(400, "Could not resolve that link.")
-    return url
 
 
 @router.get("/api/jobs/{job_id}")

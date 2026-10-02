@@ -393,7 +393,6 @@
 
   // ---------------------------------------------------------------- tool icons (logo style: colourful rounded tile + white glyph)
   const GLYPH = {
-    downloader: '<path d="M12 4v10m0 0-4-4m4 4 4-4"/><path d="M5 15v2.5A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5V15"/>',
     'compress-image': '<path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/>',
     'resize-image': '<path d="M15 4h5v5M9 20H4v-5M20 4l-6 6M4 20l6-6"/>',
     'crop-image': '<path d="M6 2.5v14a2 2 0 0 0 2 2h13.5"/><path d="M2.5 6H16a2 2 0 0 1 2 2v13.5"/>',
@@ -458,7 +457,7 @@
     amber: ['#ffc340', '#f29a08'], indigo: ['#6482ff', '#3a4ee0'], orange: ['#ff8f45', '#e95400'], pink: ['#ff72b4', '#e13a86'], teal: ['#33d6de', '#0a9fb4'],
   };
   const TOOL_COLOR = {
-    downloader: 'red', 'compress-image': 'green', 'resize-image': 'blue', 'crop-image': 'amber', 'convert-image': 'blue', 'rotate-flip': 'indigo',
+    'compress-image': 'green', 'resize-image': 'blue', 'crop-image': 'amber', 'convert-image': 'blue', 'rotate-flip': 'indigo',
     'social-resizer': 'purple', 'thumbnail-generator': 'red', 'exif-remover': 'green', watermark: 'teal', pixelate: 'purple', 'meme-generator': 'amber',
     'collage-maker': 'indigo', 'screenshot-beautifier': 'pink', 'favicon-generator': 'amber', 'image-to-svg': 'teal', 'remove-background': 'pink',
     'replace-background': 'orange', 'upscale-image': 'indigo', 'face-blur': 'purple', 'anime-style': 'pink', 'image-to-pdf': 'purple', 'pdf-to-image': 'blue',
@@ -484,7 +483,7 @@
   let cfgP = null, toolsP = null;
   // site settings: written by build.py for the static site (the old Python server answered /api/config)
   HT.config = () => cfgP || (cfgP = fetch('/assets/site.json').then(r => { if (!r.ok) throw r; return r.json(); })
-    .catch(() => fetch('/api/config').then(r => r.json())).catch(() => ({ siteName: 'Toolz Baba', downloader: 'off', contactEmail: '' })));
+    .catch(() => fetch('/api/config').then(r => r.json())).catch(() => ({ siteName: 'Toolz Baba', contactEmail: '' })));
   HT.loadTools = () => toolsP || (toolsP = fetch('/assets/tools.json').then(r => r.json()));
   const catOf = (data, id) => data.categories.find(c => c.id === id);
 
@@ -533,13 +532,12 @@
   HT.header = active => {
     const h = document.getElementById('top'); if (!h) return;
     h.className = 'top'; h.textContent = '';
-    const dl = el('a', { href: '/downloader', class: active === 'dl' ? 'on' : '', text: 'Downloader' });
-    const nav = el('nav', { 'aria-label': 'Main' }, el('a', { href: '/', class: active === 'tools' ? 'on' : '', text: 'All tools' }), dl, el('a', { href: '/tool/image-cdn', class: active === 'cdn' ? 'on' : '', text: 'Image links' }));
+    const nav = el('nav', { 'aria-label': 'Main' }, el('a', { href: '/', class: active === 'tools' ? 'on' : '', text: 'All tools' }), el('a', { href: '/tool/image-cdn', class: active === 'cdn' ? 'on' : '', text: 'Image links' }));
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
     h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), nav, headerSearch(), themeButton()));
-    HT.config().then(c => { setName(c.siteName); if (c.downloader === 'off') dl.remove(); });
+    HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
 

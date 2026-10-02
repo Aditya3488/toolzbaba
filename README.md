@@ -2,26 +2,26 @@
 
 **All tools. One place. Free forever.** ([toolzbaba.com](https://toolzbaba.com))
 
-A self-hosted web app with 53 everyday tools plus a link downloader: image tools (including photo-to-KB for exam
+A web app with 53 everyday tools: image tools (including photo-to-KB for exam
 forms, passport photos and OCR), AI tools, PDF and document tools (organize, sign, protect...), video/audio tools
 and text/developer utilities. Most tools run entirely in the visitor's browser; the heavy ones (video, AI, PDF
 conversion) run on the Python server. The full list is in `static/assets/tools.json`.
 
-- **Backend:** Python 3.11+ / FastAPI, Pillow, PyMuPDF, ffmpeg, ONNX models (rembg, Real-ESRGAN, AnimeGAN, YuNet), yt-dlp
+- **Backend:** Python 3.11+ / FastAPI, Pillow, PyMuPDF, ffmpeg, ONNX models (rembg, Real-ESRGAN, AnimeGAN, YuNet)
 - **Frontend:** plain HTML + CSS + vanilla JavaScript (no build step, no npm for the site itself)
 - **Deploy:** Docker + Caddy (HTTPS) on a small VPS behind Cloudflare, see [DEPLOY.md](DEPLOY.md)
 
 > **Free hosting without a server (the `cloudflare-pages` branch).** Every tool also runs in the visitor's browser:
 > MuPDF (PDF), ffmpeg.wasm (video), ONNX Runtime (AI) and image codecs compiled to WebAssembly, in
 > `static/assets/engine/`. `python build.py` turns the site into plain files in `dist/` that Cloudflare Pages hosts
-> for free, always on, with nothing to keep running. Only the video downloader needs the Python server and is left
-> out. See [Hosting on Cloudflare Pages](#hosting-on-cloudflare-pages-free) below.
+> for free, always on, with nothing to keep running. See [Hosting on Cloudflare Pages](#hosting-on-cloudflare-pages-free)
+> below. The old video downloader is archived, see [archive/video-downloader](archive/video-downloader/README.md).
 
 ---
 
 ## Quick start
 
-> Prerequisites: **Git** and **Python 3.11, 3.12 or 3.13**. (Node.js 22+ is only needed for HD YouTube downloads, see step 4.)
+> Prerequisites: **Git** and **Python 3.11, 3.12 or 3.13**.
 
 **Windows (PowerShell)**
 
@@ -45,7 +45,7 @@ pip install -r requirements.txt
 sh start.sh
 ```
 
-Then open **http://127.0.0.1:8000**. That's it: every tool except *Word to PDF* and *HD YouTube* works now.
+Then open **http://127.0.0.1:8000**. That's it: every tool except *Word to PDF* works now.
 
 ---
 
@@ -65,27 +65,12 @@ pip install -r requirements.txt
 This is a big install (a few hundred MB: onnxruntime, OpenCV, PyMuPDF, ...). ffmpeg does **not** need to be
 installed separately: it is bundled through the `imageio-ffmpeg` package.
 
-### 4. HD YouTube (optional, needs Node.js 22+ and Git)
-YouTube only serves HD streams to clients that present a "PO token". A tiny Node helper creates it; the app starts
-it automatically once it is built. Build it once per machine:
-
-```powershell
-# Windows
-powershell -ExecutionPolicy Bypass -File scripts\setup-pot-provider.ps1
-```
-```bash
-# macOS / Linux
-sh scripts/setup-pot-provider.sh
-```
-It creates `pot-provider/` (git-ignored). Without it, YouTube downloads still work but are limited to 360p.
-Install Node from https://nodejs.org (v22 or newer) if `node --version` doesn't show it.
-
-### 5. Word to PDF (optional)
+### 4. Word to PDF (optional)
 Install [LibreOffice](https://www.libreoffice.org) (`winget install TheDocumentFoundation.LibreOffice` on Windows,
 `sudo apt install libreoffice-writer libreoffice-calc libreoffice-impress` on Ubuntu). Without it that one tool shows
 a friendly "LibreOffice is not installed" message.
 
-### 6. Run
+### 5. Run
 | How | Command |
 |---|---|
 | Normal | `.\start.bat` (Windows: PowerShell, Command Prompt, or just double-click it) / `sh start.sh` (macOS/Linux) |
@@ -97,11 +82,11 @@ Changes to files in `static/` (HTML, CSS, JS) show up on a browser refresh; no r
 (`Ctrl+F5` if the browser cached them).
 
 ### First-run things to expect
-- A `data/` folder appears (hosted images, downloaded AI models, an auto-generated `secret.key`). It's git-ignored.
+- A `data/` folder appears (hosted images, downloaded AI models). It's git-ignored.
 - The first use of each AI tool downloads its model once (0.2 MB up to ~170 MB for the best background remover) and does
   a one-time compile, so that first run can take about a minute. You need internet for it. The very first server start
   can also take 10-30 seconds while Python compiles the packages.
-- On your own machine (`127.0.0.1`) nothing is rate limited, and the video downloader is open to you.
+- On your own machine (`127.0.0.1`) nothing is rate limited.
 
 ---
 
@@ -114,16 +99,15 @@ Set a variable for one run:
 
 ```powershell
 # Windows PowerShell
-$env:DOWNLOADER_MODE = "password"; $env:DOWNLOADER_PASSWORD = "test123"; .\start.bat
+$env:MAX_CONCURRENT_JOBS = "2"; .\start.bat
 ```
 ```bash
 # macOS / Linux
-DOWNLOADER_MODE=password DOWNLOADER_PASSWORD=test123 sh start.sh
+MAX_CONCURRENT_JOBS=2 sh start.sh
 ```
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `DOWNLOADER_MODE` | `open` | `open`, `password` (needs `DOWNLOADER_PASSWORD`) or `off` |
 | `SITE_URL`, `SITE_NAME`, `CONTACT_EMAIL` | localhost / Toolz Baba / example | SEO tags, sitemap, legal pages, image-link base |
 | `TRUSTED_PROXY` | `0` | `1` behind Caddy/Cloudflare so the real visitor IP is used |
 | `RATE_LIMIT`, `RATE_LIMITS` | on | Per-visitor hourly limits (defaults in `security.py`) |
@@ -131,8 +115,7 @@ DOWNLOADER_MODE=password DOWNLOADER_PASSWORD=test123 sh start.sh
 | `MAX_UPLOAD_MB` | `2100` | Largest accepted request |
 | `ADMIN_KEY` | none | Lets you delete any hosted image |
 | `CDN_RETENTION_DAYS`, `CDN_MAX_TOTAL_MB`, `CDN_MAX_FILE_MB` | `0` / `5000` / `25` | Image hosting limits |
-| `YTDLP_COOKIES`, `YTDLP_PROXY` | none | Help the downloader when a site blocks a server's IP |
-| `DATA_DIR` | `./data` | Hosted images, AI models, secret key |
+| `DATA_DIR` | `./data` | Hosted images and AI models |
 | `LIBREOFFICE_PATH` | auto | Path to `soffice` if it isn't found |
 | `HEAD_EXTRA` | none | Raw HTML added to every `<head>` (analytics, verification tags) |
 
@@ -144,11 +127,10 @@ DOWNLOADER_MODE=password DOWNLOADER_PASSWORD=test123 sh start.sh
 toolzbaba/
 ├─ main.py               App wiring, middleware, static assets
 ├─ config.py             All settings, read from environment variables
-├─ security.py           Rate limits, upload cap, downloader password gate, security headers
-├─ pages.py              HTML pages with per-page SEO tags, sitemap, robots, /api/config, login, favicon routes
+├─ security.py           Rate limits, upload cap, security headers
+├─ pages.py              HTML pages with per-page SEO tags, sitemap, robots, /api/config, favicon routes
 ├─ core.py               Job store, temp folders, cleanup, job status/file routes
 ├─ toolkit.py            Tool registry + the generic  upload -> job -> result  route (POST /api/tools/{slug})
-├─ downloader.py         yt-dlp link downloader (/api/info, POST /api/jobs)
 ├─ tools/                Server-side tools
 │  ├─ image_tools.py     compress, convert, EXIF remover, image->PDF, image->SVG
 │  ├─ pdf_tools.py       PDF <-> image, merge, split, compress, PDF <-> Word
@@ -160,7 +142,7 @@ toolzbaba/
 │  ├─ cdn.py             image hosting with on-the-fly format conversion (/i/<id>.<fmt>)
 │  └─ imgutil.py         shared Pillow helpers
 ├─ static/
-│  ├─ index.html, tool.html, downloader.html, privacy/terms/contact/takedown/404.html   page templates
+│  ├─ index.html, tool.html, privacy/terms/contact/takedown/404.html   page templates
 │  └─ assets/
 │     ├─ app.css         design system (blue + orange tokens, light/dark themes)
 │     ├─ common.js       shared UI kit: header, footer, forms, dropzone, tool icons, generic tool UIs
@@ -168,10 +150,10 @@ toolzbaba/
 │     ├─ tools/*.js      one file per tool group (browser tools and server-tool forms)
 │     ├─ brand/          logo, favicons, hero art (generated, see brand-source/)
 │     └─ vendor/         jszip, qrcode, pdf.js (PDF previews), tesseract.js + English/Hindi data (OCR): vendored, no CDN
-├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, login, limits ...), browser_tools.js (UI flows)
+├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, limits ...), browser_tools.js (UI flows)
 ├─ brand-source/         original logo/favicon + script that regenerates everything in assets/brand
 ├─ deploy/, docker-compose*.yml, Dockerfile, .env.example, DEPLOY.md     production setup
-└─ scripts/              setup-pot-provider.{ps1,sh}
+└─ archive/              the retired video downloader (see archive/video-downloader/README.md)
 ```
 
 ### How a request flows
@@ -236,14 +218,14 @@ Start the app (`start.bat`), then in another terminal:
 ```bash
 python tests/smoke_api.py        # calls every server tool with generated sample files (49 checks)
 python tests/smoke_api.py pdf    # only checks whose name contains "pdf"
-python tests/smoke_web.py        # SEO pages, downloader login, rate limits, upload cap, brand assets (47 checks)
+python tests/smoke_web.py        # SEO pages, rate limits, upload cap, brand assets
 
 cd tests && npm install          # once: playwright-core (uses your installed Chrome/Edge, downloads no browser)
 node browser_tools.js            # drives the newer tools in a real browser: OCR, PDF organize/sign, photo-to-KB, ... (17 flows)
 node browser_tools.js pdf ocr    # only flows whose name contains "pdf" or "ocr"
 ```
 - `browser_tools.js` needs the sample files that `smoke_api.py` creates in `tests/samples/` (run that once first). Set `BROWSER_PATH` if no Chrome/Edge is found, `BASE_URL` for another port. Failure screenshots go to `tests/out/`.
-- `smoke_web.py` starts its own throw-away servers on ports 8801-8804, so it doesn't touch your running app.
+- `smoke_web.py` starts its own throw-away servers on ports 8801, 8803 and 8804, so it doesn't touch your running app.
 - Put a portrait photo at `tests/samples/face.jpg` if you want the face-blur / AI checks to be meaningful (it is git-ignored).
 - The tests need the packages from `requirements.txt` only. "docx -> pdf" is expected to report "LibreOffice is not installed" if it isn't.
 - **UI changes:** also open the page in the browser at desktop *and* phone width, in light *and* dark theme, before opening a PR.
@@ -259,7 +241,7 @@ node browser_tools.js pdf ocr    # only flows whose name contains "pdf" or "ocr"
    ```bash
    git init
    git add .
-   git status                      # sanity check: NO data/, pot-provider/, .env or .venv should be listed
+   git status                      # sanity check: NO data/, dist/, .env or .venv should be listed
    git commit -m "Initial commit: Toolz Baba"
    git branch -M main
    git remote add origin https://github.com/<your-username-or-org>/toolzbaba.git
@@ -284,11 +266,9 @@ git push -u origin feat/short-name            # then open a Pull Request on GitH
 UI changes checked on phone width and dark theme, and no secrets/data files committed.
 
 ### Ground rules
-- **Never commit** `.env`, `data/`, `pot-provider/`, passwords or API keys. Only `.env.example` (with fake values) is tracked.
+- **Never commit** `.env`, `data/`, `dist/`, passwords or API keys. Only `.env.example` (with fake values) is tracked.
 - Keep the site private-by-design: don't add third-party scripts, trackers or CDNs without discussing it first
   (the Privacy Policy in `static/privacy.html` promises no tracking; update it if that ever changes).
-- Don't add ways around DRM, CAPTCHAs or site bot checks in the downloader.
-- Keep `bgutil-ytdlp-pot-provider` pinned in `requirements.txt` and `POT_VERSION` in the `Dockerfile` in sync.
 - The logo/favicon originals are in `brand-source/`. Re-run `python brand-source/make_brand_assets.py` instead of editing generated files in `static/assets/brand/`.
 
 ### Licence
@@ -302,8 +282,7 @@ with permissively licensed ones. Decide this before making the repository public
 
 Full guide (server, Cloudflare, HTTPS, backups, Google Search Console): **[DEPLOY.md](DEPLOY.md)**.
 Short version: `cp .env.example .env`, edit it, `docker compose -f docker-compose.prod.yml up -d --build`.
-Before exposing it: keep `DOWNLOADER_MODE=password` (or `off`), put Cloudflare in front, and have the legal
-pages reviewed by a lawyer.
+Before exposing it: put Cloudflare in front and have the legal pages reviewed by a lawyer.
 
 ---
 
@@ -358,13 +337,10 @@ Every push to the production branch then rebuilds and publishes the site in a mi
 
 | Problem | Fix |
 |---|---|
-| A tool fails with `FileNotFoundError` / "No such file or directory" and a very long path | Windows' 260-character path limit. Keep the project in a short folder such as `C:\dev	oolzbaba` (not deep inside Downloads/OneDrive), or enable long paths |
+| A tool fails with `FileNotFoundError` / "No such file or directory" and a very long path | Windows' 260-character path limit. Keep the project in a short folder such as `C:\dev\toolzbaba` (not deep inside Downloads/OneDrive), or enable long paths |
 | `pip install` fails building a package | Use Python 3.11-3.13 (very new Python versions may lack wheels), and upgrade pip: `python -m pip install -U pip` |
 | `Address already in use` / port 8000 busy | Stop the other copy, or run `python -m uvicorn main:app --port 8001` |
 | `ModuleNotFoundError` | The virtual environment isn't active/used: `start.bat` uses `.venv` automatically; otherwise activate it, or re-run `pip install -r requirements.txt` |
-| YouTube downloads stuck at 360p | Build the HD helper (step 4). Check `node --version` is 22+ |
-| YouTube says "Sign in to confirm you're not a bot" | Your IP is flagged. Try later or from another network; on servers use `YTDLP_COOKIES` / `YTDLP_PROXY` (see DEPLOY.md) |
-| Downloader broke after weeks of working | Sites change often: `pip install -U yt-dlp` |
 | "LibreOffice is not installed" | Optional; install LibreOffice (step 5) if you need Word to PDF |
 | First AI run hangs or errors | It's downloading a model: needs internet and disk space (`data/models`). Delete the partial file and retry |
 | Videos/PDFs "Processing failed" | Read the server terminal: the real error is printed there |
@@ -374,11 +350,11 @@ Every push to the production branch then rebuilds and publishes the site in a mi
 
 ## Credits
 
-Built on excellent open-source projects: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org),
+Built on excellent open-source projects: [FFmpeg](https://ffmpeg.org),
 [FastAPI](https://fastapi.tiangolo.com), [Pillow](https://python-pillow.org), [PyMuPDF](https://pymupdf.readthedocs.io),
 [rembg](https://github.com/danielgatis/rembg), [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN),
 [AnimeGANv3](https://github.com/TachibanaYoshino/AnimeGANv3), [YuNet / OpenCV](https://opencv.org),
-[VTracer](https://github.com/visioncortex/vtracer), [bgutil-ytdlp-pot-provider](https://github.com/Brainicism/bgutil-ytdlp-pot-provider),
+[VTracer](https://github.com/visioncortex/vtracer),
 [JSZip](https://stuk.github.io/jszip/), [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator),
 [pdf.js](https://mozilla.github.io/pdf.js/) and [tesseract.js](https://github.com/naptha/tesseract.js) with the
 [tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast) language files (all Apache-2.0).

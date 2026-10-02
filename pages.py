@@ -1,4 +1,4 @@
-"""HTML pages (rendered with per-page SEO tags), sitemap/robots, site config API and downloader login."""
+"""HTML pages (rendered with per-page SEO tags), sitemap/robots and the site config API."""
 import html
 import json
 import time
@@ -6,10 +6,8 @@ from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, Response
-from pydantic import BaseModel
 
 import config
-import security
 
 STATIC = Path(__file__).parent / "static"
 router = APIRouter()
@@ -101,15 +99,6 @@ def home():
                   path="/", jsonld=[site])
 
 
-@router.get("/downloader", response_class=HTMLResponse)
-def downloader_page():
-    if config.DOWNLOADER_MODE == "off":
-        return not_found_page()
-    return render("downloader.html", title=f"Video Downloader – {config.SITE_NAME}",
-                  desc="Save video and audio from links you have permission to download. Choose quality, get MP3, or download playlists as a ZIP.",
-                  path="/downloader", noindex=config.DOWNLOADER_MODE != "open")
-
-
 def seo_block(tool: dict, data: dict) -> str:
     related = [t for t in data["tools"] if t["cat"] == tool["cat"] and t["slug"] != tool["slug"] and not t.get("href")][:8]
     links = "".join(f'<li><a href="/tool/{esc(t["slug"])}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for t in related)
@@ -165,8 +154,6 @@ def sitemap():
     data = tools_data()
     day = time.strftime("%Y-%m-%d", time.gmtime((STATIC / "assets" / "tools.json").stat().st_mtime))
     urls = [("/", "1.0")] + [(f"/tool/{t['slug']}", "0.8") for t in data["tools"] if not t.get("href")]
-    if config.DOWNLOADER_MODE == "open":
-        urls.append(("/downloader", "0.6"))
     urls += [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
     body = "".join(f"<url><loc>{esc(config.SITE_URL + p)}</loc><lastmod>{day}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
     return Response('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + body + "</urlset>", media_type="application/xml")
@@ -192,31 +179,8 @@ def webmanifest():
                         media_type="application/manifest+json", headers={"Cache-Control": "public, max-age=86400"})
 
 
-# ------------------------------------------------------------------ site config + downloader login
+# ------------------------------------------------------------------ site config
 @router.get("/api/config")
-def site_config(request: Request):
-    return JSONResponse({"siteName": config.SITE_NAME, "tagline": config.TAGLINE, "contactEmail": config.CONTACT_EMAIL,
-                         "downloader": security.downloader_state(request)}, headers={"Cache-Control": "no-store"})
-
-
-class Login(BaseModel):
-    password: str = ""
-
-
-@router.post("/api/auth")
-def login(body: Login, request: Request):
-    if config.DOWNLOADER_MODE != "password":
-        raise HTTPException(404, "No login is needed.")
-    if not security.check_password(body.password):
-        raise HTTPException(401, "That password is not correct.")
-    resp = JSONResponse({"ok": True})
-    resp.set_cookie(security.COOKIE, security.make_token(), max_age=security.COOKIE_DAYS * 86400, httponly=True,
-                    samesite="lax", secure=security.is_https(request))
-    return resp
-
-
-@router.post("/api/logout")
-def logout():
-    resp = JSONResponse({"ok": True})
-    resp.delete_cookie(security.COOKIE)
-    return resp
+def site_config():
+    return JSONResponse({"siteName": config.SITE_NAME, "tagline": config.TAGLINE, "contactEmail": config.CONTACT_EMAIL},
+                        headers={"Cache-Control": "no-store"})
