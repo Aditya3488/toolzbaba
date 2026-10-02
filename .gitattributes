@@ -14,3 +14,7 @@ Caddyfile text eol=lf
 *.ico binary
 *.gif binary
 *.pdf binary
+*.wasm binary
+*.wasm.part* binary
+*.onnx binary
+*.avif binary
