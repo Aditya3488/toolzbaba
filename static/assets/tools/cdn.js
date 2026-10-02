@@ -11,16 +11,17 @@ HT.register('image-cdn', root => {
   root.append(el('div', { class: 'notice', text: 'Every image gets links like /i/abc123.webp and /i/abc123.jpg, ready for websites, emails and forums. Links work for 90 days. Anyone with a link can see the image, so don\'t upload anything private.' }),
     dz, prog.el, listBox);
 
-  // The links are plain files, so the versions are made here before uploading: WebP (small), JPG or PNG
-  // (works everywhere) and the original when it is already a web format.
+  // The links are plain files, so the versions are made here before uploading: WebP (small) and JPG or PNG
+  // (works everywhere). Re-saving also drops camera metadata such as the GPS location, which would otherwise be
+  // public, and turns sideways phone photos upright. Only GIFs are kept as they are (they may be animated).
   async function versions(f) {
     await HT.loadScript('/assets/engine/image.js');
     const c = await HT.img.load(f), alpha = HT.img.hasAlpha(c), src = HT.img.srcFormat(f), out = {};
-    if (['jpg', 'png', 'webp', 'avif', 'gif'].includes(src)) out[src] = f;
-    if (src !== 'gif') { // a GIF may be animated: re-encoding would keep only the first frame
-      if (!out.webp) out.webp = await HT.img.encode(c, 'webp', { quality: 85 }).catch(() => null);
-      const plain = alpha ? 'png' : 'jpg';
-      if (!out[plain]) out[plain] = await HT.img.encode(c, plain, { quality: 88 });
+    if (src === 'gif') out.gif = f;
+    else {
+      out.webp = await HT.img.encode(c, 'webp', { quality: 85 }).catch(() => null);
+      out[alpha ? 'png' : 'jpg'] = await HT.img.encode(c, alpha ? 'png' : 'jpg', { quality: 90 });
+      if (src === 'png' && !alpha) out.png = await HT.img.encode(c, 'png');
     }
     for (const k of Object.keys(out)) if (!out[k] || out[k].size > MAX_MB * 1048576) delete out[k];
     if (!Object.keys(out).length) throw new Error(`'${f.name}' is too large (max ${MAX_MB} MB).`);
