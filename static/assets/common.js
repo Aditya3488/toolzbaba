@@ -69,9 +69,28 @@
     }
     return z.generateAsync({ type: 'blob', compression: 'STORE' });
   };
+  // HEIC (iPhone photos) and TIFF only open natively in some browsers: decode those with small libraries instead
+  const CODECS = '/assets/vendor/img-codecs/';
+  HT.decodeSpecial = async file => {
+    const ext = HT.ext(file.name), type = file.type || '';
+    if (/^(heic|heif)$/.test(ext) || /hei[cf]/.test(type)) {
+      await HT.loadScript(CODECS + 'heic2any-0.0.4.min.js');
+      const out = await heic2any({ blob: file, toType: 'image/png' });
+      return createImageBitmap(Array.isArray(out) ? out[0] : out);
+    }
+    if (/^tiff?$/.test(ext) || type === 'image/tiff') {
+      await HT.loadScript(CODECS + 'pako-1.0.11.min.js'); await HT.loadScript(CODECS + 'utif-3.1.0.js');
+      const buf = await file.arrayBuffer(), ifds = UTIF.decode(buf); UTIF.decodeImage(buf, ifds[0]);
+      const rgba = new Uint8ClampedArray(UTIF.toRGBA8(ifds[0]));
+      return createImageBitmap(new ImageData(rgba, ifds[0].width, ifds[0].height));
+    }
+    return null;
+  };
   HT.loadBitmap = async file => {
     try { return await createImageBitmap(file, { imageOrientation: 'from-image' }); }
     catch {
+      const special = await HT.decodeSpecial(file).catch(() => null);
+      if (special) return special;
       return new Promise((res, rej) => {
         const url = URL.createObjectURL(file), img = new Image();
         img.onload = () => { if (!img.naturalWidth) { img.width = 512; img.height = 512; } else { img.width = img.naturalWidth; img.height = img.naturalHeight; } res(img); };
@@ -194,23 +213,49 @@
     return state;
   };
 
-  // ---------------------------------------------------------------- server round-trip
-  HT.upload = (slug, files, options, onProgress) => new Promise((res, rej) => {
-    const fd = new FormData(); fd.append('options', JSON.stringify(options || {})); files.forEach(f => fd.append('files', f, f.name));
-    const x = new XMLHttpRequest(); x.open('POST', '/api/tools/' + slug);
-    x.upload.onprogress = e => e.lengthComputable && onProgress && onProgress(e.loaded / e.total);
-    x.onload = () => { let j = {}; try { j = JSON.parse(x.responseText); } catch { } if (x.status < 300) res(j); else rej(new Error(typeof j.detail === 'string' ? j.detail : 'Upload failed (' + x.status + ')')); };
-    x.onerror = () => rej(new Error('Could not reach the server.'));
-    x.send(fd);
-  });
+  // ---------------------------------------------------------------- jobs (run on the visitor's device)
+  // The heavier tools used to be uploaded to a server. They now run here, in "engines" loaded on demand from
+  // /assets/engine/<name>.js (named by the tool's "engine" field in tools.json). HT.upload starts a job and
+  // HT.poll waits for it, with the same job shape the server used, so the tool screens work unchanged.
+  // An engine is async ctx => [{ name, blob }]; ctx = { files, opts, progress(0..1), status(msg), info }.
+  HT.engines = {};
+  HT.engine = (slug, fn) => { HT.engines[slug] = fn; };
+  const jobs = {};
+  let jobSeq = 0;
+  async function runJob(slug, job, files, opts) {
+    const meta = (await HT.loadTools()).tools.find(t => t.slug === slug);
+    if (!meta || !meta.engine) throw new Error('This tool is not available.');
+    job.speed = 'Loading the tool...';
+    await HT.loadScript(`/assets/engine/${meta.engine}.js`);
+    job.speed = '';
+    const ctx = { files, opts: opts || {}, info: null,
+      progress: f => { job.progress = Math.round(Math.max(0, Math.min(1, f)) * 950) / 10; },
+      status: msg => { job.speed = msg || ''; } };
+    const outs = await HT.engines[slug](ctx);
+    if (!outs || !outs.length) throw new Error('Nothing was produced.');
+    let blob = outs[0].blob, name = outs[0].name;
+    if (outs.length > 1) { job.status = 'processing'; blob = await HT.zip(outs); name = slug + '.zip'; }
+    Object.assign(job, { url: URL.createObjectURL(blob), filename: name, size: blob.size, info: ctx.info, progress: 100, status: 'done' });
+  }
+  HT.upload = async (slug, files, options, onProgress) => {
+    const id = 'j' + (++jobSeq), job = jobs[id] = { status: 'queued', progress: 0, speed: '' };
+    if (onProgress) onProgress(1);
+    // the result Promise settles when the job ends; HT.poll reports progress until then
+    job.done = runJob(slug, job, files, options).catch(e => {
+      console.error(e);
+      Object.assign(job, { status: 'error', error: (e && e.message) || 'Processing failed.' });
+    });
+    return { id };
+  };
   HT.poll = (id, onStatus) => new Promise((res, rej) => {
-    const t = setInterval(async () => {
-      try {
-        const s = await (await fetch('/api/jobs/' + id)).json();
-        onStatus(s);
-        if (s.status === 'done') { clearInterval(t); res(s); } else if (s.status === 'error') { clearInterval(t); rej(new Error(s.error || 'Failed')); }
-      } catch { clearInterval(t); rej(new Error('Lost connection to the server.')); }
-    }, 500);
+    const job = jobs[id];
+    if (!job) return rej(new Error('Unknown job.'));
+    const tick = () => {
+      onStatus(job);
+      if (job.status === 'done') { clearInterval(t); res(job); } else if (job.status === 'error') { clearInterval(t); rej(new Error(job.error)); }
+    };
+    const t = setInterval(tick, 250);
+    job.done.then(tick);
   });
 
   // A progress bar + status line pair
@@ -224,7 +269,7 @@
 
   // Show a finished server job: summary, table, preview, download
   HT.showResult = (job, id, inputs = [], opts = {}) => {
-    const info = job.info || {}, name = job.filename, ext = HT.ext(name), url = `/api/jobs/${id}/file`;
+    const info = job.info || {}, name = job.filename, ext = HT.ext(name), url = job.url;
     const box = el('div', { class: 'card result' }, el('h2', {}, HT.svg(ICON.check), 'All done'));
     if (info.summary) box.append(el('div', { class: 'sum', text: info.summary }));
     if (info.files && info.files.length) {
@@ -236,7 +281,7 @@
         : el('tr', {}, el('td', { text: f.name }), el('td', { text: (f.removed || []).join(' · ') }))));
       box.append(t);
     }
-    const inline = url + '?inline=1';
+    const inline = url;
     if (['png', 'jpg', 'jpeg', 'webp', 'gif', 'avif', 'svg', 'bmp'].includes(ext) && opts.preview !== false) {
       const out = el('div', { class: 'pv' }, el('img', { src: inline, alt: 'Result' }));
       if (inputs.length === 1 && inputs[0].type.startsWith('image/') && opts.compare !== false && !['svg'].includes(ext)) {
@@ -280,9 +325,9 @@
       if (cfg.extraFile && cfg.extraFile.showIf(vals) && extraList.files.length) send.push(extraList.files[0]);
       resultBox.textContent = ''; run.disabled = true;
       try {
-        prog.set(0, 'Uploading...');
-        const { id } = await HT.upload(cfg.slug, send, cfg.buildOptions ? cfg.buildOptions(vals, files) : vals, p => prog.set(p * 30, p < 1 ? `Uploading ${Math.round(p * 100)}%` : 'Processing...'));
-        const job = await HT.poll(id, s => prog.set(30 + (s.progress || 0) * 0.7, (s.speed || (s.status === 'processing' ? 'Finishing up...' : `Processing ${Math.round(s.progress || 0)}%`))));
+        prog.set(0, 'Starting...');
+        const { id } = await HT.upload(cfg.slug, send, cfg.buildOptions ? cfg.buildOptions(vals, files) : vals);
+        const job = await HT.poll(id, s => prog.set(s.progress || 0, (s.speed || (s.status === 'processing' ? 'Finishing up...' : `Processing ${Math.round(s.progress || 0)}%`))));
         prog.clear();
         resultBox.append(HT.showResult(job, id, files, { again: () => { list.clear(); resultBox.textContent = ''; window.scrollTo({ top: 0, behavior: 'smooth' }); }, compare: cfg.compare, preview: cfg.preview }));
         resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -434,7 +479,9 @@
 
   // ---------------------------------------------------------------- page chrome
   let cfgP = null, toolsP = null;
-  HT.config = () => cfgP || (cfgP = fetch('/api/config').then(r => r.json()).catch(() => ({ siteName: 'Toolz Baba', downloader: 'open', contactEmail: '' })));
+  // site settings: written by build.py for the static site (the old Python server answered /api/config)
+  HT.config = () => cfgP || (cfgP = fetch('/assets/site.json').then(r => { if (!r.ok) throw r; return r.json(); })
+    .catch(() => fetch('/api/config').then(r => r.json())).catch(() => ({ siteName: 'Toolz Baba', downloader: 'off', contactEmail: '' })));
   HT.loadTools = () => toolsP || (toolsP = fetch('/assets/tools.json').then(r => r.json()));
   const catOf = (data, id) => data.categories.find(c => c.id === id);
 

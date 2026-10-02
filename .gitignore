@@ -29,3 +29,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# ---- Static site build output (python build.py)
+dist/
+.wrangler/

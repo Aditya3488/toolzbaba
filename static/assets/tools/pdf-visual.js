@@ -60,8 +60,8 @@ HT.register('organize-pdf', root => {
     save.disabled = true; resultBox.textContent = '';
     try {
       prog.set(0, 'Uploading...');
-      const { id } = await HT.upload('organize-pdf', [file], { pages: plan }, p => prog.set(p * 40, p < 1 ? `Uploading ${Math.round(p * 100)}%` : 'Building your PDF...'));
-      const job = await HT.poll(id, s => prog.set(40 + (s.progress || 0) * 0.6, 'Building your PDF...'));
+      const { id } = await HT.upload('organize-pdf', [file], { pages: plan });
+      const job = await HT.poll(id, s => prog.set(s.progress || 0, s.speed || 'Building your PDF...'));
       prog.clear(); resultBox.append(HT.showResult(job, id, [], { compare: false })); resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (e) { prog.error(e.message); }
     save.disabled = false; count();
@@ -161,8 +161,8 @@ HT.register('sign-pdf', root => {
     try {
       prog.set(0, 'Uploading...');
       const sigFile = new File([sig.blob], 'signature.png', { type: 'image/png' });
-      const { id } = await HT.upload('sign-pdf', [file, sigFile], { placements }, p => prog.set(p * 40, p < 1 ? `Uploading ${Math.round(p * 100)}%` : 'Signing...'));
-      const job = await HT.poll(id, s => prog.set(40 + (s.progress || 0) * 0.6, 'Signing...'));
+      const { id } = await HT.upload('sign-pdf', [file, sigFile], { placements });
+      const job = await HT.poll(id, s => prog.set(s.progress || 0, s.speed || 'Signing...'));
       prog.clear(); resultBox.append(HT.showResult(job, id, [], { compare: false })); resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (e) { prog.error(e.message); }
     go.disabled = !placements.length;

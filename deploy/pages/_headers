@@ -1,0 +1,13 @@
+# Cloudflare Pages response headers (copied into dist/ by build.py)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/assets/*
+  Cache-Control: public, max-age=3600
+
+# third-party libraries (large, rarely change)
+/assets/vendor/*
+  Cache-Control: public, max-age=604800
