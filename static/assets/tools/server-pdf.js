@@ -39,8 +39,8 @@ HT.register('pdf-compress', root => HT.serverTool(root, {
 }));
 
 HT.register('docx-to-pdf', root => HT.serverTool(root, {
-  slug: 'docx-to-pdf', accept: '.docx,.doc,.odt,.rtf,.txt,.pptx,.xlsx', max: 10, action: 'Convert to PDF', compare: false,
-  hint: 'DOCX, DOC, ODT, RTF, TXT, PPTX, XLSX. Uses LibreOffice on the server.',
+  slug: 'docx-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.ods', max: 10, action: 'Convert to PDF', compare: false,
+  hint: 'Word (DOCX), text, Excel (XLSX, XLS), CSV and ODS. Converted in your browser: simple layouts work best.',
 }));
 
 HT.register('pdf-to-docx', root => HT.serverTool(root, {
