@@ -1,6 +1,6 @@
 const VID = 'video/*,.mkv,.avi,.mov,.flv,.wmv,.ts,.3gp,.gif';
 const RES = [['keep', 'Keep original'], ['2160', '4K (2160p)'], ['1440', '1440p'], ['1080', '1080p'], ['720', '720p'], ['480', '480p'], ['360', '360p'], ['240', '240p']];
-const BIG = 'Large files are fine (up to 2 GB), but uploading takes a moment on slow connections.';
+const BIG = 'Your device does the work, so nothing is uploaded. Long or 4K videos can take a while on phones.';
 
 HT.register('video-converter', root => HT.serverTool(root, {
   slug: 'video-converter', accept: VID + ',audio/*', max: 10, action: files => 'Convert ' + files.length + ' file' + (files.length > 1 ? 's' : ''), hint: BIG,
