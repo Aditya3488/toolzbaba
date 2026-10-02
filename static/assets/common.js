@@ -219,6 +219,9 @@
   // HT.poll waits for it, with the same job shape the server used, so the tool screens work unchanged.
   // An engine is async ctx => [{ name, blob }]; ctx = { files, opts, progress(0..1), status(msg), info }.
   HT.engines = {};
+  // yield to the browser between steps of a long job. A message (not setTimeout) so it isn't slowed to once a
+  // second or once a minute when the visitor switches to another tab while waiting.
+  HT.tick = () => new Promise(r => { const c = new MessageChannel(); c.port1.onmessage = () => r(); c.port2.postMessage(0); });
   HT.engine = (slug, fn) => { HT.engines[slug] = fn; };
   const jobs = {};
   let jobSeq = 0;
@@ -545,7 +548,7 @@
     const col = (title, links) => el('div', {}, el('h4', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
     const popular = el('div', {}, el('h4', { text: 'Popular' }), el('ul', {}));
     const f = el('footer', { class: 'foot' }, el('div', { class: 'foot-in' },
-      el('div', { class: 'foot-brand' }, el('a', { href: '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy' })), el('p', { text: 'Free everyday file tools. Many run right in your browser, so your files stay on your device.' })),
+      el('div', { class: 'foot-brand' }, el('a', { href: '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
       col('Tools', [['Image tools', '/#image'], ['AI tools', '/#ai'], ['PDF & documents', '/#pdf'], ['Video & audio', '/#video'], ['Text & developer', '/#dev'], ['Utilities', '/#util']]),
       popular,
       col('Company', [['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
@@ -573,17 +576,17 @@
     page.classList.add('cat-' + meta.cat);
     document.getElementById('crumb').append(el('a', { href: '/', text: 'All tools' }), ' / ', el('a', { href: '/#' + meta.cat, text: cat.name }), ' / ' + meta.name);
     document.getElementById('thead').append(el('div', { class: 'ic' }, HT.toolIcon(slug)), el('div', {}, el('h1', { text: meta.name }), el('p', { class: 'sub', text: meta.desc }),
-      el('div', { class: 'badges' }, client ? el('span', { class: 'badge ok' }, HT.svg(ICON.lock).cloneNode(true), 'Runs in your browser') : el('span', { class: 'badge ok' }, 'Auto-deleted after 30 min'),
+      el('div', { class: 'badges' }, client ? el('span', { class: 'badge ok' }, HT.svg(ICON.lock).cloneNode(true), 'Runs in your browser') : el('span', { class: 'badge ok' }, 'Links last 90 days'),
         meta.cat === 'ai' ? el('span', { class: 'badge', text: 'AI powered' }) : null, el('span', { class: 'badge', text: 'Free \u00b7 no sign-up' }))));
     const app = el('div', { id: 'app' }); work.append(app);
 
     const how = client ? ['<b>Add your file</b>: it stays on your device', '<b>Adjust</b> the settings and watch the live preview', '<b>Download</b> the finished result']
-      : ['<b>Add your file(s)</b> (drag and drop or paste)', '<b>Choose options</b> and start', '<b>Download</b> the result. It is deleted automatically after 30 minutes'];
+      : ['<b>Add your images</b> (drag and drop or paste)', '<b>Wait</b> a moment while they upload', '<b>Copy</b> the links. They keep working for 90 days'];
     const side = document.getElementById('side');
     const stepsUl = el('ol', { class: 'steps' }); how.forEach(h => { const li = el('li'), sp = el('span'); sp.innerHTML = h; li.append(sp); stepsUl.append(li); });
     side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'How it works' }), stepsUl),
-      el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: client ? 'Private by design' : 'Your files stay yours' }),
-        client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Encrypted upload, processed on our server, never shared, deleted automatically.')));
+      el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: client ? 'Private by design' : 'Shared by link' }),
+        client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.')));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== slug && !t.href).slice(0, 6);
     if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/tool/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 

@@ -6,7 +6,7 @@
   let M = null;
   const mu = async () => M || (M = await import(V + 'mupdf-1.28.1/mupdf.js'));
   const imgEngine = () => HT.loadScript('/assets/engine/image.js');
-  const tick = () => new Promise(r => setTimeout(r));
+  const tick = HT.tick;
   const kb = n => n < 1048576 ? Math.round(n / 1024) + ' KB' : (n / 1048576).toFixed(1) + ' MB';
   const pdfBlob = buf => new Blob([buf.asUint8Array().slice()], { type: 'application/pdf' });
   const save = (doc, extra) => pdfBlob(doc.saveToBuffer({ garbage: 3, compress: 'yes', ...extra }));

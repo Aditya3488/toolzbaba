@@ -1,10 +1,10 @@
 const IMG = 'image/*,.heic,.heif,.avif';
-const NOTE = 'The first run downloads the AI model to the server (a few MB up to ~170 MB), so it can take a minute. After that it is fast.';
+const NOTE = 'The AI runs on your device, so your photos are never uploaded. The first use downloads the AI model once (5 to 46 MB); after that it starts quickly.';
 
 HT.register('remove-background', root => HT.serverTool(root, {
   slug: 'remove-background', accept: IMG, max: 10, action: 'Remove background', notice: NOTE, hint: 'Photos of people, products, animals, objects',
   fields: [
-    { name: 'model', label: 'Model', type: 'select', options: [['general', 'Best quality (general)'], ['person', 'People / portraits'], ['anime', 'Anime / illustrations'], ['fast', 'Fast (lower quality)']] },
+    { name: 'model', label: 'Model', type: 'select', options: [['general', 'Best quality (general, 46 MB)'], ['person', 'People / portraits (26 MB)'], ['fast', 'Fast (5 MB, lower quality)']] },
     { name: 'format', label: 'Output', type: 'select', options: [['png', 'PNG (transparent)'], ['webp', 'WebP (transparent, smaller)']] },
   ],
 }));
@@ -16,14 +16,14 @@ HT.register('replace-background', root => HT.serverTool(root, {
     { name: 'color', label: 'Colour', type: 'color', value: '#4f46e5', showIf: v => v.mode === 'color' || v.mode === 'gradient' },
     { name: 'color2', label: 'Second colour', type: 'color', value: '#ec4899', showIf: v => v.mode === 'gradient' },
     { name: 'blur', label: 'Blur amount', type: 'range', min: 4, max: 60, value: 20, showIf: v => v.mode === 'blur' },
-    { name: 'model', label: 'Cut-out model', type: 'select', options: [['general', 'Best quality'], ['person', 'People / portraits'], ['fast', 'Fast']] },
+    { name: 'model', label: 'Cut-out model', type: 'select', options: [['general', 'Best quality (46 MB)'], ['person', 'People / portraits (26 MB)'], ['fast', 'Fast (5 MB)']] },
   ],
   extraFile: { label: 'Background photo', showIf: v => v.mode === 'image' },
 }));
 
 HT.register('upscale-image', root => HT.serverTool(root, {
   slug: 'upscale-image', accept: IMG, max: 5, action: 'Upscale', notice: NOTE,
-  hint: 'AI mode handles images up to ~2.5 megapixels. Great for small or blurry pictures.',
+  hint: 'AI mode handles images up to about 1.5 megapixels and takes a little while on phones. Great for small or blurry pictures.',
   fields: [
     { name: 'scale', label: 'Enlarge', type: 'select', options: [[2, '2×'], [3, '3×'], [4, '4×']] },
     { name: 'engine', label: 'Mode', type: 'select', options: [['ai', 'AI (sharp details)'], ['fast', 'Fast (simple resize + sharpen, any size)']] },

@@ -2,7 +2,7 @@
 // Also provides HT.img, the shared image encoders used by the PDF and AI engines.
 (() => {
   const V = '/assets/vendor/', CODECS = V + 'img-codecs/';
-  const tick = () => new Promise(r => setTimeout(r)); // let the progress bar repaint between files
+  const tick = HT.tick; // let the progress bar repaint between steps
   const kb = n => n < 1048576 ? Math.round(n / 1024) + ' KB' : (n / 1048576).toFixed(1) + ' MB';
   const outName = (file, ext, suffix = '') => HT.stem(file.name) + suffix + '.' + ext;
   const FMT = { jpg: 'jpg', jpeg: 'jpg', jfif: 'jpg', png: 'png', webp: 'webp', avif: 'avif', gif: 'gif', bmp: 'bmp', tif: 'tiff', tiff: 'tiff', ico: 'ico', heic: 'heic', heif: 'heic' };

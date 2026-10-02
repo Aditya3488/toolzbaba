@@ -37,7 +37,7 @@ HT.register('image-to-svg', root => HT.serverTool(root, {
 HT.register('passport-photo-maker', root => HT.serverTool(root, {
   slug: 'passport-photo-maker', accept: 'image/*,.heic,.heif,.avif', max: 1, action: 'Make passport photo', compare: true,
   hint: 'Use a clear, front-facing photo with your whole head visible and even lighting',
-  notice: 'The first run downloads the AI models to the server, so it can take a minute. After that it is fast.',
+  notice: 'The AI runs on your device, so your photo is never uploaded. The first use downloads the AI models once (about 26 MB).',
   fields: [
     { name: 'size', label: 'Photo size', type: 'select', options: [['35x45', '35 × 45 mm (used by many countries)'], ['51x51', '51 × 51 mm / 2 × 2 inch (US visa and others)'], ['33x48', '33 × 48 mm'], ['25x35', '25 × 35 mm (small ID)'], ['custom', 'Custom size...']] },
     { name: 'width_mm', label: 'Width (mm)', type: 'number', value: 35, min: 15, max: 100, showIf: v => v.size === 'custom' },
