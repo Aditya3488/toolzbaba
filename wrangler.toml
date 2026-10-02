@@ -1,0 +1,10 @@
+# Cloudflare Pages settings for the static site (see README, "Hosting on Cloudflare Pages").
+# Deploy from this folder:  python build.py  &&  npx wrangler pages deploy
+name = "toolzbaba"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-09-01"
+
+# storage for "Image to CDN Link" (functions/ reads it as env.CDN)
+[[kv_namespaces]]
+binding = "CDN"
+id = "b3570caa8117483091ca664aaee4cbcf"

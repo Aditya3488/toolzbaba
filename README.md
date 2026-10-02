@@ -320,7 +320,15 @@ python build.py
 npx wrangler pages dev dist --kv CDN
 ```
 
-**Set it up on Cloudflare** (once):
+**Deploy from a PC** (what toolzbaba.com uses; `wrangler.toml` holds the project name and the KV storage id):
+
+```bash
+python build.py
+npx wrangler login
+npx wrangler pages deploy --branch cloudflare-pages
+```
+
+**Or let Cloudflare build from GitHub on every push** (set it up once):
 
 1. Cloudflare dashboard > **Workers & Pages** > **Create** > **Pages** > **Connect to Git**, pick this repository.
 2. Build settings: framework **None**, build command `python3 build.py`, output directory `dist`. Production branch:
