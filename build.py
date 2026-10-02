@@ -5,13 +5,15 @@ written out as a plain file with the same SEO tags. All tools run in the visitor
 apart from the small image-hosting function in functions/ (deployed by Cloudflare Pages automatically).
 
 Settings come from environment variables (set them in Cloudflare Pages > Settings > Environment variables):
-SITE_NAME, SITE_URL, CONTACT_EMAIL, SITE_TAGLINE, HEAD_EXTRA (raw HTML added to every <head>, e.g. AdSense tags).
+SITE_NAME, SITE_URL, CONTACT_EMAIL, SITE_TAGLINE, HEAD_EXTRA (raw HTML added to every <head>, e.g. AdSense tags),
+GTM_ID (Google Tag Manager container; set it empty to leave Tag Manager out).
 Standard library only, so it runs on Cloudflare's build machines without installing anything.
 """
 from __future__ import annotations
 
 import html
 import json
+import re
 import os
 import shutil
 import time
@@ -26,6 +28,22 @@ SITE_URL = os.environ.get("SITE_URL", "https://toolzbaba.com").rstrip("/")
 CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "hello@toolzbaba.com")
 TAGLINE = os.environ.get("SITE_TAGLINE", "Free online image, PDF, video and file tools")
 HEAD_EXTRA = os.environ.get("HEAD_EXTRA", "")
+GTM_ID = os.environ.get("GTM_ID", "GTM-T3R5TWTD").strip()
+if GTM_ID and not re.fullmatch(r"GTM-[A-Z0-9]+", GTM_ID):
+    raise SystemExit(f"GTM_ID must look like GTM-XXXXXXX, got {GTM_ID!r}")
+
+# Google Tag Manager snippets: the script as high in <head> as possible, the noscript part right after <body>
+GTM_HEAD = """<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{id}');</script>
+<!-- End Google Tag Manager -->"""
+GTM_BODY = """<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={id}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->"""
 
 LEGAL = {  # path -> (file, title, description)
     "privacy": ("privacy.html", "Privacy Policy", "How {site} handles your files, data and cookies."),
@@ -46,7 +64,8 @@ def clip(s: str, n: int = 158) -> str:
 def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False) -> str:
     url = SITE_URL + path
     img = SITE_URL + "/assets/og.png"
-    tags = [
+    tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID else []
+    tags += [
         f"<title>{esc(title)}</title>",
         # apply the saved light/dark choice before first paint (no flash)
         "<script>try{var t=localStorage.getItem('tz_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>",
@@ -83,6 +102,8 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
     subs = {"SITE_NAME": SITE_NAME, "SITE_URL": SITE_URL, "CONTACT_EMAIL": CONTACT_EMAIL,
             "UPDATED": time.strftime("%d %B %Y", time.gmtime((STATIC / file).stat().st_mtime)), **(extra or {})}
     text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex))
+    if GTM_ID:
+        text = text.replace("<body>", "<body>\n" + GTM_BODY.replace("{id}", GTM_ID), 1)
     for k, v in subs.items():
         text = text.replace("{{" + k + "}}", str(v) if k == "SEO" else esc(v))
     return text
