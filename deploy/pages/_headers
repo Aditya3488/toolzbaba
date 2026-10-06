@@ -79,3 +79,7 @@
 # the blog's page frame (functions/blog/* fill it in): not a page of its own
 /blog-shell
   X-Robots-Tag: noindex, nofollow
+# makes the sitemaps readable in a browser (search engines ignore it)
+/sitemap.xsl
+  Content-Type: text/xsl; charset=utf-8
+  X-Robots-Tag: noindex
