@@ -184,7 +184,7 @@ def build():
 
     # one page per tool, at the site root: /<slug> (old /tool/<slug> links get a permanent redirect, see the end)
     reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon",
-                             "functions", "admin", "apple-touch-icon", "site"}
+                             "functions", "admin", "apple-touch-icon", "site", "blog", "blog-shell"}
     variant_slugs = {v["slug"] for v in data.get("variants", [])}
     for tool in tools:
         if tool.get("href"):
@@ -239,16 +239,18 @@ def build():
         write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))
     write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True,
                               trackers=False))
+    # the blog's page frame: functions/blog/* fill in each post (title, description, address, content), see lib/blog-store.js
+    write("blog-shell.html", render("blog.html", title="%%TITLE%%", desc="%%DESC%%", path="%%PATH%%"))
     write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
 
     # robots, sitemap, icons, manifest
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\nSitemap: {SITE_URL}/blog/sitemap.xml\n")
     day = time.strftime("%Y-%m-%d", time.gmtime((STATIC / "assets" / "tools.json").stat().st_mtime))
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}
     urls = [("/", "1.0")] + [(f"/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
     urls += [(f"/{v['slug']}", "0.7") for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
-    urls += [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
+    urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
     body = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{day}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + body + "</urlset>")
     shutil.copyfile(STATIC / "assets" / "favicon.ico", DIST / "favicon.ico")

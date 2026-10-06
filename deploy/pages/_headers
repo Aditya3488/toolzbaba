@@ -76,3 +76,6 @@
   X-Robots-Tag: noindex, nofollow
 /assets/admin.js
   X-Robots-Tag: noindex
+# the blog's page frame (functions/blog/* fill it in): not a page of its own
+/blog-shell
+  X-Robots-Tag: noindex, nofollow

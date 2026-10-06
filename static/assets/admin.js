@@ -1,4 +1,4 @@
-// Admin panel: archive / go live, what real visitors experience, lab tests that open every tool and try it, history.
+// Admin panel: archive / go live, the blog, what real visitors experience, lab tests that open every tool and try it, history.
 // Signing in (POST /api/admin/login) gives this browser a session cookie that page scripts can't read; the password itself is
 // never stored. Every call sends X-Requested-With so other websites can't act with that cookie. Nothing here is loaded by the public pages.
 (() => {
@@ -74,10 +74,10 @@
     const slow = S.rum && Object.entries(S.rum.tools).filter(([, t]) => t.views >= 3).map(([s, t]) => [s, pctl(t.h.lcp, 0.75)]).filter(x => x[1]).sort((a, b) => b[1] - a[1])[0];
     const card = (n, l) => el('div', { class: 'adm-card' }, el('b', { text: String(n) }), el('span', { text: l }));
     wrap.append(el('div', { class: 'adm-cards' }, card(live, 'tools live'), card(arch, 'tools archived'), card(labRows.length ? labRows.length : '–', 'tested in the lab'), card(labRows.length ? failing : '–', 'failing their last test'), card(views || '–', 'visitor page views measured'), card(slow ? slow[0] + ' (' + fmtMs(slow[1]) + ')' : '–', 'slowest to show (LCP, 75% of visits)')));
-    const tabs = [['tools', 'Tools'], ['rum', 'Real visitors'], ['lab', 'Lab tests'], ['log', 'History'], ['help', 'Help']];
+    const tabs = [['tools', 'Tools'], ['blog', 'Blog'], ['rum', 'Real visitors'], ['lab', 'Lab tests'], ['log', 'History'], ['help', 'Help']];
     wrap.append(el('div', { class: 'adm-tabs', role: 'tablist' }, tabs.map(([id, t]) => el('button', { class: 'adm-tab' + (S.tab === id ? ' on' : ''), type: 'button', role: 'tab', 'aria-selected': S.tab === id ? 'true' : 'false', text: t, onclick: () => { S.tab = id; draw(); } }))));
     const body = el('div', { id: 'adm-body' }); wrap.append(body);
-    ({ tools: drawTools, rum: drawRum, lab: drawLab, log: drawLog, help: drawHelp })[S.tab](body);
+    ({ tools: drawTools, blog: drawBlog, rum: drawRum, lab: drawLab, log: drawLog, help: drawHelp })[S.tab](body);
   }
 
   // ---- tools: archive / go live
@@ -353,10 +353,172 @@
     body.append(el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t', style: { minWidth: '600px' } }, el('thead', {}, el('tr', {}, ['When', 'Tool', 'Change', 'Note'].map(t => el('th', { text: t })))), tb)));
   }
 
+  // ---- blog: write, publish and manage the posts at /blog (stored in KV, see lib/blog-store.js)
+  const B = { posts: null, edit: null, dirty: false, md: null };
+  const mdLib = () => B.md || (B.md = import(HT.ver('/assets/blog/markdown.js')));
+  const dateIn = t => (t ? new Date(t).toISOString().slice(0, 10) : '');
+  const postState = p => (p.status !== 'published' ? ['arch', 'Draft'] : p.published > Date.now() ? ['warn', 'Scheduled'] : ['live', 'Published']);
+  window.addEventListener('beforeunload', e => { if (B.edit && B.dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+  // shrinks a photo to at most 1600 px wide WebP in the browser (GIFs are kept as they are, to keep their animation)
+  async function shrink(file) {
+    if (file.type === 'image/gif' || !/^image\/(jpeg|png|webp|avif)$/.test(file.type)) return file;
+    try {
+      const bmp = await createImageBitmap(file), k = Math.min(1, 1600 / bmp.width), c = document.createElement('canvas');
+      c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+      c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+      const out = await new Promise(r => c.toBlob(r, 'image/webp', 0.85));
+      return out && out.type === 'image/webp' && (out.size < file.size || k < 1) ? out : file;
+    } catch { return file; }
+  }
+  async function uploadImage(file) {
+    const blob = await shrink(file);
+    if (blob.size > 5 * 1048576) throw new Error('This image is over 5 MB even after shrinking it. Use a smaller one.');
+    const r = await fetch('/api/admin/blog-image', { method: 'POST', credentials: 'same-origin', headers: { 'X-Requested-With': 'toolzbaba-admin', 'Content-Type': blob.type }, body: blob });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.detail || 'Error ' + r.status);
+    return j.url;
+  }
+  const pickImage = () => new Promise(res => { const i = el('input', { type: 'file', accept: 'image/jpeg,image/png,image/webp,image/avif,image/gif' }); i.onchange = () => res(i.files[0] || null); i.click(); });
+
+  async function drawBlog(body) {
+    if (B.edit) return drawEditor(body);
+    if (!B.posts) {
+      body.append(el('p', { class: 'adm-note', text: 'Loading posts...' }));
+      try { B.posts = (await api('blog')).posts || []; } catch (e) { body.textContent = ''; body.append(el('p', { class: 'adm-note', text: 'Could not load the posts: ' + e.message }), el('button', { class: 'btn sm', type: 'button', text: 'Try again', onclick: () => draw() })); return; }
+      if (S.tab === 'blog' && !B.edit) draw();
+      return;
+    }
+    const open = async slug => { try { B.edit = (await api('blog/' + slug)).post; B.dirty = false; draw(); } catch (e) { toast('Could not open: ' + e.message); } };
+    const del = async p => {
+      if (!confirm(`Delete "${p.title}"? Its address /blog/${p.slug} will stop working. This can't be undone.`)) return;
+      try { await api('blog/' + p.slug, 'DELETE'); B.posts = B.posts.filter(x => x.slug !== p.slug); toast('Deleted'); draw(); } catch (e) { toast('Could not delete: ' + e.message); }
+    };
+    const pub = B.posts.filter(p => postState(p)[1] === 'Published').length;
+    body.append(el('div', { class: 'adm-bar' },
+      el('button', { class: 'btn sm', type: 'button', text: '+ New post', onclick: () => { B.edit = { isNew: true, slug: '', title: '', desc: '', body: '', cover: '', coverAlt: '', tags: [], status: 'draft' }; B.dirty = false; draw(); } }),
+      el('a', { class: 'btn sec sm', href: '/blog', target: '_blank', rel: 'noopener', text: 'Open the blog' }),
+      el('span', { class: 'sp' }), el('span', { class: 'adm-small', text: `${pub} published, ${B.posts.length - pub} other` })));
+    body.append(el('p', { class: 'adm-note', text: 'Posts appear at toolzbaba.com/blog as soon as you publish them, with their own page, search-engine details, a sitemap (/blog/sitemap.xml) and an RSS feed (/blog/feed.xml). Drafts are only visible here.' }));
+    if (!B.posts.length) return body.append(el('div', { class: 'adm-card' }, el('span', { text: 'No posts yet. Press "New post" to write the first one.' })));
+    const tb = el('tbody');
+    for (const p of B.posts) {
+      const [cls, label] = postState(p);
+      tb.append(el('tr', {},
+        el('td', { class: 'l' }, el('div', { class: 'nm' }, p.cover ? el('img', { src: p.cover, alt: '', width: 64, height: 36, style: { objectFit: 'cover', borderRadius: '6px' } }) : null,
+          el('div', {}, el('b', { text: p.title }), el('small', { text: '/blog/' + p.slug })))),
+        el('td', {}, pill(cls, label)),
+        el('td', { text: p.published ? new Date(p.published).toLocaleDateString() : '–' }),
+        el('td', { text: ago(p.updated) }),
+        el('td', { class: 'act' }, el('div', { class: 'adm-btns' },
+          el('button', { class: 'btn sm', type: 'button', text: 'Edit', onclick: () => open(p.slug) }),
+          label === 'Published' ? el('a', { class: 'btn sec sm', href: '/blog/' + p.slug, target: '_blank', rel: 'noopener', text: 'View' }) : null,
+          el('button', { class: 'btn ghost sm', type: 'button', text: 'Delete', onclick: () => del(p) })))));
+    }
+    body.append(el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t', style: { minWidth: '760px' } }, el('thead', {}, el('tr', {}, ['Post', 'Status', 'Date', 'Last saved', ''].map(t => el('th', { text: t })))), tb)));
+  }
+
+  function drawEditor(body) {
+    const p = B.edit, wasPublished = !p.isNew && p.status === 'published';
+    let slugTouched = !p.isNew;
+    const mark = () => { B.dirty = true; };
+    const title = el('input', { type: 'text', value: p.title, maxlength: 140, placeholder: 'Post title', class: 'be-title', 'aria-label': 'Title' });
+    const slug = el('input', { type: 'text', value: p.slug, maxlength: 80, placeholder: 'post-address', 'aria-label': 'Address', spellcheck: 'false', autocapitalize: 'off' });
+    const desc = el('textarea', { rows: 2, maxlength: 300, placeholder: 'Short summary shown on Google and on the blog list (about 150 characters). Left empty, the start of the post is used.', 'aria-label': 'Description' }); desc.value = p.desc || '';
+    const descN = el('span', { class: 'adm-small' });
+    const cover = el('input', { type: 'text', value: p.cover || '', placeholder: 'Upload an image or paste https://...', 'aria-label': 'Cover image' });
+    const coverAlt = el('input', { type: 'text', value: p.coverAlt || '', maxlength: 200, placeholder: 'What the cover image shows (for screen readers and Google)', 'aria-label': 'Cover description' });
+    const coverImg = el('img', { class: 'be-cover', alt: '' });
+    const tags = el('input', { type: 'text', value: (p.tags || []).join(', '), placeholder: 'pdf, images, how-to', 'aria-label': 'Tags' });
+    const date = el('input', { type: 'date', value: dateIn(p.published), 'aria-label': 'Publish date' });
+    const text = el('textarea', { class: 'be-body', spellcheck: 'true', placeholder: 'Write the post here. Use the buttons above, or Markdown: ## Heading, **bold**, *italic*, [link](https://...), - list', 'aria-label': 'Post text' }); text.value = p.body || '';
+    const preview = el('div', { class: 'post-body be-preview' }), stats = el('span', { class: 'adm-small' }), msg = el('div', { class: 'adm-msg' });
+
+    const showCover = () => { coverImg.hidden = !cover.value.trim(); if (cover.value.trim()) coverImg.src = cover.value.trim(); };
+    const showDesc = () => { descN.textContent = desc.value.length + ' / 160 suggested'; descN.style.color = desc.value.length > 165 ? 'var(--err, #b3261e)' : ''; };
+    let tmr = 0;
+    const render = () => { clearTimeout(tmr); tmr = setTimeout(async () => {
+      const { renderMarkdown, readingMinutes } = await mdLib(), r = renderMarkdown(text.value);
+      preview.innerHTML = r.html || '<p class="adm-small">The preview shows up here.</p>'; // the renderer escapes everything (safe)
+      const words = r.text.split(/\s+/).filter(Boolean).length; stats.textContent = `${words} words · ${readingMinutes(r.text)} min read`;
+    }, 120); };
+    title.oninput = async () => { mark(); if (!slugTouched) slug.value = (await mdLib()).slugify(title.value); };
+    slug.oninput = () => { mark(); slugTouched = true; };
+    slug.onblur = async () => { slug.value = (await mdLib()).slugify(slug.value); };
+    desc.oninput = () => { mark(); showDesc(); };
+    cover.oninput = () => { mark(); showCover(); };
+    [coverAlt, tags, date].forEach(i => { i.oninput = mark; });
+    text.oninput = () => { mark(); render(); };
+
+    // toolbar: wraps the selection or puts a line start in front of it
+    const wrap = (pre, post = pre, ph = 'text') => { const s = text.selectionStart, e = text.selectionEnd, sel = text.value.slice(s, e) || ph; text.setRangeText(pre + sel + post, s, e, 'end'); text.focus(); text.selectionStart = s + pre.length; text.selectionEnd = s + pre.length + sel.length; text.oninput(); };
+    const line = pre => { const s = text.selectionStart, start = text.value.lastIndexOf('\n', s - 1) + 1; text.setRangeText(pre, start, start, 'end'); text.focus(); text.oninput(); };
+    const insert = t => { text.setRangeText(t, text.selectionStart, text.selectionEnd, 'end'); text.focus(); text.oninput(); };
+    const tb = (label, title, fn) => el('button', { class: 'btn ghost sm', type: 'button', title, text: label, onclick: fn });
+    const imgBtn = async () => {
+      const f = await pickImage(); if (!f) return;
+      toast('Uploading the image...');
+      try { const url = await uploadImage(f), alt = f.name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' '); insert(`\n![${alt}](${url})\n`); toast('Image added'); } catch (e) { toast(e.message); }
+    };
+    const toolbar = el('div', { class: 'be-tools' },
+      tb('H2', 'Heading', () => line('## ')), tb('H3', 'Smaller heading', () => line('### ')), tb('B', 'Bold (Ctrl+B)', () => wrap('**')), tb('I', 'Italic (Ctrl+I)', () => wrap('*')),
+      tb('Link', 'Link (Ctrl+K)', () => { const u = prompt('Link address (https://... or a page of this site like /compress-image)'); if (u) wrap('[', `](${u.trim()})`, 'link text'); }),
+      tb('Image', 'Upload an image into the post', imgBtn), tb('• List', 'Bulleted list', () => line('- ')), tb('1. List', 'Numbered list', () => line('1. ')),
+      tb('Quote', 'Quote', () => line('> ')), tb('Code', 'Code', () => wrap('`')), tb('Table', 'Table', () => insert('\n| Column 1 | Column 2 |\n|---|---|\n| A | B |\n')), tb('Line', 'Divider', () => insert('\n---\n')));
+    text.addEventListener('keydown', e => {
+      if (!(e.ctrlKey || e.metaKey)) return;
+      const k = e.key.toLowerCase();
+      if (k === 'b') { e.preventDefault(); wrap('**'); } else if (k === 'i') { e.preventDefault(); wrap('*'); } else if (k === 'k') { e.preventDefault(); toolbar.children[4].click(); }
+    });
+
+    const save = async status => {
+      msg.textContent = '';
+      const s = (await mdLib()).slugify(slug.value || title.value); slug.value = s;
+      if (!title.value.trim()) { msg.textContent = 'Give the post a title.'; title.focus(); return; }
+      if (!s) { msg.textContent = 'Give the post an address.'; slug.focus(); return; }
+      if (wasPublished && s !== p.slug && !confirm(`Change the address from /blog/${p.slug} to /blog/${s}? The old address will redirect to the new one.`)) return;
+      const data = { slug: s, title: title.value, desc: desc.value, body: text.value, cover: cover.value.trim(), coverAlt: coverAlt.value, tags: tags.value.split(','), status, published: date.value || null, isNew: !!p.isNew };
+      try {
+        const r = await api('blog/' + (p.isNew ? s : p.slug), 'PUT', data);
+        B.edit = r.post; B.dirty = false; B.posts = null;
+        toast(status === 'published' ? (wasPublished ? 'Updated. The live post shows the changes now.' : 'Published! It is live at /blog/' + s) : 'Saved as a draft');
+        draw();
+      } catch (e) { msg.textContent = e.message; }
+    };
+    const back = () => { if (B.dirty && !confirm('Leave without saving your changes?')) return; B.edit = null; B.dirty = false; B.posts = null; draw(); };
+    const uploadCover = async () => { const f = await pickImage(); if (!f) return; toast('Uploading the image...'); try { cover.value = await uploadImage(f); if (!coverAlt.value) coverAlt.value = title.value; mark(); showCover(); toast('Cover image added'); } catch (e) { toast(e.message); } };
+
+    const field = (label, input, extra) => el('label', { class: 'be-field' }, el('span', { class: 'be-lab' }, label, extra || null), input);
+    body.append(el('div', { class: 'adm-bar' },
+      el('button', { class: 'btn ghost sm', type: 'button', text: '← All posts', onclick: back }),
+      el('b', { text: p.isNew ? 'New post' : 'Editing' }), !p.isNew ? pill(...postState(p)) : null,
+      el('span', { class: 'sp' }),
+      wasPublished ? el('a', { class: 'btn sec sm', href: '/blog/' + p.slug, target: '_blank', rel: 'noopener', text: 'View live' }) : null,
+      wasPublished ? el('button', { class: 'btn ghost sm', type: 'button', text: 'Unpublish', title: 'Take it off the blog and keep it as a draft', onclick: () => save('draft') }) : el('button', { class: 'btn sec sm', type: 'button', text: 'Save draft', onclick: () => save('draft') }),
+      el('button', { class: 'btn sm', type: 'button', text: wasPublished ? 'Update' : 'Publish', onclick: () => save('published') })));
+    body.append(msg);
+    body.append(el('div', { class: 'be' },
+      el('div', { class: 'be-main' },
+        title,
+        el('div', { class: 'be-slug' }, el('span', { class: 'adm-small', text: 'toolzbaba.com/blog/' }), slug),
+        toolbar, text, el('div', { class: 'be-foot' }, stats, el('span', { class: 'adm-small', text: 'Ctrl+B bold · Ctrl+I italic · Ctrl+K link' }))),
+      el('div', { class: 'be-side' },
+        el('div', { class: 'adm-card be-card' },
+          field('Description', desc, descN),
+          field('Cover image', el('div', { class: 'be-row' }, cover, el('button', { class: 'btn sec sm', type: 'button', text: 'Upload', onclick: uploadCover }))),
+          coverImg, field('Cover image description', coverAlt),
+          field('Tags (comma separated)', tags),
+          field('Publish date', date, el('span', { class: 'adm-small', text: ' empty: when you publish' }))),
+        el('div', { class: 'adm-card be-card' }, el('b', { class: 'be-lab', text: 'Preview' }), preview))));
+    showCover(); showDesc(); render();
+    (p.isNew ? title : text).focus();
+  }
+
   function drawHelp(body) {
     const h = el('div', { class: 'adm-help' });
     h.innerHTML = `<h3>Setting it up (once)</h3><p>The panel needs two secrets in the Cloudflare Pages project (Settings, Variables and Secrets): <code>ADMIN_USER</code> (your ID) and <code>ADMIN_KEY</code> (your password, 16 or more characters, used nowhere else). Signing in gives this browser a session cookie for 8 hours that page scripts can't read; the password is never stored. After 5 wrong tries from one visitor, or 50 from everyone within an hour, the door stays shut for a while. Scripts can also send the headers <code>X-Requested-With: toolzbaba-admin</code>, <code>X-Admin-User</code> and <code>X-Admin-Key</code> (e.g. to delete a hosted file). For one more lock, put Cloudflare Access in front of <code>/admin</code> and <code>/api/admin/*</code> (see README). Archive / history / lab results live in the KV namespace called CDN.</p>
 <h3>Archive and go live</h3><p>Archiving a tool puts its slug on a list at <code>/api/tool-status</code>. Every page keeps that list for 10 minutes and refreshes it when the browser is idle, so it never delays a page. The tool disappears from the home page, search and menus; its address shows "taking a break" (not indexed). A tool with tabs takes its tab pages with it; a single tab page can be archived on its own. For a permanent archive put <code>"archived": true</code> on the tool in <code>tools.json</code>: that also removes it from the sitemap. Until the next deploy the sitemap still lists tools archived here.</p>
+<h3>Blog</h3><p>Write posts in the Blog tab. "Save draft" keeps a post private; "Publish" puts it live at <code>/blog/your-post</code> straight away, with its own title and description for Google, a cover image for social media, and an entry in <code>/blog/sitemap.xml</code> and the RSS feed <code>/blog/feed.xml</code>. Images you upload are shrunk to WebP in your browser and kept for good at <code>/blog/images/</code>. Changing a published post's address keeps the old one working as a redirect. Posts are written in Markdown (the toolbar buttons type it for you): <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>[text](https://...)</code>, <code>- list</code>, <code>&gt; quote</code>; HTML in a post is shown as text, never run. Free KV allows 1,000 saves a day, far more than a blog needs.</p>
 <h3>Real visitors</h3><p>The speed numbers come from the visitors' own browsers: a sample (1 in 10) sends one small message per page view. Free KV allows 1,000 writes a day, so at most ${S.maxWrites} messages a day are saved. Counts are estimates. If the site grows, move this to D1 or Analytics Engine.</p>
 <h3>Lab tests</h3><p>Run them after every deploy: "Every tool" without heavy tools takes a few minutes. Anything red is worth a look. The full browser test files in <code>/tests</code> remain the real safety net.</p>
 <h3>Keeping the site fast</h3><p>Tools load their code only when used, models only when a button is pressed, and the admin code is never loaded on public pages. Watch "Weight", "Ready" and "LCP": a tool that turns red after a change is the one to fix. The limits used for the colours are Google's: LCP 2.5 s / 4 s, INP 200 ms / 500 ms, CLS 0.1 / 0.25.</p>`;

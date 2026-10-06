@@ -1,5 +1,5 @@
 // Tests for the Cloudflare Pages Functions without a server: site-colors address checks, and the temporary file share
-// (upload limits, blocked types, download headers, deleting). Run:  node tests/functions_test.mjs
+// (upload limits, blocked types, download headers, deleting), the admin sign-in and the blog. Run:  node tests/functions_test.mjs
 import assert from 'node:assert/strict';
 import { onRequestGet as siteColors } from '../functions/api/site-colors.js';
 import { onRequestPost as upload } from '../functions/api/files/index.js';
@@ -13,6 +13,10 @@ import { onRequestGet as labGet, onRequestPost as labPost } from '../functions/a
 import { onRequestPost as adminLogin } from '../functions/api/admin/login.js';
 import { onRequestPost as adminLogout } from '../functions/api/admin/logout.js';
 import { addEvent, emptyAgg, percentile, EDGES } from '../lib/rum-store.js';
+import { onRequestGet as blogPost } from '../functions/blog/[slug].js';
+import { onRequestPut as blogPut, onRequestDelete as blogDelete } from '../functions/api/admin/blog/[slug].js';
+import { onRequestGet as blogList } from '../functions/api/admin/blog/index.js';
+import { onRequestPost as blogImage } from '../functions/api/admin/blog-image.js';
 
 globalThis.caches = { default: { match: async () => undefined, put: async () => { }, delete: async () => { } } };
 class KV { constructor() { this.m = new Map(); } async put(k, v) { this.m.set(k, v); } async get(k, o) { const v = this.m.get(k); if (v === undefined) return null; if (o && o.type === 'json') return JSON.parse(v); if (o && o.type === 'arrayBuffer') return v; return typeof v === 'string' ? v : new TextDecoder().decode(v); } async delete(k) { this.m.delete(k); } }
@@ -152,6 +156,36 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
     assert.match((await adminLogout()).headers.get('Set-Cookie'), /^__Host-tz_admin=; Path=\/; Max-Age=0/);
     ok('admin: sign-in gives an HttpOnly session; forged, extended, expired cookies refused');
   }
+}
+
+// ---- blog: posts are saved only by the admin, rendered safely, and drafts stay private
+{
+  const E = { CDN: new KV(), ADMIN_USER: 'boss', ADMIN_KEY: 'a-good-password-1', ASSETS: { fetch: async () => new Response('<html><head><title>%%TITLE%%</title><link rel="canonical" href="https://toolzbaba.com%%PATH%%"><meta name="description" content="%%DESC%%"><!--JSONLD--></head><body><!--MAIN--></body></html>') } };
+  const H = { 'X-Requested-With': 'toolzbaba-admin', 'Content-Type': 'application/json', 'X-Admin-User': 'boss', 'X-Admin-Key': 'a-good-password-1' };
+  const put = (slug, body, headers = H) => blogPut({ request: req('/api/admin/blog/' + slug, { method: 'PUT', headers, body: JSON.stringify(body) }), params: { slug }, env: E });
+  const view = slug => blogPost({ request: req('/blog/' + slug), params: { slug }, env: E });
+  assert.equal((await put('hi', { isNew: true, title: 'Hi', status: 'published' }, { 'Content-Type': 'application/json' })).status, 403, 'no X-Requested-With');
+  assert.equal((await put('hi', { isNew: true, title: 'Hi', status: 'published' }, { 'X-Requested-With': 'toolzbaba-admin' })).status, 401, 'not signed in');
+  assert.equal((await put('images', { isNew: true, title: 'x' })).status, 400, 'reserved address');
+  assert.equal((await put('hi', { isNew: true, title: 'x', cover: 'javascript:alert(1)' })).status, 400, 'unsafe cover');
+  assert.equal((await put('hi', { isNew: true, title: 'Hi <b>', body: '<script>alert(1)</script>\n\n[x](javascript:alert(1)) **ok**', status: 'draft' })).status, 200);
+  assert.equal((await view('hi')).status, 404, 'a draft is private');
+  assert.equal((await put('hi', { title: 'Hi <b>', body: '<script>alert(1)</script>\n\n[x](javascript:alert(1)) **ok**', status: 'published' })).status, 200);
+  const html = await (await view('hi')).text();
+  assert.ok(!html.includes('<script>alert') && html.includes('&lt;script&gt;') && !/href="javascript:/.test(html) && html.includes('<strong>ok</strong>'), 'post body is escaped');
+  assert.ok(html.includes('<title>Hi &lt;b&gt; – Toolz Baba Blog</title>') && html.includes('href="https://toolzbaba.com/blog/hi"'), 'title and canonical');
+  assert.equal((await put('hi', { slug: 'hello', title: 'Hello', status: 'published' })).status, 200, 'rename');
+  const moved = await view('hi');
+  assert.equal(moved.status, 301); assert.equal(moved.headers.get('Location'), 'https://toolzbaba.com/blog/hello');
+  assert.equal((await blogList({ request: req('/api/admin/blog', { headers: H }), env: E }).then(r => r.json())).posts.map(p => p.slug).join(), 'hello');
+  assert.equal((await blogDelete({ request: req('/api/admin/blog/hello', { method: 'DELETE', headers: H }), params: { slug: 'hello' }, env: E })).status, 200);
+  assert.equal((await view('hello')).status, 404);
+  const png = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 0, 0, 0]);
+  const up = (type, body) => blogImage({ request: req('/api/admin/blog-image', { method: 'POST', headers: { ...H, 'Content-Type': type }, body }), env: E });
+  assert.equal((await up('image/svg+xml', '<svg onload="alert(1)"/>')).status, 415, 'SVG refused');
+  assert.equal((await up('image/png', '<html>')).status, 415, 'fake PNG refused');
+  assert.match((await (await up('image/png', png)).json()).url, /^\/blog\/images\/[A-Za-z0-9]+\.png$/);
+  ok('blog: admin-only saving, private drafts, escaped posts, renames redirect');
 }
 
 console.log(`\n${pass}/${pass} passed`);
