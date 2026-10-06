@@ -1,0 +1,6 @@
+{
+ "onnx/model_quantized.onnx": [
+  "model_quantized.onnx.part0",
+  "model_quantized.onnx.part1"
+ ]
+}

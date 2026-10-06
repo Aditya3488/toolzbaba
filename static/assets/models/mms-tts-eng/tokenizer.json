@@ -1,0 +1,96 @@
+{
+    "version": "1.0",
+    "truncation": null,
+    "padding": null,
+    "added_tokens": [
+        {
+            "id": 38,
+            "content": "<unk>",
+            "single_word": false,
+            "lstrip": false,
+            "rstrip": false,
+            "normalized": false,
+            "special": true
+        }
+    ],
+    "normalizer": {
+        "type": "Sequence",
+        "normalizers": [
+            {
+                "type": "Lowercase"
+            },
+            {
+                "type": "Replace",
+                "pattern": {
+                    "Regex": "[^k'zyudhesw\u20133cp\\-1jmi flo0bra42n_xvtq56g]"
+                },
+                "content": ""
+            },
+            {
+                "type": "Strip",
+                "strip_left": true,
+                "strip_right": true
+            },
+            {
+                "type": "Replace",
+                "pattern": {
+                    "Regex": "(?=.)|(?<!^)$"
+                },
+                "content": "k"
+            }
+        ]
+    },
+    "pre_tokenizer": {
+        "type": "Split",
+        "pattern": {
+            "Regex": ""
+        },
+        "behavior": "Isolated",
+        "invert": false
+    },
+    "post_processor": null,
+    "decoder": null,
+    "model": {
+        "vocab": {
+            "k": 0,
+            "'": 1,
+            "z": 2,
+            "y": 3,
+            "u": 4,
+            "d": 5,
+            "h": 6,
+            "e": 7,
+            "s": 8,
+            "w": 9,
+            "\u2013": 10,
+            "3": 11,
+            "c": 12,
+            "p": 13,
+            "-": 14,
+            "1": 15,
+            "j": 16,
+            "m": 17,
+            "i": 18,
+            " ": 19,
+            "f": 20,
+            "l": 21,
+            "o": 22,
+            "0": 23,
+            "b": 24,
+            "r": 25,
+            "a": 26,
+            "4": 27,
+            "2": 28,
+            "n": 29,
+            "_": 30,
+            "x": 31,
+            "v": 32,
+            "t": 33,
+            "q": 34,
+            "5": 35,
+            "6": 36,
+            "g": 37,
+            "<unk>": 38
+        }
+    }
+}
