@@ -125,13 +125,30 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
     return text
 
 
-def seo_block(tool: dict, tools: list) -> str:
-    related = [t for t in tools if t["cat"] == tool["cat"] and t["slug"] != tool["slug"] and not t.get("href")][:8]
-    links = "".join(f'<li><a href="/tool/{esc(t["slug"])}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for t in related)
-    privacy = ("This tool runs in your browser, so your files never leave your device." if tool["kind"] == "client"
-               else "Images you upload are stored so their links keep working. Don't upload anything private.")
-    return (f'<h2>About {esc(tool["name"])}</h2><p>{esc(tool.get("about", tool["desc"]))}</p><p>{esc(privacy)}</p>'
-            + (f'<h2>Related tools</h2><ul>{links}</ul>' if links else ""))
+def seo_block(tool: dict, tools: list, variants: list | None = None) -> str:
+    base = tool.get("base", tool["slug"])  # a format page (variant) belongs to a base tool
+    variants = variants or []
+    by_slug = {v["slug"]: v for v in variants}
+    base_tool = next(t for t in tools if t["slug"] == base)
+    # format pages (PNG / JPEG / JPG / GIF) are siblings; a size page links up to its parent page instead
+    sibs = [v for v in variants if v["base"] == base and v.get("group") != "size" and v["slug"] != tool["slug"]]
+    fmt = [("/" + v["slug"], v) for v in sibs]
+    if tool.get("group") == "size" and tool.get("parent") in by_slug and not any(v["slug"] == tool["parent"] for v in sibs):
+        fmt.append(("/" + tool["parent"], by_slug[tool["parent"]]))
+    if tool.get("base"):
+        fmt.append(("/tool/" + base, base_tool))
+    sizes = [v for v in variants if v.get("group") == "size" and v.get("media") and v.get("media") == tool.get("media") and v["slug"] != tool["slug"]]
+    related = [t for t in tools if t["cat"] == tool["cat"] and t["slug"] != base and not t.get("href")][:8]
+    links = "".join(f'<li><a href="{esc(u)}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for u, t in fmt)
+    links += "".join(f'<li><a href="/tool/{esc(t["slug"])}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for t in related)
+    privacy = tool.get("privacy") or ("This tool runs in your browser, so your files never leave your device." if tool["kind"] == "client"
+                                       else "Images you upload are stored so their links keep working. Don't upload anything private.")
+    out = f'<h2>About {esc(tool["name"])}</h2><p>{esc(tool.get("about", tool["desc"]))}</p><p>{esc(privacy)}</p>'
+    if tool.get("faq"):
+        out += "<h2>Questions</h2>" + "".join(f'<h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p>' for f in tool["faq"])
+    if sizes:
+        out += "<h2>Other sizes</h2><ul>" + "".join(f'<li><a href="/{esc(v["slug"])}">{esc(v["name"])}</a></li>' for v in sizes) + "</ul>"
+    return out + (f'<h2>Related tools</h2><ul>{links}</ul>' if links else "")
 
 
 def write(rel: str, text: str):
@@ -175,17 +192,50 @@ def build():
                 {"@type": "ListItem", "position": 3, "name": tool["name"], "item": url}]},
         ]
         write(f"tool/{slug}.html", render("tool.html", title=f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
-                                          desc=f'{tool["desc"]} Free, no sign-up.', path=f"/tool/{slug}", jsonld=ld,
-                                          extra={"SEO": seo_block(tool, tools), "TOOL_NAME": tool["name"]}))
+                                          desc=f'{tool["desc"]} Free, no sign-up.', path=f"/tool/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
+                                          extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
+
+    # format pages (e.g. /compress-png): the same tool as its base, on its own address at the site root
+    by_slug = {t["slug"]: t for t in tools}
+    reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon", "functions", "admin"}
+    for v in data.get("variants", []):
+        slug = v["slug"]
+        if v["base"] not in by_slug or slug in by_slug or slug in reserved or not re.fullmatch(r"[a-z0-9-]+", slug):
+            raise SystemExit(f"Bad format page {slug!r}: it needs an existing base tool and a free root address")
+        merged = {**by_slug[v["base"]], **v}
+        cat = next(c for c in data["categories"] if c["id"] == merged["cat"])
+        url = f"{SITE_URL}/{slug}"
+        parent = next((x for x in data["variants"] if x["slug"] == v.get("parent")), None)
+        ld = [
+            {"@context": "https://schema.org", "@type": "WebApplication", "name": v["name"], "url": url, "description": v["desc"],
+             "applicationCategory": "MultimediaApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript",
+             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
+            {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": SITE_URL + "/"},
+                {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + "/"},
+                {"@type": "ListItem", "position": 3, "name": by_slug[v["base"]]["name"], "item": f"{SITE_URL}/tool/{v['base']}"},
+                *([{"@type": "ListItem", "position": 4, "name": parent["name"], "item": f"{SITE_URL}/{parent['slug']}"}] if parent else []),
+                {"@type": "ListItem", "position": 5 if parent else 4, "name": v["name"], "item": url}]},
+        ]
+        if v.get("faq"):
+            ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+                {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in v["faq"]]})
+        write(f"{slug}.html", render("tool.html", title=v.get("title") or f'{v["name"]} – Free Online Tool | {SITE_NAME}',
+                                    desc=f'{v["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld,
+                                    extra={"SEO": seo_block(merged, tools, data["variants"]), "TOOL_NAME": v["name"]}))
 
     for key, (file, title, desc) in LEGAL.items():
         write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))
+    write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True))
     write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
 
     # robots, sitemap, icons, manifest
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\n\nSitemap: {SITE_URL}/sitemap.xml\n")
     day = time.strftime("%Y-%m-%d", time.gmtime((STATIC / "assets" / "tools.json").stat().st_mtime))
-    urls = [("/", "1.0")] + [(f"/tool/{t['slug']}", "0.8") for t in tools if not t.get("href")]
+    # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
+    dead = {t["slug"] for t in tools if t.get("archived")}
+    urls = [("/", "1.0")] + [(f"/tool/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
+    urls += [(f"/{v['slug']}", "0.7") for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
     urls += [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
     body = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{day}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + body + "</urlset>")
@@ -200,6 +250,18 @@ def build():
     # Cloudflare Pages: response headers and redirects
     shutil.copyfile(ROOT / "deploy" / "pages" / "_headers", DIST / "_headers")
     shutil.copyfile(ROOT / "deploy" / "pages" / "_redirects", DIST / "_redirects")
+    # a renamed tool keeps its old URL(s): "aliases" in tools.json become permanent (301) redirects, so old links and
+    # Google's index follow the tool to its new address
+    alias_lines = []
+    for t in tools:
+        for old in t.get("aliases", []):
+            alias_lines.append(f"/tool/{old}  /tool/{t['slug']}  301")
+    for v in data.get("variants", []):  # a tab page (/video-to-text) keeps the addresses it had before, too
+        for old in v.get("aliases", []):
+            alias_lines.append(f"/tool/{old}  /{v['slug']}  301")
+    if alias_lines:
+        with open(DIST / "_redirects", "a", encoding="utf-8") as f:
+            f.write("\n# renamed tools (aliases in tools.json)\n" + "\n".join(alias_lines) + "\n")
 
     files = [p for p in DIST.rglob("*") if p.is_file()]
     big = [p for p in files if p.stat().st_size > 25 * 1024 * 1024]

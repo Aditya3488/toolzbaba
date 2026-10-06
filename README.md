@@ -21,7 +21,7 @@ conversion) run on the Python server. The full list is in `static/assets/tools.j
 
 ## Quick start
 
-> Prerequisites: **Git** and **Python 3.11, 3.12 or 3.13**.
+> Prerequisites: **Git**, **Python 3.11, 3.12 or 3.13** and **Node.js** (for `wrangler`, Cloudflare's local server).
 
 **Windows (PowerShell)**
 
@@ -45,7 +45,7 @@ pip install -r requirements.txt
 sh start.sh
 ```
 
-Then open **http://127.0.0.1:8000**. That's it: every tool except *Word to PDF* works now.
+`start.bat` / `start.sh` build the site (`python build.py`) and serve it like Cloudflare does (`npx wrangler pages dev dist --kv CDN`), so the tab pages (`/compress-png`, `/blur-redact-pdf`), `/admin` and the Functions all work. Then open **http://127.0.0.1:8000**. Every tool except *Word to PDF* works now. (The old Python-only server is kept as `start-old-python-server.bat`; it does not know the tab pages, so do not test with it.) For the admin panel put `ADMIN_KEY` (and `ADMIN_USER`) in a `.dev.vars` file first.
 
 ---
 
@@ -209,7 +209,114 @@ Missing icons fall back to a blue grid symbol.
 
 **5. A test**: add a `check(...)` line to `tests/smoke_api.py` for server tools. Then run both test files.
 
+**Renaming a tool's URL (slug)?** The slug is used in `tools.json`, the `HT.register(...)` / `HT.engine(...)` calls, the
+`GLYPH` / `TOOL_COLOR` maps in `common.js`, `deploy/pages/_headers` (the AI tools have per-URL rules) and the tests, so
+change it everywhere. Then add the **old** slug to the tool's `"aliases": ["old-slug"]` list in `tools.json`: the build
+turns every alias into a permanent 301 redirect (`dist/_redirects`; the Python server does the same), so old links and
+Google's index follow the tool to its new address. Never reuse an old slug for a different tool.
+
+**Format pages (one tool, several SEO addresses)?** `compress-image` has four of them: `/compress-png`, `/compress-jpeg`,
+`/compress-jpg` and `/compress-gif`, at the site root. They are *not* separate tools: they live in the top-level
+`"variants"` list of `tools.json` (so they are not on the home page, in search or in the tool count), each with its own
+`title`, `desc` and `about` text. `build.py` writes `dist/<slug>.html` and adds them to the sitemap; `HT.mount()` merges a
+variant onto its `"base"` tool, shows the format tabs (PNG | JPEG | JPG | GIF) above the drop zone, and calls `HT.tools[<variant slug>]` (or the
+base tool's function if there is none) for the page's own settings. A variant whose work differs needs its own `"engine"`
+(compress-gif uses ffmpeg). To add another family (say `add-watermark-to-pdf`), add entries to `variants`, register the UI in
+the tool's JS file and give every page genuinely different text: near-identical pages hurt rather than help SEO.
+A tab click switches the tool in place (no page reload, `history.pushState`): the address, heading, tags and
+"About" text are taken from that address's own built page, and files already added are kept when they fit the new tab.
+Back/forward work, and a Ctrl+click opens the tab as an ordinary link.
+Tests: `tests/browser_variants.js`.
+
+**Workbench layout.** Every tool page uses the full width: everything you can change (file, settings, run button) is in a left
+sidebar (`.tside`), the preview / result is on the right (`.tmain`) with its download button on top, and the "how it works / more
+tools" cards sit below. `HT.bench(sideElements, mainElement)` builds it (call `bench.set(true)` once a file is added) and
+`HT.viewToggle()` adds the Result | Original | Side by side switch. `HT.serverTool`, `HT.canvasTool` and the size screens
+(`compress-target.js`, which also powers the All formats page of Compress Image as `target-any`: live quality / target-size preview, output format Same / JPG / WebP / PNG, GIFs left untouched) use it already, as do image-kb, social resizer, thumbnail, collage, QR, palette, favicon and OCR. Still on the old
+stacked layout: crop-image, organize-pdf, esign-pdf, base64, the text tools and image-cdn. Copy the pattern from `tools/utils.js` to convert one.
+
+**Size pages ("compress to under X KB / MB")?** 10 pages each for JPG, JPEG and PNG (`/compress-jpg-under-10kb` ... `-under-2mb`,
+`/compress-jpeg-under-...`, `/compress-png-under-...`) and 6 PDF pages (`/compress-pdf-under-100kb` ... `-under-2mb`) are variants with `"group": "size"`, `"target_kb"`, `"media"` (`jpg` | `jpeg` | `png` | `pdf`, the
+family that shares a row of size chips), `"ui"` (`target-jpg` | `target-png` | `target-pdf`, looked up before the slug), `"js": "compress-target"`,
+a `"chip"` label and a `"faq"` list (rendered on the page and as FAQPage JSON-LD). `"parent"` names the format page they hang under
+(highlights its tab and the breadcrumb). The screen is `static/assets/tools/compress-target.js`: a size box (number + KB/MB + log slider
++ preset buttons) and a live before/after preview. JPG/JPEG run in the browser (quality search + shrinking the pixels only when the
+quality alone cannot reach the size); PNG reduces colours (256 → 32) and then pixels, keeping transparency. PDF calls the `compress-pdf` engine with `target_kb`, which tries stronger and stronger image
+settings until the file fits (and says so honestly when it cannot). Write distinct text for every page.
+Tests: `tests/browser_sizes.js` (needs the `scan3.pdf` sample from `python smoke_api.py`).
+
 ---
+
+### Tool families (tabs) from the SEO slug sheet
+
+A row of the slug sheet is a **family**: the first line is the primary tool (`/tool/<slug>`, renamed if the sheet gives it a slug), the lines under it are
+its **tabs**, each on its own root address (`/<slug>`), exactly like Compress Image with PNG | JPEG | JPG | GIF. Tabs are `variants` in `tools.json` (`base` = the primary,
+`tab` = the label, `js` / `engine` for the screen they use, `aliases` = old addresses that redirect to them); the primary has `tabAll` = the label of its own tab.
+A tab click switches the screen in place (the address, title, text and tags follow, files you added stay when they fit). Tool scripts are loaded as modules, so two tabs
+can be on one page without their top-level names clashing. Search (home and header) also finds tabs.
+
+| Primary (`/tool/...`) | Tabs |
+|---|---|
+| `add-watermark-to-image` | `add-watermark-to-pdf`, `add-watermark-to-video` |
+| `pixelate-image` | `blur-redact-pdf` |
+| `photo-collage-maker` | `linkedin-carousel-maker`, `instagram-image-carousel-splitter` |
+| `passport-size-photo-maker` | `ai-headshot-generator` |
+| `image-to-text` | `video-to-text`, `text-to-audio`, `video-to-audio`, `mp4-to-mp3` |
+| `compress-video` | `split-video` |
+| `split-audio` (was `audio-cutter`: cut one part or split into parts) | `merge-audio` |
+| `image-color-palette-extractor` | `color-palette-generator`, `website-color-palette-extractor` |
+| `image-cdn` | `temporary-file-upload-direct-link-share` |
+
+How they are built: ffmpeg tools in `engine/video.js`; PDF watermark and redact in `engine/pdf.js` (MuPDF takes annotation rectangles in page space, top-left origin; the redact
+screen is `tools/pdf-redact.js`); carousels in `tools/carousel.js`; palettes in `tools/palette-gen.js` and `tools/site-colors.js`; headshot in `engine/ai.js`; video to text and text to audio in
+`engine/speech.js` + `tools/speech.js` (Whisper and MMS voices through Transformers.js, models in `static/assets/models`, get them with `python scripts/get_speech_models.py`, see THIRD_PARTY.md for the licences:
+**the MMS voices are non-commercial**); and two that need the server side (Cloudflare Pages Functions): the temporary file share (`functions/api/files`, `functions/f`, `lib/file-store.js`, files live in the
+same KV namespace as the image links, 20 MB each, they expire by themselves, programs and web pages are refused) and the website colour extractor (`functions/api/site-colors.js`: public web addresses only,
+never IP numbers or local names). Add `ALLOW_PRIVATE_HOSTS=1` to a `.dev.vars` file (git-ignored) to try it against `http://127.0.0.1:8200/` locally.
+Pages that load AI models or ffmpeg get cross-origin isolation in `deploy/pages/_headers` (the primary page of the family too, because its tabs switch in place).
+Not built (they need a service this site does not have): `save-website-as-pdf`, `save-website-to-image` (a headless browser), `translate-pdf` (a translation model or API), `youtube-video-to-text` (fetching YouTube audio on a server).
+`tools.json` entries may carry `badge`, `how` and `privacy` text for tools that are not "runs in your browser". Unit tests for the Functions: `node tests/functions_test.mjs`.
+
+**On a phone** the preview (or result) comes first and the settings below it (`HT.bench(..., { keep: true })` keeps the settings first for tools where the settings start the work, such as Organize PDF), the tabs wrap
+into pills, and the picture shows the result only (a toggle brings back Original and Side by side).
+
+### PDF Editor and Font Library
+
+* **Font Library** (`/tool/font-library`, `static/assets/tools/font-library.js`): 51 free fonts (Latin, display, handwriting, monospace and Indian scripts) with a live preview, search, filters, ZIP download per font and "Copy CSS".
+  The font files are in `static/assets/fonts/` with an index `fonts.json`; rebuild them with `python scripts/get_fonts.py` (downloads the TTFs from the `@expo-google-fonts/*` npm packages and writes `fonts.json`, including the scripts each font covers).
+  `static/assets/tools/fonts-helpers.js` (`HT.fonts`) loads a font for the screen (`FontFace`, family "TB <Name>") and hands its bytes to the PDF engine, so the page and the saved PDF use the same font. `HT.fonts.picker()` is the font drop-down used inside the editor.
+* **PDF Editor** (`/tool/pdf-editor`, alias `/edit-pdf`; UI `static/assets/tools/pdf-editor.js`, export engine `static/assets/engine/pdf-edit.js`): pages are shown with pdf.js and what you add is an overlay of objects
+  (text, pictures, rectangle, ellipse, line, arrow, highlight, drawing, white-out) in page points. The PDF's own text is editable straight away: hover any text in Select mode and click it (the "Edit text" tool shows all of it outlined). It turns a paragraph that is already in the PDF into a text box (the old text is removed from the file, the new one is written in a similar font and the colour taken from the page).
+  **Scans** (a page that is only a picture) show an "OCR" bar: tesseract (in the browser, English / Hindi) reads the page and every line it finds becomes a text block you can change (`runOcr` in `pdf-editor.js`; the picture under the line is cleared with the paper colour and the new text is written in its place). **Pictures of the PDF** can be clicked in Select mode: they are removed from the file for good (the file gets smaller) and you can put your own picture in their place (`origpic` objects, found with the pdf.js operator list).
+  Pages can be rotated, moved, deleted or added blank. **Download** builds the file with MuPDF (real embedded text when the font can be encoded, a picture of the text for Indian scripts and mixed lines), and offers PDF, Word (`pdf-to-word`), page pictures (`pdf-to-image`) and plain text.
+  The whole font library is also **inside the editor**: the "Aa Font library" button in the toolbar (and "Browse the font library" in the text settings) opens a window with search, categories, script filter, a preview in your own text, "Use this font" and "Download" (`HT.fonts.library` in `fonts-helpers.js`; fonts that cannot draw your letters are marked). With text selected the choice changes that text, otherwise it becomes the font of the next text.
+  `/tool/pdf-editor?font=<id>` starts with that font (the Font Library links here). White-out removes what is under it from the file unless you switch that off.
+  Sample documents for the tests: `python tests/make_pdf_samples.py` (needs reportlab). Tests: `node tests/browser_pdfeditor.js` (engine, font page, editing, white-out, page actions, all download formats, phone layout).
+
+### Bookmark button
+
+Header star, footer link "Bookmark this site", and one reminder after a visitor's first download (`HT.bookmark` in `static/assets/common.js`, remembered in `localStorage` key `tz_bm_nudge`).
+Browsers do not let a page add a bookmark itself, so the panel shows the right keys for the device (Ctrl+D / Cmd+D, or the Share / menu steps on iPhone and Android) and an "Install app" button where the browser offers it. Tests: `node tests/browser_site.js`.
+
+### EXIF Remover, Collage, tab pages on the home page
+
+* **EXIF Remover** shows everything hidden in a photo before you remove it (`HT.exifPanel` in `tools/exif-view.js`, exifr): every tag and value (camera, settings, GPS with a map link, XMP, IPTC, ICC, PNG text notes), the risky ones (who / where / which device) marked and listed first, search and "Copy all".
+* **Collage** layouts are small drawings of the shape they make (7 layouts: Grid, Rows, Columns, Featured left / right / top / bottom).
+* **Tab pages** (for example Blur & Redact PDF, Video to Text, Add Watermark to PDF) are cards on the home page, in their own category (`cat` on the variant in `tools.json`, else the category of their tool). The count in the hero and in the "All" pill includes them.
+* **Admin lab**: tools that cannot be driven the generic way are listed in `LAB_SKIP` / `LAB_STEPS` in `admin.js` (Sign PDF and Unlock PDF are skipped there, `tests/browser_tools.js` covers them; Blur & Redact PDF gets a marked area first).
+
+### Admin panel (`/admin`)
+
+One page to archive or re-enable tools, see how fast they are for real visitors, and test every tool. It is private: `noindex`, never cached, not in the sitemap, and every call to `/api/admin/*` needs the `ADMIN_KEY` secret (header `X-Admin-Key`). Set it in Cloudflare Pages (Settings, Variables and Secrets), and for local use in `.dev.vars`.
+
+* **Tools**: Archive / Make live per tool or in bulk (with a private note). Archived tools disappear from the home page, search and menus, their address shows "taking a break" (noindex), and the tabs of an archived tool go with it. The list is in KV (`admin:status`), served by `GET /api/tool-status`, cached 60 s at the edge and 10 min in the visitor's browser (`HT.status` in `common.js`; a first-time visitor gets it together with `tools.json`, waiting at most 1.2 s), so it costs no speed. In the admin's own browser everything stays visible (with a banner on archived tools) until you switch to "Viewing site as visitor". For a permanent archive set `"archived": true` on the tool in `tools.json` (also removes it from the sitemap).
+* **Real visitors**: about 1 page view in 10 sends one beacon (`HT.rum`, no personal data, off for the admin and for Do Not Track) to `POST /api/rum`; `lib/rum-store.js` folds it into one JSON document of histograms per tool (server time, first paint, LCP, tool-ready, INP, CLS, errors, tool runs). Free KV allows 1,000 writes a day, so at most 700 beacons a day are saved (estimates). For exact numbers move this to D1 or Analytics Engine.
+* **Lab tests**: opens each tool in a hidden frame of the admin tab, measures ready time, load time, our own download weight vs ads/analytics weight, collects JS errors, and (optional) feeds the tool a generated sample (PNG/JPEG, PDF, WAV, a short video for heavy tools) and waits for a result or a download. AI/video/speech tools only run with "Include heavy tools". Results are stored in KV (`admin:lab`) so every admin sees them. Quick health check only; `tests/` stays the real safety net.
+* Code: `static/admin.html`, `static/assets/admin.js`, `admin.css` (loaded only on `/admin`), `functions/api/admin/*`, `functions/api/tool-status.js`, `functions/api/rum.js`, `lib/admin-store.js`, `lib/rum-store.js`. Tests: `tests/functions_test.mjs` (API), `node tests/browser_admin.js` (needs `ADMIN_KEY` in `.dev.vars`).
+
+### Keeping the site fast
+
+Rules that keep the numbers in the admin panel green: tool code and models load only when a tool is used; public pages never load admin code; the tool page reserves the room its script-built parts will need (`.thead`, `.shell`, the home page chips and list in `app.css`, "Layout stability"), and the side cards are added after the tool is in place, so nothing jumps (CLS was 0.5 to 1.4 before, now about 0.05); images are served in the size shown (`hero-art-330/540.webp`, `logo-315.webp`). The remaining weight on every page is ads/analytics from Google Tag Manager (about 200 KB): loading it after the page has settled would be the next big win.
 
 ## Testing
 
@@ -224,6 +331,8 @@ cd tests && npm install          # once: playwright-core (uses your installed Ch
 node browser_tools.js            # drives the newer tools in a real browser: OCR, PDF organize/sign, photo-to-KB, ... (17 flows)
 node browser_tools.js pdf ocr    # only flows whose name contains "pdf" or "ocr"
 ```
+- The browser tests for the static site (run `python build.py` and `npx wrangler pages dev dist --kv CDN --port 8200` first, set `BASE_URL=http://127.0.0.1:8200`):
+  `browser_variants.js` (format pages and tabs), `browser_sizes.js` (the "under X KB" pages, 56 checks), `browser_newtools.js` (the tools from the slug sheet: video/audio, PDF watermark and redact, carousels, palette, speech with the real models, file share, colour extractor; takes several minutes the first time because the speech models load) and `node tests/functions_test.mjs` (the Pages Functions, no server needed).
 - `browser_tools.js` needs the sample files that `smoke_api.py` creates in `tests/samples/` (run that once first). Set `BROWSER_PATH` if no Chrome/Edge is found, `BASE_URL` for another port. Failure screenshots go to `tests/out/`.
 - `smoke_web.py` starts its own throw-away servers on ports 8801, 8803 and 8804, so it doesn't touch your running app.
 - Put a portrait photo at `tests/samples/face.jpg` if you want the face-blur / AI checks to be meaningful (it is git-ignored).

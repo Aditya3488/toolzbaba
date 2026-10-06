@@ -3,20 +3,20 @@ const hsl = (r, g, b) => { r /= 255; g /= 255; b /= 255; const mx = Math.max(r, 
 const luma = (r, g, b) => (r * .299 + g * .587 + b * .114);
 
 // ------------------------------------------------------------------ Colour palette
-HT.register('color-palette', root => {
+HT.register('image-color-palette-extractor', root => {
   const el = HT.el;
   let bmp = null, colors = [], picked = [];
   const view = HT.canvas(10, 10), vx = view.getContext('2d');
   const sw = el('div', { class: 'swatches' }), pickedBox = el('div', { class: 'swatches' });
   const form = HT.form([{ name: 'k', label: 'Number of colours', type: 'range', min: 2, max: 12, value: 6 }], () => extract());
-  const out = el('div', { class: 'hidden' },
-    el('div', { class: 'card' }, el('div', { style: { textAlign: 'center' } }, el('div', { class: 'stage' }, view)), el('div', { class: 'help', text: 'Tip: click anywhere on the image to pick an exact colour.' }), pickedBox),
-    el('div', { class: 'card' }, form.el, sw, el('div', { class: 'actions' },
+  const viewCard = el('div', { class: 'card tmain hidden' }, el('div', { style: { textAlign: 'center' } }, el('div', { class: 'stage' }, view)), el('div', { class: 'help', text: 'Tip: click anywhere on the image to pick an exact colour.' }), pickedBox, sw);
+  const formCard = el('div', { class: 'card hidden' }, form.el, el('div', { class: 'actions' },
       el('button', { class: 'btn sec sm', type: 'button', text: 'Copy HEX list', onclick: () => HT.copy(colors.map(c => c.hex).join(', ')) }),
       el('button', { class: 'btn sec sm', type: 'button', text: 'Copy CSS variables', onclick: () => HT.copy(':root {\n' + colors.map((c, i) => `  --color-${i + 1}: ${c.hex};`).join('\n') + '\n}') }),
       el('button', { class: 'btn sec sm', type: 'button', text: 'Copy JSON', onclick: () => HT.copy(JSON.stringify(colors.map(c => c.hex))) }),
-      el('button', { class: 'btn sm', type: 'button', text: 'Download palette image', onclick: saveImage }))));
-  root.append(HT.dropzone({ accept: 'image/*', hint: 'Runs in your browser: nothing is uploaded.', onFiles: async fs => { try { bmp = await HT.loadBitmap(fs[0]); } catch (e) { return HT.toast(e.message); } const s = Math.min(1, 720 / bmp.width, 480 / bmp.height); view.width = Math.round(bmp.width * s); view.height = Math.round(bmp.height * s); vx.drawImage(bmp, 0, 0, view.width, view.height); out.classList.remove('hidden'); picked = []; extract(); renderPicked(); } }), out);
+      el('button', { class: 'btn sm', type: 'button', text: 'Download palette image', onclick: saveImage })));
+  const bench = HT.bench([HT.dropzone({ accept: 'image/*', hint: 'Runs in your browser: nothing is uploaded.', onFiles: async fs => { try { bmp = await HT.loadBitmap(fs[0]); } catch (e) { return HT.toast(e.message); } const s = Math.min(1, 720 / bmp.width, 480 / bmp.height); view.width = Math.round(bmp.width * s); view.height = Math.round(bmp.height * s); vx.drawImage(bmp, 0, 0, view.width, view.height); formCard.classList.remove('hidden'); viewCard.classList.remove('hidden'); bench.set(true); picked = []; extract(); renderPicked(); } }), formCard], viewCard);
+  root.append(bench);
   view.style.cursor = 'crosshair';
   view.addEventListener('click', e => { const b = view.getBoundingClientRect(), px = Math.floor((e.clientX - b.left) * view.width / b.width), py = Math.floor((e.clientY - b.top) * view.height / b.height), d = vx.getImageData(px, py, 1, 1).data; picked.unshift(card(d[0], d[1], d[2])); picked = picked.slice(0, 6); renderPicked(); HT.copy(hex(d[0], d[1], d[2]), 'Picked ' + hex(d[0], d[1], d[2]) + ' (copied)'); });
 
@@ -51,7 +51,7 @@ HT.register('color-palette', root => {
 });
 
 // ------------------------------------------------------------------ QR code
-HT.register('qr-code', root => {
+HT.register('qr-code-generator', root => {
   const el = HT.el;
   const TYPES = [['text', 'Text / URL'], ['wifi', 'Wi-Fi'], ['whatsapp', 'WhatsApp'], ['email', 'Email'], ['phone', 'Phone'], ['sms', 'SMS'], ['vcard', 'Contact card']];
   let type = 'text', logo = null, lastText = '';
@@ -78,9 +78,10 @@ HT.register('qr-code', root => {
   ], () => draw());
   const logoIn = el('input', { type: 'file', accept: 'image/*', onchange: async e => { const f = e.target.files[0]; logo = f ? await HT.loadBitmap(f) : null; draw(); } });
   const pv = el('div', { class: 'pv', style: { padding: '16px' } }), msg = el('div', { class: 'status' });
-  root.append(el('div', { class: 'card' }, tabs, content), el('div', { class: 'card' }, style.el, el('div', { class: 'field', style: { marginTop: '14px' } }, el('label', { class: 'lbl', text: 'Logo in the centre (optional)' }), logoIn)),
-    el('div', { class: 'card' }, el('h2', { text: 'Your QR code' }), pv, msg, el('div', { class: 'actions' },
-      el('button', { class: 'btn', type: 'button', text: 'Download PNG', onclick: () => savePng() }), el('button', { class: 'btn sec', type: 'button', text: 'Download SVG', onclick: saveSvg }), el('button', { class: 'btn ghost', type: 'button', text: 'Copy image', onclick: copyImg }))));
+  const qrBench = HT.bench([el('div', { class: 'card' }, tabs, content), el('div', { class: 'card' }, style.el, el('div', { class: 'field', style: { marginTop: '14px' } }, el('label', { class: 'lbl', text: 'Logo in the centre (optional)' }), logoIn))],
+    el('div', { class: 'card tmain' }, el('div', { class: 'tbar' }, el('div', { class: 'tinfo' }, msg), el('div', { class: 'actions' },
+      el('button', { class: 'btn', type: 'button', text: 'Download PNG', onclick: () => savePng() }), el('button', { class: 'btn sec', type: 'button', text: 'Download SVG', onclick: saveSvg }), el('button', { class: 'btn ghost', type: 'button', text: 'Copy image', onclick: copyImg }))), pv));
+  qrBench.classList.add('on'); root.append(qrBench);  // no file to wait for: the two-column layout is on from the start
 
   function setType(k) { type = k; [...tabs.children].forEach(b => b.classList.toggle('on', b.dataset.k === k)); content.textContent = ''; content.append(cf[k].el); draw(); }
   function text() {
@@ -152,14 +153,14 @@ HT.register('base64', root => {
 
   // --- file -> base64
   const fout = el('div');
-  panes.file = el('div', {}, HT.dropzone({ hint: 'Any file up to ~25 MB. Nothing is uploaded.', onFiles: async fs => {
+  panes.file = (() => { const bb = HT.bench([HT.dropzone({ hint: 'Any file up to ~25 MB. Nothing is uploaded.', onFiles: async fs => {
     const f = fs[0]; if (f.size > 25 * 1024 * 1024) return HT.toast('That file is large; pick one under 25 MB.');
     const u8 = new Uint8Array(await f.arrayBuffer()), b64 = toB64(u8), mime = f.type || 'application/octet-stream', uri = `data:${mime};base64,${b64}`;
     const ta = (label, val) => el('div', { style: { marginTop: '12px' } }, el('label', { class: 'lbl' }, label, el('button', { class: 'btn ghost sm', type: 'button', style: { marginLeft: '10px' }, text: 'Copy', onclick: () => HT.copy(val) })), el('textarea', { readonly: true, value: val, style: { minHeight: '90px' } }));
     fout.textContent = ''; fout.append(el('div', { class: 'card' }, el('div', { class: 'sum', text: `${f.name} · ${HT.fmtBytes(f.size)} → ${HT.fmtBytes(b64.length)} of Base64` }),
       f.type.startsWith('image/') ? el('div', { class: 'pv', style: { marginBottom: '8px' } }, el('img', { src: uri, alt: '' })) : null,
       ta('Base64', b64), ta('Data URI', uri), f.type.startsWith('image/') ? ta('HTML <img>', `<img src="${uri}" alt="">`) : null, f.type.startsWith('image/') ? ta('CSS background', `background-image: url("${uri}");`) : null));
-  } }), fout);
+  } })], fout, { half: true }); bb.classList.add('on'); return bb; })();
 
   // --- base64 -> file
   const bin = el('textarea', { placeholder: 'Paste Base64 or a data: URI here...', style: { minHeight: '130px' } }), fname = el('input', { type: 'text', placeholder: 'file name (optional)' }), dmsg = el('div', { class: 'status' }), dprev = el('div');
@@ -182,9 +183,11 @@ HT.register('favicon-generator', root => {
     { name: 'theme', label: 'Theme colour (manifest)', type: 'color', value: '#4f46e5' },
   ], () => draw());
   const previews = el('div', { style: { display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap', marginTop: '14px' } }), prog = HT.progress();
-  const card = el('div', { class: 'hidden' }, el('div', { class: 'card' }, form.el), el('div', { class: 'card' }, el('h2', { text: 'Preview' }), previews, el('div', { class: 'actions' }, el('button', { class: 'btn', type: 'button', text: 'Download favicon package (ZIP)', onclick: build })), prog.el,
-    el('div', { class: 'help', style: { marginTop: '10px' }, text: 'The ZIP has favicon.ico, PNGs (16, 32, 180, 192, 512), site.webmanifest and a ready-to-paste HTML snippet.' })));
-  root.append(HT.dropzone({ accept: 'image/*', hint: 'Square PNG, SVG or JPG works best (512×512 or larger). Runs in your browser.', onFiles: async fs => { file = fs[0]; try { bmp = await HT.loadBitmap(file); } catch (e) { return prog.error(e.message); } card.classList.remove('hidden'); draw(); } }), card);
+  const formCard = el('div', { class: 'card hidden' }, form.el);
+  const pvCard = el('div', { class: 'card tmain hidden' }, el('div', { class: 'tbar' }, el('div', { class: 'tinfo' }, el('div', { class: 'help', text: 'The ZIP has favicon.ico, PNGs (16, 32, 180, 192, 512), site.webmanifest and a ready-to-paste HTML snippet.' })),
+    el('div', { class: 'actions' }, el('button', { class: 'btn', type: 'button', text: 'Download favicon package (ZIP)', onclick: build }))), previews);
+  const bench = HT.bench([HT.dropzone({ accept: 'image/*', hint: 'Square PNG, SVG or JPG works best (512×512 or larger). Runs in your browser.', onFiles: async fs => { file = fs[0]; try { bmp = await HT.loadBitmap(file); } catch (e) { return prog.error(e.message); } formCard.classList.remove('hidden'); pvCard.classList.remove('hidden'); bench.set(true); draw(); } }), formCard, prog.el], pvCard);
+  root.append(bench);
 
   function icon(size, opaque) {
     const v = form.values(), c = HT.canvas(size, size), x = c.getContext('2d'); x.imageSmoothingQuality = 'high';

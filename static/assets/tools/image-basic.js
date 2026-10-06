@@ -64,16 +64,20 @@ HT.register('crop-image', root => {
   const fmt = HT.form([{ name: 'fmt', label: 'Save as', type: 'select', options: [['keep', 'Same as original'], ['png', 'PNG'], ['jpg', 'JPG'], ['webp', 'WebP']] }, { name: 'q', label: 'Quality', type: 'range', min: 40, max: 100, value: 92, unit: '%', showIf: v => v.fmt !== 'png' }]);
   const prog = HT.progress();
   const dl = el('button', { class: 'btn', type: 'button', text: 'Crop & download', onclick: save });
-  const editor = el('div', { class: 'card hidden' }, chips, el('div', { style: { textAlign: 'center' } }, stage), readout,
+  const resetBtn = el('button', { class: 'btn ghost', type: 'button', text: 'Reset', onclick: () => { rect = { x: 0, y: 0, w: bmp.width, h: bmp.height }; if (ratio) fitRatio(); draw(); } });
+  // everything you can change is in the left sidebar; the picture with the crop box and the download button are on the right
+  const setCard = el('div', { class: 'card hidden' }, HT.stepTitle(2, 'Crop'), chips,
     el('div', { class: 'fields', style: { marginTop: '12px' } }, ...['x', 'y', 'w', 'h'].map(k => el('div', { class: 'field' }, el('label', { class: 'lbl', text: { x: 'X (px)', y: 'Y (px)', w: 'Width (px)', h: 'Height (px)' }[k] }), nums[k]))),
-    el('div', { style: { marginTop: '14px' } }, fmt.el), el('div', { class: 'actions' }, dl, el('button', { class: 'btn ghost', type: 'button', text: 'Reset', onclick: () => { rect = { x: 0, y: 0, w: bmp.width, h: bmp.height }; if (ratio) fitRatio(); draw(); } })), prog.el);
-  root.append(HT.dropzone({ accept: 'image/*', hint: 'Runs in your browser: nothing is uploaded.', onFiles: fs => load(fs[0]) }), editor);
+    el('div', { style: { marginTop: '14px' } }, fmt.el), el('div', { class: 'actions' }, resetBtn), prog.el);
+  const editor = el('div', { class: 'card tmain hidden' }, el('div', { class: 'tbar' }, el('div', { class: 'tinfo' }, readout), el('div', { class: 'actions' }, dl)), el('div', { style: { textAlign: 'center' } }, stage));
+  const bench = HT.bench([HT.dropzone({ accept: 'image/*', hint: 'Runs in your browser: nothing is uploaded.', onFiles: fs => load(fs[0]) }), setCard], editor);
+  root.append(bench);
 
   async function load(f) {
     try { bmp = await HT.loadBitmap(f); } catch (e) { return prog.error(e.message); }
-    file = f; prog.clear(); editor.classList.remove('hidden');
+    file = f; prog.clear(); editor.classList.remove('hidden'); setCard.classList.remove('hidden'); bench.set(true);
     rect = { x: 0, y: 0, w: bmp.width, h: bmp.height };
-    const maxW = Math.min(760, root.clientWidth - 40); scale = Math.min(1, maxW / bmp.width, 520 / bmp.height);
+    const maxW = Math.min(900, (editor.clientWidth || root.clientWidth - 380) - 40); scale = Math.min(1, maxW / bmp.width, 520 / bmp.height);
     view.width = Math.round(bmp.width * scale); view.height = Math.round(bmp.height * scale);
     if (ratio) fitRatio(); draw();
   }

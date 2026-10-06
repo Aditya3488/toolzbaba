@@ -1,0 +1,40 @@
+/* Admin panel (/admin). Uses the colours and fonts of app.css. */
+.adm { background:var(--bg2); min-height:100vh; }
+.adm-top { position:sticky; top:0; z-index:20; background:var(--card); border-bottom:1px solid var(--border); }
+.adm-top-in { max-width:1500px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.adm-top h1 { font-size:1.05rem; margin:0; display:flex; align-items:center; gap:10px; } .adm-top h1 img { width:30px; height:30px; border-radius:8px; }
+.adm-top .sp { flex:1; }
+.adm-wrap { max-width:1500px; margin:0 auto; padding:18px 20px 60px; }
+.adm-login { max-width:400px; margin:12vh auto; background:var(--card); border:1px solid var(--border); border-radius:var(--r); padding:26px; box-shadow:var(--shadow); }
+.adm-login h1 { font-size:1.3rem; margin:0 0 6px; } .adm-login p { color:var(--muted); font-size:.92rem; margin:0 0 16px; } .adm-login input { width:100%; margin-bottom:12px; }
+.adm-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px; }
+.adm-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 14px; } .adm-card b { display:block; font-size:1.5rem; line-height:1.2; } .adm-card span { color:var(--muted); font-size:.8rem; }
+.adm-tabs { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:14px; border-bottom:1px solid var(--border); }
+.adm-tab { padding:9px 16px; border:0; background:transparent; font:inherit; font-weight:600; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px; } .adm-tab:hover { color:var(--text); } .adm-tab.on { color:var(--accent); border-bottom-color:var(--accent); }
+.adm-bar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:12px; } .adm-bar input[type=search] { min-width:200px; flex:1; max-width:340px; } .adm-bar select { width:auto; }
+.adm-bar .sp { flex:1; }
+.adm-note { color:var(--muted); font-size:.84rem; margin:0 0 12px; line-height:1.5; }
+.adm-tablewrap { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:auto; max-height:72vh; }
+table.adm-t { border-collapse:collapse; width:100%; font-size:.86rem; min-width:900px; }
+.adm-t th { position:sticky; top:0; background:var(--bg2); text-align:left; padding:9px 10px; font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); border-bottom:1px solid var(--border); white-space:nowrap; z-index:1; }
+.adm-t th.s { cursor:pointer; } .adm-t th.s:hover { color:var(--text); }
+.adm-t td { padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:middle; white-space:nowrap; } .adm-t tr:last-child td { border-bottom:0; } .adm-t tr:hover td { background:var(--bg2); }
+.adm-t td.l { white-space:normal; min-width:230px; } .adm-t .nm { display:flex; align-items:center; gap:10px; } .adm-t .nm b { font-weight:600; } .adm-t .nm small { display:block; color:var(--faint); font-size:.74rem; }
+.adm-t tr.arch td { opacity:.62; } .adm-t tr.arch td.act { opacity:1; } .adm-t tr.sub td.l { padding-left:34px; }
+.adm-t .num { text-align:right; font-variant-numeric:tabular-nums; }
+.adm-pill { display:inline-block; padding:2px 9px; border-radius:99px; font-size:.74rem; font-weight:700; background:var(--bg2); color:var(--muted); }
+.adm-pill.live, .adm-pill.good, .adm-pill.ok { background:#dcf5e6; color:#0b7a3f; } .adm-pill.arch { background:#ececf2; color:#555a6e; } .adm-pill.warn, .adm-pill.mid { background:#fff0cc; color:#8a5a00; } .adm-pill.fail, .adm-pill.poor { background:#fde0e0; color:#b3261e; }
+:root[data-theme=dark] .adm-pill.live, :root[data-theme=dark] .adm-pill.good, :root[data-theme=dark] .adm-pill.ok { background:#12392a; color:#6fe3a2; } :root[data-theme=dark] .adm-pill.arch { background:#2b2e3b; color:#aab0c5; } :root[data-theme=dark] .adm-pill.warn, :root[data-theme=dark] .adm-pill.mid { background:#3c3010; color:#f2c566; } :root[data-theme=dark] .adm-pill.fail, :root[data-theme=dark] .adm-pill.poor { background:#451c1c; color:#ff9d96; }
+@media (prefers-color-scheme:dark) { :root:not([data-theme=light]) .adm-pill.live, :root:not([data-theme=light]) .adm-pill.good, :root:not([data-theme=light]) .adm-pill.ok { background:#12392a; color:#6fe3a2; } :root:not([data-theme=light]) .adm-pill.arch { background:#2b2e3b; color:#aab0c5; } :root:not([data-theme=light]) .adm-pill.warn, :root:not([data-theme=light]) .adm-pill.mid { background:#3c3010; color:#f2c566; } :root:not([data-theme=light]) .adm-pill.fail, :root:not([data-theme=light]) .adm-pill.poor { background:#451c1c; color:#ff9d96; } }
+.adm-btns { display:flex; gap:6px; }
+.adm-sel { position:sticky; bottom:12px; margin-top:12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; background:var(--card); border:1px solid var(--accent); border-radius:12px; padding:10px 14px; box-shadow:var(--shadow); }
+.adm-sel input[type=text] { flex:1; min-width:180px; }
+.adm-bar2 { height:8px; border-radius:99px; background:var(--bg2); overflow:hidden; min-width:90px; } .adm-bar2 i { display:block; height:100%; background:var(--accent); transition:width .2s; }
+.adm-log { background:#0f1220; color:#d6dbf0; font:12px/1.5 ui-monospace,Consolas,monospace; border-radius:12px; padding:12px 14px; height:200px; overflow:auto; white-space:pre-wrap; margin-top:12px; }
+.adm-log .e { color:#ff9d96; } .adm-log .g { color:#6fe3a2; } .adm-log .y { color:#f2c566; }
+.adm-opts { display:flex; flex-wrap:wrap; gap:6px 20px; margin-bottom:12px; }
+.adm-help { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:6px 22px 18px; line-height:1.6; max-width:880px; } .adm-help h3 { margin:18px 0 6px; font-size:1.02rem; } .adm-help code { background:var(--bg2); padding:1px 6px; border-radius:6px; font-size:.86em; }
+.adm-msg { color:var(--err, #b3261e); font-size:.9rem; min-height:1.2em; margin:-4px 0 10px; }
+.adm-dlg { border:1px solid var(--border2); border-radius:14px; padding:20px; width:min(440px,92vw); background:var(--card); color:var(--text); box-shadow:var(--shadow); } .adm-dlg::backdrop { background:rgba(10,12,24,.45); } .adm-dlg h3 { margin:0 0 8px; } .adm-dlg input { width:100%; margin:10px 0 14px; }
+.adm-small { font-size:.78rem; color:var(--faint); }
+@media (max-width:700px) { .adm-wrap { padding:12px 10px 50px; } .adm-top-in { padding:8px 12px; } }

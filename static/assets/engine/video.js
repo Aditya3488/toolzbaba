@@ -132,6 +132,27 @@
     return [{ name: outName(f, 'gif'), blob }];
   });
 
+  // ---------------------------------------------------------------- compress GIF (page /compress-gif)
+  tool('compress-gif', async (ctx, session) => {
+    const o = ctx.opts, colors = [256, 128, 64, 32, 16].includes(parseInt(o.colors, 10)) ? parseInt(o.colors, 10) : 128;
+    const width = Math.max(0, Math.min(1920, parseInt(o.width, 10) || 0)), fps = Math.max(0, Math.min(30, parseInt(o.fps, 10) || 0));
+    const pre = [fps ? `fps=${fps}` : '', width ? `scale='min(${width},iw)':-1:flags=lanczos` : ''].filter(Boolean).join(',');
+    const vf = (pre ? pre + ',' : '') + `split[s0][s1];[s0]palettegen=max_colors=${colors}:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle`;
+    const outs = [], rows = [], { ff, paths } = await session(ctx.files); let kept = 0;
+    for (const [i, f] of ctx.files.entries()) {
+      ctx.status(ctx.files.length > 1 ? `Compressing ${i + 1} of ${ctx.files.length}...` : 'Compressing...');
+      const { duration } = await probe(ff, paths[i]);
+      let blob = await run(ff, ctx, ['-i', paths[i], '-vf', vf, '-loop', '0'], 'out.gif', { duration, base: i / ctx.files.length, span: 1 / ctx.files.length, type: 'image/gif' });
+      if (blob.size >= f.size) { blob = f; kept++; }  // already well compressed: never hand back a bigger file
+      outs.push({ name: outName(f, 'gif', '_compressed'), blob });
+      rows.push({ name: f.name, before: f.size, after: blob.size });
+    }
+    const tb = rows.reduce((a, r) => a + r.before, 0), ta = rows.reduce((a, r) => a + r.after, 0);
+    ctx.info = { summary: `${mb(tb)} \u2192 ${mb(ta)}` + (ta < tb ? `  (${Math.round((1 - ta / tb) * 100)}% smaller)` : '')
+      + (kept ? `. ${kept} GIF(s) were already well compressed, so the original was kept. Try fewer colours or a smaller width.` : ''), files: rows };
+    return outs;
+  });
+
   // ---------------------------------------------------------------- gif -> video
   tool('gif-to-video', async (ctx, session) => {
     const fmt = ctx.opts.format || 'mp4', loops = Math.max(1, Math.min(20, parseInt(ctx.opts.loops, 10) || 1));
@@ -171,7 +192,7 @@
   });
 
   // ---------------------------------------------------------------- compressor
-  tool('video-compressor', async (ctx, session) => {
+  tool('compress-video', async (ctx, session) => {
     const o = ctx.opts, mode = o.mode || 'level';
     const crf = { light: 23, medium: 27, strong: 32 }[o.level || 'medium'];
     if (crf === undefined) throw new Error('Unknown compression level.');
@@ -205,8 +226,8 @@
   });
 
   // ---------------------------------------------------------------- audio cutter
-  tool('audio-cutter', async (ctx, session) => {
-    const f = ctx.files[0], o = ctx.opts, fmt = o.format || 'mp3';
+  const cutAudio = async (ctx, session) => {
+    const f = ctx.files[0], o = ctx.opts, srcExt = HT.ext(f.name), fmt = o.format && o.format !== 'keep' ? o.format : (AUDIO[srcExt] ? srcExt : 'mp3');
     if (!AUDIO[fmt]) throw new Error('Unsupported audio format.');
     const { ff, paths } = await session([f]);
     let blob, start, end, length;
@@ -224,7 +245,7 @@
     blob = await run(ff, ctx, [...args, ...AUDIO[fmt]], 'out.' + fmt, { duration: length, type: MIME[fmt] });
     ctx.info = { summary: `Cut ${start.toFixed(1)}s → ${end.toFixed(1)}s (${length.toFixed(1)}s, ${mb(blob.size)})` };
     return [{ name: outName(f, fmt, '_cut'), blob }];
-  });
+  };
 
   // ---------------------------------------------------------------- merger
   const even = v => Math.max(2, Math.round(v / 2) * 2);
@@ -271,7 +292,7 @@
     parts.push(speed);
     return parts.map(p => `atempo=${p.toFixed(4)}`).join(',');
   };
-  tool('video-speed', async (ctx, session) => {
+  tool('change-video-speed', async (ctx, session) => {
     const speed = parseFloat(ctx.opts.speed ?? 2), keepAudio = (ctx.opts.audio || 'keep') === 'keep';
     if (!(speed >= 0.25 && speed <= 8)) throw new Error('Choose a speed between 0.25x and 8x.');
     const outs = [], { ff, paths } = await session(ctx.files);
@@ -284,5 +305,108 @@
     }
     ctx.info = { summary: `${speed}x speed applied to ${outs.length} video(s)` };
     return outs;
+  });
+  // ---------------------------------------------------------------- video -> audio (pages /video-to-audio and /mp4-to-mp3)
+  const audioArgs = (fmt, br) => (fmt === 'mp3' ? ['-c:a', 'libmp3lame', '-b:a', br + 'k'] : fmt === 'm4a' ? ['-c:a', 'aac', '-b:a', br + 'k'] : fmt === 'ogg' ? ['-c:a', 'libopus', '-b:a', br + 'k'] : AUDIO[fmt]);
+  tool('video-to-audio', async (ctx, session) => {
+    const fmt = ctx.opts.format || 'mp3', br = ['64', '96', '128', '160', '192', '256', '320'].includes(String(ctx.opts.bitrate)) ? String(ctx.opts.bitrate) : '192';
+    if (!AUDIO[fmt]) throw new Error('Unsupported audio format.');
+    const outs = [], rows = [], { ff, paths } = await session(ctx.files);
+    for (const [i, f] of ctx.files.entries()) {
+      ctx.status(ctx.files.length > 1 ? `Taking the sound out of ${i + 1} of ${ctx.files.length}...` : 'Taking the sound out...');
+      const inf = await probe(ff, paths[i]);
+      if (!inf.hasAudio) throw new Error(`'${f.name}' has no sound.`);
+      const blob = await run(ff, ctx, ['-i', paths[i], '-vn', ...audioArgs(fmt, br)], `out.${fmt}`, { duration: inf.duration, base: i / ctx.files.length, span: 1 / ctx.files.length, type: MIME[fmt] });
+      outs.push({ name: outName(f, fmt), blob });
+      rows.push({ name: f.name, before: f.size, after: blob.size });
+    }
+    ctx.info = { summary: `${outs.length} file(s) saved as ${fmt.toUpperCase()}`, files: rows };
+    return outs;
+  });
+
+  // ---------------------------------------------------------------- split video / audio into parts
+  const pad2 = n => String(n).padStart(2, '0');
+  async function splitMedia(ctx, session, audioOnly) {
+    const f = ctx.files[0], o = ctx.opts, srcExt = HT.ext(f.name) || (audioOnly ? 'mp3' : 'mp4');
+    const { ff, paths } = await session([f]), { duration } = await probe(ff, paths[0]);
+    if (!duration) throw new Error("Couldn't read the length of this file.");
+    let len;
+    if ((o.by || 'length') === 'parts') len = duration / Math.max(2, Math.min(100, parseInt(o.parts, 10) || 2));
+    else { len = parseTime(o.seconds, 30); if (!(len >= 1)) throw new Error('Each part must be at least 1 second long.'); }
+    const n = Math.ceil(duration / len - 0.001);
+    if (n < 2) throw new Error(`This file is only ${duration.toFixed(1)} seconds long: choose a shorter part length.`);
+    if (n > 100) throw new Error(`That would make ${n} parts (the limit is 100). Choose a longer part length.`);
+    const fmt = audioOnly ? (o.format && o.format !== 'keep' ? o.format : null) : null;
+    if (audioOnly && fmt && !AUDIO[fmt]) throw new Error('Unsupported audio format.');
+    const ext = audioOnly ? (fmt || (AUDIO_EXT.includes(srcExt) ? srcExt : 'mp3')) : srcExt, outs = [];
+    for (let i = 0; i < n; i++) {
+      ctx.status(`Cutting part ${i + 1} of ${n}...`);
+      const start = i * len, part = Math.min(len, duration - start);
+      let args = ['-ss', String(start), '-i', paths[0], '-t', String(part)];
+      if (audioOnly) args.push('-vn', ...(fmt ? AUDIO[fmt] : AUDIO_EXT.includes(srcExt) && !(o.accurate) ? ['-c', 'copy'] : AUDIO.mp3));
+      else if ((o.mode || 'fast') === 'fast') args.push('-c', 'copy', '-avoid_negative_ts', 'make_zero');
+      else { args.push(...X264, '-crf', '22', '-c:a', 'aac', '-b:a', '160k'); if (['mp4', 'mov', 'm4v'].includes(ext)) args.push('-movflags', '+faststart'); }
+      const blob = await run(ff, ctx, args, 'out.' + ext, { duration: part, base: i / n, span: 1 / n, type: MIME[ext] || f.type || '' });
+      outs.push({ name: `${HT.stem(f.name)}_part${pad2(i + 1)}.${ext}`, blob });
+    }
+    ctx.info = { summary: `Split into ${n} parts of about ${len.toFixed(1)} seconds` + ((o.mode || 'fast') === 'fast' && !audioOnly ? '. Fast mode cuts at the nearest keyframe, so a part can start or end a moment off.' : '') };
+    return outs;
+  }
+  tool('split-video', (ctx, session) => splitMedia(ctx, session, false));
+  // the Split Audio page does both: cut out one part, or split into parts
+  tool('split-audio', (ctx, session) => ((ctx.opts.by || 'cut') === 'cut' ? cutAudio(ctx, session) : splitMedia(ctx, session, true)));
+
+  // ---------------------------------------------------------------- merge audio files
+  tool('merge-audio', async (ctx, session) => {
+    const fmt = ctx.opts.format || 'mp3';
+    if (!AUDIO[fmt]) throw new Error('Unsupported audio format.');
+    const { ff, paths } = await session(ctx.files), infos = [];
+    for (const [i, p] of paths.entries()) { const inf = await probe(ff, p); if (!inf.hasAudio) throw new Error(`'${ctx.files[i].name}' has no sound.`); infos.push(inf); }
+    const total = infos.reduce((a, i) => a + (i.duration || 0), 0) || null, gap = Math.max(0, Math.min(10, +ctx.opts.gap || 0));
+    const args = [];
+    paths.forEach(p => args.push('-i', p));
+    // every file is made the same sample rate and channel layout first, then they are joined (with an optional silent gap)
+    const parts = paths.map((_, i) => `[${i}:a:0]aresample=44100,aformat=sample_fmts=fltp:channel_layouts=stereo${gap && i < paths.length - 1 ? `,apad=pad_dur=${gap}` : ''}[a${i}]`);
+    args.push('-filter_complex', parts.join(';') + ';' + paths.map((_, i) => `[a${i}]`).join('') + `concat=n=${paths.length}:v=0:a=1[out]`, '-map', '[out]', ...AUDIO[fmt]);
+    ctx.status('Joining...');
+    const blob = await run(ff, ctx, args, 'merged.' + fmt, { duration: total && total + gap * (paths.length - 1), type: MIME[fmt] });
+    ctx.info = { summary: `Joined ${paths.length} audio files into one ${fmt.toUpperCase()} (${mb(blob.size)})` };
+    return [{ name: 'merged.' + fmt, blob }];
+  });
+
+  // ---------------------------------------------------------------- watermark on a video (text or logo)
+  // The watermark is drawn as a picture with its opacity already applied, then laid over the video with ffmpeg's overlay filter.
+  async function watermarkPng(ctx, o, videoW) {
+    let c;
+    if (o.type === 'image') {
+      const logo = ctx.files[1]; if (!logo) throw new Error('Add a logo image first.');
+      const b = await HT.loadBitmap(logo), w = Math.max(16, Math.round(videoW * Math.max(2, Math.min(80, +o.size || 20)) / 100));
+      c = HT.resample(HT.toCanvas(b), w, Math.max(1, Math.round(w * b.height / b.width)));
+    } else {
+      const text = String(o.text || '').trim(); if (!text) throw new Error('Type the watermark text first.');
+      const px = Math.max(12, Math.round(videoW * Math.max(1, Math.min(30, +o.size || 6)) / 100)), font = `700 ${px}px system-ui, "Segoe UI", Arial, sans-serif`;
+      const m = HT.canvas(10, 10).getContext('2d'); m.font = font; const lines = text.split('\n').slice(0, 4), w = Math.ceil(Math.max(...lines.map(l => m.measureText(l).width))) + px;
+      c = HT.canvas(w, Math.ceil(px * 1.35 * lines.length + px * 0.4));
+      const x = c.getContext('2d'); x.font = font; x.textBaseline = 'top'; x.fillStyle = o.color || '#ffffff'; x.shadowColor = 'rgba(0,0,0,.55)'; x.shadowBlur = px * 0.12; x.shadowOffsetY = px * 0.04;
+      lines.forEach((l, i) => x.fillText(l, px / 2, px * 0.2 + i * px * 1.35));
+    }
+    const o2 = HT.canvas(c.width, c.height), x2 = o2.getContext('2d'); x2.globalAlpha = Math.max(0.05, Math.min(1, (+o.opacity || 70) / 100)); x2.drawImage(c, 0, 0);
+    return new Uint8Array(await (await HT.encode(o2, 'image/png')).arrayBuffer());
+  }
+  tool('add-watermark-to-video', async (ctx, session) => {
+    const f = ctx.files[0], o = ctx.opts, { ff, paths } = await session([f]), inf = await probe(ff, paths[0]);
+    if (!inf.hasVideo) throw new Error(`'${f.name}' has no video.`);
+    ctx.status('Preparing the watermark...');
+    await ff.writeFile('wm.png', await watermarkPng(ctx, o, inf.w || 1280));
+    const mg = Math.round((inf.w || 1280) * 0.02), pos = o.position || 'br';
+    const x = { l: String(mg), c: '(W-w)/2', r: `W-w-${mg}` }[pos[1]], y = { t: String(mg), c: '(H-h)/2', b: `H-h-${mg}` }[pos[0]];
+    if (!x || !y) throw new Error('Unknown position.');
+    const args = ['-i', paths[0], '-i', 'wm.png', '-filter_complex', `[0:v][1:v]overlay=${x}:${y}:format=auto,format=yuv420p[v]`, '-map', '[v]'];
+    if (inf.hasAudio) args.push('-map', '0:a:0', '-c:a', 'aac', '-b:a', '160k');
+    args.push(...X264, '-crf', '22', '-movflags', '+faststart');
+    ctx.status('Adding the watermark...');
+    const blob = await run(ff, ctx, args, 'out.mp4', { duration: inf.duration, type: 'video/mp4' });
+    ctx.info = { summary: `Watermark added (${mb(blob.size)})` };
+    return [{ name: outName(f, 'mp4', '_watermarked'), blob }];
   });
 })();

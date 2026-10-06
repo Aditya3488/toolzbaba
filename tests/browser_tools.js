@@ -69,7 +69,7 @@ let pass = 0, fail = 0;
     return JSON.stringify(t.replace(/\s+/g, ' ').slice(0, 60)) + (hindi ? ' (Hindi detected)' : ' (no Devanagari found)');
   });
   if (fs.existsSync(path.join(SAMPLES, 'face.jpg'))) await T('passport-photo-maker (UI)', async page => {
-    await go(page, 'passport-photo-maker'); await feed(page, 'face.jpg'); await page.selectOption('select >> nth=1', 'blue'); await btn(page, /Make passport photo/).click();
+    await go(page, 'passport-size-photo-maker'); await feed(page, 'face.jpg'); await page.selectOption('select >> nth=1', 'blue'); await btn(page, /Make passport photo/).click();
     return await resultText(page);
   });
 
@@ -90,7 +90,7 @@ let pass = 0, fail = 0;
     return `${summary} order=${r.texts.join(',')} rot=${r.rot.join(',')}`;
   });
   await T('sign-pdf: draw, place, sign', async page => {
-    await go(page, 'sign-pdf'); await feed(page, 'five.pdf'); await page.waitForSelector('.sigpad');
+    await go(page, 'esign-pdf'); await feed(page, 'five.pdf'); await page.waitForSelector('.sigpad');
     const b = await page.locator('.sigpad').boundingBox();
     await page.mouse.move(b.x + 40, b.y + b.height - 40); await page.mouse.down(); for (let i = 0; i <= 20; i++) await page.mouse.move(b.x + 40 + i * 12, b.y + b.height / 2 + Math.sin(i / 2) * 50); await page.mouse.up();
     await btn(page, /Use this signature/).click(); await page.waitForSelector('.sigbox.live', { timeout: 30000 });
@@ -103,7 +103,7 @@ let pass = 0, fail = 0;
     fs.mkdirSync(path.join(__dirname, 'out'), { recursive: true }); fs.writeFileSync(path.join(__dirname, 'out', 'sign_result.pdf'), Buffer.from(arr));
     return listText.slice(0, 70) + ' | result ' + arr.length + ' bytes';
   });
-  await T('pdf-page-numbers (UI)', async page => { await go(page, 'pdf-page-numbers'); await feed(page, 'five.pdf'); await btn(page, /Add page numbers/).click(); return await resultText(page); });
+  await T('pdf-page-numbers (UI)', async page => { await go(page, 'add-page-numbers-to-pdf'); await feed(page, 'five.pdf'); await btn(page, /Add page numbers/).click(); return await resultText(page); });
   await T('protect-pdf: mismatch, then lock', async page => {
     await go(page, 'protect-pdf'); await feed(page, 'five.pdf'); const pw = page.locator('input[type=password]'); await pw.nth(0).fill('hunter22'); await pw.nth(1).fill('hunter23');
     await btn(page, /Protect PDF/).click(); await page.waitForSelector('.status.err'); const e1 = await page.locator('.status.err').innerText();
@@ -124,11 +124,11 @@ let pass = 0, fail = 0;
   await T('audio-cutter (UI)', async page => {
     await go(page, 'audio-cutter'); await feed(page, 'tone.mp3'); await page.waitForFunction(() => document.querySelector('video') && document.querySelector('video').duration > 1, null, { timeout: 15000 });
     const vals = await page.evaluate(() => [...document.querySelectorAll('input[type=text]')].map(i => i.value)); if (vals[1] !== '0:05.0') throw new Error('end not auto-filled: ' + vals);
-    await page.locator('input[type=text]').nth(0).fill('1'); await page.locator('input[type=text]').nth(1).fill('3'); await btn(page, /Cut audio/).click(); const t = await resultText(page);
+    await page.locator('input[type=text]').nth(0).fill('1'); await page.locator('input[type=text]').nth(1).fill('3'); await btn(page, /^Split audio/).click(); const t = await resultText(page);
     if (!(await page.evaluate(() => !!document.querySelector('.result audio')))) throw new Error('no audio player in result'); return t;
   });
   await T('video-merger (UI)', async page => { await go(page, 'video-merger'); await feed(page, ['clip.mp4', 'clip2.mp4']); await btn(page, /Merge 2 videos/).click(); const t = await resultText(page); if (!(await page.evaluate(() => !!document.querySelector('.result video')))) throw new Error('no video'); return t; });
-  await T('video-speed (UI)', async page => { await go(page, 'video-speed'); await feed(page, 'clip.mp4'); await btn(page, /Change speed/).click(); return await resultText(page); });
+  await T('video-speed (UI)', async page => { await go(page, 'change-video-speed'); await feed(page, 'clip.mp4'); await btn(page, /Change speed/).click(); return await resultText(page); });
 
   // ------------------------------------------------------------------ text & developer
   await T('json-formatter', async page => {
@@ -143,8 +143,8 @@ let pass = 0, fail = 0;
     await page.waitForTimeout(300); const txt = await page.locator('.sidecard').allInnerTexts(); const m = Object.fromEntries(txt.map(t => { const [v, l] = t.split('\n'); return [l, v]; }));
     if (m['Words'] !== '15' || m['Paragraphs'] !== '2' || m['Sentences'] !== '3') throw new Error(JSON.stringify(m)); const kw = await page.locator('.chip').first().innerText(); return `words=${m['Words']} sentences=${m['Sentences']} paragraphs=${m['Paragraphs']} top="${kw.replace(/\s+/g, ' ')}"`;
   });
-  await T('case-converter', async page => {
-    await go(page, 'case-converter'); const ta = page.locator('textarea'); const out = {};
+  await T('text-case-converter', async page => {
+    await go(page, 'text-case-converter'); const ta = page.locator('textarea'); const out = {};
     for (const n of ['UPPERCASE', 'Title Case', 'camelCase', 'snake_case', 'kebab-case', 'CONSTANT_CASE', 'Sentence case']) { await ta.fill('hello wORLD from toolz baba'); await btn(page, new RegExp('^' + n + '$')).click(); out[n] = await ta.inputValue(); }
     const want = { UPPERCASE: 'HELLO WORLD FROM TOOLZ BABA', 'Title Case': 'Hello World From Toolz Baba', camelCase: 'helloWorldFromToolzBaba', snake_case: 'hello_world_from_toolz_baba', 'kebab-case': 'hello-world-from-toolz-baba', CONSTANT_CASE: 'HELLO_WORLD_FROM_TOOLZ_BABA', 'Sentence case': 'Hello world from toolz baba' };
     for (const k in want) if (out[k] !== want[k]) throw new Error(k + ': ' + out[k]);

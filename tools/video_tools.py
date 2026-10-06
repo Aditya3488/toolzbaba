@@ -180,7 +180,7 @@ def video_trimmer(ctx: Ctx):
 
 
 # ---------------------------------------------------------------- compressor
-@tool("video-compressor", accepts=VIDEO_EXT, max_mb=2048, max_files=5)
+@tool("compress-video", accepts=VIDEO_EXT, max_mb=2048, max_files=5)
 def video_compressor(ctx: Ctx):
     mode = ctx.opt("mode", "level")
     level = ctx.opt("level", "medium")

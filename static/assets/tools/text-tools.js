@@ -1,6 +1,7 @@
 // Text & developer tools. Everything runs in the browser.
 const $el = HT.el;
 const area = (attrs = {}) => $el('textarea', { spellcheck: 'false', ...attrs });
+const half = (left, right) => { const b = HT.bench([left], right, { half: true }); b.classList.add('on'); return b; };  // two equal halves
 const copyBtn = (get, label = 'Copy') => $el('button', { class: 'btn sec sm', type: 'button', text: label, onclick: () => HT.copy(typeof get === 'function' ? get() : get) });
 
 // ------------------------------------------------------------------ JSON formatter
@@ -57,19 +58,19 @@ HT.register('word-counter', root => {
     const t = ta.value, words = (t.trim().match(/\S+/g) || []), chars = [...t].length, noSpace = [...t.replace(/\s/g, '')].length;
     const sentences = (t.match(/[^.!?।\n]+[.!?।]+|[^.!?।\n]+$/g) || []).filter(s => s.trim()).length, paras = t.split(/\n\s*\n/).filter(s => s.trim()).length;
     const mins = words.length / 200, secs = words.length / 130 * 60, lim = +limit.value;
-    grid.textContent = ''; grid.append(stat('Words', words.length), stat('Characters', chars, noSpace + ' without spaces'), stat('Sentences', sentences), stat('Paragraphs', paras),
+    grid.textContent = ''; grid.append(...[stat('Words', words.length), stat('Characters', chars, noSpace + ' without spaces'), stat('Sentences', sentences), stat('Paragraphs', paras),
       stat('Reading time', mins < 1 ? Math.max(words.length ? 1 : 0, Math.round(mins * 60)) + ' sec' : Math.round(mins * 10) / 10 + ' min'), stat('Speaking time', secs < 60 ? Math.round(secs) + ' sec' : Math.round(secs / 6) / 10 + ' min'),
-      lim ? stat('Characters left', lim - chars, lim - chars < 0 ? 'over the limit' : 'of ' + lim) : null);
+      lim ? stat('Characters left', lim - chars, lim - chars < 0 ? 'over the limit' : 'of ' + lim) : null].filter(Boolean));
     const freq = new Map(); words.forEach(w => { const k = w.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ''); if (k.length > 2 && !STOP.has(k)) freq.set(k, (freq.get(k) || 0) + 1); });
     const top = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
     kw.textContent = ''; if (top.length) { kw.append($el('h2', { text: 'Most used words' })); kw.append($el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px' } }, top.map(([w, n]) => $el('span', { class: 'chip' }, w, $el('b', { style: { color: 'var(--accent)' }, text: ' ×' + n }), $el('span', { class: 'help', text: ' ' + (n / words.length * 100).toFixed(1) + '%' }))))); }
   }
   ta.addEventListener('input', update); limit.addEventListener('input', update);
-  root.append($el('div', { class: 'card' }, ta, $el('div', { class: 'actions' }, $el('label', { class: 'lbl', style: { margin: 0 }, text: 'Character limit (optional)' }), limit, $el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear', onclick: () => { ta.value = ''; update(); } })), grid, kw)); update();
+  root.append(half($el('div', { class: 'card' }, ta, $el('div', { class: 'actions' }, $el('label', { class: 'lbl', style: { margin: 0 }, text: 'Character limit (optional)' }), limit, $el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear', onclick: () => { ta.value = ''; update(); } }))), $el('div', { class: 'card tmain' }, grid, kw))); update();
 });
 
 // ------------------------------------------------------------------ Case converter
-HT.register('case-converter', root => {
+HT.register('text-case-converter', root => {
   const ta = area({ placeholder: 'Type or paste your text here...', style: { minHeight: '240px', fontFamily: 'inherit', fontSize: '1rem' } });
   // split on anything that isn't a letter/number, and at real camelCase joins (helloWorld, XMLHttpRequest) but not in odd casing like "wORLD"
   const words = s => s.replace(/([a-z0-9])([A-Z][a-z])/g, '$1 $2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2').split(/[^\p{L}\p{N}]+/u).filter(Boolean);
@@ -87,8 +88,8 @@ HT.register('case-converter', root => {
   ];
   const history = [];
   const apply = f => { history.push(ta.value); ta.value = f(ta.value); };
-  const tools = $el('div', { class: 'actions', style: { marginTop: '14px' } }, CONVERT.map(([t, f]) => $el('button', { class: 'btn sec sm', type: 'button', text: t, onclick: () => apply(f) })));
-  root.append($el('div', { class: 'card' }, ta, tools, $el('div', { class: 'actions' }, copyBtn(() => ta.value, 'Copy text'), $el('button', { class: 'btn ghost sm', type: 'button', text: 'Undo', onclick: () => { if (history.length) ta.value = history.pop(); } }), $el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear', onclick: () => { history.push(ta.value); ta.value = ''; } }))));
+  const tools = $el('div', { class: 'actions', style: { marginTop: '0' } }, CONVERT.map(([t, f]) => $el('button', { class: 'btn sec sm', type: 'button', text: t, onclick: () => apply(f) })));
+  root.append(half($el('div', { class: 'card' }, HT.stepTitle(1, 'Choose a case'), tools), $el('div', { class: 'card tmain' }, ta, $el('div', { class: 'actions' }, copyBtn(() => ta.value, 'Copy text'), $el('button', { class: 'btn ghost sm', type: 'button', text: 'Undo', onclick: () => { if (history.length) ta.value = history.pop(); } }), $el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear', onclick: () => { history.push(ta.value); ta.value = ''; } })))));
 });
 
 // ------------------------------------------------------------------ Password generator
@@ -117,7 +118,7 @@ HT.register('password-generator', root => {
     const label = bits < 40 ? 'Weak' : bits < 60 ? 'OK' : bits < 80 ? 'Strong' : 'Very strong';
     meter.textContent = `Strength: ${label} (about ${Math.round(bits)} bits). Passwords are created in your browser and never sent anywhere.`;
   }
-  root.append($el('div', { class: 'card' }, form.el, $el('div', { class: 'actions' }, $el('button', { class: 'btn', type: 'button', text: 'Generate new', onclick: gen })), status), $el('div', { class: 'card' }, list, meter)); gen();
+  root.append(half($el('div', { class: 'card' }, form.el, $el('div', { class: 'actions' }, $el('button', { class: 'btn', type: 'button', text: 'Generate new', onclick: gen })), status), $el('div', { class: 'card tmain' }, list, meter))); gen();
 });
 
 // ------------------------------------------------------------------ Hash & UUID generator
@@ -155,12 +156,12 @@ HT.register('hash-uuid-generator', root => {
   // UUIDs
   const uf = HT.form([{ name: 'ver', label: 'Version', type: 'select', options: [['4', 'v4 (random)'], ['7', 'v7 (time-ordered)']] }, { name: 'n', label: 'How many', type: 'number', value: 5, min: 1, max: 200 },
     { name: 'up', label: 'Uppercase', type: 'checkbox' }, { name: 'nodash', label: 'Remove hyphens', type: 'checkbox' }], () => gen());
-  const uout = area({ readonly: true, style: { minHeight: '180px', marginTop: '12px' } });
+  const uout = area({ readonly: true, style: { minHeight: '260px' } });
   const fmt = b => { const h = [...b].map(x => x.toString(16).padStart(2, '0')).join(''); return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`; };
   const v4 = () => { const b = crypto.getRandomValues(new Uint8Array(16)); b[6] = (b[6] & 15) | 0x40; b[8] = (b[8] & 63) | 0x80; return fmt(b); };
   const v7 = () => { const b = crypto.getRandomValues(new Uint8Array(16)); let t = Date.now(); for (let i = 5; i >= 0; i--) { b[i] = t % 256; t = Math.floor(t / 256); } b[6] = (b[6] & 15) | 0x70; b[8] = (b[8] & 63) | 0x80; return fmt(b); };
   function gen() { const v = uf.values(), n = Math.max(1, Math.min(200, v.n || 1)); let l = Array.from({ length: n }, () => (v.ver === '7' ? v7() : v4())); if (v.nodash) l = l.map(x => x.replace(/-/g, '')); if (v.up) l = l.map(x => x.toUpperCase()); uout.value = l.join('\n'); }
-  panes.uuid = $el('div', { class: 'card' }, uf.el, uout, $el('div', { class: 'actions' }, $el('button', { class: 'btn', type: 'button', text: 'Generate', onclick: gen }), copyBtn(() => uout.value, 'Copy all')));
+  panes.uuid = half($el('div', { class: 'card' }, uf.el, $el('div', { class: 'actions' }, $el('button', { class: 'btn', type: 'button', text: 'Generate', onclick: gen }))), $el('div', { class: 'card tmain' }, $el('div', { class: 'tbar' }, $el('div', { class: 'tinfo', text: 'Your UUIDs' }), $el('div', { class: 'actions' }, copyBtn(() => uout.value, 'Copy all'))), uout));
 
   // text hash
   const tin = area({ placeholder: 'Type or paste text to hash...', style: { minHeight: '120px' } }), tres = $el('div', { style: { marginTop: '12px' } }), upper = $el('input', { type: 'checkbox' });
@@ -168,14 +169,15 @@ HT.register('hash-uuid-generator', root => {
   let tk = 0;
   const hashText = async () => { const my = ++tk; try { const r = await digestAll(new TextEncoder().encode(tin.value)); if (my === tk) { tres.textContent = ''; tres.append(rows(r, upper.checked)); } } catch (e) { tres.textContent = e.message; } };
   tin.addEventListener('input', hashText); upper.addEventListener('change', hashText);
-  panes.text = $el('div', { class: 'card hidden' }, tin, $el('div', { class: 'actions', style: { marginTop: '10px' } }, $el('label', { class: 'chk' }, upper, 'Uppercase hex')), tres);
+  panes.text = half($el('div', { class: 'card' }, tin, $el('div', { class: 'actions', style: { marginTop: '10px' } }, $el('label', { class: 'chk' }, upper, 'Uppercase hex'))), $el('div', { class: 'card tmain' }, $el('div', { class: 'tinfo', text: 'Hashes of your text' }), tres));
+  panes.text.classList.add('hidden');
 
   // file hash
   const fres = $el('div', { style: { marginTop: '14px' } }), fstat = HT.progress();
-  panes.file = $el('div', {}, HT.dropzone({ multiple: false, hint: 'Any file up to 500 MB. Read in your browser, never uploaded.', onFiles: async fs => {
+  panes.file = half($el('div', { class: 'card' }, HT.dropzone({ multiple: false, hint: 'Any file up to 500 MB. Read in your browser, never uploaded.', onFiles: async fs => {
     const f = fs[0]; fres.textContent = ''; if (f.size > 500 * 1024 * 1024) return fstat.error('That file is larger than 500 MB.');
     try { fstat.set(30, 'Reading ' + f.name + '...'); const bytes = new Uint8Array(await f.arrayBuffer()); fstat.set(60, 'Calculating...'); await new Promise(r => setTimeout(r, 20)); const r = await digestAll(bytes); fstat.clear(); fres.append($el('div', { class: 'sum', text: `${f.name} · ${HT.fmtBytes(f.size)}` }), rows(r, false)); } catch (e) { fstat.error(e.message); }
-  } }), fres, fstat.el);
+  } }), fstat.el), $el('div', { class: 'card tmain' }, $el('div', { class: 'tinfo', text: 'The fingerprints of your file' }), fres));
   panes.file.classList.add('hidden');
   Object.values(panes).forEach(p => root.append(p)); root.prepend(bar); show('uuid'); gen(); hashText();
 });
@@ -204,6 +206,7 @@ HT.register('url-encoder', root => {
     if (ps.length) { parts.append($el('h2', { text: 'Query parameters' })); const t2 = $el('table', { class: 'ftable' }); ps.forEach(([k, v]) => t2.append(row(k, v))); t2.querySelectorAll('td:first-child').forEach(td => { td.style.color = 'var(--text)'; td.style.fontWeight = 600; }); parts.append(t2); }
   }
   uin.addEventListener('input', parse);
-  panes.parse = $el('div', { class: 'card hidden' }, $el('label', { class: 'lbl', text: 'Full URL' }), uin, parts);
+  panes.parse = half($el('div', { class: 'card' }, $el('label', { class: 'lbl', text: 'Full URL' }), uin), $el('div', { class: 'card tmain' }, parts));
+  panes.parse.classList.add('hidden');
   Object.values(panes).forEach(p => root.append(p)); root.prepend(bar); show('enc');
 });

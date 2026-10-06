@@ -8,8 +8,7 @@ HT.register('image-cdn', root => {
   const prog = HT.progress();
   const listBox = el('div');
   const dz = HT.dropzone({ accept: 'image/*,.heic,.heif,.avif', multiple: true, label: 'Drop images here or click to upload', hint: `Up to 10 images, ${MAX_MB} MB each. You get WebP, JPG/PNG and original-format links.`, onFiles: upload });
-  root.append(el('div', { class: 'notice', text: 'Every image gets links like /i/abc123.webp and /i/abc123.jpg, ready for websites, emails and forums. Links work for 90 days. Anyone with a link can see the image, so don\'t upload anything private.' }),
-    dz, prog.el, listBox);
+  const bench = HT.bench([el('div', { class: 'notice', text: 'Every image gets links like /i/abc123.webp and /i/abc123.jpg, ready for websites, emails and forums. Links work for 90 days. Anyone with a link can see the image, so don\'t upload anything private.' }), dz, prog.el], el('div', { class: 'tmain' }, listBox), { keep: true }); bench.classList.add('on'); root.append(bench);
 
   // The links are plain files, so the versions are made here before uploading: WebP (small) and JPG or PNG
   // (works everywhere). Re-saving also drops camera metadata such as the GPS location, which would otherwise be
@@ -63,7 +62,7 @@ HT.register('image-cdn', root => {
 
   function render() {
     listBox.textContent = '';
-    if (!items.length) return;
+    if (!items.length) { listBox.append(el('div', { class: 'card' }, el('b', { text: 'Your links appear here' }), el('p', { class: 'help', text: 'Add images on the left. You get a link for each version (WebP, JPG or PNG) and ready-made HTML and Markdown.' }))); return; }
     listBox.append(el('div', { class: 'cat', text: 'Your uploads (saved in this browser)' }));
     items.forEach(it => {
       const formats = it.formats || ['webp', 'jpg'], url = f => `${it.base}/i/${it.id}.${f}`;

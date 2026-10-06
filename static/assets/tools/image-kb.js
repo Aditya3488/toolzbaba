@@ -9,7 +9,7 @@ HT.register('resize-image-to-kb', root => {
     'photo-2x2in': { unit: 'inch', w: 2, h: 2, min: 0, max: 200, dpi: 300 },
   };
   const bitmaps = new Map();
-  const list = HT.fileList({ onChange: fs => { for (const k of bitmaps.keys()) if (!fs.includes(k)) bitmaps.delete(k); card.classList.toggle('hidden', !fs.length); pvCard.classList.toggle('hidden', !fs.length); update(); } });
+  const list = HT.fileList({ onChange: fs => { for (const k of bitmaps.keys()) if (!fs.includes(k)) bitmaps.delete(k); card.classList.toggle('hidden', !fs.length); pvCard.classList.toggle('hidden', !fs.length); bench.set(fs.length > 0); update(); } });
   const form = HT.form([
     { name: 'preset', label: 'Quick size', type: 'select', value: 'custom', options: [['custom', 'Custom size'], ['photo-35x45', 'Photo 3.5 × 4.5 cm, up to 100 KB'], ['photo-200x230', 'Photo 200 × 230 px, 20–50 KB'], ['sign-140x60', 'Signature 140 × 60 px, 10–20 KB'], ['sign-4x2', 'Signature 4 × 2 cm, up to 50 KB'], ['photo-2x2in', 'Photo 2 × 2 inch, up to 200 KB']], help: 'Common sizes. Always follow the instructions on your own form.' },
     { name: 'unit', label: 'Unit', type: 'select', value: 'px', options: [['px', 'Pixels'], ['cm', 'Centimetres'], ['mm', 'Millimetres'], ['inch', 'Inches']] },
@@ -24,8 +24,9 @@ HT.register('resize-image-to-kb', root => {
   const pv = el('div', { class: 'pv' }), info = el('div', { class: 'sum', style: { marginTop: '10px' } }), warn = el('div', { class: 'help' }), prog = HT.progress();
   const dl = el('button', { class: 'btn', type: 'button', text: 'Download', disabled: true, onclick: downloadAll });
   const card = el('div', { class: 'card hidden' }, HT.stepTitle(2, 'Size and file size'), form.el);
-  const pvCard = el('div', { class: 'card hidden' }, HT.stepTitle(3, 'Result'), pv, info, warn, el('div', { class: 'actions' }, dl), prog.el);
-  root.append(HT.dropzone({ accept: 'image/*', multiple: true, hint: 'JPG, PNG, WebP, GIF... Runs in your browser: your photo is not uploaded.', onFiles: fs => list.add(fs, true) }), list.el, card, pvCard);
+  const pvCard = el('div', { class: 'card tmain hidden' }, el('div', { class: 'tbar' }, el('div', { class: 'tinfo' }, info, warn), el('div', { class: 'actions' }, dl)), pv);
+  const bench = HT.bench([HT.dropzone({ accept: 'image/*', multiple: true, hint: 'JPG, PNG, WebP, GIF... Runs in your browser: your photo is not uploaded.', onFiles: fs => list.add(fs, true) }), list.el, card, prog.el], pvCard);
+  root.append(bench);
 
   const bmp = async f => { if (!bitmaps.has(f)) bitmaps.set(f, await HT.loadBitmap(f)); return bitmaps.get(f); };
   function targetPx(v) {

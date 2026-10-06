@@ -34,9 +34,10 @@
    "desc": "Shrink JPG, PNG and WebP files with little visible loss.",
    "kind": "client",
    "engine": "image",
-   "js": "server-image",
+   "js": "compress-target",
    "about": "Reduce the file size of JPG, PNG, WebP, GIF, AVIF and HEIC images. Pick the quality and the output format, limit the width, and compress up to 40 images at once. PNG files can be shrunk further by reducing their colours, and the result shows exactly how much each file shrank.",
-   "popular": 1
+   "popular": 1,
+   "ui": "target-any"
   },
   {
    "slug": "resize-image",
@@ -80,14 +81,17 @@
    "about": "Rotate an image by 90, 180 or 270 degrees, straighten it by a few degrees to level a horizon, and flip it horizontally or vertically. The preview updates live and the work is done in your browser."
   },
   {
-   "slug": "social-resizer",
+   "slug": "social-media-image-resizer",
    "cat": "image",
    "icon": "📱",
    "name": "Social Media Resizer",
    "desc": "One image → the right size for Instagram, Facebook, X, LinkedIn, YouTube, Pinterest.",
    "kind": "client",
    "js": "image-social",
-   "about": "Turn one image into the right size for Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok and WhatsApp posts, stories, covers and profile pictures. Choose to crop to fill or to fit the whole image with a blurred background, then download all sizes in one ZIP."
+   "about": "Turn one image into the right size for Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok and WhatsApp posts, stories, covers and profile pictures. Choose to crop to fill or to fit the whole image with a blurred background, then download all sizes in one ZIP.",
+   "aliases": [
+    "social-resizer"
+   ]
   },
   {
    "slug": "thumbnail-generator",
@@ -111,24 +115,32 @@
    "about": "Photos often carry hidden details such as GPS location, camera model and the time they were taken. This tool removes that metadata. JPEG files are cleaned without re-encoding, so picture quality is not affected, and you see what was found in each file."
   },
   {
-   "slug": "watermark",
+   "slug": "add-watermark-to-image",
    "cat": "image",
    "icon": "💧",
    "name": "Watermark Adder",
    "desc": "Add a text or logo watermark. Position it, tile it, set opacity. Batch supported.",
    "kind": "client",
    "js": "image-design",
-   "about": "Add a text or logo watermark to your images. Choose the position or tile it across the picture, set the opacity, size and rotation, and process many images at once. Everything runs in your browser."
+   "about": "Add a text or logo watermark to your images. Choose the position or tile it across the picture, set the opacity, size and rotation, and process many images at once. Everything runs in your browser.",
+   "aliases": [
+    "watermark"
+   ],
+   "tabAll": "Image"
   },
   {
-   "slug": "pixelate",
+   "slug": "pixelate-image",
    "cat": "image",
    "icon": "🧩",
    "name": "Pixelate Image",
    "desc": "Pixelate the whole picture or just a selected area (hide plates, text, faces).",
    "kind": "client",
    "js": "image-design",
-   "about": "Pixelate a whole image or only the area you select, or pixelate everything except an area. Use it to hide licence plates, text, documents or faces. It runs in your browser."
+   "about": "Pixelate a whole image or only the area you select, or pixelate everything except an area. Use it to hide licence plates, text, documents or faces. It runs in your browser.",
+   "aliases": [
+    "pixelate"
+   ],
+   "tabAll": "Image"
   },
   {
    "slug": "meme-generator",
@@ -141,14 +153,18 @@
    "about": "Make a meme from any picture with classic top and bottom text, or put a caption bar above the image. Adjust the size and colours and download as JPG, PNG or WebP. It runs in your browser."
   },
   {
-   "slug": "collage-maker",
+   "slug": "photo-collage-maker",
    "cat": "image",
    "icon": "🖼️",
    "name": "Collage Maker",
    "desc": "Combine 2–9 photos into a grid or featured layout.",
    "kind": "client",
    "js": "image-design",
-   "about": "Combine two to nine photos into a collage with grid, row, column or featured layouts. Set the canvas size, spacing, border, rounded corners and background colour, then download it. Everything runs in your browser."
+   "about": "Combine two to nine photos into a collage with grid, row, column or featured layouts. Set the canvas size, spacing, border, rounded corners and background colour, then download it. Everything runs in your browser.",
+   "aliases": [
+    "collage-maker"
+   ],
+   "tabAll": "Photo collage"
   },
   {
    "slug": "screenshot-beautifier",
@@ -193,7 +209,7 @@
    "popular": 2
   },
   {
-   "slug": "passport-photo-maker",
+   "slug": "passport-size-photo-maker",
    "cat": "image",
    "icon": "🪪",
    "name": "Passport Photo Maker",
@@ -202,7 +218,11 @@
    "js": "server-image",
    "desc": "Turn a selfie into a passport or ID photo: plain background, correct size, and a print sheet with many copies.",
    "about": "Upload a front-facing photo. The tool removes the background with AI, puts the person on a plain white, blue, grey or red background, crops the head to the right size and position for common sizes such as 35x45 mm and 51x51 mm (2x2 inch), and can lay out a 4x6 inch, 5x7 inch or A4 sheet with cutting guides so you can print several copies at once. Always check your country's exact rules for size, expression and background.",
-   "popular": 6
+   "popular": 6,
+   "aliases": [
+    "passport-photo-maker"
+   ],
+   "tabAll": "Passport photo"
   },
   {
    "slug": "image-to-text",
@@ -213,7 +233,8 @@
    "js": "ocr",
    "desc": "Extract text from a photo, screenshot or scanned PDF. Works with English and Hindi. Runs in your browser.",
    "about": "Read the text in a photo, a screenshot or a scanned PDF and copy it or save it as a .txt file. It supports English and Hindi (or both at once). The OCR engine runs entirely inside your browser, so your documents stay on your device. For best results use a sharp, straight, well-lit image.",
-   "popular": 3
+   "popular": 3,
+   "tabAll": "Image to text"
   },
   {
    "slug": "remove-background",
@@ -319,7 +340,7 @@
    "about": "Split a PDF into single pages, into groups of N pages, into custom page ranges, or extract selected pages into one new PDF. Results are delivered as a ZIP when there are several files."
   },
   {
-   "slug": "pdf-compress",
+   "slug": "compress-pdf",
    "cat": "pdf",
    "icon": "📉",
    "name": "Compress PDF",
@@ -327,10 +348,14 @@
    "kind": "client",
    "engine": "pdf",
    "js": "server-pdf",
-   "about": "Reduce the size of a PDF by recompressing its images and cleaning up its structure. Choose light, balanced or strong compression. Works best on PDFs with photos or scanned pages."
+   "about": "Reduce the size of a PDF by recompressing its images and cleaning up its structure. Choose light, balanced or strong compression. Works best on PDFs with photos or scanned pages.",
+   "aliases": [
+    "pdf-compress"
+   ],
+   "media": "pdf"
   },
   {
-   "slug": "docx-to-pdf",
+   "slug": "word-to-pdf",
    "cat": "pdf",
    "icon": "📝",
    "name": "Word to PDF",
@@ -338,10 +363,13 @@
    "kind": "client",
    "engine": "pdf",
    "js": "server-pdf",
-   "about": "Convert Word documents (DOCX, DOC), OpenDocument text, RTF, plain text, PowerPoint and Excel files to PDF. The conversion is done on the server with LibreOffice."
+   "about": "Convert Word documents (DOCX, DOC), OpenDocument text, RTF, plain text, PowerPoint and Excel files to PDF. The conversion is done on the server with LibreOffice.",
+   "aliases": [
+    "docx-to-pdf"
+   ]
   },
   {
-   "slug": "pdf-to-docx",
+   "slug": "pdf-to-word",
    "cat": "pdf",
    "icon": "📃",
    "name": "PDF to Word",
@@ -349,7 +377,10 @@
    "kind": "client",
    "engine": "pdf",
    "js": "server-pdf",
-   "about": "Convert a PDF into an editable Word document. It works best on PDFs with real text. Scanned PDFs are just pictures of pages and cannot be turned into editable text without OCR."
+   "about": "Convert a PDF into an editable Word document. It works best on PDFs with real text. Scanned PDFs are just pictures of pages and cannot be turned into editable text without OCR.",
+   "aliases": [
+    "pdf-to-docx"
+   ]
   },
   {
    "slug": "organize-pdf",
@@ -363,7 +394,7 @@
    "about": "See every page of your PDF as a thumbnail. Drag pages to reorder them, click to rotate or delete them, then save a new PDF. The thumbnails are drawn in your browser; the file is uploaded only when you press Save, and deleted from the server shortly after."
   },
   {
-   "slug": "sign-pdf",
+   "slug": "esign-pdf",
    "cat": "pdf",
    "icon": "✍️",
    "name": "Sign PDF",
@@ -371,10 +402,13 @@
    "engine": "pdf",
    "js": "pdf-visual",
    "desc": "Draw, type or upload your signature and place it on any page of a PDF.",
-   "about": "Create a signature by drawing it, typing your name in a handwriting style, or uploading a picture, then drag it to the right spot on any page and resize it. You can sign several pages in one go. This adds a visual signature image; it is not a certificate-based digital signature."
+   "about": "Create a signature by drawing it, typing your name in a handwriting style, or uploading a picture, then drag it to the right spot on any page and resize it. You can sign several pages in one go. This adds a visual signature image; it is not a certificate-based digital signature.",
+   "aliases": [
+    "sign-pdf"
+   ]
   },
   {
-   "slug": "pdf-page-numbers",
+   "slug": "add-page-numbers-to-pdf",
    "cat": "pdf",
    "icon": "🔢",
    "name": "Add Page Numbers to PDF",
@@ -382,7 +416,10 @@
    "engine": "pdf",
    "js": "server-pdf",
    "desc": "Add page numbers to a PDF: choose position, format, start number and which page to begin on.",
-   "about": "Add page numbers to every page of a PDF. Choose the position (top or bottom, left, centre or right), the format (1, Page 1, Page 1 of 10), the first number, the size and colour, and skip a cover page if you need to. Rotated pages are handled correctly."
+   "about": "Add page numbers to every page of a PDF. Choose the position (top or bottom, left, centre or right), the format (1, Page 1, Page 1 of 10), the first number, the size and colour, and skip a cover page if you need to. Rotated pages are handled correctly.",
+   "aliases": [
+    "pdf-page-numbers"
+   ]
   },
   {
    "slug": "protect-pdf",
@@ -452,7 +489,7 @@
    "about": "Cut a section out of a video or audio file. Preview it, mark the start and end, and choose an exact cut or a fast, lossless cut that snaps to the nearest keyframe."
   },
   {
-   "slug": "video-compressor",
+   "slug": "compress-video",
    "cat": "video",
    "icon": "⚡",
    "name": "Video Compressor",
@@ -460,18 +497,11 @@
    "kind": "client",
    "engine": "video",
    "js": "server-video",
-   "about": "Make a video smaller by choosing a quality level or a target file size in MB, for example to fit an email or chat upload limit. You can also lower the resolution."
-  },
-  {
-   "slug": "audio-cutter",
-   "cat": "video",
-   "icon": "🎵",
-   "name": "Audio Cutter (MP3 Cutter)",
-   "kind": "client",
-   "engine": "video",
-   "js": "server-video",
-   "desc": "Cut a section from an MP3, WAV or any audio or video file. Preview it, add fades, save as MP3, M4A, WAV, OGG or FLAC.",
-   "about": "Trim a song or recording to just the part you want, for example a ringtone. Preview the file, mark the start and end, add a fade in and fade out if you like, and save as MP3, M4A, WAV, OGG or FLAC. You can also pull the audio out of a video and cut it at the same time."
+   "about": "Make a video smaller by choosing a quality level or a target file size in MB, for example to fit an email or chat upload limit. You can also lower the resolution.",
+   "aliases": [
+    "video-compressor"
+   ],
+   "tabAll": "Compress video"
   },
   {
    "slug": "video-merger",
@@ -485,7 +515,7 @@
    "about": "Combine two or more clips into a single MP4. Clips with different resolutions, frame rates or formats are matched automatically, and clips without sound are handled too. Reorder the clips before you merge."
   },
   {
-   "slug": "video-speed",
+   "slug": "change-video-speed",
    "cat": "video",
    "icon": "⏩",
    "name": "Video Speed Changer",
@@ -493,7 +523,10 @@
    "engine": "video",
    "js": "server-video",
    "desc": "Speed a video up (timelapse) or slow it down, from 0.25x to 8x. Audio pitch is kept natural.",
-   "about": "Make a video faster for a timelapse or slower for slow motion, anywhere from 0.25x to 8x. The sound is sped up or slowed down with its pitch preserved, or you can mute it."
+   "about": "Make a video faster for a timelapse or slower for slow motion, anywhere from 0.25x to 8x. The sound is sped up or slowed down with its pitch preserved, or you can mute it.",
+   "aliases": [
+    "video-speed"
+   ]
   },
   {
    "slug": "json-formatter",
@@ -516,14 +549,17 @@
    "about": "Paste or type text to see the number of words, characters (with and without spaces), sentences and paragraphs, plus estimated reading and speaking time and the most used words. It works with English and Hindi text."
   },
   {
-   "slug": "case-converter",
+   "slug": "text-case-converter",
    "cat": "dev",
    "icon": "🔠",
    "name": "Case Converter",
    "kind": "client",
    "js": "text-tools",
    "desc": "Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more.",
-   "about": "Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE and more with one click, then copy the result."
+   "about": "Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE and more with one click, then copy the result.",
+   "aliases": [
+    "case-converter"
+   ]
   },
   {
    "slug": "password-generator",
@@ -556,17 +592,21 @@
    "about": "Encode text so it is safe to put in a URL, decode percent-encoded text, and split a full URL into its parts (protocol, host, path and query parameters) to read or edit them."
   },
   {
-   "slug": "color-palette",
+   "slug": "image-color-palette-extractor",
    "cat": "util",
    "icon": "🎨",
    "name": "Color Palette Extractor",
    "desc": "Pull the main colours out of any image. Copy HEX, RGB, CSS.",
    "kind": "client",
    "js": "utils",
-   "about": "Extract the dominant colours from any image. Copy HEX, RGB and HSL values, export CSS variables or JSON, download the palette as an image, and click the picture to pick an exact colour. It runs in your browser."
+   "about": "Extract the dominant colours from any image. Copy HEX, RGB and HSL values, export CSS variables or JSON, download the palette as an image, and click the picture to pick an exact colour. It runs in your browser.",
+   "aliases": [
+    "color-palette"
+   ],
+   "tabAll": "From an image"
   },
   {
-   "slug": "qr-code",
+   "slug": "qr-code-generator",
    "cat": "util",
    "icon": "🔳",
    "name": "QR Code Generator",
@@ -574,7 +614,10 @@
    "kind": "client",
    "js": "utils",
    "about": "Create QR codes for links, text, Wi-Fi networks, WhatsApp chats, email, phone numbers, SMS and contact cards. Choose colours and dot style, add a logo in the middle, and download as PNG or SVG.",
-   "popular": 10
+   "popular": 10,
+   "aliases": [
+    "qr-code"
+   ]
   },
   {
    "slug": "base64",
@@ -594,7 +637,1366 @@
    "desc": "Upload an image and get direct links in every format (JPG, PNG, WebP, AVIF...) with resize options.",
    "kind": "server",
    "js": "cdn",
-   "about": "Upload an image and get direct links to it in JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO formats. Add ?w=800 to any link to resize it. Converted versions are cached for fast loading."
+   "about": "Upload an image and get direct links to it in JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO formats. Add ?w=800 to any link to resize it. Converted versions are cached for fast loading.",
+   "tabAll": "Image link"
+  },
+  {
+   "slug": "split-audio",
+   "cat": "video",
+   "icon": "🎵",
+   "name": "Split & Cut Audio",
+   "kind": "client",
+   "engine": "video",
+   "js": "server-video",
+   "desc": "Cut out the part of an audio file you want, or split it into parts of a set length or into equal parts.",
+   "about": "Cut a clip out of a song, recording or voice note: play it, mark where the part starts and ends, add a fade in or out, and save it as MP3, M4A, WAV, OGG or FLAC. Or split a long file into shorter tracks, either every few minutes or into a number of equal parts, and get them in a ZIP. You can also take the sound out of a video file. Everything runs in your browser.",
+   "aliases": [
+    "audio-cutter"
+   ],
+   "tabAll": "Split audio"
+  },
+  {
+   "slug": "font-library",
+   "cat": "util",
+   "icon": "🔤",
+   "name": "Font Library",
+   "kind": "client",
+   "js": "font-library",
+   "desc": "Browse and preview 50 free fonts, including Hindi and other Indian scripts, and download them.",
+   "about": "A library of 50 free fonts that you can search, preview with your own text and download: sans-serif, serif, display, handwriting and monospace families, plus Hindi (Devanagari), Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada and Malayalam fonts. Each card shows the scripts the font can draw and its licence (most are under the SIL Open Font License, so they are free to use in commercial work too). Download any font as a ZIP with its licence note, copy ready-made CSS, or use it directly in the PDF Editor."
+  },
+  {
+   "slug": "pdf-editor",
+   "cat": "pdf",
+   "icon": "✏️",
+   "name": "PDF Editor",
+   "kind": "client",
+   "engine": "pdf-edit",
+   "js": "pdf-editor",
+   "aliases": [
+    "edit-pdf"
+   ],
+   "desc": "Edit a PDF in your browser: change text, add text with 50 fonts, pictures, shapes and highlights, then download as PDF, Word, images or text.",
+   "about": "Open a PDF and edit it right on the page. Click any line of text to change it, add new text in your choice of 50 free fonts (including Hindi and other Indian scripts), put in pictures, draw rectangles, circles, lines and arrows, highlight, draw by hand, white out parts you want gone, rotate or delete pages and add blank ones. When you are done, download the result as a PDF, a Word file, page images or plain text. Everything is done in your browser, so your PDF is never uploaded."
+  }
+ ],
+ "variants": [
+  {
+   "slug": "compress-png",
+   "base": "compress-image",
+   "name": "Compress PNG",
+   "title": "Compress PNG Online Free: Reduce PNG File Size | Toolz Baba",
+   "desc": "Make PNG files smaller and keep their transparency. Reduce colours, resize, and compress many PNGs at once. Runs in your browser.",
+   "about": "PNG is a lossless format, so PNG files are often much bigger than they need to be, especially screenshots, logos and graphics with flat colours. This tool shrinks them by reducing the picture to an optimised palette of up to 256 colours, which for most graphics looks the same but can cut the size by half or more. Transparent areas stay transparent. You can also limit the width to scale down very large PNGs, or convert to WebP for an even smaller file. Compress up to 40 PNGs at once; the result shows exactly how much each file shrank. If a PNG is already as small as it can get, you get the original back instead of a bigger file. For photos, JPG or WebP will always be smaller than PNG. Your PNG files never leave your device.",
+   "tab": "PNG",
+   "ui": "target-png",
+   "js": "compress-target",
+   "media": "png"
+  },
+  {
+   "slug": "compress-jpeg",
+   "base": "compress-image",
+   "name": "Compress JPEG",
+   "title": "Compress JPEG Online Free: Reduce JPEG Size | Toolz Baba",
+   "desc": "Reduce the size of JPEG photos with a quality slider and live before/after sizes. Compress many JPEGs at once. Runs in your browser.",
+   "about": "JPEG compression is a trade-off between file size and quality. This tool lets you pick the quality yourself: around 70 to 80 percent is usually impossible to tell apart from the original and often makes a photo several times smaller. You can also set a maximum width to scale down very large photos, or convert to WebP or AVIF if you want the smallest possible file. Add up to 40 JPEG files at once and download them together as a ZIP. If a JPEG is already well compressed, the tool returns the original rather than a bigger file. Everything runs in your browser, so your photos are never uploaded.",
+   "tab": "JPEG",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "media": "jpeg"
+  },
+  {
+   "slug": "compress-jpg",
+   "base": "compress-image",
+   "name": "Compress JPG",
+   "title": "Compress JPG Online Free: Make JPG Smaller | Toolz Baba",
+   "desc": "Make JPG photos smaller for email, WhatsApp and forms. Choose the quality, limit the width, compress many JPG files at once.",
+   "about": "Photos straight from a phone or camera are often 3 to 10 MB, which is too big for email, WhatsApp, job portals or online forms. Drop your JPG files here, choose a quality (75 percent is a good starting point) and optionally a maximum width, and get much smaller files that still look sharp on screen. JPG and JPEG are the same format with a different file extension, and both are handled here. If you need an exact size such as under 50 KB for a form, use the Resize Photo & Signature to KB tool, which finds the best quality for your limit. Your photos are processed on your own device and are not uploaded.",
+   "tab": "JPG",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "media": "jpg"
+  },
+  {
+   "slug": "compress-gif",
+   "base": "compress-image",
+   "name": "Compress GIF",
+   "engine": "video",
+   "title": "Compress GIF Online Free: Reduce Animated GIF Size | Toolz Baba",
+   "desc": "Reduce the file size of animated GIFs by using fewer colours, a smaller width or a lower frame rate. Runs in your browser.",
+   "about": "Animated GIFs get big very quickly. This tool makes them smaller while keeping the animation, using three levers: fewer colours (GIFs allow 256, but 64 or 128 often look fine), a smaller width, and a lower frame rate. Try fewer colours first, as it usually changes the look the least. The GIF is re-encoded with an optimised colour palette for the whole animation, and you see the size before and after. If the GIF is already well compressed, you get the original back instead of a bigger one. For the biggest savings, consider converting the GIF to a video with the GIF to Video tool, which is usually many times smaller. Your GIF is processed in your browser and never uploaded.",
+   "tab": "GIF",
+   "ui": "compress-gif",
+   "js": "server-image"
+  },
+  {
+   "slug": "compress-jpg-under-10kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 10,
+   "chip": "10 KB",
+   "name": "Compress JPG Under 10 KB",
+   "title": "Compress JPG to Under 10 KB Online Free | Toolz Baba",
+   "desc": "Squeeze a JPG photo or signature down to under 10 KB. Type the size, see the result before you download. Runs in your browser.",
+   "about": "10 KB is tiny, about the size of a short text file, and it is the limit some online forms set for a signature or a very small photo. A signature scan or a small face crop fits easily; a full camera photo has to be scaled down a lot, so this page reduces the picture's pixel size on its own when lowering the quality is not enough. For the best result at 10 KB, crop the picture first so it only holds what the form asks for: fewer pixels means more quality left for each one.",
+   "faq": [
+    {
+     "q": "How do I make a JPG smaller than 10 KB?",
+     "a": "Add the picture, leave the size at 10 KB and check the preview. The page lowers the quality and, if needed, the width and height until the file is under 10 KB, then you click Download."
+    },
+    {
+     "q": "Will a photo still be readable at 10 KB?",
+     "a": "A signature, a stamp or a small passport-style crop usually is. A large detailed photo becomes very small and soft at 10 KB, so for photos try 20 KB or 50 KB instead."
+    },
+    {
+     "q": "Can I use it for a signature?",
+     "a": "Yes. Scan or photograph the signature on white paper, crop closely around it, then add it here. Small black-on-white images compress very well."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-20kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 20,
+   "chip": "20 KB",
+   "name": "Compress JPG Under 20 KB",
+   "title": "Compress JPG to Under 20 KB Online Free | Toolz Baba",
+   "desc": "Compress a JPG to under 20 KB for exam, job and scholarship forms. Choose the size and preview the result first.",
+   "about": "20 KB is a common cap on portals that ask for a photo or signature next to a long application form. At this size a face photo of a few hundred pixels across still looks clean, but a big camera photo has to shrink first. This page tries a good quality first, then reduces the quality and, only if it must, the pixel size, and it stops at the best picture that still fits under 20 KB. The preview shows exactly what you will download, so you can judge the face or the signature before you save it.",
+   "faq": [
+    {
+     "q": "How do I compress a JPG to 20 KB?",
+     "a": "Add your picture and keep the size at 20 KB. The tool finds the highest quality that fits and shows the new file size under the preview."
+    },
+    {
+     "q": "My photo is 3 MB. Can it really become 20 KB?",
+     "a": "Usually yes, because most of a phone photo's size comes from pixels you do not need on a form. The picture is scaled down to a few hundred pixels wide, which is plenty for a small photo field."
+    },
+    {
+     "q": "Is my picture uploaded anywhere?",
+     "a": "No. The picture is processed by your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-50kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 50,
+   "chip": "50 KB",
+   "name": "Compress JPG Under 50 KB",
+   "title": "Compress JPG to Under 50 KB Online Free | Toolz Baba",
+   "desc": "Reduce a JPG to under 50 KB without a visible mess. Set the size, preview the result, download. Free and private.",
+   "about": "50 KB is the size many sites allow for a profile picture, an ID photo or a document scan. It is roomy enough that a portrait around 500 pixels wide keeps clear faces and sharp edges. Add your JPG, keep the size at 50 KB and the page works out the best quality that fits. Big pictures are shrunk a little as well, because a 4000-pixel-wide photo cannot fit in 50 KB at any quality. If the result looks too soft, raise the limit or crop out the parts you do not need.",
+   "faq": [
+    {
+     "q": "How do I get a JPG under 50 KB?",
+     "a": "Add the file, leave the target at 50 KB and download when the preview looks right. The tool picks the quality for you."
+    },
+    {
+     "q": "What does a 50 KB photo look like?",
+     "a": "A portrait of roughly 400 to 600 pixels across looks clean on screen. It is not meant for printing large."
+    },
+    {
+     "q": "Can I compress several pictures to 50 KB at once?",
+     "a": "Yes. Add them all, and use Download all to get a ZIP where every picture is under 50 KB."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-100kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 100,
+   "chip": "100 KB",
+   "name": "Compress JPG Under 100 KB",
+   "title": "Compress JPG to Under 100 KB Online Free | Toolz Baba",
+   "desc": "Compress JPG to under 100 KB, the limit most job, KYC and admission forms ask for. Pick the size and preview it.",
+   "about": "100 KB is the upload limit you will meet most often: job portals, KYC and bank forms, college admissions, scholarship and government sites. A normal phone photo is 20 to 50 times bigger, so it needs real compression, but 100 KB still leaves room for a portrait or a document photo that is easy to read. This page finds the best quality that stays under 100 KB and shows the result next to your original, so you can check that text and faces are still clear before you download.",
+   "faq": [
+    {
+     "q": "How can I reduce a JPG to 100 KB?",
+     "a": "Add the picture, keep the target at 100 KB and look at the preview. The size shown under it is the real size of the file you will download."
+    },
+    {
+     "q": "Will documents stay readable at 100 KB?",
+     "a": "Photos of printed pages usually do if the text is large enough. If the small print gets blurry, try 150 KB or 200 KB."
+    },
+    {
+     "q": "Why is my file slightly under 100 KB, not exactly 100?",
+     "a": "The tool picks the highest quality that does not go over the limit, so the result is just under it."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-150kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 150,
+   "chip": "150 KB",
+   "name": "Compress JPG Under 150 KB",
+   "title": "Compress JPG to Under 150 KB Online Free | Toolz Baba",
+   "desc": "Make a JPG smaller than 150 KB with a size you choose. See the result before you download. Works in your browser.",
+   "about": "150 KB sits between the very strict 100 KB limit and the more relaxed 200 KB one, and some application forms and marketplaces use it. The extra 50 KB over a 100 KB target is noticeable on a face or on photographed text. Add your JPG and the page lowers quality until the file is just under 150 KB, shrinking the pixel size only if that is not enough. If your photo is already below 150 KB, it is kept as it is instead of being recompressed and made worse.",
+   "faq": [
+    {
+     "q": "How do I compress a JPG to 150 KB?",
+     "a": "Add the file, set the size to 150 KB (or click the 150 KB button) and download after checking the preview."
+    },
+    {
+     "q": "What if my image is already under 150 KB?",
+     "a": "Then it is left untouched. Recompressing a small JPG only loses quality."
+    },
+    {
+     "q": "Is 150 KB enough for a clear photo?",
+     "a": "For a portrait or a document shown on screen, yes. A big landscape photo will look softer, because it has to hold fewer pixels."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-200kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 200,
+   "chip": "200 KB",
+   "name": "Compress JPG Under 200 KB",
+   "title": "Compress JPG to Under 200 KB Online Free | Toolz Baba",
+   "desc": "Compress a JPG to under 200 KB for forms, email and uploads. Set the size, preview the result, download for free.",
+   "about": "200 KB is a comfortable limit for ID photos, certificates and attachments, and many government and college portals use it. At this size a portrait stays clean and a photographed page stays readable. This page searches for the highest quality that fits under 200 KB, so you keep as much detail as the limit allows. You see the original and the result side by side with their sizes, and if you change your mind about the limit you can move the slider and the preview updates at once.",
+   "faq": [
+    {
+     "q": "How do I reduce a JPG to 200 KB?",
+     "a": "Add it, keep the target at 200 KB, check the preview and click Download."
+    },
+    {
+     "q": "Does 200 KB make a photo look bad?",
+     "a": "Not for screen use. A typical 1000-pixel-wide photo looks good at 200 KB. Very large photos are scaled down to fit."
+    },
+    {
+     "q": "Can I change the size without starting over?",
+     "a": "Yes. Type a new size or move the slider and the preview updates straight away."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-300kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 300,
+   "chip": "300 KB",
+   "name": "Compress JPG Under 300 KB",
+   "title": "Compress JPG to Under 300 KB Online Free | Toolz Baba",
+   "desc": "Reduce a JPG to under 300 KB while keeping it sharp. Choose the size, compare with the original, download.",
+   "about": "300 KB is a good size for pictures that need to stay clear: a profile photo with detail, a scanned certificate, a product photo for a listing or a picture you want to email with several others. Most phone photos are 10 to 30 times larger, and the difference is hard to see on a screen. The tool keeps the highest quality that stays under 300 KB and only reduces the dimensions when the quality alone cannot do it. Use the preview to compare with the original before downloading.",
+   "faq": [
+    {
+     "q": "How do I compress a JPG to 300 KB?",
+     "a": "Add it, choose 300 KB and download once the preview looks right."
+    },
+    {
+     "q": "Is a 300 KB JPG good for a website?",
+     "a": "It is fine for a content image on most pages. For large hero banners a slightly higher limit like 500 KB keeps more detail."
+    },
+    {
+     "q": "Can I compress a whole folder of photos?",
+     "a": "Add many files at once and use Download all (ZIP). Each picture is compressed on its own to fit under 300 KB."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-500kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 500,
+   "chip": "500 KB",
+   "name": "Compress JPG Under 500 KB",
+   "title": "Compress JPG to Under 500 KB Online Free | Toolz Baba",
+   "desc": "Compress JPG to under 500 KB for email, WhatsApp and uploads. Set a size, preview and download. Private and free.",
+   "about": "500 KB is half a megabyte: small enough for WhatsApp and email, big enough that a full-screen picture still looks good. It is the limit on many classified ad, CMS and ticket systems. At 500 KB most photos only need a light compression and keep nearly all their detail. This page finds the best quality that fits, shows both versions side by side, and keeps files that are already under the limit as they are.",
+   "faq": [
+    {
+     "q": "How do I make a JPG under 500 KB?",
+     "a": "Add the picture, click the 500 KB button or type 500, check the preview and download."
+    },
+    {
+     "q": "Will I notice the difference from the original?",
+     "a": "Usually not on a phone or laptop screen. Zoom in on the preview to compare fine detail."
+    },
+    {
+     "q": "Can I send the result on WhatsApp?",
+     "a": "Yes, a 500 KB JPG sends quickly even on a slow connection."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-1mb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 1024,
+   "chip": "1 MB",
+   "name": "Compress JPG Under 1 MB",
+   "title": "Compress JPG to Under 1 MB Online Free | Toolz Baba",
+   "desc": "Reduce a JPG to under 1 MB with almost no visible loss. Choose the size, preview the result and download.",
+   "about": "1 MB is the cap on many web forms, support-ticket systems, marketplaces and email gateways. Phone photos are usually 3 to 8 MB, so getting under 1 MB takes a moderate compression that rarely shows. The page tries a high quality first and goes lower only as far as it must, so you get the best-looking picture that fits. If your file is already under 1 MB it is kept untouched, so nothing is lost for no reason.",
+   "faq": [
+    {
+     "q": "How do I compress a JPG to under 1 MB?",
+     "a": "Add the photo, pick 1 MB and compare the preview with the original. The size under the preview is the real downloaded size."
+    },
+    {
+     "q": "Will a 1 MB JPG look the same?",
+     "a": "For most photos it looks the same on screen. Only very large or very detailed pictures lose visible detail."
+    },
+    {
+     "q": "Can I type 1.5 MB or 0.8 MB?",
+     "a": "Yes. Type any number and switch between KB and MB. The preview updates as you type."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpg-under-2mb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpg",
+   "media": "jpg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 2048,
+   "chip": "2 MB",
+   "name": "Compress JPG Under 2 MB",
+   "title": "Compress JPG to Under 2 MB Online Free | Toolz Baba",
+   "desc": "Compress a JPG to under 2 MB for email and uploads, keeping nearly full quality. Set the size, preview, download.",
+   "about": "Many websites and email services stop accepting pictures above 2 MB, and a modern phone photo is often 4 to 10 MB. Getting under 2 MB needs only a light compression, so the picture usually looks almost the same as the original. This page keeps the highest quality that fits and shows the before and after size. If your photo is already under 2 MB it is left as it is, and if you need it smaller you can lower the limit with the slider.",
+   "faq": [
+    {
+     "q": "How do I reduce a photo to under 2 MB?",
+     "a": "Add the photo, keep the target at 2 MB and download after a look at the preview."
+    },
+    {
+     "q": "Will it lose quality?",
+     "a": "Only a little. A light compression is enough to go from several megabytes to under 2 MB."
+    },
+    {
+     "q": "What if my photo is 20 MB?",
+     "a": "That still works. The tool lowers the quality and, if necessary, the pixel size until the file fits."
+    }
+   ]
+  },
+  {
+   "slug": "compress-pdf-under-100kb",
+   "base": "compress-pdf",
+   "group": "size",
+   "media": "pdf",
+   "ui": "target-pdf",
+   "js": "compress-target",
+   "target_kb": 100,
+   "chip": "100 KB",
+   "name": "Compress PDF Under 100 KB",
+   "title": "Compress PDF to Under 100 KB Online Free | Toolz Baba",
+   "desc": "Compress a PDF to under 100 KB for forms and email. It tries stronger settings until the file fits. Runs in your browser.",
+   "about": "100 KB is a strict limit, and some online forms and portals set it for a document upload. A PDF of mostly text can already be small, while a scan or a PDF with photos is often many megabytes because of its pictures. This page shrinks the pictures inside the PDF, trying stronger and stronger settings until the file is under 100 KB, then shows you the first page so you can check it is still readable. A scan of many pages may be too big to reach 100 KB: split it into parts first.",
+   "faq": [
+    {
+     "q": "How do I compress a PDF to under 100 KB?",
+     "a": "Add the PDF, keep the size at 100 KB and click Compress. The tool lowers the picture quality step by step until the file fits."
+    },
+    {
+     "q": "Why can't my PDF get under 100 KB?",
+     "a": "Text, fonts and the page structure cannot shrink much. A long PDF with many scanned pages is too big for 100 KB, so split it and compress each part."
+    },
+    {
+     "q": "Does my PDF leave my computer?",
+     "a": "No. The compression runs in your browser, so the file never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "compress-pdf-under-200kb",
+   "base": "compress-pdf",
+   "group": "size",
+   "media": "pdf",
+   "ui": "target-pdf",
+   "js": "compress-target",
+   "target_kb": 200,
+   "chip": "200 KB",
+   "name": "Compress PDF Under 200 KB",
+   "title": "Compress PDF to Under 200 KB Online Free | Toolz Baba",
+   "desc": "Reduce a PDF to under 200 KB for job, admission and KYC uploads. The page tries stronger settings until it fits.",
+   "about": "200 KB is a common upload limit for a resume, a certificate or an ID scan. Most of the size of such a PDF is the images in it, such as a scanned page or a photo. This page lowers the resolution and quality of those images in steps until the file is under 200 KB, and shows the first page of the result so you can check that the text is still readable. If the PDF is already under 200 KB, it is kept unchanged.",
+   "faq": [
+    {
+     "q": "How do I get a PDF under 200 KB?",
+     "a": "Add the PDF, keep 200 KB as the size and click Compress to under 200 KB."
+    },
+    {
+     "q": "Will the text in the PDF stay sharp?",
+     "a": "Real text stays sharp because only the pictures are recompressed. Scanned pages are pictures, so they become a bit softer."
+    },
+    {
+     "q": "Can I compress several PDFs at once?",
+     "a": "Yes, up to 10. The results are downloaded in one ZIP."
+    }
+   ]
+  },
+  {
+   "slug": "compress-pdf-under-300kb",
+   "base": "compress-pdf",
+   "group": "size",
+   "media": "pdf",
+   "ui": "target-pdf",
+   "js": "compress-target",
+   "target_kb": 300,
+   "chip": "300 KB",
+   "name": "Compress PDF Under 300 KB",
+   "title": "Compress PDF to Under 300 KB Online Free | Toolz Baba",
+   "desc": "Compress a PDF to under 300 KB with a size you choose. A first-page preview shows the result. Free, in your browser.",
+   "about": "300 KB is enough for a short document with a few images or a couple of scanned pages. This page recompresses the pictures inside your PDF in steps, from a light setting to a strong one, and stops at the first setting that brings the file under 300 KB, so the PDF keeps as much quality as the limit allows. Fonts, links and real text are left alone. When the limit cannot be reached you are told how close it got.",
+   "faq": [
+    {
+     "q": "How do I reduce a PDF to 300 KB?",
+     "a": "Add the file, set the size to 300 KB and click Compress. You get the new size and a first-page preview."
+    },
+    {
+     "q": "What if the result is still over 300 KB?",
+     "a": "Then the PDF has little that can be shrunk, such as fonts and text. The page shows the smallest size it reached."
+    },
+    {
+     "q": "Is it safe for private documents?",
+     "a": "Yes. The file is processed on your device and is not uploaded."
+    }
+   ]
+  },
+  {
+   "slug": "compress-pdf-under-500kb",
+   "base": "compress-pdf",
+   "group": "size",
+   "media": "pdf",
+   "ui": "target-pdf",
+   "js": "compress-target",
+   "target_kb": 500,
+   "chip": "500 KB",
+   "name": "Compress PDF Under 500 KB",
+   "title": "Compress PDF to Under 500 KB Online Free | Toolz Baba",
+   "desc": "Make a PDF smaller than 500 KB for email and web forms. Set the size, compress and check the first page.",
+   "about": "Half a megabyte is a common limit for web forms, applications and email gateways. A PDF made from photos or scans is often 5 to 20 MB, so the pictures have to be recompressed. This page does that in steps, from gentle to strong, and stops as soon as the PDF is under 500 KB, so you keep the best quality that fits. For a document that is already under 500 KB nothing is changed.",
+   "faq": [
+    {
+     "q": "How do I compress a PDF to 500 KB?",
+     "a": "Add the PDF and click Compress to under 500 KB. Check the first page in the result before you download."
+    },
+    {
+     "q": "How much can a PDF shrink?",
+     "a": "A PDF made of scans or photos often shrinks by 80 percent or more. A PDF of plain text hardly shrinks, because it is already small."
+    },
+    {
+     "q": "Can I put the result in an email?",
+     "a": "Yes, 500 KB is well under the limit of every email service."
+    }
+   ]
+  },
+  {
+   "slug": "compress-pdf-under-1mb",
+   "base": "compress-pdf",
+   "group": "size",
+   "media": "pdf",
+   "ui": "target-pdf",
+   "js": "compress-target",
+   "target_kb": 1024,
+   "chip": "1 MB",
+   "name": "Compress PDF Under 1 MB",
+   "title": "Compress PDF to Under 1 MB Online Free | Toolz Baba",
+   "desc": "Compress a PDF to under 1 MB with little visible change. Choose the size, compress, check the first page.",
+   "about": "1 MB is a typical cap on applications, support tickets and email gateways, and a scanned multi-page PDF is easily 10 MB or more. To reach 1 MB the images in the PDF are recompressed, and the first, lightest setting that gets the file under 1 MB is used, so the pages stay as clear as possible. If your PDF is already under 1 MB it is left as it is.",
+   "faq": [
+    {
+     "q": "How do I make a PDF under 1 MB?",
+     "a": "Add it, keep the size at 1 MB and click Compress. The result shows the new size and the first page."
+    },
+    {
+     "q": "Will the pages still look good?",
+     "a": "At 1 MB most documents look nearly the same on screen. A PDF with many full-page photos gets softer."
+    },
+    {
+     "q": "Can I merge PDFs and compress them?",
+     "a": "Yes. Merge them first with the Merge PDF tool, then bring the merged file here."
+    }
+   ]
+  },
+  {
+   "slug": "compress-pdf-under-2mb",
+   "base": "compress-pdf",
+   "group": "size",
+   "media": "pdf",
+   "ui": "target-pdf",
+   "js": "compress-target",
+   "target_kb": 2048,
+   "chip": "2 MB",
+   "name": "Compress PDF Under 2 MB",
+   "title": "Compress PDF to Under 2 MB Online Free | Toolz Baba",
+   "desc": "Reduce a PDF to under 2 MB for uploads and email. Set the size, compress and check the result. Private and free.",
+   "about": "Websites and email services often stop at 2 MB, while a scanned PDF can be 10 to 50 MB. Going under 2 MB usually only needs a light recompression of the pictures, so the pages look almost unchanged. The tool tries the gentlest setting first and goes stronger only if it has to. If the PDF is already smaller than 2 MB it is kept as it is, and you can lower the limit if you need it smaller still.",
+   "faq": [
+    {
+     "q": "How do I compress a PDF to 2 MB?",
+     "a": "Add the PDF, keep the size at 2 MB and click Compress to under 2 MB."
+    },
+    {
+     "q": "Will it reduce the quality a lot?",
+     "a": "Not much. A light compression is usually enough for 2 MB, and you can compare the first page before downloading."
+    },
+    {
+     "q": "Does it work on a phone?",
+     "a": "Yes, in any modern browser. Very large PDFs are slower on a phone."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-10kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 10,
+   "chip": "10 KB",
+   "name": "Compress PNG Under 10 KB",
+   "title": "Compress PNG to Under 10 KB Online Free | Toolz Baba",
+   "desc": "Compress a PNG to under 10 KB: icons, small logos and signatures on a transparent background. Choose the size, preview, download.",
+   "about": "10 KB is very small for a PNG, because PNG stores every pixel without loss. It works for icons, simple logos, stamps and a signature on a transparent background, and it does not work for photographs. This page first reduces the number of colours (from 256 down to 32), which costs a flat graphic almost nothing, and only then shrinks the pixel size. Transparent areas stay transparent. If you need a photo under 10 KB, a JPG will look far better.",
+   "faq": [
+    {
+     "q": "How do I make a PNG under 10 KB?",
+     "a": "Add the PNG and keep the size at 10 KB. The page lowers the number of colours and, if needed, the width and height until the file fits, and shows the result before you download."
+    },
+    {
+     "q": "Will the transparent background stay?",
+     "a": "Yes. The result is still a PNG and keeps its transparency."
+    },
+    {
+     "q": "Why is my screenshot still too big?",
+     "a": "Screenshots and photos have many colours and details. Try 50 KB or more, or save the picture as a JPG with the JPG page."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-20kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 20,
+   "chip": "20 KB",
+   "name": "Compress PNG Under 20 KB",
+   "title": "Compress PNG to Under 20 KB Online Free | Toolz Baba",
+   "desc": "Reduce a PNG to under 20 KB and keep its transparency. Set the size, compare with the original, download. Free, in your browser.",
+   "about": "A PNG under 20 KB is realistic for a logo, a button, a badge, a small illustration or a signature scan. The file size of a PNG depends on how many colours the picture uses, so the tool cuts the palette first, which is nearly invisible on flat graphics, and shrinks the dimensions only if the palette alone cannot reach 20 KB. The preview shows the transparent areas, so you can see exactly what you will save.",
+   "faq": [
+    {
+     "q": "How can I compress a PNG to 20 KB?",
+     "a": "Add the file, leave the size at 20 KB, check the preview and click Download."
+    },
+    {
+     "q": "Does reducing colours make the picture ugly?",
+     "a": "For logos and flat artwork it is hardly visible. Photos get a posterised look, so use a JPG for photos."
+    },
+    {
+     "q": "Is the PNG uploaded to a server?",
+     "a": "No. It is compressed in your browser and stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-50kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 50,
+   "chip": "50 KB",
+   "name": "Compress PNG Under 50 KB",
+   "title": "Compress PNG to Under 50 KB Online Free | Toolz Baba",
+   "desc": "Make a PNG smaller than 50 KB for websites and forms, keeping transparency. Pick the size and preview the result.",
+   "about": "50 KB is a handy size for website logos, UI icons, favicons and small illustrations. At this size most flat graphics keep clean edges and transparency, using a palette of 64 to 256 colours. The page tries the best palette first and only shrinks the pixel size if the file is still too big. A screenshot of text can be quite a bit over 50 KB, so if the result gets small and blurry, raise the limit.",
+   "faq": [
+    {
+     "q": "How do I get a PNG under 50 KB?",
+     "a": "Add it and keep the target at 50 KB. The best settings that fit are chosen for you."
+    },
+    {
+     "q": "Can I keep a transparent logo at 50 KB?",
+     "a": "Yes. Transparency is kept, and most logos fit easily."
+    },
+    {
+     "q": "What if the picture gets blurry?",
+     "a": "Then 50 KB is too little for its size. Use a higher limit such as 100 KB, or reduce the max width yourself."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-100kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 100,
+   "chip": "100 KB",
+   "name": "Compress PNG Under 100 KB",
+   "title": "Compress PNG to Under 100 KB Online Free | Toolz Baba",
+   "desc": "Compress a PNG to under 100 KB without losing transparency. Choose the size, check the preview, download for free.",
+   "about": "100 KB is a common upload limit for logos, signatures, ID images and graphics on forms and in content systems. A typical PNG screenshot is 5 to 20 times bigger. To get under 100 KB the tool first reduces the colours, which keeps graphics sharp, and then, if it has to, reduces the image dimensions. Everything is shown in a before and after preview with real file sizes, and transparent areas are preserved.",
+   "faq": [
+    {
+     "q": "How do I reduce a PNG to 100 KB?",
+     "a": "Add the PNG, keep 100 KB as the target and download once the preview looks right."
+    },
+    {
+     "q": "Why does a PNG get big so easily?",
+     "a": "PNG keeps every pixel exactly, so photos and screenshots with many colours are large. Reducing colours is what makes them smaller."
+    },
+    {
+     "q": "Is my image safe?",
+     "a": "Yes. Nothing is uploaded; the work happens in your browser."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-150kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 150,
+   "chip": "150 KB",
+   "name": "Compress PNG Under 150 KB",
+   "title": "Compress PNG to Under 150 KB Online Free | Toolz Baba",
+   "desc": "Reduce a PNG to under 150 KB. Colours are reduced first, so graphics stay sharp. Set the size and preview the result.",
+   "about": "At 150 KB a PNG graphic can keep a lot of detail: product cut-outs with transparent backgrounds, diagrams, charts and UI mockups. The tool lowers the number of colours step by step and only reduces the pixel size when that is not enough. If your file is already under 150 KB it is returned unchanged, so you never lose quality for nothing.",
+   "faq": [
+    {
+     "q": "How do I compress a PNG to 150 KB?",
+     "a": "Add it, set 150 KB (or click the 150 KB button) and download after the preview."
+    },
+    {
+     "q": "What if my PNG is already smaller?",
+     "a": "Then it is kept as it is."
+    },
+    {
+     "q": "Does it work for product images with transparency?",
+     "a": "Yes, the transparent background stays transparent."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-200kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 200,
+   "chip": "200 KB",
+   "name": "Compress PNG Under 200 KB",
+   "title": "Compress PNG to Under 200 KB Online Free | Toolz Baba",
+   "desc": "Compress a PNG to under 200 KB for websites, email and forms. Pick the size, compare the result, download.",
+   "about": "200 KB leaves enough room for a detailed logo, a diagram or a cut-out product picture with a transparent background. A full-screen screenshot is often 1 to 3 MB as a PNG, so it needs a smaller palette and sometimes smaller dimensions to get down to 200 KB. This page picks the settings that give the best-looking result under the limit and lets you compare it with the original before saving.",
+   "faq": [
+    {
+     "q": "How do I reduce a PNG to 200 KB?",
+     "a": "Add the picture and keep the size at 200 KB. Compare the preview and download."
+    },
+    {
+     "q": "Will a screenshot stay readable?",
+     "a": "Usually yes, as long as the text is not tiny. If it is blurry, try 300 KB or 500 KB."
+    },
+    {
+     "q": "Can I process many PNGs at once?",
+     "a": "Yes. Add them all and use Download all for a ZIP."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-300kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 300,
+   "chip": "300 KB",
+   "name": "Compress PNG Under 300 KB",
+   "title": "Compress PNG to Under 300 KB Online Free | Toolz Baba",
+   "desc": "Reduce a PNG to under 300 KB while keeping it crisp. Set the size, compare, download. Transparency is kept.",
+   "about": "300 KB is a good size for web graphics that need to look crisp: banners with text, charts, screenshots and illustrations. The tool tries a rich palette first and only goes lower when it must, so you keep as many colours as the limit allows. If that is not enough, the image is made slightly smaller. You see the original and the result side by side, with their sizes.",
+   "faq": [
+    {
+     "q": "How do I make a PNG 300 KB or smaller?",
+     "a": "Add it, choose 300 KB and download after checking the preview."
+    },
+    {
+     "q": "Will I see the difference?",
+     "a": "On flat graphics hardly. On photos in PNG you may see slight banding, and a JPG is a better choice there."
+    },
+    {
+     "q": "Is there a limit on the number of files?",
+     "a": "You can add up to 40 files at once."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-500kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 500,
+   "chip": "500 KB",
+   "name": "Compress PNG Under 500 KB",
+   "title": "Compress PNG to Under 500 KB Online Free | Toolz Baba",
+   "desc": "Compress a PNG to under 500 KB for email and uploads. Choose the size, preview the result, download free.",
+   "about": "Half a megabyte is a common limit for uploads in web forms and content systems, and a typical screenshot or graphic exported as a PNG is 1 to 5 MB. At 500 KB most graphics need only a mild colour reduction and keep their sharp edges and transparent areas. The page chooses the best settings under the limit and shows the real size of the file you will get.",
+   "faq": [
+    {
+     "q": "How do I get a PNG under 500 KB?",
+     "a": "Add the file, click the 500 KB button and download after the preview."
+    },
+    {
+     "q": "Do I lose transparency?",
+     "a": "No. Transparent areas stay transparent."
+    },
+    {
+     "q": "What about a photo saved as PNG?",
+     "a": "Photos in PNG are big. Compress them as JPG for a much smaller file at the same look."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-1mb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 1024,
+   "chip": "1 MB",
+   "name": "Compress PNG Under 1 MB",
+   "title": "Compress PNG to Under 1 MB Online Free | Toolz Baba",
+   "desc": "Reduce a PNG to under 1 MB with little visible change. Set the size, compare with the original, download.",
+   "about": "1 MB is a typical cap for forms, ticket systems and email gateways. A large screenshot or high-resolution graphic in PNG can be 3 to 10 MB, but it usually gets under 1 MB with a light colour reduction that you cannot see. The tool uses the richest palette that fits and shrinks the dimensions only as a last resort. If your PNG is already under 1 MB it is not touched.",
+   "faq": [
+    {
+     "q": "How do I compress a PNG to 1 MB?",
+     "a": "Add the picture, choose 1 MB and download once the preview looks right."
+    },
+    {
+     "q": "Will it look the same?",
+     "a": "For most graphics yes. The preview lets you check before you save."
+    },
+    {
+     "q": "Can I type a size like 1.5 MB?",
+     "a": "Yes. Type any value and switch the unit between KB and MB."
+    }
+   ]
+  },
+  {
+   "slug": "compress-png-under-2mb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-png",
+   "media": "png",
+   "ui": "target-png",
+   "js": "compress-target",
+   "target_kb": 2048,
+   "chip": "2 MB",
+   "name": "Compress PNG Under 2 MB",
+   "title": "Compress PNG to Under 2 MB Online Free | Toolz Baba",
+   "desc": "Compress a PNG to under 2 MB for websites and uploads, with almost no visible change. Free and private.",
+   "about": "Many sites and email services refuse files above 2 MB, while a retina screenshot or a large exported graphic is often 5 to 15 MB as a PNG. Going under 2 MB usually needs only a light palette reduction, so the picture looks nearly the same and stays transparent where it was. If the file is already under 2 MB it is returned unchanged.",
+   "faq": [
+    {
+     "q": "How do I reduce a PNG to under 2 MB?",
+     "a": "Add it, keep the size at 2 MB and download after a look at the preview."
+    },
+    {
+     "q": "How much quality is lost?",
+     "a": "Very little. The colour count is reduced only as far as needed."
+    },
+    {
+     "q": "Does it work on a phone?",
+     "a": "Yes, in any modern browser. Very large images take longer on a phone."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-10kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 10,
+   "chip": "10 KB",
+   "name": "Compress JPEG Under 10 KB",
+   "title": "Compress JPEG to Under 10 KB Online Free | Toolz Baba",
+   "desc": "Compress a JPEG to under 10 KB for tiny uploads such as signatures. See the result before you download. Runs in your browser.",
+   "about": "Some forms ask for a JPEG of no more than 10 KB, usually for a signature or a small stamp. A .jpeg file is exactly the same format as a .jpg file, so this page works on both. To reach 10 KB the tool lowers the quality and, because a large picture cannot fit in 10 KB at any quality, makes the picture smaller. Crop closely around the signature before you add it: fewer pixels means a clearer result.",
+   "faq": [
+    {
+     "q": "How do I reduce a JPEG to 10 KB?",
+     "a": "Add your .jpeg file and keep the size at 10 KB. The preview shows the result and its exact size."
+    },
+    {
+     "q": "Is .jpeg different from .jpg?",
+     "a": "No. They are the same format; only the extension differs."
+    },
+    {
+     "q": "Can a face photo fit in 10 KB?",
+     "a": "A very small one can, but it will be soft. For photos 20 KB to 50 KB works better."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-20kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 20,
+   "chip": "20 KB",
+   "name": "Compress JPEG Under 20 KB",
+   "title": "Compress JPEG to Under 20 KB Online Free | Toolz Baba",
+   "desc": "Make a JPEG smaller than 20 KB for exam and application forms. Pick the size, preview, download.",
+   "about": "20 KB is a common limit for a small photo or signature on application forms. The page encodes the JPEG at a good quality first and lowers it, then reduces the pixel size, until the file is just under 20 KB. For a face photo, a few hundred pixels across is enough for such a field. Add several JPEGs and download them all in a ZIP, each one fitted to the limit.",
+   "faq": [
+    {
+     "q": "How can I compress a JPEG to 20 KB?",
+     "a": "Add the picture, leave the size at 20 KB, check the preview and download."
+    },
+    {
+     "q": "Will the result still be a JPEG?",
+     "a": "Yes, the result is a standard JPEG file that any form accepts."
+    },
+    {
+     "q": "Can I do many files at once?",
+     "a": "Yes. Add up to 40 and use Download all."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-50kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 50,
+   "chip": "50 KB",
+   "name": "Compress JPEG Under 50 KB",
+   "title": "Compress JPEG to Under 50 KB Online Free | Toolz Baba",
+   "desc": "Reduce a JPEG to under 50 KB for profile pictures and ID uploads. Choose the size and check the preview first.",
+   "about": "A 50 KB JPEG is a common size for profile pictures, ID photos and document scans on web portals. The tool searches for the highest quality that stays below 50 KB and scales large pictures down, since a camera photo of several megapixels cannot be squeezed into 50 KB by quality alone. The result is shown next to your original, so you can check the face or text.",
+   "faq": [
+    {
+     "q": "How do I get a JPEG under 50 KB?",
+     "a": "Add it and keep the target at 50 KB. The best quality that fits is picked for you."
+    },
+    {
+     "q": "Does it keep the picture's proportions?",
+     "a": "Yes. When the picture is made smaller, the width and height shrink together."
+    },
+    {
+     "q": "Why is my result not exactly 50 KB?",
+     "a": "It is just under the limit, because the highest quality that fits is chosen."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-100kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 100,
+   "chip": "100 KB",
+   "name": "Compress JPEG Under 100 KB",
+   "title": "Compress JPEG to Under 100 KB Online Free | Toolz Baba",
+   "desc": "Compress a JPEG to under 100 KB for job, KYC and admission forms. Set the size, preview, download free.",
+   "about": "100 KB is the limit many job, bank and college portals set for a photo or a document upload. Phone photos are 3 to 8 MB, so they must be compressed hard, and this page does it with a quality search that leaves as much detail as the limit allows. If the picture is too big even at low quality it is also made smaller. Your original is shown next to the result with real sizes.",
+   "faq": [
+    {
+     "q": "How do I reduce a JPEG to 100 KB?",
+     "a": "Add the .jpeg file, keep 100 KB and download once the preview looks right."
+    },
+    {
+     "q": "Will a photographed document stay readable?",
+     "a": "Usually, if the text is large. If it is not, try 150 KB or 200 KB."
+    },
+    {
+     "q": "Is it free and private?",
+     "a": "Yes. It runs in your browser and the file is not uploaded."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-150kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 150,
+   "chip": "150 KB",
+   "name": "Compress JPEG Under 150 KB",
+   "title": "Compress JPEG to Under 150 KB Online Free | Toolz Baba",
+   "desc": "Make a JPEG smaller than 150 KB while keeping faces and text clear. Choose the size, compare, download.",
+   "about": "A 150 KB JPEG fits the rules of many application forms and marketplaces and keeps noticeably more detail than a 100 KB one. The tool lowers the quality only as far as needed and keeps files that are already under 150 KB untouched. Use the slider if you want to see how the picture changes at a higher or lower limit.",
+   "faq": [
+    {
+     "q": "How do I make a JPEG 150 KB?",
+     "a": "Add it, click 150 KB and check the preview."
+    },
+    {
+     "q": "What if my JPEG is already smaller than 150 KB?",
+     "a": "It is kept as it is."
+    },
+    {
+     "q": "Can I change the limit later?",
+     "a": "Yes. Move the slider or type a new size and the preview updates."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-200kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 200,
+   "chip": "200 KB",
+   "name": "Compress JPEG Under 200 KB",
+   "title": "Compress JPEG to Under 200 KB Online Free | Toolz Baba",
+   "desc": "Reduce a JPEG to under 200 KB for forms, email and uploads. Set the size, preview the result, free.",
+   "about": "200 KB is a comfortable limit for portraits, certificates and scanned pages, and many portals use it. At this size a JPEG stays clean to the eye on a screen. The page finds the best quality under 200 KB and tells you the exact result size; if the picture is huge it is also scaled down a little. A before and after view lets you judge the result.",
+   "faq": [
+    {
+     "q": "How do I compress a JPEG to 200 KB?",
+     "a": "Add it, keep 200 KB as the size and download after the preview."
+    },
+    {
+     "q": "Will 200 KB look good?",
+     "a": "For screen use, yes. It is not meant for large prints."
+    },
+    {
+     "q": "Can I compress a batch?",
+     "a": "Yes, and download them together in a ZIP."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-300kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 300,
+   "chip": "300 KB",
+   "name": "Compress JPEG Under 300 KB",
+   "title": "Compress JPEG to Under 300 KB Online Free | Toolz Baba",
+   "desc": "Compress a JPEG to under 300 KB with very little visible loss. Choose the size, compare with the original.",
+   "about": "300 KB keeps good detail in a portrait, a product picture or a scanned certificate. A .jpeg from a phone is usually 10 to 30 times larger, and the difference is hard to see on screen. This page searches the highest quality that fits under 300 KB and only reduces the dimensions if quality alone cannot do it.",
+   "faq": [
+    {
+     "q": "How do I get a JPEG under 300 KB?",
+     "a": "Add it, choose 300 KB and download."
+    },
+    {
+     "q": "Is it good enough for a website?",
+     "a": "Yes, it is fine for content images. Hero banners may want 500 KB."
+    },
+    {
+     "q": "Do my files leave my device?",
+     "a": "No. Everything runs in your browser."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-500kb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 500,
+   "chip": "500 KB",
+   "name": "Compress JPEG Under 500 KB",
+   "title": "Compress JPEG to Under 500 KB Online Free | Toolz Baba",
+   "desc": "Reduce a JPEG to under 500 KB for WhatsApp and email. Set the size, preview the result, download.",
+   "about": "A 500 KB JPEG is small enough for WhatsApp, email and most upload forms, and big enough that a full-screen picture still looks good. Most photos need only a light compression to get there. The tool shows both versions with their sizes, and keeps files that are already under 500 KB as they are.",
+   "faq": [
+    {
+     "q": "How do I make a JPEG under 500 KB?",
+     "a": "Add it, click the 500 KB button and download."
+    },
+    {
+     "q": "Will it look different?",
+     "a": "Usually not on a phone or laptop screen."
+    },
+    {
+     "q": "Can I send it over WhatsApp?",
+     "a": "Yes, a 500 KB picture sends fast even on a weak connection."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-1mb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 1024,
+   "chip": "1 MB",
+   "name": "Compress JPEG Under 1 MB",
+   "title": "Compress JPEG to Under 1 MB Online Free | Toolz Baba",
+   "desc": "Compress a JPEG to under 1 MB with almost no visible loss. Choose the size, preview, download free.",
+   "about": "1 MB is the cap on many web forms and support systems. A modern phone photo as .jpeg is 3 to 8 MB, so a moderate compression is needed, and it rarely shows. The page picks the highest quality that fits under 1 MB and leaves smaller files untouched, so nothing is recompressed for no reason.",
+   "faq": [
+    {
+     "q": "How do I compress a JPEG to 1 MB?",
+     "a": "Add the photo, pick 1 MB and compare the preview."
+    },
+    {
+     "q": "Will the picture look the same?",
+     "a": "For most photos, yes."
+    },
+    {
+     "q": "Can I type 0.8 MB?",
+     "a": "Yes. Type any number and choose KB or MB."
+    }
+   ]
+  },
+  {
+   "slug": "compress-jpeg-under-2mb",
+   "base": "compress-image",
+   "group": "size",
+   "parent": "compress-jpeg",
+   "media": "jpeg",
+   "ui": "target-jpg",
+   "js": "compress-target",
+   "target_kb": 2048,
+   "chip": "2 MB",
+   "name": "Compress JPEG Under 2 MB",
+   "title": "Compress JPEG to Under 2 MB Online Free | Toolz Baba",
+   "desc": "Reduce a JPEG to under 2 MB for email and uploads, keeping nearly full quality. Set the size, preview, download.",
+   "about": "Websites and email services often stop at 2 MB, while a phone photo can be 5 to 10 MB. A light compression gets a .jpeg under 2 MB with almost no visible change. This page keeps the highest quality that fits, and a photo already under 2 MB is left as it is.",
+   "faq": [
+    {
+     "q": "How do I get a JPEG under 2 MB?",
+     "a": "Add it, keep the target at 2 MB and download."
+    },
+    {
+     "q": "Is quality lost?",
+     "a": "Only a little; a light compression is enough."
+    },
+    {
+     "q": "What if my photo is 20 MB?",
+     "a": "That works too: quality and, if necessary, the pixel size are lowered until it fits."
+    }
+   ]
+  },
+  {
+   "slug": "add-watermark-to-pdf",
+   "base": "add-watermark-to-image",
+   "tab": "PDF",
+   "name": "Add Watermark to PDF",
+   "cat": "pdf",
+   "title": "Add Watermark to PDF Online Free | Toolz Baba",
+   "desc": "Stamp text or a logo on every page of a PDF: tilt, size, opacity and position are yours to set.",
+   "about": "Mark a PDF as CONFIDENTIAL, DRAFT or with your company logo. Choose text or an image, how big and how tilted it is, how transparent, and where it goes: the centre, a corner, or repeated across the whole page. You can limit it to some pages. Text works in any language your browser can show, and the PDF never leaves your device.",
+   "engine": "pdf",
+   "js": "server-pdf",
+   "aliases": [
+    "add-watermark-to-pdf"
+   ]
+  },
+  {
+   "slug": "add-watermark-to-video",
+   "base": "add-watermark-to-image",
+   "tab": "Video",
+   "name": "Add Watermark to Video",
+   "cat": "video",
+   "title": "Add Watermark to Video Online Free | Toolz Baba",
+   "desc": "Put your name, text or logo on a video: choose the position, size and opacity.",
+   "about": "Protect your videos by adding a text or logo watermark. Choose where it goes (any corner, the top, bottom or centre), how big it is and how transparent. Upload a PNG logo with a transparent background for the cleanest look. The video is re-encoded in your browser, so nothing is uploaded.",
+   "engine": "video",
+   "js": "server-video",
+   "aliases": [
+    "add-watermark-to-video"
+   ]
+  },
+  {
+   "slug": "blur-redact-pdf",
+   "base": "pixelate-image",
+   "tab": "PDF blur & redact",
+   "name": "Blur & Redact PDF",
+   "cat": "pdf",
+   "title": "Blur & Redact PDF Online Free | Toolz Baba",
+   "desc": "Hide names, numbers and faces in a PDF: draw boxes on the page and black them out or blur them for good.",
+   "about": "Draw boxes over anything private, such as a phone number, an ID, an account number or a signature, and cover it with a black box, a white box, a blur or a pixelation. The text and pictures under the boxes are removed from the file itself, so they cannot be copied or recovered later. Your PDF is processed in your browser and never uploaded.",
+   "engine": "pdf",
+   "js": "pdf-redact",
+   "aliases": [
+    "blur-redact-pdf"
+   ]
+  },
+  {
+   "slug": "linkedin-carousel-maker",
+   "base": "photo-collage-maker",
+   "tab": "LinkedIn carousel",
+   "name": "LinkedIn Carousel Maker",
+   "title": "LinkedIn Carousel Maker Online Free | Toolz Baba",
+   "desc": "Write your slides as text and get a ready-to-post LinkedIn carousel as a PDF, plus PNG slides.",
+   "about": "Type or paste your slides, separated by a line of three dashes. The first line of each slide is its title and the rest is the text; start a line with a dash for a bullet. Pick a colour theme, a font and slide size, add your name and photo, and download a PDF to upload to LinkedIn as a document, or the slides as PNG pictures. Everything is made in your browser.",
+   "engine": "pdf",
+   "js": "carousel",
+   "aliases": [
+    "linkedin-carousel-maker"
+   ]
+  },
+  {
+   "slug": "instagram-image-carousel-splitter",
+   "base": "photo-collage-maker",
+   "tab": "Instagram carousel",
+   "name": "Instagram Carousel Splitter",
+   "title": "Instagram Carousel Splitter Online Free | Toolz Baba",
+   "desc": "Cut one wide picture into seamless Instagram carousel slides (2 to 10), ready to post in order.",
+   "about": "Turn a panorama, a banner or a long screenshot into a swipeable Instagram carousel where the picture runs on from one slide to the next. Choose how many slides (the tool suggests the best number), the slide shape (4:5 portrait, square or landscape) and whether to fill the slides or show the whole picture on a blurred background. You get the slides as numbered files in a ZIP, or one by one.",
+   "js": "carousel",
+   "aliases": [
+    "instagram-image-carousel-spliter",
+    "instagram-image-carousel-splitter"
+   ]
+  },
+  {
+   "slug": "ai-headshot-generator",
+   "base": "passport-size-photo-maker",
+   "tab": "AI headshot",
+   "name": "AI Headshot Generator",
+   "cat": "ai",
+   "title": "AI Headshot Generator Online Free | Toolz Baba",
+   "desc": "Turn a normal photo into a clean professional headshot: AI finds your face, swaps the background and frames you head-and-shoulders.",
+   "about": "Upload a selfie or any photo of yourself and get a tidy profile picture for LinkedIn, a CV or a company page. The AI finds your face, cuts you out, puts you on a studio background (grey, beige, blue, dark, white, blurred or your own colour) and frames you head-and-shoulders in a square or 4:5 shape, with an optional light touch-up. It uses your own photo, it does not invent a new face, and everything runs on your device so the photo is never uploaded.",
+   "engine": "ai",
+   "js": "server-ai",
+   "aliases": [
+    "ai-headshot-generator"
+   ]
+  },
+  {
+   "slug": "video-to-text",
+   "base": "image-to-text",
+   "tab": "Video to text",
+   "name": "Video to Text (Transcribe)",
+   "cat": "video",
+   "title": "Video to Text (Transcribe) Online Free | Toolz Baba",
+   "desc": "Turn what is said in a video or audio file into text, with subtitles (SRT, VTT). AI runs in your browser.",
+   "about": "Get a transcript of a video, lecture, interview, meeting recording or voice note. The Whisper speech AI runs on your own device, so the file is never uploaded. It understands many languages including English and Hindi, can detect the language by itself, can translate to English, and gives you plain text plus SRT and VTT subtitle files with timestamps. The first use downloads the model once (40 or 80 MB).",
+   "engine": "speech",
+   "js": "speech",
+   "aliases": [
+    "audio-to-text",
+    "video-to-text"
+   ]
+  },
+  {
+   "slug": "text-to-audio",
+   "base": "image-to-text",
+   "tab": "Text to audio",
+   "name": "Text to Audio (Text to Speech)",
+   "cat": "video",
+   "title": "Text to Audio (Text to Speech) Online Free | Toolz Baba",
+   "desc": "Turn written text into spoken audio in English or Hindi and save it as WAV or MP3. Runs in your browser.",
+   "about": "Paste or type your text and get it read aloud with an AI voice, then download the audio as a WAV or MP3 file. English and Hindi voices are available. The voice is downloaded to your browser the first time (about 38 MB) and everything runs on your device, so your text is never sent anywhere. The voice is clear but a little robotic, which suits narration, notes and accessibility.",
+   "engine": "speech",
+   "js": "speech",
+   "aliases": [
+    "text-to-audio",
+    "text-to-speech"
+   ]
+  },
+  {
+   "slug": "video-to-audio",
+   "base": "image-to-text",
+   "tab": "Video to audio",
+   "name": "Video to Audio Converter",
+   "cat": "video",
+   "title": "Video to Audio Converter Online Free | Toolz Baba",
+   "desc": "Take the sound out of a video and save it as MP3, M4A, WAV, OGG or FLAC. Runs in your browser.",
+   "about": "Pull the audio track out of any video, such as an MP4, MOV, MKV or WebM file, and save it as MP3, M4A, WAV, OGG or FLAC. You can pick the quality for MP3, M4A and OGG, and convert several videos at once. Your video is processed on your own device and is never uploaded.",
+   "engine": "video",
+   "js": "server-video",
+   "aliases": [
+    "video-to-audio"
+   ]
+  },
+  {
+   "slug": "mp4-to-mp3",
+   "base": "image-to-text",
+   "tab": "MP4 to MP3",
+   "name": "MP4 to MP3 Converter",
+   "cat": "video",
+   "title": "MP4 to MP3 Converter Online Free: Extract Audio | Toolz Baba",
+   "desc": "Convert MP4 video to MP3 audio in your browser. Choose the quality; nothing is uploaded.",
+   "about": "Turn an MP4 video into an MP3 file in a few clicks: add the video, pick a quality (192 kbps is a good default, 320 kbps is the best) and download the MP3. Music videos, lectures, interviews and recordings all work, and several files can be converted at once. The conversion runs on your own device with no upload and no file-size limit from us.",
+   "js": "server-video"
+  },
+  {
+   "slug": "split-video",
+   "base": "compress-video",
+   "tab": "Split video",
+   "name": "Split Video",
+   "title": "Split Video Online Free | Toolz Baba",
+   "desc": "Cut a video into equal parts or into parts of a set length. You get the parts in a ZIP.",
+   "about": "Split a long video into shorter clips, for example 30-second parts for WhatsApp status or Instagram stories, or into 2 to 100 equal parts. Fast mode cuts without re-encoding, so it finishes quickly and keeps the original quality; accurate mode re-encodes for exact cut points. Everything runs in your browser.",
+   "engine": "video",
+   "js": "server-video",
+   "aliases": [
+    "split-video"
+   ]
+  },
+  {
+   "slug": "merge-audio",
+   "base": "split-audio",
+   "tab": "Merge audio",
+   "name": "Merge Audio Files",
+   "title": "Merge Audio Files Online Free | Toolz Baba",
+   "desc": "Join several audio files into one, in the order you choose, with an optional gap between them.",
+   "about": "Combine MP3, WAV, M4A, FLAC or OGG files into a single track. Put them in order with the arrows, add a short silence between them if you like, and save the result as MP3, M4A, WAV, OGG or FLAC. Files with different sample rates are matched automatically. Your audio never leaves your device.",
+   "engine": "video",
+   "js": "server-video",
+   "aliases": [
+    "merge-audio"
+   ]
+  },
+  {
+   "slug": "color-palette-generator",
+   "base": "image-color-palette-extractor",
+   "tab": "Palette generator",
+   "name": "Color Palette Generator",
+   "title": "Color Palette Generator Online Free | Toolz Baba",
+   "desc": "Pick one colour and get a matching palette: complementary, analogous, triadic and more, with a shade scale.",
+   "about": "Start from any colour and build a palette that works together using colour-theory rules: complementary, analogous, triadic, tetradic, split-complementary or a single-hue monochrome. See each colour's HEX, RGB and HSL values and how readable black or white text is on it, get a 50 to 900 shade scale, and copy the palette as HEX, CSS variables, JSON or Tailwind colors, or save it as an image.",
+   "js": "palette-gen",
+   "aliases": [
+    "color-palette-generator",
+    "color-paletter-generator"
+   ]
+  },
+  {
+   "slug": "website-color-palette-extractor",
+   "base": "image-color-palette-extractor",
+   "tab": "From a website",
+   "name": "Website Color Palette Extractor",
+   "title": "Website Color Palette Extractor Online Free | Toolz Baba",
+   "desc": "Type a website address and get the colours its design really uses, with HEX codes you can copy.",
+   "about": "Find the brand colours of any public website: enter its address and the tool reads the page and its style sheets, counts every colour, gives more weight to the ones used for backgrounds, text and theme settings, and shows the main colours with HEX and RGB values. Hide the white, black and greys to see the accent colours, then copy them as a list, CSS variables or JSON. Sites that draw their whole look with JavaScript may show fewer colours.",
+   "kind": "server",
+   "badge": "Reads public pages",
+   "how": [
+    "<b>Type</b> the website address",
+    "<b>See</b> the colours its design uses",
+    "<b>Copy</b> the ones you want"
+   ],
+   "privacy": "Our server fetches the public page you name and sends back only its list of colours. Nothing is stored.",
+   "privacyTitle": "Public pages only",
+   "js": "site-colors",
+   "aliases": [
+    "website-color-palette-extractor"
+   ]
+  },
+  {
+   "slug": "temporary-file-upload-direct-link-share",
+   "base": "image-cdn",
+   "tab": "Temporary file share",
+   "name": "Temporary File Share (Direct Link)",
+   "title": "Temporary File Share (Direct Link) Online Free | Toolz Baba",
+   "desc": "Upload a file and get a direct download link that expires by itself after an hour, a day, a week or a month.",
+   "about": "Share a file without email attachments or accounts: upload up to 5 files (20 MB each), choose how long the link should work, and send the direct link. Anyone with the link can download the file until it expires, and you can delete it earlier. Programs, scripts and web pages are not allowed, files are always downloaded and never opened inside the site, and nothing is kept after the time you chose.",
+   "badge": "Files expire automatically",
+   "how": [
+    "<b>Add your files</b> (up to 5, 20 MB each)",
+    "<b>Choose</b> how long the link should work",
+    "<b>Copy</b> the direct link and share it"
+   ],
+   "privacy": "Files are stored on Cloudflare until the link expires. Anyone with the link can download the file, so do not upload anything private.",
+   "privacyTitle": "Shared by link",
+   "js": "file-share",
+   "aliases": [
+    "temporary-file-upload-direct-link-share"
+   ]
   }
  ]
 }

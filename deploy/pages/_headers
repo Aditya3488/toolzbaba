@@ -38,6 +38,33 @@
 /tool/anime-style
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: credentialless
-/tool/passport-photo-maker
+/tool/passport-size-photo-maker
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: credentialless
+/ai-headshot-generator
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/image-to-text
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/video-to-text
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/text-to-audio
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/assets/vendor/transformers-3.8.1/*
+  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Resource-Policy: same-origin
+# the video engine (ffmpeg) also runs on those isolated pages (a tab or the MP3 step of Text to Audio): its worker needs the same policy
+/assets/vendor/ffmpeg-0.12.15/*
+  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Resource-Policy: same-origin
+
+# admin panel: never cached, never indexed, no framing
+/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+  X-Frame-Options: DENY
+/assets/admin.js
+  X-Robots-Tag: noindex

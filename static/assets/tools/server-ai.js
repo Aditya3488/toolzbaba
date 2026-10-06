@@ -44,3 +44,15 @@ HT.register('anime-style', root => HT.serverTool(root, {
   slug: 'anime-style', accept: IMG, max: 10, action: 'Turn into anime', notice: NOTE, hint: 'Portraits and scenery both work',
   fields: [{ name: 'style', label: 'Style', type: 'select', options: [['hayao', 'Hayao (soft, painterly)'], ['shinkai', 'Shinkai (vivid, cinematic)']] }],
 }));
+
+HT.register('ai-headshot-generator', root => HT.serverTool(root, {
+  slug: 'ai-headshot-generator', accept: IMG, max: 1, action: 'Make my headshot', notice: NOTE, hint: 'A clear photo of yourself with your whole head visible, facing the camera',
+  fields: [
+    { name: 'background', label: 'Background', type: 'select', value: 'studio', options: [['studio', 'Studio grey'], ['warm', 'Warm beige'], ['blue', 'Soft blue'], ['dark', 'Dark'], ['white', 'White'], ['blur', 'Blurred original'], ['custom', 'Custom colour...']] },
+    { name: 'custom_color', label: 'Colour', type: 'color', value: '#dfe6f3', showIf: v => v.background === 'custom' },
+    { name: 'shape', label: 'Shape', type: 'select', value: 'square', options: [['square', 'Square (LinkedIn, most profile pictures)'], ['portrait', 'Portrait 4:5']] },
+    { name: 'framing', label: 'How close', type: 'select', value: 'standard', options: [['standard', 'Head and shoulders'], ['tight', 'Close up'], ['wide', 'Wider (more shoulders)']] },
+    { name: 'size', label: 'Size', type: 'select', value: '1200', options: [['1200', '1200 px (best quality)'], ['800', '800 px'], ['400', '400 px (small upload limits)']] },
+    { name: 'touchup', label: 'Light touch-up (a little brighter, more contrast)', type: 'checkbox', value: true },
+  ],
+}));

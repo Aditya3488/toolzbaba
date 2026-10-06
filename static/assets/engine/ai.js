@@ -304,7 +304,7 @@
   const PRESETS = { '35x45': [35, 45], '51x51': [51, 51], '33x48': [33, 48], '25x35': [25, 35] };
   const BACKGROUNDS = { white: '#ffffff', lightgray: '#e8e8e8', blue: '#4682d2', red: '#c8282d' };
   const PAPERS = { '4x6': [152.4, 101.6], '5x7': [177.8, 127.0], a4: [297.0, 210.0] };
-  HT.engine('passport-photo-maker', async ctx => {
+  HT.engine('passport-size-photo-maker', async ctx => {
     const o = ctx.opts, size = o.size || '35x45';
     let wmm, hmm;
     if (size === 'custom') { wmm = parseFloat(o.width_mm) || 35; hmm = parseFloat(o.height_mm) || 45; }
@@ -362,5 +362,44 @@
     }
     ctx.info = { summary: `Passport photo ${label} at ${DPI} DPI${copiesTxt}. Check your country's rules (head size, expression, background).` };
     return outs;
+  });
+  // ---------------------------------------------------------------- headshot: face found, background replaced, framed head-and-shoulders
+  const HEAD_BG = { studio: ['#eef1f5', '#bcc6d4'], warm: ['#f6ecdb', '#d4b98f'], blue: ['#d6e7ff', '#5f8fdb'], dark: ['#4a505e', '#12141a'], white: ['#ffffff', '#eceff3'] };
+  HT.engine('ai-headshot-generator', async ctx => {
+    const o = ctx.opts, f = ctx.files[0], img = limit(await load(f), 3000);
+    ctx.status('Finding the face...'); ctx.progress(0.05);
+    const faces = await detectFaces(ctx, img, 0.5);
+    if (!faces.length) throw new Error("We couldn't find a face. Use a clear photo of yourself with the whole head visible.");
+    const { x, y, w, h } = faces.reduce((a, b) => (b.w * b.h > a.w * a.h ? b : a));
+    ctx.status('Cutting you out of the background...');
+    const person = await cutout(ctx, img, 'person'); ctx.progress(0.7);
+    const ad = pixels(person).data; let top = -1;
+    for (let r = 0; r < person.height && top < 0; r++) for (let q = 0; q < person.width; q++) if (ad[(r * person.width + q) * 4 + 3] > 100) { top = r; break; }
+    let crown = top >= 0 ? top : Math.max(0, y - 0.35 * h); const chin = y + h;
+    if (chin - crown < h * 1.1) crown = y - 0.35 * h;
+    const aspect = o.shape === 'portrait' ? 4 / 5 : 1, outW = { 1200: 1200, 800: 800, 400: 400 }[+o.size || 1200] || 1200, outH = Math.round(outW / aspect);
+    const headRatio = { standard: 0.46, tight: 0.58, wide: 0.36 }[o.framing || 'standard'] || 0.46;
+    const cropH = (chin - crown) / headRatio, cropW = cropH * aspect, left = x + w / 2 - cropW / 2;
+    let topY = crown - 0.2 * cropH; if (topY + cropH > img.height && img.height - cropH <= crown - 0.04 * cropH) topY = img.height - cropH; // keep the picture inside the photo when the head still fits
+    const s = outH / cropH, out = HT.canvas(outW, outH), g = out.getContext('2d'); g.imageSmoothingQuality = 'high';
+    // background
+    const bgKey = o.background || 'studio';
+    if (bgKey === 'blur') {
+      const cs = Math.max(outW / img.width, outH / img.height) * 1.0; g.filter = `blur(${Math.round(outW / 40)}px)`; g.drawImage(img, (outW - img.width * cs) / 2 - 20, (outH - img.height * cs) / 2 - 20, img.width * cs + 40, img.height * cs + 40); g.filter = 'none';
+      g.fillStyle = 'rgba(255,255,255,0.12)'; g.fillRect(0, 0, outW, outH);
+    } else if (bgKey === 'custom') { g.fillStyle = /^#[0-9a-f]{6}$/i.test(o.custom_color) ? o.custom_color : '#ffffff'; g.fillRect(0, 0, outW, outH); }
+    else {
+      const [c1, c2] = HEAD_BG[bgKey] || HEAD_BG.studio, grad = g.createRadialGradient(outW / 2, outH * 0.38, outW * 0.05, outW / 2, outH * 0.45, outW * 0.85);
+      grad.addColorStop(0, c1); grad.addColorStop(1, c2); g.fillStyle = grad; g.fillRect(0, 0, outW, outH);
+    }
+    // you, with a soft shadow so the cut-out edge sits naturally on the new background
+    g.save(); g.shadowColor = 'rgba(0,0,0,0.28)'; g.shadowBlur = outW * 0.025; g.shadowOffsetY = outW * 0.008;
+    g.drawImage(person, -left * s, -topY * s, person.width * s, person.height * s); g.restore();
+    let final = out;
+    if (o.touchup === true || o.touchup === 'true') { final = HT.canvas(outW, outH); const t = final.getContext('2d'); t.filter = 'brightness(1.04) contrast(1.06) saturate(1.05)'; t.drawImage(out, 0, 0); }
+    ctx.progress(0.95);
+    const blobOut = await blob(final, 'image/jpeg', 0.94);
+    ctx.info = { summary: `Headshot ${outW} × ${outH} px. The background was replaced and the photo framed head-and-shoulders: it is your own photo, not a generated face.` };
+    return [{ name: outName(f, 'jpg', '_headshot'), blob: blobOut }];
   });
 })();

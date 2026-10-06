@@ -31,3 +31,7 @@ Thumbs.db
 # ---- Static site build output (python build.py)
 dist/
 .wrangler/
+
+# ---- Cloudflare local dev: secrets and state
+.dev.vars
+.wrangler/

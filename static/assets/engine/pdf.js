@@ -219,30 +219,51 @@
     ref.put('Width', nw); ref.put('Height', nh); ref.put('BitsPerComponent', 8);
     return true;
   }
-  HT.engine('pdf-compress', async ctx => {
+  // "make it fit under N KB": try stronger and stronger settings until the file is small enough. [threshold dpi, target dpi, jpeg quality]
+  const LADDER = [LEVELS.medium, LEVELS.high, [90, 60, 35], [72, 48, 30], [60, 40, 24], [48, 32, 18]];
+  HT.engine('compress-pdf', async ctx => {
     const m = await mu(); await imgEngine();
-    const [thr, target, q] = LEVELS[ctx.opts.level || 'medium'] || LEVELS.medium;
-    const outs = [], rows = [];
-    for (const [i, f] of ctx.files.entries()) {
-      ctx.status(`Analysing ${f.name}...`); await tick();
+    const targetBytes = Math.max(0, parseFloat(ctx.opts.target_kb) || 0) * 1024, fixed = LEVELS[ctx.opts.level || 'medium'] || LEVELS.medium;
+    const n = ctx.files.length;
+    // one pass over one file with the given settings; returns the new PDF as a Blob
+    async function pass(f, [thr, target, q], base, span, label) {
       const doc = await open(f), dpis = imageDpis(m, doc), refs = imageRefs(doc);
-      let done = 0;
       for (const [k, ref] of refs.entries()) {
         const key = ref.get('Width').valueOf() + 'x' + ref.get('Height').valueOf(), d = dpis.get(key);
         if (d && d > thr) {
-          ctx.status(`Compressing images in ${f.name} (${k + 1} of ${refs.length})...`); await tick();
-          try { if (await shrinkImage(m, doc, ref, target / d, q)) done++; } catch (e) { console.warn('image skipped', e); }
+          ctx.status(`${label} (image ${k + 1} of ${refs.length})...`); await tick();
+          try { await shrinkImage(m, doc, ref, target / d, q); } catch (e) { console.warn('image skipped', e); }
         }
-        ctx.progress((i + (k + 1) / refs.length * 0.9) / ctx.files.length);
+        ctx.progress(base + span * (k + 1) / refs.length * 0.95);
       }
-      let blob = save(doc, { garbage: 4, clean: 'yes', objstms: 'yes' });
+      return save(doc, { garbage: 4, clean: 'yes', objstms: 'yes' });
+    }
+    const outs = [], rows = []; let missed = 0, already = 0;
+    for (const [i, f] of ctx.files.entries()) {
+      ctx.status(`Analysing ${f.name}...`); await tick();
+      let blob;
+      if (!targetBytes) blob = await pass(f, fixed, i / n, 1 / n, `Compressing ${f.name}`);
+      else if (f.size <= targetBytes) { blob = f; already++; }
+      else {
+        for (const [step, level] of LADDER.entries()) {
+          const b = await pass(f, level, (i + step / LADDER.length) / n, 1 / (n * LADDER.length), `Compressing ${f.name}: setting ${step + 1} of ${LADDER.length}`);
+          if (!blob || b.size < blob.size) blob = b;
+          if (blob.size <= targetBytes) break;
+        }
+        if (blob.size > targetBytes) missed++;
+      }
       if (blob.size >= f.size) blob = f;
       outs.push({ name: HT.stem(f.name) + '_compressed.pdf', blob });
       rows.push({ name: f.name, before: f.size, after: blob.size });
-      ctx.progress((i + 1) / ctx.files.length);
+      ctx.progress((i + 1) / n);
     }
     const tb = rows.reduce((a, r) => a + r.before, 0), ta = rows.reduce((a, r) => a + r.after, 0);
-    ctx.info = { summary: `${kb(tb)} → ${kb(ta)}  (${tb ? Math.max(0, Math.round((1 - ta / tb) * 100)) : 0}% smaller)`, files: rows };
+    let summary = `${kb(tb)} \u2192 ${kb(ta)}  (${tb ? Math.max(0, Math.round((1 - ta / tb) * 100)) : 0}% smaller)`;
+    if (targetBytes) {
+      summary = missed ? `${missed} of ${n} file(s) could not get under ${kb(targetBytes)}: ${summary}. Only the pictures inside a PDF can be shrunk, so a PDF that is mostly text or already small stops here.`
+        : (already === n ? `Already under ${kb(targetBytes)}: nothing to do (${kb(tb)}).` : `\u2713 Under ${kb(targetBytes)}: ${summary}`);
+    }
+    ctx.info = { summary, files: rows, reached: missed === 0, target: targetBytes || null };
     return outs;
   });
 
@@ -272,7 +293,7 @@
   });
 
   // ---------------------------------------------------------------- sign
-  HT.engine('sign-pdf', async ctx => {
+  HT.engine('esign-pdf', async ctx => {
     const m = await mu();
     const pdf = ctx.files.find(f => HT.ext(f.name) === 'pdf' || f.type === 'application/pdf'), sig = ctx.files.find(f => f !== pdf);
     if (!pdf || !sig) throw new Error('Add a PDF and a signature image.');
@@ -295,7 +316,7 @@
 
   // ---------------------------------------------------------------- page numbers
   const FORMATS = { n: '{n}', page_n: 'Page {n}', page_n_of_total: 'Page {n} of {total}', n_of_total: '{n} / {total}', dash: '- {n} -' };
-  HT.engine('pdf-page-numbers', async ctx => {
+  HT.engine('add-page-numbers-to-pdf', async ctx => {
     const m = await mu(), o = ctx.opts, pos = o.position || 'bc', fmt = FORMATS[o.format || 'n'];
     if (!['bl', 'bc', 'br', 'tl', 'tc', 'tr'].includes(pos) || !fmt) throw new Error('Unknown position or format.');
     const start = parseInt(o.start ?? 1, 10) || 0, first = Math.max(1, parseInt(o.first_page ?? 1, 10) || 1);
@@ -391,7 +412,7 @@
     throw new Error(`'${f.name}': old .doc, RTF, ODT and PowerPoint files can't be converted in the browser. `
       + 'Open the file in Word, Google Docs or LibreOffice and save it as DOCX first.');
   }
-  HT.engine('docx-to-pdf', async ctx => {
+  HT.engine('word-to-pdf', async ctx => {
     const m = await mu(), outs = [];
     for (const [i, f] of ctx.files.entries()) {
       ctx.status(`Converting ${f.name}...`); await tick();
@@ -447,7 +468,7 @@
     const italic = font && /italic|oblique/i.test((font.style || '') + ' ' + (font.name || ''));
     return `<w:r><w:rPr><w:rFonts w:ascii="${name}" w:hAnsi="${name}" w:cs="${name}"/>${bold ? '<w:b/>' : ''}${italic ? '<w:i/>' : ''}<w:sz w:val="${sz}"/><w:szCs w:val="${sz}"/></w:rPr><w:t xml:space="preserve">${xml(text)}</w:t></w:r>`;
   }
-  HT.engine('pdf-to-docx', async ctx => {
+  HT.engine('pdf-to-word', async ctx => {
     const m = await mu(); await HT.loadScript('/assets/vendor/jszip.min.js');
     const f = ctx.files[0], doc = await open(f), n = doc.countPages();
     if (n > 500) throw new Error('This PDF has more than 500 pages. Split it first with the Split PDF tool.');
@@ -514,5 +535,101 @@
     return [{ name: HT.stem(f.name) + '.docx', blob }];
   });
 
-  HT.pdfEngine = { mu, open, save, parsePages, kb, tick };
+  // ---------------------------------------------------------------- watermark (text or logo, on every page or a range)
+  // The watermark is drawn as one picture (rotation and opacity already applied, so it works with any language and any font the
+  // browser has), added to the PDF once, and placed on each page.
+  async function watermarkImage(m, ctx, o) {
+    let src;
+    if (o.type === 'image') {
+      const logo = ctx.files[1]; if (!logo) throw new Error('Add a logo image first.');
+      src = HT.toCanvas(await HT.loadBitmap(logo));
+      if (src.width > 1400) src = HT.resample(src, 1400, Math.round(src.height * 1400 / src.width));
+    } else {
+      const text = String(o.text || '').trim(); if (!text) throw new Error('Type the watermark text first.');
+      const px = 160, font = `${o.bold === false || o.bold === 'false' ? 400 : 700} ${px}px ${/serif-only/.test(o.font) ? 'serif' : 'system-ui, "Segoe UI", Arial, sans-serif'}`;
+      const lines = text.split('\n').slice(0, 4), mc = HT.canvas(10, 10).getContext('2d'); mc.font = font;
+      const w = Math.ceil(Math.max(...lines.map(l => mc.measureText(l).width))) + px * 0.5;
+      src = HT.canvas(w, Math.ceil(px * 1.3 * lines.length + px * 0.3));
+      const x = src.getContext('2d'); x.font = font; x.textBaseline = 'top'; x.fillStyle = o.color || '#888888';
+      lines.forEach((l, i) => x.fillText(l, px * 0.25, px * 0.1 + i * px * 1.3));
+    }
+    const a = (+o.rotate || 0) * Math.PI / 180, cos = Math.abs(Math.cos(a)), sin = Math.abs(Math.sin(a));
+    const out = HT.canvas(Math.ceil(src.width * cos + src.height * sin), Math.ceil(src.width * sin + src.height * cos)), x = out.getContext('2d');
+    x.globalAlpha = Math.max(0.03, Math.min(1, (+o.opacity || 30) / 100)); x.translate(out.width / 2, out.height / 2); x.rotate(a); x.drawImage(src, -src.width / 2, -src.height / 2);
+    return { ref: null, bytes: new Uint8Array(await (await HT.encode(out, 'image/png')).arrayBuffer()), w: out.width, h: out.height };
+  }
+  HT.engine('add-watermark-to-pdf', async ctx => {
+    const m = await mu(), o = ctx.opts, doc = await open(ctx.files[0]), n = doc.countPages(), pages = parsePages(o.pages, n);
+    const wm = await watermarkImage(m, ctx, o), ref = doc.addImage(new m.Image(wm.bytes)), pos = o.position || 'center';
+    const share = Math.max(5, Math.min(100, +o.size || 50)) / 100, margin = Math.max(0, +o.margin || 10) * 72 / 25.4;
+    for (const [k, i] of pages.entries()) {
+      const page = doc.loadPage(i), [x0, y0, x1, y1] = page.getBounds(), W = x1 - x0, H = y1 - y0;
+      const rw = W * share, rh = rw * wm.h / wm.w, spots = [];
+      if (pos === 'tile') { const sx = rw * 1.25, sy = rh * 1.6; for (let r = 0, y = -rh / 2; y < H; r++, y += sy) for (let x = (r % 2 ? -sx / 2 : 0) - rw / 4; x < W; x += sx) spots.push([x, y]); }
+      else {
+        const cx = { l: margin, c: (W - rw) / 2, r: W - rw - margin }[pos === 'center' ? 'c' : pos[1]], cy = { t: margin, c: (H - rh) / 2, b: H - rh - margin }[pos === 'center' ? 'c' : pos[0]];
+        if (cx === undefined || cy === undefined) throw new Error('Unknown position.');
+        spots.push([cx, cy]);
+      }
+      const ops = spots.map(([x, y]) => `q ${visibleToPdf(m, page, [rw, 0, 0, -rh, x0 + x, y0 + y + rh]).map(num).join(' ')} cm /TzWm Do Q`).join('\n');
+      addToPage(doc, i, { XObject: { TzWm: ref } }, ops);
+      if (k % 20 === 0) { ctx.progress((k + 1) / pages.length * 0.9); await tick(); }
+    }
+    const blob = save(doc);
+    ctx.info = { summary: `Watermark added on ${pages.length} of ${n} page(s) (${kb(blob.size)})` };
+    return [{ name: HT.stem(ctx.files[0].name) + '_watermarked.pdf', blob }];
+  });
+
+  // ---------------------------------------------------------------- redact / blur parts of a PDF
+  // Black box and white box really remove the text, pictures and drawing underneath (MuPDF redaction), so nothing can be copied out
+  // later. Blur and pixelate also remove what is underneath first, then put a blurred picture of it back.
+  const blurPiece = (png, mode, strength) => new Promise((res, rej) => {
+    const img = new Image(); img.onerror = () => rej(new Error('Could not blur that area.'));
+    img.onload = () => {
+      const c = HT.canvas(img.width, img.height), x = c.getContext('2d');
+      if (mode === 'pixelate') { const k = Math.max(4, Math.round(Math.min(img.width, img.height) / (4 + (11 - strength) * 1.2))), t = HT.canvas(Math.max(1, Math.round(img.width / k)), Math.max(1, Math.round(img.height / k))); t.getContext('2d').drawImage(img, 0, 0, t.width, t.height); x.imageSmoothingEnabled = false; x.drawImage(t, 0, 0, c.width, c.height); }
+      else { x.filter = `blur(${Math.max(2, strength * 2.2)}px)`; x.drawImage(img, -4, -4, img.width + 8, img.height + 8); }
+      c.toBlob(async b => res(new Uint8Array(await b.arrayBuffer())), 'image/png');
+    };
+    img.src = URL.createObjectURL(new Blob([png], { type: 'image/png' }));
+  });
+  HT.engine('blur-redact-pdf', async ctx => {
+    const m = await mu(), o = ctx.opts, mode = o.mode || 'black', strength = Math.max(1, Math.min(10, +o.strength || 6));
+    if (!['black', 'white', 'blur', 'pixelate'].includes(mode)) throw new Error('Unknown mode.');
+    const doc = await open(ctx.files[0]), areas = pageList(o.areas, 'area list'), n = doc.countPages(), byPage = new Map();
+    for (const a of areas) {
+      const pg = parseInt(a.page, 10), [x, y, w, h] = ['x', 'y', 'w', 'h'].map(k => parseFloat(a[k]));
+      if (!(pg >= 1 && pg <= n)) throw new Error(`Page ${a.page} doesn't exist.`);
+      if (!(x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= 1.001 && y + h <= 1.001)) throw new Error('An area is outside the page.');
+      if (!byPage.has(pg)) byPage.set(pg, []); byPage.get(pg).push({ x, y, w, h });
+    }
+    let done = 0;
+    for (const [pg, list] of byPage) {
+      const page = doc.loadPage(pg - 1), [x0, y0, x1, y1] = page.getBounds(), W = x1 - x0, H = y1 - y0, pieces = [];
+      if (mode === 'blur' || mode === 'pixelate') {  // take a picture of each area before it is removed
+        const s = Math.min(150 / 72, 2600 / W), pix = page.toPixmap(m.Matrix.scale(s, s), m.ColorSpace.DeviceRGB, false, true), png = pix.asPNG().slice();
+        const full = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = () => rej(new Error('Could not read the page.')); im.src = URL.createObjectURL(new Blob([png], { type: 'image/png' })); });
+        for (const a of list) {
+          const cw = Math.max(2, Math.round(a.w * full.width)), ch = Math.max(2, Math.round(a.h * full.height)), c = HT.canvas(cw, ch);
+          c.getContext('2d').drawImage(full, a.x * full.width, a.y * full.height, cw, ch, 0, 0, cw, ch);
+          pieces.push(await blurPiece(new Uint8Array(await (await HT.encode(c, 'image/png')).arrayBuffer()), mode, strength));
+        }
+      }
+      for (const a of list) {  // MuPDF takes the rectangle in page space (top-left origin, as shown), which is what the boxes are drawn in
+        const an = page.createAnnotation('Redact'); an.setRect([x0 + a.x * W, y0 + a.y * H, x0 + (a.x + a.w) * W, y0 + (a.y + a.h) * H]);
+      }
+      page.applyRedactions(mode === 'black', m.PDFPage.REDACT_IMAGE_PIXELS, m.PDFPage.REDACT_LINE_ART_REMOVE_IF_TOUCHED, m.PDFPage.REDACT_TEXT_REMOVE);
+      if (pieces.length) {
+        const res = {}, ops = [];
+        list.forEach((a, k) => { res['TzRd' + k] = doc.addImage(new m.Image(pieces[k])); ops.push(`q ${visibleToPdf(m, page, [a.w * W, 0, 0, -a.h * H, x0 + a.x * W, y0 + (a.y + a.h) * H]).map(num).join(' ')} cm /TzRd${k} Do Q`); });
+        addToPage(doc, pg - 1, { XObject: res }, ops.join('\n'));
+      }
+      ctx.progress(++done / byPage.size * 0.9); await tick();
+    }
+    const blob = save(doc);
+    ctx.info = { summary: `${areas.length} area(s) on ${byPage.size} page(s) ${mode === 'black' ? 'blacked out' : mode === 'white' ? 'whited out' : mode === 'blur' ? 'blurred' : 'pixelated'}. The text and images under them were removed from the file (${kb(blob.size)}).` };
+    return [{ name: HT.stem(ctx.files[0].name) + '_redacted.pdf', blob }];
+  });
+
+  HT.pdfEngine = { mu, open, save, parsePages, kb, tick, addToPage, visibleToPdf, num };
 })();

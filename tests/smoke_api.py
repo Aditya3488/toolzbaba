@@ -64,6 +64,23 @@ def make_samples():
     if not (S / "clip2.mp4").exists():  # different size, no audio track
         subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=320x240:rate=25:duration=2",
                         "-c:v", "libx264", "-pix_fmt", "yuv420p", str(S / "clip2.mp4")], check=True)
+    # samples for the format pages (compress PNG / JPEG / JPG / GIF), used by browser_variants.js
+    import numpy as np
+    base_img = Image.open(S / "face.jpg").convert("RGB") if (S / "face.jpg").exists() else photo
+    rgba = np.array(base_img.convert("RGBA").resize((900, 900)))
+    yy, xx = np.mgrid[0:900, 0:900]
+    rgba[(xx - 450) ** 2 + (yy - 450) ** 2 > 440 ** 2, 3] = 0  # transparent corners
+    Image.fromarray(rgba, "RGBA").save(S / "alpha.png")
+    base_img.resize((2000, 2000)).save(S / "big_photo.jpg", quality=97)
+    base_img.resize((3000, 1000)).save(S / "wide.jpg", quality=92)  # a wide picture for the carousel splitter
+    scan = pymupdf.open()  # a "scanned" PDF: three full-page photos, several MB (for the compress-to-size pages)
+    for _ in range(3):
+        scan.new_page().insert_image(pymupdf.Rect(0, 0, 595, 842), filename=str(S / "big_photo.jpg"))
+    scan.save(S / "scan3.pdf")
+    (S / "photo.jpeg").write_bytes((S / "photo_exif.jpg").read_bytes())
+    if not (S / "big.gif").exists():
+        subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc2=size=320x240:rate=15:duration=3", "-vf",
+                        "split[s0][s1];[s0]palettegen=max_colors=256[p];[s1][p]paletteuse=dither=floyd_steinberg", "-loop", "0", str(S / "big.gif")], check=True)
     if not (S / "clip.mp4").exists():
         subprocess.run([FFMPEG, "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc=size=640x360:rate=25:duration=4",
                         "-f", "lavfi", "-i", "sine=frequency=440:duration=4", "-c:v", "libx264", "-pix_fmt", "yuv420p",
@@ -181,13 +198,13 @@ def main():
     check("pdf merge", "pdf-merge", [S / "five.pdf", S / "other.pdf"], {}, pdf_pages(6))
     check("pdf split each", "pdf-split", [S / "five.pdf"], {"mode": "each"}, lambda f, b: len(zip_names(b)) == 5)
     check("pdf split extract", "pdf-split", [S / "five.pdf"], {"mode": "extract", "pages": "2,4-5"}, pdf_pages(3))
-    check("pdf compress", "pdf-compress", [S / "five.pdf"], {"level": "high"}, pdf_pages(5))
-    check("pdf -> docx", "pdf-to-docx", [S / "other.pdf"], {}, lambda f, b: zipfile.is_zipfile(io.BytesIO(b)))
+    check("pdf compress", "compress-pdf", [S / "five.pdf"], {"level": "high"}, pdf_pages(5))
+    check("pdf -> docx", "pdf-to-word", [S / "other.pdf"], {}, lambda f, b: zipfile.is_zipfile(io.BytesIO(b)))
     fake_docx = S / "note.docx"
     with zipfile.ZipFile(fake_docx, "w") as z:
         z.writestr("[Content_Types].xml", "<Types/>")
     from tools.pdf_tools import find_soffice
-    check("docx -> pdf", "docx-to-pdf", [fake_docx], {}, expect_error=None if find_soffice() else "LibreOffice is not installed")
+    check("docx -> pdf", "word-to-pdf", [fake_docx], {}, expect_error=None if find_soffice() else "LibreOffice is not installed")
 
     C = S / "clip.mp4"
     check("video -> webm", "video-converter", [C], {"format": "webm", "quality": "low", "resolution": "240"})
@@ -196,8 +213,8 @@ def main():
     check("gif -> mp4", "gif-to-video", [S / "anim.gif"], {"format": "mp4"})
     check("trim accurate", "video-trimmer", [C], {"start": "1", "end": "3", "mode": "accurate"})
     check("trim fast", "video-trimmer", [C], {"start": "0.5", "end": "2.5", "mode": "fast"})
-    check("compress video", "video-compressor", [C], {"level": "strong", "resolution": "240"})
-    check("compress to size", "video-compressor", [C], {"mode": "size", "target_mb": 0.3})
+    check("compress video", "compress-video", [C], {"level": "strong", "resolution": "240"})
+    check("compress to size", "compress-video", [C], {"mode": "size", "target_mb": 0.3})
 
     check("remove background", "remove-background", [F], {"model": "fast"}, lambda f, b: is_image(f, b, "PNG"))
     check("replace bg colour", "replace-background", [F], {"mode": "color", "color": "#00aa55", "model": "fast"})
@@ -218,21 +235,21 @@ def main():
     def signed(f, b):
         d = pymupdf.open(stream=b, filetype="pdf")
         assert len(d[0].get_images()) == 2 and len(d[1].get_images()) == 1, "signature should add one image to page 1 only"
-    check("sign pdf", "sign-pdf", [five, S / "sig.png"], {"placements": [{"page": 1, "x": .55, "y": .8, "w": .3, "h": .1}]}, signed)
-    check("sign rotated pdf", "sign-pdf", [rot, S / "sig.png"], {"placements": [{"page": 1, "x": .1, "y": .1, "w": .3, "h": .1}]},
+    check("sign pdf", "esign-pdf", [five, S / "sig.png"], {"placements": [{"page": 1, "x": .55, "y": .8, "w": .3, "h": .1}]}, signed)
+    check("sign rotated pdf", "esign-pdf", [rot, S / "sig.png"], {"placements": [{"page": 1, "x": .1, "y": .1, "w": .3, "h": .1}]},
           lambda f, b: pymupdf.open(stream=b, filetype="pdf")[0].get_images() or (_ for _ in ()).throw(AssertionError("no image")))
 
     def numbered(f, b):
         d = pymupdf.open(stream=b, filetype="pdf")
         assert "Page 2 of 5" in d[1].get_text() and "Page 1 of 5" in d[0].get_text() and "Page 5 of 5" in d[4].get_text()
-    check("pdf page numbers", "pdf-page-numbers", [five], {"format": "page_n_of_total", "position": "bc"}, numbered)
+    check("pdf page numbers", "add-page-numbers-to-pdf", [five], {"format": "page_n_of_total", "position": "bc"}, numbered)
 
     def numbered_skip(f, b):
         d = pymupdf.open(stream=b, filetype="pdf")
         assert "1" not in d[0].get_text().split("document")[-1].replace("Page 1 of the test", "") or True
         assert d[1].get_text().strip().endswith("1"), d[1].get_text()[-20:]
-    check("page numbers skip cover", "pdf-page-numbers", [five], {"format": "n", "first_page": 2, "position": "br"}, numbered_skip)
-    check("page numbers on rotated page", "pdf-page-numbers", [rot], {"format": "n", "position": "bc"}, lambda f, b: pdf_pages(1)(f, b))
+    check("page numbers skip cover", "add-page-numbers-to-pdf", [five], {"format": "n", "first_page": 2, "position": "br"}, numbered_skip)
+    check("page numbers on rotated page", "add-page-numbers-to-pdf", [rot], {"format": "n", "position": "bc"}, lambda f, b: pdf_pages(1)(f, b))
 
     prot = {}
 
@@ -257,9 +274,9 @@ def main():
         photo = Image.open(io.BytesIO(z.read(next(n for n in names if "passport" in n and "sheet" not in n))))
         assert photo.size == (413, 531), photo.size
     if (S / "face.jpg").exists():
-        check("passport photo + sheet", "passport-photo-maker", [S / "face.jpg"], {"size": "35x45", "background": "blue", "sheet": "4x6", "model": "fast"}, passport_ok)
+        check("passport photo + sheet", "passport-size-photo-maker", [S / "face.jpg"], {"size": "35x45", "background": "blue", "sheet": "4x6", "model": "fast"}, passport_ok)
     else:
-        check("passport photo (no face -> friendly error)", "passport-photo-maker", [P], {"model": "fast"}, expect_error="couldn't find a face")
+        check("passport photo (no face -> friendly error)", "passport-size-photo-maker", [P], {"model": "fast"}, expect_error="couldn't find a face")
 
     check("audio cutter", "audio-cutter", [S / "tone.mp3"], {"start": "1", "end": "3", "fade_in": 0.2, "format": "mp3"},
           lambda f, b: close(media(b, ".mp3")["duration"], 2.0, 0.35))
@@ -273,8 +290,8 @@ def main():
     check("video merger (mixed sizes, one silent)", "video-merger", [S / "clip.mp4", S / "clip2.mp4"], {"resolution": "first"}, merged)
     check("video merger to 240p", "video-merger", [S / "clip2.mp4", S / "clip.mp4"], {"resolution": "240"},
           lambda f, b: close(media(b, ".mp4")["h"], 240, 0))
-    check("video speed 2x", "video-speed", [S / "clip.mp4"], {"speed": 2}, lambda f, b: close(media(b, ".mp4")["duration"], 2.0, 0.4))
-    check("video speed 0.5x, muted", "video-speed", [S / "clip.mp4"], {"speed": 0.5, "audio": "mute"},
+    check("video speed 2x", "change-video-speed", [S / "clip.mp4"], {"speed": 2}, lambda f, b: close(media(b, ".mp4")["duration"], 2.0, 0.4))
+    check("video speed 0.5x, muted", "change-video-speed", [S / "clip.mp4"], {"speed": 0.5, "audio": "mute"},
           lambda f, b: (close(media(b, ".mp4")["duration"], 8.0, 0.6), None)[1] or (not media(b, ".mp4")["has_audio"]) or (_ for _ in ()).throw(AssertionError("has audio")))
 
     print(f"\n{sum(RESULTS)}/{len(RESULTS)} passed")

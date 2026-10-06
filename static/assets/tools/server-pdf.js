@@ -33,24 +33,24 @@ HT.register('pdf-split', root => HT.serverTool(root, {
   ],
 }));
 
-HT.register('pdf-compress', root => HT.serverTool(root, {
-  slug: 'pdf-compress', accept: PDF, max: 10, action: 'Compress PDF', compare: false, hint: 'Works best on PDFs with photos or scans',
+HT.register('compress-pdf', root => HT.serverTool(root, {
+  slug: 'compress-pdf', accept: PDF, max: 10, action: 'Compress PDF', compare: false, hint: 'Works best on PDFs with photos or scans',
   fields: [{ name: 'level', label: 'Compression', type: 'select', value: 'medium', options: [['low', 'Light (best quality)'], ['medium', 'Balanced'], ['high', 'Strong (smallest file)']] }],
 }));
 
-HT.register('docx-to-pdf', root => HT.serverTool(root, {
-  slug: 'docx-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.ods', max: 10, action: 'Convert to PDF', compare: false,
+HT.register('word-to-pdf', root => HT.serverTool(root, {
+  slug: 'word-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.ods', max: 10, action: 'Convert to PDF', compare: false,
   hint: 'Word (DOCX), text, Excel (XLSX, XLS), CSV and ODS. Converted in your browser: simple layouts work best.',
 }));
 
-HT.register('pdf-to-docx', root => HT.serverTool(root, {
-  slug: 'pdf-to-docx', accept: PDF, max: 1, action: 'Convert to Word', compare: false,
+HT.register('pdf-to-word', root => HT.serverTool(root, {
+  slug: 'pdf-to-word', accept: PDF, max: 1, action: 'Convert to Word', compare: false,
   hint: 'Works best on text-based PDFs (not scans). Up to 50 MB.',
 }));
 
 // ---------------------------------------------------------------- page numbers / protect / unlock
-HT.register('pdf-page-numbers', root => HT.serverTool(root, {
-  slug: 'pdf-page-numbers', accept: PDF, max: 1, action: 'Add page numbers', compare: false, hint: 'Up to 200 MB',
+HT.register('add-page-numbers-to-pdf', root => HT.serverTool(root, {
+  slug: 'add-page-numbers-to-pdf', accept: PDF, max: 1, action: 'Add page numbers', compare: false, hint: 'Up to 200 MB',
   fields: [
     { name: 'position', label: 'Position', type: 'select', value: 'bc', options: [['bc', 'Bottom centre'], ['br', 'Bottom right'], ['bl', 'Bottom left'], ['tc', 'Top centre'], ['tr', 'Top right'], ['tl', 'Top left']] },
     { name: 'format', label: 'Format', type: 'select', options: [['n', '1, 2, 3'], ['page_n', 'Page 1, Page 2'], ['page_n_of_total', 'Page 1 of 10'], ['n_of_total', '1 / 10'], ['dash', '- 1 -']] },
@@ -86,4 +86,20 @@ HT.register('unlock-pdf', root => HT.serverTool(root, {
   notice: 'You need to know the password. This tool does not crack passwords.',
   fields: [{ name: 'password', label: 'PDF password', type: 'password' }],
   onReady: ({ form }) => showPasswords(form, ['password']),
+}));
+
+HT.register('add-watermark-to-pdf', root => HT.serverTool(root, {
+  slug: 'add-watermark-to-pdf', accept: PDF, max: 1, action: 'Add watermark', compare: false, hint: 'Up to 200 MB',
+  fields: [
+    { name: 'type', label: 'Watermark', type: 'select', value: 'text', options: [['text', 'Text'], ['image', 'Logo / image']] },
+    { name: 'text', label: 'Text', type: 'textarea', value: 'CONFIDENTIAL', showIf: v => v.type === 'text' },
+    { name: 'color', label: 'Text colour', type: 'color', value: '#808080', showIf: v => v.type === 'text' },
+    { name: 'size', label: 'Size (% of the page width)', type: 'range', min: 10, max: 100, value: 60, unit: '%' },
+    { name: 'rotate', label: 'Tilt', type: 'range', min: -90, max: 90, value: 35, unit: '°' },
+    { name: 'opacity', label: 'Opacity', type: 'range', min: 5, max: 100, value: 25, unit: '%', help: 'Low opacity keeps the page readable.' },
+    { name: 'position', label: 'Position', type: 'select', value: 'center', options: [['center', 'Centre of the page'], ['tile', 'Repeated all over the page'], ['tl', 'Top left'], ['tc', 'Top centre'], ['tr', 'Top right'], ['bl', 'Bottom left'], ['bc', 'Bottom centre'], ['br', 'Bottom right']] },
+    { name: 'margin', label: 'Distance from the edge (mm)', type: 'number', value: 10, min: 0, max: 60, showIf: v => v.position !== 'center' && v.position !== 'tile' },
+    { name: 'pages', label: 'Pages', type: 'text', value: 'all', help: 'all, or something like 1-3,5,8-' },
+  ],
+  extraFile: { label: 'Your logo image (PNG with a transparent background looks best)', showIf: v => v.type === 'image' },
 }));

@@ -28,10 +28,10 @@ for part in filter(None, os.environ.get("RATE_LIMITS", "").split(",")):
     except ValueError:
         pass
 
-HEAVY_TOOLS = {"video-converter", "video-to-gif", "gif-to-video", "video-trimmer", "video-compressor",
+HEAVY_TOOLS = {"video-converter", "video-to-gif", "gif-to-video", "video-trimmer", "compress-video",
                "remove-background", "replace-background", "upscale-image", "anime-style", "face-blur",
-               "pdf-to-docx", "docx-to-pdf", "pdf-compress", "image-to-svg",
-               "passport-photo-maker", "video-merger", "video-speed", "audio-cutter"}
+               "pdf-to-word", "word-to-pdf", "compress-pdf", "image-to-svg",
+               "passport-size-photo-maker", "video-merger", "change-video-speed", "audio-cutter"}
 
 
 def client_ip(request: Request) -> str:

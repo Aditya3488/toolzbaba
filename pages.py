@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse, RedirectResponse, Response
 
 import config
 
@@ -112,6 +112,10 @@ def seo_block(tool: dict, data: dict) -> str:
 def tool_page(slug: str):
     tool = find_tool(slug)
     if not tool:
+        # a renamed tool's old URL: redirect permanently to the new one
+        new = next((t for t in tools_data()["tools"] if slug in t.get("aliases", [])), None)
+        if new:
+            return RedirectResponse(f"/tool/{new['slug']}", status_code=301)
         return not_found_page()
     data = tools_data()
     cat = next(c for c in data["categories"] if c["id"] == tool["cat"])
