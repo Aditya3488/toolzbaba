@@ -136,11 +136,11 @@ def seo_block(tool: dict, tools: list, variants: list | None = None) -> str:
     if tool.get("group") == "size" and tool.get("parent") in by_slug and not any(v["slug"] == tool["parent"] for v in sibs):
         fmt.append(("/" + tool["parent"], by_slug[tool["parent"]]))
     if tool.get("base"):
-        fmt.append(("/tool/" + base, base_tool))
+        fmt.append(("/" + base, base_tool))
     sizes = [v for v in variants if v.get("group") == "size" and v.get("media") and v.get("media") == tool.get("media") and v["slug"] != tool["slug"]]
     related = [t for t in tools if t["cat"] == tool["cat"] and t["slug"] != base and not t.get("href")][:8]
     links = "".join(f'<li><a href="{esc(u)}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for u, t in fmt)
-    links += "".join(f'<li><a href="/tool/{esc(t["slug"])}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for t in related)
+    links += "".join(f'<li><a href="/{esc(t["slug"])}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for t in related)
     privacy = tool.get("privacy") or ("This tool runs in your browser, so your files never leave your device." if tool["kind"] == "client"
                                        else "Images you upload are stored so their links keep working. Don't upload anything private.")
     out = f'<h2>About {esc(tool["name"])}</h2><p>{esc(tool.get("about", tool["desc"]))}</p><p>{esc(privacy)}</p>'
@@ -151,10 +151,16 @@ def seo_block(tool: dict, tools: list, variants: list | None = None) -> str:
     return out + (f'<h2>Related tools</h2><ul>{links}</ul>' if links else "")
 
 
+PAGE_HASH = {}   # "/merge-pdf" -> hash of what the page says (for the sitemap's lastmod)
+
+
 def write(rel: str, text: str):
     dest = DIST / rel
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(text, "utf-8")
+    if rel.endswith(".html"):  # the build stamp in the file addresses changes with every deploy: it is not "the page changed"
+        key = "/" + rel[:-5] if rel != "index.html" else "/"
+        PAGE_HASH[key] = hashlib.sha1(re.sub(r"\?v=[0-9a-f]+", "", text).encode("utf-8")).hexdigest()[:16]
 
 
 def build():
@@ -175,13 +181,17 @@ def build():
                                     f"{len(tools)} free online tools, no sign-up. They run right in your browser, so your files stay private.",
                                path="/", jsonld=[site]))
 
-    # one page per tool, served at /tool/<slug>
+    _taken = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon", "functions", "admin"}
+    for _t in tools:
+        if not _t.get("href") and _t["slug"] in _taken:
+            raise SystemExit(f'The tool slug "{_t["slug"]}" clashes with a folder or page at the site root: rename it.')
+    # one page per tool, at the site root: /<slug> (the old /tool/<slug> addresses redirect here, see the end of this file)
     for tool in tools:
         if tool.get("href"):
             continue
         slug = tool["slug"]
         cat = next(c for c in data["categories"] if c["id"] == tool["cat"])
-        url = f"{SITE_URL}/tool/{slug}"
+        url = f"{SITE_URL}/{slug}"
         ld = [
             {"@context": "https://schema.org", "@type": "WebApplication", "name": tool["name"], "url": url, "description": tool["desc"],
              "applicationCategory": "MultimediaApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript",
@@ -191,8 +201,8 @@ def build():
                 {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + "/"},
                 {"@type": "ListItem", "position": 3, "name": tool["name"], "item": url}]},
         ]
-        write(f"tool/{slug}.html", render("tool.html", title=f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
-                                          desc=f'{tool["desc"]} Free, no sign-up.', path=f"/tool/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
+        write(f"{slug}.html", render("tool.html", title=f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
+                                          desc=f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
                                           extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
 
     # format pages (e.g. /compress-png): the same tool as its base, on its own address at the site root
@@ -213,7 +223,7 @@ def build():
             {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": SITE_URL + "/"},
                 {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + "/"},
-                {"@type": "ListItem", "position": 3, "name": by_slug[v["base"]]["name"], "item": f"{SITE_URL}/tool/{v['base']}"},
+                {"@type": "ListItem", "position": 3, "name": by_slug[v["base"]]["name"], "item": f"{SITE_URL}/{v['base']}"},
                 *([{"@type": "ListItem", "position": 4, "name": parent["name"], "item": f"{SITE_URL}/{parent['slug']}"}] if parent else []),
                 {"@type": "ListItem", "position": 5 if parent else 4, "name": v["name"], "item": url}]},
         ]
@@ -234,11 +244,25 @@ def build():
     day = time.strftime("%Y-%m-%d", time.gmtime((STATIC / "assets" / "tools.json").stat().st_mtime))
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}
-    urls = [("/", "1.0")] + [(f"/tool/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
-    urls += [(f"/{v['slug']}", "0.7") for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
+    variants = [v for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
+    urls = [("/", "1.0")] + [(f"/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
+    urls += [(f"/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7") for v in variants]
     urls += [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
-    body = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{day}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
-    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + body + "</urlset>")
+    # lastmod: the day a page's own content last changed (kept in sitemap-dates.json, committed, so every machine agrees). A date that moves on every
+    # deploy teaches Google to ignore it; one that only moves when the page changes tells it what to crawl again.
+    state_file = ROOT / "sitemap-dates.json"
+    try:
+        state = json.loads(state_file.read_text("utf-8"))
+    except Exception:
+        state = {}
+    today, fresh = time.strftime("%Y-%m-%d", time.gmtime()), {}
+    for path, _ in urls:
+        h = PAGE_HASH.get(path, "")
+        old = state.get(path) or {}
+        fresh[path] = {"hash": h, "date": old["date"] if old.get("hash") == h and old.get("date") else today}
+    state_file.write_text(json.dumps(fresh, indent=1, sort_keys=True) + "\n", "utf-8")
+    body = "\n".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{fresh[p]['date']}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
+    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "\n</urlset>\n")
     shutil.copyfile(STATIC / "assets" / "favicon.ico", DIST / "favicon.ico")
     shutil.copyfile(STATIC / "assets" / "brand" / "apple-touch-icon.png", DIST / "apple-touch-icon.png")
     icons = [{"src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
@@ -255,13 +279,15 @@ def build():
     alias_lines = []
     for t in tools:
         for old in t.get("aliases", []):
-            alias_lines.append(f"/tool/{old}  /tool/{t['slug']}  301")
+            alias_lines.append(f"/tool/{old}  /{t['slug']}  301")
     for v in data.get("variants", []):  # a tab page (/video-to-text) keeps the addresses it had before, too
         for old in v.get("aliases", []):
             alias_lines.append(f"/tool/{old}  /{v['slug']}  301")
     if alias_lines:
         with open(DIST / "_redirects", "a", encoding="utf-8") as f:
             f.write("\n# renamed tools (aliases in tools.json)\n" + "\n".join(alias_lines) + "\n")
+    with open(DIST / "_redirects", "a", encoding="utf-8") as f:   # tools used to live under /tool/: every old address goes to the same name at the root
+        f.write("\n# the old /tool/<name> addresses\n/tool/*  /:splat  301\n")
 
     files = [p for p in DIST.rglob("*") if p.is_file()]
     big = [p for p in files if p.stat().st_size > 25 * 1024 * 1024]

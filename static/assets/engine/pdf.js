@@ -64,7 +64,9 @@
 
   // ---------------------------------------------------------------- image -> pdf
   const SIZES = { a4: [595, 842], letter: [612, 792], a5: [420, 595] };
-  HT.engine('image-to-pdf', async ctx => {
+  HT.engine('image-to-pdf', imageToPdf);
+  HT.engines['jpg-to-pdf'] = HT.engines['png-to-pdf'] = imageToPdf;
+  async function imageToPdf(ctx) {
     const m = await mu(); await imgEngine();
     const page = ctx.opts.page || 'a4', orient = ctx.opts.orientation || 'auto';
     const margin = Math.max(0, +(ctx.opts.margin ?? 10)) * 72 / 25.4;
@@ -88,7 +90,7 @@
     const blob = save(doc);
     ctx.info = { summary: `${ctx.files.length} image(s) → PDF (${kb(blob.size)})` };
     return [{ name: ctx.files.length === 1 ? HT.stem(ctx.files[0].name) + '.pdf' : 'images.pdf', blob }];
-  });
+  }
 
   // ---------------------------------------------------------------- pdf -> image
   async function pixmapToBlob(pix, fmt) {
@@ -120,7 +122,7 @@
   });
 
   // ---------------------------------------------------------------- merge / split
-  HT.engine('pdf-merge', async ctx => {
+  HT.engine('merge-pdf', async ctx => {
     const m = await mu(), out = new m.PDFDocument();
     let total = 0;
     for (const [i, f] of ctx.files.entries()) {
@@ -135,7 +137,7 @@
     return [{ name: 'merged.pdf', blob }];
   });
 
-  HT.engine('pdf-split', async ctx => {
+  HT.engine('split-pdf', async ctx => {
     const m = await mu(), mode = ctx.opts.mode || 'each';
     const doc = await open(ctx.files[0]), n = doc.countPages(), base = HT.stem(ctx.files[0].name);
     let groups = [];
@@ -412,25 +414,33 @@
     throw new Error(`'${f.name}': old .doc, RTF, ODT and PowerPoint files can't be converted in the browser. `
       + 'Open the file in Word, Google Docs or LibreOffice and save it as DOCX first.');
   }
+  // HTML text -> PDF. MuPDF lays the HTML out (basic CSS, tables, pictures as data: addresses; no scripts, nothing is fetched from the web) and writes the pages.
+  // A full document (<html>...) is used as it is, a fragment is wrapped. The Indian-script fonts are loaded when the text needs them.
+  async function htmlToPdf(html, { css = DOC_CSS, w = 595, h = 842, em = 11, onPage } = {}) {
+    const m = await mu(); await loadScriptFonts(m, html);
+    html = String(html).replace(/<script[\s\S]*?<\/script>/gi, '');
+    const full = /<html[\s>]|<!doctype/i.test(html), style = `<style>${css}</style>`;
+    const page = full ? (/<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, x => x + '<meta charset="utf-8">' + style) : html.replace(/<html[^>]*>/i, x => x + '<head><meta charset="utf-8">' + style + '</head>'))
+      : `<!DOCTYPE html><html><head><meta charset="utf-8">${style}</head><body>${html}</body></html>`;
+    const src = m.Document.openDocument(new TextEncoder().encode(page), 'text/html'); src.layout(w, h, em);
+    const buf = new m.Buffer(), wr = new m.DocumentWriter(buf, 'pdf', ''), n = src.countPages();
+    for (let p = 0; p < n; p++) {
+      const pg = src.loadPage(p), dev = wr.beginPage(pg.getBounds());
+      pg.run(dev, m.Matrix.identity); wr.endPage(); pg.destroy();
+      if (onPage) await onPage(p, n);
+    }
+    wr.close();
+    const pdf = m.Document.openDocument(buf.asUint8Array(), 'application/pdf').asPDF();
+    pdf.subsetFonts(); // embed only the characters used (whole fonts can be megabytes)
+    return { blob: save(pdf, { garbage: 4, objstms: 'yes' }), pages: n };
+  }
   HT.engine('word-to-pdf', async ctx => {
-    const m = await mu(), outs = [];
+    const outs = [];
     for (const [i, f] of ctx.files.entries()) {
       ctx.status(`Converting ${f.name}...`); await tick();
       const { html, landscape } = await toHtml(f);
-      await loadScriptFonts(m, html);
-      const page = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${DOC_CSS}</style></head><body>${html}</body></html>`;
-      const src = m.Document.openDocument(new TextEncoder().encode(page), 'text/html');
-      src.layout(landscape ? 842 : 595, landscape ? 595 : 842, 11);
-      const buf = new m.Buffer(), w = new m.DocumentWriter(buf, 'pdf', '');
-      for (let p = 0; p < src.countPages(); p++) {
-        const pg = src.loadPage(p), dev = w.beginPage(pg.getBounds());
-        pg.run(dev, m.Matrix.identity); w.endPage(); pg.destroy();
-        if (p % 10 === 0) { ctx.progress((i + (p + 1) / src.countPages() * 0.9) / ctx.files.length); await tick(); }
-      }
-      w.close();
-      const pdf = m.Document.openDocument(buf.asUint8Array(), 'application/pdf').asPDF();
-      pdf.subsetFonts(); // embed only the characters used (whole fonts can be megabytes)
-      outs.push({ name: HT.stem(f.name) + '.pdf', blob: save(pdf, { garbage: 4, objstms: 'yes' }) });
+      const { blob } = await htmlToPdf(html, { w: landscape ? 842 : 595, h: landscape ? 595 : 842, onPage: async (p, n) => { if (p % 10 === 0) { ctx.progress((i + (p + 1) / n * 0.9) / ctx.files.length); await tick(); } } });
+      outs.push({ name: HT.stem(f.name) + '.pdf', blob });
       ctx.progress((i + 1) / ctx.files.length);
     }
     ctx.info = { summary: `Converted ${outs.length} document(s) to PDF. Complex layouts (columns, text boxes) may look simpler than in Word.` };
@@ -631,5 +641,5 @@
     return [{ name: HT.stem(ctx.files[0].name) + '_redacted.pdf', blob }];
   });
 
-  HT.pdfEngine = { mu, open, save, parsePages, kb, tick, addToPage, visibleToPdf, num };
+  HT.pdfEngine = { mu, open, save, parsePages, kb, tick, addToPage, visibleToPdf, num, htmlToPdf, DOC_CSS };
 })();

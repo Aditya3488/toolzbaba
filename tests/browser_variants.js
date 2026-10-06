@@ -43,16 +43,16 @@ let pass = 0, fail = 0;
         seo: document.getElementById('seo').textContent.length, crumb: document.getElementById('crumb').textContent }));
       ex(info.canon === 'https://toolzbaba.com/' + slug, 'canonical ' + info.canon); ex(info.h1 === h1, 'h1 ' + info.h1); ex(title.test(info.t), 'title ' + info.t); ex(info.ogu.endsWith('/' + slug), 'og:url ' + info.ogu);
       ex(info.ld.includes('WebApplication') && info.ld.includes('BreadcrumbList'), 'json-ld ' + info.ld); ex(info.on.length === 1 && h1.endsWith(info.on[0]), 'highlighted tab ' + info.on);
-      ex(info.pills.length === 5 && info.pills.includes('/tool/compress-image') && ['png','jpeg','jpg','gif'].every(f => info.pills.includes('/compress-' + f)), 'pills ' + info.pills); ex(info.seo > 500, 'seo text too short');
+      ex(info.pills.length === 5 && info.pills.includes('/compress-image') && ['png','jpeg','jpg','gif'].every(f => info.pills.includes('/compress-' + f)), 'pills ' + info.pills); ex(info.seo > 500, 'seo text too short');
       return info.t + ' | ' + info.crumb;
     });
   await T('base page shows the format tabs above the drop zone', async page => {
-    await go(page, '/tool/compress-image'); const tabs = await page.$$eval('.vtab', a => a.map(x => x.textContent + '=' + x.getAttribute('href') + (x.classList.contains('on') ? '*' : '')));
-    ex(tabs.length === 5 && tabs[0] === 'All formats=/tool/compress-image*' && ['PNG=/compress-png', 'JPEG=/compress-jpeg', 'JPG=/compress-jpg', 'GIF=/compress-gif'].every(t => tabs.includes(t)), tabs.join(' '));
+    await go(page, '/compress-image'); const tabs = await page.$$eval('.vtab', a => a.map(x => x.textContent + '=' + x.getAttribute('href') + (x.classList.contains('on') ? '*' : '')));
+    ex(tabs.length === 5 && tabs[0] === 'All formats=/compress-image*' && ['PNG=/compress-png', 'JPEG=/compress-jpeg', 'JPG=/compress-jpg', 'GIF=/compress-gif'].every(t => tabs.includes(t)), tabs.join(' '));
     const above = await page.evaluate(() => document.querySelector('.vtabs').getBoundingClientRect().bottom <= document.querySelector('.drop').getBoundingClientRect().top + 1); ex(above, 'tabs should sit above the drop zone'); return tabs.join(' | ');
   });
   await T('tab click switches IN PLACE (no reload), URL + text change', async page => {
-    await go(page, '/tool/compress-image'); await page.evaluate(() => { window.__marker = 'same-page'; });
+    await go(page, '/compress-image'); await page.evaluate(() => { window.__marker = 'same-page'; });
     const tab = n => page.locator('.vtabs').getByRole('tab', { name: n, exact: true });
     await tab('PNG').click(); await page.waitForURL('**/compress-png'); await page.waitForFunction(() => document.title.includes('PNG') && document.querySelector('#seo').textContent.includes('PNG')); await page.waitForSelector('#app input[type=file]', { state: 'attached' });  // the PNG screen loads its own script
     let st = await page.evaluate(() => ({ m: window.__marker, h1: document.querySelector('.thead h1').textContent, sub: document.querySelector('.thead .sub').textContent, canon: document.querySelector('link[rel=canonical]').href, ogu: document.querySelector('meta[property="og:url"]').content, desc: document.querySelector('meta[name=description]').content, crumb: document.getElementById('crumb').textContent, on: document.querySelector('.vtab.on').textContent, accept: document.querySelector('input[type=file]').accept, ld: document.querySelectorAll('script[type="application/ld+json"]').length, ldurl: JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent).url }));
@@ -64,12 +64,12 @@ let pass = 0, fail = 0;
     ex(st.m === 'same-page' && st.h1 === 'Compress GIF' && st.notice, JSON.stringify(st)); ex(st.fields.some(f => /Colours/.test(f)), 'GIF settings not shown: ' + st.fields);
     await page.goBack(); await page.waitForURL('**/compress-png'); ex(await page.evaluate(() => window.__marker === 'same-page' && document.querySelector('.thead h1').textContent === 'Compress PNG'), 'Back button did not return to PNG in place');
     await page.goForward(); await page.waitForURL('**/compress-gif'); await page.waitForFunction(() => document.querySelector('.thead h1').textContent === 'Compress GIF');
-    await tab('All formats').click(); await page.waitForURL('**/tool/compress-image'); ex((await page.evaluate(() => document.querySelector('.thead h1').textContent)) === 'Compress Image', 'All formats heading');
+    await tab('All formats').click(); await page.waitForURL('**/compress-image'); ex((await page.evaluate(() => document.querySelector('.thead h1').textContent)) === 'Compress Image', 'All formats heading');
     return 'PNG -> GIF -> back -> forward -> All formats, never reloaded';
   });
   await T('files you added stay when the tab changes', async page => {
     await go(page, '/compress-png'); await page.locator('input[type=file]').first().setInputFiles(S + 'alpha.png'); await page.waitForSelector('.file');
-    await page.locator('.vtabs').getByRole('tab', { name: 'All formats', exact: true }).click(); await page.waitForURL('**/tool/compress-image'); await page.waitForSelector('.file');
+    await page.locator('.vtabs').getByRole('tab', { name: 'All formats', exact: true }).click(); await page.waitForURL('**/compress-image'); await page.waitForSelector('.file');
     const kept = await page.locator('.file .nm').allInnerTexts(); ex(kept.join() === 'alpha.png', 'file lost on All formats: ' + kept);
     await page.locator('.vtabs').getByRole('tab', { name: 'JPEG', exact: true }).click(); await page.waitForURL('**/compress-jpeg'); await page.waitForTimeout(500);
     const after = await page.locator('.file').count(); ex(after === 0, 'a PNG file stayed on the JPEG tab'); const toast = await page.evaluate(() => (document.getElementById('toast') || {}).textContent || '');
@@ -79,13 +79,13 @@ let pass = 0, fail = 0;
     ex((await page.locator('.file .nm').allInnerTexts()).join() === 'photo.jpeg', 'JPEG file did not carry over to the JPG tab'); return 'PNG kept on All formats, removed on JPEG (with notice); .jpeg kept on JPG';
   });
   await T('compress still works after switching tabs', async page => {
-    await go(page, '/tool/compress-image'); await page.locator('.vtabs').getByRole('tab', { name: 'GIF', exact: true }).click(); await page.waitForURL('**/compress-gif');
+    await go(page, '/compress-image'); await page.locator('.vtabs').getByRole('tab', { name: 'GIF', exact: true }).click(); await page.waitForURL('**/compress-gif');
     await page.locator('input[type=file]').first().setInputFiles(S + 'big.gif'); await page.waitForSelector('.file');
     await page.getByRole('button', { name: /^Compress/ }).first().click(); const sum = await result(page); const o = await output(page);
     ex(String.fromCharCode(...o.head.slice(0, 4)) === 'GIF8' && o.size < fs.statSync(S + 'big.gif').size, 'gif not smaller'); return sum;
   });
   await T('Ctrl+click opens the tab as a normal link', async page => {
-    await go(page, '/tool/compress-image'); const href = await page.locator('.vtabs').getByRole('tab', { name: 'PNG', exact: true }).getAttribute('href'); ex(href === '/compress-png', href);
+    await go(page, '/compress-image'); const href = await page.locator('.vtabs').getByRole('tab', { name: 'PNG', exact: true }).getAttribute('href'); ex(href === '/compress-png', href);
     const [popup] = await Promise.all([page.context().waitForEvent('page'), page.locator('.vtabs').getByRole('tab', { name: 'PNG', exact: true }).click({ modifiers: ['Control'] })]);
     await popup.waitForLoadState('networkidle'); ex(popup.url().endsWith('/compress-png'), popup.url()); await popup.close(); return 'new tab opened /compress-png';
   });
@@ -138,7 +138,7 @@ let pass = 0, fail = 0;
     ex(o.size <= before, `got a BIGGER file ${before} -> ${o.size}`); return `${before} -> ${o.size} B | ${s.slice(0, 60)}`;
   });
   await T('All formats page: live quality preview, same format kept', async page => {
-    await go(page, '/tool/compress-image'); await page.locator('input[type=file]').first().setInputFiles(S + 'big_photo.jpg'); await settled2(page);
+    await go(page, '/compress-image'); await page.locator('input[type=file]').first().setInputFiles(S + 'big_photo.jpg'); await settled2(page);
     const q = page.locator('input[type=range][aria-label=Quality]'); await q.evaluate(el => { el.value = 40; el.dispatchEvent(new Event('input', { bubbles: true })); }); await page.waitForTimeout(700); await settled2(page);
     const caps = await page.locator('figcaption').allInnerTexts(); ex(/Original/i.test(caps[0]) && /Result/i.test(caps[1]) && /KB/.test(caps[1]), 'captions ' + caps);
     const lo = await download2(page); await q.evaluate(el => { el.value = 90; el.dispatchEvent(new Event('input', { bubbles: true })); }); await page.waitForTimeout(700); await settled2(page); const hi = await download2(page);
@@ -146,7 +146,7 @@ let pass = 0, fail = 0;
     return `q40 ${Math.round(lo.size / 1024)} KB < q90 ${Math.round(hi.size / 1024)} KB (captions: ${caps.join(' / ')})`;
   });
   await T('All formats page: PNG stays PNG, WebP option, GIF note', async page => {
-    await go(page, '/tool/compress-image'); await page.locator('input[type=file]').first().setInputFiles(S + 'alpha.png'); await settled2(page);
+    await go(page, '/compress-image'); await page.locator('input[type=file]').first().setInputFiles(S + 'alpha.png'); await settled2(page);
     const o = await download2(page); ex(o.head.slice(0, 3).join() === '137,80,78' && /\.png$/.test(o.name), 'png not kept: ' + o.name);
     await page.locator('select[aria-label="Output format"]').selectOption('webp'); await page.waitForTimeout(700); await settled2(page); const w = await download2(page); ex(/\.webp$/.test(w.name) && String.fromCharCode(...w.head) === 'RIFF', 'webp ' + w.name);
     await page.locator('input[type=file]').first().setInputFiles(S + 'big.gif'); await page.waitForTimeout(500); await page.locator('select[aria-label="Output format"]').selectOption('keep'); await page.locator('.pickrow select').selectOption({ label: 'big.gif' }); await page.waitForTimeout(700); await settled2(page);

@@ -18,7 +18,6 @@
       <input id="q" type="search" placeholder="Search tools: compress, pdf, gif..." autocomplete="off" aria-label="Search tools">
       <kbd>/</kbd>
     </div>
-    <div class="chips" id="popular"></div>
     <div class="trust" id="trust"></div>
     </div>
     <div class="hero-art"><img src="/assets/brand/hero-art-540.webp" srcset="/assets/brand/hero-art-330.webp 330w, /assets/brand/hero-art-540.webp 540w, /assets/brand/hero-art.webp 780w" sizes="(max-width: 960px) 300px, 540px" alt="Toolz Baba, a friendly sage in sunglasses working on a laptop surrounded by tool icons" width="780" height="452" fetchpriority="high"></div>
@@ -47,11 +46,9 @@
   document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
   const data = await HT.loadTools();
   const tools = data.tools;
-  const href = t => t.href || '/tool/' + t.slug;
+  const href = t => t.href || '/' + t.slug;
 
-  // popular chips + trust row
-  const pop = document.getElementById('popular'); pop.append(el('span', { text: 'Popular:' }));
-  tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
+  // trust row
   const trust = document.getElementById('trust');
   [['check', 'Free, no sign-up'], ['lock', 'Files stay private'], ['bolt', 'Fast in your browser']].forEach(([i, t]) => trust.append(el('span', {}, HT.svg(HT.ICON[i]), t)));
 
@@ -89,9 +86,11 @@
   const q = document.getElementById('q');
   function filter() {
     const term = q.value.trim().toLowerCase(); let any = false;
+    // the same ranking as the header search: a tab page (Blur & Redact PDF) shows the card of its tool; related tools are marked
+    const found = term ? HT.searchTools(data, term) : null, pickSlugs = found ? new Set(found.hits.map(t => t.base)) : null, relSlugs = found ? new Set(found.related.map(t => t.base).filter(b => !pickSlugs.has(b))) : null;
     sections.forEach(s => {
       let n = 0;
-      s.sec.querySelectorAll('.tcard').forEach(a => { const show = !term || term.split(/\s+/).every(w => a.dataset.q.includes(w)); a.classList.toggle('hidden', !show); n += show; });
+      s.sec.querySelectorAll('.tcard').forEach(a => { const slug = a.getAttribute('href').replace(/^\//, ''), show = !found || pickSlugs.has(slug) || relSlugs.has(slug); a.classList.toggle('hidden', !show); a.classList.toggle('rel', !!found && !pickSlugs.has(slug) && relSlugs.has(slug)); n += show; });
       const hiddenByCat = active !== 'all' && s.c.id !== active && !term;
       s.sec.classList.toggle('hidden', !n || (active !== 'all' && s.c.id !== active && !term));
       any = any || (n > 0 && !hiddenByCat);

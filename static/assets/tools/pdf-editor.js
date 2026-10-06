@@ -33,28 +33,31 @@ HT.register('pdf-editor', root => {
   const dz = HT.dropzone({ accept: '.pdf,application/pdf', hint: 'Up to 200 MB. The PDF is edited in your browser and never uploaded.', onFiles: fs => { list.add(fs.slice(0, 1), false); open(fs[0]); } });
   const toolBtns = TOOLS.map(([id, label, glyph]) => $p('button', { type: 'button', class: 'edtool', 'data-t': id, title: label, onclick: () => setTool(id) }, HT.svg(`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${glyph}</svg>`), $p('span', { text: label })));
   const hint = $p('div', { class: 'help', style: { marginTop: '10px' } });
-  const toolsCard = $p('div', { class: 'card hidden' }, HT.stepTitle(2, 'Tools'), $p('div', { class: 'edtools' }, toolBtns), hint);
+  const toolsCard = $p('div', { class: 'card hidden' }, HT.stepTitle(3, 'Tools'), $p('div', { class: 'edtools' }, toolBtns), hint);
   const propsCard = $p('div', { class: 'card hidden' });
   const pageNote = $p('div', { class: 'help', style: { marginTop: '8px' } });
   const pb = (t, title, fn) => $p('button', { class: 'btn sec sm', type: 'button', text: t, title, onclick: fn });
-  const pagesCard = $p('div', { class: 'card hidden' }, HT.stepTitle(4, 'This page'), $p('div', { class: 'actions', style: { marginTop: 0 } },
+  const pagesCard = $p('div', { class: 'card hidden' }, HT.stepTitle(5, 'This page'), $p('div', { class: 'actions', style: { marginTop: 0 } },
     pb('↻ Rotate', 'Rotate the page 90°', () => pageOp('rotate')), pb('+ Blank page after', 'Add a blank page after this one', () => pageOp('blank')), pb('◀ Move', 'Move the page earlier', () => pageOp('left')), pb('Move ▶', 'Move the page later', () => pageOp('right')), pb('Delete page', 'Delete this page', () => pageOp('delete'))), pageNote);
   const fmt = $p('select', { 'aria-label': 'Download as' }, [['pdf', 'PDF (.pdf)'], ['docx', 'Word (.docx)'], ['images', 'Page pictures (PNG, in a ZIP)'], ['txt', 'Plain text (.txt)']].map(([v, t]) => $p('option', { value: v, text: t })));
   const dlBtn = $p('button', { class: 'btn', type: 'button', text: 'Download', onclick: download });
-  const exportCard = $p('div', { class: 'card hidden' }, HT.stepTitle(5, 'Download'), $p('div', { class: 'field' }, $p('label', { class: 'lbl', text: 'Download as' }), fmt), $p('div', { class: 'actions' }, dlBtn), prog.el);
+  const exportCard = $p('div', { class: 'card hidden ed-export' }, HT.stepTitle(2, 'Download'), $p('div', { class: 'edexp' }, fmt, dlBtn), prog.el);
 
   // ------------------------------------------------------------------ the page area
   const ib = (t, title, fn) => $p('button', { class: 'btn sec sm', type: 'button', text: t, title, 'aria-label': title, onclick: fn });
   const undoB = ib('↶ Undo', 'Undo (Ctrl+Z)', () => step(-1)), redoB = ib('↷ Redo', 'Redo (Ctrl+Y)', () => step(1)), zl = $p('span', { class: 'help', style: { minWidth: '44px', textAlign: 'center' }, text: '100%' });
   const pl = $p('span', { class: 'help', style: { minWidth: '92px', textAlign: 'center' } });
   const fontsB = $p('button', { class: 'btn sm', type: 'button', title: 'Open the font library: search and preview all the fonts, then use one for your text', text: 'Aa Font library', onclick: () => openFonts() });
+  const FMT = { pdf: 'PDF', docx: 'Word', images: 'Pictures', txt: 'Text' };
+  const dlTop = $p('button', { class: 'btn sm eddl', type: 'button', title: 'Download your edited file', text: 'Download PDF', onclick: () => download() });
+  fmt.addEventListener('change', () => { dlTop.textContent = 'Download ' + FMT[fmt.value]; });
   const bar = $p('div', { class: 'edbar' }, fontsB, $p('span', { class: 'edsep' }), undoB, redoB, $p('span', { class: 'edsep' }), ib('−', 'Zoom out', () => setZoom(zoom / 1.25)), zl, ib('+', 'Zoom in', () => setZoom(zoom * 1.25)), ib('Fit', 'Fit the page to the width', () => setZoom(1)),
-    $p('span', { class: 'edsep' }), ib('◀', 'Previous page', () => go(cur - 1)), pl, ib('▶', 'Next page', () => go(cur + 1)));
+    $p('span', { class: 'edsep' }), ib('◀', 'Previous page', () => go(cur - 1)), pl, ib('▶', 'Next page', () => go(cur + 1)), dlTop);
   const stage = $p('div', { class: 'edstage' }), scroller = $p('div', { class: 'edscroll' }, stage), thumbs = $p('div', { class: 'edthumbs' });
   let tipSeen = false; try { tipSeen = !!localStorage.getItem('tz_ed_tip'); } catch { }
   const tip = tipSeen ? null : $p('div', { class: 'edtip' }, $p('span', {}, $p('b', { text: 'Tip: ' }), 'click any text in your PDF to change it. Use the tools on the left to add new things.'), $p('button', { type: 'button', class: 'btn ghost sm', text: 'Got it', onclick: () => { tip.remove(); try { localStorage.setItem('tz_ed_tip', '1'); } catch { } } }));
   const main = $p('div', { class: 'card tmain hidden' }, bar, tip, scroller, thumbs);
-  const bench = HT.bench([dz, list.el, toolsCard, propsCard, pagesCard, exportCard], main, { keep: true }); bench.classList.add('ed'); toolsCard.classList.add('ed-tools'); propsCard.classList.add('ed-props'); root.append(bench);
+  const bench = HT.bench([dz, list.el, exportCard, toolsCard, propsCard, pagesCard], main, { keep: true }); bench.classList.add('ed'); toolsCard.classList.add('ed-tools'); propsCard.classList.add('ed-props'); root.append(bench);
   let replaceTarget = null;
   const picIn = $p('input', { type: 'file', accept: 'image/*', hidden: true, onchange: async () => { const f = picIn.files[0]; picIn.value = ''; if (f) await addPicture(f); } }); root.append(picIn);
 
@@ -418,7 +421,7 @@ HT.register('pdf-editor', root => {
     const color = (k, label) => row(label, $p('input', { type: 'color', value: T[k] || '#000000', oninput: e => set(k, e.target.value) }));
     const range = (k, label, min, max, step, unit = '') => { const v = $p('span', { class: 'rangeval', text: Math.round(T[k] * 100) / 100 + unit }); const i = $p('input', { type: 'range', min, max, step, value: T[k], oninput: e => { v.textContent = e.target.value + unit; set(k, +e.target.value); } }); return $p('div', { class: 'field', style: { marginBottom: '10px' } }, $p('label', { class: 'lbl' }, label, v), i); };
     const title = { text: 'Text', textedit: 'Edit text', rect: 'Rectangle', ellipse: 'Ellipse', line: 'Line', arrow: 'Arrow', highlight: 'Highlight', pen: 'Drawing', whiteout: 'White-out', image: 'Picture', origpic: 'Picture of the PDF' }[type];
-    propsCard.append(HT.stepTitle(3, title + (o ? '' : ' (for the next one)')));
+    propsCard.append(HT.stepTitle(4, title + (o ? '' : ' (for the next one)')));
     if (type === 'text' || type === 'textedit') {
       const fp = F.picker({ value: T.font, text: T.text || '', onChange: id => { set('font', id); renderProps(); } });
       const tog = (label, key, avail) => $p('button', { type: 'button', class: 'edtog' + (T[key] ? ' on' : ''), disabled: avail ? null : 'disabled', title: avail ? label : label + ' is not available in this font', text: label[0], style: { fontWeight: key === 'bold' ? 800 : 500, fontStyle: key === 'italic' ? 'italic' : 'normal' }, onclick: () => { set(key, !T[key]); renderProps(); } });
@@ -511,7 +514,7 @@ HT.register('pdf-editor', root => {
   }
   const waitJob = async (slug, files, opts, label, from, span) => { const { id } = await HT.upload(slug, files, opts); return HT.poll(id, s => prog.set(from + (s.progress || 0) * span / 100, s.speed || label)); };
   async function download() {
-    dlBtn.disabled = true; const kind = fmt.value, stem = HT.stem(file.name);
+    dlBtn.disabled = dlTop.disabled = true; const kind = fmt.value, stem = HT.stem(file.name);
     try {
       prog.set(2, 'Preparing...'); await HT.tick(); const p = await plan();
       const job = await waitJob('pdf-editor', p.files, p.opts, 'Building your PDF...', 5, kind === 'pdf' ? 90 : 45), blob = await (await fetch(job.url)).blob();
@@ -522,6 +525,6 @@ HT.register('pdf-editor', root => {
         HT.download(new Blob([txt.trim() + '\n'], { type: 'text/plain;charset=utf-8' }), stem + '_edited.txt'); HT.toast('Your text file is ready'); }
       prog.clear();
     } catch (e) { prog.error(e.message || 'Something went wrong.'); }
-    dlBtn.disabled = false;
+    dlBtn.disabled = dlTop.disabled = false;
   }
 });

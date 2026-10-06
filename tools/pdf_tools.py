@@ -76,7 +76,7 @@ def pdf_to_image(ctx: Ctx):
 
 
 # ---------------------------------------------------------------- merge
-@tool("pdf-merge", accepts=PDF, max_mb=200, max_files=50, min_files=2)
+@tool("merge-pdf", accepts=PDF, max_mb=200, max_files=50, min_files=2)
 def pdf_merge(ctx: Ctx):
     merged = pymupdf.open()
     total = 0
@@ -92,7 +92,7 @@ def pdf_merge(ctx: Ctx):
 
 
 # ---------------------------------------------------------------- split
-@tool("pdf-split", accepts=PDF, max_mb=200)
+@tool("split-pdf", accepts=PDF, max_mb=200)
 def pdf_split(ctx: Ctx):
     mode = ctx.opt("mode", "each")
     doc = open_pdf(ctx.inputs[0])

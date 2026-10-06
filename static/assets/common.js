@@ -463,8 +463,8 @@
     'anime-style': '<circle cx="12" cy="7" r="3"/><circle cx="17" cy="11" r="3"/><circle cx="15" cy="17" r="3"/><circle cx="9" cy="17" r="3"/><circle cx="7" cy="11" r="3"/>',
     'image-to-pdf': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><path d="M12 18v-6m0 0-2.4 2.4M12 12l2.4 2.4"/>',
     'pdf-to-image': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><path d="M8 18l2.6-3 2 2 1.4-1.4L16 18"/>',
-    'pdf-merge': '<path d="M6 3.5v3.5a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V3.5M12 11v9M9 17l3 3 3-3"/>',
-    'pdf-split': '<path d="M6.5 8.5V5a2 2 0 0 1 2-2h4.5l4.5 4.5v1"/><path d="M6.5 15.5V19a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-3.5"/><path d="M3 12h3.2M9.4 12h1.7M13 12h1.7M17.8 12H21"/>',
+    'merge-pdf': '<path d="M6 3.5v3.5a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V3.5M12 11v9M9 17l3 3 3-3"/>',
+    'split-pdf': '<path d="M6.5 8.5V5a2 2 0 0 1 2-2h4.5l4.5 4.5v1"/><path d="M6.5 15.5V19a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-3.5"/><path d="M3 12h3.2M9.4 12h1.7M13 12h1.7M17.8 12H21"/>',
     'compress-pdf': '<rect x="3" y="4" width="18" height="5" rx="1.6"/><path d="M5 9v9.2A1.8 1.8 0 0 0 6.8 20h10.4a1.8 1.8 0 0 0 1.8-1.8V9M10 13h4"/>',
     'word-to-pdf': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><path d="M8.5 12.5h7M8.5 16h7"/>',
     'pdf-to-word': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><path d="M8.2 12.4l1.6 5 2.2-4.4 2.2 4.4 1.6-5"/>',
@@ -509,7 +509,7 @@
     'social-media-image-resizer': 'purple', 'thumbnail-generator': 'red', 'exif-remover': 'green', 'add-watermark-to-image': 'teal', 'pixelate-image': 'purple', 'meme-generator': 'amber',
     'photo-collage-maker': 'indigo', 'screenshot-beautifier': 'pink', 'favicon-generator': 'amber', 'image-to-svg': 'teal', 'remove-background': 'pink',
     'replace-background': 'orange', 'upscale-image': 'indigo', 'face-blur': 'purple', 'anime-style': 'pink', 'image-to-pdf': 'purple', 'pdf-to-image': 'blue',
-    'pdf-merge': 'red', 'pdf-split': 'orange', 'compress-pdf': 'green', 'word-to-pdf': 'blue', 'pdf-to-word': 'indigo', 'video-converter': 'red',
+    'merge-pdf': 'red', 'split-pdf': 'orange', 'compress-pdf': 'green', 'word-to-pdf': 'blue', 'pdf-to-word': 'indigo', 'video-converter': 'red',
     'video-to-gif': 'purple', 'gif-to-video': 'blue', 'video-trimmer': 'orange', 'compress-video': 'amber', 'image-color-palette-extractor': 'pink', 'qr-code-generator': 'indigo',
     base64: 'teal', 'image-cdn': 'blue', lock: 'green', bolt: 'amber', toolbox: 'purple', grid: 'blue',
   };
@@ -539,6 +539,12 @@
     "add-watermark-to-video": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.6\"/><path d=\"M12 9c1.6 1.9 2.6 3.1 2.6 4.4a2.6 2.6 0 0 1-5.2 0C9.4 12.1 10.4 10.9 12 9z\"/>",
   });
   Object.assign(TOOL_COLOR, { 'pdf-editor': 'red', 'font-library': 'purple', "instagram-image-carousel-splitter": "pink", "linkedin-carousel-maker": "blue", "color-palette-generator": "amber", "ai-headshot-generator": "indigo", "video-to-text": "indigo", "text-to-audio": "orange", "temporary-file-upload-direct-link-share": "teal", "website-color-palette-extractor": "pink", "add-watermark-to-pdf": "teal", "blur-redact-pdf": "red", "video-to-audio": "purple", "split-video": "orange", "split-audio": "pink", "merge-audio": "teal", "add-watermark-to-video": "amber" });
+  // the Markdown / HTML converters and their tab pages
+  GLYPH['markdown-converter'] = '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M6.5 15V9l2.5 3 2.5-3v6M16 9v6m-2-2 2 2 2-2"/>';
+  GLYPH['html-to-pdf'] = '<path d="M9 8l-4 4 4 4M15 8l4 4-4 4M13 6l-2 12"/>';
+  GLYPH['mp4-to-mp3'] = GLYPH['video-to-audio']; TOOL_COLOR['mp4-to-mp3'] = TOOL_COLOR['video-to-audio'];
+  for (const k of ['markdown-converter', 'markdown-to-pdf', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown', 'pdf-to-markdown']) { GLYPH[k] = GLYPH['markdown-converter']; TOOL_COLOR[k] = 'indigo'; }
+  TOOL_COLOR['html-to-pdf'] = 'amber';
   // NEW-TOOL-ICONS-END
   // HT.toolIcon('compress-image') -> <span class="ticon"> gradient tile with the white glyph. size: 'xs' | undefined (fills its box)
   HT.toolIcon = (key, size) => {
@@ -629,7 +635,7 @@
     if (seen || document.querySelector('.bmpanel')) return;
     setTimeout(() => HT.bookmark(null, { nudge: true }), 1400);
   };
-  const bookmarkButton = () => { const b = el('button', { class: 'iconbtn bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, HT.svg(ICON.star)); b.onclick = () => HT.bookmark(b); return b; };
+  const bookmarkButton = () => { const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, HT.svg(ICON.star), el('span', { text: 'Bookmark' })); b.onclick = () => HT.bookmark(b); return b; };
 
   applyTheme(themeNow());
   const themeButton = () => {
@@ -640,9 +646,55 @@
   };
 
   // tools.json gives a tool an emoji in `icon` (not an icon name): only a plain name (a tab page uses the name of its tool) picks another icon
-  const iconKey = t => (t.icon && /^[a-z0-9-]+$/i.test(t.icon) ? t.icon : t.slug);
+  const iconKey = t => (GLYPH[t.slug] ? t.slug : t.icon && /^[a-z0-9-]+$/i.test(t.icon) ? t.icon : t.slug);
 
   // quick tool search in the header ("/" or Ctrl+K)
+  // ---------------------------------------------------------------- search
+  // Understands short forms and other names (md = markdown, jpeg = jpg, docx = word, photo = image ...), ranks name matches first, forgives a typo,
+  // and adds RELATED tools (the same family or kind of work) under the answers.
+  const SYN = { jpeg: ['jpg'], jpe: ['jpg'], jpg: ['jpeg'], pic: ['image'], pics: ['image'], picture: ['image'], pictures: ['image'], photo: ['image'], photos: ['image'], img: ['image'], images: ['image'],
+    md: ['markdown'], doc: ['word', 'docx'], docx: ['word', 'doc'], word: ['docx'], ppt: ['powerpoint'], xls: ['excel'], xlsx: ['excel'], csv: ['excel'], film: ['video'], movie: ['video'], movies: ['video'], clip: ['video'], videos: ['video'],
+    song: ['audio'], music: ['audio'], sound: ['audio'], voice: ['audio', 'speech'], mp3: ['audio'], speech: ['audio', 'voice'], ocr: ['text', 'scan'], scan: ['ocr', 'text'], shrink: ['compress'], reduce: ['compress'], smaller: ['compress', 'resize'], bigger: ['upscale', 'resize'],
+    enlarge: ['upscale', 'resize'], hd: ['upscale'], password: ['protect', 'lock', 'unlock'], lock: ['protect', 'password'], unlock: ['password', 'remove'], sign: ['esign', 'signature'], signature: ['sign', 'esign'], join: ['merge'], combine: ['merge', 'collage'], cut: ['split', 'trim', 'crop'],
+    trim: ['cut'], crop: ['cut'], rotate: ['flip'], flip: ['rotate'], qr: ['qrcode'], barcode: ['qr'], link: ['url', 'cdn'], upload: ['share', 'cdn'], share: ['link', 'upload'], font: ['fonts', 'typeface'], fonts: ['font'], edit: ['editor'], editor: ['edit'], web: ['website', 'html'], webpage: ['html', 'website'],
+    tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'] };
+  const CAT_WORDS = { image: 'image photo picture', ai: 'ai artificial intelligence enhance', pdf: 'pdf document documents', video: 'video audio movie sound', dev: 'text developer code', util: 'utility utilities' };
+  HT.searchItems = data => [
+    ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: '/' + t.slug, isTab: false, hay: '' })),
+    ...(data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base) || {}; return { ...v, cat: v.cat || b.cat, kind: v.kind || b.kind, icon: v.base, href: '/' + v.slug, isTab: true, keywords: (v.keywords || '') + ' ' + (b.keywords || ''), popular: 99 }; }),
+  ].filter(t => t.cat);
+  const words = s => String(s).toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g, ' ').trim().split(/\s+/).filter(Boolean);
+  const near = (a, b) => { if (Math.abs(a.length - b.length) > 1 || a.length < 4) return false; for (let k = 0; k < a.length - 1; k++) if (a[k] !== b[k]) { if (a.length === b.length && a[k] === b[k + 1] && a[k + 1] === b[k] && a.slice(k + 2) === b.slice(k + 2)) return true; break; } let i = 0, j = 0, miss = 0; while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; } else { if (++miss > 1) return false; if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; } } } return miss + (a.length - i) + (b.length - j) <= 1; };
+  HT.searchTools = (data, query) => {
+    const STOP = new Set(['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'free', 'online', 'tool', 'tools', 'converter', 'convert', 'make', 'maker', 'create', 'file', 'files', 'how', 'can', 'i', 'with']);
+    const toks = words(query).filter(w => !STOP.has(w)); if (!toks.length) return { hits: [], related: [] };
+    const items = HT.searchItems(data); const hits = [];
+    for (const it of items) {
+      const nameW = words(it.name + ' ' + (it.tab || '')), slugW = words(it.slug), text = words(it.desc + ' ' + (it.keywords || '') + ' ' + CAT_WORDS[it.cat]);
+      let score = 0, all = true;
+      for (const q of toks) {
+        const alts = [q, ...(SYN[q] || [])]; let best = 0;
+        alts.forEach((a, k) => { const w = k ? 0.6 : 1;
+          if (nameW.includes(a) || slugW.includes(a)) best = Math.max(best, 10 * w); else if (nameW.some(x => x.startsWith(a)) || slugW.some(x => x.startsWith(a))) best = Math.max(best, 6 * w);
+          else if (text.includes(a)) best = Math.max(best, 2.5 * w); else if (text.some(x => x.startsWith(a)) && a.length >= 3) best = Math.max(best, 1.5 * w);
+          else if (nameW.some(x => near(a, x)) || slugW.some(x => near(a, x))) best = Math.max(best, 4 * w); });
+        if (!best) { all = false; break; } score += best;
+      }
+      if (!all) continue;
+      // phrases in the order typed ("docx to markdown") beat the same words in another order; the tool itself beats its tab page
+      const joined = toks.join('-'); if (it.slug.includes(joined)) score += 8; if (!it.isTab) score += 1;
+      hits.push({ it, score: score - (it.isTab ? 0 : -0) });
+    }
+    hits.sort((a, b) => b.score - a.score || (a.it.popular || 50) - (b.it.popular || 50));
+    const top = hits.slice(0, 8).map(h => h.it), seen = new Set(top.map(t => t.slug)); let related = [];
+    if (top.length) {   // related: same family first, then the same kind of work, the busiest first
+      const fam = new Set(top.slice(0, 3).map(t => t.base)), cats = new Set(top.slice(0, 3).map(t => t.cat));
+      related = items.filter(t => !seen.has(t.slug) && !t.isTab && (fam.has(t.base) || cats.has(t.cat))).sort((a, b) => (fam.has(b.base) - fam.has(a.base)) || ((a.popular || 50) - (b.popular || 50))).slice(0, 4);
+      related = [...items.filter(t => t.isTab && !seen.has(t.slug) && fam.has(t.base)).slice(0, 3), ...related].slice(0, 4);
+    }
+    return { hits: top, related };
+  };
+
   const headerSearch = () => {
     const input = el('input', { type: 'search', placeholder: 'Search tools...', 'aria-label': 'Search tools', autocomplete: 'off' });
     const res = el('div', { class: 'hres hidden' }), box = el('div', { class: 'hsearch' }, HT.svg(ICON.search), input, el('kbd', { text: '/' }), res);
@@ -650,20 +702,20 @@
     const show = () => {
       const q = input.value.trim().toLowerCase(); res.textContent = ''; sel = -1;
       if (!q || !data) return res.classList.add('hidden');
-      // the tools, and the tab pages of tool families (Video to Text, Merge Audio ...): size pages and the compress format pages stay out
-      const tabs = (data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base); return { ...v, cat: b.cat, kind: v.kind || b.kind, href: '/' + v.slug, icon: v.base }; });
-      items = [...data.tools, ...tabs].filter(t => q.split(/\s+/).every(w => (t.name + ' ' + t.desc + ' ' + t.slug.replace(/-/g, ' ')).toLowerCase().includes(w))).slice(0, 8);
-      if (!items.length) { res.append(el('div', { class: 'help', style: { padding: '10px 12px' }, text: 'No matching tools' })); return res.classList.remove('hidden'); }
-      items.forEach(t => res.append(el('a', { class: 'cat-' + t.cat, href: t.href || '/tool/' + t.slug }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: catOf(data, t.cat).name }))));
+      const r = HT.searchTools(data, q); items = [...r.hits, ...r.related];
+      if (!r.hits.length) { res.append(el('div', { class: 'help', style: { padding: '10px 12px' }, text: 'No matching tools. Try a shorter word like "pdf" or "image".' })); if (r.related.length) { } return res.classList.remove('hidden'); }
+      const row = t => el('a', { class: 'cat-' + t.cat, href: t.href || '/' + t.slug }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: t.isTab ? 'in ' + (data.tools.find(x => x.slug === t.base) || { name: '' }).name : catOf(data, t.cat).name }));
+      r.hits.forEach(t => res.append(row(t)));
+      if (r.related.length) { res.append(el('div', { class: 'hrel', text: 'Related' })); r.related.forEach(t => res.append(row(t))); }
       res.classList.remove('hidden');
     };
-    const mark = () => [...res.children].forEach((a, i) => a.classList.toggle('sel', i === sel));
+    const mark = () => [...res.querySelectorAll('a')].forEach((a, i) => a.classList.toggle('sel', i === sel));
     input.addEventListener('focus', () => HT.loadTools().then(d => { data = d; show(); }));
     input.addEventListener('input', show);
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
-      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || '/tool/' + t.slug; }
+      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || '/' + t.slug; }
       else if (e.key === 'Escape') { input.value = ''; show(); input.blur(); }
     });
     document.addEventListener('click', e => { if (!box.contains(e.target)) res.classList.add('hidden'); });
@@ -674,14 +726,95 @@
     return box;
   };
 
+  // ---------------------------------------------------------------- the navigation bar
+  // Image, PDF, Video & audio and AI each open a menu with everything related to them (the tools of that kind and the converters that belong to it),
+  // "Convert" collects every converter, "All tools" lists every category. Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
+  const NAV_MENUS = [
+    ['Image', 'image', [
+      ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
+      ['Convert', ['convert-image', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
+      ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
+      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
+    ]],
+    ['PDF', 'pdf', [
+      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'compress-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
+      ['Convert from PDF', ['pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'image-to-text']],
+      ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf']],
+      ['PDF security', ['protect-pdf', 'unlock-pdf']],
+      ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
+    ]],
+    ['Video & audio', 'video', [
+      ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
+      ['Audio', ['split-audio', 'merge-audio', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio']],
+      ['Words from sound', ['video-to-text', 'text-to-audio']],
+    ]],
+    ['AI', 'ai', [
+      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style']],
+      ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
+    ]],
+    ['Convert', 'convert', [
+      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
+      ['Convert from PDF', ['pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'image-to-text']],
+      ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
+      ['Images', ['convert-image', 'image-to-svg', 'resize-image', 'compress-image']],
+      ['Video and audio', ['video-converter', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
+    ]],
+    ['All tools', 'all', null],
+  ];
+  const buildNav = () => {
+    const here = location.pathname.replace(/\/+$/, '') || '/', chev = () => HT.svg('<svg class="nv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>');
+    const link = t => el('a', { href: t.href, class: here === t.href ? 'on' : null }, el('i', {}, HT.toolIcon(iconKey(t), 'xs')), t.name);
+    const sec = (title, items, wide) => el('div', { class: 'nv-sec' + (wide ? ' wide' : '') }, el('h4', { text: title }), el('ul', {}, items.map(t => el('li', {}, link(t)))));
+    const sections = (data, key) => {
+      const menu = NAV_MENUS.find(m => m[1] === key), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), box = el('div', { class: 'nv-grid ' + key });
+      if (menu[2]) { const groups = menu[2].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', Math.min(groups.length, 4)); for (const [title, items] of groups) box.append(sec(title, items)); }
+      else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: '/' + t.slug })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
+      return box;
+    };
+    // ---- computer: menus under the bar
+    const nav = el('nav', { class: 'nv', 'aria-label': 'Main' }); let openItem = null, timer = 0;
+    const close = focus => { clearTimeout(timer); if (!openItem) return; openItem.btn.setAttribute('aria-expanded', 'false'); openItem.panel.hidden = true; openItem.wrap.classList.remove('open'); if (focus) openItem.btn.focus(); openItem = null; };
+    const place = it => {   // a menu opens under its button, but never past the edge of the bar
+      if (it.key === 'all') return; const host = it.wrap.closest('.top-in'), hb = host.getBoundingClientRect(), bb = it.btn.getBoundingClientRect(), w = it.panel.offsetWidth;
+      it.panel.style.left = Math.max(0, Math.min(bb.left - hb.left - 10, hb.width - w)) + 'px';
+    };
+    const open = async it => {
+      clearTimeout(timer); if (openItem === it) return; close();
+      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'all') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
+      openItem = it; it.panel.hidden = false; place(it); it.btn.setAttribute('aria-expanded', 'true'); it.wrap.classList.add('open');
+    };
+    for (const [label, key] of NAV_MENUS) {
+      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
+      btn.addEventListener('click', () => (openItem === it ? close() : open(it)));
+      wrap.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => open(it), 90); } });
+      wrap.addEventListener('mouseleave', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => close(), 220); } });
+      wrap.addEventListener('focusout', e => { if (!wrap.contains(e.relatedTarget)) close(); });
+      nav.append(wrap);
+    }
+    document.addEventListener('click', e => { if (openItem && !openItem.wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(true); closeM(); } });
+    addEventListener('resize', () => close());
+    // ---- phone: a hamburger button and a list
+    const burger = el('button', { class: 'nv-burger', type: 'button', 'aria-label': 'Menu', 'aria-expanded': 'false' }, HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'));
+    const mobile = el('div', { class: 'nv-m', hidden: 'hidden' }); let mFilled = false;
+    const closeM = () => { mobile.hidden = true; burger.setAttribute('aria-expanded', 'false'); };
+    burger.addEventListener('click', async () => {
+      if (!mobile.hidden) return closeM();
+      if (!mFilled) { const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mFilled = true; }
+      mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
+    });
+    return { nav, burger, mobile };
+  };
+
   HT.header = active => {
     const h = document.getElementById('top'); if (!h) return;
-    h.className = 'top'; h.textContent = '';
-    const nav = el('nav', { 'aria-label': 'Main' }, el('a', { href: '/', class: active === 'tools' ? 'on' : '', text: 'All tools' }));
+    h.className = 'top'; h.textContent = ''; const navbar = buildNav();
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), nav, headerSearch(), bookmarkButton(), themeButton()));
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
     HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
@@ -699,11 +832,11 @@
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(bm); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
-    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/tool/' + t.slug, text: t.name })))); });
+    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))); });
   };
 
   // tools.json gives a tool an emoji in `icon` (not an icon name): only a plain name (a tab page uses the name of its tool) picks another icon
-  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/tool/' + t.slug },
+  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/' + t.slug },
     el('div', { class: 'ic' }, HT.toolIcon(iconKey(t))),
     el('div', {}, el('b', { text: t.name }), el('span', { class: 'd', text: t.desc }),
       el('div', {}, t.kind === 'client' ? el('span', { class: 'tag local', text: 'In your browser' }) : null, t.cat === 'ai' ? el('span', { class: 'tag ai', text: 'AI' }) : null)),
@@ -718,7 +851,7 @@
     work.append(el('div', { class: 'card', style: { textAlign: 'center', padding: '34px 22px' } },
       el('h1', { text: (t.name || 'This tool') + ' is taking a break', style: { fontSize: '1.5rem' } }),
       el('p', { class: 'help', style: { margin: '10px 0 18px' }, text: 'We switched it off for a while. Please try again later, or use one of the other tools.' }),
-      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: '/tool/' + x.slug, text: x.name })))));
+      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: '/' + x.slug, text: x.name })))));
   };
 
   HT.mount = async () => {
@@ -742,7 +875,7 @@
     if (HT.isAdmin() && data.archivedSlugs && (data.archivedSlugs.has(slug) || data.archivedSlugs.has(baseSlug))) work.before(el('div', { class: 'help', style: { background: 'var(--warn-bg, #fff4d6)', border: '1px solid #f0d58a', borderRadius: '10px', padding: '8px 12px', marginBottom: '12px' }, text: 'This tool is archived. Visitors do not see it. You can, because you are signed in to the admin panel in this browser.' }));
     const cat = catOf(data, meta.cat), client = meta.kind === 'client';
     page.classList.add('cat-' + meta.cat);
-    const pathOf = s => (s === baseSlug ? '/tool/' + s : '/' + s);
+    const pathOf = s => (s === baseSlug ? '/' + s : '/' + s);
     const metaFor = s => {  // a tool, or a format page merged onto its base tool
       const t = data.tools.find(x => x.slug === s); if (t) return t;
       const v = (data.variants || []).find(x => x.slug === s), b = v && data.tools.find(x => x.slug === v.base); return b ? { ...b, ...v } : null;
@@ -839,7 +972,7 @@
       el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: meta.privacyTitle || (client ? 'Private by design' : 'Shared by link') }),
         meta.privacy || (client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.'))));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== baseSlug && !t.href).slice(0, 6);
-    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/tool/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
+    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 
     HT.footer();
     const later = window.requestIdleCallback || (f => setTimeout(f, 1500));

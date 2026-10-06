@@ -57,10 +57,6 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 .brand:hover { text-decoration:none; }
 .brand img { width:36px; height:36px; display:block; flex:none; filter:drop-shadow(0 3px 8px rgba(10,79,245,.28)); }
 .brand .wm em { font-style:normal; color:var(--brand-orange); }
-.top nav { display:flex; gap:4px; margin-left:8px; }
-.top nav a { color:var(--muted); font-size:.92rem; font-weight:500; padding:7px 12px; border-radius:9px; }
-.top nav a:hover { color:var(--text); background:var(--bg2); text-decoration:none; }
-.top nav a.on { color:var(--accent); background:var(--accent-soft); }
 .hsearch { position:relative; margin-left:auto; width:min(320px,34vw); }
 .hsearch input[type=search] { width:100%; padding:9px 40px 9px 36px; border:1px solid var(--border); border-radius:11px; background:var(--card); color:var(--text); font:inherit; font-size:.9rem; }
 .hsearch input[type=search]:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-ring); }
@@ -74,8 +70,8 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 .iconbtn { width:38px; height:38px; display:grid; place-items:center; border:1px solid var(--border); border-radius:11px; background:var(--card); color:var(--muted); cursor:pointer; flex:none; }
 .iconbtn:hover { color:var(--text); border-color:var(--border2); }
 .iconbtn svg { width:18px; height:18px; }
-@media (max-width:820px) { .hsearch { display:none; } .top nav { margin-left:auto; } }
-@media (max-width:560px) { .top-in { padding:9px 14px; gap:8px; } .top nav a { padding:6px 8px; font-size:.86rem; } .brand span { font-size:1.02rem; } .top nav a:nth-child(3) { display:none; } }
+@media (max-width:820px) { .hsearch { display:none; }  }
+@media (max-width:560px) { .top-in { padding:9px 14px; gap:8px; } .brand span { font-size:1.02rem; } }
 
 /* ============================================================ hero (home) */
 .hero { position:relative; text-align:left; padding:48px 0 22px; overflow:hidden; }
@@ -509,7 +505,6 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .bmpanel.nudge { left:50%; right:auto; bottom:16px; top:auto; transform:translateX(-50%); animation:bmup .35s ease; } @keyframes bmup { from { opacity:0; transform:translate(-50%,14px); } to { opacity:1; transform:translate(-50%,0); } }
 @media (prefers-reduced-motion:reduce) { .bmpanel.nudge { animation:none; } }
 
-.top nav a { white-space:nowrap; }
 
 /* Layout stability (CLS): the tool page is built by script, so the room it needs is reserved up front. Without this the "about" text at the bottom
    is painted first and then jumps down when the tool appears (Google measures that as layout shift and ranks pages lower for it). */
@@ -518,9 +513,8 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .shell { min-height:max(560px, 85vh); }
 @media (max-width:560px) { .thead { min-height:176px; } .shell { min-height:max(520px, 80vh); } }
 /* home page: the popular chips, the trust row and the tool list are filled in by script, so their room is reserved (no jumping hero picture, no jumping footer) */
-#popular { min-height:121px; } #trust { min-height:22px; } #list { min-height:120vh; }
-@media (max-width:999px) { #popular { min-height:80px; } }
-@media (max-width:560px) { #popular { min-height:207px; } #trust { min-height:52px; } }
+#trust { min-height:22px; } #list { min-height:120vh; }
+@media (max-width:560px) { #trust { min-height:52px; } }
 
 /* the font library window inside the PDF editor */
 .flib { border:1px solid var(--border2); border-radius:16px; padding:0; width:min(1120px,96vw); height:min(88vh,900px); background:var(--bg); color:var(--text); box-shadow:0 20px 70px rgba(0,0,0,.35); overflow:hidden; }
@@ -555,3 +549,46 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .edpic { position:absolute; border:1px dashed transparent; cursor:pointer; box-sizing:border-box; } .edpic:hover { border-color:var(--accent); background:rgba(59,130,246,.10); }
 .edorig { background:#fff; border:1.5px dashed #e5334a; display:grid; place-items:center; box-sizing:border-box; } .edorig span { font-size:11px; font-weight:700; color:#e5334a; background:rgba(255,255,255,.85); padding:2px 8px; border-radius:99px; }
 .edtip select { width:auto; min-width:150px; }
+
+/* header: logo on the left, then the search, the Bookmark button and the theme switch on the right (no "All tools" link) */
+.top-sp { flex:1; }
+.bmbtn { display:inline-flex; align-items:center; gap:7px; height:38px; padding:0 14px 0 11px; border:1px solid var(--border); border-radius:11px; background:var(--card); color:var(--text); font:inherit; font-size:.88rem; font-weight:600; cursor:pointer; flex:none; }
+.bmbtn svg { width:18px; height:18px; color:#f5a623; } .bmbtn:hover { border-color:#f5a623; background:#fff8e8; color:#111; } .bmbtn:hover svg { fill:#f5a623; }
+:root[data-theme=dark] .bmbtn:hover { background:#3c3010; color:#fff; } @media (prefers-color-scheme:dark) { :root:not([data-theme=light]) .bmbtn:hover { background:#3c3010; color:#fff; } }
+@media (max-width:640px) { .bmbtn { width:38px; padding:0; justify-content:center; } .bmbtn span { display:none; } }
+
+/* Markdown / HTML converters */
+.cv-bar { display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap; } .cv-bar .sp { flex:1; }
+.cv-split { display:grid; grid-template-columns:1fr 1fr; gap:14px; } @media (max-width:900px) { .cv-split { grid-template-columns:1fr; } }
+.cv-in { width:100%; min-height:420px; font:13.5px/1.55 ui-monospace,Consolas,monospace; resize:vertical; box-sizing:border-box; }
+.cv-prev { width:100%; height:420px; border:1px solid var(--border); border-radius:10px; background:#fff; } .cv-cap { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:0 0 6px; }
+.cv-outwrap { margin-top:12px; } .cv-out { width:100%; min-height:260px; font:13px/1.5 ui-monospace,Consolas,monospace; box-sizing:border-box; }
+
+/* search: the related tools under the answers */
+.hres .hrel { padding:8px 14px 4px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--faint); border-top:1px solid var(--border); margin-top:4px; }
+.tcard.rel::after { content:"Related"; position:absolute; top:10px; right:12px; font-size:.66rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); background:var(--bg2); padding:2px 8px; border-radius:99px; } .tcard { position:relative; }
+
+/* PDF editor: Download sits under the file on the left, and in the toolbar above the page */
+.edexp { display:flex; gap:8px; align-items:center; flex-wrap:wrap; } .edexp select { flex:1; min-width:150px; width:auto; } .edexp .btn { flex:none; }
+.eddl { margin-left:auto; } @media (max-width:900px) { .tbench.on.ed .ed-export { order:1; } }
+
+/* ============================================================ navigation bar */
+.top-in { position:relative; }
+.nv { display:flex; align-items:center; gap:0; margin-left:6px; }
+.nv-link, .nv-btn { display:inline-flex; align-items:center; gap:5px; padding:9px 10px; border:0; border-radius:10px; background:transparent; color:var(--text); font:inherit; font-size:.92rem; font-weight:600; cursor:pointer; white-space:nowrap; }
+.nv-link:hover, .nv-btn:hover, .nv-item.open > .nv-btn { color:var(--accent); background:var(--accent-soft); text-decoration:none; } .nv-link.on { color:var(--accent); }
+.nv-chev { width:14px; height:14px; transition:transform .15s; } .nv-item.open .nv-chev { transform:rotate(180deg); }
+.nv-item { position:static; }
+.nv-panel { position:absolute; z-index:60; top:calc(100% - 4px); width:max-content; max-width:calc(100% - 20px); background:var(--card); border:1px solid var(--border); border-radius:16px; box-shadow:0 18px 50px rgba(15,18,32,.18); padding:20px 24px; max-height:calc(100vh - 96px); overflow:auto; }
+.nv-panel[hidden] { display:none; } .nv-panel.all { left:20px; right:20px; top:calc(100% - 4px); }
+.nv-grid { display:grid; gap:6px 30px; } .nv-grid:not(.all) { grid-template-columns:repeat(var(--cols,3),minmax(190px,1fr)); } .nv-grid.all { grid-template-columns:repeat(6,minmax(0,1fr)); }
+.nv-sec h4 { margin:0 0 8px; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); } .nv-sec ul { list-style:none; margin:0; padding:0; } .nv-sec.wide { grid-column:span 2; } .nv-sec.wide ul { columns:2; column-gap:18px; }
+.nv-sec li { break-inside:avoid; } .nv-sec a, .nv-mlink { display:flex; align-items:center; gap:10px; padding:6px 8px; margin:0 -8px; border-radius:9px; color:var(--text); font-size:.9rem; font-weight:500; text-decoration:none; } .nv-sec a:hover { background:var(--accent-soft); color:var(--accent); } .nv-sec a.on { color:var(--accent); font-weight:700; }
+.nv-sec a i { display:inline-grid; flex:none; } .nv-foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:14px; padding-top:12px; border-top:1px solid var(--border); font-size:.86rem; color:var(--muted); } .nv-foot a { font-weight:600; }
+.nv-burger { display:none; width:38px; height:38px; place-items:center; border:1px solid var(--border); border-radius:11px; background:var(--card); color:var(--text); cursor:pointer; flex:none; } .nv-burger svg { width:20px; height:20px; }
+.nv-m { position:absolute; left:0; right:0; top:100%; background:var(--card); border-bottom:1px solid var(--border); box-shadow:0 18px 30px rgba(15,18,32,.12); max-height:calc(100vh - 64px); overflow:auto; padding:8px 18px 22px; } .nv-m[hidden] { display:none; }
+.nv-mlink { padding:12px 8px; font-weight:600; border-bottom:1px solid var(--border); margin:0; } .nv-md { border-bottom:1px solid var(--border); } .nv-md summary { padding:13px 0; font-weight:700; cursor:pointer; } .nv-md .nv-grid, .nv-md .nv-grid:not(.all) { grid-template-columns:1fr 1fr; gap:6px 14px; padding-bottom:10px; } .nv-md .nv-sec.wide { grid-column:1 / -1; } .nv-md .nv-sec h4 { margin-top:8px; }
+@media (max-width:1320px) { .hsearch { width:min(210px,18vw); } .top-in { gap:12px; } }
+@media (max-width:1240px) { .nv-grid.all { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (max-width:1140px) { .nv { display:none; } .nv-burger { display:grid; } }
+@media (max-width:520px) { .nv-md .nv-grid { grid-template-columns:1fr; } .nv-sec.wide ul { columns:1; } }

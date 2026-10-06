@@ -31,7 +31,7 @@ HT.register('font-library', root => {
         $f('div', { class: 'fhead' }, $f('b', { text: f.name }), $f('span', { class: 'tag', text: F.CAT[f.category] })), prev,
         $f('div', { class: 'fmeta' }, f.scripts.map(s => $f('span', { class: 'chip', text: F.SCRIPT[s] })), $f('small', { text: styles + ' · ' + f.license })),
         $f('div', { class: 'actions', style: { margin: '10px 0 0' } }, $f('button', { class: 'btn sm', type: 'button', text: 'Download', onclick: () => F.download(f) }),
-          $f('a', { class: 'btn sec sm', href: '/tool/pdf-editor?font=' + f.id, text: 'Use in PDF Editor' }), $f('button', { class: 'btn ghost sm', type: 'button', text: 'Copy CSS', onclick: () => HT.copy(css(f), 'CSS copied') }))));
+          $f('a', { class: 'btn sec sm', href: '/pdf-editor?font=' + f.id, text: 'Use in PDF Editor' }), $f('button', { class: 'btn ghost sm', type: 'button', text: 'Copy CSS', onclick: () => HT.copy(css(f), 'CSS copied') }))));
       if (io) io.observe(prev); else F.load(f.id, bold, italic).catch(() => { });
     }
   }

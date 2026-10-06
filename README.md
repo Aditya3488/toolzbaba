@@ -305,6 +305,14 @@ Browsers do not let a page add a bookmark itself, so the panel shows the right k
 * **Tab pages** (for example Blur & Redact PDF, Video to Text, Add Watermark to PDF) are cards on the home page, in their own category (`cat` on the variant in `tools.json`, else the category of their tool). The count in the hero and in the "All" pill includes them.
 * **Admin lab**: tools that cannot be driven the generic way are listed in `LAB_SKIP` / `LAB_STEPS` in `admin.js` (Sign PDF and Unlock PDF are skipped there, `tests/browser_tools.js` covers them; Blur & Redact PDF gets a marked area first).
 
+### Converters, navigation bar, search and sitemap
+
+* **Markdown / HTML converters** (`engine/convert.js`, UI `tools/convert-tools.js`): Markdown to PDF / HTML / Word, HTML to PDF / Markdown, Word to Markdown, PDF to Markdown. `markdown-converter` is the first page of the family (a chooser), the others are its tab pages (`/markdown-to-pdf` ...), and `/html-to-pdf` is a tab of Word to PDF. HTML is turned into PDF by MuPDF (`HT.pdfEngine.htmlToPdf`, shared with Word to PDF); Markdown is read by `marked`, HTML turned into Markdown by `turndown` (+ its GFM plugin), the .docx file is written by hand with JSZip. JPG to PDF and PNG to PDF are tab pages of Image to PDF (same engine, they only take that kind of picture).
+* **Every tool lives at the site root** (`/video-converter`, `/merge-pdf`). The old `/tool/<name>` addresses redirect there (`/tool/*  /:splat  301` at the end of `_redirects`, after the rename aliases). `build.py` refuses a tool slug that clashes with a folder or page at the root.
+* **Navigation bar** (`buildNav` / `NAV_MENUS` in `common.js`): Image, PDF, Video & audio, AI, Convert and All tools open menus on hover or click (everything related, with icons); a hamburger list on phones. Edit the slug lists in `NAV_MENUS` to change a menu; slugs that do not exist or are archived are skipped.
+* **Search** (`HT.searchTools`): short forms and other names (`md`, `jpeg`, `docx`, `photo`), ranking, a typo or two swapped letters, and a Related part; the home page marks related cards. Add `keywords` to a tool in `tools.json` to teach it new words.
+* **Sitemap**: one URL per page of the site (tools, tab pages, size pages, legal pages), none for `/admin`, archived or old `/tool/` addresses. `lastmod` is the day the page's own content last changed (`sitemap-dates.json`, kept in git so every machine agrees), not the deploy day.
+
 ### Admin panel (`/admin`)
 
 One page to archive or re-enable tools, see how fast they are for real visitors, and test every tool. It is private: `noindex`, never cached, not in the sitemap, and every call to `/api/admin/*` needs the `ADMIN_KEY` secret (header `X-Admin-Key`). Set it in Cloudflare Pages (Settings, Variables and Secrets), and for local use in `.dev.vars`.
