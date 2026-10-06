@@ -20,7 +20,7 @@ export async function onRequestGet({ request, params, env }) {
   if (slug === 'sitemap.xml') {
     const posts = await publishedPosts(env), day = t => new Date(t).toISOString().slice(0, 10);
     const urls = [[`${base}/blog`, posts[0] ? day(posts[0].updated) : day(Date.now()), '0.6'], ...posts.map(p => [`${base}/blog/${p.slug}`, day(p.updated), '0.6'])];
-    return xml('<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
+    return xml('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
       urls.map(([u, d, pr]) => `<url><loc>${x(u)}</loc><lastmod>${d}</lastmod><priority>${pr}</priority></url>`).join('') + '</urlset>', 'application/xml');
   }
 

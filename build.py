@@ -252,10 +252,7 @@ def build():
     urls += [(f"/{v['slug']}", "0.7") for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
     urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
     body = "".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{day}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
-    # sitemap.xsl only makes the sitemaps readable when opened in a browser; search engines ignore it
-    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
-          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + body + "</urlset>")
-    shutil.copyfile(STATIC / "sitemap.xsl", DIST / "sitemap.xsl")
+    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + body + "</urlset>")
     shutil.copyfile(STATIC / "assets" / "favicon.ico", DIST / "favicon.ico")
     shutil.copyfile(STATIC / "assets" / "brand" / "apple-touch-icon.png", DIST / "apple-touch-icon.png")
     icons = [{"src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
