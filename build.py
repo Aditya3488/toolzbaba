@@ -244,7 +244,7 @@ def build():
     write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
 
     # robots, sitemap, icons, manifest
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\nSitemap: {SITE_URL}/blog/sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\n")  # blog posts are added to it by functions/sitemap.xml.js
     day = time.strftime("%Y-%m-%d", time.gmtime((STATIC / "assets" / "tools.json").stat().st_mtime))
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}
