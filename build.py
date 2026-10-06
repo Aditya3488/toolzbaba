@@ -11,6 +11,7 @@ Standard library only, so it runs on Cloudflare's build machines without install
 """
 from __future__ import annotations
 
+import base64
 import hashlib
 import html
 import json
@@ -47,6 +48,9 @@ def _assets_version() -> str:
 
 VERSION = _assets_version()
 
+# applies the saved light/dark choice before first paint (no flash); the admin page's security policy allows it by fingerprint
+THEME_SCRIPT = "try{var t=localStorage.getItem('tz_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}"
+
 # Google Tag Manager snippets: the script as high in <head> as possible, the noscript part right after <body>
 GTM_HEAD = """<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -76,14 +80,14 @@ def clip(s: str, n: int = 158) -> str:
     return s if len(s) <= n else s[: n - 1].rsplit(" ", 1)[0] + "…"
 
 
-def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False) -> str:
+def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False, trackers: bool = True) -> str:
     url = SITE_URL + path
     img = SITE_URL + "/assets/og.png"
-    tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID else []
+    tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID and trackers else []
     tags += [
         f"<title>{esc(title)}</title>",
         # apply the saved light/dark choice before first paint (no flash)
-        "<script>try{var t=localStorage.getItem('tz_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>",
+        f"<script>{THEME_SCRIPT}</script>",
         f'<meta name="description" content="{esc(clip(desc))}">',
         f'<link rel="canonical" href="{esc(url)}">',
         '<meta name="robots" content="noindex,nofollow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">',
@@ -107,18 +111,21 @@ def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: 
     ]
     for block in jsonld or []:
         tags.append('<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>")
-    if HEAD_EXTRA:
+    if HEAD_EXTRA and trackers:
         tags.append(HEAD_EXTRA)
     return "\n".join(tags)
 
 
-def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=False, extra: dict | None = None) -> str:
+# trackers=False leaves out Tag Manager and HEAD_EXTRA: the admin page runs only the site's own scripts (see _headers)
+def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=False, extra: dict | None = None,
+           trackers: bool = True) -> str:
     text = (STATIC / file).read_text("utf-8")
     subs = {"SITE_NAME": SITE_NAME, "SITE_URL": SITE_URL, "CONTACT_EMAIL": CONTACT_EMAIL,
             "UPDATED": time.strftime("%d %B %Y", time.gmtime((STATIC / file).stat().st_mtime)), **(extra or {})}
-    text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex))
-    text = text.replace('<script src="/assets/common.js"></script>', f'<script src="/assets/common.js?v={VERSION}"></script>')
-    if GTM_ID:
+    text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex, trackers))
+    for js in ("common", "admin"):
+        text = text.replace(f'<script src="/assets/{js}.js"></script>', f'<script src="/assets/{js}.js?v={VERSION}"></script>')
+    if GTM_ID and trackers:
         text = text.replace("<body>", "<body>\n" + GTM_BODY.replace("{id}", GTM_ID), 1)
     for k, v in subs.items():
         text = text.replace("{{" + k + "}}", str(v) if k == "SEO" else esc(v))
@@ -226,7 +233,8 @@ def build():
 
     for key, (file, title, desc) in LEGAL.items():
         write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))
-    write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True))
+    write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True,
+                              trackers=False))
     write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
 
     # robots, sitemap, icons, manifest
@@ -248,7 +256,9 @@ def build():
                                           "display": "standalone", "background_color": "#ffffff", "theme_color": "#0a4ff5", "icons": icons}))
 
     # Cloudflare Pages: response headers and redirects
-    shutil.copyfile(ROOT / "deploy" / "pages" / "_headers", DIST / "_headers")
+    # the admin page's Content-Security-Policy allows exactly one inline script, by its fingerprint
+    theme_hash = "sha256-" + base64.b64encode(hashlib.sha256(THEME_SCRIPT.encode()).digest()).decode()
+    (DIST / "_headers").write_text((ROOT / "deploy" / "pages" / "_headers").read_text("utf-8").replace("{THEME_SCRIPT_HASH}", theme_hash), "utf-8")
     shutil.copyfile(ROOT / "deploy" / "pages" / "_redirects", DIST / "_redirects")
     # a renamed tool keeps its old URL(s): "aliases" in tools.json become permanent (301) redirects, so old links and
     # Google's index follow the tool to its new address

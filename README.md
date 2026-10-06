@@ -113,7 +113,7 @@ MAX_CONCURRENT_JOBS=2 sh start.sh
 | `RATE_LIMIT`, `RATE_LIMITS` | on | Per-visitor hourly limits (defaults in `security.py`) |
 | `MAX_CONCURRENT_JOBS` | `3` | Heavy jobs at once; the rest wait in line |
 | `MAX_UPLOAD_MB` | `2100` | Largest accepted request |
-| `ADMIN_KEY` | none | Lets you delete any hosted image |
+| `ADMIN_USER`, `ADMIN_KEY` | none | Admin panel ID and password (16+ characters); also delete any hosted image |
 | `CDN_RETENTION_DAYS`, `CDN_MAX_TOTAL_MB`, `CDN_MAX_FILE_MB` | `0` / `5000` / `25` | Image hosting limits |
 | `DATA_DIR` | `./data` | Hosted images and AI models |
 | `LIBREOFFICE_PATH` | auto | Path to `soffice` if it isn't found |
@@ -307,7 +307,17 @@ Browsers do not let a page add a bookmark itself, so the panel shows the right k
 
 ### Admin panel (`/admin`)
 
-One page to archive or re-enable tools, see how fast they are for real visitors, and test every tool. It is private: `noindex`, never cached, not in the sitemap, and every call to `/api/admin/*` needs the `ADMIN_KEY` secret (header `X-Admin-Key`). Set it in Cloudflare Pages (Settings, Variables and Secrets), and for local use in `.dev.vars`.
+One page to archive or re-enable tools, see how fast they are for real visitors, and test every tool. It is private: `noindex`, never cached, not in the sitemap.
+
+**Setting it up:** add two **secrets** in Cloudflare Pages (Settings, Variables and Secrets): `ADMIN_USER` (your ID) and `ADMIN_KEY` (a password of **16 or more characters** used nowhere else), then redeploy. For local use put them in `.dev.vars`. Until both are set, and the password is long enough, the panel stays shut.
+
+**How it is protected** (`lib/admin-store.js`):
+* Signing in (`POST /api/admin/login`) swaps the ID and password for a session cookie (`__Host-tz_admin`: HttpOnly, Secure, SameSite=Strict, 8 hours, signed with both secrets). Page scripts can't read it and the password is never stored in the browser. Changing either secret ends every session.
+* Every admin request must carry `X-Requested-With: toolzbaba-admin`, which other websites can't add, so a forged form or link can't act with your session.
+* Wrong passwords: 5 per visitor per 15 minutes, and 50 per hour from everyone together (then the panel locks for up to an hour, you included). Each wrong try waits 1 second. The image and file delete endpoints count wrong admin passwords too.
+* The admin page has no Tag Manager or `HEAD_EXTRA` and a strict Content-Security-Policy (only the site's own scripts), `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`, `Cache-Control: no-store`.
+* Scripts can call the API with the headers `X-Requested-With: toolzbaba-admin`, `X-Admin-User` and `X-Admin-Key`.
+* **Strongest extra lock (recommended): Cloudflare Access.** Zero Trust > Access > Applications > Add > Self-hosted: domain `toolzbaba.com`, paths `/admin` and `/api/admin/*`, policy "Allow" for your own email addresses only (login method: one-time PIN). Free for up to 50 people. Then nobody else even reaches the sign-in form.
 
 * **Tools**: Archive / Make live per tool or in bulk (with a private note). Archived tools disappear from the home page, search and menus, their address shows "taking a break" (noindex), and the tabs of an archived tool go with it. The list is in KV (`admin:status`), served by `GET /api/tool-status`, cached 60 s at the edge and 10 min in the visitor's browser (`HT.status` in `common.js`; a first-time visitor gets it together with `tools.json`, waiting at most 1.2 s), so it costs no speed. In the admin's own browser everything stays visible (with a banner on archived tools) until you switch to "Viewing site as visitor". For a permanent archive set `"archived": true` on the tool in `tools.json` (also removes it from the sitemap).
 * **Real visitors**: about 1 page view in 10 sends one beacon (`HT.rum`, no personal data, off for the admin and for Do Not Track) to `POST /api/rum`; `lib/rum-store.js` folds it into one JSON document of histograms per tool (server time, first paint, LCP, tool-ready, INP, CLS, errors, tool runs). Free KV allows 1,000 writes a day, so at most 700 beacons a day are saved (estimates). For exact numbers move this to D1 or Analytics Engine.
@@ -423,7 +433,8 @@ npx wrangler pages deploy --branch cloudflare-pages
    the branch you deploy from.
 3. Environment variables (optional): `SITE_URL` (default `https://toolzbaba.com`), `SITE_NAME`, `CONTACT_EMAIL`,
    `SITE_TAGLINE`, `HEAD_EXTRA` (e.g. Search Console or AdSense tags), `CDN_RETENTION_DAYS` (default 90),
-   and the secret `ADMIN_KEY` to delete any hosted image: `curl -X DELETE -H "X-Admin-Key: ..." https://toolzbaba.com/api/cdn/<id>`.
+   and the secrets `ADMIN_USER` + `ADMIN_KEY` for the admin panel (see "Admin panel"), which also delete any hosted image:
+   `curl -X DELETE -H "X-Requested-With: toolzbaba-admin" -H "X-Admin-User: ..." -H "X-Admin-Key: ..." https://toolzbaba.com/api/cdn/<id>`.
 4. **Workers & Pages** > **KV** > create a namespace (e.g. `toolzbaba-cdn`), then in the Pages project
    **Settings** > **Bindings** add a KV namespace binding named `CDN`. Without it the site works and only image
    hosting says it is switched off.

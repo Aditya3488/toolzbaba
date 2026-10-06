@@ -61,10 +61,18 @@
   Cross-Origin-Embedder-Policy: credentialless
   Cross-Origin-Resource-Policy: same-origin
 
-# admin panel: never cached, never indexed, no framing
+# admin panel: never cached, never indexed, no framing, and only the site's own scripts may run (no Tag Manager or other
+# third-party code that could read the sign-in form). build.py fills in the fingerprint of the one inline script (theme).
 /admin
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-store
+  ! X-Frame-Options
   X-Frame-Options: DENY
+  ! Referrer-Policy
+  Referrer-Policy: no-referrer
+  Content-Security-Policy: default-src 'self'; script-src 'self' '{THEME_SCRIPT_HASH}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-src 'self'; worker-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; object-src 'none'
+/api/admin/*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
 /assets/admin.js
   X-Robots-Tag: noindex

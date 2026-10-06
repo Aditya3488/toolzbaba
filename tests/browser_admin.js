@@ -15,7 +15,7 @@ let pass = 0, fail = 0;
 (async () => {
   const browser = await chromium.launch({ executablePath: EXE, headless: true });
   const ex = (c, m) => { if (!c) throw new Error(m); };
-  const call = async (p, method = 'GET', body) => { const r = await fetch(BASE + '/api/admin/' + p, { method, headers: { 'X-Admin-User': USER, 'X-Admin-Key': KEY, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined }); return r.json(); };
+  const call = async (p, method = 'GET', body) => { const r = await fetch(BASE + '/api/admin/' + p, { method, headers: { 'X-Requested-With': 'toolzbaba-admin', 'X-Admin-User': USER, 'X-Admin-Key': KEY, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined }); return r.json(); };
   async function T(name, fn, opts = {}) {
     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, ...opts }), page = await ctx.newPage(), errs = [];
     page.on('pageerror', e => errs.push(e.message)); page.on('console', m => { if (m.type() === 'error' && !/favicon|Failed to load resource|401/.test(m.text())) errs.push('console: ' + m.text().slice(0, 160)); });

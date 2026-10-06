@@ -1,12 +1,12 @@
 // Admin panel: archive / go live, what real visitors experience, lab tests that open every tool and try it, history.
-// Everything here talks to /api/admin/* with the admin key (the ADMIN_KEY secret). Nothing here is loaded by the public pages.
+// Signing in (POST /api/admin/login) gives this browser a session cookie that page scripts can't read; the password itself is
+// never stored. Every call sends X-Requested-With so other websites can't act with that cookie. Nothing here is loaded by the public pages.
 (() => {
   const el = HT.el, $app = document.getElementById('app');
-  let KEY = '', USER = ''; try { KEY = sessionStorage.getItem('tz_admin_key') || ''; USER = sessionStorage.getItem('tz_admin_user') || ''; } catch { }
   const S = { tools: [], cats: [], rows: [], status: { tools: {} }, log: [], rum: null, edges: [], maxWrites: 700, lab: {}, tab: 'tools', q: '', cat: '', show: 'all', size: false, sort: 'order', dir: 1, sel: new Set(), labBusy: false, labStop: false };
 
   const api = async (path, method = 'GET', body) => {
-    const r = await fetch('/api/admin/' + path, { method, headers: { 'X-Admin-User': USER, 'X-Admin-Key': KEY, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+    const r = await fetch('/api/admin/' + path, { method, credentials: 'same-origin', headers: { 'X-Requested-With': 'toolzbaba-admin', 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
     const j = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(j.detail || 'Error ' + r.status); e.status = r.status; throw e; }
     return j;
@@ -27,17 +27,17 @@
   // ------------------------------------------------------------------ sign in
   function login(msg) {
     $app.textContent = '';
-    const id = el('input', { type: 'text', placeholder: 'ID', autocomplete: 'username', 'aria-label': 'ID', value: USER, autocapitalize: 'off', spellcheck: 'false' });
+    const id = el('input', { type: 'text', placeholder: 'ID', autocomplete: 'username', 'aria-label': 'ID', autocapitalize: 'off', spellcheck: 'false' });
     const input = el('input', { type: 'password', placeholder: 'Password', autocomplete: 'current-password', 'aria-label': 'Password' }), err = el('div', { class: 'adm-msg', text: msg || '' });
     const go = async e => {
-      e && e.preventDefault(); KEY = input.value.trim(); USER = id.value.trim(); if (!KEY) return;
-      try { await api('status'); try { sessionStorage.setItem('tz_admin_key', KEY); sessionStorage.setItem('tz_admin_user', USER); localStorage.setItem('tz_admin', '1'); } catch { } boot(); }
-      catch (x) { KEY = ''; err.textContent = x.status === 503 || x.status === 429 || x.status === 401 ? x.message : 'Could not reach the server: ' + x.message; }
+      e && e.preventDefault(); const key = input.value, user = id.value.trim(); if (!key) return;
+      try { await api('login', 'POST', { user, key }); input.value = ''; try { localStorage.setItem('tz_admin', '1'); } catch { } boot(); }
+      catch (x) { input.value = ''; err.textContent = x.status === 503 || x.status === 429 || x.status === 401 || x.status === 403 ? x.message : 'Could not reach the server: ' + x.message; }
     };
     $app.append(el('form', { class: 'adm-login', onsubmit: go }, el('h1', { text: 'Toolz Baba admin' }), el('p', { text: 'Sign in to continue.' }), id, input, err, el('button', { class: 'btn', type: 'submit', text: 'Sign in' })));
-    (USER ? input : id).focus();
+    id.focus();
   }
-  function logout() { KEY = ''; try { sessionStorage.removeItem('tz_admin_key'); sessionStorage.removeItem('tz_admin_user'); localStorage.removeItem('tz_admin'); } catch { } login(); }
+  async function logout() { try { await api('logout', 'POST'); } catch { } try { localStorage.removeItem('tz_admin'); } catch { } login(); }
 
   // ------------------------------------------------------------------ data
   async function boot() {
@@ -47,7 +47,7 @@
       S.cats = tools.categories; S.tools = tools.tools; S.variants = tools.variants || [];
       S.status = st.status || { tools: {} }; S.log = st.log || []; S.rum = rum.rum; S.edges = rum.edges; S.maxWrites = rum.maxWrites; S.lab = lab.lab || {};
       buildRows(); draw();
-    } catch (e) { if (e.status === 401) { KEY = ''; return login('Your session ended. Sign in again.'); } $app.textContent = ''; $app.append(el('div', { class: 'adm-wrap' }, el('p', { class: 'adm-note', text: 'Could not load: ' + e.message }), el('button', { class: 'btn sm', text: 'Try again', onclick: boot }))); }
+    } catch (e) { if (e.status === 401) return login(e.message === 'Please sign in.' ? '' : e.message); if (e.status === 503 || e.status === 429) return login(e.message); $app.textContent = ''; $app.append(el('div', { class: 'adm-wrap' }, el('p', { class: 'adm-note', text: 'Could not load: ' + e.message }), el('button', { class: 'btn sm', text: 'Try again', onclick: boot }))); }
   }
   function buildRows() {
     const rows = [];
@@ -355,7 +355,7 @@
 
   function drawHelp(body) {
     const h = el('div', { class: 'adm-help' });
-    h.innerHTML = `<h3>Setting it up (once)</h3><p>The panel needs two secrets in the Cloudflare Pages project (Settings, Variables and Secrets): <code>ADMIN_USER</code> (your ID, optional) and <code>ADMIN_KEY</code> (your password; it also deletes hosted files with the X-Admin-Key header). Anyone who has them is an admin, so choose a password of 12 or more characters that you use nowhere else. After 5 wrong tries the door stays shut for 15 minutes. The ID and password are kept in this tab only and are sent as headers to <code>/api/admin/*</code>. Archive / history / lab results live in the KV namespace called CDN.</p>
+    h.innerHTML = `<h3>Setting it up (once)</h3><p>The panel needs two secrets in the Cloudflare Pages project (Settings, Variables and Secrets): <code>ADMIN_USER</code> (your ID) and <code>ADMIN_KEY</code> (your password, 16 or more characters, used nowhere else). Signing in gives this browser a session cookie for 8 hours that page scripts can't read; the password is never stored. After 5 wrong tries from one visitor, or 50 from everyone within an hour, the door stays shut for a while. Scripts can also send the headers <code>X-Requested-With: toolzbaba-admin</code>, <code>X-Admin-User</code> and <code>X-Admin-Key</code> (e.g. to delete a hosted file). For one more lock, put Cloudflare Access in front of <code>/admin</code> and <code>/api/admin/*</code> (see README). Archive / history / lab results live in the KV namespace called CDN.</p>
 <h3>Archive and go live</h3><p>Archiving a tool puts its slug on a list at <code>/api/tool-status</code>. Every page keeps that list for 10 minutes and refreshes it when the browser is idle, so it never delays a page. The tool disappears from the home page, search and menus; its address shows "taking a break" (not indexed). A tool with tabs takes its tab pages with it; a single tab page can be archived on its own. For a permanent archive put <code>"archived": true</code> on the tool in <code>tools.json</code>: that also removes it from the sitemap. Until the next deploy the sitemap still lists tools archived here.</p>
 <h3>Real visitors</h3><p>The speed numbers come from the visitors' own browsers: a sample (1 in 10) sends one small message per page view. Free KV allows 1,000 writes a day, so at most ${S.maxWrites} messages a day are saved. Counts are estimates. If the site grows, move this to D1 or Analytics Engine.</p>
 <h3>Lab tests</h3><p>Run them after every deploy: "Every tool" without heavy tools takes a few minutes. Anything red is worth a look. The full browser test files in <code>/tests</code> remain the real safety net.</p>
@@ -363,5 +363,5 @@
     body.append(h);
   }
 
-  if (KEY) boot(); else login();
+  boot(); // shows the sign-in form if this browser has no valid session
 })();
