@@ -793,6 +793,7 @@
       wrap.addEventListener('focusout', e => { if (!wrap.contains(e.relatedTarget)) close(); });
       nav.append(wrap);
     }
+    nav.append(el('a', { class: 'nv-link' + (here.startsWith('/blog') ? ' on' : ''), href: '/blog', text: 'Blog' }));
     document.addEventListener('click', e => { if (openItem && !openItem.wrap.contains(e.target)) close(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(true); closeM(); } });
     addEventListener('resize', () => close());
@@ -802,7 +803,7 @@
     const closeM = () => { mobile.hidden = true; burger.setAttribute('aria-expanded', 'false'); };
     burger.addEventListener('click', async () => {
       if (!mobile.hidden) return closeM();
-      if (!mFilled) { const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mFilled = true; }
+      if (!mFilled) { const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
     });
     return { nav, burger, mobile };
@@ -827,7 +828,7 @@
       el('div', { class: 'foot-brand' }, el('a', { href: '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
       col('Tools', [['Image tools', '/#image'], ['AI tools', '/#ai'], ['PDF & documents', '/#pdf'], ['Video & audio', '/#video'], ['Text & developer', '/#dev'], ['Utilities', '/#util']]),
       popular,
-      col('Company', [['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
+      col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(bm); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     document.body.append(f);
@@ -875,7 +876,7 @@
     if (HT.isAdmin() && data.archivedSlugs && (data.archivedSlugs.has(slug) || data.archivedSlugs.has(baseSlug))) work.before(el('div', { class: 'help', style: { background: 'var(--warn-bg, #fff4d6)', border: '1px solid #f0d58a', borderRadius: '10px', padding: '8px 12px', marginBottom: '12px' }, text: 'This tool is archived. Visitors do not see it. You can, because you are signed in to the admin panel in this browser.' }));
     const cat = catOf(data, meta.cat), client = meta.kind === 'client';
     page.classList.add('cat-' + meta.cat);
-    const pathOf = s => (s === baseSlug ? '/' + s : '/' + s);
+    const pathOf = s => '/' + s; // every tool and tab lives at the site root
     const metaFor = s => {  // a tool, or a format page merged onto its base tool
       const t = data.tools.find(x => x.slug === s); if (t) return t;
       const v = (data.variants || []).find(x => x.slug === s), b = v && data.tools.find(x => x.slug === v.base); return b ? { ...b, ...v } : null;

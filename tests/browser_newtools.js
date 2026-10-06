@@ -82,8 +82,8 @@ let pass = 0, fail = 0;
     ex(/tone_cut\.mp3$/.test(out.name), out.name);
     const dur = await page.evaluate(async () => { const a = document.querySelector('.result a[download]'); return (await new AudioContext().decodeAudioData(await (await fetch(a.href)).arrayBuffer())).duration; }); ex(dur > 1.8 && dur < 2.3, 'length ' + dur.toFixed(2)); return `${out.name}, ${dur.toFixed(1)} s`;
   });
-  await T('split-audio page has the Merge audio tab; old /tool/audio-cutter redirects', async page => {
-    const r = await page.request.get(BASE + '/tool/audio-cutter', { maxRedirects: 0 }); ex([301, 302, 308].includes(r.status()) && (r.headers().location || '').endsWith('/split-audio'), 'redirect ' + r.status() + ' ' + r.headers().location);
+  await T('split-audio page has the Merge audio tab; old /tool/audio-cutter and /audio-cutter redirect', async page => {
+    for (const old of ['/tool/audio-cutter', '/audio-cutter']) { const r = await page.request.get(BASE + old, { maxRedirects: 0 }); ex([301, 302, 308].includes(r.status()) && (r.headers().location || '').endsWith('/split-audio'), old + ' redirect ' + r.status() + ' ' + r.headers().location); }
     await go(page, '/split-audio'); const tabs = await page.$$eval('.vtab', a => a.map(x => x.textContent + '=' + x.getAttribute('href') + (x.classList.contains('on') ? '*' : ''))); ex(tabs.join() === 'Split audio=/split-audio*,Merge audio=/merge-audio', tabs.join()); return tabs.join(' | ');
   });
   await T('merge-audio: two files -> one', async page => {
@@ -282,7 +282,7 @@ let pass = 0, fail = 0;
     return slugs.length + ' pages, unique titles, all in the sitemap';
   });
   await T('slug sheet: misspelt, renamed and old /tool/ addresses redirect (one hop)', async page => {
-    const pairs = [['/tool/instagram-image-carousel-spliter', '/instagram-image-carousel-splitter'], ['/tool/color-paletter-generator', '/color-palette-generator'], ['/tool/audio-to-text', '/video-to-text'], ['/tool/text-to-speech', '/text-to-audio'], ['/tool/social-resizer', '/social-media-image-resizer'], ['/tool/sign-pdf', '/esign-pdf'], ['/tool/video-converter', '/video-converter'], ['/tool/add-watermark-to-pdf', '/add-watermark-to-pdf'], ['/tool/pdf-merge', '/merge-pdf'], ['/tool/pdf-split', '/split-pdf']];
+    const pairs = [['/tool/instagram-image-carousel-spliter', '/instagram-image-carousel-splitter'], ['/tool/color-paletter-generator', '/color-palette-generator'], ['/tool/audio-to-text', '/video-to-text'], ['/tool/text-to-speech', '/text-to-audio'], ['/tool/social-resizer', '/social-media-image-resizer'], ['/tool/sign-pdf', '/esign-pdf'], ['/tool/video-converter', '/video-converter'], ['/tool/add-watermark-to-pdf', '/add-watermark-to-pdf'], ['/tool/pdf-merge', '/merge-pdf'], ['/tool/pdf-split', '/split-pdf'], ['/instagram-image-carousel-spliter', '/instagram-image-carousel-splitter'], ['/color-paletter-generator', '/color-palette-generator'], ['/audio-to-text', '/video-to-text'], ['/text-to-speech', '/text-to-audio']];
     for (const [from, to] of pairs) { const r = await page.request.get(BASE + from, { maxRedirects: 0 }); ex([301, 302, 308].includes(r.status()) && (r.headers().location || '').endsWith(to), `${from} -> ${r.status()} ${r.headers().location}`); }
     return pairs.length + ' redirects';
   });
@@ -306,7 +306,7 @@ let pass = 0, fail = 0;
     '/image-cdn': [['Image link', '/image-cdn'], ['Temporary file share', '/temporary-file-upload-direct-link-share']],
   };
   for (const [primary, tabs] of Object.entries(FAMILIES))
-    await T('family ' + primary.replace('/tool/', ''), async page => {
+    await T('family ' + primary.replace('/', ''), async page => {
       await go(page, primary); const got = await page.$$eval('.vtab', a => a.map(x => [x.textContent, x.getAttribute('href'), x.classList.contains('on')]));
       ex(JSON.stringify(got.map(g => [g[0], g[1]])) === JSON.stringify(tabs), 'tabs ' + JSON.stringify(got)); ex(got[0][2] && got.filter(g => g[2]).length === 1, 'the primary tab should be lit');
       await page.evaluate(() => { window.__same = 1; }); const seen = [];

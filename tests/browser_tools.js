@@ -30,7 +30,7 @@ let pass = 0, fail = 0;
     catch (e) { fs.mkdirSync(path.join(__dirname, 'out'), { recursive: true }); console.log('FAIL', name.padEnd(38), String(e.message).split('\n')[0].slice(0, 300)); fail++; try { await page.screenshot({ path: path.join(__dirname, 'out', 'fail_' + name.replace(/\W+/g, '_') + '.png') }); } catch {} }
     await ctx.close();
   }
-  const go = async (page, slug) => { await page.goto(`${BASE}/tool/${slug}`, { waitUntil: 'networkidle' }); await page.waitForSelector('#app *'); };
+  const go = async (page, slug) => { await page.goto(`${BASE}/${slug}`, { waitUntil: 'networkidle' }); await page.waitForSelector('#app *'); };
   const feed = (page, files, idx = 0) => page.locator('input[type=file]').nth(idx).setInputFiles([].concat(files).map(f => path.join(SAMPLES, f)));
   const btn = (page, re) => page.getByRole('button', { name: re }).first();
   const resultText = async page => { await page.waitForSelector('.result', { timeout: 120000 }); return (await page.locator('.result').innerText()).replace(/\s+/g, ' ').slice(0, 140); };

@@ -11,6 +11,7 @@ Standard library only, so it runs on Cloudflare's build machines without install
 """
 from __future__ import annotations
 
+import base64
 import hashlib
 import html
 import json
@@ -47,6 +48,9 @@ def _assets_version() -> str:
 
 VERSION = _assets_version()
 
+# applies the saved light/dark choice before first paint (no flash); the admin page's security policy allows it by fingerprint
+THEME_SCRIPT = "try{var t=localStorage.getItem('tz_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}"
+
 # Google Tag Manager snippets: the script as high in <head> as possible, the noscript part right after <body>
 GTM_HEAD = """<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -76,14 +80,14 @@ def clip(s: str, n: int = 158) -> str:
     return s if len(s) <= n else s[: n - 1].rsplit(" ", 1)[0] + "…"
 
 
-def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False) -> str:
+def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False, trackers: bool = True) -> str:
     url = SITE_URL + path
     img = SITE_URL + "/assets/og.png"
-    tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID else []
+    tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID and trackers else []
     tags += [
         f"<title>{esc(title)}</title>",
         # apply the saved light/dark choice before first paint (no flash)
-        "<script>try{var t=localStorage.getItem('tz_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>",
+        f"<script>{THEME_SCRIPT}</script>",
         f'<meta name="description" content="{esc(clip(desc))}">',
         f'<link rel="canonical" href="{esc(url)}">',
         '<meta name="robots" content="noindex,nofollow">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">',
@@ -107,18 +111,21 @@ def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: 
     ]
     for block in jsonld or []:
         tags.append('<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>")
-    if HEAD_EXTRA:
+    if HEAD_EXTRA and trackers:
         tags.append(HEAD_EXTRA)
     return "\n".join(tags)
 
 
-def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=False, extra: dict | None = None) -> str:
+# trackers=False leaves out Tag Manager and HEAD_EXTRA: the admin page runs only the site's own scripts (see _headers)
+def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=False, extra: dict | None = None,
+           trackers: bool = True) -> str:
     text = (STATIC / file).read_text("utf-8")
     subs = {"SITE_NAME": SITE_NAME, "SITE_URL": SITE_URL, "CONTACT_EMAIL": CONTACT_EMAIL,
             "UPDATED": time.strftime("%d %B %Y", time.gmtime((STATIC / file).stat().st_mtime)), **(extra or {})}
-    text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex))
-    text = text.replace('<script src="/assets/common.js"></script>', f'<script src="/assets/common.js?v={VERSION}"></script>')
-    if GTM_ID:
+    text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex, trackers))
+    for js in ("common", "admin"):
+        text = text.replace(f'<script src="/assets/{js}.js"></script>', f'<script src="/assets/{js}.js?v={VERSION}"></script>')
+    if GTM_ID and trackers:
         text = text.replace("<body>", "<body>\n" + GTM_BODY.replace("{id}", GTM_ID), 1)
     for k, v in subs.items():
         text = text.replace("{{" + k + "}}", str(v) if k == "SEO" else esc(v))
@@ -181,15 +188,16 @@ def build():
                                     f"{len(tools)} free online tools, no sign-up. They run right in your browser, so your files stay private.",
                                path="/", jsonld=[site]))
 
-    _taken = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon", "functions", "admin"}
-    for _t in tools:
-        if not _t.get("href") and _t["slug"] in _taken:
-            raise SystemExit(f'The tool slug "{_t["slug"]}" clashes with a folder or page at the site root: rename it.')
-    # one page per tool, at the site root: /<slug> (the old /tool/<slug> addresses redirect here, see the end of this file)
+    # one page per tool, at the site root: /<slug> (old /tool/<slug> links get a permanent redirect, see the end)
+    reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon",
+                             "functions", "admin", "apple-touch-icon", "site", "blog", "blog-shell"}
+    variant_slugs = {v["slug"] for v in data.get("variants", [])}
     for tool in tools:
         if tool.get("href"):
             continue
         slug = tool["slug"]
+        if slug in reserved or slug in variant_slugs or not re.fullmatch(r"[a-z0-9-]+", slug):
+            raise SystemExit(f"Tool slug {slug!r} can't be used as a root address: it clashes with a page or isn't a plain slug")
         cat = next(c for c in data["categories"] if c["id"] == tool["cat"])
         url = f"{SITE_URL}/{slug}"
         ld = [
@@ -202,12 +210,11 @@ def build():
                 {"@type": "ListItem", "position": 3, "name": tool["name"], "item": url}]},
         ]
         write(f"{slug}.html", render("tool.html", title=f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
-                                          desc=f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
-                                          extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
+                                    desc=f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
+                                    extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
 
     # format pages (e.g. /compress-png): the same tool as its base, on its own address at the site root
     by_slug = {t["slug"]: t for t in tools}
-    reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon", "functions", "admin"}
     for v in data.get("variants", []):
         slug = v["slug"]
         if v["base"] not in by_slug or slug in by_slug or slug in reserved or not re.fullmatch(r"[a-z0-9-]+", slug):
@@ -236,18 +243,20 @@ def build():
 
     for key, (file, title, desc) in LEGAL.items():
         write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))
-    write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True))
+    write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True,
+                              trackers=False))
+    # the blog's page frame: functions/blog/* fill in each post (title, description, address, content), see lib/blog-store.js
+    write("blog-shell.html", render("blog.html", title="%%TITLE%%", desc="%%DESC%%", path="%%PATH%%"))
     write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
 
     # robots, sitemap, icons, manifest
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\n\nSitemap: {SITE_URL}/sitemap.xml\n")
-    day = time.strftime("%Y-%m-%d", time.gmtime((STATIC / "assets" / "tools.json").stat().st_mtime))
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\n")  # blog posts are added to it by functions/sitemap.xml.js
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}
     variants = [v for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
     urls = [("/", "1.0")] + [(f"/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
     urls += [(f"/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7") for v in variants]
-    urls += [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
+    urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]   # blog posts are added by functions/sitemap.xml.js
     # lastmod: the day a page's own content last changed (kept in sitemap-dates.json, committed, so every machine agrees). A date that moves on every
     # deploy teaches Google to ignore it; one that only moves when the page changes tells it what to crawl again.
     state_file = ROOT / "sitemap-dates.json"
@@ -272,22 +281,25 @@ def build():
                                           "display": "standalone", "background_color": "#ffffff", "theme_color": "#0a4ff5", "icons": icons}))
 
     # Cloudflare Pages: response headers and redirects
-    shutil.copyfile(ROOT / "deploy" / "pages" / "_headers", DIST / "_headers")
+    # the admin page's Content-Security-Policy allows exactly one inline script, by its fingerprint
+    theme_hash = "sha256-" + base64.b64encode(hashlib.sha256(THEME_SCRIPT.encode()).digest()).decode()
+    (DIST / "_headers").write_text((ROOT / "deploy" / "pages" / "_headers").read_text("utf-8").replace("{THEME_SCRIPT_HASH}", theme_hash), "utf-8")
     shutil.copyfile(ROOT / "deploy" / "pages" / "_redirects", DIST / "_redirects")
     # a renamed tool keeps its old URL(s): "aliases" in tools.json become permanent (301) redirects, so old links and
-    # Google's index follow the tool to its new address
+    # Google's index follow the tool to its new address (old names work both under /tool/ and at the root)
+    live = {t["slug"] for t in tools} | {v["slug"] for v in data.get("variants", [])}
+    renamed = [(t["slug"], t.get("aliases", [])) for t in tools] + [(v["slug"], v.get("aliases", [])) for v in data.get("variants", [])]
     alias_lines = []
-    for t in tools:
-        for old in t.get("aliases", []):
-            alias_lines.append(f"/tool/{old}  /{t['slug']}  301")
-    for v in data.get("variants", []):  # a tab page (/video-to-text) keeps the addresses it had before, too
-        for old in v.get("aliases", []):
-            alias_lines.append(f"/tool/{old}  /{v['slug']}  301")
-    if alias_lines:
-        with open(DIST / "_redirects", "a", encoding="utf-8") as f:
-            f.write("\n# renamed tools (aliases in tools.json)\n" + "\n".join(alias_lines) + "\n")
-    with open(DIST / "_redirects", "a", encoding="utf-8") as f:   # tools used to live under /tool/: every old address goes to the same name at the root
-        f.write("\n# the old /tool/<name> addresses\n/tool/*  /:splat  301\n")
+    for target, olds in renamed:
+        for old in olds:
+            alias_lines.append(f"/tool/{old}  /{target}  301")
+            if old not in live:
+                alias_lines.append(f"/{old}  /{target}  301")
+    with open(DIST / "_redirects", "a", encoding="utf-8") as f:
+        f.write("\n# renamed tools (aliases in tools.json)\n" + "\n".join(alias_lines) + "\n")
+        # tools used to live at /tool/<slug>: every old link (bookmarks, Google, shared links) moves to /<slug> for good.
+        # Rules are read top to bottom, so the renamed tools above win over this catch-all.
+        f.write("\n# tools moved from /tool/<slug> to /<slug>\n/tool  /  301\n/tool/  /  301\n/tool/:slug  /:slug  301\n")
 
     files = [p for p in DIST.rglob("*") if p.is_file()]
     big = [p for p in files if p.stat().st_size > 25 * 1024 * 1024]
