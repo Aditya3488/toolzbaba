@@ -1,10 +1,7 @@
 fastapi>=0.115
 uvicorn[standard]>=0.30
 python-multipart>=0.0.9
-yt-dlp
 imageio-ffmpeg>=0.5
-# keep this pinned in sync with POT_VERSION in the Dockerfile
-bgutil-ytdlp-pot-provider==2.0.0
 pillow>=11
 pillow-heif>=0.18
 pymupdf>=1.24

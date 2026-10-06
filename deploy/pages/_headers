@@ -1,0 +1,70 @@
+# Cloudflare Pages response headers (copied into dist/ by build.py)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/assets/*
+  Cache-Control: public, max-age=3600
+
+# third-party libraries (large, rarely change)
+/assets/vendor/*
+  ! Cache-Control
+  Cache-Control: public, max-age=604800
+
+# AI models never change under the same name (a new version gets a new file name)
+/assets/models/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+# AI tools: cross-origin isolation lets the AI use several CPU cores (browsers that can't do it just use one)
+# (the AI runtime's worker threads must carry the same policy, or the browser refuses to start them)
+/assets/vendor/onnxruntime-1.30.0/*
+  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Resource-Policy: same-origin
+/tool/remove-background
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/replace-background
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/upscale-image
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/face-blur
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/anime-style
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/passport-size-photo-maker
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/ai-headshot-generator
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/tool/image-to-text
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/video-to-text
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/text-to-audio
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/assets/vendor/transformers-3.8.1/*
+  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Resource-Policy: same-origin
+# the video engine (ffmpeg) also runs on those isolated pages (a tab or the MP3 step of Text to Audio): its worker needs the same policy
+/assets/vendor/ffmpeg-0.12.15/*
+  Cross-Origin-Embedder-Policy: credentialless
+  Cross-Origin-Resource-Policy: same-origin
+
+# admin panel: never cached, never indexed, no framing
+/admin
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+  X-Frame-Options: DENY
+/assets/admin.js
+  X-Robots-Tag: noindex

@@ -19,7 +19,7 @@ def _px(mm: float) -> int:
     return round(mm * MM)
 
 
-@tool("passport-photo-maker", accepts=IMAGE_EXT, max_mb=25)
+@tool("passport-size-photo-maker", accepts=IMAGE_EXT, max_mb=25)
 def passport_photo(ctx: Ctx):
     size = ctx.opt("size", "35x45")
     if size == "custom":

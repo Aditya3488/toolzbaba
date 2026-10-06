@@ -113,7 +113,7 @@ def _atempo(speed: float) -> str:
     return ",".join(f"atempo={p:.4f}" for p in parts)
 
 
-@tool("video-speed", accepts=VIDEO_ONLY, max_mb=2048, max_files=3)
+@tool("change-video-speed", accepts=VIDEO_ONLY, max_mb=2048, max_files=3)
 def video_speed(ctx: Ctx):
     speed = ctx.opt("speed", 2.0, float)
     if not 0.25 <= speed <= 8:

@@ -1,6 +1,4 @@
-"""Rate limiting, request-size guard, downloader login gate and security headers."""
-import hashlib
-import hmac
+"""Rate limiting, request-size guard and security headers."""
 import ipaddress
 import os
 import threading
@@ -13,8 +11,6 @@ from fastapi.responses import JSONResponse
 import config
 import core
 
-COOKIE = "tz_dl"
-COOKIE_DAYS = 30
 MAX_ACTIVE_PER_IP = int(os.environ.get("MAX_ACTIVE_PER_IP", "3"))
 
 # (max requests, per seconds) for each visitor IP. Override: RATE_LIMITS="tool_heavy=5/3600,cdn_upload=10/60"
@@ -22,9 +18,6 @@ LIMITS = {
     "tool_light": (120, 3600),  # image / pdf / small jobs
     "tool_heavy": (30, 3600),   # video, AI, document conversion
     "cdn_upload": (40, 3600),
-    "dl_info": (60, 3600),
-    "dl_job": (20, 3600),
-    "auth": (10, 3600),
     "admin": (10, 3600),
 }
 for part in filter(None, os.environ.get("RATE_LIMITS", "").split(",")):
@@ -35,10 +28,10 @@ for part in filter(None, os.environ.get("RATE_LIMITS", "").split(",")):
     except ValueError:
         pass
 
-HEAVY_TOOLS = {"video-converter", "video-to-gif", "gif-to-video", "video-trimmer", "video-compressor",
+HEAVY_TOOLS = {"video-converter", "video-to-gif", "gif-to-video", "video-trimmer", "compress-video",
                "remove-background", "replace-background", "upscale-image", "anime-style", "face-blur",
-               "pdf-to-docx", "docx-to-pdf", "pdf-compress", "image-to-svg",
-               "passport-photo-maker", "video-merger", "video-speed", "audio-cutter"}
+               "pdf-to-word", "word-to-pdf", "compress-pdf", "image-to-svg",
+               "passport-size-photo-maker", "video-merger", "change-video-speed", "audio-cutter"}
 
 
 def client_ip(request: Request) -> str:
@@ -93,12 +86,6 @@ def bucket_for(request: Request) -> str | None:
         return "tool_heavy" if p.rsplit("/", 1)[-1] in HEAVY_TOOLS else "tool_light"
     if m == "POST" and p == "/api/cdn":
         return "cdn_upload"
-    if m == "GET" and p == "/api/info":
-        return "dl_info"
-    if m == "POST" and p == "/api/jobs":
-        return "dl_job"
-    if m == "POST" and p == "/api/auth":
-        return "auth"
     if m == "DELETE" and p.startswith("/api/cdn/"):
         return "admin"
     return None
@@ -132,45 +119,3 @@ def assert_capacity(request: Request):
     busy = sum(1 for j in core.jobs.values() if j.get("ip") == ip and j.get("status") in ("downloading", "processing"))
     if busy >= MAX_ACTIVE_PER_IP:
         raise HTTPException(429, "You already have several jobs running. Wait for one to finish, then try again.")
-
-
-# ------------------------------------------------------------------ downloader login gate
-def _sign(exp: int) -> str:
-    return hmac.new(config.SECRET_KEY.encode(), f"dl:{exp}".encode(), hashlib.sha256).hexdigest()
-
-
-def make_token() -> str:
-    exp = int(time.time()) + COOKIE_DAYS * 86400
-    return f"{exp}.{_sign(exp)}"
-
-
-def valid_token(token: str | None) -> bool:
-    try:
-        exp_s, sig = (token or "").split(".", 1)
-        return int(exp_s) > time.time() and hmac.compare_digest(sig, _sign(int(exp_s)))
-    except ValueError:
-        return False
-
-
-def downloader_state(request: Request) -> str:
-    """'off' | 'open' | 'login' (needs password) | 'ok' (logged in)"""
-    if config.DOWNLOADER_MODE != "password":
-        return config.DOWNLOADER_MODE
-    return "ok" if valid_token(request.cookies.get(COOKIE)) else "login"
-
-
-def require_downloader(request: Request):
-    state = downloader_state(request)
-    if state == "off":
-        raise HTTPException(404, "The downloader is not available on this site.")
-    if state == "login":
-        raise HTTPException(401, "Please log in to use the downloader.")
-
-
-def check_password(password: str) -> bool:
-    return bool(config.DOWNLOADER_PASSWORD) and hmac.compare_digest(
-        hashlib.sha256(password.encode()).digest(), hashlib.sha256(config.DOWNLOADER_PASSWORD.encode()).digest())
-
-
-def is_https(request: Request) -> bool:
-    return request.url.scheme == "https" or request.headers.get("x-forwarded-proto") == "https"

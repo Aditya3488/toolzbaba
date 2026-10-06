@@ -1,6 +1,6 @@
 const VID = 'video/*,.mkv,.avi,.mov,.flv,.wmv,.ts,.3gp,.gif';
 const RES = [['keep', 'Keep original'], ['2160', '4K (2160p)'], ['1440', '1440p'], ['1080', '1080p'], ['720', '720p'], ['480', '480p'], ['360', '360p'], ['240', '240p']];
-const BIG = 'Large files are fine (up to 2 GB), but uploading takes a moment on slow connections.';
+const BIG = 'Your device does the work, so nothing is uploaded. Long or 4K videos can take a while on phones.';
 
 HT.register('video-converter', root => HT.serverTool(root, {
   slug: 'video-converter', accept: VID + ',audio/*', max: 10, action: files => 'Convert ' + files.length + ' file' + (files.length > 1 ? 's' : ''), hint: BIG,
@@ -30,8 +30,8 @@ HT.register('gif-to-video', root => HT.serverTool(root, {
   ],
 }));
 
-HT.register('video-compressor', root => HT.serverTool(root, {
-  slug: 'video-compressor', accept: VID, max: 5, action: 'Compress video', compare: false, hint: BIG,
+HT.register('compress-video', root => HT.serverTool(root, {
+  slug: 'compress-video', accept: VID, max: 5, action: 'Compress video', compare: false, hint: BIG,
   fields: [
     { name: 'mode', label: 'Compress by', type: 'select', options: [['level', 'Quality level'], ['size', 'Target file size']] },
     { name: 'level', label: 'Level', type: 'select', value: 'medium', options: [['light', 'Light (looks the same)'], ['medium', 'Balanced'], ['strong', 'Strong (smallest)']], showIf: v => v.mode === 'level' },
@@ -71,7 +71,7 @@ HT.register('video-trimmer', root => {
 });
 
 // ---------------------------------------------------------------- audio cutter (with a preview to pick the part)
-HT.register('audio-cutter', root => {
+HT.register('split-audio', root => {
   const el = HT.el;
   const media = el('video', { controls: true, style: { width: '100%', maxHeight: '260px', background: '#111', borderRadius: '12px' } });
   const info = el('div', { class: 'help', style: { marginTop: '6px' } });
@@ -82,13 +82,16 @@ HT.register('audio-cutter', root => {
       el('button', { class: 'btn sec sm', type: 'button', text: 'Set start here', onclick: () => set('start', media.currentTime) }),
       el('button', { class: 'btn sec sm', type: 'button', text: 'Set end here', onclick: () => set('end', media.currentTime) })));
   HT.serverTool(root, {
-    slug: 'audio-cutter', accept: 'audio/*,video/*,.mp3,.wav,.m4a,.aac,.flac,.ogg,.opus,.wma', max: 1, action: 'Cut audio', compare: false, hint: 'MP3, WAV, M4A, FLAC, OGG... or a video file to take its sound',
+    slug: 'split-audio', accept: 'audio/*,video/*,.mp3,.wav,.m4a,.aac,.flac,.ogg,.opus,.wma', max: 1, action: v => 'Split audio', compare: false, hint: 'MP3, WAV, M4A, FLAC, OGG... or a video file to take its sound',
     fields: [
-      { name: 'start', label: 'Start (seconds or mm:ss)', type: 'text', value: '0:00.0' },
-      { name: 'end', label: 'End (seconds or mm:ss)', type: 'text', value: '' },
-      { name: 'fade_in', label: 'Fade in (seconds)', type: 'number', value: 0, min: 0, max: 30, step: 0.5 },
-      { name: 'fade_out', label: 'Fade out (seconds)', type: 'number', value: 0, min: 0, max: 30, step: 0.5 },
-      { name: 'format', label: 'Save as', type: 'select', options: [['mp3', 'MP3'], ['m4a', 'M4A (AAC)'], ['wav', 'WAV'], ['ogg', 'OGG Opus'], ['flac', 'FLAC']] },
+      { name: 'by', label: 'What do you want?', type: 'select', value: 'cut', options: [['cut', 'Cut out one part (choose where it starts and ends)'], ['length', 'Split into parts of a set length'], ['parts', 'Split into equal parts']] },
+      { name: 'start', label: 'Start (seconds or mm:ss)', type: 'text', value: '0:00.0', showIf: v => v.by === 'cut' },
+      { name: 'end', label: 'End (seconds or mm:ss)', type: 'text', value: '', showIf: v => v.by === 'cut' },
+      { name: 'fade_in', label: 'Fade in (seconds)', type: 'number', value: 0, min: 0, max: 30, step: 0.5, showIf: v => v.by === 'cut' },
+      { name: 'fade_out', label: 'Fade out (seconds)', type: 'number', value: 0, min: 0, max: 30, step: 0.5, showIf: v => v.by === 'cut' },
+      { name: 'seconds', label: 'Length of each part (seconds or mm:ss)', type: 'text', value: '60', showIf: v => v.by === 'length' },
+      { name: 'parts', label: 'Number of parts', type: 'number', value: 3, min: 2, max: 100, showIf: v => v.by === 'parts' },
+      { name: 'format', label: 'Save as', type: 'select', value: 'mp3', options: [['mp3', 'MP3'], ['m4a', 'M4A (AAC)'], ['wav', 'WAV'], ['ogg', 'OGG Opus'], ['flac', 'FLAC'], ['keep', 'Same format as the original']] },
     ],
     onReady: ({ optsCard, form: f }) => { form = f; optsCard.before(card); },
     onFiles: files => {
@@ -112,12 +115,65 @@ HT.register('video-merger', root => HT.serverTool(root, {
 }));
 
 // ---------------------------------------------------------------- video speed
-HT.register('video-speed', root => HT.serverTool(root, {
-  slug: 'video-speed', accept: VID.replace(',.gif', ''), max: 3, action: 'Change speed', compare: false, hint: BIG,
+HT.register('change-video-speed', root => HT.serverTool(root, {
+  slug: 'change-video-speed', accept: VID.replace(',.gif', ''), max: 3, action: 'Change speed', compare: false, hint: BIG,
   fields: [
     { name: 'preset', label: 'Speed', type: 'select', value: '2', options: [['0.25', '0.25× (very slow)'], ['0.5', '0.5× (slow motion)'], ['0.75', '0.75×'], ['1.5', '1.5×'], ['2', '2× (fast)'], ['3', '3×'], ['4', '4×'], ['8', '8× (timelapse)'], ['custom', 'Custom...']] },
     { name: 'custom', label: 'Custom speed (0.25 to 8)', type: 'number', value: 1.25, min: 0.25, max: 8, step: 0.05, showIf: v => v.preset === 'custom' },
     { name: 'audio', label: 'Sound', type: 'select', options: [['keep', 'Keep (pitch stays natural)'], ['mute', 'Remove sound']] },
   ],
   buildOptions: v => ({ speed: v.preset === 'custom' ? v.custom : Number(v.preset), audio: v.audio }),
+}));
+
+// ---------------------------------------------------------------- video to audio (also the /mp4-to-mp3 page)
+const NOGIF = VID.replace(',.gif', '');
+const n = (c, w) => c + ' ' + w + (c > 1 ? 's' : '');
+HT.register('video-to-audio', root => HT.serverTool(root, {
+  slug: 'video-to-audio', accept: NOGIF + ',audio/*', max: 10, action: files => 'Get the audio from ' + n(files.length, 'file'), compare: false, hint: 'MP4, MOV, MKV, WebM, AVI... ' + BIG,
+  fields: [
+    { name: 'format', label: 'Save the audio as', type: 'select', value: 'mp3', options: [['mp3', 'MP3 (works everywhere)'], ['m4a', 'M4A / AAC'], ['wav', 'WAV (uncompressed)'], ['ogg', 'OGG Opus'], ['flac', 'FLAC (lossless)']] },
+    { name: 'bitrate', label: 'Quality', type: 'select', value: '192', options: [['320', '320 kbps (best)'], ['256', '256 kbps'], ['192', '192 kbps (recommended)'], ['128', '128 kbps'], ['96', '96 kbps'], ['64', '64 kbps (voice, smallest)']], showIf: v => ['mp3', 'm4a', 'ogg'].includes(v.format) },
+  ],
+}));
+HT.register('mp4-to-mp3', root => HT.serverTool(root, {
+  slug: 'video-to-audio', accept: 'video/mp4,.mp4,.m4v,video/*', max: 10, action: files => 'Convert ' + n(files.length, 'MP4') + ' to MP3', compare: false, hint: 'MP4 files (other video types work too). ' + BIG,
+  fields: [{ name: 'bitrate', label: 'MP3 quality', type: 'select', value: '192', options: [['320', '320 kbps (best)'], ['256', '256 kbps'], ['192', '192 kbps (recommended)'], ['128', '128 kbps'], ['96', '96 kbps'], ['64', '64 kbps (voice, smallest)']] }],
+  buildOptions: v => ({ format: 'mp3', bitrate: v.bitrate }),
+}));
+
+// ---------------------------------------------------------------- split video / audio
+const SPLIT = [
+  { name: 'by', label: 'Split', type: 'select', value: 'length', options: [['length', 'Every so many seconds'], ['parts', 'Into equal parts']] },
+  { name: 'seconds', label: 'Length of each part (seconds or mm:ss)', type: 'text', value: '30', showIf: v => v.by === 'length' },
+  { name: 'parts', label: 'Number of parts', type: 'number', value: 3, min: 2, max: 100, showIf: v => v.by === 'parts' },
+];
+HT.register('split-video', root => HT.serverTool(root, {
+  slug: 'split-video', accept: NOGIF + ',audio/*', max: 1, action: 'Split video', compare: false, hint: 'One video: you get the parts in a ZIP. ' + BIG,
+  fields: [...SPLIT, { name: 'mode', label: 'Cutting method', type: 'select', options: [['fast', 'Fast (no re-encode, cuts at the nearest keyframe)'], ['accurate', 'Accurate (re-encodes, exact cuts)']] }],
+}));
+
+// ---------------------------------------------------------------- merge audio
+HT.register('merge-audio', root => HT.serverTool(root, {
+  slug: 'merge-audio', accept: 'audio/*,.mp3,.wav,.m4a,.aac,.flac,.ogg,.opus,.wma', max: 30, min: 2, reorder: true, action: files => 'Merge ' + n(files.length, 'audio file'), compare: false,
+  hint: 'Add 2 or more audio files, then set the order with the arrows.',
+  fields: [
+    { name: 'format', label: 'Save as', type: 'select', value: 'mp3', options: [['mp3', 'MP3'], ['m4a', 'M4A (AAC)'], ['wav', 'WAV'], ['ogg', 'OGG Opus'], ['flac', 'FLAC']] },
+    { name: 'gap', label: 'Silence between files (seconds)', type: 'number', value: 0, min: 0, max: 10, step: 0.5 },
+  ],
+}));
+
+// ---------------------------------------------------------------- watermark on a video
+HT.register('add-watermark-to-video', root => HT.serverTool(root, {
+  slug: 'add-watermark-to-video', accept: NOGIF, max: 1, action: 'Add watermark', compare: false, hint: 'One video. ' + BIG,
+  fields: [
+    { name: 'type', label: 'Watermark', type: 'select', value: 'text', options: [['text', 'Text'], ['image', 'Logo / image']] },
+    { name: 'text', label: 'Text', type: 'textarea', value: '© Your name', showIf: v => v.type === 'text' },
+    { name: 'color', label: 'Text colour', type: 'color', value: '#ffffff', showIf: v => v.type === 'text' },
+    { name: 'size', label: 'Size (% of the video width)', type: 'range', min: 2, max: 40, value: 6, unit: '%', showIf: v => v.type === 'text' },
+    { name: 'isize', label: 'Logo size (% of the video width)', type: 'range', min: 5, max: 60, value: 20, unit: '%', showIf: v => v.type === 'image' },
+    { name: 'opacity', label: 'Opacity', type: 'range', min: 10, max: 100, value: 75, unit: '%' },
+    { name: 'position', label: 'Position', type: 'select', value: 'br', options: [['br', 'Bottom right'], ['bl', 'Bottom left'], ['bc', 'Bottom centre'], ['tr', 'Top right'], ['tl', 'Top left'], ['tc', 'Top centre'], ['cc', 'Centre']] },
+  ],
+  extraFile: { label: 'Your logo image (PNG with a transparent background looks best)', showIf: v => v.type === 'image' },
+  buildOptions: v => ({ type: v.type, text: v.text, color: v.color, size: v.type === 'image' ? v.isize : v.size, opacity: v.opacity, position: v.position }),
 }));

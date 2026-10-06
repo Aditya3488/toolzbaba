@@ -1,0 +1,4 @@
+{
+  "pad_token": "k",
+  "unk_token": "<unk>"
+}

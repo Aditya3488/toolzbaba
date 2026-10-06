@@ -1,11 +1,15 @@
 # Putting Toolz Baba live on toolzbaba.com
 
 This guide takes you from "works on my PC" to "live on the internet" in about 1–2 hours.
-Everything the code needs is already done (HTTPS setup, rate limits, downloader password, SEO, legal pages,
+Everything the code needs is already done (HTTPS setup, rate limits, SEO, legal pages,
 backups). The steps below are the parts only you can do: buying a server and pointing the domain.
 
 **What you will have at the end:** `https://toolzbaba.com` running on your own server, HTTPS on, protected
-by Cloudflare, with the video downloader behind a password.
+by Cloudflare.
+
+> **No server needed any more:** the site can also be hosted for free on Cloudflare Pages, with every tool running in
+> the visitor's browser. That is how toolzbaba.com runs now; see "Hosting on Cloudflare Pages" in the README. This guide
+> is for running the Python server version on your own VPS instead.
 
 ---
 
@@ -39,7 +43,7 @@ From your PC (PowerShell), replace `SERVER_IP`:
 
 ```powershell
 cd C:\
-tar --exclude=toolzbaba/data --exclude=toolzbaba/pot-provider --exclude=toolzbaba/tests/samples --exclude=toolzbaba/backups --exclude=toolzbaba/.env --exclude=__pycache__ -czf toolzbaba.tgz toolzbaba
+tar --exclude=toolzbaba/data --exclude=toolzbaba/dist --exclude=toolzbaba/tests/samples --exclude=toolzbaba/backups --exclude=toolzbaba/.env --exclude=__pycache__ -czf toolzbaba.tgz toolzbaba
 scp toolzbaba.tgz root@SERVER_IP:/opt/
 ssh root@SERVER_IP
 ```
@@ -64,8 +68,7 @@ nano .env
 Change at least:
 
 - `CONTACT_EMAIL` → your real address
-- `DOWNLOADER_PASSWORD` → a long password (or set `DOWNLOADER_MODE=off` to remove the downloader completely)
-- `SECRET_KEY` and `ADMIN_KEY` → run `openssl rand -hex 32` twice and paste the results
+- `ADMIN_KEY` → run `openssl rand -hex 32` and paste the result
 - `MAX_CONCURRENT_JOBS=2` if your server has 4 GB RAM (3 is fine for 8 GB)
 
 ## 4. Start it
@@ -106,7 +109,6 @@ ufw delete allow 80/tcp; ufw delete allow 443/tcp; ufw delete allow 443/udp
 - [ ] `https://toolzbaba.com` opens, padlock is green
 - [ ] Compress an image, merge two PDFs, trim a short video, remove a background (first AI use downloads the model, so allow a minute)
 - [ ] Upload an image in **Image links**, open the `.webp` link on your phone
-- [ ] `/downloader` asks for the password; wrong password is refused
 - [ ] `/sitemap.xml`, `/robots.txt`, `/privacy`, `/terms`, `/contact` open
 - [ ] Send a test email to `hello@toolzbaba.com`
 
@@ -132,7 +134,7 @@ Set these up once with `crontab -e`:
 ```cron
 # every night: back up hosted images
 0 3 * * *  /opt/toolzbaba/deploy/backup.sh >> /var/log/toolzbaba-backup.log 2>&1
-# every Monday: restart, which also refreshes yt-dlp (video sites change often)
+# every Monday: restart (frees memory after a week of AI and video jobs)
 0 4 * * 1  cd /opt/toolzbaba && docker compose -f docker-compose.prod.yml restart toolzbaba
 ```
 
@@ -146,18 +148,16 @@ Free uptime alerts: create a monitor at uptimerobot.com for `https://toolzbaba.c
 | No HTTPS certificate | The domain must point to the server's IP (grey cloud) and ports 80/443 must be open. Check `docker compose -f docker-compose.prod.yml logs caddy` |
 | Uploads over 100 MB fail | Cloudflare free-plan limit (see step 5) |
 | "You are going a bit fast" (429) | The visitor hit a rate limit. Raise it with `RATE_LIMITS` in `.env`, then restart |
-| Downloader says "Sign in to confirm you're not a bot" | YouTube blocks server IPs. Export a `cookies.txt` from a browser where you are logged in, copy it into the data volume (`docker cp cookies.txt toolzbaba-toolzbaba-1:/data/cookies.txt`), set `YTDLP_COOKIES=/data/cookies.txt` in `.env`, restart. Or use a residential proxy with `YTDLP_PROXY`. Use a spare Google account: automated use can get an account restricted |
 | AI tools are slow or the server freezes | Lower `MAX_CONCURRENT_JOBS`, or move to a bigger server |
 | Word → PDF fails | Look at the app logs; LibreOffice is installed inside the image |
 
 ## 10. Later: ads and analytics
 
-- **Google AdSense** can serve ads on the image/PDF/video tool pages. It will **not** approve ads on the downloader, which is gated and set to `noindex` anyway. When you add ads or analytics, add the site's verification/snippet through `HEAD_EXTRA` in `.env`, and **update the Privacy Policy** (`static/privacy.html`: the "Cookies" section says there are no ad or tracking cookies). Visitors from the EU/UK also need a consent banner.
+- **Google AdSense** can serve ads on the tool pages. When you add ads or analytics, add the site's verification/snippet through `HEAD_EXTRA` in `.env`, and **update the Privacy Policy** (`static/privacy.html`: the "Cookies" section says there are no ad or tracking cookies). Visitors from the EU/UK also need a consent banner.
 - A privacy-friendly analytics option is Plausible or Cloudflare Web Analytics (free, no cookies).
 
 ## Legal note
 
 The Privacy Policy, Terms and Takedown pages are sensible plain-language templates that match what the app
 actually does. They are **not legal advice**: have a lawyer look at them before you promote the site widely,
-especially the parts about hosted images and the downloader. Keep the downloader password-protected or off:
-that is the riskiest feature legally.
+especially the part about hosted images.

@@ -1,8 +1,5 @@
-import atexit
 import mimetypes
 import os
-import socket
-import subprocess
 
 from fastapi import FastAPI, Request
 from fastapi.exception_handlers import http_exception_handler
@@ -11,7 +8,6 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 import config
 import core
-import downloader
 import pages
 import security
 import toolkit
@@ -23,25 +19,6 @@ mimetypes.add_type("application/wasm", ".wasm")
 
 BASE = os.path.dirname(__file__)
 STATIC = os.path.join(BASE, "static")
-POT_SERVER = os.path.join(BASE, "pot-provider", "server", "build", "main.js")
-
-
-def start_pot_provider():
-    """Start the bgutil PO-token server (needed for HD YouTube) unless it's already up."""
-    if config.DOWNLOADER_MODE == "off":
-        return
-    if not os.path.exists(POT_SERVER):
-        return
-    with socket.socket() as s:
-        if s.connect_ex(("127.0.0.1", 4416)) == 0:
-            return
-    proc = subprocess.Popen(
-        ["node", POT_SERVER],
-        cwd=os.path.dirname(POT_SERVER),
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    atexit.register(proc.terminate)
 
 
 class Assets(StaticFiles):
@@ -54,12 +31,10 @@ class Assets(StaticFiles):
         return resp
 
 
-start_pot_provider()
 app = FastAPI(title=config.SITE_NAME, docs_url=None, redoc_url=None, openapi_url=None)  # no public API docs
 app.middleware("http")(security.guard)
 app.include_router(pages.router)
 app.include_router(core.router)
-app.include_router(downloader.router)
 app.include_router(toolkit.router)
 app.include_router(cdn.router)
 

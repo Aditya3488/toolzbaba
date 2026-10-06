@@ -134,7 +134,7 @@ def pdf_split(ctx: Ctx):
 LEVELS = {"low": (200, 150, 80), "medium": (150, 110, 60), "high": (110, 72, 40)}  # threshold dpi, target dpi, jpeg q
 
 
-@tool("pdf-compress", accepts=PDF, max_mb=200, max_files=10)
+@tool("compress-pdf", accepts=PDF, max_mb=200, max_files=10)
 def pdf_compress(ctx: Ctx):
     level = ctx.opt("level", "medium")
     if level not in LEVELS:
@@ -162,7 +162,7 @@ def pdf_compress(ctx: Ctx):
 
 
 # ---------------------------------------------------------------- pdf -> docx
-@tool("pdf-to-docx", accepts=PDF, max_mb=50)
+@tool("pdf-to-word", accepts=PDF, max_mb=50)
 def pdf_to_docx(ctx: Ctx):
     from pdf2docx import Converter
 
@@ -195,7 +195,7 @@ def find_soffice() -> str | None:
     return None
 
 
-@tool("docx-to-pdf", accepts={".docx", ".doc", ".odt", ".rtf", ".txt", ".pptx", ".xlsx"}, max_mb=50, max_files=10)
+@tool("word-to-pdf", accepts={".docx", ".doc", ".odt", ".rtf", ".txt", ".pptx", ".xlsx"}, max_mb=50, max_files=10)
 def docx_to_pdf(ctx: Ctx):
     soffice = find_soffice()
     if not soffice:

@@ -13,10 +13,12 @@ HT.register('organize-pdf', root => {
     btn('↻ Rotate all', () => { pages.forEach(p => p.r = (p.r + 90) % 360); pages.forEach(paint); }),
     btn('⇅ Reverse order', () => { pages.reverse(); order(); }),
     btn('Restore deleted', () => { pages.forEach(p => { p.del = false; paint(p); }); count(); }),
-    btn('Start over', () => { file = null; pages = []; pdf = null; card.classList.add('hidden'); resultBox.textContent = ''; }));
-  const card = el('div', { class: 'card hidden' }, HT.stepTitle(2, 'Arrange your pages'), el('p', { class: 'help', style: { marginTop: '-6px' }, text: 'Drag pages to reorder. Use the buttons on a page to rotate or delete it.' }), bar, grid, summary, el('div', { class: 'actions' }, save), prog.el);
+    btn('Start over', () => { file = null; pages = []; pdf = null; card.classList.add('hidden'); main.classList.add('hidden'); bench.set(false); resultBox.textContent = ''; }));
+  const card = el('div', { class: 'card hidden' }, HT.stepTitle(2, 'Arrange your pages'), el('p', { class: 'help', style: { marginTop: '-6px' }, text: 'Drag pages to reorder. Use the buttons on a page to rotate or delete it.' }), bar, summary, el('div', { class: 'actions' }, save), prog.el);
+  const main = el('div', { class: 'card tmain hidden' }, el('div', { class: 'tbar' }, el('div', { class: 'tinfo', text: 'Your pages' })), resultBox, grid);
   function btn(t, fn) { return el('button', { class: 'btn sec sm', type: 'button', text: t, onclick: fn }); }
-  root.append(HT.dropzone({ accept: '.pdf,application/pdf', hint: 'Pages are previewed in your browser. Up to 200 MB.', onFiles: fs => load(fs[0]) }), card, resultBox);
+  const bench = HT.bench([HT.dropzone({ accept: '.pdf,application/pdf', hint: 'Pages are previewed in your browser. Up to 200 MB.', onFiles: fs => load(fs[0]) }), card], main, { keep: true });
+  root.append(bench);
 
   const BOX = { w: 150, h: 200 };
   function paint(p) {
@@ -46,7 +48,7 @@ HT.register('organize-pdf', root => {
   async function load(f) {
     resultBox.textContent = ''; prog.clear(); await helpersReady;
     try { pdf = await HT.pdf.open(f); } catch (e) { return prog.error(e.message); }
-    file = f; pages = []; grid.textContent = ''; card.classList.remove('hidden');
+    file = f; pages = []; grid.textContent = ''; card.classList.remove('hidden'); main.classList.remove('hidden'); bench.set(true);
     for (let n = 1; n <= pdf.numPages; n++) { const p = make(n); pages.push(p); grid.append(p.el); }
     count();
     for (const p of pages.slice()) { // draw thumbnails one by one so the page stays responsive
@@ -60,16 +62,16 @@ HT.register('organize-pdf', root => {
     save.disabled = true; resultBox.textContent = '';
     try {
       prog.set(0, 'Uploading...');
-      const { id } = await HT.upload('organize-pdf', [file], { pages: plan }, p => prog.set(p * 40, p < 1 ? `Uploading ${Math.round(p * 100)}%` : 'Building your PDF...'));
-      const job = await HT.poll(id, s => prog.set(40 + (s.progress || 0) * 0.6, 'Building your PDF...'));
-      prog.clear(); resultBox.append(HT.showResult(job, id, [], { compare: false })); resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const { id } = await HT.upload('organize-pdf', [file], { pages: plan });
+      const job = await HT.poll(id, s => prog.set(s.progress || 0, s.speed || 'Building your PDF...'));
+      prog.clear(); resultBox.append(HT.showResult(job, id, [], { compare: false }));
     } catch (e) { prog.error(e.message); }
     save.disabled = false; count();
   }
 });
 
 // ------------------------------------------------------------------ Sign PDF
-HT.register('sign-pdf', root => {
+HT.register('esign-pdf', root => {
   const el = HT.el;
   let file = null, pdf = null, sig = null /* {url, w, h} */, pageNo = 1, view = null /* {ratio} */, placements = [], draft = { x: .55, y: .8, w: .25 };
   const prog = HT.progress(), resultBox = el('div');
@@ -119,25 +121,29 @@ HT.register('sign-pdf', root => {
   const go = el('button', { class: 'btn', type: 'button', text: 'Sign and save PDF', onclick: sign });
   const nav = el('div', { class: 'actions', style: { marginTop: 0, marginBottom: '10px' } }, el('button', { class: 'btn sec sm', type: 'button', text: '◀ Previous', onclick: () => { if (pageNo > 1) { pageNo--; showStage(); } } }), pageInfo,
     el('button', { class: 'btn sec sm', type: 'button', text: 'Next ▶', onclick: () => { if (pdf && pageNo < pdf.numPages) { pageNo++; showStage(); } } }));
-  const placeCard = el('div', { class: 'card hidden' }, HT.stepTitle(3, 'Place it on the page'), el('p', { class: 'help', style: { marginTop: '-6px' }, text: 'Drag the signature to the right spot and use the corner to resize. Then add it to this page (or all pages).' }), nav, el('div', { style: { textAlign: 'center' } }, stage),
-    el('div', { class: 'actions' }, el('button', { class: 'btn sec', type: 'button', text: 'Add to this page', onclick: () => commit([pageNo]) }), el('button', { class: 'btn sec', type: 'button', text: 'Add to all pages', onclick: () => commit(Array.from({ length: pdf.numPages }, (_, i) => i + 1)) }), el('button', { class: 'btn ghost', type: 'button', text: 'Remove all', onclick: () => { placements = []; showStage(); } })), list,
+  const placeCard = el('div', { class: 'card hidden' }, HT.stepTitle(3, 'Place it on the page'), el('p', { class: 'help', style: { marginTop: '-6px' }, text: 'Drag the signature on the page to the right spot and use its corner to resize. Then add it to this page (or all pages).' }),
+    el('div', { class: 'actions' }, el('button', { class: 'btn sec sm', type: 'button', text: 'Add to this page', onclick: () => commit([pageNo]) }), el('button', { class: 'btn sec sm', type: 'button', text: 'Add to all pages', onclick: () => commit(Array.from({ length: pdf.numPages }, (_, i) => i + 1)) }), el('button', { class: 'btn ghost sm', type: 'button', text: 'Remove all', onclick: () => { placements = []; showStage(); } })), list,
     el('div', { class: 'actions' }, go), prog.el);
-  root.append(HT.dropzone({ accept: '.pdf,application/pdf', hint: 'Your PDF is previewed in your browser. Up to 200 MB.', onFiles: fs => open(fs[0]) }), sigCard, placeCard, resultBox);
+  // the signature tools are in the left sidebar; the page you are signing is on the right
+  const main = el('div', { class: 'card tmain hidden' }, resultBox, nav, el('div', { style: { textAlign: 'center' } }, stage));
+  const bench = HT.bench([HT.dropzone({ accept: '.pdf,application/pdf', hint: 'Your PDF is previewed in your browser. Up to 200 MB.', onFiles: fs => open(fs[0]) }), sigCard, placeCard], main, { keep: true });
+  root.append(bench);
+  const stageW = () => Math.min(860, Math.max(260, (main.clientWidth || 700) - 40));
 
   async function open(f) {
     resultBox.textContent = ''; prog.clear(); await helpersReady;
     try { pdf = await HT.pdf.open(f); } catch (e) { return prog.error(e.message); }
-    file = f; pageNo = 1; placements = []; sigCard.classList.remove('hidden'); if (sig) placeCard.classList.remove('hidden'); showStage();
+    file = f; pageNo = 1; placements = []; sigCard.classList.remove('hidden'); main.classList.remove('hidden'); bench.set(true); if (sig) placeCard.classList.remove('hidden'); showStage();
   }
   function commit(pages) { pages.forEach(p => placements.push({ page: p, x: draft.x, y: draft.y, w: draft.w, h: hOf(draft.w) })); HT.toast(`Added on ${pages.length} page${pages.length > 1 ? 's' : ''}`); showStage(); }
   const hOf = w => (w * view.pageWidth * sig.h) / (sig.w * view.pageHeight);
   async function showStage() {
-    if (!pdf || !sig) return;
+    if (!pdf) return;
     pageInfo.textContent = `Page ${pageNo} of ${pdf.numPages}`;
-    const r = await HT.pdf.render(pdf, pageNo, Math.min(680, Math.max(260, root.clientWidth - 60))); view = r;
-    stage.textContent = ''; r.canvas.style.width = '100%'; r.canvas.style.height = 'auto'; stage.style.width = Math.min(680, Math.max(260, root.clientWidth - 60)) + 'px'; stage.append(r.canvas);
+    const r = await HT.pdf.render(pdf, pageNo, stageW()); view = r;
+    stage.textContent = ''; r.canvas.style.width = '100%'; r.canvas.style.height = 'auto'; stage.style.width = stageW() + 'px'; stage.append(r.canvas);
     placements.forEach((p, i) => { if (p.page !== pageNo) return; const b = box(p, false); b.append(el('button', { type: 'button', class: 'sigx', title: 'Remove', text: '×', onclick: () => { placements.splice(i, 1); showStage(); } })); stage.append(b); });
-    const d = box(draft, true); stage.append(d);
+    if (sig) stage.append(box(draft, true));
     const pgs = [...new Set(placements.map(p => p.page))].sort((a, b) => a - b);
     list.textContent = pgs.length ? 'Signature added on page' + (pgs.length > 1 ? 's' : '') + ': ' + pgs.join(', ') : 'Nothing added yet. Position the signature and press "Add to this page".';
     go.disabled = !placements.length;
@@ -161,9 +167,9 @@ HT.register('sign-pdf', root => {
     try {
       prog.set(0, 'Uploading...');
       const sigFile = new File([sig.blob], 'signature.png', { type: 'image/png' });
-      const { id } = await HT.upload('sign-pdf', [file, sigFile], { placements }, p => prog.set(p * 40, p < 1 ? `Uploading ${Math.round(p * 100)}%` : 'Signing...'));
-      const job = await HT.poll(id, s => prog.set(40 + (s.progress || 0) * 0.6, 'Signing...'));
-      prog.clear(); resultBox.append(HT.showResult(job, id, [], { compare: false })); resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const { id } = await HT.upload('esign-pdf', [file, sigFile], { placements });
+      const job = await HT.poll(id, s => prog.set(s.progress || 0, s.speed || 'Signing...'));
+      prog.clear(); resultBox.append(HT.showResult(job, id, [], { compare: false }));
     } catch (e) { prog.error(e.message); }
     go.disabled = !placements.length;
   }

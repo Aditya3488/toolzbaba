@@ -5,7 +5,7 @@ const MAX_PDF_PAGES = 30;
 
 HT.register('image-to-text', root => {
   const el = HT.el;
-  const list = HT.fileList({ onChange: fs => { card.classList.toggle('hidden', !fs.length); run.disabled = !fs.length; } });
+  const list = HT.fileList({ onChange: fs => { card.classList.toggle('hidden', !fs.length); outCard.classList.toggle('hidden', !fs.length); bench.set(fs.length > 0); run.disabled = !fs.length; } });
   const form = HT.form([
     { name: 'lang', label: 'Language in the picture', type: 'select', value: 'eng+hin', options: [['eng+hin', 'English + Hindi'], ['eng', 'English'], ['hin', 'Hindi']] },
     { name: 'enhance', label: 'Improve the scan first (grayscale + contrast)', type: 'checkbox', value: true, help: 'Helps with photos of paper. Turn it off for clean screenshots.' },
@@ -16,9 +16,9 @@ HT.register('image-to-text', root => {
   const outCard = el('div', { class: 'card hidden' }, HT.stepTitle(3, 'Your text'), out, meta,
     el('div', { class: 'actions' }, el('button', { class: 'btn', type: 'button', text: 'Copy text', onclick: () => HT.copy(out.value) }),
       el('button', { class: 'btn sec', type: 'button', text: 'Download .txt', onclick: () => HT.download(new Blob([out.value], { type: 'text/plain;charset=utf-8' }), 'extracted-text.txt') }),
-      el('button', { class: 'btn ghost', type: 'button', text: 'Clear', onclick: () => { out.value = ''; outCard.classList.add('hidden'); } })));
-  root.append(el('div', { class: 'notice', text: 'The first run loads the OCR engine and language data (a few MB) into your browser. After that it starts quickly.' }),
-    HT.dropzone({ accept: 'image/*,.pdf,application/pdf', multiple: true, hint: 'Photos, screenshots or scanned PDFs (first ' + MAX_PDF_PAGES + ' pages of each PDF)', onFiles: fs => list.add(fs, true) }), list.el, card, outCard);
+      el('button', { class: 'btn ghost', type: 'button', text: 'Clear', onclick: () => { out.value = ''; } })));
+  const bench = HT.bench([HT.dropzone({ accept: 'image/*,.pdf,application/pdf', multiple: true, hint: 'Photos, screenshots or scanned PDFs (first ' + MAX_PDF_PAGES + ' pages of each PDF)', onFiles: fs => list.add(fs, true) }), list.el, card], outCard);
+  root.append(el('div', { class: 'notice', text: 'The first run loads the OCR engine and language data (a few MB) into your browser. After that it starts quickly.' }), bench);
 
   let worker = null, workerLang = '';
   const simd = () => { try { return WebAssembly.validate(new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 10, 10, 1, 8, 0, 65, 0, 253, 15, 253, 98, 11])); } catch { return false; } };

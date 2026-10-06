@@ -49,7 +49,7 @@ def organize_pdf(ctx: Ctx):
 
 
 # ---------------------------------------------------------------- sign
-@tool("sign-pdf", accepts={".pdf", ".png"}, max_mb=200, max_files=2, min_files=2)
+@tool("esign-pdf", accepts={".pdf", ".png"}, max_mb=200, max_files=2, min_files=2)
 def sign_pdf(ctx: Ctx):
     """inputs: the PDF and a transparent PNG signature.
     opts.placements = [{"page": 1, "x": .6, "y": .8, "w": .25, "h": .08}, ...] as fractions of the page as shown."""
@@ -88,7 +88,7 @@ FORMATS = {
 }
 
 
-@tool("pdf-page-numbers", accepts=PDF, max_mb=200)
+@tool("add-page-numbers-to-pdf", accepts=PDF, max_mb=200)
 def pdf_page_numbers(ctx: Ctx):
     pos = ctx.opt("position", "bc")
     fmt = FORMATS.get(ctx.opt("format", "n"))

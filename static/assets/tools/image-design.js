@@ -14,7 +14,7 @@ function wrapLines(x, text, maxW) {
 }
 
 // ------------------------------------------------------------------ Watermark
-HT.register('watermark', root => {
+HT.register('add-watermark-to-image', root => {
   let logo = null;
   const logoInput = HT.el('input', { type: 'file', accept: 'image/*', onchange: async e => { const f = e.target.files[0]; if (f) { try { logo = await HT.loadBitmap(f); } catch (err) { HT.toast(err.message); } tool.preview(); } } });
   const tool = HT.canvasTool(root, {
@@ -63,7 +63,7 @@ HT.register('watermark', root => {
 });
 
 // ------------------------------------------------------------------ Pixelate
-HT.register('pixelate', root => {
+HT.register('pixelate-image', root => {
   let sel = null, host = null; // sel = {x,y,w,h} as fractions of the image
   const tool = HT.canvasTool(root, {
     suffix: '_pixelated', zipName: 'pixelated-images',
@@ -137,10 +137,10 @@ HT.register('meme-generator', root => HT.canvasTool(root, {
 }));
 
 // ------------------------------------------------------------------ Collage maker
-HT.register('collage-maker', root => {
+HT.register('photo-collage-maker', root => {
   const el = HT.el;
   const bmps = new Map(); let files = [];
-  const list = HT.fileList({ reorder: true, onChange: fs => { files = fs; card.classList.toggle('hidden', fs.length < 1); updateLayouts(); draw(); } });
+  const list = HT.fileList({ reorder: true, onChange: fs => { files = fs; formCard.classList.toggle('hidden', fs.length < 1); pvCard.classList.toggle('hidden', fs.length < 1); bench.set(fs.length >= 1); updateLayouts(); draw(); } });
   const form = HT.form([
     { name: 'layout', label: 'Layout', type: 'select', options: [['0', 'Grid']] },
     { name: 'size', label: 'Canvas size', type: 'select', options: [['1080x1080', 'Square 1080×1080'], ['1080x1350', 'Portrait 1080×1350 (4:5)'], ['1080x1920', 'Story 1080×1920'], ['1920x1080', 'Landscape 1920×1080'], ['2400x2400', 'Large square 2400×2400']] },
@@ -152,8 +152,10 @@ HT.register('collage-maker', root => {
   ], () => draw());
   const pv = el('div', { class: 'pv' }), prog = HT.progress();
   const dl = el('button', { class: 'btn', type: 'button', text: 'Download collage', onclick: save });
-  const card = el('div', { class: 'hidden' }, el('div', { class: 'card' }, form.el), el('div', { class: 'card' }, el('h2', { text: 'Preview' }), pv, el('div', { class: 'actions' }, dl), prog.el));
-  root.append(HT.dropzone({ accept: 'image/*', multiple: true, label: 'Add 2–9 photos', hint: 'Use the arrows to change the order. Runs in your browser.', onFiles: fs => list.add(fs.slice(0, 9 - list.files.length), true) }), list.el, card);
+  const formCard = el('div', { class: 'card hidden' }, form.el);
+  const pvCard = el('div', { class: 'card tmain hidden' }, el('div', { class: 'tbar' }, el('div', { class: 'tinfo' }), el('div', { class: 'actions' }, dl)), pv);
+  const bench = HT.bench([HT.dropzone({ accept: 'image/*', multiple: true, label: 'Add 2–9 photos', hint: 'Use the arrows to change the order. Runs in your browser.', onFiles: fs => list.add(fs.slice(0, 9 - list.files.length), true) }), list.el, formCard, prog.el], pvCard);
+  root.append(bench);
 
   const grid = n => { const cols = Math.ceil(Math.sqrt(n)), rows = Math.ceil(n / cols), out = []; for (let r = 0; r < rows; r++) { const inRow = r < rows - 1 ? cols : n - cols * (rows - 1); for (let c = 0; c < inRow; c++) out.push([c / inRow, r / rows, 1 / inRow, 1 / rows]); } return out; };
   const layoutsFor = n => {
@@ -161,13 +163,23 @@ HT.register('collage-maker', root => {
     if (n > 1) { L.push(['Rows', Array.from({ length: n }, (_, i) => [0, i / n, 1, 1 / n])]); L.push(['Columns', Array.from({ length: n }, (_, i) => [i / n, 0, 1 / n, 1])]); }
     if (n >= 3) {
       L.push(['Featured left', [[0, 0, .6, 1]].concat(Array.from({ length: n - 1 }, (_, j) => [.6, j / (n - 1), .4, 1 / (n - 1)]))]);
+      L.push(['Featured right', [[.4, 0, .6, 1]].concat(Array.from({ length: n - 1 }, (_, j) => [0, j / (n - 1), .4, 1 / (n - 1)]))]);
       L.push(['Featured top', [[0, 0, 1, .6]].concat(Array.from({ length: n - 1 }, (_, j) => [j / (n - 1), .6, 1 / (n - 1), .4]))]);
+      L.push(['Featured bottom', [[0, .4, 1, .6]].concat(Array.from({ length: n - 1 }, (_, j) => [j / (n - 1), 0, 1 / (n - 1), .4]))]);
     }
     return L;
   };
+  // the layouts are shown as little drawings of the shape they make (the drop-down stays underneath, hidden, and holds the value)
+  const layField = form.ctl.layout.closest('.field'), layPick = el('div', { class: 'laypick', role: 'radiogroup', 'aria-label': 'Layout' });
+  form.ctl.layout.style.display = 'none'; layField.append(layPick);
+  const NS = 'http://www.w3.org/2000/svg';
+  const layIcon = rects => { const s = document.createElementNS(NS, 'svg'); s.setAttribute('viewBox', '0 0 100 100'); s.setAttribute('aria-hidden', 'true');
+    for (const [x, y, w, h] of rects) { const r = document.createElementNS(NS, 'rect'); r.setAttribute('x', x * 100 + 2); r.setAttribute('y', y * 100 + 2); r.setAttribute('width', Math.max(2, w * 100 - 4)); r.setAttribute('height', Math.max(2, h * 100 - 4)); r.setAttribute('rx', 4); s.append(r); } return s; };
   function updateLayouts() {
-    const n = Math.max(1, files.length), sel = form.ctl.layout, prev = sel.value; sel.textContent = '';
-    layoutsFor(n).forEach(([name], i) => sel.append(el('option', { value: i, text: name }))); sel.value = layoutsFor(n)[prev] ? prev : 0;
+    const n = Math.max(1, files.length), sel = form.ctl.layout, prev = sel.value, L = layoutsFor(n); sel.textContent = '';
+    L.forEach(([name], i) => sel.append(el('option', { value: i, text: name }))); sel.value = L[prev] ? prev : 0;
+    layPick.textContent = '';
+    L.forEach(([name, rects], i) => layPick.append(el('button', { type: 'button', role: 'radio', class: 'layopt' + (String(i) === sel.value ? ' on' : ''), 'aria-checked': String(i) === sel.value ? 'true' : 'false', title: name, onclick: () => { form.set('layout', i); [...layPick.children].forEach((b, k) => { b.classList.toggle('on', k === i); b.setAttribute('aria-checked', k === i ? 'true' : 'false'); }); } }, layIcon(rects), el('span', { text: name }))));
   }
   const bmp = async f => { if (!bmps.has(f)) bmps.set(f, await HT.loadBitmap(f)); return bmps.get(f); };
   async function render() {

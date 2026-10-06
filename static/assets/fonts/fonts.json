@@ -1,0 +1,1239 @@
+{
+ "fonts": [
+  {
+   "id": "arimo",
+   "name": "Arimo",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2026 The Arimo Project Authors (https://github.com/googlefonts/arimo)",
+   "files": {
+    "regular": {
+     "file": "arimo-regular.ttf",
+     "size": 318320
+    },
+    "bold": {
+     "file": "arimo-bold.ttf",
+     "size": 318844
+    },
+    "italic": {
+     "file": "arimo-italic.ttf",
+     "size": 340984
+    },
+    "boldItalic": {
+     "file": "arimo-boldItalic.ttf",
+     "size": 342368
+    }
+   }
+  },
+  {
+   "id": "tinos",
+   "name": "Tinos",
+   "category": "serif",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2026 The Tinos Project Authors (https://github.com/googlefonts/tinos)",
+   "files": {
+    "regular": {
+     "file": "tinos-regular.ttf",
+     "size": 508752
+    },
+    "bold": {
+     "file": "tinos-bold.ttf",
+     "size": 583484
+    },
+    "italic": {
+     "file": "tinos-italic.ttf",
+     "size": 549824
+    },
+    "boldItalic": {
+     "file": "tinos-boldItalic.ttf",
+     "size": 563688
+    }
+   }
+  },
+  {
+   "id": "cousine",
+   "name": "Cousine",
+   "category": "mono",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2026 The Cousine Project Authors (https://github.com/googlefonts/cousine)",
+   "files": {
+    "regular": {
+     "file": "cousine-regular.ttf",
+     "size": 289556
+    },
+    "bold": {
+     "file": "cousine-bold.ttf",
+     "size": 290500
+    },
+    "italic": {
+     "file": "cousine-italic.ttf",
+     "size": 298680
+    },
+    "boldItalic": {
+     "file": "cousine-boldItalic.ttf",
+     "size": 300160
+    }
+   }
+  },
+  {
+   "id": "inter",
+   "name": "Inter",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)",
+   "files": {
+    "regular": {
+     "file": "inter-regular.ttf",
+     "size": 342408
+    },
+    "bold": {
+     "file": "inter-bold.ttf",
+     "size": 344072
+    },
+    "italic": {
+     "file": "inter-italic.ttf",
+     "size": 345956
+    },
+    "boldItalic": {
+     "file": "inter-boldItalic.ttf",
+     "size": 347824
+    }
+   }
+  },
+  {
+   "id": "roboto",
+   "name": "Roboto",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)",
+   "files": {
+    "regular": {
+     "file": "roboto-regular.ttf",
+     "size": 159108
+    },
+    "bold": {
+     "file": "roboto-bold.ttf",
+     "size": 159900
+    },
+    "italic": {
+     "file": "roboto-italic.ttf",
+     "size": 165268
+    },
+    "boldItalic": {
+     "file": "roboto-boldItalic.ttf",
+     "size": 166256
+    }
+   }
+  },
+  {
+   "id": "open-sans",
+   "name": "Open Sans",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2020 The Open Sans Project Authors (https://github.com/googlefonts/opensans)",
+   "files": {
+    "regular": {
+     "file": "open-sans-regular.ttf",
+     "size": 130832
+    },
+    "bold": {
+     "file": "open-sans-bold.ttf",
+     "size": 130860
+    },
+    "italic": {
+     "file": "open-sans-italic.ttf",
+     "size": 136604
+    },
+    "boldItalic": {
+     "file": "open-sans-boldItalic.ttf",
+     "size": 136360
+    }
+   }
+  },
+  {
+   "id": "lato",
+   "name": "Lato",
+   "category": "sans",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2010-2014 by tyPoland Lukasz Dziedzic (team@latofonts.com) with Reserved Font Name \"Lato\"",
+   "files": {
+    "regular": {
+     "file": "lato-regular.ttf",
+     "size": 75152
+    },
+    "bold": {
+     "file": "lato-bold.ttf",
+     "size": 73332
+    },
+    "italic": {
+     "file": "lato-italic.ttf",
+     "size": 75792
+    },
+    "boldItalic": {
+     "file": "lato-boldItalic.ttf",
+     "size": 77732
+    }
+   }
+  },
+  {
+   "id": "montserrat",
+   "name": "Montserrat",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2024 The Montserrat.Git Project Authors (https://github.com/JulietaUla/Montserrat.git)",
+   "files": {
+    "regular": {
+     "file": "montserrat-regular.ttf",
+     "size": 330948
+    },
+    "bold": {
+     "file": "montserrat-bold.ttf",
+     "size": 335788
+    },
+    "italic": {
+     "file": "montserrat-italic.ttf",
+     "size": 337132
+    },
+    "boldItalic": {
+     "file": "montserrat-boldItalic.ttf",
+     "size": 342016
+    }
+   }
+  },
+  {
+   "id": "poppins",
+   "name": "Poppins",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)",
+   "files": {
+    "regular": {
+     "file": "poppins-regular.ttf",
+     "size": 158240
+    },
+    "bold": {
+     "file": "poppins-bold.ttf",
+     "size": 153944
+    },
+    "italic": {
+     "file": "poppins-italic.ttf",
+     "size": 182012
+    },
+    "boldItalic": {
+     "file": "poppins-boldItalic.ttf",
+     "size": 176588
+    }
+   }
+  },
+  {
+   "id": "nunito",
+   "name": "Nunito",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2014 The Nunito Project Authors (https://github.com/googlefonts/nunito)",
+   "files": {
+    "regular": {
+     "file": "nunito-regular.ttf",
+     "size": 132200
+    },
+    "bold": {
+     "file": "nunito-bold.ttf",
+     "size": 132148
+    },
+    "italic": {
+     "file": "nunito-italic.ttf",
+     "size": 135528
+    },
+    "boldItalic": {
+     "file": "nunito-boldItalic.ttf",
+     "size": 135392
+    }
+   }
+  },
+  {
+   "id": "source-sans-3",
+   "name": "Source Sans 3",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2010-2020 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe in the United States and/or other countries.",
+   "files": {
+    "regular": {
+     "file": "source-sans-3-regular.ttf",
+     "size": 381020
+    },
+    "bold": {
+     "file": "source-sans-3-bold.ttf",
+     "size": 380864
+    },
+    "italic": {
+     "file": "source-sans-3-italic.ttf",
+     "size": 237228
+    },
+    "boldItalic": {
+     "file": "source-sans-3-boldItalic.ttf",
+     "size": 237200
+    }
+   }
+  },
+  {
+   "id": "work-sans",
+   "name": "Work Sans",
+   "category": "sans",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2019 The Work Sans Project Authors (https://github.com/weiweihuanghuang/Work-Sans)",
+   "files": {
+    "regular": {
+     "file": "work-sans-regular.ttf",
+     "size": 188916
+    },
+    "bold": {
+     "file": "work-sans-bold.ttf",
+     "size": 191304
+    },
+    "italic": {
+     "file": "work-sans-italic.ttf",
+     "size": 174280
+    },
+    "boldItalic": {
+     "file": "work-sans-boldItalic.ttf",
+     "size": 175772
+    }
+   }
+  },
+  {
+   "id": "dm-sans",
+   "name": "DM Sans",
+   "category": "sans",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)",
+   "files": {
+    "regular": {
+     "file": "dm-sans-regular.ttf",
+     "size": 56344
+    },
+    "bold": {
+     "file": "dm-sans-bold.ttf",
+     "size": 56268
+    },
+    "italic": {
+     "file": "dm-sans-italic.ttf",
+     "size": 61244
+    },
+    "boldItalic": {
+     "file": "dm-sans-boldItalic.ttf",
+     "size": 61168
+    }
+   }
+  },
+  {
+   "id": "raleway",
+   "name": "Raleway",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2010 The Raleway Project Authors (impallari@gmail.com), with Reserved Font Name \"Raleway\".",
+   "files": {
+    "regular": {
+     "file": "raleway-regular.ttf",
+     "size": 163840
+    },
+    "bold": {
+     "file": "raleway-bold.ttf",
+     "size": 163768
+    },
+    "italic": {
+     "file": "raleway-italic.ttf",
+     "size": 162040
+    },
+    "boldItalic": {
+     "file": "raleway-boldItalic.ttf",
+     "size": 162252
+    }
+   }
+  },
+  {
+   "id": "rubik",
+   "name": "Rubik",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2015 The Rubik Project Authors (https://github.com/googlefonts/rubik)",
+   "files": {
+    "regular": {
+     "file": "rubik-regular.ttf",
+     "size": 207628
+    },
+    "bold": {
+     "file": "rubik-bold.ttf",
+     "size": 208316
+    },
+    "italic": {
+     "file": "rubik-italic.ttf",
+     "size": 206340
+    },
+    "boldItalic": {
+     "file": "rubik-boldItalic.ttf",
+     "size": 207200
+    }
+   }
+  },
+  {
+   "id": "karla",
+   "name": "Karla",
+   "category": "sans",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2019 The Karla Project Authors (https://github.com/googlefonts/karla)",
+   "files": {
+    "regular": {
+     "file": "karla-regular.ttf",
+     "size": 44040
+    },
+    "bold": {
+     "file": "karla-bold.ttf",
+     "size": 44112
+    },
+    "italic": {
+     "file": "karla-italic.ttf",
+     "size": 45300
+    },
+    "boldItalic": {
+     "file": "karla-boldItalic.ttf",
+     "size": 45312
+    }
+   }
+  },
+  {
+   "id": "ubuntu",
+   "name": "Ubuntu",
+   "category": "sans",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "Ubuntu Font Licence 1.0",
+   "copyright": "copyright ownership of the Font Software.",
+   "files": {
+    "regular": {
+     "file": "ubuntu-regular.ttf",
+     "size": 299684
+    },
+    "bold": {
+     "file": "ubuntu-bold.ttf",
+     "size": 270164
+    },
+    "italic": {
+     "file": "ubuntu-italic.ttf",
+     "size": 326932
+    },
+    "boldItalic": {
+     "file": "ubuntu-boldItalic.ttf",
+     "size": 283444
+    }
+   }
+  },
+  {
+   "id": "playfair-display",
+   "name": "Playfair Display",
+   "category": "serif",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2017 The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display), with Reserved Font Name \"Playfair Display\"",
+   "files": {
+    "regular": {
+     "file": "playfair-display-regular.ttf",
+     "size": 193380
+    },
+    "bold": {
+     "file": "playfair-display-bold.ttf",
+     "size": 193720
+    },
+    "italic": {
+     "file": "playfair-display-italic.ttf",
+     "size": 177972
+    },
+    "boldItalic": {
+     "file": "playfair-display-boldItalic.ttf",
+     "size": 178436
+    }
+   }
+  },
+  {
+   "id": "merriweather",
+   "name": "Merriweather",
+   "category": "serif",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2020 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4) with Reserved Font Name \"Merriweather\".",
+   "files": {
+    "regular": {
+     "file": "merriweather-regular.ttf",
+     "size": 1064500
+    },
+    "bold": {
+     "file": "merriweather-bold.ttf",
+     "size": 1064804
+    }
+   }
+  },
+  {
+   "id": "lora",
+   "name": "Lora",
+   "category": "serif",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2011 The Lora Project Authors (https://github.com/cyrealtype/Lora-Cyrillic), with Reserved Font Name \"Lora\".",
+   "files": {
+    "regular": {
+     "file": "lora-regular.ttf",
+     "size": 133888
+    },
+    "bold": {
+     "file": "lora-bold.ttf",
+     "size": 133828
+    },
+    "italic": {
+     "file": "lora-italic.ttf",
+     "size": 139328
+    },
+    "boldItalic": {
+     "file": "lora-boldItalic.ttf",
+     "size": 140332
+    }
+   }
+  },
+  {
+   "id": "libre-baskerville",
+   "name": "Libre Baskerville",
+   "category": "serif",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2012 The Libre Baskerville Project Authors (https://github.com/impallari/Libre-Baskerville) with Reserved Font Name Libre Baskerville.",
+   "files": {
+    "regular": {
+     "file": "libre-baskerville-regular.ttf",
+     "size": 112336
+    },
+    "bold": {
+     "file": "libre-baskerville-bold.ttf",
+     "size": 112372
+    },
+    "italic": {
+     "file": "libre-baskerville-italic.ttf",
+     "size": 121392
+    },
+    "boldItalic": {
+     "file": "libre-baskerville-boldItalic.ttf",
+     "size": 121656
+    }
+   }
+  },
+  {
+   "id": "pt-serif",
+   "name": "PT Serif",
+   "category": "serif",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2010, ParaType Ltd. (http://www.paratype.com/public),",
+   "files": {
+    "regular": {
+     "file": "pt-serif-regular.ttf",
+     "size": 215516
+    },
+    "bold": {
+     "file": "pt-serif-bold.ttf",
+     "size": 196092
+    },
+    "italic": {
+     "file": "pt-serif-italic.ttf",
+     "size": 232264
+    },
+    "boldItalic": {
+     "file": "pt-serif-boldItalic.ttf",
+     "size": 193752
+    }
+   }
+  },
+  {
+   "id": "crimson-text",
+   "name": "Crimson Text",
+   "category": "serif",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2010 The Crimson Text Project Authors (https://github.com/googlefonts/Crimson)",
+   "files": {
+    "regular": {
+     "file": "crimson-text-regular.ttf",
+     "size": 106512
+    },
+    "bold": {
+     "file": "crimson-text-bold.ttf",
+     "size": 112116
+    },
+    "italic": {
+     "file": "crimson-text-italic.ttf",
+     "size": 109440
+    },
+    "boldItalic": {
+     "file": "crimson-text-boldItalic.ttf",
+     "size": 114268
+    }
+   }
+  },
+  {
+   "id": "bebas-neue",
+   "name": "Bebas Neue",
+   "category": "display",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright © 2010 by Dharma Type.",
+   "files": {
+    "regular": {
+     "file": "bebas-neue-regular.ttf",
+     "size": 57676
+    }
+   }
+  },
+  {
+   "id": "oswald",
+   "name": "Oswald",
+   "category": "display",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2016 The Oswald Project Authors (https://github.com/googlefonts/OswaldFont)",
+   "files": {
+    "regular": {
+     "file": "oswald-regular.ttf",
+     "size": 87248
+    },
+    "bold": {
+     "file": "oswald-bold.ttf",
+     "size": 87600
+    }
+   }
+  },
+  {
+   "id": "anton",
+   "name": "Anton",
+   "category": "display",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2020 The Anton Project Authors (https://github.com/googlefonts/AntonFont.git)",
+   "files": {
+    "regular": {
+     "file": "anton-regular.ttf",
+     "size": 161588
+    }
+   }
+  },
+  {
+   "id": "abril-fatface",
+   "name": "Abril Fatface",
+   "category": "display",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2011, TypeTogether (www.type-together.com),",
+   "files": {
+    "regular": {
+     "file": "abril-fatface-regular.ttf",
+     "size": 58448
+    }
+   }
+  },
+  {
+   "id": "dancing-script",
+   "name": "Dancing Script",
+   "category": "handwriting",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2016 The Dancing Script Project Authors (https://github.com/googlefonts/DancingScript), with Reserved Font Name 'Dancing Script'.",
+   "files": {
+    "regular": {
+     "file": "dancing-script-regular.ttf",
+     "size": 81140
+    },
+    "bold": {
+     "file": "dancing-script-bold.ttf",
+     "size": 81420
+    }
+   }
+  },
+  {
+   "id": "caveat",
+   "name": "Caveat",
+   "category": "handwriting",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2014 The Caveat Project Authors (https://github.com/googlefonts/caveat)",
+   "files": {
+    "regular": {
+     "file": "caveat-regular.ttf",
+     "size": 256968
+    },
+    "bold": {
+     "file": "caveat-bold.ttf",
+     "size": 257316
+    }
+   }
+  },
+  {
+   "id": "satisfy",
+   "name": "Satisfy",
+   "category": "handwriting",
+   "scripts": [
+    "latin"
+   ],
+   "license": "Apache-2.0",
+   "copyright": "copyright notice that is included in or attached to the work",
+   "files": {
+    "regular": {
+     "file": "satisfy-regular.ttf",
+     "size": 46976
+    }
+   }
+  },
+  {
+   "id": "great-vibes",
+   "name": "Great Vibes",
+   "category": "handwriting",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2015 The Great Vibes Pro Project Authors (https://github.com/googlefonts/great-vibes)",
+   "files": {
+    "regular": {
+     "file": "great-vibes-regular.ttf",
+     "size": 445300
+    }
+   }
+  },
+  {
+   "id": "shadows-into-light",
+   "name": "Shadows Into Light",
+   "category": "handwriting",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)",
+   "files": {
+    "regular": {
+     "file": "shadows-into-light-regular.ttf",
+     "size": 48468
+    }
+   }
+  },
+  {
+   "id": "indie-flower",
+   "name": "Indie Flower",
+   "category": "handwriting",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2010 The Indie Flower Authors (kimberlygeswein.com),",
+   "files": {
+    "regular": {
+     "file": "indie-flower-regular.ttf",
+     "size": 55416
+    }
+   }
+  },
+  {
+   "id": "pacifico",
+   "name": "Pacifico",
+   "category": "handwriting",
+   "scripts": [
+    "latin",
+    "cyrillic"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2018 The Pacifico Project Authors (https://github.com/googlefonts/Pacifico)",
+   "files": {
+    "regular": {
+     "file": "pacifico-regular.ttf",
+     "size": 315408
+    }
+   }
+  },
+  {
+   "id": "roboto-mono",
+   "name": "Roboto Mono",
+   "category": "mono",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2015 The Roboto Mono Project Authors (https://github.com/googlefonts/robotomono)",
+   "files": {
+    "regular": {
+     "file": "roboto-mono-regular.ttf",
+     "size": 87540
+    },
+    "bold": {
+     "file": "roboto-mono-bold.ttf",
+     "size": 87696
+    },
+    "italic": {
+     "file": "roboto-mono-italic.ttf",
+     "size": 94836
+    },
+    "boldItalic": {
+     "file": "roboto-mono-boldItalic.ttf",
+     "size": 95100
+    }
+   }
+  },
+  {
+   "id": "source-code-pro",
+   "name": "Source Code Pro",
+   "category": "mono",
+   "scripts": [
+    "latin",
+    "cyrillic",
+    "greek"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2010, 2012 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'. All Rights Reserved. Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries.",
+   "files": {
+    "regular": {
+     "file": "source-code-pro-regular.ttf",
+     "size": 133596
+    },
+    "bold": {
+     "file": "source-code-pro-bold.ttf",
+     "size": 133464
+    },
+    "italic": {
+     "file": "source-code-pro-italic.ttf",
+     "size": 111996
+    },
+    "boldItalic": {
+     "file": "source-code-pro-boldItalic.ttf",
+     "size": 111928
+    }
+   }
+  },
+  {
+   "id": "courier-prime",
+   "name": "Courier Prime",
+   "category": "mono",
+   "scripts": [
+    "latin"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2015 The Courier Prime Project Authors (https://github.com/quoteunquoteapps/CourierPrime).",
+   "files": {
+    "regular": {
+     "file": "courier-prime-regular.ttf",
+     "size": 68304
+    },
+    "bold": {
+     "file": "courier-prime-bold.ttf",
+     "size": 69944
+    },
+    "italic": {
+     "file": "courier-prime-italic.ttf",
+     "size": 76656
+    },
+    "boldItalic": {
+     "file": "courier-prime-boldItalic.ttf",
+     "size": 77544
+    }
+   }
+  },
+  {
+   "id": "noto-sans-devanagari",
+   "name": "Noto Sans Devanagari",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/devanagari)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-devanagari-regular.ttf",
+     "size": 221084
+    },
+    "bold": {
+     "file": "noto-sans-devanagari-bold.ttf",
+     "size": 221652
+    }
+   }
+  },
+  {
+   "id": "noto-serif-devanagari",
+   "name": "Noto Serif Devanagari",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/devanagari)",
+   "files": {
+    "regular": {
+     "file": "noto-serif-devanagari-regular.ttf",
+     "size": 234000
+    },
+    "bold": {
+     "file": "noto-serif-devanagari-bold.ttf",
+     "size": 234460
+    }
+   }
+  },
+  {
+   "id": "hind",
+   "name": "Hind",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2014, Indian Type Foundry (info@indiantypefoundry.com).",
+   "files": {
+    "regular": {
+     "file": "hind-regular.ttf",
+     "size": 291728
+    },
+    "bold": {
+     "file": "hind-bold.ttf",
+     "size": 279028
+    }
+   }
+  },
+  {
+   "id": "mukta",
+   "name": "Mukta",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2014, Girish Dalvi, Ek Type. All rights reserved.",
+   "files": {
+    "regular": {
+     "file": "mukta-regular.ttf",
+     "size": 427880
+    },
+    "bold": {
+     "file": "mukta-bold.ttf",
+     "size": 414012
+    }
+   }
+  },
+  {
+   "id": "tiro-devanagari-hindi",
+   "name": "Tiro Devanagari Hindi",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2020 The Indigo Project Authors (https://github.com/TiroTypeworks/Indigo)",
+   "files": {
+    "regular": {
+     "file": "tiro-devanagari-hindi-regular.ttf",
+     "size": 414812
+    },
+    "italic": {
+     "file": "tiro-devanagari-hindi-italic.ttf",
+     "size": 417280
+    }
+   }
+  },
+  {
+   "id": "baloo-2",
+   "name": "Baloo 2",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "copyright statement(s).",
+   "files": {
+    "regular": {
+     "file": "baloo-2-regular.ttf",
+     "size": 419972
+    },
+    "bold": {
+     "file": "baloo-2-bold.ttf",
+     "size": 420092
+    }
+   }
+  },
+  {
+   "id": "kalam",
+   "name": "Kalam",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "devanagari"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright (c) 2014, Indian Type Foundry (info@indiantypefoundry.com).",
+   "files": {
+    "regular": {
+     "file": "kalam-regular.ttf",
+     "size": 427336
+    },
+    "bold": {
+     "file": "kalam-bold.ttf",
+     "size": 460872
+    }
+   }
+  },
+  {
+   "id": "noto-sans-bengali",
+   "name": "Noto Sans Bengali",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "bengali"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/bengali)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-bengali-regular.ttf",
+     "size": 141064
+    },
+    "bold": {
+     "file": "noto-sans-bengali-bold.ttf",
+     "size": 141476
+    }
+   }
+  },
+  {
+   "id": "noto-sans-tamil",
+   "name": "Noto Sans Tamil",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "tamil"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/tamil)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-tamil-regular.ttf",
+     "size": 78988
+    },
+    "bold": {
+     "file": "noto-sans-tamil-bold.ttf",
+     "size": 79016
+    }
+   }
+  },
+  {
+   "id": "noto-sans-telugu",
+   "name": "Noto Sans Telugu",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "telugu"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/telugu)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-telugu-regular.ttf",
+     "size": 179900
+    },
+    "bold": {
+     "file": "noto-sans-telugu-bold.ttf",
+     "size": 180348
+    }
+   }
+  },
+  {
+   "id": "noto-sans-gujarati",
+   "name": "Noto Sans Gujarati",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "gujarati"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/gujarati)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-gujarati-regular.ttf",
+     "size": 175148
+    },
+    "bold": {
+     "file": "noto-sans-gujarati-bold.ttf",
+     "size": 175324
+    }
+   }
+  },
+  {
+   "id": "noto-sans-gurmukhi",
+   "name": "Noto Sans Gurmukhi",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "gurmukhi"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/gurmukhi)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-gurmukhi-regular.ttf",
+     "size": 58724
+    },
+    "bold": {
+     "file": "noto-sans-gurmukhi-bold.ttf",
+     "size": 58784
+    }
+   }
+  },
+  {
+   "id": "noto-sans-kannada",
+   "name": "Noto Sans Kannada",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "kannada"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/kannada)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-kannada-regular.ttf",
+     "size": 148988
+    },
+    "bold": {
+     "file": "noto-sans-kannada-bold.ttf",
+     "size": 149124
+    }
+   }
+  },
+  {
+   "id": "noto-sans-malayalam",
+   "name": "Noto Sans Malayalam",
+   "category": "indic",
+   "scripts": [
+    "latin",
+    "malayalam"
+   ],
+   "license": "SIL Open Font License 1.1",
+   "copyright": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/malayalam)",
+   "files": {
+    "regular": {
+     "file": "noto-sans-malayalam-regular.ttf",
+     "size": 106808
+    },
+    "bold": {
+     "file": "noto-sans-malayalam-bold.ttf",
+     "size": 106764
+    }
+   }
+  }
+ ]
+}

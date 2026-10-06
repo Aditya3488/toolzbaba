@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects (copied into dist/ by build.py)
+/report      /takedown  301
+# the video downloader needed a server; it is not part of the static site
+/downloader  /          302
