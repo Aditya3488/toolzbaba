@@ -52,7 +52,7 @@
   function buildRows() {
     const rows = [];
     S.tools.filter(t => !t.href).forEach((t, i) => {
-      rows.push({ slug: t.slug, name: t.name, cat: t.cat, icon: t.slug, kind: t.kind, engine: t.engine, heavy: heavyEngine(t.engine), href: '/tool/' + t.slug, level: 0, order: rows.length, base: null, codeArchived: !!t.archived, js: t.js, ui: t.ui, accept: null });
+      rows.push({ slug: t.slug, name: t.name, cat: t.cat, icon: t.slug, kind: t.kind, engine: t.engine, heavy: heavyEngine(t.engine), href: '/' + t.slug, level: 0, order: rows.length, base: null, codeArchived: !!t.archived, js: t.js, ui: t.ui, accept: null });
       for (const v of S.variants.filter(v => v.base === t.slug)) rows.push({ slug: v.slug, name: v.name, cat: t.cat, icon: t.slug, kind: t.kind, engine: v.engine || t.engine, heavy: heavyEngine(v.engine || t.engine), href: '/' + v.slug, level: 1, order: rows.length, base: t.slug, size: v.group === 'size', codeArchived: !!(t.archived || v.archived) });
     });
     S.rows = rows;

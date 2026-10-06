@@ -34,7 +34,7 @@ let pass = 0, fail = 0;
   }, { viewport: { width: 390, height: 800 }, isMobile: true, hasTouch: true });
 
   await T('bookmark: footer link opens it', async page => {
-    await page.goto(BASE + '/tool/json-formatter', { waitUntil: 'networkidle' });
+    await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' });
     await page.getByRole('link', { name: 'Bookmark this site' }).click(); await page.waitForSelector('.bmpanel');
   });
 
@@ -51,7 +51,7 @@ let pass = 0, fail = 0;
   }, { viewport: { width: 390, height: 800 }, userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Mobile Safari/537.36', hasTouch: true, isMobile: true });
 
   await T('bookmark: one reminder after the first download, never twice', async page => {
-    await page.goto(BASE + '/tool/json-formatter', { waitUntil: 'networkidle' });
+    await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' });
     const fire = () => page.evaluate(() => HT.download(new Blob(['x']), 'a.txt'));
     await fire(); await page.waitForSelector('.bmpanel.nudge', { timeout: 5000 });
     ex(/Bookmark this website/.test(await page.locator('.bmpanel').innerText()), 'nudge text');
@@ -63,7 +63,7 @@ let pass = 0, fail = 0;
   // ---------------------------------------------------------------- EXIF viewer, collage layouts, tab pages on the home page
   const SAMPLES = path.join(__dirname, 'samples') + '/';
   await T('exif remover: shows every hidden tag, location and a privacy warning', async page => {
-    await page.goto(BASE + '/tool/exif-remover', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', SAMPLES + 'photo_exif.jpg'); await page.waitForSelector('.exv-sum', { timeout: 20000 });
+    await page.goto(BASE + '/exif-remover', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', SAMPLES + 'photo_exif.jpg'); await page.waitForSelector('.exv-sum', { timeout: 20000 });
     const sum = await page.locator('.exv-sum').innerText(); ex(/hidden tag/.test(sum) && /could say who you are/.test(sum), 'summary: ' + sum);
     ex(/28\.6/.test(await page.locator('.exv-map').innerText()), 'location missing'); ex(await page.locator('.exv-t tr.risk').count() >= 5, 'risky tags not marked');
     const txt = await page.locator('.exv-body').innerText(); ex(/Make/.test(txt) && /TestCam/.test(txt) && /Model X/.test(txt) && /GPSLatitude/.test(txt), 'tags missing');
@@ -72,11 +72,11 @@ let pass = 0, fail = 0;
     return sum.slice(0, 70);
   });
   await T('exif remover: a clean photo says there is nothing hidden', async page => {
-    await page.goto(BASE + '/tool/exif-remover', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', SAMPLES + 'odd301x199.png'); await page.waitForSelector('.exv-sum', { timeout: 20000 });
+    await page.goto(BASE + '/exif-remover', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', SAMPLES + 'odd301x199.png'); await page.waitForSelector('.exv-sum', { timeout: 20000 });
     ex(/No hidden information/.test(await page.locator('.exv-sum').innerText()), await page.locator('.exv-sum').innerText());
   });
   await T('collage: layouts are drawings, and picking one changes the collage', async page => {
-    await page.goto(BASE + '/tool/photo-collage-maker', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', [SAMPLES + 'photo.jpeg', SAMPLES + 'face.jpg', SAMPLES + 'big_photo.jpg', SAMPLES + 'photo_exif.jpg']); await page.waitForSelector('.laypick .layopt');
+    await page.goto(BASE + '/photo-collage-maker', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', [SAMPLES + 'photo.jpeg', SAMPLES + 'face.jpg', SAMPLES + 'big_photo.jpg', SAMPLES + 'photo_exif.jpg']); await page.waitForSelector('.laypick .layopt');
     ex(await page.locator('.layopt').count() === 7, 'layouts ' + await page.locator('.layopt').count()); ex(await page.locator('.layopt svg rect').count() >= 20, 'the drawings are missing');
     const before = await page.locator('.pv canvas').evaluate(c => c.toDataURL().length); await page.locator('.layopt', { hasText: 'Featured left' }).click(); await page.waitForTimeout(900);
     ex(await page.locator('.layopt.on', { hasText: 'Featured left' }).count() === 1, 'not marked as chosen'); const after = await page.locator('.pv canvas').evaluate(c => c.toDataURL().length); ex(before !== after, 'the preview did not change');
@@ -86,7 +86,7 @@ let pass = 0, fail = 0;
     for (const n of ['Blur & Redact PDF', 'LinkedIn Carousel Maker', 'Instagram Carousel Splitter', 'Video to Text', 'Split Video', 'Merge Audio Files', 'Add Watermark to PDF', 'AI Headshot Generator', 'Color Palette Generator']) ex(await page.locator('.tcard', { hasText: n }).count() === 0, n + ' is a tab and must not be a card of its own');
     const icons = await page.locator('.tcard .ic').evaluateAll(es => new Set(es.map(e => e.innerHTML)).size); ex(icons >= 45, 'the cards share too few icons: ' + icons + ' different ones');   // every tool has its own icon
     await page.fill('#q', 'redact'); await page.waitForTimeout(300); ex(await page.locator('.tcard:not(.hidden)', { hasText: 'Pixelate Image' }).count() === 1, 'the search for "redact" should find the tool that has the tab');
-    await page.goto(BASE + '/tool/pixelate-image', { waitUntil: 'networkidle' }); await page.locator('.vtabs').getByRole('tab', { name: /PDF blur/ }).click(); await page.waitForURL('**/blur-redact-pdf'); await page.waitForSelector('#tool .drop');
+    await page.goto(BASE + '/pixelate-image', { waitUntil: 'networkidle' }); await page.locator('.vtabs').getByRole('tab', { name: /PDF blur/ }).click(); await page.waitForURL('**/blur-redact-pdf'); await page.waitForSelector('#tool .drop');
   });
 
   await browser.close(); console.log(`\n${pass}/${pass + fail} passed`); process.exit(fail ? 1 : 0);

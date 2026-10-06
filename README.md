@@ -202,7 +202,7 @@ HT.register('my-tool', root => HT.serverTool(root, {
 **3. The catalogue**: add an entry to `static/assets/tools.json`: `slug`, `cat` (`image|ai|pdf|video|util`), `name`, `desc`,
 `kind` (`server` or `client`), `js` (the file name from step 2), `icon` (emoji fallback) and an `about` paragraph
 (2-3 honest sentences: it becomes the SEO text on the tool's page). The sitemap, home page card, search and
-`/tool/<slug>` page all appear automatically.
+`/<slug>` page all appear automatically.
 
 **4. The icon**: in `static/assets/common.js` add a glyph to `GLYPH` and a colour to `TOOL_COLOR` (colour names are the logo's palette).
 Missing icons fall back to a blue grid symbol.
@@ -249,13 +249,15 @@ Tests: `tests/browser_sizes.js` (needs the `scan3.pdf` sample from `python smoke
 
 ### Tool families (tabs) from the SEO slug sheet
 
-A row of the slug sheet is a **family**: the first line is the primary tool (`/tool/<slug>`, renamed if the sheet gives it a slug), the lines under it are
+Every tool lives at the site root (`/<slug>`). Tools used to be at `/tool/<slug>`: `build.py` adds permanent (301) redirects from every old `/tool/...` address, so old links and search results keep working.
+
+A row of the slug sheet is a **family**: the first line is the primary tool (`/<slug>`, renamed if the sheet gives it a slug), the lines under it are
 its **tabs**, each on its own root address (`/<slug>`), exactly like Compress Image with PNG | JPEG | JPG | GIF. Tabs are `variants` in `tools.json` (`base` = the primary,
 `tab` = the label, `js` / `engine` for the screen they use, `aliases` = old addresses that redirect to them); the primary has `tabAll` = the label of its own tab.
 A tab click switches the screen in place (the address, title, text and tags follow, files you added stay when they fit). Tool scripts are loaded as modules, so two tabs
 can be on one page without their top-level names clashing. Search (home and header) also finds tabs.
 
-| Primary (`/tool/...`) | Tabs |
+| Primary (`/...`) | Tabs |
 |---|---|
 | `add-watermark-to-image` | `add-watermark-to-pdf`, `add-watermark-to-video` |
 | `pixelate-image` | `blur-redact-pdf` |
@@ -282,15 +284,15 @@ into pills, and the picture shows the result only (a toggle brings back Original
 
 ### PDF Editor and Font Library
 
-* **Font Library** (`/tool/font-library`, `static/assets/tools/font-library.js`): 51 free fonts (Latin, display, handwriting, monospace and Indian scripts) with a live preview, search, filters, ZIP download per font and "Copy CSS".
+* **Font Library** (`/font-library`, `static/assets/tools/font-library.js`): 51 free fonts (Latin, display, handwriting, monospace and Indian scripts) with a live preview, search, filters, ZIP download per font and "Copy CSS".
   The font files are in `static/assets/fonts/` with an index `fonts.json`; rebuild them with `python scripts/get_fonts.py` (downloads the TTFs from the `@expo-google-fonts/*` npm packages and writes `fonts.json`, including the scripts each font covers).
   `static/assets/tools/fonts-helpers.js` (`HT.fonts`) loads a font for the screen (`FontFace`, family "TB <Name>") and hands its bytes to the PDF engine, so the page and the saved PDF use the same font. `HT.fonts.picker()` is the font drop-down used inside the editor.
-* **PDF Editor** (`/tool/pdf-editor`, alias `/edit-pdf`; UI `static/assets/tools/pdf-editor.js`, export engine `static/assets/engine/pdf-edit.js`): pages are shown with pdf.js and what you add is an overlay of objects
+* **PDF Editor** (`/pdf-editor`, alias `/edit-pdf`; UI `static/assets/tools/pdf-editor.js`, export engine `static/assets/engine/pdf-edit.js`): pages are shown with pdf.js and what you add is an overlay of objects
   (text, pictures, rectangle, ellipse, line, arrow, highlight, drawing, white-out) in page points. The PDF's own text is editable straight away: hover any text in Select mode and click it (the "Edit text" tool shows all of it outlined). It turns a paragraph that is already in the PDF into a text box (the old text is removed from the file, the new one is written in a similar font and the colour taken from the page).
   **Scans** (a page that is only a picture) show an "OCR" bar: tesseract (in the browser, English / Hindi) reads the page and every line it finds becomes a text block you can change (`runOcr` in `pdf-editor.js`; the picture under the line is cleared with the paper colour and the new text is written in its place). **Pictures of the PDF** can be clicked in Select mode: they are removed from the file for good (the file gets smaller) and you can put your own picture in their place (`origpic` objects, found with the pdf.js operator list).
   Pages can be rotated, moved, deleted or added blank. **Download** builds the file with MuPDF (real embedded text when the font can be encoded, a picture of the text for Indian scripts and mixed lines), and offers PDF, Word (`pdf-to-word`), page pictures (`pdf-to-image`) and plain text.
   The whole font library is also **inside the editor**: the "Aa Font library" button in the toolbar (and "Browse the font library" in the text settings) opens a window with search, categories, script filter, a preview in your own text, "Use this font" and "Download" (`HT.fonts.library` in `fonts-helpers.js`; fonts that cannot draw your letters are marked). With text selected the choice changes that text, otherwise it becomes the font of the next text.
-  `/tool/pdf-editor?font=<id>` starts with that font (the Font Library links here). White-out removes what is under it from the file unless you switch that off.
+  `/pdf-editor?font=<id>` starts with that font (the Font Library links here). White-out removes what is under it from the file unless you switch that off.
   Sample documents for the tests: `python tests/make_pdf_samples.py` (needs reportlab). Tests: `node tests/browser_pdfeditor.js` (engine, font page, editing, white-out, page actions, all download formats, phone layout).
 
 ### Bookmark button

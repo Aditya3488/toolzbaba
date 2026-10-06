@@ -53,15 +53,15 @@ let pass = 0, fail = 0;
     const v = await (await ctx.browser().newContext({ viewport: { width: 1280, height: 800 } })).newPage(); const verrs = []; v.on('pageerror', e => verrs.push(e.message));
     await v.goto(BASE + '/', { waitUntil: 'networkidle' }); await v.waitForSelector('.tcard'); await v.waitForTimeout(500);
     ex(!(await v.locator('.tcard', { hasText: 'Anime Style' }).count()), 'still on the home page for a visitor'); ex(await v.locator('.tcard', { hasText: 'Compress Image' }).count() > 0, 'other tools vanished');
-    await v.goto(BASE + '/tool/anime-style', { waitUntil: 'networkidle' }); await v.waitForSelector('h1:has-text("taking a break")', { timeout: 8000 });
+    await v.goto(BASE + '/anime-style', { waitUntil: 'networkidle' }); await v.waitForSelector('h1:has-text("taking a break")', { timeout: 8000 });
     ex(await v.locator('meta[name=robots]').getAttribute('content') === 'noindex', 'archived page must be noindex');
     // the admin's own browser still sees it, with a note
-    const own = await ctx.newPage(); await own.goto(BASE + '/tool/anime-style', { waitUntil: 'networkidle' }); await own.waitForSelector('#tool .drop'); ex(/This tool is archived/.test(await own.locator('body').innerText()), 'admin note'); await own.close();
+    const own = await ctx.newPage(); await own.goto(BASE + '/anime-style', { waitUntil: 'networkidle' }); await own.waitForSelector('#tool .drop'); ex(/This tool is archived/.test(await own.locator('body').innerText()), 'admin note'); await own.close();
     // back to live
     await page.locator('.adm-bar input[type=search]').fill('anime style'); await page.waitForTimeout(200);
     await page.locator('.adm-t tbody tr', { hasText: 'Anime Style' }).first().getByRole('button', { name: 'Make live' }).click(); await page.locator('.adm-dlg').getByRole('button', { name: 'Yes' }).click(); await page.waitForSelector('.adm-t tbody tr:has-text("Anime Style") .adm-pill:has-text("Live")');
     ex(!(await (await fetch(BASE + '/api/tool-status')).json()).archived.includes('anime-style'), 'still archived');
-    await v.evaluate(() => localStorage.removeItem('tz_status')); await v.goto(BASE + '/tool/anime-style', { waitUntil: 'networkidle' }); await v.waitForSelector('#tool .drop', { timeout: 8000 }); ex(!verrs.length, 'visitor JS errors: ' + verrs);
+    await v.evaluate(() => localStorage.removeItem('tz_status')); await v.goto(BASE + '/anime-style', { waitUntil: 'networkidle' }); await v.waitForSelector('#tool .drop', { timeout: 8000 }); ex(!verrs.length, 'visitor JS errors: ' + verrs);
     await v.context().close(); return 'hidden, noindex, back again';
   });
 
@@ -99,7 +99,7 @@ let pass = 0, fail = 0;
   });
 
   const views = async slug => { const r = (await call('rum')).rum; return r && r.tools[slug] ? r.tools[slug].views : 0; };
-  const visit = async (ctx, init, slug = '/tool/json-formatter') => { const v = await (await ctx.browser().newContext(init || {})).newPage(); await v.addInitScript(() => { Math.random = () => 0.01; }); await v.goto(BASE + slug, { waitUntil: 'networkidle' }); await v.waitForTimeout(800); await v.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await v.waitForTimeout(800); return v; };
+  const visit = async (ctx, init, slug = '/json-formatter') => { const v = await (await ctx.browser().newContext(init || {})).newPage(); await v.addInitScript(() => { Math.random = () => 0.01; }); await v.goto(BASE + slug, { waitUntil: 'networkidle' }); await v.waitForTimeout(800); await v.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await v.waitForTimeout(800); return v; };
   await T('rum: a sampled visit is counted once, and the panel shows it', async (page, ctx) => {
     const v = await visit(ctx); await v.context().close();
     let n = 0; for (let i = 0; i < 15 && !n; i++) { n = await views('json-formatter'); if (!n) await new Promise(r => setTimeout(r, 400)); }
@@ -110,22 +110,22 @@ let pass = 0, fail = 0;
 
   await T('rum: nothing is counted from the admin browser or with Do Not Track', async (page, ctx) => {
     const before = await views('json-formatter');
-    await signIn(page); await page.addInitScript(() => { Math.random = () => 0.01; }); await page.goto(BASE + '/tool/json-formatter', { waitUntil: 'networkidle' }); await page.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await page.waitForTimeout(1200);
+    await signIn(page); await page.addInitScript(() => { Math.random = () => 0.01; }); await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' }); await page.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await page.waitForTimeout(1200);
     ex(await views('json-formatter') === before, 'admin browser was counted');
     const d = await (await ctx.browser().newContext()).newPage(); await d.addInitScript(() => { Object.defineProperty(navigator, 'doNotTrack', { value: '1' }); Math.random = () => 0.01; });
-    await d.goto(BASE + '/tool/json-formatter', { waitUntil: 'networkidle' }); await d.waitForTimeout(500); await d.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await d.waitForTimeout(1200); await d.context().close();
+    await d.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' }); await d.waitForTimeout(500); await d.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await d.waitForTimeout(1200); await d.context().close();
     ex(await views('json-formatter') === before, 'Do Not Track was ignored');
   });
 
   await T('rum: only a sample is counted (nine visits in ten send nothing)', async (page, ctx) => {
     const before = await views('json-formatter'), v = await (await ctx.browser().newContext()).newPage(); await v.addInitScript(() => { Math.random = () => 0.95; });
-    await v.goto(BASE + '/tool/json-formatter', { waitUntil: 'networkidle' }); await v.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await v.waitForTimeout(1200); await v.context().close();
+    await v.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' }); await v.goto(BASE + '/privacy', { waitUntil: 'networkidle' }); await v.waitForTimeout(1200); await v.context().close();
     ex(await views('json-formatter') === before, 'an unsampled visit was counted');
   });
 
   await T('public pages do not load the admin code', async page => {
     const seen = []; page.on('request', r => { if (/admin/.test(r.url())) seen.push(r.url()); });
-    await page.goto(BASE + '/', { waitUntil: 'networkidle' }); await page.goto(BASE + '/tool/json-formatter', { waitUntil: 'networkidle' }); ex(!seen.length, 'loaded: ' + seen.join());
+    await page.goto(BASE + '/', { waitUntil: 'networkidle' }); await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' }); ex(!seen.length, 'loaded: ' + seen.join());
   });
 
   await T('admin: phone layout has no sideways page scroll', async page => {

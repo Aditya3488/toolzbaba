@@ -47,7 +47,7 @@
   document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
   const data = await HT.loadTools();
   const tools = data.tools;
-  const href = t => t.href || '/tool/' + t.slug;
+  const href = t => t.href || '/' + t.slug;
 
   // popular chips + trust row
   const pop = document.getElementById('popular'); pop.append(el('span', { text: 'Popular:' }));

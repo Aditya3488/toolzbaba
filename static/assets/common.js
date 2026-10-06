@@ -654,7 +654,7 @@
       const tabs = (data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base); return { ...v, cat: b.cat, kind: v.kind || b.kind, href: '/' + v.slug, icon: v.base }; });
       items = [...data.tools, ...tabs].filter(t => q.split(/\s+/).every(w => (t.name + ' ' + t.desc + ' ' + t.slug.replace(/-/g, ' ')).toLowerCase().includes(w))).slice(0, 8);
       if (!items.length) { res.append(el('div', { class: 'help', style: { padding: '10px 12px' }, text: 'No matching tools' })); return res.classList.remove('hidden'); }
-      items.forEach(t => res.append(el('a', { class: 'cat-' + t.cat, href: t.href || '/tool/' + t.slug }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: catOf(data, t.cat).name }))));
+      items.forEach(t => res.append(el('a', { class: 'cat-' + t.cat, href: t.href || '/' + t.slug }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: catOf(data, t.cat).name }))));
       res.classList.remove('hidden');
     };
     const mark = () => [...res.children].forEach((a, i) => a.classList.toggle('sel', i === sel));
@@ -663,7 +663,7 @@
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
-      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || '/tool/' + t.slug; }
+      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || '/' + t.slug; }
       else if (e.key === 'Escape') { input.value = ''; show(); input.blur(); }
     });
     document.addEventListener('click', e => { if (!box.contains(e.target)) res.classList.add('hidden'); });
@@ -699,11 +699,11 @@
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(bm); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
-    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/tool/' + t.slug, text: t.name })))); });
+    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))); });
   };
 
   // tools.json gives a tool an emoji in `icon` (not an icon name): only a plain name (a tab page uses the name of its tool) picks another icon
-  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/tool/' + t.slug },
+  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/' + t.slug },
     el('div', { class: 'ic' }, HT.toolIcon(iconKey(t))),
     el('div', {}, el('b', { text: t.name }), el('span', { class: 'd', text: t.desc }),
       el('div', {}, t.kind === 'client' ? el('span', { class: 'tag local', text: 'In your browser' }) : null, t.cat === 'ai' ? el('span', { class: 'tag ai', text: 'AI' }) : null)),
@@ -718,7 +718,7 @@
     work.append(el('div', { class: 'card', style: { textAlign: 'center', padding: '34px 22px' } },
       el('h1', { text: (t.name || 'This tool') + ' is taking a break', style: { fontSize: '1.5rem' } }),
       el('p', { class: 'help', style: { margin: '10px 0 18px' }, text: 'We switched it off for a while. Please try again later, or use one of the other tools.' }),
-      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: '/tool/' + x.slug, text: x.name })))));
+      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: '/' + x.slug, text: x.name })))));
   };
 
   HT.mount = async () => {
@@ -742,7 +742,7 @@
     if (HT.isAdmin() && data.archivedSlugs && (data.archivedSlugs.has(slug) || data.archivedSlugs.has(baseSlug))) work.before(el('div', { class: 'help', style: { background: 'var(--warn-bg, #fff4d6)', border: '1px solid #f0d58a', borderRadius: '10px', padding: '8px 12px', marginBottom: '12px' }, text: 'This tool is archived. Visitors do not see it. You can, because you are signed in to the admin panel in this browser.' }));
     const cat = catOf(data, meta.cat), client = meta.kind === 'client';
     page.classList.add('cat-' + meta.cat);
-    const pathOf = s => (s === baseSlug ? '/tool/' + s : '/' + s);
+    const pathOf = s => '/' + s; // every tool and tab lives at the site root
     const metaFor = s => {  // a tool, or a format page merged onto its base tool
       const t = data.tools.find(x => x.slug === s); if (t) return t;
       const v = (data.variants || []).find(x => x.slug === s), b = v && data.tools.find(x => x.slug === v.base); return b ? { ...b, ...v } : null;
@@ -839,7 +839,7 @@
       el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: meta.privacyTitle || (client ? 'Private by design' : 'Shared by link') }),
         meta.privacy || (client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.'))));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== baseSlug && !t.href).slice(0, 6);
-    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/tool/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
+    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 
     HT.footer();
     const later = window.requestIdleCallback || (f => setTimeout(f, 1500));

@@ -30,7 +30,7 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- the export engine, called directly with a hand-made plan
   await T('engine: every kind of object ends up in the PDF', async page => {
-    await go(page, '/tool/font-library');
+    await go(page, '/font-library');
     const r = await page.evaluate(async ([pdfB64, pngB64]) => {
       const bytes = b => Uint8Array.from(atob(b), c => c.charCodeAt(0));
       const pdf = new File([bytes(pdfB64)], 'five.pdf', { type: 'application/pdf' }), icon = new File([bytes(pngB64)], 'icon.png', { type: 'image/png' });
@@ -72,7 +72,7 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- the font library page
   await T('fonts: library lists the fonts, filters by script, downloads a ZIP', async page => {
-    await go(page, '/tool/font-library'); await page.waitForSelector('.fcard'); await page.waitForTimeout(800);
+    await go(page, '/font-library'); await page.waitForSelector('.fcard'); await page.waitForTimeout(800);
     const all = await page.locator('.fcard').count(); ex(all >= 40, 'only ' + all + ' fonts');
     await page.locator('.tab', { hasText: 'Indian scripts' }).click(); await page.waitForTimeout(500);
     const indic = await page.locator('.fcard').count(); ex(indic >= 8 && indic < all, 'indian scripts: ' + indic);
@@ -83,7 +83,7 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- the editor
   const openEditor = async (page, file = 'five.pdf') => {
-    await go(page, '/tool/pdf-editor'); await page.setInputFiles('input[type=file]', S + file); await page.waitForSelector('.edlayer'); await page.waitForTimeout(700);
+    await go(page, '/pdf-editor'); await page.setInputFiles('input[type=file]', S + file); await page.waitForSelector('.edlayer'); await page.waitForTimeout(700);
     return await page.locator('.edlayer').boundingBox();
   };
   const dragOn = async (page, box, x0, y0, x1, y1) => { await page.mouse.move(box.x + x0, box.y + y0); await page.mouse.down(); await page.mouse.move(box.x + x1, box.y + y1, { steps: 6 }); await page.mouse.up(); };
