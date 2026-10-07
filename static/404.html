@@ -13,7 +13,15 @@
 <p class="sub">It does not exist or has moved. The Baba suggests trying one of the tools instead.</p>
 <p><a class="btn" href="/">Browse all tools</a></p>
 </main>
+<section class="ask" aria-labelledby="ask-h">
+  <div class="ask-h"><h2 id="ask-h">Just tell Baba what you need</h2><p>Pick a task, or type your own. Baba opens the right tool.</p></div>
+  <div class="ask-stage compact" id="askstage"></div>
+</section>
 <script src="/assets/common.js"></script>
-<script>HT.header(); HT.footer();</script>
+<script>HT.header(); HT.footer();
+  // Ask Baba (assets/ask-baba.js): loaded only when it comes near the screen
+  const askStage = document.getElementById('askstage');
+  new IntersectionObserver((es, o) => { if (es.some(e => e.isIntersecting)) { o.disconnect(); HT.loadScript('/assets/ask-baba.js').then(() => HT.askBaba(askStage, { compact: true })); } }, { rootMargin: '400px' }).observe(askStage);
+</script>
 </body>
 </html>

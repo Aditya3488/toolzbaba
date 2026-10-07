@@ -25,6 +25,11 @@
   </div>
 </section>
 
+<section class="ask" aria-labelledby="ask-h">
+  <div class="ask-h"><h2 id="ask-h">Just tell Baba what you need</h2><p>Pick a task, or type your own. Baba opens the right tool.</p></div>
+  <div class="ask-stage" id="askstage"></div>
+</section>
+
 <div class="catbar" id="catbar"><div class="catbar-in" id="cats" role="tablist" aria-label="Tool categories"></div></div>
 <main class="wrap" id="list">
   <div class="sec-h"><h2>Loading tools...</h2></div>
@@ -42,6 +47,10 @@
 <script>
 (async () => {
   HT.header('tools'); HT.footer();
+  // Ask Baba (assets/ask-baba.js): loaded only when it comes near the screen
+  const askStage = document.getElementById('askstage');
+  new IntersectionObserver((es, o) => { if (es.some(e => e.isIntersecting)) { o.disconnect(); HT.loadScript('/assets/ask-baba.js').then(() => HT.askBaba(askStage)); } }, { rootMargin: '400px' }).observe(askStage);
+
   const el = HT.el;
   const bs = document.getElementById('bigsearch'); bs.prepend(HT.svg(HT.ICON.search));
   document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
