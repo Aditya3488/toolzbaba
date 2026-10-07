@@ -618,6 +618,7 @@
   // .tzstar shows frame 12 (the resting star); adding .play runs the 1-second animation once (see @keyframes tzstar in app.css).
   const STAR_SPRITE = '/assets/brand/star-sprite.webp';
   const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let starReady = false;
   HT.star = (px, { play = false } = {}) => {
     const s = el('span', { class: 'tzstar', 'aria-hidden': 'true' }); s.style.setProperty('--tzs', px + 'px');
     if (play) HT.playStar(s);
@@ -625,52 +626,56 @@
   };
   HT.playStar = s => {   // starts only when the sprite has loaded, so the first frames are never played on an empty box
     if (reduceMotion()) return;
-    const img = new Image(); img.src = STAR_SPRITE;
-    (img.decode ? img.decode() : Promise.resolve()).then(() => { s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); }).catch(() => { });
+    const go = () => { s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); };
+    if (starReady) return go();
+    const img = new Image(); img.onload = () => { starReady = true; go(); }; img.src = STAR_SPRITE;   // onload, not decode(): decode() waits while the tab is hidden
   };
-  // the header's star plays once per visit (browser session), not again on every page
-  const starOncePerVisit = () => { try { if (sessionStorage.getItem('tz_star')) return false; sessionStorage.setItem('tz_star', '1'); return true; } catch { return false; } };
-  const bookmarkButton = () => { const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, HT.star(20, { play: starOncePerVisit() }), el('span', { text: 'Bookmark' })); b.onclick = () => HT.bookmark(); return b; };
+  // the header's star plays on every page load, and again when the Bookmark button is hovered or tapped
+  const bookmarkButton = () => {
+    const star = HT.star(20, { play: true });
+    const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, star, el('span', { text: 'Bookmark' }));
+    b.addEventListener('mouseenter', () => HT.playStar(star));
+    b.onclick = () => { HT.playStar(star); HT.bookmark(); };
+    return b;
+  };
 
-  // "Never miss free tools": a toast at the top right, just under the header. Shown after a download, and by the
-  // header's Bookmark button and the footer link. "Bookmark" offers "Install app" where the browser supports it,
-  // otherwise it shows the keys / taps for this device (no browser lets a page add a bookmark by itself).
+  // "Never miss free tools": a toast at the top centre, a little under the header. It opens like a funnel (small to big,
+  // moving down), stays until the visitor answers, and leaves the other way (big to small, moving up).
+  // Answering: a tap on the toast = "yes, bookmark" (Install app where the browser offers it, otherwise the keys / taps
+  // for this device, since no browser lets a page add a bookmark by itself); x or Esc = "not now" (no reminder for 1 hour).
+  // Shown after a download, by the header's Bookmark button and by the footer link.
   const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze';
   const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return Infinity; } };
   const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Date.now() + ms)); } catch { } };
   HT.bookmark = ({ fromDownload = false } = {}) => {
     const old = document.querySelector('.bmtoast'); if (old) old.remove();
-    const k = keysFor(), hide = el('input', { type: 'checkbox' });
-    let timer = 0, held = false;
-    const close = () => { clearTimeout(timer); if (fromDownload && hide.checked) snooze(HOUR); toast.classList.add('out'); setTimeout(() => toast.remove(), 220); document.removeEventListener('keydown', esc); };
-    const esc = e => { if (e.key === 'Escape') close(); };
-    const later = () => { clearTimeout(timer); if (!held) timer = setTimeout(close, 15000); };   // goes away by itself, but not while you are reading or using it
-    const keys = () => k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), el('span', { text: '+' }), el('kbd', { text: k.key[1] })) : null;
-    const body = el('div', { class: 'bmbody' });
-    const howTo = () => {
-      held = true; clearTimeout(timer); body.textContent = '';
-      body.append(el('p', { class: 'bmhow', text: k.key ? 'Press these keys now to bookmark this page:' : k.steps }), keys(),
-        el('div', { class: 'bmact' }, el('button', { class: 'btn sm', type: 'button', text: 'Done', onclick: close })));
+    const k = keysFor();
+    let done = false;
+    const close = ({ notNow = false } = {}) => {
+      if (done) return; done = true;
+      if (notNow && fromDownload) snooze(HOUR);
+      document.removeEventListener('keydown', onKey);
+      toast.classList.add('out'); setTimeout(() => toast.remove(), 420);
     };
-    const bookmark = async () => {
+    // Esc = not now; Ctrl+D / Cmd+D while the toast shows = they bookmarked: let the browser do it, then say goodbye
+    const onKey = e => { if (e.key === 'Escape') close({ notNow: true }); else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') { snooze(30 * 24 * HOUR); setTimeout(() => close(), 300); } };
+    const sub = el('p', { class: 'bmsub', text: 'Just bookmark this site.' });
+    const yes = async () => {
+      if (toast.classList.contains('how')) return;
       snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
       if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') return close(); } catch { installEvt = null; } }
-      howTo();
+      toast.classList.add('how'); sub.textContent = '';
+      if (k.key) sub.append('Press ', el('kbd', { text: k.key[0] }), ' + ', el('kbd', { text: k.key[1] }), ' now');
+      else sub.textContent = k.steps;
     };
-    body.append(
-      el('label', { class: 'bmhide', hidden: fromDownload ? null : 'hidden' }, hide, el('span', { text: "Don't show this again for 1 hour" })),
-      el('div', { class: 'bmact' },
-        el('button', { class: 'btn sm', type: 'button', onclick: bookmark, text: installEvt ? 'Install app' : 'Bookmark' }),
-        el('button', { class: 'btn sec sm', type: 'button', text: 'Not now', onclick: close })));
-    const star = HT.star(44);
-    const toast = el('div', { class: 'bmtoast', role: 'region', 'aria-label': 'Bookmark this site', 'aria-live': 'polite' },
-      el('button', { class: 'bmx', type: 'button', 'aria-label': 'Close', text: '×', onclick: close }),
-      el('div', { class: 'bmrow' }, star, el('div', {}, el('b', { class: 'bmtitle', text: 'Never miss free tools' }), el('p', { class: 'bmsub', text: 'Just bookmark this site.' }))),
-      body);
-    ['mouseenter', 'focusin'].forEach(t => toast.addEventListener(t, () => { held = true; clearTimeout(timer); }));
-    ['mouseleave', 'focusout'].forEach(t => toast.addEventListener(t, e => { if (t === 'focusout' && toast.contains(e.relatedTarget)) return; if (!body.querySelector('.bmhow')) { held = false; later(); } }));
-    document.body.append(toast); document.addEventListener('keydown', esc);
-    HT.playStar(star); later();
+    const star = HT.star(40);
+    const toast = el('div', { class: 'bmtoast', role: 'button', tabindex: '0', 'aria-label': 'Never miss free tools: bookmark this site', title: installEvt ? 'Install Toolz Baba as an app' : 'Bookmark this site' },
+      el('button', { class: 'bmx', type: 'button', 'aria-label': 'Not now', title: 'Not now', text: '×', onclick: e => { e.stopPropagation(); close({ notNow: true }); } }),
+      star, el('div', { class: 'bmtext' }, el('b', { class: 'bmtitle', text: 'Never miss free tools' }), sub));
+    toast.addEventListener('click', yes);
+    toast.addEventListener('keydown', e => { if (e.target === toast && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); yes(); } });
+    document.body.append(toast); document.addEventListener('keydown', onKey);
+    HT.playStar(star);
   };
   // after a finished download: the toast, unless it was snoozed, or already shown in the last 2 minutes (one toast for a batch of downloads)
   let lastNudge = 0;
@@ -686,7 +691,7 @@
   const themeButton = () => {
     const b = el('button', { class: 'iconbtn', type: 'button', 'aria-label': 'Change theme' });
     const paint = () => { const t = themeNow(); b.textContent = ''; b.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto)); b.title = 'Theme: ' + (t || 'auto') + ' (click to change)'; };
-    b.onclick = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); paint(); HT.toast('Theme: ' + (next || 'automatic')); };
+    b.onclick = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); paint(); document.querySelectorAll('.bmbtn .tzstar').forEach(HT.playStar); HT.toast('Theme: ' + (next || 'automatic')); };
     paint(); return b;
   };
 
