@@ -1,8 +1,8 @@
 /* ============================================================ design tokens */
 :root {
-  --bg:#f6f7fb; --bg2:#eef0f8; --card:#ffffff; --card2:#f9fafd; --text:#12152b; --muted:#5d647d; --faint:#8b91a8;
+  --bg:#f6f7fb; --bg2:#eef0f8; --card:#ffffff; --card2:#f9fafd; --text:#12152b; --muted:#5d647d; --faint:#686f88;
   --accent:#0a4ff5; --accent-h:#0838d6; --accent2:#f26a10; --accent-soft:#e8f0ff; --accent-ring:rgba(10,79,245,.26); --brand-orange:#ec5801;
-  --border:#e3e6f1; --border2:#d3d8e8; --err:#d92d20; --ok:#0f9b6c; --ok-soft:#e5f8f0;
+  --border:#e3e6f1; --border2:#d3d8e8; --err:#d92d20; --ok:#0b7a55; --ok-soft:#e5f8f0;
   --grad:linear-gradient(135deg,#2f7bff 0%,#0a4ff5 55%,#0836d0 100%); --grad-warm:linear-gradient(135deg,#ff9a2e 0%,#f26a10 50%,#e04d00 100%);
   --shadow-sm:0 1px 2px rgba(18,21,43,.05); --shadow:0 1px 2px rgba(18,21,43,.04),0 8px 24px rgba(18,21,43,.06);
   --shadow-lg:0 2px 4px rgba(18,21,43,.05),0 18px 44px rgba(18,21,43,.12);
@@ -639,3 +639,26 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .post-cta span { color:var(--muted); font-size:.92rem; flex:1; min-width:220px; }
 .blog-more { margin:44px 0 0; } .blog-more h2 { font-size:1.3rem; margin:0 0 14px; }
 @media (max-width:600px) { .blog { padding:20px 16px 30px; } .blog-hero h1 { font-size:1.7rem; } .post h1 { font-size:1.65rem; } .post-body { font-size:1rem; } }
+
+/* ============================================================ UI fixes (Oct 2026 audit) */
+/* header search: the results list is wider than the (narrow) search box, so tool names stay on one line */
+.hres { left:auto; right:0; width:max(100%, 380px); max-width:calc(100vw - 24px); }
+.hres a { white-space:nowrap; }
+.hres small { flex:none; max-width:45%; overflow:hidden; text-overflow:ellipsis; font-size:.8rem; }
+/* file list: a long file name shrinks with "…" instead of pushing the size and the remove button off the screen */
+.files { grid-template-columns:minmax(0,1fr); }
+.file { min-width:0; }
+/* the "which file" picker above a result never gets wider than its card */
+.pickrow { min-width:0; max-width:100%; } .pickrow select { max-width:100%; min-width:0; }
+/* phone menu: a search box on top, and a proper arrow instead of the browser's triangle */
+.nv-msearch { position:relative; margin:10px 0 6px; }
+.nv-msearch input { width:100%; padding:11px 14px 11px 40px; border:1px solid var(--border2); border-radius:12px; background:var(--bg); color:var(--text); font:inherit; font-size:1rem; }
+.nv-msearch > svg { position:absolute; left:13px; top:23px; transform:translateY(-50%); width:17px; height:17px; color:var(--faint); pointer-events:none; }
+.nv-msearch .hres { position:static; width:auto; max-width:100%; min-width:0; margin-top:8px; box-shadow:none; }
+.nv-msearch .hres a { white-space:normal; min-width:0; } .nv-msearch .hres small { max-width:40%; white-space:nowrap; }
+.nv-md summary { list-style:none; display:flex; align-items:center; justify-content:space-between; }
+.nv-md summary::-webkit-details-marker { display:none; }
+.nv-md summary::after { content:""; width:8px; height:8px; border-right:2px solid var(--faint); border-bottom:2px solid var(--faint); transform:rotate(45deg); margin:0 6px 4px 0; transition:transform .15s; }
+.nv-md[open] summary::after { transform:rotate(-135deg); margin-bottom:-2px; }
+/* the blog before its first post: point people to the tools instead of an empty page */
+.blog-empty { text-align:center; } .blog-empty .chips { justify-content:center; margin-top:14px; }

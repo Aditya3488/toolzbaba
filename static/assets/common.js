@@ -754,14 +754,14 @@
   const NAV_MENUS = [
     ['Image', 'image', [
       ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
-      ['Convert', ['convert-image', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
+      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
       ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
     ]],
     ['PDF', 'pdf', [
-      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'compress-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
-      ['Convert from PDF', ['pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'image-to-text']],
+      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
       ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf']],
       ['PDF security', ['protect-pdf', 'unlock-pdf']],
       ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
@@ -776,10 +776,10 @@
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
     ['Convert', 'convert', [
-      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
-      ['Convert from PDF', ['pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'image-to-text']],
+      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
       ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
-      ['Images', ['convert-image', 'image-to-svg', 'resize-image', 'compress-image']],
+      ['Images', ['png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'jpg-to-webp', 'convert-image', 'image-to-svg']],
       ['Video and audio', ['video-converter', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
     ]],
     ['All tools', 'all', null],
@@ -824,7 +824,9 @@
     const closeM = () => { mobile.hidden = true; burger.setAttribute('aria-expanded', 'false'); };
     burger.addEventListener('click', async () => {
       if (!mobile.hidden) return closeM();
-      if (!mFilled) { const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
+      // on a phone the header has no search box, so the menu starts with one (the same search as the header's)
+      if (!mFilled) { const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search 55+ tools...'; mobile.append(s);
+        const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
     });
     return { nav, burger, mobile };

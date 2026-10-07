@@ -1,6 +1,12 @@
 // GET /blog: the list of published posts, newest first (?page=2 for older ones, ?tag=<name> for one topic).
 import { PER_PAGE, card, escapeHtml, page, publishedPosts, siteUrl } from '../../lib/blog-store.js';
 
+// before the first post: a way on to the tools instead of a dead end
+const POPULAR = [['compress-image', 'Compress Image'], ['resize-image-to-kb', 'Resize Photo to KB'], ['compress-pdf', 'Compress PDF'], ['merge-pdf', 'Merge PDF'],
+  ['remove-background', 'Background Remover'], ['passport-size-photo-maker', 'Passport Photo Maker'], ['pdf-to-jpg', 'PDF to JPG'], ['image-to-text', 'Image to Text (OCR)']];
+const EMPTY = '<div class="blog-empty"><p>The first guides are on their way. Meanwhile, these are the tools people use most:</p><div class="chips">' +
+  POPULAR.map(([s, n]) => `<a class="chip" href="/${s}">${n}</a>`).join('') + '</div><p style="margin-top:18px"><a class="btn" href="/">See all tools</a></p></div>';
+
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url), base = siteUrl(request);
   const tag = (url.searchParams.get('tag') || '').trim().slice(0, 30);
@@ -15,7 +21,7 @@ export async function onRequestGet({ request, env }) {
   const title = tag ? `Posts about ${tag}` : 'Blog';
   const main = `<section class="blog-hero"><h1>${escapeHtml(title)}</h1><p>Guides, tips and how-tos for images, PDFs, video and everyday files.</p>` +
     (tag ? '<p><a href="/blog">← All posts</a></p>' : '') + `<p class="blog-rss"><a href="/blog/feed.xml">RSS feed</a></p></section>` +
-    (shown.length ? `<div class="blog-grid">${shown.map(card).join('')}</div>${nav}` : '<div class="blog-empty"><p>No posts yet. Check back soon.</p></div>');
+    (shown.length ? `<div class="blog-grid">${shown.map(card).join('')}</div>${nav}` : EMPTY);
   const path = n > 1 && !tag ? `/blog?page=${n}` : '/blog';
   return page(request, env, {
     title: `${title}${n > 1 ? ` (page ${n})` : ''} – Toolz Baba`, path, noindex: !!tag || !shown.length,
