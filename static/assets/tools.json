@@ -37,7 +37,30 @@
    "js": "compress-target",
    "about": "Reduce the file size of JPG, PNG, WebP, GIF, AVIF and HEIC images. Pick the quality and the output format, limit the width, and compress up to 40 images at once. PNG files can be shrunk further by reducing their colours, and the result shows exactly how much each file shrank.",
    "popular": 1,
-   "ui": "target-any"
+   "ui": "target-any",
+   "steps": [
+    "Add your images: JPG, PNG, WebP, GIF, AVIF or HEIC, up to 40 at once.",
+    "Set the quality (70 to 80 percent usually looks the same) and, if you like, the output format and a maximum width.",
+    "Click Compress and download the smaller files."
+   ],
+   "faq": [
+    {
+     "q": "How do I reduce the size of a photo without losing quality?",
+     "a": "Use a quality of 70 to 80 percent: the difference is usually invisible, and the file is often several times smaller. Setting a maximum width such as 1920 px shrinks very large photos even more."
+    },
+    {
+     "q": "How do I compress an image to an exact size like 50 KB?",
+     "a": "Use the size buttons on the JPG / JPEG tab (10 KB to 2 MB), or Resize Photo & Signature to KB for exam and job forms that also need exact pixel sizes."
+    },
+    {
+     "q": "Can I compress many images at once?",
+     "a": "Yes, up to 40 images in one go."
+    },
+    {
+     "q": "Are my images uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "resize-image",
@@ -47,7 +70,26 @@
    "desc": "Change size by pixels, percentage or fit-in-box. Batch supported.",
    "kind": "client",
    "js": "image-basic",
-   "about": "Change the size of one or many images by width, height, percentage, or by fitting them inside a box. Downscaling is done in steps so text and thin lines stay sharp. Everything happens in your browser, and you can save as PNG, JPG or WebP."
+   "about": "Change the size of one or many images by width, height, percentage, or by fitting them inside a box. Downscaling is done in steps so text and thin lines stay sharp. Everything happens in your browser, and you can save as PNG, JPG or WebP.",
+   "steps": [
+    "Add one or many images.",
+    "Choose the new size by width, height, percentage or a box to fit in.",
+    "Save as PNG, JPG or WebP."
+   ],
+   "faq": [
+    {
+     "q": "How do I resize an image without losing quality?",
+     "a": "Making a picture smaller keeps it sharp: the tool scales down in steps so text and thin lines stay clear. Making it much bigger adds blur; use Image Upscaler for that."
+    },
+    {
+     "q": "Can I resize many images at once?",
+     "a": "Yes, add several images and they are all resized with the same settings."
+    },
+    {
+     "q": "How do I resize to a file size in KB?",
+     "a": "Use Resize Photo & Signature to KB, which also sets the exact pixel or cm size forms ask for."
+    }
+   ]
   },
   {
    "slug": "crop-image",
@@ -57,7 +99,22 @@
    "desc": "Drag to crop with aspect ratio presets (1:1, 16:9, 4:5...).",
    "kind": "client",
    "js": "image-basic",
-   "about": "Crop a picture by dragging a box over it, or type exact pixel values. Lock the shape to 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 or 3:4, then save as PNG, JPG or WebP. The crop is done in your browser at full resolution."
+   "about": "Crop a picture by dragging a box over it, or type exact pixel values. Lock the shape to 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 or 3:4, then save as PNG, JPG or WebP. The crop is done in your browser at full resolution.",
+   "steps": [
+    "Add your picture.",
+    "Drag the box, or type exact pixel values, and lock a shape such as 1:1 or 16:9 if you need one.",
+    "Save as PNG, JPG or WebP."
+   ],
+   "faq": [
+    {
+     "q": "How do I crop a photo to a square?",
+     "a": "Add the photo, choose the 1:1 shape and drag the box over the part you want to keep."
+    },
+    {
+     "q": "Does cropping reduce the quality?",
+     "a": "No. The crop is done at full resolution; only the parts outside the box are removed."
+    }
+   ]
   },
   {
    "slug": "convert-image",
@@ -68,7 +125,8 @@
    "kind": "client",
    "engine": "image",
    "js": "server-image",
-   "about": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO. iPhone HEIC photos are supported as input. Choose the quality, and pick a background colour for formats that cannot be transparent. Convert up to 40 files at once."
+   "about": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO. iPhone HEIC photos are supported as input. Choose the quality, and pick a background colour for formats that cannot be transparent. Convert up to 40 files at once.",
+   "tabAll": "All formats"
   },
   {
    "slug": "rotate-flip",
@@ -206,7 +264,30 @@
    "js": "image-kb",
    "desc": "Make a photo or signature an exact size in pixels/cm and under 20, 50 or 100 KB. For exam and job forms.",
    "about": "Government and exam forms often want a photo or signature of an exact size and a file size such as 20-50 KB. Enter the size in pixels, centimetres, millimetres or inches, set the minimum and maximum KB, and the tool finds the best JPG quality that fits. It can also set 200 or 300 DPI. Everything runs in your browser, so your photo is never uploaded.",
-   "popular": 2
+   "popular": 2,
+   "steps": [
+    "Add your photo or signature.",
+    "Enter the size the form asks for (pixels, cm, mm or inches) and the minimum and maximum KB.",
+    "Download the JPG: the tool picks the best quality that fits the limit."
+   ],
+   "faq": [
+    {
+     "q": "How do I resize a photo to 20 KB or 50 KB for a form?",
+     "a": "Add the photo, set the maximum (and if needed minimum) KB the form allows, enter the required size and download. The tool finds the best JPG quality that fits."
+    },
+    {
+     "q": "Can I resize a signature too?",
+     "a": "Yes. Add a photo or scan of your signature and enter the signature size and KB limit from the form."
+    },
+    {
+     "q": "Can I set 200 or 300 DPI?",
+     "a": "Yes, the tool can set 200 or 300 DPI in the file for forms that ask for it."
+    },
+    {
+     "q": "Is my photo uploaded?",
+     "a": "No. Everything runs in your browser, so your photo is never uploaded."
+    }
+   ]
   },
   {
    "slug": "passport-size-photo-maker",
@@ -222,7 +303,26 @@
    "aliases": [
     "passport-photo-maker"
    ],
-   "tabAll": "Passport photo"
+   "tabAll": "Passport photo",
+   "steps": [
+    "Add a front-facing photo or selfie.",
+    "Choose the size (for example 35x45 mm or 2x2 inch) and the background colour.",
+    "Download the photo, or a 4x6 inch, 5x7 inch or A4 print sheet with many copies."
+   ],
+   "faq": [
+    {
+     "q": "How do I make a passport size photo at home?",
+     "a": "Take a front-facing photo against any wall, add it here, choose the size and a white background, and download. The AI removes the background and crops the head to the right size."
+    },
+    {
+     "q": "What is the Indian passport photo size?",
+     "a": "Indian passports use 35x45 mm (Indian visas use 51x51 mm, or 2x2 inch). Both sizes are available, but always check the current rules for your application."
+    },
+    {
+     "q": "Can I print several copies on one sheet?",
+     "a": "Yes. Lay them out on a 4x6 inch, 5x7 inch or A4 sheet with cutting guides."
+    }
+   ]
   },
   {
    "slug": "image-to-text",
@@ -246,7 +346,30 @@
    "engine": "ai",
    "js": "server-ai",
    "about": "Remove the background from a photo with AI and get a transparent PNG or WebP. Choose a model for general photos, people or anime and illustrations. Works on products, portraits, pets and objects.",
-   "popular": 4
+   "popular": 4,
+   "aliases": [
+    "background-remover",
+    "bg-remover"
+   ],
+   "steps": [
+    "Add a photo of a person, product, pet or object.",
+    "Pick the model: general photos, people, or anime and illustrations.",
+    "Download the cut-out as a transparent PNG or WebP."
+   ],
+   "faq": [
+    {
+     "q": "How do I remove the background from a photo for free?",
+     "a": "Add the photo here and the AI cuts out the subject. Download it as a transparent PNG or WebP. There is no sign-up and no watermark."
+    },
+    {
+     "q": "Which model should I choose?",
+     "a": "Use the people model for portraits, the anime model for drawings and illustrations, and the general model for products, pets and everything else."
+    },
+    {
+     "q": "Can I put a new background behind the subject?",
+     "a": "Yes, use Replace Background to put a colour or another picture behind the cut-out."
+    }
+   ]
   },
   {
    "slug": "replace-background",
@@ -269,7 +392,22 @@
    "engine": "ai",
    "js": "server-ai",
    "about": "Enlarge small or blurry pictures 2x, 3x or 4x with an AI upscaler that keeps details sharp, or use the fast mode for very large images. Best for pictures up to about 2.5 megapixels.",
-   "popular": 8
+   "popular": 8,
+   "steps": [
+    "Add a small or blurry picture.",
+    "Choose 2x, 3x or 4x, and the AI or the fast mode.",
+    "Download the larger, sharper image."
+   ],
+   "faq": [
+    {
+     "q": "How do I increase the resolution of an image?",
+     "a": "Add the picture and choose 2x, 3x or 4x. The AI upscaler adds detail so the result stays sharp instead of blurry."
+    },
+    {
+     "q": "Which images work best?",
+     "a": "Pictures up to about 2.5 megapixels. Use the fast mode for very large images."
+    }
+   ]
   },
   {
    "slug": "face-blur",
@@ -280,7 +418,10 @@
    "kind": "client",
    "engine": "ai",
    "js": "server-ai",
-   "about": "Detect faces automatically and blur, pixelate or cover them with a black shape. Adjust the strength, the area around each face and the detection sensitivity. Useful before sharing photos of other people."
+   "about": "Detect faces automatically and blur, pixelate or cover them with a black shape. Adjust the strength, the area around each face and the detection sensitivity. Useful before sharing photos of other people.",
+   "aliases": [
+    "blur-face"
+   ]
   },
   {
    "slug": "anime-style",
@@ -305,7 +446,26 @@
    "about": "Combine images into a single PDF. Choose A4, US Letter, A5 or the image's own size, set the orientation and margins, and reorder the pages. HEIC, PNG, JPG, WebP and more are supported.",
    "popular": 9,
    "tabAll": "Any image",
-   "keywords": "jpg jpeg png photo picture convert pdf heic webp"
+   "keywords": "jpg jpeg png photo picture convert pdf heic webp",
+   "steps": [
+    "Add your images: JPG, PNG, HEIC, WebP and more.",
+    "Put them in order and choose the page size, orientation and margin.",
+    "Click Create PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert photos into one PDF?",
+     "a": "Add all the photos, put them in order with the arrows, choose A4 or another page size and click Create PDF."
+    },
+    {
+     "q": "Can I use iPhone HEIC photos?",
+     "a": "Yes, HEIC works as well as JPG, PNG and WebP."
+    },
+    {
+     "q": "Are my images uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "pdf-to-image",
@@ -316,7 +476,8 @@
    "kind": "client",
    "engine": "pdf",
    "js": "server-pdf",
-   "about": "Convert PDF pages to PNG, JPG or WebP images. Pick the resolution from 72 to 300 DPI and choose all pages or a range such as 1-3,5. Multiple pages are delivered as a ZIP."
+   "about": "Convert PDF pages to PNG, JPG or WebP images. Pick the resolution from 72 to 300 DPI and choose all pages or a range such as 1-3,5. Multiple pages are delivered as a ZIP.",
+   "tabAll": "All formats"
   },
   {
    "slug": "merge-pdf",
@@ -331,6 +492,29 @@
    "popular": 5,
    "aliases": [
     "pdf-merge"
+   ],
+   "steps": [
+    "Add two or more PDF files.",
+    "Put them in the right order with the arrows.",
+    "Click Merge and download one combined PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I combine PDF files into one?",
+     "a": "Add the PDFs, set the order with the arrows and click Merge. You get a single PDF with all the pages."
+    },
+    {
+     "q": "Can I merge password-protected PDFs?",
+     "a": "Remove the password first with Unlock PDF (you need to know it), then merge."
+    },
+    {
+     "q": "How many PDFs can I merge?",
+     "a": "Up to 50 files at once."
+    },
+    {
+     "q": "Are my PDFs uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
    ]
   },
   {
@@ -345,6 +529,26 @@
    "about": "Split a PDF into single pages, into groups of N pages, into custom page ranges, or extract selected pages into one new PDF. Results are delivered as a ZIP when there are several files.",
    "aliases": [
     "pdf-split"
+   ],
+   "tabAll": "Split",
+   "steps": [
+    "Add your PDF.",
+    "Choose how to split: every page, every N pages, custom ranges, or extract chosen pages.",
+    "Click Split PDF and download the files (several files come as a ZIP)."
+   ],
+   "faq": [
+    {
+     "q": "How do I split a PDF into separate pages?",
+     "a": "Add the PDF, choose Every page into its own PDF and click Split PDF. You get a ZIP with one PDF per page."
+    },
+    {
+     "q": "How do I take out only some pages?",
+     "a": "Choose Extract selected pages and type the pages, for example 1-3,5. They are saved as one new PDF."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
    ]
   },
   {
@@ -360,23 +564,42 @@
    "aliases": [
     "pdf-compress"
    ],
-   "media": "pdf"
+   "media": "pdf",
+   "steps": [
+    "Add your PDF, or pick a size such as under 100 KB or 500 KB.",
+    "Choose light, balanced or strong compression.",
+    "Click Compress PDF and download the smaller file."
+   ],
+   "faq": [
+    {
+     "q": "How do I reduce the size of a PDF?",
+     "a": "Add the PDF, choose balanced compression and click Compress PDF. For a hard limit such as 200 KB, use the size buttons above the upload box."
+    },
+    {
+     "q": "Why did my PDF hardly get smaller?",
+     "a": "Compression mostly shrinks the pictures inside a PDF. A PDF that is mostly text is already small and cannot shrink much."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "word-to-pdf",
    "cat": "pdf",
    "icon": "📝",
    "name": "Word to PDF",
-   "desc": "Convert DOCX, DOC, ODT, RTF, PPTX or XLSX to PDF.",
+   "desc": "Convert Word (DOCX), Excel (XLSX, XLS, CSV, ODS) and text files to PDF. Runs in your browser.",
    "kind": "client",
    "engine": "pdf",
    "js": "server-pdf",
-   "about": "Convert Word documents (DOCX, DOC), OpenDocument text, RTF, plain text, PowerPoint and Excel files to PDF. The conversion is done on the server with LibreOffice.",
+   "about": "Convert Word documents (DOCX), spreadsheets (XLSX, XLS, CSV, ODS) and plain text files to PDF, right in your browser, so the file is not uploaded. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Hindi and other Indian scripts are supported. Old .doc, RTF, ODT and PowerPoint files cannot be converted in the browser: open them in Word, Google Docs or LibreOffice and save them as DOCX (or export a PDF) first.",
    "aliases": [
     "docx-to-pdf"
    ],
    "tabAll": "Word & Office",
-   "keywords": "docx doc word office excel powerpoint html convert pdf"
+   "keywords": "docx word excel xlsx xls csv ods spreadsheet text convert pdf"
   },
   {
    "slug": "pdf-to-word",
@@ -391,7 +614,26 @@
    "aliases": [
     "pdf-to-docx"
    ],
-   "keywords": "docx doc word convert editable"
+   "keywords": "docx doc word convert editable",
+   "steps": [
+    "Add your PDF.",
+    "Convert it.",
+    "Download the editable Word (DOCX) file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert a PDF to an editable Word file?",
+     "a": "Add the PDF here and download the Word document. Text, fonts, sizes, bold and italic and pictures are kept in reading order."
+    },
+    {
+     "q": "Why can't I edit the text from a scanned PDF?",
+     "a": "A scanned PDF is only pictures of pages. Use Image to Text (OCR) to read the text first."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "markdown-converter",
@@ -418,7 +660,8 @@
    "engine": "pdf",
    "js": "pdf-visual",
    "desc": "Reorder, delete and rotate PDF pages visually: drag thumbnails, then save a new PDF.",
-   "about": "See every page of your PDF as a thumbnail. Drag pages to reorder them, click to rotate or delete them, then save a new PDF. The thumbnails are drawn in your browser; the file is uploaded only when you press Save, and deleted from the server shortly after."
+   "about": "See every page of your PDF as a thumbnail. Drag pages to reorder them, click to rotate or delete them, then save a new PDF. Everything happens in your browser, so the PDF is never uploaded.",
+   "tabAll": "Organize"
   },
   {
    "slug": "esign-pdf",
@@ -432,6 +675,25 @@
    "about": "Create a signature by drawing it, typing your name in a handwriting style, or uploading a picture, then drag it to the right spot on any page and resize it. You can sign several pages in one go. This adds a visual signature image; it is not a certificate-based digital signature.",
    "aliases": [
     "sign-pdf"
+   ],
+   "steps": [
+    "Add the PDF you need to sign.",
+    "Draw, type or upload your signature.",
+    "Drag it to the right spot on any page, resize it and download the signed PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I sign a PDF online for free?",
+     "a": "Add the PDF, create your signature by drawing, typing or uploading a picture, place it on the page and download."
+    },
+    {
+     "q": "Is this a legal digital signature?",
+     "a": "It adds a picture of your signature, like signing on paper. It is not a certificate-based digital signature, which some government and legal documents require."
+    },
+    {
+     "q": "Can I sign several pages?",
+     "a": "Yes, you can place your signature on several pages in one go."
+    }
    ]
   },
   {
@@ -491,7 +753,29 @@
    "engine": "video",
    "js": "server-video",
    "about": "Turn a part of any video into an animated GIF. Set the start time, length, frames per second and width. A palette is generated for each GIF to keep colours clean.",
-   "popular": 7
+   "popular": 7,
+   "aliases": [
+    "mp4-to-gif"
+   ],
+   "steps": [
+    "Add a video (MP4, MOV, WebM and more).",
+    "Set the start time, length, frames per second and width.",
+    "Create the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert an MP4 to a GIF?",
+     "a": "Add the MP4, choose the part you want with the start time and length, set the width and frames per second, and create the GIF."
+    },
+    {
+     "q": "How do I make a GIF smaller?",
+     "a": "Use a shorter part of the video, a smaller width and fewer frames per second. Compress GIF can shrink it further."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "gif-to-video",
@@ -644,6 +928,29 @@
    "popular": 10,
    "aliases": [
     "qr-code"
+   ],
+   "steps": [
+    "Choose what the code holds: a link, text, Wi-Fi, WhatsApp, email, phone, SMS or contact card.",
+    "Pick colours and a dot style, and add a logo if you like.",
+    "Download it as PNG or SVG."
+   ],
+   "faq": [
+    {
+     "q": "How do I make a QR code for a link?",
+     "a": "Choose the link type, paste the address and download the QR code as PNG or SVG."
+    },
+    {
+     "q": "Can I make a QR code for Wi-Fi?",
+     "a": "Yes. Enter the network name and password; people scan it to join without typing."
+    },
+    {
+     "q": "Do the QR codes expire?",
+     "a": "No. The address or text is stored in the code itself, so it keeps working as long as the link it points to works."
+    },
+    {
+     "q": "PNG or SVG?",
+     "a": "PNG for phones, documents and WhatsApp; SVG for printing large, because it stays sharp at any size."
+    }
    ]
   },
   {
@@ -704,7 +1011,26 @@
     "edit-pdf"
    ],
    "desc": "Edit a PDF in your browser: change text, add text with 50 fonts, pictures, shapes and highlights, then download as PDF, Word, images or text.",
-   "about": "Open a PDF and edit it right on the page. Click any line of text to change it, add new text in your choice of 50 free fonts (including Hindi and other Indian scripts), put in pictures, draw rectangles, circles, lines and arrows, highlight, draw by hand, white out parts you want gone, rotate or delete pages and add blank ones. When you are done, download the result as a PDF, a Word file, page images or plain text. Everything is done in your browser, so your PDF is never uploaded."
+   "about": "Open a PDF and edit it right on the page. Click any line of text to change it, add new text in your choice of 50 free fonts (including Hindi and other Indian scripts), put in pictures, draw rectangles, circles, lines and arrows, highlight, draw by hand, white out parts you want gone, rotate or delete pages and add blank ones. When you are done, download the result as a PDF, a Word file, page images or plain text. Everything is done in your browser, so your PDF is never uploaded.",
+   "steps": [
+    "Open your PDF.",
+    "Click text to change it, or add text, pictures, shapes, highlights and drawings.",
+    "Download as PDF, Word, page images or text."
+   ],
+   "faq": [
+    {
+     "q": "How do I edit text in a PDF?",
+     "a": "Open the PDF and click the line of text you want to change, then type. You can also add new text in 50 free fonts."
+    },
+    {
+     "q": "Can I type in Hindi?",
+     "a": "Yes. The fonts include Hindi and other Indian scripts."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. Everything is done in your browser, so your PDF is never uploaded."
+    }
+   ]
   }
  ],
  "variants": [
@@ -1807,7 +2133,8 @@
    "engine": "pdf",
    "js": "server-pdf",
    "aliases": [
-    "add-watermark-to-pdf"
+    "add-watermark-to-pdf",
+    "watermark-pdf"
    ]
   },
   {
@@ -1837,7 +2164,8 @@
    "engine": "pdf",
    "js": "pdf-redact",
    "aliases": [
-    "blur-redact-pdf"
+    "blur-redact-pdf",
+    "redact-pdf"
    ]
   },
   {
@@ -1940,6 +2268,37 @@
    "desc": "Convert MP4 video to MP3 audio in your browser. Choose the quality; nothing is uploaded.",
    "about": "Turn an MP4 video into an MP3 file in a few clicks: add the video, pick a quality (192 kbps is a good default, 320 kbps is the best) and download the MP3. Music videos, lectures, interviews and recordings all work, and several files can be converted at once. The conversion runs on your own device with no upload and no file-size limit from us.",
    "js": "server-video"
+  },
+  {
+   "slug": "ocr-pdf",
+   "base": "image-to-text",
+   "tab": "PDF OCR",
+   "name": "PDF OCR: Scanned PDF to Text",
+   "aliases": [
+    "pdf-ocr"
+   ],
+   "title": "OCR PDF Online Free: Scanned PDF to Text (English & Hindi) | Toolz Baba",
+   "desc": "Read the text in a scanned PDF and copy it or save it as a .txt file. English and Hindi. Runs in your browser.",
+   "about": "A scanned PDF is just pictures of pages, so you cannot select or search its text. OCR (optical character recognition) reads those pictures and turns them back into text you can copy, edit or save. Add a scanned PDF, choose English, Hindi or both, and copy the result or save it as a .txt file. The OCR runs in your browser, so the document is not uploaded.",
+   "faq": [
+    {
+     "q": "How do I copy text from a scanned PDF?",
+     "a": "Add the PDF here, choose the language and start the OCR. When it finishes, copy the text or save it as a .txt file."
+    },
+    {
+     "q": "Does it read Hindi?",
+     "a": "Yes. Choose Hindi, or English and Hindi together for documents that mix both."
+    },
+    {
+     "q": "How accurate is it?",
+     "a": "Clean, straight scans of printed text come out very well. Handwriting, blurry photos and tilted pages give more mistakes."
+    },
+    {
+     "q": "How many pages can it read?",
+     "a": "It reads the first 30 pages of each PDF. For a longer document, split it into parts with Split PDF first."
+    }
+   ],
+   "cat": "image"
   },
   {
    "slug": "split-video",
@@ -2189,6 +2548,34 @@
    "cat": "pdf"
   },
   {
+   "slug": "excel-to-pdf",
+   "base": "word-to-pdf",
+   "tab": "Excel to PDF",
+   "name": "Excel to PDF",
+   "aliases": [
+    "xlsx-to-pdf",
+    "xls-to-pdf"
+   ],
+   "title": "Excel to PDF Converter Online Free | Toolz Baba",
+   "desc": "Convert Excel spreadsheets (XLSX, XLS, CSV, ODS) to PDF tables you can share and print. Runs in your browser.",
+   "about": "Send a spreadsheet as a PDF when people only need to read or print it: nobody can change the numbers by accident and it opens on any phone. Add an XLSX, XLS, CSV or ODS file and convert it. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. The values are kept, but colours, cell styles and charts are not, so check the PDF before you send it. The file is converted in your browser and not uploaded.",
+   "faq": [
+    {
+     "q": "How do I convert Excel to PDF?",
+     "a": "Add the XLSX, XLS, CSV or ODS file and click the convert button, then download the PDF."
+    },
+    {
+     "q": "Are colours and charts kept?",
+     "a": "No. The PDF shows the values of every sheet as a plain table. For an exact copy with colours and charts, use Save as PDF in Excel or Google Sheets."
+    },
+    {
+     "q": "Does it work with Hindi text?",
+     "a": "Yes. Hindi and other Indian scripts in the cells are shown correctly in the PDF."
+    }
+   ],
+   "cat": "pdf"
+  },
+  {
    "slug": "jpg-to-pdf",
    "base": "image-to-pdf",
    "tab": "JPG to PDF",
@@ -2229,6 +2616,272 @@
      "a": "Yes. Add them all and use the arrows to set the order."
     }
    ]
+  },
+  {
+   "slug": "png-to-jpg",
+   "base": "convert-image",
+   "tab": "PNG to JPG",
+   "name": "PNG to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "aliases": [
+    "png-to-jpeg"
+   ],
+   "title": "PNG to JPG Converter Online Free | Toolz Baba",
+   "desc": "Convert PNG images to JPG in your browser. Pick the quality and a background colour for transparent parts.",
+   "about": "JPG files are usually much smaller than PNG files, which makes them better for email, WhatsApp and upload forms. Add your PNG images, choose a quality (90 percent looks the same as the original) and convert. JPG cannot be transparent, so transparent areas are filled with a colour you choose; white is the default. You can convert up to 40 images at once, and they are converted on your own device, so nothing is uploaded.",
+   "faq": [
+    {
+     "q": "How do I convert PNG to JPG?",
+     "a": "Add your PNG files, check that JPG is selected under Convert to, set the quality and click Convert. Then download the JPG files."
+    },
+    {
+     "q": "What happens to the transparent background?",
+     "a": "JPG does not support transparency, so transparent areas are filled with the background colour you pick. White is the default."
+    },
+    {
+     "q": "Will the JPG be smaller than the PNG?",
+     "a": "Usually yes, often several times smaller for photos and screenshots with many colours."
+    }
+   ],
+   "cat": "image"
+  },
+  {
+   "slug": "jpg-to-png",
+   "base": "convert-image",
+   "tab": "JPG to PNG",
+   "name": "JPG to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "aliases": [
+    "jpeg-to-png"
+   ],
+   "title": "JPG to PNG Converter Online Free | Toolz Baba",
+   "desc": "Convert JPG photos to PNG in your browser. Lossless output, up to 40 images at once.",
+   "about": "PNG is a lossless format: once your picture is a PNG it does not lose any more quality when you edit and save it again. That makes it a good choice for screenshots, logos and images you want to keep editing. Add your JPG files, check that PNG is selected and convert. Note that a PNG made from a photo is usually larger than the JPG. Everything happens in your browser, so your photos are not uploaded.",
+   "faq": [
+    {
+     "q": "How do I change a JPG into a PNG?",
+     "a": "Add the JPG files, make sure PNG is selected under Convert to and click Convert. Download the PNG files when they are ready."
+    },
+    {
+     "q": "Does converting JPG to PNG improve the quality?",
+     "a": "No. It keeps the quality the JPG already has, but it stops further loss when you edit and save the picture again."
+    },
+    {
+     "q": "Why is my PNG bigger than the JPG?",
+     "a": "PNG stores every pixel exactly, while JPG throws away detail you hardly see. For photos that makes the PNG larger."
+    }
+   ],
+   "cat": "image"
+  },
+  {
+   "slug": "webp-to-jpg",
+   "base": "convert-image",
+   "tab": "WebP to JPG",
+   "name": "WebP to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "aliases": [
+    "webp-to-jpeg"
+   ],
+   "title": "WebP to JPG Converter Online Free | Toolz Baba",
+   "desc": "Convert WebP images to JPG so they open everywhere. Choose the quality. Runs in your browser.",
+   "about": "Many websites now serve pictures as WebP, which some apps, older phones and upload forms still do not accept. Convert them to JPG, which opens everywhere. Add your WebP files, choose a quality and convert up to 40 at once. Transparent parts of a WebP are filled with the background colour you pick, because JPG cannot be transparent. Your images never leave your device.",
+   "faq": [
+    {
+     "q": "How do I convert WebP to JPG?",
+     "a": "Add the WebP files, keep JPG selected under Convert to, choose the quality and click Convert."
+    },
+    {
+     "q": "Why can't I open a WebP file?",
+     "a": "Some older programs and websites do not support WebP yet. A JPG copy opens in practically every app."
+    }
+   ],
+   "cat": "image"
+  },
+  {
+   "slug": "heic-to-jpg",
+   "base": "convert-image",
+   "tab": "HEIC to JPG",
+   "name": "HEIC to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "aliases": [
+    "heic-to-jpeg"
+   ],
+   "title": "HEIC to JPG Converter Online Free: iPhone Photos | Toolz Baba",
+   "desc": "Convert iPhone HEIC photos to JPG in your browser. No app, no upload, up to 40 photos at once.",
+   "about": "iPhones save photos as HEIC, which Windows, many websites and government forms do not accept. Convert them to JPG here: add your HEIC photos, keep JPG selected and click Convert. You can choose the quality and convert up to 40 photos at once. The photos are converted on your own phone or computer, so they are never uploaded to a server.",
+   "faq": [
+    {
+     "q": "How do I convert HEIC to JPG on Windows?",
+     "a": "Open this page, add your HEIC files, keep JPG selected and click Convert. No app or extension is needed."
+    },
+    {
+     "q": "Does it work on an iPhone?",
+     "a": "Yes. Open the page in Safari, tap Choose files, pick the photos and convert them."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. The conversion runs in your browser and the photos stay on your device."
+    }
+   ],
+   "cat": "image"
+  },
+  {
+   "slug": "jpg-to-webp",
+   "base": "convert-image",
+   "tab": "JPG to WebP",
+   "name": "JPG to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "aliases": [
+    "jpeg-to-webp",
+    "png-to-webp"
+   ],
+   "title": "JPG to WebP Converter Online Free | Toolz Baba",
+   "desc": "Convert JPG and PNG images to WebP for a faster website. Pick the quality, convert many at once.",
+   "about": "WebP pictures are often 25 to 35 percent smaller than JPG at the same visible quality, so pages load faster and use less data. Add your JPG or PNG files, keep WebP selected, choose the quality (80 to 90 percent is a good range) and convert up to 40 at once. WebP keeps transparency, so it also replaces PNG for logos and graphics. Everything runs in your browser.",
+   "faq": [
+    {
+     "q": "Is WebP better than JPG?",
+     "a": "For websites, usually yes: smaller files at the same quality, plus transparency. For sharing with people who use older apps, JPG is safer."
+    },
+    {
+     "q": "Can I convert PNG to WebP here too?",
+     "a": "Yes. Add PNG files the same way; transparent areas stay transparent in the WebP."
+    }
+   ],
+   "cat": "image"
+  },
+  {
+   "slug": "pdf-to-jpg",
+   "base": "pdf-to-image",
+   "tab": "PDF to JPG",
+   "name": "PDF to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "aliases": [
+    "pdf-to-jpeg"
+   ],
+   "title": "PDF to JPG Converter Online Free: High Quality | Toolz Baba",
+   "desc": "Turn every page of a PDF into a JPG image. Choose the quality (DPI) and the pages. Runs in your browser.",
+   "about": "Convert PDF pages to JPG pictures you can share on WhatsApp, post online or put in a presentation. Add a PDF, keep JPG selected, choose the quality from 72 DPI (small files) to 300 DPI (print quality) and convert all pages or just the ones you need, such as 1-3,5. Several pages are delivered together in one ZIP file. The PDF is processed on your device and is not uploaded.",
+   "faq": [
+    {
+     "q": "How do I convert a PDF to JPG?",
+     "a": "Add the PDF, keep JPG selected, choose the DPI and the pages, and click Convert to images."
+    },
+    {
+     "q": "Can I convert only one page?",
+     "a": "Yes. Type the page number in Pages, for example 3, or a range such as 2-4."
+    },
+    {
+     "q": "Which DPI should I choose?",
+     "a": "150 DPI is sharp on screens. Use 300 DPI for printing, and 72 DPI for the smallest files."
+    }
+   ],
+   "cat": "pdf"
+  },
+  {
+   "slug": "pdf-to-png",
+   "base": "pdf-to-image",
+   "tab": "PDF to PNG",
+   "name": "PDF to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "PDF to PNG Converter Online Free | Toolz Baba",
+   "desc": "Turn PDF pages into sharp, lossless PNG images. Choose the DPI and the pages. Runs in your browser.",
+   "about": "PNG keeps text and lines perfectly sharp, which makes it the best choice for pages with diagrams, tables or small print. Add a PDF, keep PNG selected, choose the resolution and the pages, and convert. Several pages come together in one ZIP file. The conversion runs in your browser, so the document stays private.",
+   "faq": [
+    {
+     "q": "PNG or JPG for PDF pages?",
+     "a": "PNG for pages that are mostly text and drawings (sharper, no blur around letters), JPG for pages that are mostly photos (smaller files)."
+    },
+    {
+     "q": "Can I choose which pages to convert?",
+     "a": "Yes. Type all, or page numbers and ranges such as 1-3,5."
+    }
+   ],
+   "cat": "pdf"
+  },
+  {
+   "slug": "rotate-pdf",
+   "base": "organize-pdf",
+   "tab": "Rotate PDF",
+   "name": "Rotate PDF",
+   "title": "Rotate PDF Pages Online Free: Save Permanently | Toolz Baba",
+   "desc": "Rotate one page or every page of a PDF and save it. See thumbnails, click to turn. Runs in your browser.",
+   "about": "Fix scanned pages that are upside down or sideways. Add the PDF and you see every page as a thumbnail: click a page's rotate button to turn it by 90 degrees, as many times as you need, then save. The rotation is stored in the new PDF, so it opens the right way up everywhere. You can also delete or reorder pages on the same screen. Your PDF never leaves your device.",
+   "faq": [
+    {
+     "q": "How do I rotate a PDF and save it?",
+     "a": "Add the PDF, click the rotate button on the pages you want to turn, then click save to download the new PDF."
+    },
+    {
+     "q": "Can I rotate just one page?",
+     "a": "Yes. Each page has its own rotate button, so you can turn only the pages that need it."
+    },
+    {
+     "q": "Is the rotation permanent?",
+     "a": "Yes. It is saved in the new PDF file, not only in the viewer."
+    }
+   ],
+   "cat": "pdf"
+  },
+  {
+   "slug": "delete-pdf-pages",
+   "base": "organize-pdf",
+   "tab": "Delete pages",
+   "name": "Delete PDF Pages",
+   "aliases": [
+    "remove-pdf-pages"
+   ],
+   "title": "Delete Pages from PDF Online Free | Toolz Baba",
+   "desc": "Remove pages from a PDF: see thumbnails, click the pages to delete, save. Runs in your browser.",
+   "about": "Remove blank pages, adverts or pages you do not want to share. Add the PDF to see every page as a thumbnail, click delete on the pages to remove, and save a new PDF with only the pages you kept. You can also rotate and reorder pages before saving. Nothing is uploaded: the PDF is edited in your browser.",
+   "faq": [
+    {
+     "q": "How do I delete a page from a PDF?",
+     "a": "Add the PDF, click the delete button on the page you want to remove and save the new PDF."
+    },
+    {
+     "q": "Is the original file changed?",
+     "a": "No. You download a new PDF; your original file stays as it was."
+    }
+   ],
+   "cat": "pdf"
+  },
+  {
+   "slug": "extract-pdf-pages",
+   "base": "split-pdf",
+   "tab": "Extract pages",
+   "name": "Extract PDF Pages",
+   "preset": {
+    "mode": "extract"
+   },
+   "title": "Extract Pages from PDF Online Free | Toolz Baba",
+   "desc": "Copy chosen pages of a PDF into a new PDF, for example 1-3,5. Runs in your browser.",
+   "about": "Need only a few pages from a long PDF, such as one chapter or the signed pages of a contract? Add the PDF, type the pages you want (for example 1-3,5,8-10) and get one new PDF with just those pages, in that order. The original stays untouched, and the file is processed on your device.",
+   "faq": [
+    {
+     "q": "How do I extract pages from a PDF?",
+     "a": "Add the PDF, type the page numbers or ranges in Pages, for example 2-4,7, and click Split PDF."
+    },
+    {
+     "q": "Can I put the pages in separate files instead?",
+     "a": "Yes. Change How to split to Custom ranges, and each range becomes its own PDF."
+    }
+   ],
+   "cat": "pdf"
   }
  ]
 }

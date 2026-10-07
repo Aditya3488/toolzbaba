@@ -330,8 +330,10 @@
   HT.serverTool = (root, cfg) => {
     const multiple = cfg.max > 1 || cfg.multiple;
     const list = HT.fileList({ reorder: cfg.reorder, onChange: sync });
-    const dz = HT.dropzone({ accept: cfg.accept, multiple, label: cfg.dropLabel, hint: cfg.hint, onFiles: fs => list.add(fs, multiple) });
-    const form = HT.form(cfg.fields || [], () => toggleExtra());
+    // a tab page can start the tool with some settings already chosen: "preset" in tools.json, e.g. /png-to-jpg -> { "format": "jpg" }
+    const pre = (HT.pageMeta && HT.pageMeta.preset) || {};
+    const dz = HT.dropzone({ accept: cfg.accept, multiple, label: (HT.pageMeta && HT.pageMeta.dropLabel) || cfg.dropLabel, hint: cfg.hint, onFiles: fs => list.add(fs, multiple) });
+    const form = HT.form((cfg.fields || []).map(f => f.name in pre ? { ...f, value: pre[f.name] } : f), () => toggleExtra());
     const prog = HT.progress(), resultBox = el('div');
     let extra = null; const extraList = cfg.extraFile ? HT.fileList({ onChange: () => { } }) : null;
     const extraEl = cfg.extraFile && el('div', { class: 'field', style: { marginTop: '14px' } }, el('label', { class: 'lbl', text: cfg.extraFile.label }),
@@ -657,7 +659,15 @@
     song: ['audio'], music: ['audio'], sound: ['audio'], voice: ['audio', 'speech'], mp3: ['audio'], speech: ['audio', 'voice'], ocr: ['text', 'scan'], scan: ['ocr', 'text'], shrink: ['compress'], reduce: ['compress'], smaller: ['compress', 'resize'], bigger: ['upscale', 'resize'],
     enlarge: ['upscale', 'resize'], hd: ['upscale'], password: ['protect', 'lock', 'unlock'], lock: ['protect', 'password'], unlock: ['password', 'remove'], sign: ['esign', 'signature'], signature: ['sign', 'esign'], join: ['merge'], combine: ['merge', 'collage'], cut: ['split', 'trim', 'crop'],
     trim: ['cut'], crop: ['cut'], rotate: ['flip'], flip: ['rotate'], qr: ['qrcode'], barcode: ['qr'], link: ['url', 'cdn'], upload: ['share', 'cdn'], share: ['link', 'upload'], font: ['fonts', 'typeface'], fonts: ['font'], edit: ['editor'], editor: ['edit'], web: ['website', 'html'], webpage: ['html', 'website'],
-    tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'] };
+    tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'],
+    bg: ['background'], remover: ['remove'], eraser: ['remove'], mp4: ['video'], mov: ['video'], avi: ['video'], mkv: ['video'], webm: ['video'], wav: ['audio'], m4a: ['audio'], aac: ['audio'],
+    powerpoint: ['ppt', 'office'], excel: ['xls', 'office'], kb: ['kb', 'size'], heic: ['iphone', 'image'], signatures: ['signature'] };
+  // a file type and the kind of tool that takes it, for "X to Y" searches: "pdf to jpg" must find PDF to Image and never JPG to PDF
+  const KIND = { jpg: 'image', jpeg: 'image', png: 'image', webp: 'image', heic: 'image', avif: 'image', gif: 'image', bmp: 'image', tiff: 'image', photo: 'image', picture: 'image', img: 'image',
+    doc: 'word', docx: 'word', mp4: 'video', mov: 'video', avi: 'video', mkv: 'video', webm: 'video', mp3: 'audio', wav: 'audio', md: 'markdown', xls: 'excel', xlsx: 'excel', ppt: 'powerpoint', pptx: 'powerpoint' };
+  const sideHas = (side, term) => side.includes(term) || (SYN[term] || []).some(a => side.includes(a)) || (KIND[term] && side.includes(KIND[term]));
+  // which way a tool converts, from the words around "to" in its address or name: { from: [...], to: [...] }, or null
+  const direction = it => { for (const w of [words(it.slug), words(it.name)]) { const i = w.indexOf('to'); if (i > 0 && i < w.length - 1) return { from: w.slice(0, i), to: w.slice(i + 1) }; } return null; };
   const CAT_WORDS = { image: 'image photo picture', ai: 'ai artificial intelligence enhance', pdf: 'pdf document documents', video: 'video audio movie sound', dev: 'text developer code', util: 'utility utilities' };
   HT.searchItems = data => [
     ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: '/' + t.slug, isTab: false, hay: '' })),
@@ -667,7 +677,12 @@
   const near = (a, b) => { if (Math.abs(a.length - b.length) > 1 || a.length < 4) return false; for (let k = 0; k < a.length - 1; k++) if (a[k] !== b[k]) { if (a.length === b.length && a[k] === b[k + 1] && a[k + 1] === b[k] && a.slice(k + 2) === b.slice(k + 2)) return true; break; } let i = 0, j = 0, miss = 0; while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; } else { if (++miss > 1) return false; if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; } } } return miss + (a.length - i) + (b.length - j) <= 1; };
   HT.searchTools = (data, query) => {
     const STOP = new Set(['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'free', 'online', 'tool', 'tools', 'converter', 'convert', 'make', 'maker', 'create', 'file', 'files', 'how', 'can', 'i', 'with']);
-    const toks = words(query).filter(w => !STOP.has(w)); if (!toks.length) return { hits: [], related: [] };
+    const raw = words(query).flatMap(w => /^\d+(kb|mb)$/.test(w) ? [w.replace(/^\d+/, '')] : /^\d+$/.test(w) ? [] : [w]);   // "20kb" -> "kb": Resize to KB
+    let toks = raw.filter(w => !STOP.has(w));
+    if (!toks.length) toks = raw.filter(w => !['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'i', 'with', 'how', 'can'].includes(w));   // "convert" alone still searches
+    if (!toks.length) return { hits: [], related: [] };
+    // "A to B": the word just before and just after "to" / "into" / "2"
+    const ti = raw.findIndex((w, i) => ['to', 'into', '2'].includes(w) && i > 0 && i < raw.length - 1), from = ti > 0 ? raw[ti - 1] : null, to = ti > 0 ? raw[ti + 1] : null;
     const items = HT.searchItems(data); const hits = [];
     for (const it of items) {
       const nameW = words(it.name + ' ' + (it.tab || '')), slugW = words(it.slug), text = words(it.desc + ' ' + (it.keywords || '') + ' ' + CAT_WORDS[it.cat]);
@@ -682,11 +697,17 @@
       }
       if (!all) continue;
       // phrases in the order typed ("docx to markdown") beat the same words in another order; the tool itself beats its tab page
-      const joined = toks.join('-'); if (it.slug.includes(joined)) score += 8; if (!it.isTab) score += 1;
-      hits.push({ it, score: score - (it.isTab ? 0 : -0) });
+      // (a one-word search has no phrase: "ocr" should not prefer /ocr-pdf over Image to Text just because of its address)
+      const joined = toks.join('-'); if ((toks.length > 1 && it.slug.includes(joined)) || (from && it.slug.includes(from + '-to-' + to))) score += 8; if (!it.isTab) score += 1;
+      // the right way round wins, the wrong way round ("jpg to pdf" for "pdf to jpg") drops below the other answers
+      const dir = from && direction(it);
+      if (dir) { if (sideHas(dir.from, from) && sideHas(dir.to, to)) score += 15; else if (sideHas(dir.from, to) && sideHas(dir.to, from)) score -= 15; }
+      hits.push({ it, score });
     }
     hits.sort((a, b) => b.score - a.score || (a.it.popular || 50) - (b.it.popular || 50));
-    const top = hits.slice(0, 8).map(h => h.it), seen = new Set(top.map(t => t.slug)); let related = [];
+    // keep the answers that match about as well as the best one; weak matches on one stray word ("sign" in "design") are left out
+    const best = hits.length ? hits[0].score : 0;
+    const top = hits.filter(h => h.score >= best * 0.45).slice(0, 8).map(h => h.it), seen = new Set(top.map(t => t.slug)); let related = [];
     if (top.length) {   // related: same family first, then the same kind of work, the busiest first
       const fam = new Set(top.slice(0, 3).map(t => t.base)), cats = new Set(top.slice(0, 3).map(t => t.cat));
       related = items.filter(t => !seen.has(t.slug) && !t.isTab && (fam.has(t.base) || cats.has(t.cat))).sort((a, b) => (fam.has(b.base) - fam.has(a.base)) || ((a.popular || 50) - (b.popular || 50))).slice(0, 4);
@@ -928,6 +949,7 @@
       app.textContent = '';
       try {
         await HT.loadScript(`/assets/tools/${m.js}.js`);
+        HT.pageMeta = m;   // read by HT.serverTool for a tab page's preset settings
         current = (HT.tools[m.ui] || HT.tools[s] || HT.tools[baseSlug])(app, m) || null;
         if (files.length && current && current.list) {
           const ok = files.filter(f => HT.matches(f, current.accept));

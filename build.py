@@ -151,11 +151,18 @@ def seo_block(tool: dict, tools: list, variants: list | None = None) -> str:
     privacy = tool.get("privacy") or ("This tool runs in your browser, so your files never leave your device." if tool["kind"] == "client"
                                        else "Images you upload are stored so their links keep working. Don't upload anything private.")
     out = f'<h2>About {esc(tool["name"])}</h2><p>{esc(tool.get("about", tool["desc"]))}</p><p>{esc(privacy)}</p>'
+    if tool.get("steps"):   # "How to ..." in plain words: what people type into Google
+        out += f'<h2>How to use {esc(tool["name"])}</h2><ol>' + "".join(f"<li>{esc(s)}</li>" for s in tool["steps"]) + "</ol>"
     if tool.get("faq"):
         out += "<h2>Questions</h2>" + "".join(f'<h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p>' for f in tool["faq"])
     if sizes:
         out += "<h2>Other sizes</h2><ul>" + "".join(f'<li><a href="/{esc(v["slug"])}">{esc(v["name"])}</a></li>' for v in sizes) + "</ul>"
     return out + (f'<h2>Related tools</h2><ul>{links}</ul>' if links else "")
+
+
+def faq_ld(faq: list) -> dict:
+    return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in faq]}
 
 
 PAGE_HASH = {}   # "/merge-pdf" -> hash of what the page says (for the sitemap's lastmod)
@@ -209,6 +216,8 @@ def build():
                 {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + "/"},
                 {"@type": "ListItem", "position": 3, "name": tool["name"], "item": url}]},
         ]
+        if tool.get("faq"):
+            ld.append(faq_ld(tool["faq"]))
         write(f"{slug}.html", render("tool.html", title=f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
                                     desc=f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
                                     extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
@@ -220,6 +229,7 @@ def build():
         if v["base"] not in by_slug or slug in by_slug or slug in reserved or not re.fullmatch(r"[a-z0-9-]+", slug):
             raise SystemExit(f"Bad format page {slug!r}: it needs an existing base tool and a free root address")
         merged = {**by_slug[v["base"]], **v}
+        merged["steps"] = v.get("steps")   # the base tool's steps can describe a different screen (a size page has no quality slider)
         cat = next(c for c in data["categories"] if c["id"] == merged["cat"])
         url = f"{SITE_URL}/{slug}"
         parent = next((x for x in data["variants"] if x["slug"] == v.get("parent")), None)
@@ -235,8 +245,7 @@ def build():
                 {"@type": "ListItem", "position": 5 if parent else 4, "name": v["name"], "item": url}]},
         ]
         if v.get("faq"):
-            ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-                {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in v["faq"]]})
+            ld.append(faq_ld(v["faq"]))
         write(f"{slug}.html", render("tool.html", title=v.get("title") or f'{v["name"]} – Free Online Tool | {SITE_NAME}',
                                     desc=f'{v["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld,
                                     extra={"SEO": seo_block(merged, tools, data["variants"]), "TOOL_NAME": v["name"]}))
