@@ -13,5 +13,6 @@ export async function onRequestGet({ request, env }) {
       xml = xml.replace('</urlset>', posts.map(p => `<url><loc>${site}/blog/${p.slug}</loc><lastmod>${day(p.updated)}</lastmod><priority>0.6</priority></url>`).join('') + '</urlset>');
     }
   }
+  if (res.ok && env.CDN && xml.includes('</urlset>') && !(await publishedPosts(env).catch(() => [])).length) xml = xml.replace(/<url><loc>[^<]*\/blog<\/loc>[^\n]*?<\/url>\n?/, '');
   return new Response(xml, { status: res.status, headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=300' } });
 }
