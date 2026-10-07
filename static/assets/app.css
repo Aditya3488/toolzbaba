@@ -678,3 +678,25 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* the "All tools / Image / Crop Image" trail is hidden: the header menus do that job. Google still reads the
    page's place in the site from the BreadcrumbList data in the page head, which is unchanged */
 .crumb { display:none; }
+
+/* ============================================================ "Never miss free tools" popup (after a download, and from the footer) */
+.bmmodal { position:fixed; inset:0; z-index:1300; display:grid; place-items:center; padding:16px; background:rgba(8,10,22,.55); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); animation:bmfade .2s ease; }
+.bmcard { position:relative; width:min(420px,100%); background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:22px; padding:30px 26px 24px; text-align:center; box-shadow:0 30px 80px rgba(8,10,22,.35); animation:bmpop .25s cubic-bezier(.2,.9,.3,1.2); }
+.bmcard h2 { margin:14px 0 6px; font-size:1.45rem; letter-spacing:-.02em; }
+.bmsub { margin:0 auto 18px; color:var(--muted); font-size:.98rem; line-height:1.5; max-width:34ch; }
+.bmicon { width:64px; height:64px; margin:0 auto; border-radius:20px; display:grid; place-items:center; background:linear-gradient(145deg,#ffd166,#f59e0b); box-shadow:0 12px 26px -8px rgba(245,158,11,.6); }
+.bmicon svg { width:32px; height:32px; color:#fff; fill:#fff; }
+.bmx { position:absolute; top:10px; right:12px; width:34px; height:34px; border:0; border-radius:10px; background:transparent; color:var(--faint); font-size:1.5rem; line-height:1; cursor:pointer; }
+.bmx:hover { background:var(--bg2); color:var(--text); }
+.bmhide { display:inline-flex; align-items:center; gap:9px; margin:0 0 18px; color:var(--muted); font-size:.9rem; cursor:pointer; user-select:none; }
+.bmhide[hidden] { display:none; }
+.bmhide input { width:18px; height:18px; margin:0; accent-color:var(--accent); cursor:pointer; }
+.bmcard .bmact { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.bmcard .bmact .btn { min-width:140px; justify-content:center; }
+.bmcard .bmact .btn svg { width:17px; height:17px; fill:currentColor; }
+.bmhow { margin:0 0 14px; color:var(--text); font-weight:600; }
+.bmcard .bmkeys { display:flex; align-items:center; justify-content:center; gap:10px; margin:0 0 20px; color:var(--muted); font-weight:700; }
+.bmcard .bmkeys kbd { min-width:58px; padding:12px 14px; border:1px solid var(--border2); border-bottom-width:3px; border-radius:12px; background:var(--bg2); color:var(--text); font:700 1.2rem ui-monospace,Consolas,monospace; }
+@keyframes bmfade { from { opacity:0; } } @keyframes bmpop { from { opacity:0; transform:translateY(14px) scale(.96); } }
+@media (prefers-reduced-motion:reduce) { .bmmodal,.bmcard { animation:none; } }
+@media (max-width:420px) { .bmcard { padding:26px 18px 20px; } .bmcard .bmact .btn { flex:1; min-width:0; } }

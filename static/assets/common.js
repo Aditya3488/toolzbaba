@@ -614,30 +614,54 @@
     if (android) return { key: null, steps: 'Tap the ⋮ menu in your browser, then the star ☆ ("Add to bookmarks"). You can also pick "Install app" or "Add to Home screen".' };
     return { key: mac ? ['⌘', 'D'] : ['Ctrl', 'D'], steps: 'Press these keys on your keyboard while you are on this page:' };
   };
-  HT.bookmark = (anchor, { nudge = false } = {}) => {
-    document.querySelectorAll('.bmpanel').forEach(x => x.remove());
-    const k = keysFor(), close = () => { panel.remove(); document.removeEventListener('click', away, true); document.removeEventListener('keydown', esc); };
-    const away = e => { if (!panel.contains(e.target) && !(anchor && anchor.contains(e.target))) close(); }, esc = e => { if (e.key === 'Escape') close(); };
-    const panel = el('div', { class: 'bmpanel' + (nudge ? ' nudge' : ''), role: 'dialog', 'aria-label': 'Bookmark this site' },
-      el('div', { class: 'bmhead' }, HT.svg(ICON.star), el('b', { text: nudge ? 'Bookmark this website, so you do not have to search for it again' : 'Bookmark Toolz Baba' })),
-      el('p', { text: k.steps }),
-      k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), '+', el('kbd', { text: k.key[1] })) : null,
+  // A centred popup: "Never miss free tools". Opened after a download, and from the footer's "Bookmark this site".
+  // "Bookmark" offers "Install app" where the browser supports it, otherwise it shows the keys / taps for this device.
+  const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze';
+  const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return Infinity; } };
+  const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Date.now() + ms)); } catch { } };
+  HT.bookmark = ({ fromDownload = false } = {}) => {
+    if (document.querySelector('.bmmodal')) return;
+    const k = keysFor(), before = document.activeElement;
+    const hide = el('input', { type: 'checkbox' });
+    const close = () => { if (fromDownload && hide.checked) snooze(HOUR); wrap.remove(); document.removeEventListener('keydown', esc); if (before && before.focus) before.focus(); };
+    const esc = e => { if (e.key === 'Escape') close(); };
+    const keys = () => k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), el('span', { text: '+' }), el('kbd', { text: k.key[1] })) : null;
+    const body = el('div', { class: 'bmbody' });
+    const howTo = () => {   // the browser cannot be asked to add a bookmark, so say exactly how
+      body.textContent = '';
+      body.append(el('p', { class: 'bmhow', text: k.key ? 'Press these keys now to bookmark this page:' : k.steps }), keys(),
+        el('div', { class: 'bmact' }, el('button', { class: 'btn', type: 'button', text: 'Done', onclick: close })));
+      body.querySelector('button').focus();
+    };
+    const bookmark = async () => {
+      snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
+      if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') return close(); } catch { installEvt = null; } }
+      howTo();
+    };
+    body.append(
+      el('label', { class: 'bmhide', hidden: fromDownload ? null : 'hidden' }, hide, el('span', { text: "Don't show this again for 1 hour" })),
       el('div', { class: 'bmact' },
-        installEvt ? el('button', { class: 'btn sm', type: 'button', text: 'Install app', onclick: async () => { try { installEvt.prompt(); await installEvt.userChoice; } catch { } installEvt = null; close(); } }) : null,
-        el('button', { class: 'btn sec sm', type: 'button', text: 'Copy link', onclick: () => HT.copy(location.origin + '/', 'Link copied') }),
-        el('button', { class: 'btn ghost sm', type: 'button', text: nudge ? 'Not now' : 'Done', onclick: close })));
-    document.body.append(panel);
-    if (!nudge && anchor) { const r = anchor.getBoundingClientRect(); panel.style.top = Math.round(r.bottom + 8) + 'px'; panel.style.right = Math.max(8, Math.round(innerWidth - r.right)) + 'px'; }
-    setTimeout(() => { document.addEventListener('click', away, true); document.addEventListener('keydown', esc); }, 0);
-    return panel;
+        el('button', { class: 'btn', type: 'button', onclick: bookmark }, HT.svg(ICON.star), installEvt ? 'Install app' : 'Bookmark'),
+        el('button', { class: 'btn sec', type: 'button', text: 'Not now', onclick: close })));
+    const card = el('div', { class: 'bmcard', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'bm-title' },
+      el('button', { class: 'bmx', type: 'button', 'aria-label': 'Close', text: '×', onclick: close }),
+      el('div', { class: 'bmicon' }, HT.svg(ICON.star)),
+      el('h2', { id: 'bm-title', text: 'Never miss free tools' }),
+      el('p', { class: 'bmsub', text: 'Just bookmark this site. Every tool is free, with no sign-up, whenever you need it again.' }),
+      body);
+    const wrap = el('div', { class: 'bmmodal', onclick: e => { if (e.target === wrap) close(); } }, card);
+    document.body.append(wrap); document.addEventListener('keydown', esc);
+    card.querySelector('.bmact .btn').focus();
   };
-  // after the first finished download, one gentle reminder (never again once it was shown)
+  // after a finished download: the popup, unless it was snoozed, or already shown in the last 2 minutes (one popup for a batch of downloads)
+  let lastNudge = 0;
   const bookmarkNudge = () => {
-    let seen = false; try { seen = !!localStorage.getItem('tz_bm_nudge'); localStorage.setItem('tz_bm_nudge', String(Date.now())); } catch { seen = true; }
-    if (seen || document.querySelector('.bmpanel')) return;
-    setTimeout(() => HT.bookmark(null, { nudge: true }), 1400);
+    if (Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmmodal')) return;
+    lastNudge = Date.now();
+    setTimeout(() => HT.bookmark({ fromDownload: true }), 1200);
   };
-  const bookmarkButton = () => { const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, HT.svg(ICON.star), el('span', { text: 'Bookmark' })); b.onclick = () => HT.bookmark(b); return b; };
+  // download links a tool shows ("Download merged.pdf") count too, not only HT.download()
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#tool a[download]'); if (a) bookmarkNudge(); }, true);
 
   applyTheme(themeNow());
   const themeButton = () => {
@@ -838,7 +862,7 @@
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), themeButton(), navbar.burger), navbar.mobile);
     HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
@@ -853,7 +877,7 @@
       popular,
       col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
-    const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(bm); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
+    const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
     HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))); });
