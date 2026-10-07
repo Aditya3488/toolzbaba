@@ -30,7 +30,6 @@
   const NARROW = [[.42, .12, .6], [.58, .32, .85], [.42, .52, .7], [.58, .71, .5]];
   const send = () => HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>');
   const face = () => { const s = HT.star(22); return el('span', { class: 'ab-face' }, s); };
-  const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   HT.askBaba = async (stage, { compact = false } = {}) => {
     if (!stage || stage.dataset.ready) return; stage.dataset.ready = '1';
@@ -41,12 +40,16 @@
     const narrow = () => stage.clientWidth < 700 || compact;
     let spots = narrow() ? NARROW : WIDE, cards = [], active = -1, auto = null, typing = null, panel = null, next = 0;
 
-    // far-away boxes: soft, blurred bars that give the field its depth
+    // far-away boxes: small soft cards across the whole width (the farther, the smaller and blurrier), on a faint floor
     const ghosts = el('div', { class: 'ab-ghosts', 'aria-hidden': 'true' });
     let seed = 7; const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
-    for (let i = 0; i < 18; i++) { const g = el('i', { style: { left: (rnd() * 92 + 2) + '%', top: (rnd() * 90 + 3) + '%', width: (40 + rnd() * 90) + 'px', opacity: (.25 + rnd() * .35).toFixed(2) } }); g.style.setProperty('--d', (rnd() * .3).toFixed(2)); ghosts.append(g); }
-    const field = el('div', { class: 'ab-field' }, ghosts);
-    stage.textContent = ''; stage.append(field);
+    for (let i = 0; i < 28; i++) {
+      const d = rnd() * .4, w = (70 + rnd() * 120) * (.6 + d);
+      const g = el('i', { style: { left: (rnd() * 96 + 2) + '%', top: (rnd() * 90 + 5) + '%', width: w.toFixed(0) + 'px', height: (w * .36).toFixed(0) + 'px', opacity: (.4 + d).toFixed(2) } });
+      g.style.setProperty('--d', d.toFixed(2)); ghosts.append(g);
+    }
+    const field = el('div', { class: 'ab-field' });
+    stage.textContent = ''; stage.append(el('div', { class: 'ab-floor', 'aria-hidden': 'true' }), ghosts, field);
 
     const place = () => {
       spots = narrow() ? NARROW : WIDE;
@@ -98,17 +101,17 @@
 
     // the pointer: the nearest box wakes up, and the field leans a little towards it (depth)
     let hover = false, px = 0, py = 0, tx = 0, ty = 0, raf = 0;
-    const lean = () => { tx += (px - tx) * .08; ty += (py - ty) * .08; field.style.setProperty('--mx', tx.toFixed(3)); field.style.setProperty('--my', ty.toFixed(3)); if (Math.abs(px - tx) + Math.abs(py - ty) > .002) raf = requestAnimationFrame(lean); else raf = 0; };
+    const lean = () => { tx += (px - tx) * .08; ty += (py - ty) * .08; stage.style.setProperty('--mx', tx.toFixed(3)); stage.style.setProperty('--my', ty.toFixed(3)); if (Math.abs(px - tx) + Math.abs(py - ty) > .002) raf = requestAnimationFrame(lean); else raf = 0; };
     stage.addEventListener('pointermove', e => {
       if (e.pointerType !== 'mouse' || panel) return;
       const r = stage.getBoundingClientRect(); hover = true;
       px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5;
-      if (!reduce() && !raf) raf = requestAnimationFrame(lean);
+      if (!raf) raf = requestAnimationFrame(lean);
       let best = -1, bd = Infinity;
       cards.forEach((c, k) => { if (c.hidden) return; const b = c.getBoundingClientRect(), d = Math.hypot(e.clientX - (b.left + b.width / 2), e.clientY - (b.top + b.height / 2)); if (d < bd) { bd = d; best = k; } });
       if (best >= 0) wake(best, false);
     });
-    stage.addEventListener('pointerleave', () => { hover = false; px = py = 0; if (!reduce() && !raf) raf = requestAnimationFrame(lean); });
+    stage.addEventListener('pointerleave', () => { hover = false; px = py = 0; if (!raf) raf = requestAnimationFrame(lean); });
 
     // ---- Baba at work: the box grows into a panel, the tool's steps appear one by one, then the tool is offered
     function open(task, from) {
