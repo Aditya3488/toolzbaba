@@ -77,7 +77,7 @@ let pass = 0, fail = 0;
     await go(page, '/compress-jpg'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 11 && (await page.locator('.vchips:not(.hidden) .vchip.on').innerText()) === 'Any size', 'jpg chips');
     await go(page, '/compress-jpeg'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 11 && (await page.locator('.vchips:not(.hidden) .vchip.on').innerText()) === 'Any size', 'jpeg chips');
     await go(page, '/compress-gif'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 0, 'gif page should not show chips');
-    await go(page, '/tool/compress-pdf'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 7, 'pdf chips'); await go(page, '/tool/compress-image'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 0, 'base image page has no chips'); return 'ok';
+    await go(page, '/compress-pdf'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 7, 'pdf chips'); await go(page, '/compress-image'); ex((await page.locator('.vchips:not(.hidden) .vchip').count()) === 0, 'base image page has no chips'); return 'ok';
   });
 
   // ---------------------------------------------------------------- JPG: control + live preview
@@ -198,8 +198,8 @@ let pass = 0, fail = 0;
     ex(/Compress to under 500 KB/.test(await page.getByRole('button', { name: /^Compress to under/ }).innerText()), 'button text'); await page.locator('.sizebox .schip', { hasText: /^1 MB$/ }).click();
     ex(/Compress to under 1\.00 MB/.test(await page.getByRole('button', { name: /^Compress to under/ }).innerText()), 'button after preset: ' + await page.getByRole('button', { name: /^Compress to under/ }).innerText()); return 'ok';
   });
-  await T('PDF: original /tool/compress-pdf still works', async page => {
-    await go(page, '/tool/compress-pdf'); await page.locator('input[type=file]').first().setInputFiles(S + 'five.pdf'); await page.waitForSelector('.file'); await page.getByRole('button', { name: /^Compress/ }).first().click();
+  await T('PDF: original /compress-pdf still works', async page => {
+    await go(page, '/compress-pdf'); await page.locator('input[type=file]').first().setInputFiles(S + 'five.pdf'); await page.waitForSelector('.file'); await page.getByRole('button', { name: /^Compress/ }).first().click();
     await page.waitForSelector('.result, .status.err', { timeout: 240000 }); ex(!(await page.locator('.status.err').count()), 'error'); return (await page.locator('.result .sum').innerText()).slice(0, 60);
   });
 

@@ -113,7 +113,7 @@ MAX_CONCURRENT_JOBS=2 sh start.sh
 | `RATE_LIMIT`, `RATE_LIMITS` | on | Per-visitor hourly limits (defaults in `security.py`) |
 | `MAX_CONCURRENT_JOBS` | `3` | Heavy jobs at once; the rest wait in line |
 | `MAX_UPLOAD_MB` | `2100` | Largest accepted request |
-| `ADMIN_KEY` | none | Lets you delete any hosted image |
+| `ADMIN_USER`, `ADMIN_KEY` | none | Admin panel ID and password (16+ characters); also delete any hosted image |
 | `CDN_RETENTION_DAYS`, `CDN_MAX_TOTAL_MB`, `CDN_MAX_FILE_MB` | `0` / `5000` / `25` | Image hosting limits |
 | `DATA_DIR` | `./data` | Hosted images and AI models |
 | `LIBREOFFICE_PATH` | auto | Path to `soffice` if it isn't found |
@@ -202,7 +202,7 @@ HT.register('my-tool', root => HT.serverTool(root, {
 **3. The catalogue**: add an entry to `static/assets/tools.json`: `slug`, `cat` (`image|ai|pdf|video|util`), `name`, `desc`,
 `kind` (`server` or `client`), `js` (the file name from step 2), `icon` (emoji fallback) and an `about` paragraph
 (2-3 honest sentences: it becomes the SEO text on the tool's page). The sitemap, home page card, search and
-`/tool/<slug>` page all appear automatically.
+`/<slug>` page all appear automatically.
 
 **4. The icon**: in `static/assets/common.js` add a glyph to `GLYPH` and a colour to `TOOL_COLOR` (colour names are the logo's palette).
 Missing icons fall back to a blue grid symbol.
@@ -249,13 +249,15 @@ Tests: `tests/browser_sizes.js` (needs the `scan3.pdf` sample from `python smoke
 
 ### Tool families (tabs) from the SEO slug sheet
 
-A row of the slug sheet is a **family**: the first line is the primary tool (`/tool/<slug>`, renamed if the sheet gives it a slug), the lines under it are
+Every tool lives at the site root (`/<slug>`). Tools used to be at `/tool/<slug>`: `build.py` adds permanent (301) redirects from every old `/tool/...` address, so old links and search results keep working.
+
+A row of the slug sheet is a **family**: the first line is the primary tool (`/<slug>`, renamed if the sheet gives it a slug), the lines under it are
 its **tabs**, each on its own root address (`/<slug>`), exactly like Compress Image with PNG | JPEG | JPG | GIF. Tabs are `variants` in `tools.json` (`base` = the primary,
 `tab` = the label, `js` / `engine` for the screen they use, `aliases` = old addresses that redirect to them); the primary has `tabAll` = the label of its own tab.
 A tab click switches the screen in place (the address, title, text and tags follow, files you added stay when they fit). Tool scripts are loaded as modules, so two tabs
 can be on one page without their top-level names clashing. Search (home and header) also finds tabs.
 
-| Primary (`/tool/...`) | Tabs |
+| Primary (`/...`) | Tabs |
 |---|---|
 | `add-watermark-to-image` | `add-watermark-to-pdf`, `add-watermark-to-video` |
 | `pixelate-image` | `blur-redact-pdf` |
@@ -282,15 +284,15 @@ into pills, and the picture shows the result only (a toggle brings back Original
 
 ### PDF Editor and Font Library
 
-* **Font Library** (`/tool/font-library`, `static/assets/tools/font-library.js`): 51 free fonts (Latin, display, handwriting, monospace and Indian scripts) with a live preview, search, filters, ZIP download per font and "Copy CSS".
+* **Font Library** (`/font-library`, `static/assets/tools/font-library.js`): 51 free fonts (Latin, display, handwriting, monospace and Indian scripts) with a live preview, search, filters, ZIP download per font and "Copy CSS".
   The font files are in `static/assets/fonts/` with an index `fonts.json`; rebuild them with `python scripts/get_fonts.py` (downloads the TTFs from the `@expo-google-fonts/*` npm packages and writes `fonts.json`, including the scripts each font covers).
   `static/assets/tools/fonts-helpers.js` (`HT.fonts`) loads a font for the screen (`FontFace`, family "TB <Name>") and hands its bytes to the PDF engine, so the page and the saved PDF use the same font. `HT.fonts.picker()` is the font drop-down used inside the editor.
-* **PDF Editor** (`/tool/pdf-editor`, alias `/edit-pdf`; UI `static/assets/tools/pdf-editor.js`, export engine `static/assets/engine/pdf-edit.js`): pages are shown with pdf.js and what you add is an overlay of objects
+* **PDF Editor** (`/pdf-editor`, alias `/edit-pdf`; UI `static/assets/tools/pdf-editor.js`, export engine `static/assets/engine/pdf-edit.js`): pages are shown with pdf.js and what you add is an overlay of objects
   (text, pictures, rectangle, ellipse, line, arrow, highlight, drawing, white-out) in page points. The PDF's own text is editable straight away: hover any text in Select mode and click it (the "Edit text" tool shows all of it outlined). It turns a paragraph that is already in the PDF into a text box (the old text is removed from the file, the new one is written in a similar font and the colour taken from the page).
   **Scans** (a page that is only a picture) show an "OCR" bar: tesseract (in the browser, English / Hindi) reads the page and every line it finds becomes a text block you can change (`runOcr` in `pdf-editor.js`; the picture under the line is cleared with the paper colour and the new text is written in its place). **Pictures of the PDF** can be clicked in Select mode: they are removed from the file for good (the file gets smaller) and you can put your own picture in their place (`origpic` objects, found with the pdf.js operator list).
   Pages can be rotated, moved, deleted or added blank. **Download** builds the file with MuPDF (real embedded text when the font can be encoded, a picture of the text for Indian scripts and mixed lines), and offers PDF, Word (`pdf-to-word`), page pictures (`pdf-to-image`) and plain text.
   The whole font library is also **inside the editor**: the "Aa Font library" button in the toolbar (and "Browse the font library" in the text settings) opens a window with search, categories, script filter, a preview in your own text, "Use this font" and "Download" (`HT.fonts.library` in `fonts-helpers.js`; fonts that cannot draw your letters are marked). With text selected the choice changes that text, otherwise it becomes the font of the next text.
-  `/tool/pdf-editor?font=<id>` starts with that font (the Font Library links here). White-out removes what is under it from the file unless you switch that off.
+  `/pdf-editor?font=<id>` starts with that font (the Font Library links here). White-out removes what is under it from the file unless you switch that off.
   Sample documents for the tests: `python tests/make_pdf_samples.py` (needs reportlab). Tests: `node tests/browser_pdfeditor.js` (engine, font page, editing, white-out, page actions, all download formats, phone layout).
 
 ### Bookmark button
@@ -305,14 +307,43 @@ Browsers do not let a page add a bookmark itself, so the panel shows the right k
 * **Tab pages** (for example Blur & Redact PDF, Video to Text, Add Watermark to PDF) are cards on the home page, in their own category (`cat` on the variant in `tools.json`, else the category of their tool). The count in the hero and in the "All" pill includes them.
 * **Admin lab**: tools that cannot be driven the generic way are listed in `LAB_SKIP` / `LAB_STEPS` in `admin.js` (Sign PDF and Unlock PDF are skipped there, `tests/browser_tools.js` covers them; Blur & Redact PDF gets a marked area first).
 
+### Converters, navigation bar, search and sitemap
+
+* **Markdown / HTML converters** (`engine/convert.js`, UI `tools/convert-tools.js`): Markdown to PDF / HTML / Word, HTML to PDF / Markdown, Word to Markdown, PDF to Markdown. `markdown-converter` is the first page of the family (a chooser), the others are its tab pages (`/markdown-to-pdf` ...), and `/html-to-pdf` is a tab of Word to PDF. HTML is turned into PDF by MuPDF (`HT.pdfEngine.htmlToPdf`, shared with Word to PDF); Markdown is read by `marked`, HTML turned into Markdown by `turndown` (+ its GFM plugin), the .docx file is written by hand with JSZip. JPG to PDF and PNG to PDF are tab pages of Image to PDF (same engine, they only take that kind of picture).
+* **Every tool lives at the site root** (`/video-converter`, `/merge-pdf`). The old `/tool/<name>` addresses redirect there (`/tool/*  /:splat  301` at the end of `_redirects`, after the rename aliases). `build.py` refuses a tool slug that clashes with a folder or page at the root.
+* **Navigation bar** (`buildNav` / `NAV_MENUS` in `common.js`): Image, PDF, Video & audio, AI, Convert and All tools open menus on hover or click (everything related, with icons); a hamburger list on phones. Edit the slug lists in `NAV_MENUS` to change a menu; slugs that do not exist or are archived are skipped.
+* **Search** (`HT.searchTools`): short forms and other names (`md`, `jpeg`, `docx`, `photo`), ranking, a typo or two swapped letters, and a Related part; the home page marks related cards. Add `keywords` to a tool in `tools.json` to teach it new words.
+* **Sitemap**: one URL per page of the site (tools, tab pages, size pages, legal pages), none for `/admin`, archived or old `/tool/` addresses. `lastmod` is the day the page's own content last changed (`sitemap-dates.json`, kept in git so every machine agrees), not the deploy day.
+
 ### Admin panel (`/admin`)
 
-One page to archive or re-enable tools, see how fast they are for real visitors, and test every tool. It is private: `noindex`, never cached, not in the sitemap, and every call to `/api/admin/*` needs the `ADMIN_KEY` secret (header `X-Admin-Key`). Set it in Cloudflare Pages (Settings, Variables and Secrets), and for local use in `.dev.vars`.
+One page to archive or re-enable tools, see how fast they are for real visitors, and test every tool. It is private: `noindex`, never cached, not in the sitemap.
+
+**Setting it up:** add two **secrets** in Cloudflare Pages (Settings, Variables and Secrets): `ADMIN_USER` (your ID) and `ADMIN_KEY` (a password of **16 or more characters** used nowhere else), then redeploy. For local use put them in `.dev.vars`. Until both are set, and the password is long enough, the panel stays shut.
+
+**How it is protected** (`lib/admin-store.js`):
+* Signing in (`POST /api/admin/login`) swaps the ID and password for a session cookie (`__Host-tz_admin`: HttpOnly, Secure, SameSite=Strict, 8 hours, signed with both secrets). Page scripts can't read it and the password is never stored in the browser. Changing either secret ends every session.
+* Every admin request must carry `X-Requested-With: toolzbaba-admin`, which other websites can't add, so a forged form or link can't act with your session.
+* Wrong passwords: 5 per visitor per 15 minutes, and 50 per hour from everyone together (then the panel locks for up to an hour, you included). Each wrong try waits 1 second. The image and file delete endpoints count wrong admin passwords too.
+* The admin page has no Tag Manager or `HEAD_EXTRA` and a strict Content-Security-Policy (only the site's own scripts), `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`, `Cache-Control: no-store`.
+* Scripts can call the API with the headers `X-Requested-With: toolzbaba-admin`, `X-Admin-User` and `X-Admin-Key`.
+* **Strongest extra lock (recommended): Cloudflare Access.** Zero Trust > Access > Applications > Add > Self-hosted: domain `toolzbaba.com`, paths `/admin` and `/api/admin/*`, policy "Allow" for your own email addresses only (login method: one-time PIN). Free for up to 50 people. Then nobody else even reaches the sign-in form.
 
 * **Tools**: Archive / Make live per tool or in bulk (with a private note). Archived tools disappear from the home page, search and menus, their address shows "taking a break" (noindex), and the tabs of an archived tool go with it. The list is in KV (`admin:status`), served by `GET /api/tool-status`, cached 60 s at the edge and 10 min in the visitor's browser (`HT.status` in `common.js`; a first-time visitor gets it together with `tools.json`, waiting at most 1.2 s), so it costs no speed. In the admin's own browser everything stays visible (with a banner on archived tools) until you switch to "Viewing site as visitor". For a permanent archive set `"archived": true` on the tool in `tools.json` (also removes it from the sitemap).
 * **Real visitors**: about 1 page view in 10 sends one beacon (`HT.rum`, no personal data, off for the admin and for Do Not Track) to `POST /api/rum`; `lib/rum-store.js` folds it into one JSON document of histograms per tool (server time, first paint, LCP, tool-ready, INP, CLS, errors, tool runs). Free KV allows 1,000 writes a day, so at most 700 beacons a day are saved (estimates). For exact numbers move this to D1 or Analytics Engine.
 * **Lab tests**: opens each tool in a hidden frame of the admin tab, measures ready time, load time, our own download weight vs ads/analytics weight, collects JS errors, and (optional) feeds the tool a generated sample (PNG/JPEG, PDF, WAV, a short video for heavy tools) and waits for a result or a download. AI/video/speech tools only run with "Include heavy tools". Results are stored in KV (`admin:lab`) so every admin sees them. Quick health check only; `tests/` stays the real safety net.
+* **Blog**: write, publish, edit, unpublish and delete posts (see below).
 * Code: `static/admin.html`, `static/assets/admin.js`, `admin.css` (loaded only on `/admin`), `functions/api/admin/*`, `functions/api/tool-status.js`, `functions/api/rum.js`, `lib/admin-store.js`, `lib/rum-store.js`. Tests: `tests/functions_test.mjs` (API), `node tests/browser_admin.js` (needs `ADMIN_KEY` in `.dev.vars`).
+
+### Blog (`/blog`)
+
+A small CMS built into the admin panel (the Blog tab), free on Cloudflare: no WordPress, no database server. Posts are stored in the same KV namespace (`CDN`) and go live the moment you press Publish, without a rebuild or deploy.
+
+* **Writing**: title, address (`/blog/<slug>`, made from the title), description (for Google; left empty, the start of the post is used), cover image, tags, publish date, and the text in Markdown with a toolbar (headings, bold, italic, links, images, lists, quotes, code, tables) and a live preview. Images are shrunk to WebP (1600 px) in the browser and kept for good at `/blog/images/<id>.<ext>` (5 MB at most; JPG, PNG, WebP, AVIF, GIF; never SVG).
+* **Pages**: `/blog` (newest first, 12 per page, `?tag=` filter), `/blog/<slug>` (table of contents, related posts, BlogPosting and breadcrumb JSON-LD, cover as `og:image`), `/blog/feed.xml` (RSS) and `/blog/sitemap.xml`; published posts are also added to the main `/sitemap.xml` by `functions/sitemap.xml.js`. They use the site's head, Tag Manager, header and footer: `build.py` renders `static/blog.html` into `dist/blog-shell.html` with `%%TITLE%%`, `%%DESC%%` and `%%PATH%%` placeholders that `lib/blog-store.js` fills in.
+* **Safety**: only the admin can save (same session, header and lockout rules as the rest of the panel). The Markdown renderer (`static/assets/blog/markdown.js`, shared by the pages and the preview) escapes everything, so HTML in a post is shown as text, and links and images accept only `http(s)`, site paths, `#anchors` and `mailto`. Drafts and scheduled posts are not public.
+* **Renaming** a published post keeps the old address as a 301 redirect (`blog:moved:<old>`).
+* KV keys: `blog:index` (summaries), `blog:post:<slug>`, `blog:moved:<slug>`, `blogimg:<id>.<ext>`. Code: `functions/blog/*`, `functions/api/admin/blog/*`, `functions/api/admin/blog-image.js`, `lib/blog-store.js`.
 
 ### Keeping the site fast
 
@@ -423,7 +454,8 @@ npx wrangler pages deploy --branch cloudflare-pages
    the branch you deploy from.
 3. Environment variables (optional): `SITE_URL` (default `https://toolzbaba.com`), `SITE_NAME`, `CONTACT_EMAIL`,
    `SITE_TAGLINE`, `HEAD_EXTRA` (e.g. Search Console or AdSense tags), `CDN_RETENTION_DAYS` (default 90),
-   and the secret `ADMIN_KEY` to delete any hosted image: `curl -X DELETE -H "X-Admin-Key: ..." https://toolzbaba.com/api/cdn/<id>`.
+   and the secrets `ADMIN_USER` + `ADMIN_KEY` for the admin panel (see "Admin panel"), which also delete any hosted image:
+   `curl -X DELETE -H "X-Requested-With: toolzbaba-admin" -H "X-Admin-User: ..." -H "X-Admin-Key: ..." https://toolzbaba.com/api/cdn/<id>`.
 4. **Workers & Pages** > **KV** > create a namespace (e.g. `toolzbaba-cdn`), then in the Pages project
    **Settings** > **Bindings** add a KV namespace binding named `CDN`. Without it the site works and only image
    hosting says it is switched off.

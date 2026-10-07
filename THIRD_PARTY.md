@@ -67,3 +67,12 @@ Files in `static/assets/fonts/` (get them with `python scripts/get_fonts.py`, wh
 | Ubuntu | Ubuntu Font Licence 1.0 (free to use, embed and share) |
 
 The ZIP that the Font Library gives for each font contains a `LICENSE.txt` note (name, copyright line, licence). PDFs made with the editor embed the font that was used; embedding in documents is allowed by these licences.
+
+### Markdown and HTML converters
+
+Files in `static/assets/vendor/marked-18.1.0` and `turndown-7.2.4` (browser builds, unchanged, with their licence files).
+
+| Library | Used for | Licence |
+|---|---|---|
+| [marked](https://github.com/markedjs/marked) 18.1.0 | Markdown to HTML | MIT |
+| [turndown](https://github.com/mixmark-io/turndown) 7.2.4 and [turndown-plugin-gfm](https://github.com/mixmark-io/turndown-plugin-gfm) 1.0.2 | HTML to Markdown (tables, task lists, strikethrough) | MIT |

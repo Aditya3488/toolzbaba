@@ -303,7 +303,9 @@
    "engine": "pdf",
    "js": "server-pdf",
    "about": "Combine images into a single PDF. Choose A4, US Letter, A5 or the image's own size, set the orientation and margins, and reorder the pages. HEIC, PNG, JPG, WebP and more are supported.",
-   "popular": 9
+   "popular": 9,
+   "tabAll": "Any image",
+   "keywords": "jpg jpeg png photo picture convert pdf heic webp"
   },
   {
    "slug": "pdf-to-image",
@@ -317,7 +319,7 @@
    "about": "Convert PDF pages to PNG, JPG or WebP images. Pick the resolution from 72 to 300 DPI and choose all pages or a range such as 1-3,5. Multiple pages are delivered as a ZIP."
   },
   {
-   "slug": "pdf-merge",
+   "slug": "merge-pdf",
    "cat": "pdf",
    "icon": "🔗",
    "name": "Merge PDF",
@@ -326,10 +328,13 @@
    "engine": "pdf",
    "js": "server-pdf",
    "about": "Join several PDF files into one document in the order you choose. Reorder the files before merging. Password-protected PDFs need the password removed first.",
-   "popular": 5
+   "popular": 5,
+   "aliases": [
+    "pdf-merge"
+   ]
   },
   {
-   "slug": "pdf-split",
+   "slug": "split-pdf",
    "cat": "pdf",
    "icon": "📑",
    "name": "Split PDF",
@@ -337,7 +342,10 @@
    "kind": "client",
    "engine": "pdf",
    "js": "server-pdf",
-   "about": "Split a PDF into single pages, into groups of N pages, into custom page ranges, or extract selected pages into one new PDF. Results are delivered as a ZIP when there are several files."
+   "about": "Split a PDF into single pages, into groups of N pages, into custom page ranges, or extract selected pages into one new PDF. Results are delivered as a ZIP when there are several files.",
+   "aliases": [
+    "pdf-split"
+   ]
   },
   {
    "slug": "compress-pdf",
@@ -366,7 +374,9 @@
    "about": "Convert Word documents (DOCX, DOC), OpenDocument text, RTF, plain text, PowerPoint and Excel files to PDF. The conversion is done on the server with LibreOffice.",
    "aliases": [
     "docx-to-pdf"
-   ]
+   ],
+   "tabAll": "Word & Office",
+   "keywords": "docx doc word office excel powerpoint html convert pdf"
   },
   {
    "slug": "pdf-to-word",
@@ -380,7 +390,24 @@
    "about": "Convert a PDF into an editable Word document. It works best on PDFs with real text. Scanned PDFs are just pictures of pages and cannot be turned into editable text without OCR.",
    "aliases": [
     "pdf-to-docx"
-   ]
+   ],
+   "keywords": "docx doc word convert editable"
+  },
+  {
+   "slug": "markdown-converter",
+   "cat": "pdf",
+   "icon": "📝",
+   "name": "Markdown Converter",
+   "desc": "Markdown to PDF, HTML or Word, and HTML, Word or PDF back to Markdown.",
+   "kind": "client",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "md2pdf",
+   "pickMode": true,
+   "tabAll": "All converters",
+   "keywords": "md readme github docs notes text document convert",
+   "about": "One place for every Markdown conversion: turn Markdown into a PDF, a web page or a Word file, or turn an HTML page, a Word document or a PDF back into clean Markdown. Type or paste your text and watch the preview, or add a file. Your file stays on your device: it is converted in your browser and never uploaded."
   },
   {
    "slug": "organize-pdf",
@@ -1996,6 +2023,210 @@
    "js": "file-share",
    "aliases": [
     "temporary-file-upload-direct-link-share"
+   ]
+  },
+  {
+   "slug": "markdown-to-pdf",
+   "base": "markdown-converter",
+   "tab": "Markdown to PDF",
+   "name": "Markdown to PDF",
+   "title": "Markdown to PDF Converter Online Free | Toolz Baba",
+   "desc": "Turn Markdown into a clean PDF. Type or paste it, see the preview, choose the page size and download.",
+   "about": "Write or paste Markdown (headings, lists, tables, code, quotes and links) and get a tidy PDF. Pick A4 or US Letter, the letters (modern or book-like), the text size and the margins. Hindi and other Indian scripts work too. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "md2pdf",
+   "faq": [
+    {
+     "q": "How do I convert a Markdown file to PDF?",
+     "a": "Load the .md file or paste its text, check the preview, choose the page size and click Create PDF. The PDF is made on your device."
+    },
+    {
+     "q": "Are tables and code blocks kept?",
+     "a": "Yes. Tables, code blocks, quotes, lists, links and headings are all in the PDF. Pictures that come from the web are not added; pictures written as data addresses are."
+    }
+   ]
+  },
+  {
+   "slug": "markdown-to-html",
+   "base": "markdown-converter",
+   "tab": "Markdown to HTML",
+   "name": "Markdown to HTML",
+   "title": "Markdown to HTML Converter Online Free | Toolz Baba",
+   "desc": "Turn Markdown into a complete web page you can open, share or upload. Live preview, no sign-up.",
+   "about": "Paste or load Markdown and get a complete HTML page with its own clean style, ready to open in a browser or put on a website. You can also copy the HTML. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "md2html",
+   "faq": [
+    {
+     "q": "Can I copy the HTML instead of downloading it?",
+     "a": "Yes. After converting, the HTML is shown under the result with a Copy button."
+    },
+    {
+     "q": "Does the page need anything else to look right?",
+     "a": "No. The style is inside the page, so it looks the same everywhere."
+    }
+   ]
+  },
+  {
+   "slug": "markdown-to-word",
+   "base": "markdown-converter",
+   "tab": "Markdown to Word",
+   "name": "Markdown to Word",
+   "title": "Markdown to Word (DOCX) Converter Online Free | Toolz Baba",
+   "desc": "Turn Markdown into a Word document (.docx) with real headings, lists, links and tables.",
+   "about": "Convert Markdown to a Word file that opens in Word, Google Docs and LibreOffice. Headings become real Word headings (so the navigation pane works), and lists, bold and italic, links, quotes, code and tables are kept. Pictures show as their description. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "md2docx",
+   "faq": [
+    {
+     "q": "Will the headings work in Word's navigation pane?",
+     "a": "Yes. They are real Heading 1 to Heading 6 styles."
+    },
+    {
+     "q": "Are pictures included?",
+     "a": "Not yet: a picture shows as its description in square brackets."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-markdown",
+   "base": "markdown-converter",
+   "tab": "HTML to Markdown",
+   "name": "HTML to Markdown",
+   "title": "HTML to Markdown Converter Online Free | Toolz Baba",
+   "desc": "Turn HTML into clean Markdown: headings, lists, links, code and tables. Paste it or load a file.",
+   "about": "Paste HTML or load an .html file and get readable Markdown: headings, bold and italic, lists, links, code blocks and tables. Scripts and styles are left out. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "html2md",
+   "faq": [
+    {
+     "q": "Are tables converted?",
+     "a": "Yes, to Markdown (GitHub style) tables. The first row becomes the header."
+    },
+    {
+     "q": "What happens to scripts and CSS?",
+     "a": "They are removed, only the content is converted."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-markdown",
+   "base": "markdown-converter",
+   "tab": "Word to Markdown",
+   "name": "Word (DOCX) to Markdown",
+   "title": "Word (DOCX) to Markdown Converter Online Free | Toolz Baba",
+   "desc": "Turn a Word document into Markdown. Headings, lists, bold, links and tables are kept; pictures come as files.",
+   "about": "Add a .docx file and get Markdown with headings, lists, bold and italic, links and tables. Pictures are saved in an images folder (one ZIP), put inside the Markdown, or left out, as you choose. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "docx2md",
+   "faq": [
+    {
+     "q": "Does it work with old .doc files?",
+     "a": "No, only .docx. Open an old file in Word or Google Docs and save it as .docx first."
+    },
+    {
+     "q": "What happens to the pictures?",
+     "a": "By default they are saved as files in an images folder next to the .md file, all in one ZIP. You can also embed them or leave them out."
+    }
+   ]
+  },
+  {
+   "slug": "pdf-to-markdown",
+   "base": "markdown-converter",
+   "tab": "PDF to Markdown",
+   "name": "PDF to Markdown",
+   "title": "PDF to Markdown Converter Online Free | Toolz Baba",
+   "desc": "Turn a PDF into Markdown: headings from the big letters, lists and paragraphs from the layout.",
+   "about": "Add a PDF with real text and get Markdown: bigger letters become headings, bullet and numbered lists are kept, and lines are joined into paragraphs. Tables and columns are not rebuilt, so check the result. A scan has no text: use Image to Text (OCR) first. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "pdf2md",
+   "faq": [
+    {
+     "q": "Why is my PDF empty after converting?",
+     "a": "It is probably a scan (a picture of a page). Run it through Image to Text (OCR) first."
+    },
+    {
+     "q": "Are tables kept?",
+     "a": "Not as tables: their text comes out as lines. Check and tidy tables by hand."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-pdf",
+   "base": "word-to-pdf",
+   "tab": "HTML to PDF",
+   "name": "HTML to PDF",
+   "title": "HTML to PDF Converter Online Free | Toolz Baba",
+   "desc": "Turn HTML into a PDF: paste the code or load an .html file, see the preview and download.",
+   "about": "Paste HTML or load an .html file and get a PDF. Basic CSS, tables, lists and pictures (as data addresses) are supported. Scripts do not run, and pictures or style sheets from the web are not loaded: put the CSS in a style tag. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "engine": "convert",
+   "js": "convert-tools",
+   "ui": "markdown-tool",
+   "mode": "html2pdf",
+   "faq": [
+    {
+     "q": "Why are some pictures missing?",
+     "a": "The PDF is made on your device and does not download things from the web. Use pictures as data addresses (base64) or add them in the PDF Editor afterwards."
+    },
+    {
+     "q": "Do scripts run?",
+     "a": "No. Only the page as it is written is turned into a PDF."
+    }
+   ],
+   "cat": "pdf"
+  },
+  {
+   "slug": "jpg-to-pdf",
+   "base": "image-to-pdf",
+   "tab": "JPG to PDF",
+   "name": "JPG to PDF",
+   "title": "JPG to PDF Converter Online Free | Toolz Baba",
+   "desc": "Turn JPG photos into one PDF. Choose the page size and order. Runs in your browser.",
+   "engine": "pdf",
+   "js": "server-pdf",
+   "about": "Combine one or many JPG (JPEG) pictures into a single PDF. Choose A4, US Letter, A5 or the size of the picture, set the orientation and margin, and reorder the pages. The JPG data is put in the PDF without losing quality. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "faq": [
+    {
+     "q": "How do I convert JPG to PDF?",
+     "a": "Add your JPG pictures, put them in order, choose the page size and click Create PDF."
+    },
+    {
+     "q": "Can I make one PDF from several JPGs?",
+     "a": "Yes. Add them all and use the arrows to set the order."
+    }
+   ]
+  },
+  {
+   "slug": "png-to-pdf",
+   "base": "image-to-pdf",
+   "tab": "PNG to PDF",
+   "name": "PNG to PDF",
+   "title": "PNG to PDF Converter Online Free | Toolz Baba",
+   "desc": "Turn PNG pictures into one PDF. Keeps transparency. Choose the page size and order.",
+   "engine": "pdf",
+   "js": "server-pdf",
+   "about": "Combine one or many PNG pictures into a single PDF. Transparent parts stay transparent. Choose A4, US Letter, A5 or the size of the picture, set the orientation and margin, and reorder the pages. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "faq": [
+    {
+     "q": "Does PNG to PDF keep transparency?",
+     "a": "Yes. Transparent areas stay transparent in the PDF."
+    },
+    {
+     "q": "Can I put several PNGs in one PDF?",
+     "a": "Yes. Add them all and use the arrows to set the order."
+    }
    ]
   }
  ]

@@ -37,4 +37,21 @@ table.adm-t { border-collapse:collapse; width:100%; font-size:.86rem; min-width:
 .adm-msg { color:var(--err, #b3261e); font-size:.9rem; min-height:1.2em; margin:-4px 0 10px; }
 .adm-dlg { border:1px solid var(--border2); border-radius:14px; padding:20px; width:min(440px,92vw); background:var(--card); color:var(--text); box-shadow:var(--shadow); } .adm-dlg::backdrop { background:rgba(10,12,24,.45); } .adm-dlg h3 { margin:0 0 8px; } .adm-dlg input { width:100%; margin:10px 0 14px; }
 .adm-small { font-size:.78rem; color:var(--faint); }
+/* blog editor */
+.be { display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:16px; align-items:start; }
+.be-main { display:flex; flex-direction:column; gap:10px; min-width:0; }
+.be-title { font-size:1.4rem; font-weight:700; padding:12px 14px; }
+.be-slug { display:flex; align-items:center; gap:4px; } .be-slug input { flex:1; padding:6px 10px; font-size:.88rem; }
+.be-tools { display:flex; flex-wrap:wrap; gap:4px; position:sticky; top:58px; z-index:5; background:var(--bg2); padding:4px 0; }
+.be-tools .btn { min-width:38px; }
+.be-body { width:100%; min-height:62vh; resize:vertical; font:15px/1.65 ui-monospace,Consolas,monospace; padding:14px; }
+.be-foot { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.be-side { display:flex; flex-direction:column; gap:14px; position:sticky; top:62px; max-height:calc(100vh - 80px); overflow:auto; }
+.be-card { display:flex; flex-direction:column; gap:10px; }
+.be-field { display:flex; flex-direction:column; gap:4px; } .be-field textarea, .be-field input { width:100%; }
+.be-lab { font-size:.8rem; font-weight:700; color:var(--muted); display:flex; justify-content:space-between; gap:8px; }
+.be-row { display:flex; gap:6px; } .be-row input { flex:1; min-width:0; }
+.be-cover { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:10px; background:var(--bg2); }
+.be-preview { font-size:.95rem; max-height:60vh; overflow:auto; }
+@media (max-width:1100px) { .be { grid-template-columns:1fr; } .be-side { position:static; max-height:none; } }
 @media (max-width:700px) { .adm-wrap { padding:12px 10px 50px; } .adm-top-in { padding:8px 12px; } }

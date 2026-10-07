@@ -30,7 +30,7 @@ let pass = 0, fail = 0;
     catch (e) { fs.mkdirSync(path.join(__dirname, 'out'), { recursive: true }); console.log('FAIL', name.padEnd(38), String(e.message).split('\n')[0].slice(0, 300)); fail++; try { await page.screenshot({ path: path.join(__dirname, 'out', 'fail_' + name.replace(/\W+/g, '_') + '.png') }); } catch {} }
     await ctx.close();
   }
-  const go = async (page, slug) => { await page.goto(`${BASE}/tool/${slug}`, { waitUntil: 'networkidle' }); await page.waitForSelector('#app *'); };
+  const go = async (page, slug) => { await page.goto(`${BASE}/${slug}`, { waitUntil: 'networkidle' }); await page.waitForSelector('#app *'); };
   const feed = (page, files, idx = 0) => page.locator('input[type=file]').nth(idx).setInputFiles([].concat(files).map(f => path.join(SAMPLES, f)));
   const btn = (page, re) => page.getByRole('button', { name: re }).first();
   const resultText = async page => { await page.waitForSelector('.result', { timeout: 120000 }); return (await page.locator('.result').innerText()).replace(/\s+/g, ' ').slice(0, 140); };
@@ -113,7 +113,7 @@ let pass = 0, fail = 0;
   await T('unlock-pdf: wrong then right', async page => {
     await go(page, 'protect-pdf'); await feed(page, 'five.pdf'); const pw = page.locator('input[type=password]'); await pw.nth(0).fill('open-sesame'); await pw.nth(1).fill('open-sesame'); await btn(page, /Protect PDF/).click(); await page.waitForSelector('.result');
     const bytes = await page.evaluate(async () => Array.from(new Uint8Array(await (await fetch(document.querySelector('.result a[download]').href)).arrayBuffer())));
-    await page.goto(`${BASE}/tool/unlock-pdf`, { waitUntil: 'networkidle' }); await page.waitForSelector('#app *');
+    await page.goto(`${BASE}/unlock-pdf`, { waitUntil: 'networkidle' }); await page.waitForSelector('#app *');
     await page.locator('input[type=file]').first().setInputFiles({ name: 'locked.pdf', mimeType: 'application/pdf', buffer: Buffer.from(bytes) });
     await page.locator('input[type=password]').fill('wrong-one'); await btn(page, /Remove password/).click(); await page.waitForSelector('.status.err'); const e = await page.locator('.status.err').innerText();
     if (!/not correct/.test(e)) throw new Error('got ' + e);

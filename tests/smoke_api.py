@@ -195,9 +195,9 @@ def main():
     check("image -> svg", "image-to-svg", [S / "icon.png"], {"preset": "logo"}, lambda f, b: b.lstrip().startswith(b"<?xml") or b"<svg" in b)
 
     check("pdf -> images", "pdf-to-image", [S / "five.pdf"], {"dpi": 72, "pages": "1-3"}, lambda f, b: len(zip_names(b)) == 3)
-    check("pdf merge", "pdf-merge", [S / "five.pdf", S / "other.pdf"], {}, pdf_pages(6))
-    check("pdf split each", "pdf-split", [S / "five.pdf"], {"mode": "each"}, lambda f, b: len(zip_names(b)) == 5)
-    check("pdf split extract", "pdf-split", [S / "five.pdf"], {"mode": "extract", "pages": "2,4-5"}, pdf_pages(3))
+    check("pdf merge", "merge-pdf", [S / "five.pdf", S / "other.pdf"], {}, pdf_pages(6))
+    check("pdf split each", "split-pdf", [S / "five.pdf"], {"mode": "each"}, lambda f, b: len(zip_names(b)) == 5)
+    check("pdf split extract", "split-pdf", [S / "five.pdf"], {"mode": "extract", "pages": "2,4-5"}, pdf_pages(3))
     check("pdf compress", "compress-pdf", [S / "five.pdf"], {"level": "high"}, pdf_pages(5))
     check("pdf -> docx", "pdf-to-word", [S / "other.pdf"], {}, lambda f, b: zipfile.is_zipfile(io.BytesIO(b)))
     fake_docx = S / "note.docx"

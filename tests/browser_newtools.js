@@ -74,17 +74,17 @@ let pass = 0, fail = 0;
     const names = out.bytes ? zipNames(out.bytes) : []; ex(names.length === 2, 'parts: ' + names.join()); return names.join(', ');
   });
   await T('split-audio: mp3 into parts', async page => {
-    const { out } = await runTool(page, '/tool/split-audio', 'tone.mp3', { opts: { 'What do you want?': 'length', 'Length of each part (seconds or mm:ss)': '2' }, button: /^Split audio/ });
+    const { out } = await runTool(page, '/split-audio', 'tone.mp3', { opts: { 'What do you want?': 'length', 'Length of each part (seconds or mm:ss)': '2' }, button: /^Split audio/ });
     const names = zipNames(out.bytes); ex(names.length === 3 && names.every(n => /_part0\d\.mp3$/.test(n)), names.join()); return names.join(', ');
   });
   await T('split-audio: cut out one part (the old audio cutter)', async page => {
-    const { out } = await runTool(page, '/tool/split-audio', 'tone.mp3', { opts: { 'Start (seconds or mm:ss)': '1', 'End (seconds or mm:ss)': '3' }, button: /^Split audio/ });
+    const { out } = await runTool(page, '/split-audio', 'tone.mp3', { opts: { 'Start (seconds or mm:ss)': '1', 'End (seconds or mm:ss)': '3' }, button: /^Split audio/ });
     ex(/tone_cut\.mp3$/.test(out.name), out.name);
     const dur = await page.evaluate(async () => { const a = document.querySelector('.result a[download]'); return (await new AudioContext().decodeAudioData(await (await fetch(a.href)).arrayBuffer())).duration; }); ex(dur > 1.8 && dur < 2.3, 'length ' + dur.toFixed(2)); return `${out.name}, ${dur.toFixed(1)} s`;
   });
-  await T('split-audio page has the Merge audio tab; old /tool/audio-cutter redirects', async page => {
-    const r = await page.request.get(BASE + '/tool/audio-cutter', { maxRedirects: 0 }); ex([301, 302, 308].includes(r.status()) && (r.headers().location || '').endsWith('/tool/split-audio'), 'redirect ' + r.status() + ' ' + r.headers().location);
-    await go(page, '/tool/split-audio'); const tabs = await page.$$eval('.vtab', a => a.map(x => x.textContent + '=' + x.getAttribute('href') + (x.classList.contains('on') ? '*' : ''))); ex(tabs.join() === 'Split audio=/tool/split-audio*,Merge audio=/merge-audio', tabs.join()); return tabs.join(' | ');
+  await T('split-audio page has the Merge audio tab; old /tool/audio-cutter and /audio-cutter redirect', async page => {
+    for (const old of ['/tool/audio-cutter', '/audio-cutter']) { const r = await page.request.get(BASE + old, { maxRedirects: 0 }); ex([301, 302, 308].includes(r.status()) && (r.headers().location || '').endsWith('/split-audio'), old + ' redirect ' + r.status() + ' ' + r.headers().location); }
+    await go(page, '/split-audio'); const tabs = await page.$$eval('.vtab', a => a.map(x => x.textContent + '=' + x.getAttribute('href') + (x.classList.contains('on') ? '*' : ''))); ex(tabs.join() === 'Split audio=/split-audio*,Merge audio=/merge-audio', tabs.join()); return tabs.join(' | ');
   });
   await T('merge-audio: two files -> one', async page => {
     const { text, out } = await runTool(page, '/merge-audio', ['tone.mp3', 'tone.mp3'], { opts: { 'Silence between files (seconds)': '1' }, button: /^Merge 2 audio files/ });
@@ -274,20 +274,20 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- the slug sheet: every address exists, the misspelt ones redirect
   await T('slug sheet: all new addresses exist with their own title', async page => {
-    const slugs = ['/video-to-audio', '/mp4-to-mp3', '/split-video', '/tool/split-audio', '/merge-audio', '/add-watermark-to-video', '/add-watermark-to-pdf', '/blur-redact-pdf',
+    const slugs = ['/video-to-audio', '/mp4-to-mp3', '/split-video', '/split-audio', '/merge-audio', '/add-watermark-to-video', '/add-watermark-to-pdf', '/blur-redact-pdf',
       '/instagram-image-carousel-splitter', '/linkedin-carousel-maker', '/ai-headshot-generator', '/video-to-text', '/text-to-audio', '/color-palette-generator',
       '/website-color-palette-extractor', '/temporary-file-upload-direct-link-share'], titles = new Set();
     for (const u of slugs) { const r = await page.request.get(BASE + u); ex(r.status() === 200, u + ' -> ' + r.status()); const html = await r.text(); const t = (/<title>([^<]*)<\/title>/.exec(html) || [])[1]; ex(t && /Toolz Baba/.test(t), u + ' title: ' + t); ex(!titles.has(t), 'duplicate title ' + t); titles.add(t); ex(html.includes('rel="canonical"'), u + ' canonical'); }
     const sm = await (await page.request.get(BASE + '/sitemap.xml')).text(); for (const u of slugs) ex(sm.includes('https://toolzbaba.com' + u + '<'), 'sitemap misses ' + u);
     return slugs.length + ' pages, unique titles, all in the sitemap';
   });
-  await T('slug sheet: the misspelt addresses redirect', async page => {
-    const pairs = [['/tool/instagram-image-carousel-spliter', '/instagram-image-carousel-splitter'], ['/tool/color-paletter-generator', '/color-palette-generator'], ['/tool/audio-to-text', '/video-to-text'], ['/tool/text-to-speech', '/text-to-audio']];
+  await T('slug sheet: misspelt, renamed and old /tool/ addresses redirect (one hop)', async page => {
+    const pairs = [['/tool/instagram-image-carousel-spliter', '/instagram-image-carousel-splitter'], ['/tool/color-paletter-generator', '/color-palette-generator'], ['/tool/audio-to-text', '/video-to-text'], ['/tool/text-to-speech', '/text-to-audio'], ['/tool/social-resizer', '/social-media-image-resizer'], ['/tool/sign-pdf', '/esign-pdf'], ['/tool/video-converter', '/video-converter'], ['/tool/add-watermark-to-pdf', '/add-watermark-to-pdf'], ['/tool/pdf-merge', '/merge-pdf'], ['/tool/pdf-split', '/split-pdf'], ['/instagram-image-carousel-spliter', '/instagram-image-carousel-splitter'], ['/color-paletter-generator', '/color-palette-generator'], ['/audio-to-text', '/video-to-text'], ['/text-to-speech', '/text-to-audio']];
     for (const [from, to] of pairs) { const r = await page.request.get(BASE + from, { maxRedirects: 0 }); ex([301, 302, 308].includes(r.status()) && (r.headers().location || '').endsWith(to), `${from} -> ${r.status()} ${r.headers().location}`); }
     return pairs.length + ' redirects';
   });
   await T('crop-image: 16:9 crop is downloaded at the right size', async page => {
-    await go(page, '/tool/crop-image'); await page.locator('input[type=file]').first().setInputFiles(S + 'big_photo.jpg'); await page.waitForSelector('.tab');
+    await go(page, '/crop-image'); await page.locator('input[type=file]').first().setInputFiles(S + 'big_photo.jpg'); await page.waitForSelector('.tab');
     await page.locator('.tab', { hasText: '16:9' }).click(); await page.waitForTimeout(300);
     const sel = await page.locator('.tinfo').innerText(); ex(/2000 × 1125/.test(sel), 'selection: ' + sel);
     const [dl] = await Promise.all([page.waitForEvent('download'), btn(page, /^Crop & download/).click()]); const dim = jpegSize(fs.readFileSync(await dl.path())); ex(dim && dim[0] === 2000 && dim[1] === 1125, 'size ' + dim); return sel;
@@ -295,18 +295,18 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- tool families: the primary tool of a sheet row with its tabs (like Compress Image)
   const FAMILIES = {
-    '/tool/add-watermark-to-image': [['Image', '/tool/add-watermark-to-image'], ['PDF', '/add-watermark-to-pdf'], ['Video', '/add-watermark-to-video']],
-    '/tool/pixelate-image': [['Image', '/tool/pixelate-image'], ['PDF blur & redact', '/blur-redact-pdf']],
-    '/tool/photo-collage-maker': [['Photo collage', '/tool/photo-collage-maker'], ['LinkedIn carousel', '/linkedin-carousel-maker'], ['Instagram carousel', '/instagram-image-carousel-splitter']],
-    '/tool/passport-size-photo-maker': [['Passport photo', '/tool/passport-size-photo-maker'], ['AI headshot', '/ai-headshot-generator']],
-    '/tool/image-to-text': [['Image to text', '/tool/image-to-text'], ['Video to text', '/video-to-text'], ['Text to audio', '/text-to-audio'], ['Video to audio', '/video-to-audio'], ['MP4 to MP3', '/mp4-to-mp3']],
-    '/tool/compress-video': [['Compress video', '/tool/compress-video'], ['Split video', '/split-video']],
-    '/tool/split-audio': [['Split audio', '/tool/split-audio'], ['Merge audio', '/merge-audio']],
-    '/tool/image-color-palette-extractor': [['From an image', '/tool/image-color-palette-extractor'], ['Palette generator', '/color-palette-generator'], ['From a website', '/website-color-palette-extractor']],
-    '/tool/image-cdn': [['Image link', '/tool/image-cdn'], ['Temporary file share', '/temporary-file-upload-direct-link-share']],
+    '/add-watermark-to-image': [['Image', '/add-watermark-to-image'], ['PDF', '/add-watermark-to-pdf'], ['Video', '/add-watermark-to-video']],
+    '/pixelate-image': [['Image', '/pixelate-image'], ['PDF blur & redact', '/blur-redact-pdf']],
+    '/photo-collage-maker': [['Photo collage', '/photo-collage-maker'], ['LinkedIn carousel', '/linkedin-carousel-maker'], ['Instagram carousel', '/instagram-image-carousel-splitter']],
+    '/passport-size-photo-maker': [['Passport photo', '/passport-size-photo-maker'], ['AI headshot', '/ai-headshot-generator']],
+    '/image-to-text': [['Image to text', '/image-to-text'], ['Video to text', '/video-to-text'], ['Text to audio', '/text-to-audio'], ['Video to audio', '/video-to-audio'], ['MP4 to MP3', '/mp4-to-mp3']],
+    '/compress-video': [['Compress video', '/compress-video'], ['Split video', '/split-video']],
+    '/split-audio': [['Split audio', '/split-audio'], ['Merge audio', '/merge-audio']],
+    '/image-color-palette-extractor': [['From an image', '/image-color-palette-extractor'], ['Palette generator', '/color-palette-generator'], ['From a website', '/website-color-palette-extractor']],
+    '/image-cdn': [['Image link', '/image-cdn'], ['Temporary file share', '/temporary-file-upload-direct-link-share']],
   };
   for (const [primary, tabs] of Object.entries(FAMILIES))
-    await T('family ' + primary.replace('/tool/', ''), async page => {
+    await T('family ' + primary.replace('/', ''), async page => {
       await go(page, primary); const got = await page.$$eval('.vtab', a => a.map(x => [x.textContent, x.getAttribute('href'), x.classList.contains('on')]));
       ex(JSON.stringify(got.map(g => [g[0], g[1]])) === JSON.stringify(tabs), 'tabs ' + JSON.stringify(got)); ex(got[0][2] && got.filter(g => g[2]).length === 1, 'the primary tab should be lit');
       await page.evaluate(() => { window.__same = 1; }); const seen = [];
@@ -330,7 +330,7 @@ let pass = 0, fail = 0;
   await T('search finds the tabs: "video to text" finds the Image to Text family', async page => {
     await page.goto(BASE + '/', { waitUntil: 'networkidle' }); await page.waitForSelector('#list .tcard'); await page.fill('#q', 'video to text'); await page.waitForTimeout(300);
     const vis = await page.$$eval('#list .tcard:not(.hidden) b', b => b.map(x => x.textContent)); ex(vis.some(x => /Image to Text/i.test(x)), 'cards: ' + vis);
-    await page.goto(BASE + '/tool/compress-image', { waitUntil: 'networkidle' }); await page.locator('.hsearch input').focus(); await page.locator('.hsearch input').fill('merge audio'); await page.waitForSelector('.hres a');
+    await page.goto(BASE + '/compress-image', { waitUntil: 'networkidle' }); await page.locator('.hsearch input').focus(); await page.locator('.hsearch input').fill('merge audio'); await page.waitForSelector('.hres a');
     const links = await page.$$eval('.hres a', a => a.map(x => x.textContent + ' -> ' + x.getAttribute('href'))); ex(links.some(l => /Merge Audio.*-> \/merge-audio/.test(l)), 'header search: ' + links); return links[0];
   });
 
