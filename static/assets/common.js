@@ -780,7 +780,6 @@
   // ---- the star: 12 hand-drawn frames in one sprite (assets/brand/star-sprite.webp, made by brand-source/make-star-sprite.py).
   // .tzstar shows frame 12 (the resting star); adding .play runs the 1-second animation once (see @keyframes tzstar in app.css).
   const STAR_SPRITE = '/assets/brand/star-sprite.webp';
-  const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   let starReady = false;
   HT.star = (px, { play = false } = {}) => {
     const s = el('span', { class: 'tzstar', 'aria-hidden': 'true' }); s.style.setProperty('--tzs', px + 'px');
@@ -788,7 +787,6 @@
     return s;
   };
   HT.playStar = s => {   // starts only when the sprite has loaded, so the first frames are never played on an empty box
-    if (reduceMotion()) return;
     const go = () => { s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); };
     if (starReady) return go();
     const img = new Image(); img.onload = () => { starReady = true; go(); }; img.src = STAR_SPRITE;   // onload, not decode(): decode() waits while the tab is hidden
@@ -839,7 +837,7 @@
     toast.addEventListener('click', yes);
     toast.addEventListener('keydown', e => { if (e.target === toast && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); yes(); } });
     document.body.append(toast); document.addEventListener('keydown', onKey);
-    HT.playStar(star);
+    setTimeout(() => HT.playStar(star), 450);   // once the toast has opened (0.55 s), so the whole animation is seen
   };
   // after a finished download: the toast, unless it was snoozed, or already shown in the last 2 minutes (one toast for a batch of downloads)
   let lastNudge = 0;

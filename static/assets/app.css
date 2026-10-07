@@ -677,15 +677,16 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
    background-size 1200% makes one frame fill the box; background-position-x 0% shows frame 01, 100% frame 12, and frame n
    (1-12) is at (n-1)/11 * 100%. The box never changes size (no layout shift); only the picture inside it changes. */
 .tzstar { --tzs:20px; display:inline-block; flex:none; width:var(--tzs); height:var(--tzs); background:url(/assets/brand/star-sprite.webp) no-repeat; background-size:1200% 100%; background-position:100% 0; }
-/* To change the speed: the 1s below (the frame timings are percentages of it). To switch the animation off: delete this rule. */
-.tzstar.play { animation:tzstar 1s step-end 1 both; }
-@keyframes tzstar {   /* 01-03 fast pop, 04-05 settle, 06 blink, 07-08 recover, 09-10 small bounce, 11-12 settle */
-  0% { background-position:0% 0; }          6% { background-position:9.0909% 0; }   12% { background-position:18.1818% 0; }
-  20% { background-position:27.2727% 0; }   30% { background-position:36.3636% 0; } 42% { background-position:45.4545% 0; }
-  54% { background-position:54.5454% 0; }  62% { background-position:63.6363% 0; } 72% { background-position:72.7272% 0; }
-  81% { background-position:81.8181% 0; }  89% { background-position:90.9090% 0; } 95%, 100% { background-position:100% 0; }
+/* To change the speed: the 2.2s below (the frame timings are percentages of it). To switch the animation off: delete this rule.
+   It plays even when the device asks for less motion: a small star for two seconds, it is part of the brand. */
+.tzstar.play { animation:tzstar 2.2s step-end 1 both; }
+@media (prefers-reduced-motion:reduce) { .tzstar.play { animation:tzstar 2.2s step-end 1 both !important; } }   /* wins over the site-wide "no animations" rule at the top */
+@keyframes tzstar {   /* 01-03 quick pop, 04 settle, 05 the smile (held ~0.75 s), 06 blink, 07-08 eyes open, 09-10 small bounce, 11-12 settle */
+  0% { background-position:0% 0; }           4% { background-position:9.0909% 0; }    8% { background-position:18.1818% 0; }
+  13% { background-position:27.2727% 0; }    18% { background-position:36.3636% 0; }  52% { background-position:45.4545% 0; }
+  60% { background-position:54.5454% 0; }    66% { background-position:63.6363% 0; }  72% { background-position:72.7272% 0; }
+  79% { background-position:81.8181% 0; }    87% { background-position:90.9090% 0; }  94%, 100% { background-position:100% 0; }
 }
-@media (prefers-reduced-motion:reduce) { .tzstar.play { animation:none; } }
 .bmbtn .tzstar { margin:-2px 0 -2px -2px; }
 
 /* ============================================================ "Never miss free tools" toast: top centre, a little under the header.
