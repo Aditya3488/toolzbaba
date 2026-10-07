@@ -434,6 +434,9 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* ---------------- phones: the preview first, tabs as wrapping pills, tighter spacing */
 @media (max-width:900px) {
   .tbench.on.pf > :nth-child(2) { order:-1; }   /* the picture / result above the settings; the file you added is just below it */
+  /* ...but a tool you type into (QR code, colour palette, carousel text) starts with its input: a ready-made example result
+     above it (a QR code for example.com with a Download button) is easy to take for your own */
+  .tbench.on.pf:not(:has(.drop)) > :nth-child(2) { order:0; }
   .tview .pv img { max-height:52vh; }
 }
 @media (max-width:700px) {
