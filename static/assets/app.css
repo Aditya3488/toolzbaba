@@ -675,3 +675,6 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .hres::-webkit-scrollbar { width:8px; } .hres::-webkit-scrollbar-thumb { background:var(--border2); border-radius:8px; } .hres::-webkit-scrollbar-button { display:none; height:0; }
 /* a tool page fills the screen height; without this the spare height was shared out as empty gaps between the tool and the cards below it */
 .shell { align-content:start; }
+/* the "All tools / Image / Crop Image" trail is hidden: the header menus do that job. Google still reads the
+   page's place in the site from the BreadcrumbList data in the page head, which is unchanged */
+.crumb { display:none; }
