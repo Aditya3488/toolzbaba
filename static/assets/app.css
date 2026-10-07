@@ -662,3 +662,13 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .nv-md[open] summary::after { transform:rotate(-135deg); margin-bottom:-2px; }
 /* the blog before its first post: point people to the tools instead of an empty page */
 .blog-empty { text-align:center; } .blog-empty .chips { justify-content:center; margin-top:14px; }
+/* wide screens: the header bar uses the full width (logo at the left edge, buttons at the right, like other tool sites),
+   and every content section shares one width so they line up (they were 1120, 1200 and 1360px) */
+@media (min-width:1141px) {
+  .top-in { max-width:1920px; padding-left:28px; padding-right:28px; }
+  .hero-in,.catbar-in,.wrap,.why,.seo,.foot-in,.page,.page.wide { max-width:1360px; }
+}
+.hres { scrollbar-width:thin; scrollbar-color:var(--border2) transparent; }
+.hres::-webkit-scrollbar { width:8px; } .hres::-webkit-scrollbar-thumb { background:var(--border2); border-radius:8px; } .hres::-webkit-scrollbar-button { display:none; height:0; }
+/* a tool page fills the screen height; without this the spare height was shared out as empty gaps between the tool and the cards below it */
+.shell { align-content:start; }
