@@ -155,7 +155,8 @@ let pass = 0, fail = 0;
   // ---------------------------------------------------------------- the sitemap
   await T('sitemap: every page, once, with a real date, none of them /tool/ or /admin, and each one opens', async page => {
     const xml = await (await page.request.get(BASE + '/sitemap.xml')).text(), locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]), dates = [...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]);
-    ex(locs.length >= 124, 'only ' + locs.length + ' urls'); ex(new Set(locs).size === locs.length, 'duplicate addresses'); ex(locs.every(u => /^https:\/\/toolzbaba\.com(\/[a-z0-9-]*)?$/.test(u)), 'a strange address: ' + locs.find(u => !/^https:\/\/toolzbaba\.com(\/[a-z0-9-]*)?$/.test(u)));
+    ex(locs.length >= 124, 'only ' + locs.length + ' urls'); ex(new Set(locs).size === locs.length, 'duplicate addresses'); const okLoc = u => /^https:\/\/toolzbaba\.com(\/[a-z]{2}(?=\/))?(\/[a-z0-9-]*)?$/.test(u);   // /<tool>, or /<language>/ and /<language>/<tool>
+    ex(locs.every(okLoc), 'a strange address: ' + locs.find(u => !okLoc(u)));
     ex(!locs.some(u => /\/tool\/|\/admin|\/api\//.test(u)), 'a private or old address is listed'); ex(dates.length === locs.length && dates.every(d => /^\d{4}-\d{2}-\d{2}$/.test(d)), 'bad dates');
     for (const must of ['/', '/merge-pdf', '/split-pdf', '/markdown-to-pdf', '/html-to-pdf', '/jpg-to-pdf', '/png-to-pdf', '/docx-to-markdown', '/markdown-converter', '/pdf-editor', '/font-library', '/blur-redact-pdf']) ex(locs.includes('https://toolzbaba.com' + must), must + ' is not in the sitemap');
     const bad = []; for (const u of locs) { const r = await page.request.get(BASE + u.replace('https://toolzbaba.com', ''), { maxRedirects: 0 }); if (r.status() !== 200) bad.push(u + ' ' + r.status()); }

@@ -342,7 +342,7 @@ HT.register('pdf-editor', root => {
   async function getOcr(lang) {
     if (ocrWorker && ocrLang === lang) return ocrWorker; if (ocrWorker) { await ocrWorker.terminate(); ocrWorker = null; }
     await HT.loadScript(TESS + 'tesseract.min.js');
-    ocrWorker = await Tesseract.createWorker(lang, 1, { workerPath: TESS + 'worker.min.js', corePath: TESS + (simd() ? 'tesseract-core-simd-lstm.wasm.js' : 'tesseract-core-lstm.wasm.js'), langPath: TESS + 'lang', gzip: true, logger: m => ocrLog && ocrLog(m) });
+    ocrWorker = await Tesseract.createWorker(lang, 1, { workerPath: TESS + 'worker.min.js', corePath: TESS + (simd() ? 'tesseract-core-simd-lstm.wasm.js' : 'tesseract-core-lstm.wasm.js'), langPath: TESS + 'lang', gzip: false /* still gzipped inside (the worker unpacks it); a .gz name is blocked by some security software (Norton) */, logger: m => ocrLog && ocrLog(m) });
     ocrLang = lang; return ocrWorker;
   }
   const ocrSel = $p('select', { 'aria-label': 'Language of the scan' }, [['eng+hin', 'English + Hindi'], ['eng', 'English'], ['hin', 'Hindi']].map(([v, t]) => $p('option', { value: v, text: t })));

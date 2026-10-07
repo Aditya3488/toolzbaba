@@ -28,7 +28,7 @@ HT.register('image-to-text', root => {
     await HT.loadScript(TESS + 'tesseract.min.js');
     const label = { 'loading tesseract core': 'Loading the OCR engine...', 'loading language traineddata': 'Loading language data...', 'initializing api': 'Starting...' };
     worker = await Tesseract.createWorker(lang, 1, {
-      workerPath: TESS + 'worker.min.js', corePath: TESS + (simd() ? 'tesseract-core-simd-lstm.wasm.js' : 'tesseract-core-lstm.wasm.js'), langPath: TESS + 'lang', gzip: true,
+      workerPath: TESS + 'worker.min.js', corePath: TESS + (simd() ? 'tesseract-core-simd-lstm.wasm.js' : 'tesseract-core-lstm.wasm.js'), langPath: TESS + 'lang', gzip: false /* still gzipped inside (the worker unpacks it); a .gz name is blocked by some security software (Norton) */,
       logger: m => { if (label[m.status] && !current) prog.set(3 + (m.progress || 0) * 6, label[m.status]); else if (m.status === 'recognizing text' && current) prog.set(current.base + (m.progress || 0) * current.span, current.text); },
     });
     workerLang = lang; return worker;
