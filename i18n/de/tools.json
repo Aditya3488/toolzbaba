@@ -1,0 +1,3036 @@
+{
+ "_categories": {
+  "image": "Bilder",
+  "ai": "KI & Optimierung",
+  "pdf": "PDF & Dokumente",
+  "video": "Video & Audio",
+  "dev": "Text & Entwickler",
+  "util": "Hilfsprogramme"
+ },
+ "compress-image": {
+  "name": "Bilder komprimieren",
+  "desc": "JPG-, PNG- und WebP-Dateien verkleinern, kaum sichtbarer Qualitätsverlust.",
+  "about": "Verringern Sie die Dateigröße von JPG-, PNG-, WebP-, GIF-, AVIF- und HEIC-Bildern. Wählen Sie Qualität und Ausgabeformat, begrenzen Sie die Breite und komprimieren Sie bis zu 40 Bilder gleichzeitig. PNG-Dateien lassen sich durch weniger Farben noch weiter verkleinern, und das Ergebnis zeigt genau, wie viel jede Datei gespart hat.",
+  "title": "Bilder komprimieren online kostenlos: Fotos in KB verkleinern | Toolz Baba",
+  "metaDesc": "JPG, PNG, WebP und HEIC ohne sichtbaren Qualitätsverlust komprimieren. Bis zu 40 gleichzeitig oder auf 50 KB. Kostenlos und privat.",
+  "steps": [
+   "Fügen Sie Ihre Bilder hinzu: JPG, PNG, WebP, GIF, AVIF oder HEIC, bis zu 40 auf einmal.",
+   "Stellen Sie die Qualität ein (70 bis 80 Prozent sehen meist gleich aus) und bei Bedarf Ausgabeformat und maximale Breite.",
+   "Klicken Sie auf Komprimieren und laden Sie die kleineren Dateien herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein Foto, ohne Qualität zu verlieren?",
+    "a": "Verwenden Sie eine Qualität von 70 bis 80 Prozent: Der Unterschied ist meist unsichtbar, die Datei oft um ein Vielfaches kleiner. Mit einer maximalen Breite wie 1920 px werden sehr große Fotos noch stärker verkleinert."
+   },
+   {
+    "q": "Wie komprimiere ich ein Bild auf eine genaue Größe wie 50 KB?",
+    "a": "Nutzen Sie die Größenschaltflächen im Tab JPG / JPEG (10 KB bis 2 MB) oder „Foto & Unterschrift auf KB verkleinern“ für Prüfungs- und Bewerbungsformulare, die zusätzlich genaue Pixelmaße verlangen."
+   },
+   {
+    "q": "Kann ich viele Bilder auf einmal komprimieren?",
+    "a": "Ja, bis zu 40 Bilder in einem Durchgang."
+   },
+   {
+    "q": "Werden meine Bilder hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "resize-image": {
+  "name": "Bildgröße ändern",
+  "desc": "Größe nach Pixeln, Prozent oder in einen Rahmen einpassen. Stapelverarbeitung möglich.",
+  "about": "Ändern Sie die Größe eines oder mehrerer Bilder nach Breite, Höhe, Prozent oder durch Einpassen in einen Rahmen. Beim Verkleinern wird schrittweise skaliert, damit Text und feine Linien scharf bleiben. Alles geschieht in Ihrem Browser, und Sie können als PNG, JPG oder WebP speichern.",
+  "title": "Bildgröße ändern online kostenlos: Foto in Pixeln skalieren | Toolz Baba",
+  "metaDesc": "Bildgröße nach Pixeln, Prozent oder Rahmen ändern, einzeln oder mehrere auf einmal, als JPG, PNG oder WebP speichern. Scharf, läuft im Browser.",
+  "steps": [
+   "Fügen Sie ein oder mehrere Bilder hinzu.",
+   "Wählen Sie die neue Größe nach Breite, Höhe, Prozent oder einem Rahmen zum Einpassen.",
+   "Speichern Sie als PNG, JPG oder WebP."
+  ],
+  "faq": [
+   {
+    "q": "Wie ändere ich die Bildgröße, ohne Qualität zu verlieren?",
+    "a": "Wenn Sie ein Bild verkleinern, bleibt es scharf: Das Tool skaliert schrittweise, damit Text und feine Linien klar bleiben. Starkes Vergrößern erzeugt Unschärfe; dafür gibt es den Bild-Upscaler."
+   },
+   {
+    "q": "Kann ich viele Bilder auf einmal skalieren?",
+    "a": "Ja, fügen Sie mehrere Bilder hinzu, und alle werden mit denselben Einstellungen skaliert."
+   },
+   {
+    "q": "Wie ändere ich die Größe auf eine Dateigröße in KB?",
+    "a": "Nutzen Sie „Foto & Unterschrift auf KB verkleinern“, das auch die genauen Pixel- oder cm-Maße einstellt, die Formulare verlangen."
+   }
+  ]
+ },
+ "crop-image": {
+  "name": "Bild zuschneiden",
+  "desc": "Per Ziehen zuschneiden, mit Seitenverhältnissen (1:1, 16:9, 4:5 ...).",
+  "about": "Schneiden Sie ein Bild zu, indem Sie einen Rahmen darüber ziehen, oder geben Sie genaue Pixelwerte ein. Sperren Sie die Form auf 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 oder 3:4 und speichern Sie als PNG, JPG oder WebP. Der Zuschnitt erfolgt in Ihrem Browser in voller Auflösung.",
+  "title": "Bild zuschneiden online kostenlos: 1:1, 16:9, 4:5 und frei | Toolz Baba",
+  "metaDesc": "Fotos per Rahmen oder in exakten Pixeln zuschneiden, mit 1:1, 4:3, 16:9, 9:16 und 4:5. Volle Auflösung, kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihr Bild hinzu.",
+   "Ziehen Sie den Rahmen oder geben Sie genaue Pixelwerte ein und sperren Sie bei Bedarf eine Form wie 1:1 oder 16:9.",
+   "Speichern Sie als PNG, JPG oder WebP."
+  ],
+  "faq": [
+   {
+    "q": "Wie schneide ich ein Foto quadratisch zu?",
+    "a": "Fügen Sie das Foto hinzu, wählen Sie die Form 1:1 und ziehen Sie den Rahmen über den Teil, den Sie behalten möchten."
+   },
+   {
+    "q": "Verringert das Zuschneiden die Qualität?",
+    "a": "Nein. Der Zuschnitt erfolgt in voller Auflösung; nur die Bereiche außerhalb des Rahmens werden entfernt."
+   }
+  ]
+ },
+ "convert-image": {
+  "name": "Bildformat-Konverter",
+  "desc": "Zwischen JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO umwandeln. Öffnet auch HEIC.",
+  "about": "Wandeln Sie Bilder zwischen JPG, PNG, WebP, AVIF, GIF, BMP, TIFF und ICO um. HEIC-Fotos vom iPhone werden als Eingabe unterstützt. Wählen Sie die Qualität und für Formate ohne Transparenz eine Hintergrundfarbe. Wandeln Sie bis zu 40 Dateien auf einmal um.",
+  "title": "Bilder konvertieren online kostenlos: JPG, PNG, WebP, HEIC | Toolz Baba",
+  "metaDesc": "Bilder zwischen JPG, PNG, WebP, AVIF, GIF, BMP, TIFF und ICO umwandeln, auch iPhone-HEIC-Fotos. Bis zu 40 gleichzeitig, kostenlos und privat.",
+  "tabAll": "Alle Formate",
+  "steps": [
+   "Fügen Sie Ihre Bilder hinzu: JPG, PNG, WebP, HEIC und mehr, bis zu 40 auf einmal.",
+   "Wählen Sie unter „Umwandeln in“ das Format und die Qualität.",
+   "Klicken Sie auf Umwandeln und laden Sie die neuen Dateien herunter."
+  ],
+  "faq": [
+   {
+    "q": "In welche Formate kann ich umwandeln?",
+    "a": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF und ICO."
+   },
+   {
+    "q": "Kann ich iPhone-HEIC-Fotos umwandeln?",
+    "a": "Ja. HEIC-Fotos können hier hinzugefügt und in JPG oder jedes andere Format umgewandelt werden."
+   },
+   {
+    "q": "Was passiert mit der Transparenz bei der Umwandlung in JPG?",
+    "a": "JPG und BMP unterstützen keine Transparenz, daher werden transparente Bereiche mit der von Ihnen gewählten Hintergrundfarbe gefüllt."
+   },
+   {
+    "q": "Werden meine Bilder hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "rotate-flip": {
+  "name": "Drehen & Spiegeln",
+  "desc": "Um 90° oder einen beliebigen Winkel drehen, horizontal oder vertikal spiegeln.",
+  "about": "Drehen Sie ein Bild um 90, 180 oder 270 Grad, richten Sie es um einige Grad gerade, damit der Horizont waagerecht ist, und spiegeln Sie es horizontal oder vertikal. Die Vorschau aktualisiert sich live, und die Arbeit erfolgt in Ihrem Browser.",
+  "title": "Bild drehen online kostenlos: Fotos spiegeln, gerade richten | Toolz Baba",
+  "metaDesc": "Fotos um 90, 180 oder 270 Grad drehen, schiefen Horizont um wenige Grad geraderichten oder spiegeln. Live-Vorschau, kostenlos, im Browser.",
+  "steps": [
+   "Fügen Sie Ihr Bild hinzu.",
+   "Drehen Sie es um 90, 180 oder 270 Grad, richten Sie es um einige Grad gerade oder spiegeln Sie es.",
+   "Laden Sie das Ergebnis herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie richte ich ein schiefes Foto gerade?",
+    "a": "Nutzen Sie die Feineinstellung des Winkels und drehen Sie das Bild um einige Grad, bis der Horizont waagerecht ist; die Vorschau aktualisiert sich live."
+   },
+   {
+    "q": "Kann ich ein Selfie spiegeln, das seitenverkehrt aussieht?",
+    "a": "Ja. Spiegeln Sie es horizontal, um links und rechts zu vertauschen."
+   },
+   {
+    "q": "Werden meine Fotos hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "social-media-image-resizer": {
+  "name": "Social-Media-Größen",
+  "desc": "Ein Bild → die richtige Größe für Instagram, Facebook, X, LinkedIn, YouTube, Pinterest.",
+  "about": "Machen Sie aus einem Bild die passende Größe für Beiträge, Stories, Titelbilder und Profilbilder auf Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok und WhatsApp. Wählen Sie, ob zugeschnitten werden soll oder das ganze Bild mit unscharfem Hintergrund eingepasst wird, und laden Sie alle Größen in einer ZIP-Datei herunter.",
+  "title": "Bilder für Social Media skalieren: Instagram, YouTube | Toolz Baba",
+  "metaDesc": "Ein Bild für Instagram, Facebook, X, LinkedIn, YouTube, Pinterest, TikTok und WhatsApp als Beitrag, Story und Cover skalieren. Alle Größen in einer ZIP.",
+  "steps": [
+   "Fügen Sie ein Bild hinzu.",
+   "Wählen Sie die gewünschten Plattformen und Größen und entscheiden Sie zwischen Zuschneiden oder Einpassen mit unscharfem Hintergrund.",
+   "Laden Sie alle Größen gemeinsam in einer ZIP-Datei herunter."
+  ],
+  "faq": [
+   {
+    "q": "Welche Plattformen sind enthalten?",
+    "a": "Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok und WhatsApp: Beiträge, Stories, Titelbilder und Profilbilder."
+   },
+   {
+    "q": "Was, wenn mein Bild das falsche Format hat?",
+    "a": "Wählen Sie Zuschneiden, um die Größe auszufüllen, oder Einpassen, um das ganze Bild mit einer unscharfen Kopie dahinter zu behalten."
+   },
+   {
+    "q": "Werden meine Bilder hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "thumbnail-generator": {
+  "name": "Thumbnail-Generator",
+  "desc": "Vorschaubild aus einem Bild oder beliebigen Videoframe erstellen, optional mit Titeltext.",
+  "about": "Erstellen Sie ein Thumbnail aus einem Bild oder aus einem beliebigen Frame eines Videos. Wählen Sie eine Größe wie 1280x720, fügen Sie eine Überschrift mit Umrandung hinzu, verstärken Sie die Farben und halten Sie die Datei unter einer Größengrenze wie den 2 MB von YouTube. Es läuft in Ihrem Browser, Ihr Video verlässt also nie Ihr Gerät.",
+  "title": "YouTube-Thumbnail erstellen online kostenlos (1280x720) | Toolz Baba",
+  "metaDesc": "1280x720-Thumbnail aus Bild oder Videoframe erstellen, Überschrift hinzufügen, Farben verstärken und unter YouTubes 2-MB-Grenze bleiben. Kostenlos.",
+  "steps": [
+   "Fügen Sie ein Bild oder ein Video hinzu und wählen Sie den gewünschten Frame.",
+   "Wählen Sie die Größe, etwa 1280x720, und fügen Sie eine Überschrift hinzu.",
+   "Laden Sie das Thumbnail herunter, gehalten unter einer Größengrenze wie YouTubes 2 MB."
+  ],
+  "faq": [
+   {
+    "q": "Welche Größe hat ein YouTube-Thumbnail?",
+    "a": "1280x720 Pixel (16:9), und die Datei muss unter 2 MB liegen. Beides ist hier für Sie voreingestellt."
+   },
+   {
+    "q": "Kann ich einen Frame aus meinem Video verwenden?",
+    "a": "Ja. Fügen Sie das Video hinzu und wählen Sie den Moment, der als Thumbnail dienen soll."
+   },
+   {
+    "q": "Wird mein Video hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihr Video verlässt nie Ihr Gerät."
+   }
+  ]
+ },
+ "exif-remover": {
+  "name": "EXIF-Entferner",
+  "desc": "GPS-Standort, Kamera- und Datumsangaben aus Fotos entfernen, bevor Sie sie teilen.",
+  "about": "Fotos enthalten oft verborgene Angaben wie GPS-Standort, Kameramodell und Aufnahmezeit. Dieses Tool entfernt diese Metadaten. JPEG-Dateien werden ohne erneute Kodierung bereinigt, sodass die Bildqualität unverändert bleibt, und Sie sehen, was in jeder Datei gefunden wurde.",
+  "title": "EXIF-Daten und GPS-Standort aus Fotos entfernen kostenlos | Toolz Baba",
+  "metaDesc": "GPS-Standort, Kameramodell und Datum aus Fotos entfernen, bevor Sie sie teilen. JPEGs behalten volle Qualität. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihre Fotos hinzu.",
+   "Sehen Sie die in jedem Foto gefundenen versteckten Angaben, etwa GPS-Standort und Kamera.",
+   "Entfernen Sie die Metadaten und laden Sie saubere Kopien herunter."
+  ],
+  "faq": [
+   {
+    "q": "Was sind EXIF-Daten?",
+    "a": "Versteckte Angaben in einem Foto: oft der genaue GPS-Standort, das Kamera- oder Handymodell sowie Datum und Uhrzeit der Aufnahme."
+   },
+   {
+    "q": "Verringert das Entfernen von EXIF die Fotoqualität?",
+    "a": "Nein. JPEG-Dateien werden ohne erneute Kodierung bereinigt, das Bild selbst bleibt unangetastet."
+   },
+   {
+    "q": "Werden meine Fotos hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "add-watermark-to-image": {
+  "name": "Wasserzeichen hinzufügen",
+  "desc": "Text- oder Logo-Wasserzeichen einfügen. Position, Kachelung und Deckkraft einstellen. Stapel möglich.",
+  "about": "Fügen Sie Ihren Bildern ein Text- oder Logo-Wasserzeichen hinzu. Wählen Sie die Position oder kacheln Sie es über das Bild, stellen Sie Deckkraft, Größe und Drehung ein und bearbeiten Sie viele Bilder auf einmal. Alles läuft in Ihrem Browser.",
+  "title": "Wasserzeichen in Fotos einfügen: Text oder Logo, kostenlos | Toolz Baba",
+  "metaDesc": "Text- oder Logo-Wasserzeichen in viele Fotos gleichzeitig einfügen. Position, Größe, Deckkraft und Winkel einstellen oder kacheln. Kostenlos, im Browser.",
+  "tabAll": "Bild",
+  "steps": [
+   "Fügen Sie ein oder mehrere Bilder hinzu.",
+   "Geben Sie Ihren Text ein oder fügen Sie Ihr Logo hinzu und stellen Sie dann Position oder Kachelung, Deckkraft, Größe und Drehung ein.",
+   "Laden Sie die Bilder mit Wasserzeichen herunter."
+  ],
+  "faq": [
+   {
+    "q": "Kann ich mein Logo als Wasserzeichen verwenden?",
+    "a": "Ja. Nutzen Sie statt Text ein Logo-Bild (ein PNG mit transparentem Hintergrund sieht am besten aus)."
+   },
+   {
+    "q": "Kann ich viele Fotos auf einmal mit Wasserzeichen versehen?",
+    "a": "Ja. Fügen Sie alle hinzu, und dasselbe Wasserzeichen wird auf jedes angewendet."
+   },
+   {
+    "q": "Werden meine Fotos hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "pixelate-image": {
+  "name": "Bild verpixeln",
+  "desc": "Das ganze Bild oder nur einen gewählten Bereich verpixeln (Kennzeichen, Text, Gesichter verbergen).",
+  "about": "Verpixeln Sie ein ganzes Bild oder nur den gewählten Bereich, oder verpixeln Sie alles außer einem Bereich. Damit verbergen Sie Kfz-Kennzeichen, Text, Dokumente oder Gesichter. Es läuft in Ihrem Browser.",
+  "title": "Bild verpixeln online kostenlos: Gesichter, Text, Kennzeichen | Toolz Baba",
+  "metaDesc": "Ein ganzes Foto oder nur den gewählten Teil verpixeln, um Gesichter, Kennzeichen, Text oder Dokumente zu verbergen. Kostenlos und privat im Browser.",
+  "tabAll": "Bild",
+  "steps": [
+   "Fügen Sie Ihr Bild hinzu.",
+   "Verpixeln Sie das ganze Bild, nur einen gewählten Bereich oder alles außer einem Bereich.",
+   "Laden Sie das Ergebnis herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie verberge ich ein Kennzeichen oder Text in einem Foto?",
+    "a": "Wählen Sie diesen Bereich aus und verpixeln Sie nur ihn; der Rest des Fotos bleibt scharf."
+   },
+   {
+    "q": "Lässt sich die Verpixelung rückgängig machen?",
+    "a": "Nein. Die verborgenen Details werden in der gespeicherten Datei ersetzt, bewahren Sie also Ihr Original auf, falls Sie es noch brauchen."
+   },
+   {
+    "q": "Wird mein Foto hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "meme-generator": {
+  "name": "Meme-Generator",
+  "desc": "Text oben und unten im klassischen Meme-Stil oder eine Beschriftungsleiste.",
+  "about": "Erstellen Sie aus jedem Bild ein Meme mit klassischem Text oben und unten, oder setzen Sie eine Beschriftungsleiste über das Bild. Passen Sie Größe und Farben an und laden Sie es als JPG, PNG oder WebP herunter. Es läuft in Ihrem Browser.",
+  "title": "Meme-Generator online kostenlos: Text oben und unten | Toolz Baba",
+  "metaDesc": "Meme aus jedem Bild erstellen: klassischer Text oben und unten oder Beschriftungsleiste. Als JPG, PNG oder WebP laden. Kostenlos.",
+  "steps": [
+   "Fügen Sie ein Bild hinzu.",
+   "Geben Sie den Text oben und unten ein oder nutzen Sie eine Beschriftungsleiste über dem Bild.",
+   "Passen Sie Größe und Farben an und laden Sie es als JPG, PNG oder WebP herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie erstelle ich ein Meme mit Text oben und unten?",
+    "a": "Fügen Sie das Bild hinzu, geben Sie Ihre Zeilen in die Textfelder oben und unten ein und laden Sie es herunter."
+   },
+   {
+    "q": "Gibt es ein Wasserzeichen?",
+    "a": "Nein. Ihr Meme wird ohne Wasserzeichen heruntergeladen."
+   }
+  ]
+ },
+ "photo-collage-maker": {
+  "name": "Collage-Ersteller",
+  "desc": "2 bis 9 Fotos zu einem Raster oder Layout mit Hauptbild kombinieren.",
+  "about": "Kombinieren Sie zwei bis neun Fotos zu einer Collage mit Raster-, Zeilen-, Spalten- oder Hauptbild-Layout. Legen Sie Leinwandgröße, Abstand, Rahmen, abgerundete Ecken und Hintergrundfarbe fest und laden Sie sie herunter. Alles läuft in Ihrem Browser.",
+  "title": "Fotocollage erstellen online kostenlos: 2 bis 9 Fotos | Toolz Baba",
+  "metaDesc": "2 bis 9 Fotos zu einer Collage kombinieren: Raster, Zeile, Spalte oder Hauptbild. Abstand, Rahmen, Ecken einstellen. Kostenlos.",
+  "tabAll": "Fotocollage",
+  "steps": [
+   "Fügen Sie 2 bis 9 Fotos hinzu.",
+   "Wählen Sie ein Raster-, Zeilen-, Spalten- oder Hauptbild-Layout.",
+   "Stellen Sie Abstand, Rahmen, Ecken und Hintergrund ein und laden Sie die Collage herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie viele Fotos kann eine Collage enthalten?",
+    "a": "Von zwei bis neun."
+   },
+   {
+    "q": "Kann ich die Größe der Collage ändern?",
+    "a": "Ja. Legen Sie die Leinwandgröße sowie Abstand, Rahmen, abgerundete Ecken und Hintergrundfarbe fest."
+   },
+   {
+    "q": "Werden meine Fotos hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "screenshot-beautifier": {
+  "name": "Screenshot-Verschönerer",
+  "desc": "Screenshot auf Farbverlauf setzen, mit Fensterrahmen, Schatten und runden Ecken.",
+  "about": "Lassen Sie einen schlichten Screenshot professionell aussehen. Setzen Sie ihn auf einen Farbverlauf oder einfarbigen Hintergrund mit macOS- oder Browser-Fensterrahmen, runden Ecken, Schatten und Rand, in Formaten wie 16:9 oder quadratisch. Es läuft in Ihrem Browser.",
+  "title": "Screenshot verschönern: Farbverlauf-Hintergrund und Rahmen | Toolz Baba",
+  "metaDesc": "Screenshot auf Farbverlauf oder einfarbigen Hintergrund setzen, mit Fensterrahmen, runden Ecken und Schatten. 16:9 oder quadratisch. Kostenlos.",
+  "steps": [
+   "Fügen Sie einen Screenshot hinzu.",
+   "Wählen Sie Hintergrund, Fensterrahmen, Ecken, Schatten und ein Format wie 16:9.",
+   "Laden Sie das aufgewertete Bild herunter."
+  ],
+  "faq": [
+   {
+    "q": "Was macht der Screenshot-Verschönerer?",
+    "a": "Er setzt Ihren Screenshot auf einen Farbverlauf oder einfarbigen Hintergrund mit macOS- oder Browser-Fensterrahmen, runden Ecken, Schatten und Rand."
+   },
+   {
+    "q": "Wird mein Screenshot hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "favicon-generator": {
+  "name": "Favicon-Generator",
+  "desc": "favicon.ico, Apple-Touch-Icon, Android-Icons und Manifest aus einem Bild erstellen.",
+  "about": "Erstellen Sie aus einem Bild ein komplettes Favicon-Paket: favicon.ico, PNGs in 16x16 und 32x32, ein Apple-Touch-Icon, Android-Icons, ein Web-Manifest und den HTML-Code zum Einfügen in Ihre Website. Es läuft in Ihrem Browser.",
+  "title": "Favicon-Generator: ICO, Apple-Touch- und Android-Icons | Toolz Baba",
+  "metaDesc": "favicon.ico, PNGs in 16 und 32 px, Apple-Touch-Icon, Android-Icons, Web-Manifest und HTML-Code aus einem Bild erstellen. Kostenlos.",
+  "steps": [
+   "Fügen Sie ein quadratisches Bild hinzu, zum Beispiel Ihr Logo.",
+   "Erstellen Sie das Favicon-Paket.",
+   "Laden Sie es herunter und fügen Sie den HTML-Code in den Head Ihrer Website ein."
+  ],
+  "faq": [
+   {
+    "q": "Welche Dateien werden erstellt?",
+    "a": "favicon.ico, PNGs in 16x16 und 32x32, ein Apple-Touch-Icon, Android-Icons und ein Web-Manifest, dazu das HTML zum Einbinden in Ihre Website."
+   },
+   {
+    "q": "Welches Bild eignet sich am besten?",
+    "a": "Ein einfaches, quadratisches Logo oder Symbol. Feine Details gehen bei 16x16 Pixeln verloren."
+   }
+  ]
+ },
+ "image-to-svg": {
+  "name": "Bild in SVG",
+  "desc": "Logos, Icons und Zeichnungen in skalierbares Vektor-SVG umwandeln.",
+  "about": "Wandeln Sie Logos, Icons und einfache Zeichnungen in skalierbare SVG-Vektorgrafiken um. Wählen Sie eine Voreinstellung für Logos, Fotos oder schwarz-weiße Strichzeichnungen. Vektordateien bleiben in jeder Größe scharf.",
+  "title": "Bild in SVG umwandeln online kostenlos: Logos vektorisieren | Toolz Baba",
+  "metaDesc": "PNG- und JPG-Logos, Icons und Strichzeichnungen in skalierbare SVG-Vektoren umwandeln, in jeder Größe scharf. Kostenlos.",
+  "steps": [
+   "Fügen Sie ein Logo, Icon oder eine Zeichnung hinzu.",
+   "Wählen Sie die Voreinstellung: Logo, Foto oder schwarz-weiße Strichzeichnung.",
+   "Wandeln Sie um und laden Sie das SVG herunter."
+  ],
+  "faq": [
+   {
+    "q": "Warum ein Logo in SVG umwandeln?",
+    "a": "SVG ist ein Vektorformat: Es bleibt in jeder Größe scharf, vom Website-Icon bis zum großen Druck."
+   },
+   {
+    "q": "Funktioniert es bei Fotos?",
+    "a": "Mit der Foto-Voreinstellung ja, aber die SVG-Datei wird groß. Logos, Icons und flächige Zeichnungen liefern die besten Ergebnisse."
+   }
+  ]
+ },
+ "resize-image-to-kb": {
+  "name": "Foto & Unterschrift auf KB verkleinern",
+  "desc": "Foto oder Unterschrift auf genaue Größe in Pixeln/cm und unter 20, 50 oder 100 KB bringen. Für Prüfungs- und Bewerbungsformulare.",
+  "about": "Behörden- und Prüfungsformulare verlangen oft ein Foto oder eine Unterschrift in genauer Größe und mit einer Dateigröße wie 20-50 KB. Geben Sie die Größe in Pixeln, Zentimetern, Millimetern oder Zoll ein, legen Sie die minimalen und maximalen KB fest, und das Tool findet die beste JPG-Qualität, die passt. Es kann auch 200 oder 300 DPI setzen. Alles läuft in Ihrem Browser, Ihr Foto wird also nie hochgeladen.",
+  "title": "Foto und Unterschrift auf 20 KB, 50 KB, 100 KB verkleinern | Toolz Baba",
+  "metaDesc": "Foto oder Unterschrift für Formulare auf genaue Pixel- oder cm-Größe und unter 20, 50 oder 100 KB bringen. 200 oder 300 DPI. Kostenlos.",
+  "steps": [
+   "Fügen Sie Ihr Foto oder Ihre Unterschrift hinzu.",
+   "Geben Sie die vom Formular verlangte Größe (Pixel, cm, mm oder Zoll) sowie minimale und maximale KB ein.",
+   "Laden Sie das JPG herunter: Das Tool wählt die beste Qualität, die in das Limit passt."
+  ],
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein Foto für ein Formular auf 20 KB oder 50 KB?",
+    "a": "Fügen Sie das Foto hinzu, legen Sie die vom Formular erlaubten maximalen (und bei Bedarf minimalen) KB fest, geben Sie die verlangte Größe ein und laden Sie es herunter. Das Tool findet die beste JPG-Qualität, die passt."
+   },
+   {
+    "q": "Kann ich auch eine Unterschrift verkleinern?",
+    "a": "Ja. Fügen Sie ein Foto oder einen Scan Ihrer Unterschrift hinzu und geben Sie Unterschriftsgröße und KB-Limit aus dem Formular ein."
+   },
+   {
+    "q": "Kann ich 200 oder 300 DPI einstellen?",
+    "a": "Ja, das Tool kann 200 oder 300 DPI in der Datei setzen, für Formulare, die danach fragen."
+   },
+   {
+    "q": "Wird mein Foto hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihr Foto wird nie hochgeladen."
+   }
+  ]
+ },
+ "passport-size-photo-maker": {
+  "name": "Passbild-Ersteller",
+  "desc": "Aus einem Selfie ein Pass- oder Ausweisfoto machen: einfarbiger Hintergrund, richtige Größe und ein Druckbogen mit mehreren Kopien.",
+  "about": "Laden Sie ein Foto von vorne hoch. Das Tool entfernt den Hintergrund per KI, setzt die Person auf einen einfarbigen weißen, blauen, grauen oder roten Hintergrund, schneidet den Kopf auf die passende Größe und Position für gängige Maße wie 35x45 mm und 51x51 mm (2x2 Zoll) zu und kann einen Bogen im Format 4x6 Zoll, 5x7 Zoll oder A4 mit Schnittmarken anlegen, damit Sie mehrere Kopien auf einmal drucken können. Prüfen Sie stets die genauen Vorgaben Ihres Landes zu Größe, Gesichtsausdruck und Hintergrund.",
+  "title": "Passbild erstellen online kostenlos: 35x45 mm | Toolz Baba",
+  "metaDesc": "Aus einem Selfie ein Passfoto machen: KI entfernt den Hintergrund, schneidet auf 35x45 mm oder 2x2 Zoll zu, mit Druckbogen. Kostenlos.",
+  "tabAll": "Passbild",
+  "steps": [
+   "Fügen Sie ein Foto oder Selfie von vorne hinzu.",
+   "Wählen Sie die Größe (zum Beispiel 35x45 mm oder 2x2 Zoll) und die Hintergrundfarbe.",
+   "Laden Sie das Foto oder einen Druckbogen in 4x6 Zoll, 5x7 Zoll oder A4 mit mehreren Kopien herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie erstelle ich zu Hause ein Passbild?",
+    "a": "Machen Sie ein Foto von vorne vor einer beliebigen Wand, fügen Sie es hier hinzu, wählen Sie Größe und weißen Hintergrund und laden Sie es herunter. Die KI entfernt den Hintergrund und schneidet den Kopf auf die richtige Größe zu."
+   },
+   {
+    "q": "Welche Größe hat das indische Passfoto?",
+    "a": "Indische Pässe verwenden 35x45 mm (indische Visa 51x51 mm, also 2x2 Zoll). Beide Größen stehen zur Verfügung, prüfen Sie aber stets die aktuellen Vorgaben für Ihren Antrag."
+   },
+   {
+    "q": "Kann ich mehrere Kopien auf einem Bogen drucken?",
+    "a": "Ja. Ordnen Sie sie auf einem Bogen in 4x6 Zoll, 5x7 Zoll oder A4 mit Schnittmarken an."
+   }
+  ]
+ },
+ "image-to-text": {
+  "name": "Bild in Text (OCR)",
+  "desc": "Text aus Foto, Screenshot oder gescanntem PDF auslesen. Funktioniert mit Englisch und Hindi. Läuft in Ihrem Browser.",
+  "about": "Lesen Sie den Text in einem Foto, einem Screenshot oder einem gescannten PDF aus und kopieren Sie ihn oder speichern Sie ihn als .txt-Datei. Unterstützt werden Englisch und Hindi (oder beides zugleich). Die OCR-Engine läuft vollständig in Ihrem Browser, Ihre Dokumente bleiben also auf Ihrem Gerät. Für beste Ergebnisse verwenden Sie ein scharfes, gerades, gut beleuchtetes Bild.",
+  "title": "Bild in Text umwandeln (OCR) kostenlos: Englisch und Hindi | Toolz Baba",
+  "metaDesc": "Text aus Foto, Screenshot oder gescanntem PDF auf Englisch oder Hindi kopieren. Als .txt-Datei speichern. Kostenlos, Ihre Bilder verlassen nie Ihr Gerät.",
+  "tabAll": "Bild in Text",
+  "steps": [
+   "Fügen Sie ein Foto, einen Screenshot oder ein gescanntes PDF hinzu.",
+   "Wählen Sie Englisch, Hindi oder beides.",
+   "Kopieren Sie den Text oder speichern Sie ihn als .txt-Datei."
+  ],
+  "faq": [
+   {
+    "q": "Wie kopiere ich Text aus einem Bild?",
+    "a": "Fügen Sie das Bild hinzu, wählen Sie die Sprache und starten Sie. Wenn der Text erscheint, kopieren Sie ihn oder speichern Sie ihn als .txt-Datei."
+   },
+   {
+    "q": "Liest es Hindi?",
+    "a": "Ja. Wählen Sie Hindi oder Englisch und Hindi zusammen."
+   },
+   {
+    "q": "Wie erhalte ich das beste Ergebnis?",
+    "a": "Verwenden Sie ein scharfes, gerades, gut beleuchtetes Bild. Unscharfe oder schiefe Fotos und Handschrift führen zu mehr Fehlern."
+   },
+   {
+    "q": "Werden meine Bilder hochgeladen?",
+    "a": "Nein. Die OCR läuft vollständig in Ihrem Browser, Ihre Dokumente bleiben auf Ihrem Gerät."
+   }
+  ]
+ },
+ "remove-background": {
+  "name": "Hintergrund entfernen",
+  "desc": "Motiv freistellen und ein transparentes PNG erhalten.",
+  "about": "Entfernen Sie den Hintergrund eines Fotos per KI und erhalten Sie ein transparentes PNG oder WebP. Wählen Sie ein Modell für allgemeine Fotos, Personen oder Anime und Illustrationen. Funktioniert bei Produkten, Porträts, Haustieren und Gegenständen.",
+  "title": "Hintergrund entfernen kostenlos: Transparentes PNG erstellen | Toolz Baba",
+  "metaDesc": "Hintergrund von Fotos per KI entfernen und als transparentes PNG oder WebP laden. Für Personen, Produkte, Haustiere. Ohne Wasserzeichen.",
+  "steps": [
+   "Fügen Sie ein Foto einer Person, eines Produkts, Haustiers oder Gegenstands hinzu.",
+   "Wählen Sie das Modell: allgemeine Fotos, Personen oder Anime und Illustrationen.",
+   "Laden Sie das freigestellte Motiv als transparentes PNG oder WebP herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie entferne ich kostenlos den Hintergrund eines Fotos?",
+    "a": "Fügen Sie das Foto hier hinzu, und die KI stellt das Motiv frei. Laden Sie es als transparentes PNG oder WebP herunter. Ohne Anmeldung und ohne Wasserzeichen."
+   },
+   {
+    "q": "Welches Modell sollte ich wählen?",
+    "a": "Nehmen Sie das Personen-Modell für Porträts, das Anime-Modell für Zeichnungen und Illustrationen und das allgemeine Modell für Produkte, Haustiere und alles andere."
+   },
+   {
+    "q": "Kann ich hinter das Motiv einen neuen Hintergrund setzen?",
+    "a": "Ja, nutzen Sie „Hintergrund ersetzen“, um eine Farbe oder ein anderes Bild hinter das freigestellte Motiv zu legen."
+   }
+  ]
+ },
+ "replace-background": {
+  "name": "Hintergrund ersetzen",
+  "desc": "Hintergrund gegen eine Farbe, einen Farbverlauf, Unschärfe oder ein anderes Foto tauschen.",
+  "about": "Ersetzen Sie den Hintergrund eines Fotos durch eine einfarbige Fläche, einen Farbverlauf, eine unscharfe Kopie des Originals, ein anderes Foto oder gar nichts. Das Motiv wird automatisch per KI freigestellt.",
+  "title": "Foto-Hintergrund ändern online kostenlos: Farbe oder Foto | Toolz Baba",
+  "metaDesc": "Hintergrund eines Fotos durch Farbe, Farbverlauf, Unschärfe oder ein anderes Bild ersetzen. Die KI stellt frei. Kostenlos, ohne Wasserzeichen.",
+  "steps": [
+   "Fügen Sie ein Foto hinzu.",
+   "Wählen Sie den neuen Hintergrund: eine Farbe, einen Farbverlauf, eine unscharfe Kopie, ein anderes Foto oder keinen.",
+   "Laden Sie das Ergebnis herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie ändere ich den Hintergrund eines Fotos?",
+    "a": "Fügen Sie das Foto hinzu; die KI stellt das Motiv frei. Wählen Sie dann eine Farbe, einen Farbverlauf, Unschärfe oder ein anderes Bild als neuen Hintergrund."
+   },
+   {
+    "q": "Kann ich für ein Produktfoto einen weißen Hintergrund bekommen?",
+    "a": "Ja. Wählen Sie eine einfarbige Fläche und stellen Sie sie auf Weiß."
+   },
+   {
+    "q": "Wird mein Foto hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "upscale-image": {
+  "name": "Bild-Upscaler",
+  "desc": "Per KI 2× bis 4× vergrößern und Details scharf halten.",
+  "about": "Vergrößern Sie kleine oder unscharfe Bilder um das 2-, 3- oder 4-Fache mit einem KI-Upscaler, der Details scharf hält, oder nutzen Sie den schnellen Modus für sehr große Bilder. Am besten für Bilder bis etwa 2,5 Megapixel.",
+  "title": "KI-Bild-Upscaler kostenlos: 2x, 3x, 4x in HD vergrößern | Toolz Baba",
+  "metaDesc": "Kleine oder unscharfe Bilder mit einem KI-Upscaler 2x, 3x oder 4x vergrößern, Details bleiben scharf. Kostenlos, ohne Anmeldung, im Browser.",
+  "steps": [
+   "Fügen Sie ein kleines oder unscharfes Bild hinzu.",
+   "Wählen Sie 2x, 3x oder 4x und den KI- oder den schnellen Modus.",
+   "Laden Sie das größere, schärfere Bild herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie erhöhe ich die Auflösung eines Bildes?",
+    "a": "Fügen Sie das Bild hinzu und wählen Sie 2x, 3x oder 4x. Der KI-Upscaler ergänzt Details, sodass das Ergebnis scharf statt unscharf bleibt."
+   },
+   {
+    "q": "Welche Bilder funktionieren am besten?",
+    "a": "Bilder bis etwa 2,5 Megapixel. Für sehr große Bilder nutzen Sie den schnellen Modus."
+   }
+  ]
+ },
+ "face-blur": {
+  "name": "Gesichter unkenntlich machen",
+  "desc": "Gesichter automatisch erkennen und weichzeichnen, verpixeln oder abdecken.",
+  "about": "Erkennen Sie Gesichter automatisch und zeichnen Sie sie weich, verpixeln Sie sie oder decken Sie sie mit einer schwarzen Form ab. Passen Sie Stärke, den Bereich um jedes Gesicht und die Erkennungsempfindlichkeit an. Nützlich, bevor Sie Fotos anderer Personen teilen.",
+  "title": "Gesichter in Fotos unkenntlich machen: automatisch, kostenlos | Toolz Baba",
+  "metaDesc": "Gesichter in einem Foto automatisch finden und vor dem Teilen weichzeichnen, verpixeln oder abdecken. Kostenlos und privat.",
+  "steps": [
+   "Fügen Sie ein Foto hinzu.",
+   "Wählen Sie Weichzeichnen, Verpixeln oder eine schwarze Abdeckung und passen Sie Stärke und Bereich an.",
+   "Laden Sie das Foto mit verborgenen Gesichtern herunter."
+  ],
+  "faq": [
+   {
+    "q": "Findet es Gesichter automatisch?",
+    "a": "Ja. Gesichter werden für Sie erkannt; passen Sie die Erkennungsempfindlichkeit an, falls eines übersehen wird."
+   },
+   {
+    "q": "Weichzeichnen oder verpixeln: Was ist sicherer?",
+    "a": "Beides verbirgt Gesichter bei hoher Stärke gut. Eine schwarze Abdeckung verbirgt sie vollständig."
+   },
+   {
+    "q": "Wird mein Foto hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "anime-style": {
+  "name": "Anime-Stil",
+  "desc": "Ein Foto in Anime-Kunst verwandeln (Hayao- oder Shinkai-Look).",
+  "about": "Verwandeln Sie ein Foto mit einem KI-Stilübertragungsmodell in ein Kunstwerk im Anime-Stil. Wählen Sie den weichen, gemäldeartigen Hayao-Look oder den lebendigen, filmischen Shinkai-Look.",
+  "title": "Foto in Anime umwandeln kostenlos: KI-Anime-Filter | Toolz Baba",
+  "metaDesc": "Foto per KI in Anime-Kunst verwandeln: weicher Hayao-Look oder lebendiger Shinkai-Look. Kostenlos, ohne Anmeldung, Foto bleibt bei Ihnen.",
+  "steps": [
+   "Fügen Sie ein Foto hinzu.",
+   "Wählen Sie den Hayao-Look (weich, gemäldeartig) oder den Shinkai-Look (lebendig, filmisch).",
+   "Laden Sie Ihr Bild im Anime-Stil herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie verwandle ich ein Foto in Anime?",
+    "a": "Fügen Sie das Foto hinzu, wählen Sie einen Stil, und die KI malt es in diesem Anime-Look neu."
+   },
+   {
+    "q": "Was ist der Unterschied zwischen den beiden Stilen?",
+    "a": "Hayao ist weich und gemäldeartig; Shinkai ist lebendig und filmisch, mit leuchtenden Himmeln und kräftigem Licht."
+   },
+   {
+    "q": "Wird mein Foto hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "image-to-pdf": {
+  "name": "Bild in PDF",
+  "desc": "Bilder zu einem PDF zusammenfügen. Seitengröße und Reihenfolge wählen.",
+  "about": "Fügen Sie Bilder zu einem einzigen PDF zusammen. Wählen Sie A4, US Letter, A5 oder die Originalgröße des Bildes, legen Sie Ausrichtung und Ränder fest und ordnen Sie die Seiten neu an. HEIC, PNG, JPG, WebP und mehr werden unterstützt.",
+  "title": "Bild in PDF umwandeln kostenlos: JPG, PNG, HEIC zu PDF | Toolz Baba",
+  "metaDesc": "JPG-, PNG-, HEIC- und WebP-Bilder zu einem PDF zusammenfügen. A4 oder Letter, Ausrichtung und Ränder wählen, Reihenfolge festlegen. Kostenlos, ohne Upload.",
+  "tabAll": "Beliebiges Bild",
+  "steps": [
+   "Fügen Sie Ihre Bilder hinzu: JPG, PNG, HEIC, WebP und mehr.",
+   "Bringen Sie sie in die richtige Reihenfolge und wählen Sie Seitengröße, Ausrichtung und Rand.",
+   "Klicken Sie auf PDF erstellen und laden Sie es herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich Fotos in ein PDF um?",
+    "a": "Fügen Sie alle Fotos hinzu, ordnen Sie sie mit den Pfeilen, wählen Sie A4 oder eine andere Seitengröße und klicken Sie auf PDF erstellen."
+   },
+   {
+    "q": "Kann ich HEIC-Fotos vom iPhone verwenden?",
+    "a": "Ja, HEIC funktioniert ebenso wie JPG, PNG und WebP."
+   },
+   {
+    "q": "Werden meine Bilder hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "pdf-to-image": {
+  "name": "PDF in Bild",
+  "desc": "PDF-Seiten in PNG-, JPG- oder WebP-Bilder umwandeln.",
+  "about": "Wandeln Sie PDF-Seiten in PNG-, JPG- oder WebP-Bilder um. Wählen Sie die Auflösung von 72 bis 300 DPI und alle Seiten oder einen Bereich wie 1-3,5. Mehrere Seiten werden als ZIP-Datei geliefert.",
+  "title": "PDF in Bild umwandeln kostenlos: PDF zu JPG, PNG, WebP | Toolz Baba",
+  "metaDesc": "PDF-Seiten mit 72 bis 300 DPI in JPG-, PNG- oder WebP-Bilder umwandeln. Alle Seiten oder nur einige; mehrere Seiten in einer ZIP. Kostenlos und privat.",
+  "tabAll": "Alle Formate",
+  "steps": [
+   "Fügen Sie ein PDF hinzu.",
+   "Wählen Sie PNG, JPG oder WebP, die Qualität (DPI) und die Seiten.",
+   "Klicken Sie auf In Bilder umwandeln und laden Sie herunter (mehrere Seiten kommen in einer ZIP-Datei)."
+  ],
+  "faq": [
+   {
+    "q": "Welche DPI sollte ich verwenden?",
+    "a": "150 DPI sind am Bildschirm scharf, 300 DPI für den Druck, 72 DPI für die kleinsten Dateien."
+   },
+   {
+    "q": "Kann ich nur einige Seiten umwandeln?",
+    "a": "Ja. Geben Sie Seiten und Bereiche wie 1-3,5 ein."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "merge-pdf": {
+  "name": "PDF zusammenfügen",
+  "desc": "Mehrere PDFs in der gewählten Reihenfolge zu einem verbinden.",
+  "about": "Verbinden Sie mehrere PDF-Dateien in der von Ihnen gewählten Reihenfolge zu einem Dokument. Ordnen Sie die Dateien vor dem Zusammenfügen neu an. Bei passwortgeschützten PDFs muss zuerst das Passwort entfernt werden.",
+  "title": "PDF zusammenfügen online kostenlos: PDFs vereinen | Toolz Baba",
+  "metaDesc": "Bis zu 50 PDF-Dateien in gewählter Reihenfolge zu einem Dokument vereinen. Kostenlos, ohne Anmeldung und Wasserzeichen. Ihre PDFs bleiben bei Ihnen.",
+  "steps": [
+   "Fügen Sie zwei oder mehr PDF-Dateien hinzu.",
+   "Bringen Sie sie mit den Pfeilen in die richtige Reihenfolge.",
+   "Klicken Sie auf Zusammenfügen und laden Sie ein kombiniertes PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie füge ich PDF-Dateien zu einer zusammen?",
+    "a": "Fügen Sie die PDFs hinzu, legen Sie die Reihenfolge mit den Pfeilen fest und klicken Sie auf Zusammenfügen. Sie erhalten ein einzelnes PDF mit allen Seiten."
+   },
+   {
+    "q": "Kann ich passwortgeschützte PDFs zusammenfügen?",
+    "a": "Entfernen Sie zuerst das Passwort mit „PDF entsperren“ (Sie müssen es kennen) und fügen Sie dann zusammen."
+   },
+   {
+    "q": "Wie viele PDFs kann ich zusammenfügen?",
+    "a": "Bis zu 50 Dateien auf einmal."
+   },
+   {
+    "q": "Werden meine PDFs hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "split-pdf": {
+  "name": "PDF teilen",
+  "desc": "Nach Seitenbereichen, alle N Seiten teilen oder ausgewählte Seiten extrahieren.",
+  "about": "Teilen Sie ein PDF in Einzelseiten, in Gruppen von je N Seiten, in eigene Seitenbereiche, oder extrahieren Sie ausgewählte Seiten in ein neues PDF. Bei mehreren Dateien werden die Ergebnisse als ZIP geliefert.",
+  "title": "PDF teilen online kostenlos: Seiten trennen oder extrahieren | Toolz Baba",
+  "metaDesc": "PDF in Einzelseiten, alle N Seiten oder eigene Bereiche teilen oder gewählte Seiten in ein neues PDF extrahieren. Kostenlos, ohne Anmeldung, im Browser.",
+  "tabAll": "Teilen",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie, wie geteilt wird: jede Seite, alle N Seiten, eigene Bereiche oder ausgewählte Seiten extrahieren.",
+   "Klicken Sie auf PDF teilen und laden Sie die Dateien herunter (mehrere Dateien kommen als ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "Wie teile ich ein PDF in einzelne Seiten?",
+    "a": "Fügen Sie das PDF hinzu, wählen Sie „Jede Seite als eigenes PDF“ und klicken Sie auf PDF teilen. Sie erhalten eine ZIP mit einem PDF pro Seite."
+   },
+   {
+    "q": "Wie entnehme ich nur einige Seiten?",
+    "a": "Wählen Sie „Ausgewählte Seiten extrahieren“ und geben Sie die Seiten ein, zum Beispiel 1-3,5. Sie werden als ein neues PDF gespeichert."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "compress-pdf": {
+  "name": "PDF komprimieren",
+  "desc": "PDF-Dateigröße durch erneutes Komprimieren der Bilder verringern.",
+  "about": "Verkleinern Sie ein PDF, indem seine Bilder neu komprimiert und seine Struktur bereinigt werden. Wählen Sie leichte, ausgewogene oder starke Komprimierung. Funktioniert am besten bei PDFs mit Fotos oder gescannten Seiten.",
+  "title": "PDF komprimieren online kostenlos: PDF in KB verkleinern | Toolz Baba",
+  "metaDesc": "PDF für E-Mail und Formulare verkleinern, auch auf unter 100, 200 oder 500 KB. Leichte, ausgewogene oder starke Komprimierung. Kostenlos.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu oder wählen Sie eine Größe wie unter 100 KB oder 500 KB.",
+   "Wählen Sie leichte, ausgewogene oder starke Komprimierung.",
+   "Klicken Sie auf PDF komprimieren und laden Sie die kleinere Datei herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein PDF?",
+    "a": "Fügen Sie das PDF hinzu, wählen Sie die ausgewogene Komprimierung und klicken Sie auf PDF komprimieren. Für eine feste Grenze wie 200 KB nutzen Sie die Größenschaltflächen über dem Upload-Feld."
+   },
+   {
+    "q": "Warum wurde mein PDF kaum kleiner?",
+    "a": "Die Komprimierung verkleinert vor allem die Bilder im PDF. Ein PDF, das überwiegend aus Text besteht, ist bereits klein und lässt sich kaum weiter verkleinern."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "word-to-pdf": {
+  "name": "Word in PDF",
+  "desc": "Word- (DOCX), Excel- (XLSX, XLS, CSV, ODS) und Textdateien in PDF umwandeln. Läuft in Ihrem Browser.",
+  "about": "Wandeln Sie Word-Dokumente (DOCX), Tabellen (XLSX, XLS, CSV, ODS) und reine Textdateien direkt in Ihrem Browser in PDF um, die Datei wird also nicht hochgeladen. Überschriften, Absätze, Listen, Tabellen und Bilder bleiben erhalten; komplexe Layouts wie Spalten und Textfelder fallen einfacher aus als in Word. Hindi und andere indische Schriften werden unterstützt. Alte .doc-, RTF-, ODT- und PowerPoint-Dateien lassen sich im Browser nicht umwandeln: Öffnen Sie sie in Word, Google Docs oder LibreOffice und speichern Sie sie zuerst als DOCX (oder exportieren Sie ein PDF).",
+  "title": "Word in PDF umwandeln online kostenlos: DOCX zu PDF | Toolz Baba",
+  "metaDesc": "Word- (DOCX), Excel- (XLSX, XLS, CSV) und Textdateien im Browser in PDF umwandeln. Hindi wird unterstützt. Kostenlos, ohne Anmeldung, ohne Upload.",
+  "tabAll": "Word & Office",
+  "steps": [
+   "Fügen Sie eine Word- (DOCX), Excel- (XLSX, XLS, CSV, ODS) oder Textdatei hinzu.",
+   "Klicken Sie auf In PDF umwandeln.",
+   "Laden Sie das PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich Word kostenlos in PDF um?",
+    "a": "Fügen Sie die DOCX-Datei hinzu, klicken Sie auf In PDF umwandeln und laden Sie sie herunter. Eine Anmeldung ist nicht nötig."
+   },
+   {
+    "q": "Kann ich eine alte .doc- oder eine PowerPoint-Datei umwandeln?",
+    "a": "Hier nicht. Öffnen Sie sie in Word, Google Docs oder LibreOffice und speichern Sie sie als DOCX oder exportieren Sie sie dort als PDF."
+   },
+   {
+    "q": "Wird Hindi unterstützt?",
+    "a": "Ja. Hindi und andere indische Schriften werden im PDF korrekt dargestellt."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "pdf-to-word": {
+  "name": "PDF in Word",
+  "desc": "Ein PDF in ein bearbeitbares Word-Dokument umwandeln.",
+  "about": "Wandeln Sie ein PDF in ein bearbeitbares Word-Dokument um. Am besten funktioniert es bei PDFs mit echtem Text. Gescannte PDFs sind nur Bilder von Seiten und lassen sich ohne OCR nicht in bearbeitbaren Text verwandeln.",
+  "title": "PDF in Word umwandeln online kostenlos: bearbeitbares DOCX | Toolz Baba",
+  "metaDesc": "PDF in ein bearbeitbares Word-Dokument umwandeln, mit Schriften, Größen, Fettdruck und Bildern. Kostenlos, Ihr PDF bleibt auf Ihrem Gerät.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wandeln Sie es um.",
+   "Laden Sie die bearbeitbare Word-Datei (DOCX) herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich ein PDF in eine bearbeitbare Word-Datei um?",
+    "a": "Fügen Sie das PDF hier hinzu und laden Sie das Word-Dokument herunter. Text, Schriften, Größen, Fett- und Kursivdruck sowie Bilder bleiben in Lesereihenfolge erhalten."
+   },
+   {
+    "q": "Warum kann ich den Text eines gescannten PDFs nicht bearbeiten?",
+    "a": "Ein gescanntes PDF besteht nur aus Bildern von Seiten. Lesen Sie den Text zuerst mit „Bild in Text (OCR)“ aus."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "pdf-to-excel": {
+  "name": "PDF in Excel",
+  "desc": "Tabellen aus einem PDF in eine Excel-Tabelle (XLSX) verwandeln, die Sie sortieren, summieren und bearbeiten können.",
+  "about": "Holen Sie Tabellen aus einem PDF nach Excel, ohne sie abzutippen. Jede Seite wird zu einem eigenen Blatt (oder alle Seiten kommen auf ein Blatt), Zeilen und Spalten werden aus der Position des Textes auf der Seite neu aufgebaut, und Zahlen werden zu echten Zahlen, die Sie addieren können. Am besten funktioniert es bei PDFs, die am Computer erstellt wurden, etwa Kontoauszüge, Rechnungen, Preislisten und Berichte. Gescannte Seiten sind Bilder: Führen Sie zuerst PDF-OCR darauf aus.",
+  "title": "PDF in Excel umwandeln online kostenlos: Tabellen zu XLSX | Toolz Baba",
+  "metaDesc": "PDF-Tabellen im Browser in Excel (XLSX) umwandeln: Zeilen, Spalten und echte Zahlen, ein Blatt pro Seite. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie ein Blatt pro Seite oder alle Seiten auf einem Blatt.",
+   "Laden Sie die Excel-Datei (XLSX) herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich eine PDF-Tabelle in Excel um?",
+    "a": "Fügen Sie das PDF hinzu, klicken Sie auf In Excel umwandeln und öffnen Sie die XLSX-Datei in Excel, Google Sheets oder LibreOffice. Jede Seite wird zu einem Blatt, auf dem die Tabelle in Zeilen und Spalten neu aufgebaut ist."
+   },
+   {
+    "q": "Funktionieren die Zahlen in Formeln?",
+    "a": "Ja. Zahlen wie 1,234.50 oder (200) werden als echte Zahlen gespeichert, sodass SUMME und andere Formeln funktionieren. Deaktivieren Sie die Option, um alles als Text zu behalten."
+   },
+   {
+    "q": "Kann es ein gescanntes PDF umwandeln?",
+    "a": "Ein Scan ist nur ein Bild der Seite. Nutzen Sie zuerst PDF-OCR, um daraus Text zu machen, und wandeln Sie ihn dann hier um."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "pdf-to-powerpoint": {
+  "name": "PDF in PowerPoint",
+  "desc": "Jede Seite eines PDFs in eine PowerPoint-Folie (PPTX) verwandeln.",
+  "about": "Präsentieren Sie ein PDF in PowerPoint, Google Präsentationen oder Keynote: Jede Seite wird zu einer Folie, die genau wie die Seite aussieht, in gleicher Größe und Form. Fügen Sie darüber eigene Titel, Notizen und Animationen hinzu. Praktisch, um einen Bericht, eine Broschüre oder Vorlesungsnotizen in einem Meeting zu zeigen. Alles geschieht auf Ihrem Gerät, es wird also nichts hochgeladen.",
+  "title": "PDF in PowerPoint umwandeln online kostenlos: PDF zu PPTX | Toolz Baba",
+  "metaDesc": "PDF in PowerPoint (PPTX) umwandeln: Jede Seite wird zu einer Folie, die wie das PDF aussieht. Kostenlos, Datei bleibt auf Ihrem Gerät.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie die Bildqualität.",
+   "Laden Sie die PowerPoint-Datei (PPTX) herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie mache ich aus einem PDF eine PowerPoint-Präsentation?",
+    "a": "Fügen Sie das PDF hier hinzu und klicken Sie auf In PowerPoint umwandeln. Jede Seite wird zu einer Folie in einer PPTX-Datei, die sich in PowerPoint, Google Präsentationen und Keynote öffnen lässt."
+   },
+   {
+    "q": "Kann ich den Text auf den Folien bearbeiten?",
+    "a": "Jede Folie zeigt die Seite als Bild, damit sie genau wie das PDF aussieht. Sie können darüber neue Textfelder, Notizen und Formen einfügen. Um die ursprünglichen Worte zu bearbeiten, nutzen Sie „PDF in Word“."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "powerpoint-to-pdf": {
+  "name": "PowerPoint in PDF",
+  "desc": "PowerPoint-Präsentationen (PPTX) in PDF umwandeln, eine Folie pro Seite.",
+  "about": "Versenden Sie eine Präsentation als PDF, das auf jedem Handy und Computer gleich aussieht, auch ohne PowerPoint. Bilder, Formen, Textfelder, Tabellen sowie die Farben und Schriften Ihres Designs werden in der Foliengröße auf PDF-Seiten gezeichnet. Diagramme, SmartArt, Videos und Animationen entfallen, prüfen Sie das Ergebnis also bei Folien, die sie verwenden. Mehrere Präsentationen können gleichzeitig auf Ihrem eigenen Gerät umgewandelt werden.",
+  "title": "PowerPoint in PDF umwandeln online kostenlos: PPTX zu PDF | Toolz Baba",
+  "metaDesc": "PowerPoint-Präsentationen (PPTX) im Browser in PDF umwandeln: Bilder, Formen, Text und Tabellen bleiben erhalten. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihre PPTX-Dateien hinzu.",
+   "Klicken Sie auf In PDF umwandeln.",
+   "Laden Sie das PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich eine PowerPoint-Präsentation in PDF um?",
+    "a": "Fügen Sie die PPTX-Datei hinzu und klicken Sie auf In PDF umwandeln. Jede Folie wird zu einer Seite des PDFs."
+   },
+   {
+    "q": "Funktioniert es mit alten .ppt-Dateien?",
+    "a": "Nicht direkt. Öffnen Sie die .ppt-Datei zuerst in PowerPoint, Google Präsentationen oder LibreOffice und speichern Sie sie als PPTX."
+   },
+   {
+    "q": "Bleiben Diagramme und Animationen erhalten?",
+    "a": "Animationen können nicht Teil eines PDFs sein. Diagramme und SmartArt werden noch nicht gezeichnet; Bilder, Formen, Text und Tabellen schon."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "markdown-converter": {
+  "name": "Markdown-Konverter",
+  "desc": "Markdown in PDF, HTML oder Word und HTML, Word oder PDF zurück in Markdown.",
+  "about": "Ein Ort für jede Markdown-Umwandlung: Machen Sie aus Markdown ein PDF, eine Webseite oder eine Word-Datei, oder verwandeln Sie eine HTML-Seite, ein Word-Dokument oder ein PDF zurück in sauberes Markdown. Tippen oder fügen Sie Ihren Text ein und sehen Sie die Vorschau, oder fügen Sie eine Datei hinzu. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "Markdown-Konverter: MD in PDF, Word, HTML und zurück | Toolz Baba",
+  "metaDesc": "Markdown in PDF, HTML oder Word umwandeln und HTML, Word oder PDF zurück in Markdown, mit Live-Vorschau. Kostenlos und privat: läuft in Ihrem Browser.",
+  "tabAll": "Alle Konverter",
+  "steps": [
+   "Tippen oder fügen Sie Ihren Text ein oder fügen Sie eine Datei hinzu.",
+   "Wählen Sie die Umwandlung, zum Beispiel Markdown in PDF oder Word in Markdown.",
+   "Prüfen Sie die Vorschau und laden Sie herunter."
+  ],
+  "faq": [
+   {
+    "q": "Welche Umwandlungen gibt es?",
+    "a": "Markdown in PDF, HTML oder Word und HTML, Word oder PDF zurück in Markdown."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt und nie hochgeladen."
+   }
+  ]
+ },
+ "organize-pdf": {
+  "name": "PDF-Seiten organisieren",
+  "desc": "PDF-Seiten visuell umsortieren, löschen und drehen: Miniaturen ziehen, dann ein neues PDF speichern.",
+  "about": "Sehen Sie jede Seite Ihres PDFs als Miniatur. Ziehen Sie Seiten, um sie umzusortieren, klicken Sie, um sie zu drehen oder zu löschen, und speichern Sie dann ein neues PDF. Alles geschieht in Ihrem Browser, das PDF wird also nie hochgeladen.",
+  "title": "PDF-Seiten organisieren: sortieren, drehen, kostenlos | Toolz Baba",
+  "metaDesc": "PDF-Seiten per Ziehen der Miniaturen umsortieren, drehen und löschen, dann neues PDF speichern. Kostenlos, ohne Anmeldung, ohne Upload.",
+  "tabAll": "Organisieren",
+  "steps": [
+   "Fügen Sie ein PDF hinzu, um jede Seite als Miniatur zu sehen.",
+   "Ziehen Sie Seiten, um sie umzusortieren, und drehen oder löschen Sie die gewünschten.",
+   "Speichern Sie das neue PDF und laden Sie es herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie ändere ich die Reihenfolge der PDF-Seiten?",
+    "a": "Fügen Sie das PDF hinzu, ziehen Sie die Seitenminiaturen in die gewünschte Reihenfolge und speichern Sie."
+   },
+   {
+    "q": "Kann ich Seiten auch drehen oder löschen?",
+    "a": "Ja, jede Seite hat Schaltflächen zum Drehen oder Löschen."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles geschieht in Ihrem Browser, das PDF wird nie hochgeladen."
+   }
+  ]
+ },
+ "esign-pdf": {
+  "name": "PDF unterschreiben",
+  "desc": "Unterschrift zeichnen, tippen oder hochladen und auf jeder Seite eines PDFs platzieren.",
+  "about": "Erstellen Sie eine Unterschrift, indem Sie sie zeichnen, Ihren Namen in einer Handschrift-Schriftart tippen oder ein Bild hochladen, ziehen Sie sie dann an die richtige Stelle auf einer beliebigen Seite und ändern Sie ihre Größe. Sie können mehrere Seiten in einem Zug unterschreiben. Dies fügt ein visuelles Unterschriftsbild hinzu; es ist keine zertifikatsbasierte digitale Signatur.",
+  "title": "PDF online unterschreiben kostenlos: Unterschrift einfügen | Toolz Baba",
+  "metaDesc": "PDF unterschreiben: Unterschrift zeichnen, tippen oder hochladen und auf jeder Seite platzieren. Kostenlos und privat, ohne Anmeldung.",
+  "steps": [
+   "Fügen Sie das PDF hinzu, das Sie unterschreiben müssen.",
+   "Zeichnen, tippen oder laden Sie Ihre Unterschrift hoch.",
+   "Ziehen Sie sie an die richtige Stelle auf einer beliebigen Seite, ändern Sie die Größe und laden Sie das unterschriebene PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie unterschreibe ich ein PDF online kostenlos?",
+    "a": "Fügen Sie das PDF hinzu, erstellen Sie Ihre Unterschrift durch Zeichnen, Tippen oder Hochladen eines Bildes, platzieren Sie sie auf der Seite und laden Sie herunter."
+   },
+   {
+    "q": "Ist das eine rechtsgültige digitale Signatur?",
+    "a": "Es fügt ein Bild Ihrer Unterschrift ein, wie beim Unterschreiben auf Papier. Es ist keine zertifikatsbasierte digitale Signatur, wie sie manche behördlichen und rechtlichen Dokumente verlangen."
+   },
+   {
+    "q": "Kann ich mehrere Seiten unterschreiben?",
+    "a": "Ja, Sie können Ihre Unterschrift in einem Zug auf mehreren Seiten platzieren."
+   }
+  ]
+ },
+ "add-page-numbers-to-pdf": {
+  "name": "Seitenzahlen in PDF einfügen",
+  "desc": "Seitenzahlen in ein PDF einfügen: Position, Format, Startnummer und Startseite wählen.",
+  "about": "Fügen Sie jeder Seite eines PDFs Seitenzahlen hinzu. Wählen Sie die Position (oben oder unten, links, mittig oder rechts), das Format (1, Seite 1, Seite 1 von 10), die erste Nummer, Größe und Farbe und überspringen Sie bei Bedarf ein Deckblatt. Gedrehte Seiten werden korrekt behandelt.",
+  "title": "Seitenzahlen in PDF einfügen online kostenlos | Toolz Baba",
+  "metaDesc": "PDF-Seiten oben oder unten im Format 1, Seite 1 oder Seite 1 von 10 nummerieren. Startnummer wählen und Deckblatt überspringen. Kostenlos und privat.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie Position, Format (1, Seite 1 oder Seite 1 von 10), erste Nummer, Größe und Farbe.",
+   "Fügen Sie die Nummern ein und laden Sie das PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Kann ich das Deckblatt überspringen?",
+    "a": "Ja. Wählen Sie die Seite, ab der nummeriert wird, sodass ein Deckblatt ohne Nummer bleibt."
+   },
+   {
+    "q": "Welche Formate können die Nummern haben?",
+    "a": "1, Seite 1 oder Seite 1 von 10, oben oder unten, links, mittig oder rechts."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "protect-pdf": {
+  "name": "PDF mit Passwort schützen",
+  "desc": "Ein PDF mit AES-256-Verschlüsselung per Passwort sperren. Drucken oder Kopieren optional verbieten.",
+  "about": "Fügen Sie ein Passwort hinzu, damit nur Personen, die es kennen, Ihr PDF öffnen können. Die Datei wird mit AES-256 verschlüsselt. Sie können auch festlegen, ob Drucken, Textkopieren und Bearbeiten erlaubt sind. Bewahren Sie das Passwort sicher auf: Es lässt sich nicht wiederherstellen.",
+  "title": "PDF mit Passwort schützen online kostenlos: AES-256 | Toolz Baba",
+  "metaDesc": "PDF mit AES-256-Verschlüsselung per Passwort sperren und festlegen, ob Drucken, Kopieren und Bearbeiten erlaubt sind. Kostenlos, ohne Anmeldung.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Geben Sie ein Passwort ein und legen Sie fest, ob Drucken, Kopieren und Bearbeiten erlaubt sind.",
+   "Laden Sie das gesperrte PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie sicher ist der Schutz?",
+    "a": "Das PDF wird mit AES-256 verschlüsselt und kann ohne das Passwort nicht geöffnet werden."
+   },
+   {
+    "q": "Was, wenn ich das Passwort vergesse?",
+    "a": "Es lässt sich nicht wiederherstellen, bewahren Sie es also an einem sicheren Ort auf."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "unlock-pdf": {
+  "name": "PDF entsperren (Passwort entfernen)",
+  "desc": "Das Öffnungspasswort eines PDFs entfernen, wenn Sie das Passwort kennen.",
+  "about": "Wenn Sie das Passwort eines PDFs kennen und es leid sind, es einzutippen, speichert dieses Tool eine Kopie, die ohne Passwort öffnet. Es funktioniert nur, wenn Sie das richtige Passwort eingeben: Es knackt oder umgeht keinen Schutz.",
+  "title": "PDF entsperren: PDF-Passwort online kostenlos entfernen | Toolz Baba",
+  "metaDesc": "Passwort aus einem PDF entfernen, dessen Passwort Sie kennen, und eine Kopie ohne Passwort speichern. Kostenlos, privat, ohne Anmeldung. Knackt keine PDFs.",
+  "steps": [
+   "Fügen Sie das passwortgeschützte PDF hinzu.",
+   "Geben Sie das Passwort ein.",
+   "Laden Sie eine Kopie herunter, die ohne Passwort öffnet."
+  ],
+  "faq": [
+   {
+    "q": "Kann es ein PDF öffnen, wenn ich das Passwort nicht kenne?",
+    "a": "Nein. Es funktioniert nur mit dem richtigen Passwort; es knackt oder umgeht keinen Schutz."
+   },
+   {
+    "q": "Warum ein PDF entsperren, das ich schon öffnen kann?",
+    "a": "Damit Sie das Passwort nicht jedes Mal eingeben müssen oder um das PDF mit anderen Tools zusammenzufügen oder zu bearbeiten."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "video-converter": {
+  "name": "Video-Konverter",
+  "desc": "In MP4, WebM, MKV, MOV, AVI umwandeln oder Audio als MP3, M4A, WAV extrahieren.",
+  "about": "Wandeln Sie Videos in MP4, WebM, MKV, MOV oder AVI um oder extrahieren Sie den Ton als MP3, M4A, WAV, OGG oder FLAC. Wählen Sie die Qualität und verkleinern Sie bei Bedarf die Auflösung. Dateien bis 2 GB werden unterstützt.",
+  "title": "Video-Konverter online kostenlos: MP4, MOV, MKV, MP3 | Toolz Baba",
+  "metaDesc": "Videos in MP4, WebM, MKV, MOV oder AVI umwandeln oder den Ton als MP3, M4A oder WAV extrahieren. Dateien bis 2 GB. Kostenlos und privat: läuft im Browser.",
+  "steps": [
+   "Fügen Sie Ihr Video hinzu (bis 2 GB).",
+   "Wählen Sie MP4, WebM, MKV, MOV oder AVI oder ein Audioformat wie MP3.",
+   "Wandeln Sie um und laden Sie herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich ein Video in MP4 um?",
+    "a": "Fügen Sie das Video hinzu, wählen Sie MP4, stellen Sie die Qualität ein und wandeln Sie um."
+   },
+   {
+    "q": "Kann ich den Ton als MP3 erhalten?",
+    "a": "Ja. Wählen Sie MP3, M4A, WAV, OGG oder FLAC, um nur den Ton zu extrahieren."
+   },
+   {
+    "q": "Wird mein Video hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "audio-converter": {
+  "name": "Audio-Konverter",
+  "desc": "Audio in MP3, M4A, WAV, FLAC oder OGG umwandeln: Songs, Aufnahmen, Sprachnachrichten und der Ton von Videos.",
+  "about": "Wandeln Sie WAV-, M4A-, AAC-, FLAC-, OGG-, OPUS-, WMA- und AMR-Dateien (auch WhatsApp-Sprachnachrichten und Handyaufnahmen) in MP3, M4A, WAV, FLAC oder OGG um. Wählen Sie die Qualität, wandeln Sie bis zu 20 Dateien auf einmal um und laden Sie sie gemeinsam herunter. Es extrahiert auch den Ton aus Videos. Alles läuft auf Ihrem eigenen Gerät: Ihr Audio wird nie hochgeladen.",
+  "title": "Audio-Konverter online kostenlos: MP3, WAV, M4A, FLAC, OGG | Toolz Baba",
+  "metaDesc": "Audiodateien im Browser in MP3, M4A, WAV, FLAC oder OGG umwandeln, bis zu 20 gleichzeitig, mit wählbarer Qualität. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihre Audiodateien hinzu.",
+   "Wählen Sie Format und Qualität.",
+   "Laden Sie die umgewandelten Dateien herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich Audio in MP3 um?",
+    "a": "Fügen Sie Ihre Dateien hinzu, lassen Sie MP3 ausgewählt (192 kbps ist ein guter Standard) und klicken Sie auf Umwandeln. Laden Sie die MP3-Dateien herunter, sobald sie fertig sind."
+   },
+   {
+    "q": "Welches Format sollte ich wählen?",
+    "a": "MP3 läuft überall. M4A ist klein und ideal auf dem iPhone. WAV und FLAC behalten die volle Qualität; FLAC ist etwa halb so groß wie WAV."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "video-to-gif": {
+  "name": "Video in GIF",
+  "desc": "Jeden Clip in ein hochwertiges animiertes GIF verwandeln.",
+  "about": "Verwandeln Sie einen Teil eines beliebigen Videos in ein animiertes GIF. Legen Sie Startzeit, Länge, Bilder pro Sekunde und Breite fest. Für jedes GIF wird eine eigene Palette erzeugt, damit die Farben sauber bleiben.",
+  "title": "Video in GIF umwandeln kostenlos: MP4 zu GIF in HD | Toolz Baba",
+  "metaDesc": "Jeden Teil eines Videos in ein hochwertiges animiertes GIF verwandeln. Start, Länge, Breite, Bildrate wählen. Kostenlos, ohne Wasserzeichen.",
+  "steps": [
+   "Fügen Sie ein Video hinzu (MP4, MOV, WebM und mehr).",
+   "Legen Sie Startzeit, Länge, Bilder pro Sekunde und Breite fest.",
+   "Erstellen Sie das GIF und laden Sie es herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie wandle ich ein MP4 in ein GIF um?",
+    "a": "Fügen Sie das MP4 hinzu, wählen Sie mit Startzeit und Länge den gewünschten Teil, legen Sie Breite und Bilder pro Sekunde fest und erstellen Sie das GIF."
+   },
+   {
+    "q": "Wie mache ich ein GIF kleiner?",
+    "a": "Nehmen Sie einen kürzeren Teil des Videos, eine geringere Breite und weniger Bilder pro Sekunde. „GIF komprimieren“ kann es noch weiter verkleinern."
+   },
+   {
+    "q": "Wird mein Video hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "gif-to-video": {
+  "name": "GIF in Video",
+  "desc": "GIFs in kleine MP4- oder WebM-Videos umwandeln.",
+  "about": "Wandeln Sie GIF-Animationen in deutlich kleinere MP4- oder WebM-Videos um und wiederholen Sie die Animation, wenn Sie einen längeren Clip möchten. Videos laden schneller und laufen auf Handys flüssig.",
+  "title": "GIF in MP4 umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "GIF-Animationen in deutlich kleinere MP4- oder WebM-Videos umwandeln, die schnell laden. Auch als Schleife für längere Clips. Kostenlos.",
+  "steps": [
+   "Fügen Sie ein GIF hinzu.",
+   "Wählen Sie MP4 oder WebM und wie oft es wiederholt werden soll.",
+   "Wandeln Sie um und laden Sie das Video herunter."
+  ],
+  "faq": [
+   {
+    "q": "Warum ein GIF in MP4 umwandeln?",
+    "a": "Das Video ist meist deutlich kleiner, lädt schneller und läuft auf Handys flüssig."
+   },
+   {
+    "q": "Kann ich das Video länger machen?",
+    "a": "Ja. Wiederholen Sie die Animation, um einen längeren Clip zu erhalten."
+   }
+  ]
+ },
+ "video-trimmer": {
+  "name": "Video schneiden",
+  "desc": "Einen Abschnitt aus einem Video herausschneiden. Vorschau ansehen und Anfang und Ende wählen.",
+  "about": "Schneiden Sie einen Abschnitt aus einer Video- oder Audiodatei heraus. Sehen Sie sich die Vorschau an, markieren Sie Anfang und Ende und wählen Sie einen exakten Schnitt oder einen schnellen, verlustfreien Schnitt, der am nächsten Keyframe einrastet.",
+  "title": "Video schneiden online kostenlos: Anfang und Ende kürzen | Toolz Baba",
+  "metaDesc": "Den gewünschten Teil aus einem Video oder Audio schneiden. Vorschau, Anfang und Ende markieren, exakter oder schneller Schnitt. Kostenlos.",
+  "steps": [
+   "Fügen Sie eine Video- oder Audiodatei hinzu.",
+   "Spielen Sie sie ab und markieren Sie Anfang und Ende.",
+   "Wählen Sie einen exakten oder einen schnellen verlustfreien Schnitt und laden Sie herunter."
+  ],
+  "faq": [
+   {
+    "q": "Was ist der Unterschied zwischen einem exakten und einem schnellen Schnitt?",
+    "a": "Der exakte Schnitt beginnt genau dort, wo Sie markiert haben. Der schnelle Schnitt ist verlustfrei und schneller, rastet aber am nächsten Keyframe ein und kann daher einen Moment früher beginnen."
+   },
+   {
+    "q": "Kann ich auch Audio schneiden?",
+    "a": "Ja, Audiodateien funktionieren genauso."
+   },
+   {
+    "q": "Wird mein Video hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "compress-video": {
+  "name": "Video-Kompressor",
+  "desc": "Videos nach Qualitätsstufe oder Ziel-Dateigröße verkleinern.",
+  "about": "Verkleinern Sie ein Video, indem Sie eine Qualitätsstufe oder eine Ziel-Dateigröße in MB wählen, zum Beispiel damit es in das Upload-Limit einer E-Mail oder eines Chats passt. Sie können auch die Auflösung senken.",
+  "title": "Video komprimieren online kostenlos: MP4 in MB verkleinern | Toolz Baba",
+  "metaDesc": "Video nach Qualität oder auf eine Zielgröße in MB verkleinern, für WhatsApp, E-Mail oder Uploads. Auflösung senken. Kostenlos.",
+  "tabAll": "Video komprimieren",
+  "steps": [
+   "Fügen Sie Ihr Video hinzu.",
+   "Wählen Sie eine Qualitätsstufe oder eine Zielgröße in MB und senken Sie auf Wunsch die Auflösung.",
+   "Komprimieren Sie und laden Sie das kleinere Video herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein Video klein genug für WhatsApp oder E-Mail?",
+    "a": "Wählen Sie Zielgröße und geben Sie das Limit in MB ein; das Tool wählt die passenden Einstellungen."
+   },
+   {
+    "q": "Verringert das Komprimieren eines Videos die Qualität?",
+    "a": "Ein wenig. Das Senken der Auflösung, zum Beispiel auf 720p, spart oft am meisten bei der geringsten sichtbaren Veränderung."
+   },
+   {
+    "q": "Wird mein Video hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "video-merger": {
+  "name": "Videos zusammenfügen",
+  "desc": "Mehrere Videoclips in gewählter Reihenfolge zu einem MP4 verbinden. Unterschiedliche Größen und Formate sind kein Problem.",
+  "about": "Kombinieren Sie zwei oder mehr Clips zu einem einzigen MP4. Clips mit unterschiedlichen Auflösungen, Bildraten oder Formaten werden automatisch angeglichen, und auch Clips ohne Ton werden berücksichtigt. Ordnen Sie die Clips vor dem Zusammenfügen neu an.",
+  "title": "Videos zusammenfügen online kostenlos: Clips zu einem MP4 | Toolz Baba",
+  "metaDesc": "Zwei oder mehr Videoclips in gewählter Reihenfolge zu einem MP4 verbinden. Größen und Formate werden angeglichen. Kostenlos.",
+  "steps": [
+   "Fügen Sie zwei oder mehr Clips hinzu.",
+   "Bringen Sie sie in die gewünschte Reihenfolge.",
+   "Fügen Sie zusammen und laden Sie ein MP4 herunter."
+  ],
+  "faq": [
+   {
+    "q": "Kann ich Videos mit unterschiedlicher Größe oder Format verbinden?",
+    "a": "Ja. Unterschiedliche Auflösungen, Bildraten und Formate werden automatisch angeglichen."
+   },
+   {
+    "q": "Was, wenn ein Clip keinen Ton hat?",
+    "a": "Auch das wird berücksichtigt: Das zusammengefügte Video läuft normal ab."
+   },
+   {
+    "q": "Werden meine Videos hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "change-video-speed": {
+  "name": "Videogeschwindigkeit ändern",
+  "desc": "Ein Video beschleunigen (Zeitraffer) oder verlangsamen, von 0,25x bis 8x. Die Tonhöhe bleibt natürlich.",
+  "about": "Machen Sie ein Video schneller für einen Zeitraffer oder langsamer für Zeitlupe, von 0,25x bis 8x. Der Ton wird bei erhaltener Tonhöhe beschleunigt oder verlangsamt, oder Sie schalten ihn stumm.",
+  "title": "Videogeschwindigkeit ändern online kostenlos: 0,25x bis 8x | Toolz Baba",
+  "metaDesc": "Video beschleunigen (Zeitraffer) oder verlangsamen (Zeitlupe), von 0,25x bis 8x, mit natürlichem Ton. Kostenlos, ohne Anmeldung.",
+  "steps": [
+   "Fügen Sie ein Video hinzu.",
+   "Wählen Sie eine Geschwindigkeit von 0,25x (Zeitlupe) bis 8x (Zeitraffer) und behalten Sie den Ton oder schalten Sie ihn stumm.",
+   "Laden Sie das neue Video herunter."
+  ],
+  "faq": [
+   {
+    "q": "Klingen Stimmen beim Beschleunigen wie Mickey Mouse?",
+    "a": "Nein. Die Tonhöhe bleibt bei Geschwindigkeitsänderungen natürlich. Sie können den Ton auch stummschalten."
+   },
+   {
+    "q": "Wie erstelle ich ein Zeitlupenvideo?",
+    "a": "Wählen Sie eine Geschwindigkeit unter 1x, etwa 0,5x oder 0,25x."
+   },
+   {
+    "q": "Wird mein Video hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "json-formatter": {
+  "name": "JSON-Formatierer & Validator",
+  "desc": "JSON formatieren, minimieren und validieren. Zeigt Zeile und Spalte jedes Fehlers genau an.",
+  "about": "Fügen Sie JSON ein, um es mit 2 oder 4 Leerzeichen oder Tabs lesbar zu machen, es zu minimieren, die Schlüssel zu sortieren oder zu prüfen, ob es gültig ist. Bei einem Fehler zeigt das Tool auf Zeile und Spalte. Alles geschieht in Ihrem Browser.",
+  "title": "JSON-Formatierer und Validator online: JSON verschönern | Toolz Baba",
+  "metaDesc": "JSON formatieren, minimieren und validieren, Schlüssel sortieren, Fehler mit Zeile und Spalte sehen. Kostenlos, Daten bleiben im Browser.",
+  "steps": [
+   "Fügen Sie Ihr JSON ein.",
+   "Formatieren Sie es mit 2 oder 4 Leerzeichen oder Tabs, minimieren Sie es oder sortieren Sie die Schlüssel.",
+   "Kopieren Sie das Ergebnis."
+  ],
+  "faq": [
+   {
+    "q": "Wie finde ich einen Fehler in meinem JSON?",
+    "a": "Fügen Sie es hier ein: Ist es ungültig, zeigt das Tool Zeile und Spalte des Fehlers genau an."
+   },
+   {
+    "q": "Wird mein JSON an einen Server gesendet?",
+    "a": "Nein. Alles geschieht in Ihrem Browser."
+   }
+  ]
+ },
+ "word-counter": {
+  "name": "Wort- & Zeichenzähler",
+  "desc": "Wörter, Zeichen, Sätze und Absätze zählen, mit Lesezeit und häufigsten Schlüsselwörtern.",
+  "about": "Fügen Sie Text ein oder tippen Sie ihn, um die Anzahl der Wörter, Zeichen (mit und ohne Leerzeichen), Sätze und Absätze zu sehen, dazu die geschätzte Lese- und Sprechzeit und die am häufigsten verwendeten Wörter. Funktioniert mit englischen und Hindi-Texten.",
+  "title": "Wörter zählen und Zeichen zählen online kostenlos | Toolz Baba",
+  "metaDesc": "Wörter, Zeichen (mit und ohne Leerzeichen), Sätze und Absätze zählen, dazu Lesezeit und häufigste Schlüsselwörter. Englisch und Hindi.",
+  "steps": [
+   "Fügen Sie Ihren Text ein oder tippen Sie ihn.",
+   "Sehen Sie sofort Wörter, Zeichen, Sätze, Absätze und Lesezeit.",
+   "Prüfen Sie die am häufigsten verwendeten Wörter."
+  ],
+  "faq": [
+   {
+    "q": "Zählt es Zeichen mit und ohne Leerzeichen?",
+    "a": "Ja, beides wird angezeigt."
+   },
+   {
+    "q": "Funktioniert es mit Hindi?",
+    "a": "Ja, es zählt englische und Hindi-Texte."
+   },
+   {
+    "q": "Wird mein Text irgendwo gespeichert?",
+    "a": "Nein. Es läuft in Ihrem Browser, was Sie eingeben, wird nirgendwohin gesendet."
+   }
+  ]
+ },
+ "text-case-converter": {
+  "name": "Groß-/Kleinschreibung ändern",
+  "desc": "Text in GROSSBUCHSTABEN, Kleinbuchstaben, Titelschreibweise, Satzschreibweise, camelCase, snake_case und mehr umwandeln.",
+  "about": "Wandeln Sie Text mit einem Klick zwischen GROSSBUCHSTABEN, Kleinbuchstaben, Titelschreibweise, Satzschreibweise, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE und mehr um und kopieren Sie dann das Ergebnis.",
+  "title": "Groß-/Kleinschreibung ändern: Großbuchstaben, Titel | Toolz Baba",
+  "metaDesc": "Text mit einem Klick in GROSSBUCHSTABEN, Kleinbuchstaben, Titelschreibweise, camelCase, snake_case und mehr umwandeln. Kostenlos und sofort.",
+  "steps": [
+   "Fügen Sie Ihren Text ein.",
+   "Klicken Sie auf die gewünschte Schreibweise: GROSSBUCHSTABEN, Kleinbuchstaben, Titelschreibweise, camelCase und mehr.",
+   "Kopieren Sie das Ergebnis."
+  ],
+  "faq": [
+   {
+    "q": "Welche Schreibweisen werden unterstützt?",
+    "a": "GROSSBUCHSTABEN, Kleinbuchstaben, Titelschreibweise, Satzschreibweise, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE und mehr."
+   },
+   {
+    "q": "Wird mein Text irgendwohin gesendet?",
+    "a": "Nein. Es läuft in Ihrem Browser, was Sie eingeben, wird nirgendwohin gesendet."
+   }
+  ]
+ },
+ "password-generator": {
+  "name": "Passwort-Generator",
+  "desc": "Starke Zufallspasswörter erstellen. Länge und Zeichen wählen und die Stärke sehen.",
+  "about": "Erzeugen Sie starke Zufallspasswörter mit dem sicheren Zufallsgenerator Ihres Browsers. Wählen Sie die Länge und die enthaltenen Zeichen, lassen Sie ähnlich aussehende Zeichen weg, erstellen Sie mehrere auf einmal und sehen Sie eine Einschätzung der Stärke. Passwörter werden nie irgendwohin gesendet.",
+  "title": "Starke Passwörter generieren: zufällig und sicher | Toolz Baba",
+  "metaDesc": "Starke Zufallspasswörter mit dem sicheren Generator Ihres Browsers erstellen. Länge und Zeichen wählen und die Stärke sehen. Wird nirgendwohin gesendet.",
+  "steps": [
+   "Wählen Sie die Länge und die enthaltenen Zeichen.",
+   "Erzeugen Sie ein oder mehrere Passwörter und prüfen Sie die Stärke.",
+   "Kopieren Sie das gewünschte."
+  ],
+  "faq": [
+   {
+    "q": "Sind die Passwörter wirklich zufällig?",
+    "a": "Ja. Sie stammen aus dem sicheren Zufallszahlengenerator Ihres Browsers."
+   },
+   {
+    "q": "Wie lang sollte ein Passwort sein?",
+    "a": "Mindestens 12 bis 16 Zeichen mit gemischten Zeichenarten; länger ist stärker."
+   },
+   {
+    "q": "Werden die Passwörter irgendwohin gesendet oder gespeichert?",
+    "a": "Nein. Sie werden in Ihrem Browser erstellt und nie irgendwohin gesendet."
+   }
+  ]
+ },
+ "hash-uuid-generator": {
+  "name": "Hash- & UUID-Generator",
+  "desc": "UUIDs sowie MD5-, SHA-1-, SHA-256-, SHA-384- oder SHA-512-Hashes von Text und Dateien erzeugen.",
+  "about": "Erstellen Sie zufällige UUIDs (Version 4 und zeitlich geordnete Version 7) und berechnen Sie MD5-, SHA-1-, SHA-256-, SHA-384- und SHA-512-Prüfsummen von Text oder einer Datei, um einen Download zu prüfen. Die Datei wird in Ihrem Browser gelesen und nie hochgeladen.",
+  "title": "Hash-Generator und UUID-Generator: SHA-256, MD5 | Toolz Baba",
+  "metaDesc": "UUID v4 und v7 sowie MD5-, SHA-1-, SHA-256-, SHA-384- oder SHA-512-Hashes von Text oder Dateien erzeugen, um Downloads zu prüfen. Kostenlos, ohne Upload.",
+  "steps": [
+   "Wählen Sie UUID oder einen Hash-Typ wie SHA-256.",
+   "Geben Sie Text ein oder fügen Sie eine Datei hinzu.",
+   "Kopieren Sie das Ergebnis oder vergleichen Sie es mit der Prüfsumme, die Sie erhalten haben."
+  ],
+  "faq": [
+   {
+    "q": "Wie prüfe ich, ob ein Download nicht beschädigt ist?",
+    "a": "Fügen Sie die heruntergeladene Datei hinzu, wählen Sie den von der Website angegebenen Hash (oft SHA-256) und vergleichen Sie die beiden Werte."
+   },
+   {
+    "q": "Was ist der Unterschied zwischen UUID v4 und v7?",
+    "a": "v4 ist vollständig zufällig; v7 beginnt mit der Zeit, sodass neue IDs in der Reihenfolge ihrer Erstellung sortiert werden."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Die Datei wird in Ihrem Browser gelesen und nie hochgeladen."
+   }
+  ]
+ },
+ "url-encoder": {
+  "name": "URL-Encoder & -Decoder",
+  "desc": "URLs und Text kodieren oder dekodieren und eine URL in Host, Pfad und Abfrageparameter zerlegen.",
+  "about": "Kodieren Sie Text, damit er sicher in einer URL stehen kann, dekodieren Sie prozentkodierten Text und zerlegen Sie eine vollständige URL in ihre Bestandteile (Protokoll, Host, Pfad und Abfrageparameter), um sie zu lesen oder zu bearbeiten.",
+  "title": "URL kodieren und dekodieren online: Prozentkodierung | Toolz Baba",
+  "metaDesc": "Text für URLs kodieren, prozentkodierten Text dekodieren und URLs in Host, Pfad und Parameter zerlegen. Kostenlos und sofort.",
+  "steps": [
+   "Fügen Sie Text oder eine URL ein.",
+   "Kodieren oder dekodieren Sie sie oder zerlegen Sie die URL in ihre Bestandteile.",
+   "Kopieren Sie das Ergebnis."
+  ],
+  "faq": [
+   {
+    "q": "Was ist URL-Kodierung?",
+    "a": "Zeichen wie Leerzeichen und & werden durch Codes wie %20 ersetzt, damit der Text sicher in einer Webadresse verwendet werden kann."
+   },
+   {
+    "q": "Kann ich die Abfrageparameter einer URL bearbeiten?",
+    "a": "Ja. Zerlegen Sie die URL, um Protokoll, Host, Pfad und jeden Parameter zu sehen, und bearbeiten Sie sie."
+   }
+  ]
+ },
+ "image-color-palette-extractor": {
+  "name": "Farbpalette extrahieren",
+  "desc": "Die Hauptfarben eines Bildes auslesen. HEX, RGB, CSS kopieren.",
+  "about": "Extrahieren Sie die dominanten Farben aus einem beliebigen Bild. Kopieren Sie HEX-, RGB- und HSL-Werte, exportieren Sie CSS-Variablen oder JSON, laden Sie die Palette als Bild herunter und klicken Sie in das Bild, um eine exakte Farbe aufzunehmen. Es läuft in Ihrem Browser.",
+  "title": "Farbpalette aus Bild erstellen: HEX und RGB auslesen | Toolz Baba",
+  "metaDesc": "Hauptfarben eines Bildes auslesen und HEX-, RGB- oder HSL-Werte, CSS-Variablen oder JSON kopieren. Exakte Farbe per Klick. Kostenlos.",
+  "tabAll": "Aus einem Bild",
+  "steps": [
+   "Fügen Sie ein Bild hinzu.",
+   "Sehen Sie die Hauptfarben oder klicken Sie in das Bild, um eine exakte Farbe aufzunehmen.",
+   "Kopieren Sie HEX, RGB oder HSL oder exportieren Sie CSS, JSON oder das Palettenbild."
+  ],
+  "faq": [
+   {
+    "q": "Wie erhalte ich den HEX-Code einer Farbe in einem Bild?",
+    "a": "Fügen Sie das Bild hinzu und klicken Sie auf die gewünschte Stelle; die exakte Farbe wird als HEX, RGB und HSL angezeigt."
+   },
+   {
+    "q": "Wird mein Bild hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "qr-code-generator": {
+  "name": "QR-Code-Generator",
+  "desc": "URL, Text, WLAN, E-Mail, Telefon oder Kontaktkarte. PNG oder SVG, mit Farben und Logo.",
+  "about": "Erstellen Sie QR-Codes für Links, Text, WLAN-Netzwerke, WhatsApp-Chats, E-Mail, Telefonnummern, SMS und Kontaktkarten. Wählen Sie Farben und Punktstil, fügen Sie in der Mitte ein Logo hinzu und laden Sie als PNG oder SVG herunter.",
+  "title": "QR-Code-Generator kostenlos: Link, WLAN, WhatsApp, Logo | Toolz Baba",
+  "metaDesc": "QR-Codes für Links, WLAN, WhatsApp, E-Mail, Telefon, SMS und Kontakte erstellen. Mit Farben und Logo, PNG oder SVG. Kostenlos, läuft nie ab.",
+  "steps": [
+   "Wählen Sie, was der Code enthält: einen Link, Text, WLAN, WhatsApp, E-Mail, Telefon, SMS oder eine Kontaktkarte.",
+   "Wählen Sie Farben und einen Punktstil und fügen Sie auf Wunsch ein Logo hinzu.",
+   "Laden Sie ihn als PNG oder SVG herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie erstelle ich einen QR-Code für einen Link?",
+    "a": "Wählen Sie den Linktyp, fügen Sie die Adresse ein und laden Sie den QR-Code als PNG oder SVG herunter."
+   },
+   {
+    "q": "Kann ich einen QR-Code für WLAN erstellen?",
+    "a": "Ja. Geben Sie Netzwerkname und Passwort ein; Personen scannen ihn, um sich ohne Tippen zu verbinden."
+   },
+   {
+    "q": "Laufen die QR-Codes ab?",
+    "a": "Nein. Die Adresse oder der Text ist im Code selbst gespeichert, er funktioniert also, solange der Link funktioniert, auf den er verweist."
+   },
+   {
+    "q": "PNG oder SVG?",
+    "a": "PNG für Handys, Dokumente und WhatsApp; SVG für großen Druck, da es in jeder Größe scharf bleibt."
+   }
+  ]
+ },
+ "base64": {
+  "name": "Base64-Konverter",
+  "desc": "Text und Dateien kodieren oder dekodieren. Data-URIs für Bilder erzeugen.",
+  "about": "Kodieren und dekodieren Sie Base64 für Text (mit voller Unicode-Unterstützung) und Dateien. Erzeugen Sie Data-URIs für Bilder oder verwandeln Sie einen Base64-String zurück in eine herunterladbare Datei. Es läuft in Ihrem Browser.",
+  "title": "Base64 kodieren und dekodieren online: Text und Dateien | Toolz Baba",
+  "metaDesc": "Base64 für Text und Dateien kodieren oder dekodieren, Data-URIs für Bilder erstellen oder Base64 in eine Datei zurückverwandeln. Kostenlos.",
+  "steps": [
+   "Fügen Sie Text ein oder fügen Sie eine Datei hinzu.",
+   "Kodieren oder dekodieren Sie.",
+   "Kopieren Sie das Ergebnis oder laden Sie die dekodierte Datei herunter."
+  ],
+  "faq": [
+   {
+    "q": "Was ist eine Data-URI?",
+    "a": "Ein als Base64-Text geschriebenes Bild, das Sie anstelle eines Dateilinks direkt in HTML oder CSS einfügen können."
+   },
+   {
+    "q": "Funktioniert es mit Hindi- und Emoji-Text?",
+    "a": "Ja, die Textkodierung unterstützt Unicode vollständig."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser, Ihre Dateien bleiben auf Ihrem Gerät und werden nie hochgeladen."
+   }
+  ]
+ },
+ "image-cdn": {
+  "name": "Bild-zu-CDN-Link",
+  "desc": "Ein Bild hochladen und direkte Links in jedem Format (JPG, PNG, WebP, AVIF ...) mit Größenoptionen erhalten.",
+  "about": "Laden Sie ein Bild hoch und erhalten Sie direkte Links dazu in den Formaten JPG, PNG, WebP, AVIF, GIF, BMP, TIFF und ICO. Fügen Sie ?w=800 an einen beliebigen Link an, um die Größe zu ändern. Umgewandelte Versionen werden für schnelles Laden zwischengespeichert.",
+  "tabAll": "Bild-Link"
+ },
+ "split-audio": {
+  "name": "Audio schneiden & teilen",
+  "desc": "Den gewünschten Teil einer Audiodatei herausschneiden oder sie in Teile fester Länge oder in gleiche Teile aufteilen.",
+  "about": "Schneiden Sie einen Ausschnitt aus einem Song, einer Aufnahme oder einer Sprachnachricht: Spielen Sie ihn ab, markieren Sie Anfang und Ende des Teils, fügen Sie ein Ein- oder Ausblenden hinzu und speichern Sie ihn als MP3, M4A, WAV, OGG oder FLAC. Oder teilen Sie eine lange Datei in kürzere Titel, entweder alle paar Minuten oder in eine Anzahl gleicher Teile, und erhalten Sie sie als ZIP. Sie können auch den Ton aus einer Videodatei extrahieren. Alles läuft in Ihrem Browser.",
+  "title": "Audio schneiden online kostenlos: MP3 zuschneiden und teilen | Toolz Baba",
+  "metaDesc": "Ausschnitt aus einem Song oder einer Aufnahme schneiden, mit Ein-/Ausblenden, oder lange Dateien teilen. Als MP3, WAV und mehr. Kostenlos.",
+  "tabAll": "Audio teilen",
+  "steps": [
+   "Fügen Sie eine Audiodatei hinzu (oder ein Video, um dessen Ton zu extrahieren).",
+   "Markieren Sie den Teil, der bleiben soll, und fügen Sie ein Ein-/Ausblenden hinzu, oder wählen Sie, alle paar Minuten oder in gleiche Teile zu teilen.",
+   "Speichern Sie als MP3, M4A, WAV, OGG oder FLAC."
+  ],
+  "faq": [
+   {
+    "q": "Wie schneide ich einen Teil aus einem Song?",
+    "a": "Fügen Sie den Song hinzu, spielen Sie ihn ab, markieren Sie Anfang und Ende Ihres Teils, fügen Sie auf Wunsch ein Ein-/Ausblenden hinzu und speichern Sie."
+   },
+   {
+    "q": "Kann ich eine lange Aufnahme in Teile teilen?",
+    "a": "Ja, alle paar Minuten oder in eine Anzahl gleicher Teile, geliefert als ZIP."
+   },
+   {
+    "q": "Wird mein Audio hochgeladen?",
+    "a": "Nein. Alles läuft in Ihrem Browser."
+   }
+  ]
+ },
+ "font-library": {
+  "name": "Schriftarten-Bibliothek",
+  "desc": "50 kostenlose Schriftarten durchsuchen, in der Vorschau ansehen und herunterladen, auch für Hindi und andere indische Schriften.",
+  "about": "Eine Bibliothek mit 50 kostenlosen Schriftarten, die Sie durchsuchen, mit eigenem Text in der Vorschau ansehen und herunterladen können: serifenlose, Serifen-, Display-, Handschrift- und Monospace-Familien sowie Schriftarten für Hindi (Devanagari), Bengalisch, Tamil, Telugu, Gujarati, Punjabi, Kannada und Malayalam. Jede Karte zeigt die Schriftsysteme, die die Schrift darstellen kann, und ihre Lizenz (die meisten stehen unter der SIL Open Font License und sind daher auch für kommerzielle Arbeiten frei nutzbar). Laden Sie jede Schrift als ZIP mit Lizenzhinweis herunter, kopieren Sie fertiges CSS oder nutzen Sie sie direkt im PDF-Editor.",
+  "title": "Kostenlose Schriftarten herunterladen: 50 Fonts inkl. Hindi | Toolz Baba",
+  "metaDesc": "50 kostenlose Schriftarten mit eigenem Text ansehen und laden, auch Hindi, Tamil, Telugu, Bengalisch, Gujarati. Meist auch kommerziell frei.",
+  "steps": [
+   "Durchsuchen Sie die 50 Schriftarten.",
+   "Geben Sie Ihren eigenen Text ein, um die Vorschau zu sehen.",
+   "Laden Sie eine Schrift als ZIP herunter, kopieren Sie ihr CSS oder nutzen Sie sie im PDF-Editor."
+  ],
+  "faq": [
+   {
+    "q": "Sind diese Schriftarten kostenlos für kommerzielle Nutzung?",
+    "a": "Die meisten stehen unter der SIL Open Font License, die kommerzielle Nutzung erlaubt. Jede Schriftkarte zeigt ihre Lizenz."
+   },
+   {
+    "q": "Gibt es Hindi-Schriftarten?",
+    "a": "Ja. Es gibt Hindi-Schriftarten (Devanagari) sowie Bengalisch, Tamil, Telugu, Gujarati, Punjabi, Kannada und Malayalam."
+   }
+  ]
+ },
+ "pdf-editor": {
+  "name": "PDF-Editor",
+  "desc": "PDF im Browser bearbeiten: Text ändern, Text mit 50 Schriftarten, Bilder, Formen und Markierungen hinzufügen, dann als PDF, Word, Bilder oder Text herunterladen.",
+  "about": "Öffnen Sie ein PDF und bearbeiten Sie es direkt auf der Seite. Klicken Sie auf eine beliebige Textzeile, um sie zu ändern, fügen Sie neuen Text in einer von 50 kostenlosen Schriftarten hinzu (auch für Hindi und andere indische Schriften), setzen Sie Bilder ein, zeichnen Sie Rechtecke, Kreise, Linien und Pfeile, markieren Sie, zeichnen Sie von Hand, überdecken Sie Stellen, die verschwinden sollen, drehen oder löschen Sie Seiten und fügen Sie leere hinzu. Wenn Sie fertig sind, laden Sie das Ergebnis als PDF, Word-Datei, Seitenbilder oder reinen Text herunter. Alles geschieht in Ihrem Browser, Ihr PDF wird also nie hochgeladen.",
+  "title": "PDF-Editor online kostenlos: Text im PDF bearbeiten | Toolz Baba",
+  "metaDesc": "PDF-Text bearbeiten, Text in 50 Schriftarten, Bilder, Formen und Markierungen hinzufügen, als PDF oder Word speichern. Kostenlos, ohne Upload.",
+  "steps": [
+   "Öffnen Sie Ihr PDF.",
+   "Klicken Sie auf Text, um ihn zu ändern, oder fügen Sie Text, Bilder, Formen, Markierungen und Zeichnungen hinzu.",
+   "Laden Sie als PDF, Word, Seitenbilder oder Text herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie bearbeite ich Text in einem PDF?",
+    "a": "Öffnen Sie das PDF, klicken Sie auf die Textzeile, die Sie ändern möchten, und tippen Sie. Sie können auch neuen Text in 50 kostenlosen Schriftarten hinzufügen."
+   },
+   {
+    "q": "Kann ich auf Hindi tippen?",
+    "a": "Ja. Die Schriftarten umfassen Hindi und andere indische Schriften."
+   },
+   {
+    "q": "Wird mein PDF hochgeladen?",
+    "a": "Nein. Alles geschieht in Ihrem Browser, Ihr PDF wird nie hochgeladen."
+   }
+  ]
+ },
+ "crop-pdf": {
+  "name": "PDF zuschneiden",
+  "desc": "Weiße Ränder von PDF-Seiten automatisch abschneiden oder nach selbst gewählten Rändern zuschneiden.",
+  "about": "Schneiden Sie PDF-Seiten so zu, dass der Inhalt den Bildschirm füllt: ideal zum Lesen von Aufsätzen und gescannten Büchern auf dem Handy oder E-Reader oder um Schnittmarken von einer Druckdatei zu entfernen. Der automatische Modus findet den Inhalt jeder Seite und entfernt den leeren Rand; im manuellen Modus schneiden Sie die in Millimetern eingegebenen Ränder ab. Wählen Sie alle Seiten oder einen Bereich.",
+  "title": "PDF zuschneiden online kostenlos: weiße Ränder entfernen | Toolz Baba",
+  "metaDesc": "PDF-Seiten zuschneiden: weiße Ränder automatisch oder in Millimetern abschneiden, für alle Seiten oder einen Bereich. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie automatisch oder eigene Ränder.",
+   "Laden Sie das zugeschnittene PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie schneide ich die Ränder eines PDFs zu?",
+    "a": "Fügen Sie das PDF hinzu, lassen Sie Automatisch ausgewählt und klicken Sie auf PDF zuschneiden. Die weißen Ränder jeder Seite werden abgeschnitten, wobei etwas Platz um den Inhalt bleibt."
+   },
+   {
+    "q": "Wird der abgeschnittene Teil gelöscht?",
+    "a": "Er wird ausgeblendet (der sichtbare Bereich der Seite wird geändert), die Dateigröße bleibt also etwa gleich und nichts auf der Seite wird neu geschrieben."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "flatten-pdf": {
+  "name": "PDF verflachen",
+  "desc": "Formularfelder, Kommentare und Unterschriften in die Seite einbetten, damit sie nicht mehr geändert werden können.",
+  "about": "Verflachen Sie ein PDF vor dem Versenden, damit das ausgefüllte Formular, Ihre Unterschrift, Kommentare und Markierungen Teil der Seite werden und nicht mehr bearbeitet, verschoben oder gelöscht werden können. Der Text bleibt scharf und durchsuchbar. Brauchen Sie mehr? Verwandeln Sie jede Seite in ein Bild, sodass in der Datei gar nichts mehr bearbeitet oder kopiert werden kann.",
+  "title": "PDF verflachen online kostenlos: Formulare sperren | Toolz Baba",
+  "metaDesc": "PDF verflachen: ausgefüllte Formulare, Unterschriften und Kommentare in die Seite einbetten oder Seiten in Bilder verwandeln. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie Formulare und Kommentare oder alles in Bilder.",
+   "Laden Sie das verflachte PDF herunter."
+  ],
+  "faq": [
+   {
+    "q": "Was bewirkt das Verflachen eines PDFs?",
+    "a": "Es fügt Formularfelder, Kommentare, Stempel und Unterschriften in den Seiteninhalt ein, sodass sie überall gleich aussehen und nicht mehr geändert werden können."
+   },
+   {
+    "q": "Können Personen den Text weiterhin kopieren?",
+    "a": "Bei Formularen und Kommentaren ja: Der Text bleibt durchsuchbar. Wählen Sie „Alles in Bilder“, wenn er nicht kopiert werden darf."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "compare-pdf": {
+  "name": "PDFs vergleichen",
+  "desc": "Jeden Unterschied im Text zweier PDF-Versionen finden, mit übersichtlichem Bericht.",
+  "about": "Prüfen Sie, was sich zwischen zwei Versionen eines Vertrags, einer Abschlussarbeit oder eines Angebots geändert hat. Fügen Sie das alte und das neue PDF hinzu: Jedes entfernte oder hinzugefügte Wort wird mit dem umgebenden Text und der Seite aufgelistet, in einem PDF-Bericht, den Sie behalten oder teilen können. Verglichen wird nur der Text, nicht Bilder oder Layout.",
+  "title": "PDFs vergleichen online kostenlos: Unterschiede finden | Toolz Baba",
+  "metaDesc": "Zwei PDFs vergleichen und jedes hinzugefügte und entfernte Wort mit Seitenzahl im Bericht sehen. Kostenlos, ohne Anmeldung, Dateien bleiben bei Ihnen.",
+  "steps": [
+   "Fügen Sie zuerst das alte PDF und dann das neue PDF hinzu.",
+   "Klicken Sie auf PDFs vergleichen.",
+   "Öffnen oder laden Sie den Bericht herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie vergleiche ich zwei PDF-Dateien?",
+    "a": "Fügen Sie zuerst die alte und dann die neue Version hinzu und klicken Sie auf PDFs vergleichen. Der Bericht zeigt entfernten Text in Rot und hinzugefügten Text in Grün, mit Seitenzahlen."
+   },
+   {
+    "q": "Vergleicht es Bilder und Layout?",
+    "a": "Nein, es vergleicht die Wörter. Ein verschobener Absatz erscheint an einer Stelle als entfernt und an einer anderen als hinzugefügt."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "repair-pdf": {
+  "name": "PDF reparieren",
+  "desc": "Ein beschädigtes PDF, das sich nicht öffnen lässt oder Fehler anzeigt, reparieren und eine saubere Kopie speichern.",
+  "about": "Ein PDF kann durch einen unterbrochenen Download, eine volle Festplatte oder ein fehlerhaftes Programm beschädigt werden, und dann lässt es sich nicht öffnen, zeigt Fehler an oder es fehlen Seiten. PDF reparieren baut die interne Struktur der Datei neu auf, stellt jede lesbare Seite wieder her und speichert eine saubere Kopie. Es hilft auch bei PDFs, die Upload-Seiten ablehnen.",
+  "title": "PDF reparieren online kostenlos: defekte PDFs beheben | Toolz Baba",
+  "metaDesc": "Beschädigtes PDF im Browser reparieren: Struktur neu aufbauen und lesbare Seiten in einer sauberen Kopie retten. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie das beschädigte PDF hinzu.",
+   "Klicken Sie auf PDF reparieren.",
+   "Laden Sie die reparierte Kopie herunter."
+  ],
+  "faq": [
+   {
+    "q": "Lässt sich jedes beschädigte PDF reparieren?",
+    "a": "Die meisten Dateien mit defekter Struktur lassen sich neu aufbauen. Fehlen Teile der Datei oder wurden sie überschrieben, werden die noch lesbaren Seiten wiederhergestellt."
+   },
+   {
+    "q": "Warum lehnt eine Upload-Seite mein PDF ab?",
+    "a": "Oft hat die Datei kleine Strukturfehler. Eine reparierte, sauber gespeicherte Kopie wird meist akzeptiert."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "pdf-to-text": {
+  "name": "PDF in Text",
+  "desc": "Den gesamten Text eines PDFs als reine Textdatei (TXT) erhalten.",
+  "about": "Text Seite für Seite aus einem PDF zu kopieren ist langsam und verliert Zeilenumbrüche. PDF in Text holt alle Wörter auf einmal heraus und speichert sie als TXT-Datei, die Sie überall öffnen, in eine E-Mail einfügen oder in einem anderen Programm verwenden können. Es funktioniert mit jeder Sprache, und Sie können markieren lassen, wo jede Seite beginnt. Für Scans nutzen Sie PDF-OCR.",
+  "title": "PDF in Text umwandeln kostenlos: Text als TXT | Toolz Baba",
+  "metaDesc": "Den gesamten Text eines PDFs in eine TXT-Datei extrahieren, in jeder Sprache, auf Wunsch mit Seitenmarkierungen. Kostenlos, ohne Upload.",
+  "steps": [
+   "Fügen Sie Ihr PDF hinzu.",
+   "Wählen Sie die Seiten.",
+   "Laden Sie die Textdatei herunter."
+  ],
+  "faq": [
+   {
+    "q": "Wie extrahiere ich Text aus einem PDF?",
+    "a": "Fügen Sie das PDF hinzu und klicken Sie auf Text abrufen. Eine TXT-Datei mit allen Wörtern wird heruntergeladen."
+   },
+   {
+    "q": "Warum wird kein Text gefunden?",
+    "a": "Das PDF ist wahrscheinlich ein Scan, also ein Bild der Seite. Nutzen Sie PDF-OCR, um die Wörter aus den Bildern auszulesen."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt, Ihre Datei bleibt auf Ihrem Gerät und wird nie hochgeladen."
+   }
+  ]
+ },
+ "compress-png": {
+  "name": "PNG komprimieren",
+  "desc": "PNG-Dateien verkleinern und Transparenz behalten. Farben reduzieren, Größe ändern und viele PNGs auf einmal komprimieren. Läuft in Ihrem Browser.",
+  "about": "PNG ist ein verlustfreies Format, daher sind PNG-Dateien oft viel größer als nötig, besonders Screenshots, Logos und Grafiken mit flachen Farben. Dieses Tool verkleinert sie, indem das Bild auf eine optimierte Palette von bis zu 256 Farben reduziert wird, was bei den meisten Grafiken gleich aussieht, die Größe aber um die Hälfte oder mehr senken kann. Transparente Bereiche bleiben transparent. Sie können auch die Breite begrenzen, um sehr große PNGs zu verkleinern, oder in WebP umwandeln, um eine noch kleinere Datei zu erhalten. Komprimieren Sie bis zu 40 PNGs auf einmal; das Ergebnis zeigt genau, wie viel jede Datei gespart hat. Ist ein PNG bereits so klein wie möglich, erhalten Sie das Original statt einer größeren Datei zurück. Bei Fotos sind JPG oder WebP immer kleiner als PNG. Ihre PNG-Dateien verlassen nie Ihr Gerät.",
+  "title": "PNG komprimieren online kostenlos: PNG-Dateigröße verringern | Toolz Baba",
+  "tab": "PNG"
+ },
+ "compress-jpeg": {
+  "name": "JPEG komprimieren",
+  "desc": "JPEG-Fotos mit Qualitätsregler und Live-Größen vorher/nachher verkleinern. Viele JPEGs auf einmal komprimieren. Läuft in Ihrem Browser.",
+  "about": "Die JPEG-Komprimierung ist ein Kompromiss zwischen Dateigröße und Qualität. Mit diesem Tool wählen Sie die Qualität selbst: Etwa 70 bis 80 Prozent sind vom Original meist nicht zu unterscheiden und machen ein Foto oft um ein Vielfaches kleiner. Sie können auch eine maximale Breite festlegen, um sehr große Fotos zu verkleinern, oder in WebP oder AVIF umwandeln, wenn Sie die kleinstmögliche Datei möchten. Fügen Sie bis zu 40 JPEG-Dateien auf einmal hinzu und laden Sie sie gemeinsam als ZIP herunter. Ist ein JPEG bereits gut komprimiert, gibt das Tool das Original statt einer größeren Datei zurück. Alles läuft in Ihrem Browser, Ihre Fotos werden also nie hochgeladen.",
+  "title": "JPEG komprimieren online kostenlos: JPEG-Größe verringern | Toolz Baba",
+  "tab": "JPEG"
+ },
+ "compress-jpg": {
+  "name": "JPG komprimieren",
+  "desc": "JPG-Fotos für E-Mail, WhatsApp und Formulare verkleinern. Qualität wählen, Breite begrenzen, viele JPG-Dateien auf einmal komprimieren.",
+  "about": "Fotos direkt vom Handy oder von der Kamera sind oft 3 bis 10 MB groß, zu viel für E-Mail, WhatsApp, Jobportale oder Online-Formulare. Legen Sie Ihre JPG-Dateien hier ab, wählen Sie eine Qualität (75 Prozent sind ein guter Ausgangspunkt) und optional eine maximale Breite und erhalten Sie viel kleinere Dateien, die am Bildschirm weiterhin scharf aussehen. JPG und JPEG sind dasselbe Format mit anderer Dateiendung, und beide werden hier verarbeitet. Wenn Sie eine genaue Größe wie unter 50 KB für ein Formular brauchen, nutzen Sie das Tool „Foto & Unterschrift auf KB verkleinern“, das die beste Qualität für Ihr Limit findet. Ihre Fotos werden auf Ihrem eigenen Gerät verarbeitet und nicht hochgeladen.",
+  "title": "JPG komprimieren online kostenlos: JPG verkleinern | Toolz Baba",
+  "tab": "JPG / JPEG"
+ },
+ "compress-gif": {
+  "name": "GIF komprimieren",
+  "desc": "Dateigröße animierter GIFs durch weniger Farben, geringere Breite oder niedrigere Bildrate verringern. Läuft in Ihrem Browser.",
+  "about": "Animierte GIFs werden sehr schnell groß. Dieses Tool verkleinert sie und behält die Animation, mit drei Stellschrauben: weniger Farben (GIFs erlauben 256, aber 64 oder 128 sehen oft gut aus), eine geringere Breite und eine niedrigere Bildrate. Probieren Sie zuerst weniger Farben, da das meist das Aussehen am wenigsten verändert. Das GIF wird mit einer optimierten Farbpalette für die gesamte Animation neu kodiert, und Sie sehen die Größe vorher und nachher. Ist das GIF bereits gut komprimiert, erhalten Sie das Original statt eines größeren zurück. Für die größte Ersparnis erwägen Sie, das GIF mit dem Tool „GIF in Video“ in ein Video umzuwandeln, das meist um ein Vielfaches kleiner ist. Ihr GIF wird in Ihrem Browser verarbeitet und nie hochgeladen.",
+  "title": "GIF komprimieren online kostenlos: animierte GIFs verkleinern | Toolz Baba",
+  "tab": "GIF"
+ },
+ "compress-jpg-under-10kb": {
+  "name": "JPG unter 10 KB komprimieren",
+  "desc": "Ein JPG-Foto oder eine Unterschrift auf unter 10 KB bringen. Größe eingeben, Ergebnis vor dem Download ansehen. Läuft in Ihrem Browser.",
+  "about": "10 KB sind winzig, etwa so groß wie eine kurze Textdatei, und es ist die Grenze, die manche Online-Formulare für eine Unterschrift oder ein sehr kleines Foto setzen. Ein Unterschriftsscan oder ein kleiner Gesichtsausschnitt passt problemlos; ein komplettes Kamerafoto muss stark verkleinert werden, daher verringert diese Seite von selbst auch die Pixelgröße des Bildes, wenn eine niedrigere Qualität nicht ausreicht. Für das beste Ergebnis bei 10 KB schneiden Sie das Bild zuerst so zu, dass es nur enthält, was das Formular verlangt: Weniger Pixel bedeuten mehr Qualität für jedes einzelne.",
+  "title": "JPG auf unter 10 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein JPG unter 10 KB?",
+    "a": "Fügen Sie das Bild hinzu, lassen Sie die Größe auf 10 KB und prüfen Sie die Vorschau. Die Seite senkt die Qualität und bei Bedarf Breite und Höhe, bis die Datei unter 10 KB liegt, dann klicken Sie auf Herunterladen."
+   },
+   {
+    "q": "Ist ein Foto bei 10 KB noch lesbar?",
+    "a": "Eine Unterschrift, ein Stempel oder ein kleiner Ausschnitt im Passbildstil meist schon. Ein großes, detailreiches Foto wird bei 10 KB sehr klein und weich, probieren Sie bei Fotos daher lieber 20 KB oder 50 KB."
+   },
+   {
+    "q": "Kann ich es für eine Unterschrift nutzen?",
+    "a": "Ja. Scannen oder fotografieren Sie die Unterschrift auf weißem Papier, schneiden Sie eng um sie herum zu und fügen Sie sie dann hier hinzu. Kleine Schwarz-auf-Weiß-Bilder lassen sich sehr gut komprimieren."
+   }
+  ]
+ },
+ "compress-jpg-under-20kb": {
+  "name": "JPG unter 20 KB komprimieren",
+  "desc": "Ein JPG für Prüfungs-, Bewerbungs- und Stipendienformulare auf unter 20 KB komprimieren. Größe wählen und das Ergebnis vorab ansehen.",
+  "about": "20 KB sind eine übliche Obergrenze auf Portalen, die neben einem langen Antragsformular ein Foto oder eine Unterschrift verlangen. Bei dieser Größe sieht ein Gesichtsfoto von einigen hundert Pixeln Breite noch sauber aus, ein großes Kamerafoto muss aber zuerst schrumpfen. Diese Seite versucht zuerst eine gute Qualität, senkt dann die Qualität und nur wenn nötig die Pixelgröße und hält beim besten Bild an, das noch unter 20 KB passt. Die Vorschau zeigt genau, was Sie herunterladen, sodass Sie Gesicht oder Unterschrift beurteilen können, bevor Sie speichern.",
+  "title": "JPG auf unter 20 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein JPG auf 20 KB?",
+    "a": "Fügen Sie Ihr Bild hinzu und lassen Sie die Größe auf 20 KB. Das Tool findet die höchste passende Qualität und zeigt die neue Dateigröße unter der Vorschau an."
+   },
+   {
+    "q": "Mein Foto hat 3 MB. Kann es wirklich 20 KB werden?",
+    "a": "Meist ja, denn der größte Teil der Größe eines Handyfotos stammt von Pixeln, die Sie in einem Formular nicht brauchen. Das Bild wird auf einige hundert Pixel Breite verkleinert, was für ein kleines Fotofeld völlig ausreicht."
+   },
+   {
+    "q": "Wird mein Bild irgendwohin hochgeladen?",
+    "a": "Nein. Das Bild wird von Ihrem Browser verarbeitet und verlässt nie Ihr Gerät."
+   }
+  ]
+ },
+ "compress-jpg-under-50kb": {
+  "name": "JPG unter 50 KB komprimieren",
+  "desc": "Ein JPG auf unter 50 KB verkleinern, ohne sichtbares Chaos. Größe festlegen, Ergebnis ansehen, herunterladen. Kostenlos und privat.",
+  "about": "50 KB ist die Größe, die viele Seiten für ein Profilbild, ein Ausweisfoto oder einen Dokumentenscan erlauben. Das ist geräumig genug, dass ein Porträt von etwa 500 Pixeln Breite klare Gesichter und scharfe Kanten behält. Fügen Sie Ihr JPG hinzu, lassen Sie die Größe auf 50 KB, und die Seite ermittelt die beste passende Qualität. Große Bilder werden zusätzlich ein wenig verkleinert, denn ein 4000 Pixel breites Foto passt in keiner Qualität in 50 KB. Wirkt das Ergebnis zu weich, erhöhen Sie das Limit oder schneiden Sie nicht benötigte Teile weg.",
+  "title": "JPG auf unter 50 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein JPG unter 50 KB?",
+    "a": "Fügen Sie die Datei hinzu, lassen Sie das Ziel auf 50 KB und laden Sie herunter, wenn die Vorschau passt. Das Tool wählt die Qualität für Sie."
+   },
+   {
+    "q": "Wie sieht ein 50-KB-Foto aus?",
+    "a": "Ein Porträt von etwa 400 bis 600 Pixeln Breite sieht am Bildschirm sauber aus. Es ist nicht für großen Druck gedacht."
+   },
+   {
+    "q": "Kann ich mehrere Bilder auf einmal auf 50 KB komprimieren?",
+    "a": "Ja. Fügen Sie alle hinzu und nutzen Sie „Alle herunterladen“, um eine ZIP zu erhalten, in der jedes Bild unter 50 KB liegt."
+   }
+  ]
+ },
+ "compress-jpg-under-100kb": {
+  "name": "JPG unter 100 KB komprimieren",
+  "desc": "JPG auf unter 100 KB komprimieren, das Limit, das die meisten Bewerbungs-, KYC- und Zulassungsformulare verlangen. Größe wählen und Vorschau ansehen.",
+  "about": "100 KB ist die Upload-Grenze, der Sie am häufigsten begegnen: Jobportale, KYC- und Bankformulare, Hochschulzulassungen, Stipendien- und Behördenseiten. Ein normales Handyfoto ist 20- bis 50-mal größer, braucht also echte Komprimierung, aber 100 KB lassen noch Raum für ein Porträt oder Dokumentenfoto, das gut lesbar ist. Diese Seite findet die beste Qualität unter 100 KB und zeigt das Ergebnis neben Ihrem Original, sodass Sie vor dem Download prüfen können, ob Text und Gesichter noch klar sind.",
+  "title": "JPG auf unter 100 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Wie kann ich ein JPG auf 100 KB verkleinern?",
+    "a": "Fügen Sie das Bild hinzu, lassen Sie das Ziel auf 100 KB und sehen Sie sich die Vorschau an. Die darunter angezeigte Größe ist die tatsächliche Größe der Datei, die Sie herunterladen."
+   },
+   {
+    "q": "Bleiben Dokumente bei 100 KB lesbar?",
+    "a": "Fotos gedruckter Seiten meist schon, wenn der Text groß genug ist. Wird das Kleingedruckte unscharf, probieren Sie 150 KB oder 200 KB."
+   },
+   {
+    "q": "Warum liegt meine Datei knapp unter 100 KB und nicht genau bei 100?",
+    "a": "Das Tool wählt die höchste Qualität, die das Limit nicht überschreitet, daher liegt das Ergebnis knapp darunter."
+   }
+  ]
+ },
+ "compress-jpg-under-150kb": {
+  "name": "JPG unter 150 KB komprimieren",
+  "desc": "Ein JPG kleiner als 150 KB machen, mit frei gewählter Größe. Ergebnis vor dem Download ansehen. Funktioniert in Ihrem Browser.",
+  "about": "150 KB liegen zwischen dem sehr strengen 100-KB-Limit und dem lockereren 200-KB-Limit, und manche Antragsformulare und Marktplätze verwenden es. Die zusätzlichen 50 KB gegenüber einem 100-KB-Ziel sind bei einem Gesicht oder fotografiertem Text spürbar. Fügen Sie Ihr JPG hinzu, und die Seite senkt die Qualität, bis die Datei knapp unter 150 KB liegt, und verkleinert die Pixelgröße nur, wenn das nicht ausreicht. Liegt Ihr Foto bereits unter 150 KB, bleibt es unverändert, statt erneut komprimiert und verschlechtert zu werden.",
+  "title": "JPG auf unter 150 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein JPG auf 150 KB?",
+    "a": "Fügen Sie die Datei hinzu, stellen Sie die Größe auf 150 KB (oder klicken Sie auf die Schaltfläche 150 KB) und laden Sie nach Prüfung der Vorschau herunter."
+   },
+   {
+    "q": "Was, wenn mein Bild schon unter 150 KB liegt?",
+    "a": "Dann bleibt es unangetastet. Ein kleines JPG erneut zu komprimieren kostet nur Qualität."
+   },
+   {
+    "q": "Reichen 150 KB für ein klares Foto?",
+    "a": "Für ein Porträt oder ein am Bildschirm gezeigtes Dokument ja. Ein großes Landschaftsfoto wirkt weicher, da es weniger Pixel halten muss."
+   }
+  ]
+ },
+ "compress-jpg-under-200kb": {
+  "name": "JPG unter 200 KB komprimieren",
+  "desc": "Ein JPG für Formulare, E-Mail und Uploads auf unter 200 KB komprimieren. Größe festlegen, Ergebnis ansehen, kostenlos herunterladen.",
+  "about": "200 KB sind ein angenehmes Limit für Ausweisfotos, Zeugnisse und Anhänge, und viele Behörden- und Hochschulportale verwenden es. Bei dieser Größe bleibt ein Porträt sauber und eine fotografierte Seite lesbar. Diese Seite sucht die höchste Qualität, die unter 200 KB passt, sodass so viele Details erhalten bleiben, wie das Limit erlaubt. Sie sehen Original und Ergebnis nebeneinander mit ihren Größen, und wenn Sie das Limit ändern möchten, bewegen Sie den Regler, und die Vorschau aktualisiert sich sofort.",
+  "title": "JPG auf unter 200 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein JPG auf 200 KB?",
+    "a": "Fügen Sie es hinzu, lassen Sie das Ziel auf 200 KB, prüfen Sie die Vorschau und klicken Sie auf Herunterladen."
+   },
+   {
+    "q": "Sieht ein Foto bei 200 KB schlecht aus?",
+    "a": "Nicht für die Bildschirmnutzung. Ein typisches 1000 Pixel breites Foto sieht bei 200 KB gut aus. Sehr große Fotos werden passend verkleinert."
+   },
+   {
+    "q": "Kann ich die Größe ändern, ohne von vorn zu beginnen?",
+    "a": "Ja. Geben Sie eine neue Größe ein oder bewegen Sie den Regler, und die Vorschau aktualisiert sich sofort."
+   }
+  ]
+ },
+ "compress-jpg-under-300kb": {
+  "name": "JPG unter 300 KB komprimieren",
+  "desc": "Ein JPG auf unter 300 KB verkleinern und dabei scharf halten. Größe wählen, mit dem Original vergleichen, herunterladen.",
+  "about": "300 KB sind eine gute Größe für Bilder, die klar bleiben müssen: ein Profilfoto mit Details, ein gescanntes Zeugnis, ein Produktfoto für ein Inserat oder ein Bild, das Sie mit mehreren anderen per E-Mail senden möchten. Die meisten Handyfotos sind 10- bis 30-mal größer, und der Unterschied ist am Bildschirm kaum zu sehen. Das Tool behält die höchste Qualität, die unter 300 KB bleibt, und verringert die Abmessungen nur, wenn die Qualität allein es nicht schafft. Nutzen Sie die Vorschau, um vor dem Download mit dem Original zu vergleichen.",
+  "title": "JPG auf unter 300 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein JPG auf 300 KB?",
+    "a": "Fügen Sie es hinzu, wählen Sie 300 KB und laden Sie herunter, sobald die Vorschau passt."
+   },
+   {
+    "q": "Ist ein 300-KB-JPG gut für eine Website?",
+    "a": "Für ein Inhaltsbild auf den meisten Seiten ist es in Ordnung. Für große Hero-Banner behält ein etwas höheres Limit wie 500 KB mehr Details."
+   },
+   {
+    "q": "Kann ich einen ganzen Ordner voller Fotos komprimieren?",
+    "a": "Fügen Sie viele Dateien auf einmal hinzu und nutzen Sie „Alle herunterladen“ (ZIP). Jedes Bild wird einzeln so komprimiert, dass es unter 300 KB passt."
+   }
+  ]
+ },
+ "compress-jpg-under-500kb": {
+  "name": "JPG unter 500 KB komprimieren",
+  "desc": "JPG für E-Mail, WhatsApp und Uploads auf unter 500 KB komprimieren. Größe festlegen, ansehen und herunterladen. Privat und kostenlos.",
+  "about": "500 KB sind ein halbes Megabyte: klein genug für WhatsApp und E-Mail, groß genug, dass ein bildschirmfüllendes Bild noch gut aussieht. Es ist die Grenze vieler Kleinanzeigen-, CMS- und Ticketsysteme. Bei 500 KB brauchen die meisten Fotos nur eine leichte Komprimierung und behalten fast alle Details. Diese Seite findet die beste passende Qualität, zeigt beide Versionen nebeneinander und lässt Dateien, die bereits unter dem Limit liegen, unverändert.",
+  "title": "JPG auf unter 500 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein JPG unter 500 KB?",
+    "a": "Fügen Sie das Bild hinzu, klicken Sie auf die Schaltfläche 500 KB oder geben Sie 500 ein, prüfen Sie die Vorschau und laden Sie herunter."
+   },
+   {
+    "q": "Merke ich den Unterschied zum Original?",
+    "a": "Am Handy- oder Laptop-Bildschirm meist nicht. Zoomen Sie in die Vorschau, um feine Details zu vergleichen."
+   },
+   {
+    "q": "Kann ich das Ergebnis über WhatsApp senden?",
+    "a": "Ja, ein 500-KB-JPG wird auch bei langsamer Verbindung schnell gesendet."
+   }
+  ]
+ },
+ "compress-jpg-under-1mb": {
+  "name": "JPG unter 1 MB komprimieren",
+  "desc": "Ein JPG fast ohne sichtbaren Verlust auf unter 1 MB verkleinern. Größe wählen, Ergebnis ansehen und herunterladen.",
+  "about": "1 MB ist die Obergrenze vieler Webformulare, Support-Ticket-Systeme, Marktplätze und E-Mail-Gateways. Handyfotos haben meist 3 bis 8 MB, daher genügt für unter 1 MB eine mäßige Komprimierung, die selten auffällt. Die Seite versucht zuerst eine hohe Qualität und geht nur so weit herunter, wie es nötig ist, sodass Sie das bestaussehende passende Bild erhalten. Liegt Ihre Datei bereits unter 1 MB, bleibt sie unangetastet, damit nichts ohne Grund verloren geht.",
+  "title": "JPG auf unter 1 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein JPG auf unter 1 MB?",
+    "a": "Fügen Sie das Foto hinzu, wählen Sie 1 MB und vergleichen Sie die Vorschau mit dem Original. Die Größe unter der Vorschau ist die tatsächlich heruntergeladene Größe."
+   },
+   {
+    "q": "Sieht ein 1-MB-JPG gleich aus?",
+    "a": "Bei den meisten Fotos sieht es am Bildschirm gleich aus. Nur sehr große oder sehr detailreiche Bilder verlieren sichtbar Details."
+   },
+   {
+    "q": "Kann ich 1,5 MB oder 0,8 MB eingeben?",
+    "a": "Ja. Geben Sie eine beliebige Zahl ein und wechseln Sie zwischen KB und MB. Die Vorschau aktualisiert sich beim Tippen."
+   }
+  ]
+ },
+ "compress-jpg-under-2mb": {
+  "name": "JPG unter 2 MB komprimieren",
+  "desc": "Ein JPG für E-Mail und Uploads auf unter 2 MB komprimieren und fast die volle Qualität behalten. Größe festlegen, ansehen, herunterladen.",
+  "about": "Viele Websites und E-Mail-Dienste nehmen keine Bilder über 2 MB mehr an, und ein modernes Handyfoto hat oft 4 bis 10 MB. Für unter 2 MB genügt eine leichte Komprimierung, das Bild sieht daher meist fast wie das Original aus. Diese Seite behält die höchste passende Qualität und zeigt die Größe vorher und nachher. Liegt Ihr Foto bereits unter 2 MB, bleibt es unverändert, und wenn Sie es kleiner brauchen, können Sie das Limit mit dem Regler senken.",
+  "title": "JPG auf unter 2 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein Foto auf unter 2 MB?",
+    "a": "Fügen Sie das Foto hinzu, lassen Sie das Ziel auf 2 MB und laden Sie nach einem Blick auf die Vorschau herunter."
+   },
+   {
+    "q": "Geht dabei Qualität verloren?",
+    "a": "Nur wenig. Eine leichte Komprimierung genügt, um von mehreren Megabyte auf unter 2 MB zu kommen."
+   },
+   {
+    "q": "Was, wenn mein Foto 20 MB hat?",
+    "a": "Das funktioniert trotzdem. Das Tool senkt die Qualität und bei Bedarf die Pixelgröße, bis die Datei passt."
+   }
+  ]
+ },
+ "compress-pdf-under-100kb": {
+  "name": "PDF unter 100 KB komprimieren",
+  "desc": "Ein PDF für Formulare und E-Mail auf unter 100 KB komprimieren. Es probiert stärkere Einstellungen, bis die Datei passt. Läuft in Ihrem Browser.",
+  "about": "100 KB sind ein strenges Limit, und manche Online-Formulare und Portale setzen es für einen Dokument-Upload. Ein PDF, das überwiegend aus Text besteht, kann bereits klein sein, während ein Scan oder ein PDF mit Fotos wegen seiner Bilder oft viele Megabyte groß ist. Diese Seite verkleinert die Bilder im PDF und probiert immer stärkere Einstellungen, bis die Datei unter 100 KB liegt, und zeigt Ihnen dann die erste Seite, damit Sie prüfen können, ob sie noch lesbar ist. Ein Scan mit vielen Seiten kann zu groß sein, um 100 KB zu erreichen: Teilen Sie ihn zuerst in Teile.",
+  "title": "PDF auf unter 100 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein PDF auf unter 100 KB?",
+    "a": "Fügen Sie das PDF hinzu, lassen Sie die Größe auf 100 KB und klicken Sie auf Komprimieren. Das Tool senkt die Bildqualität Schritt für Schritt, bis die Datei passt."
+   },
+   {
+    "q": "Warum kommt mein PDF nicht unter 100 KB?",
+    "a": "Text, Schriften und die Seitenstruktur lassen sich kaum verkleinern. Ein langes PDF mit vielen gescannten Seiten ist zu groß für 100 KB, teilen Sie es also und komprimieren Sie jeden Teil."
+   },
+   {
+    "q": "Verlässt mein PDF meinen Computer?",
+    "a": "Nein. Die Komprimierung läuft in Ihrem Browser, die Datei verlässt also nie Ihr Gerät."
+   }
+  ]
+ },
+ "compress-pdf-under-200kb": {
+  "name": "PDF unter 200 KB komprimieren",
+  "desc": "Ein PDF für Bewerbungs-, Zulassungs- und KYC-Uploads auf unter 200 KB verkleinern. Die Seite probiert stärkere Einstellungen, bis es passt.",
+  "about": "200 KB sind ein übliches Upload-Limit für einen Lebenslauf, ein Zeugnis oder einen Ausweisscan. Der größte Teil der Größe eines solchen PDFs sind die darin enthaltenen Bilder, etwa eine gescannte Seite oder ein Foto. Diese Seite senkt Auflösung und Qualität dieser Bilder schrittweise, bis die Datei unter 200 KB liegt, und zeigt die erste Seite des Ergebnisses, damit Sie prüfen können, ob der Text noch lesbar ist. Liegt das PDF bereits unter 200 KB, bleibt es unverändert.",
+  "title": "PDF auf unter 200 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein PDF unter 200 KB?",
+    "a": "Fügen Sie das PDF hinzu, lassen Sie 200 KB als Größe und klicken Sie auf „Auf unter 200 KB komprimieren“."
+   },
+   {
+    "q": "Bleibt der Text im PDF scharf?",
+    "a": "Echter Text bleibt scharf, da nur die Bilder neu komprimiert werden. Gescannte Seiten sind Bilder und werden daher etwas weicher."
+   },
+   {
+    "q": "Kann ich mehrere PDFs auf einmal komprimieren?",
+    "a": "Ja, bis zu 10. Die Ergebnisse werden in einer ZIP heruntergeladen."
+   }
+  ]
+ },
+ "compress-pdf-under-300kb": {
+  "name": "PDF unter 300 KB komprimieren",
+  "desc": "Ein PDF auf unter 300 KB komprimieren, mit frei gewählter Größe. Eine Vorschau der ersten Seite zeigt das Ergebnis. Kostenlos, in Ihrem Browser.",
+  "about": "300 KB reichen für ein kurzes Dokument mit einigen Bildern oder ein paar gescannten Seiten. Diese Seite komprimiert die Bilder in Ihrem PDF schrittweise neu, von einer leichten bis zu einer starken Einstellung, und hält bei der ersten Einstellung an, die die Datei unter 300 KB bringt, sodass das PDF so viel Qualität behält, wie das Limit erlaubt. Schriften, Links und echter Text bleiben unberührt. Wenn das Limit nicht erreicht werden kann, erfahren Sie, wie nah es herankam.",
+  "title": "PDF auf unter 300 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein PDF auf 300 KB?",
+    "a": "Fügen Sie die Datei hinzu, stellen Sie die Größe auf 300 KB und klicken Sie auf Komprimieren. Sie erhalten die neue Größe und eine Vorschau der ersten Seite."
+   },
+   {
+    "q": "Was, wenn das Ergebnis noch über 300 KB liegt?",
+    "a": "Dann enthält das PDF wenig, das sich verkleinern lässt, etwa Schriften und Text. Die Seite zeigt die kleinste erreichte Größe."
+   },
+   {
+    "q": "Ist es für private Dokumente sicher?",
+    "a": "Ja. Die Datei wird auf Ihrem Gerät verarbeitet und nicht hochgeladen."
+   }
+  ]
+ },
+ "compress-pdf-under-500kb": {
+  "name": "PDF unter 500 KB komprimieren",
+  "desc": "Ein PDF für E-Mail und Webformulare kleiner als 500 KB machen. Größe festlegen, komprimieren und die erste Seite prüfen.",
+  "about": "Ein halbes Megabyte ist ein übliches Limit für Webformulare, Bewerbungen und E-Mail-Gateways. Ein aus Fotos oder Scans erstelltes PDF hat oft 5 bis 20 MB, daher müssen die Bilder neu komprimiert werden. Diese Seite tut das schrittweise, von sanft bis stark, und hält an, sobald das PDF unter 500 KB liegt, sodass Sie die beste passende Qualität behalten. Bei einem Dokument, das bereits unter 500 KB liegt, wird nichts geändert.",
+  "title": "PDF auf unter 500 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein PDF auf 500 KB?",
+    "a": "Fügen Sie das PDF hinzu und klicken Sie auf „Auf unter 500 KB komprimieren“. Prüfen Sie vor dem Download die erste Seite im Ergebnis."
+   },
+   {
+    "q": "Wie stark kann ein PDF schrumpfen?",
+    "a": "Ein PDF aus Scans oder Fotos schrumpft oft um 80 Prozent oder mehr. Ein PDF aus reinem Text schrumpft kaum, da es bereits klein ist."
+   },
+   {
+    "q": "Kann ich das Ergebnis in eine E-Mail einfügen?",
+    "a": "Ja, 500 KB liegen deutlich unter dem Limit jedes E-Mail-Dienstes."
+   }
+  ]
+ },
+ "compress-pdf-under-1mb": {
+  "name": "PDF unter 1 MB komprimieren",
+  "desc": "Ein PDF mit wenig sichtbarer Veränderung auf unter 1 MB komprimieren. Größe wählen, komprimieren, erste Seite prüfen.",
+  "about": "1 MB ist eine typische Grenze bei Bewerbungen, Support-Tickets und E-Mail-Gateways, und ein gescanntes mehrseitiges PDF hat leicht 10 MB oder mehr. Um 1 MB zu erreichen, werden die Bilder im PDF neu komprimiert, und es wird die erste, leichteste Einstellung verwendet, die die Datei unter 1 MB bringt, damit die Seiten so klar wie möglich bleiben. Liegt Ihr PDF bereits unter 1 MB, bleibt es unverändert.",
+  "title": "PDF auf unter 1 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein PDF unter 1 MB?",
+    "a": "Fügen Sie es hinzu, lassen Sie die Größe auf 1 MB und klicken Sie auf Komprimieren. Das Ergebnis zeigt die neue Größe und die erste Seite."
+   },
+   {
+    "q": "Sehen die Seiten noch gut aus?",
+    "a": "Bei 1 MB sehen die meisten Dokumente am Bildschirm fast gleich aus. Ein PDF mit vielen ganzseitigen Fotos wird weicher."
+   },
+   {
+    "q": "Kann ich PDFs zusammenfügen und komprimieren?",
+    "a": "Ja. Fügen Sie sie zuerst mit dem Tool „PDF zusammenfügen“ zusammen und bringen Sie die zusammengefügte Datei dann hierher."
+   }
+  ]
+ },
+ "compress-pdf-under-2mb": {
+  "name": "PDF unter 2 MB komprimieren",
+  "desc": "Ein PDF für Uploads und E-Mail auf unter 2 MB verkleinern. Größe festlegen, komprimieren und das Ergebnis prüfen. Privat und kostenlos.",
+  "about": "Websites und E-Mail-Dienste hören oft bei 2 MB auf, während ein gescanntes PDF 10 bis 50 MB haben kann. Für unter 2 MB genügt meist eine leichte Neukomprimierung der Bilder, die Seiten sehen daher fast unverändert aus. Das Tool probiert zuerst die sanfteste Einstellung und geht nur stärker, wenn es sein muss. Ist das PDF bereits kleiner als 2 MB, bleibt es unverändert, und Sie können das Limit senken, wenn Sie es noch kleiner brauchen.",
+  "title": "PDF auf unter 2 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein PDF auf 2 MB?",
+    "a": "Fügen Sie das PDF hinzu, lassen Sie die Größe auf 2 MB und klicken Sie auf „Auf unter 2 MB komprimieren“."
+   },
+   {
+    "q": "Verringert es die Qualität stark?",
+    "a": "Nicht sehr. Für 2 MB genügt meist eine leichte Komprimierung, und Sie können vor dem Download die erste Seite vergleichen."
+   },
+   {
+    "q": "Funktioniert es auf dem Handy?",
+    "a": "Ja, in jedem modernen Browser. Sehr große PDFs sind auf dem Handy langsamer."
+   }
+  ]
+ },
+ "compress-png-under-10kb": {
+  "name": "PNG unter 10 KB komprimieren",
+  "desc": "Ein PNG auf unter 10 KB komprimieren: Icons, kleine Logos und Unterschriften auf transparentem Hintergrund. Größe wählen, ansehen, herunterladen.",
+  "about": "10 KB sind für ein PNG sehr klein, denn PNG speichert jedes Pixel verlustfrei. Es funktioniert für Icons, einfache Logos, Stempel und eine Unterschrift auf transparentem Hintergrund, bei Fotografien funktioniert es nicht. Diese Seite reduziert zuerst die Anzahl der Farben (von 256 bis auf 32), was eine flache Grafik fast nichts kostet, und verkleinert erst dann die Pixelgröße. Transparente Bereiche bleiben transparent. Wenn Sie ein Foto unter 10 KB brauchen, sieht ein JPG deutlich besser aus.",
+  "title": "PNG auf unter 10 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein PNG unter 10 KB?",
+    "a": "Fügen Sie das PNG hinzu und lassen Sie die Größe auf 10 KB. Die Seite senkt die Anzahl der Farben und bei Bedarf Breite und Höhe, bis die Datei passt, und zeigt das Ergebnis vor dem Download."
+   },
+   {
+    "q": "Bleibt der transparente Hintergrund erhalten?",
+    "a": "Ja. Das Ergebnis ist weiterhin ein PNG und behält seine Transparenz."
+   },
+   {
+    "q": "Warum ist mein Screenshot noch zu groß?",
+    "a": "Screenshots und Fotos haben viele Farben und Details. Probieren Sie 50 KB oder mehr oder speichern Sie das Bild mit der JPG-Seite als JPG."
+   }
+  ]
+ },
+ "compress-png-under-20kb": {
+  "name": "PNG unter 20 KB komprimieren",
+  "desc": "Ein PNG auf unter 20 KB verkleinern und die Transparenz behalten. Größe festlegen, mit dem Original vergleichen, herunterladen. Kostenlos, in Ihrem Browser.",
+  "about": "Ein PNG unter 20 KB ist realistisch für ein Logo, eine Schaltfläche, ein Abzeichen, eine kleine Illustration oder einen Unterschriftsscan. Die Dateigröße eines PNGs hängt davon ab, wie viele Farben das Bild nutzt, daher kürzt das Tool zuerst die Palette, was bei flachen Grafiken kaum sichtbar ist, und verkleinert die Abmessungen nur, wenn die Palette allein 20 KB nicht erreicht. Die Vorschau zeigt die transparenten Bereiche, sodass Sie genau sehen, was Sie speichern.",
+  "title": "PNG auf unter 20 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Wie kann ich ein PNG auf 20 KB komprimieren?",
+    "a": "Fügen Sie die Datei hinzu, lassen Sie die Größe auf 20 KB, prüfen Sie die Vorschau und klicken Sie auf Herunterladen."
+   },
+   {
+    "q": "Macht die Farbreduzierung das Bild hässlich?",
+    "a": "Bei Logos und flachen Grafiken ist sie kaum sichtbar. Fotos bekommen einen posterisierten Look, nutzen Sie für Fotos daher ein JPG."
+   },
+   {
+    "q": "Wird das PNG auf einen Server hochgeladen?",
+    "a": "Nein. Es wird in Ihrem Browser komprimiert und bleibt auf Ihrem Gerät."
+   }
+  ]
+ },
+ "compress-png-under-50kb": {
+  "name": "PNG unter 50 KB komprimieren",
+  "desc": "Ein PNG für Websites und Formulare kleiner als 50 KB machen und die Transparenz behalten. Größe wählen und das Ergebnis ansehen.",
+  "about": "50 KB sind eine praktische Größe für Website-Logos, UI-Icons, Favicons und kleine Illustrationen. Bei dieser Größe behalten die meisten flachen Grafiken saubere Kanten und Transparenz, mit einer Palette von 64 bis 256 Farben. Die Seite probiert zuerst die beste Palette und verkleinert die Pixelgröße nur, wenn die Datei noch zu groß ist. Ein Screenshot von Text kann deutlich über 50 KB liegen. Wird das Ergebnis also klein und unscharf, erhöhen Sie das Limit.",
+  "title": "PNG auf unter 50 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein PNG unter 50 KB?",
+    "a": "Fügen Sie es hinzu und lassen Sie das Ziel auf 50 KB. Die besten passenden Einstellungen werden für Sie gewählt."
+   },
+   {
+    "q": "Kann ich ein transparentes Logo bei 50 KB behalten?",
+    "a": "Ja. Die Transparenz bleibt erhalten, und die meisten Logos passen problemlos."
+   },
+   {
+    "q": "Was, wenn das Bild unscharf wird?",
+    "a": "Dann sind 50 KB für seine Größe zu wenig. Nutzen Sie ein höheres Limit wie 100 KB oder verringern Sie die maximale Breite selbst."
+   }
+  ]
+ },
+ "compress-png-under-100kb": {
+  "name": "PNG unter 100 KB komprimieren",
+  "desc": "Ein PNG auf unter 100 KB komprimieren, ohne die Transparenz zu verlieren. Größe wählen, Vorschau prüfen, kostenlos herunterladen.",
+  "about": "100 KB sind ein übliches Upload-Limit für Logos, Unterschriften, Ausweisbilder und Grafiken in Formularen und Content-Systemen. Ein typischer PNG-Screenshot ist 5- bis 20-mal größer. Um unter 100 KB zu kommen, reduziert das Tool zuerst die Farben, was Grafiken scharf hält, und verringert dann, wenn nötig, die Bildabmessungen. Alles wird in einer Vorher-Nachher-Vorschau mit echten Dateigrößen gezeigt, und transparente Bereiche bleiben erhalten.",
+  "title": "PNG auf unter 100 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein PNG auf 100 KB?",
+    "a": "Fügen Sie das PNG hinzu, lassen Sie 100 KB als Ziel und laden Sie herunter, sobald die Vorschau passt."
+   },
+   {
+    "q": "Warum wird ein PNG so leicht groß?",
+    "a": "PNG behält jedes Pixel exakt, daher sind Fotos und Screenshots mit vielen Farben groß. Die Reduzierung der Farben macht sie kleiner."
+   },
+   {
+    "q": "Ist mein Bild sicher?",
+    "a": "Ja. Es wird nichts hochgeladen; die Arbeit geschieht in Ihrem Browser."
+   }
+  ]
+ },
+ "compress-png-under-150kb": {
+  "name": "PNG unter 150 KB komprimieren",
+  "desc": "Ein PNG auf unter 150 KB verkleinern. Zuerst werden Farben reduziert, damit Grafiken scharf bleiben. Größe festlegen und Ergebnis ansehen.",
+  "about": "Bei 150 KB kann eine PNG-Grafik viele Details behalten: freigestellte Produktbilder mit transparentem Hintergrund, Diagramme, Charts und UI-Mockups. Das Tool senkt die Anzahl der Farben Schritt für Schritt und verringert die Pixelgröße nur, wenn das nicht ausreicht. Liegt Ihre Datei bereits unter 150 KB, wird sie unverändert zurückgegeben, sodass Sie nie umsonst Qualität verlieren.",
+  "title": "PNG auf unter 150 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein PNG auf 150 KB?",
+    "a": "Fügen Sie es hinzu, stellen Sie 150 KB ein (oder klicken Sie auf die Schaltfläche 150 KB) und laden Sie nach der Vorschau herunter."
+   },
+   {
+    "q": "Was, wenn mein PNG schon kleiner ist?",
+    "a": "Dann bleibt es unverändert."
+   },
+   {
+    "q": "Funktioniert es bei Produktbildern mit Transparenz?",
+    "a": "Ja, der transparente Hintergrund bleibt transparent."
+   }
+  ]
+ },
+ "compress-png-under-200kb": {
+  "name": "PNG unter 200 KB komprimieren",
+  "desc": "Ein PNG für Websites, E-Mail und Formulare auf unter 200 KB komprimieren. Größe wählen, Ergebnis vergleichen, herunterladen.",
+  "about": "200 KB lassen genug Platz für ein detailreiches Logo, ein Diagramm oder ein freigestelltes Produktbild mit transparentem Hintergrund. Ein bildschirmfüllender Screenshot hat als PNG oft 1 bis 3 MB, braucht also eine kleinere Palette und manchmal kleinere Abmessungen, um auf 200 KB zu kommen. Diese Seite wählt die Einstellungen, die unter dem Limit das bestaussehende Ergebnis liefern, und lässt Sie es vor dem Speichern mit dem Original vergleichen.",
+  "title": "PNG auf unter 200 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein PNG auf 200 KB?",
+    "a": "Fügen Sie das Bild hinzu und lassen Sie die Größe auf 200 KB. Vergleichen Sie die Vorschau und laden Sie herunter."
+   },
+   {
+    "q": "Bleibt ein Screenshot lesbar?",
+    "a": "Meist ja, solange der Text nicht winzig ist. Ist er unscharf, probieren Sie 300 KB oder 500 KB."
+   },
+   {
+    "q": "Kann ich viele PNGs auf einmal verarbeiten?",
+    "a": "Ja. Fügen Sie alle hinzu und nutzen Sie „Alle herunterladen“ für eine ZIP."
+   }
+  ]
+ },
+ "compress-png-under-300kb": {
+  "name": "PNG unter 300 KB komprimieren",
+  "desc": "Ein PNG auf unter 300 KB verkleinern und dabei knackig halten. Größe festlegen, vergleichen, herunterladen. Die Transparenz bleibt erhalten.",
+  "about": "300 KB sind eine gute Größe für Webgrafiken, die knackig aussehen müssen: Banner mit Text, Diagramme, Screenshots und Illustrationen. Das Tool probiert zuerst eine reiche Palette und geht nur tiefer, wenn es sein muss, sodass Sie so viele Farben behalten, wie das Limit erlaubt. Reicht das nicht, wird das Bild etwas verkleinert. Sie sehen Original und Ergebnis nebeneinander, mit ihren Größen.",
+  "title": "PNG auf unter 300 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Wie mache ich ein PNG 300 KB groß oder kleiner?",
+    "a": "Fügen Sie es hinzu, wählen Sie 300 KB und laden Sie nach Prüfung der Vorschau herunter."
+   },
+   {
+    "q": "Sehe ich den Unterschied?",
+    "a": "Bei flachen Grafiken kaum. Bei Fotos als PNG sehen Sie eventuell leichte Farbstufen, dort ist ein JPG die bessere Wahl."
+   },
+   {
+    "q": "Gibt es eine Begrenzung der Dateianzahl?",
+    "a": "Sie können bis zu 40 Dateien auf einmal hinzufügen."
+   }
+  ]
+ },
+ "compress-png-under-500kb": {
+  "name": "PNG unter 500 KB komprimieren",
+  "desc": "Ein PNG für E-Mail und Uploads auf unter 500 KB komprimieren. Größe wählen, Ergebnis ansehen, kostenlos herunterladen.",
+  "about": "Ein halbes Megabyte ist ein übliches Upload-Limit in Webformularen und Content-Systemen, und ein typischer als PNG exportierter Screenshot oder eine Grafik hat 1 bis 5 MB. Bei 500 KB brauchen die meisten Grafiken nur eine milde Farbreduzierung und behalten ihre scharfen Kanten und transparenten Bereiche. Die Seite wählt die besten Einstellungen unter dem Limit und zeigt die tatsächliche Größe der Datei, die Sie erhalten.",
+  "title": "PNG auf unter 500 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein PNG unter 500 KB?",
+    "a": "Fügen Sie die Datei hinzu, klicken Sie auf die Schaltfläche 500 KB und laden Sie nach der Vorschau herunter."
+   },
+   {
+    "q": "Verliere ich die Transparenz?",
+    "a": "Nein. Transparente Bereiche bleiben transparent."
+   },
+   {
+    "q": "Wie ist es bei einem als PNG gespeicherten Foto?",
+    "a": "Fotos als PNG sind groß. Komprimieren Sie sie als JPG für eine deutlich kleinere Datei bei gleichem Aussehen."
+   }
+  ]
+ },
+ "compress-png-under-1mb": {
+  "name": "PNG unter 1 MB komprimieren",
+  "desc": "Ein PNG mit wenig sichtbarer Veränderung auf unter 1 MB verkleinern. Größe festlegen, mit dem Original vergleichen, herunterladen.",
+  "about": "1 MB ist eine typische Grenze für Formulare, Ticket-Systeme und E-Mail-Gateways. Ein großer Screenshot oder eine hochauflösende Grafik als PNG kann 3 bis 10 MB haben, kommt aber meist mit einer leichten, unsichtbaren Farbreduzierung unter 1 MB. Das Tool verwendet die reichste Palette, die passt, und verkleinert die Abmessungen nur als letztes Mittel. Liegt Ihr PNG bereits unter 1 MB, wird es nicht angetastet.",
+  "title": "PNG auf unter 1 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein PNG auf 1 MB?",
+    "a": "Fügen Sie das Bild hinzu, wählen Sie 1 MB und laden Sie herunter, sobald die Vorschau passt."
+   },
+   {
+    "q": "Sieht es gleich aus?",
+    "a": "Bei den meisten Grafiken ja. Mit der Vorschau können Sie vor dem Speichern prüfen."
+   },
+   {
+    "q": "Kann ich eine Größe wie 1,5 MB eingeben?",
+    "a": "Ja. Geben Sie einen beliebigen Wert ein und wechseln Sie die Einheit zwischen KB und MB."
+   }
+  ]
+ },
+ "compress-png-under-2mb": {
+  "name": "PNG unter 2 MB komprimieren",
+  "desc": "Ein PNG für Websites und Uploads fast ohne sichtbare Veränderung auf unter 2 MB komprimieren. Kostenlos und privat.",
+  "about": "Viele Seiten und E-Mail-Dienste lehnen Dateien über 2 MB ab, während ein Retina-Screenshot oder eine große exportierte Grafik als PNG oft 5 bis 15 MB hat. Für unter 2 MB genügt meist eine leichte Palettenreduzierung, das Bild sieht daher fast gleich aus und bleibt dort transparent, wo es war. Liegt die Datei bereits unter 2 MB, wird sie unverändert zurückgegeben.",
+  "title": "PNG auf unter 2 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein PNG auf unter 2 MB?",
+    "a": "Fügen Sie es hinzu, lassen Sie die Größe auf 2 MB und laden Sie nach einem Blick auf die Vorschau herunter."
+   },
+   {
+    "q": "Wie viel Qualität geht verloren?",
+    "a": "Sehr wenig. Die Farbanzahl wird nur so weit reduziert, wie nötig."
+   },
+   {
+    "q": "Funktioniert es auf dem Handy?",
+    "a": "Ja, in jedem modernen Browser. Sehr große Bilder brauchen auf dem Handy länger."
+   }
+  ]
+ },
+ "compress-jpeg-under-10kb": {
+  "name": "JPEG unter 10 KB komprimieren",
+  "desc": "Ein JPEG für winzige Uploads wie Unterschriften auf unter 10 KB komprimieren. Ergebnis vor dem Download ansehen. Läuft in Ihrem Browser.",
+  "about": "Manche Formulare verlangen ein JPEG von höchstens 10 KB, meist für eine Unterschrift oder einen kleinen Stempel. Eine .jpeg-Datei ist exakt dasselbe Format wie eine .jpg-Datei, diese Seite funktioniert also mit beiden. Um 10 KB zu erreichen, senkt das Tool die Qualität und verkleinert das Bild, da ein großes Bild in keiner Qualität in 10 KB passt. Schneiden Sie vor dem Hinzufügen eng um die Unterschrift zu: Weniger Pixel bedeuten ein klareres Ergebnis.",
+  "title": "JPEG auf unter 10 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein JPEG auf 10 KB?",
+    "a": "Fügen Sie Ihre .jpeg-Datei hinzu und lassen Sie die Größe auf 10 KB. Die Vorschau zeigt das Ergebnis und seine genaue Größe."
+   },
+   {
+    "q": "Ist .jpeg anders als .jpg?",
+    "a": "Nein. Es ist dasselbe Format, nur die Endung unterscheidet sich."
+   },
+   {
+    "q": "Passt ein Gesichtsfoto in 10 KB?",
+    "a": "Ein sehr kleines schon, aber es wird weich. Für Fotos funktionieren 20 KB bis 50 KB besser."
+   }
+  ]
+ },
+ "compress-jpeg-under-20kb": {
+  "name": "JPEG unter 20 KB komprimieren",
+  "desc": "Ein JPEG für Prüfungs- und Bewerbungsformulare kleiner als 20 KB machen. Größe wählen, ansehen, herunterladen.",
+  "about": "20 KB sind ein übliches Limit für ein kleines Foto oder eine Unterschrift in Antragsformularen. Die Seite kodiert das JPEG zuerst in guter Qualität, senkt sie und verringert dann die Pixelgröße, bis die Datei knapp unter 20 KB liegt. Für ein Gesichtsfoto genügen für ein solches Feld einige hundert Pixel Breite. Fügen Sie mehrere JPEGs hinzu und laden Sie sie alle in einer ZIP herunter, jedes auf das Limit angepasst.",
+  "title": "JPEG auf unter 20 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Wie kann ich ein JPEG auf 20 KB komprimieren?",
+    "a": "Fügen Sie das Bild hinzu, lassen Sie die Größe auf 20 KB, prüfen Sie die Vorschau und laden Sie herunter."
+   },
+   {
+    "q": "Ist das Ergebnis weiterhin ein JPEG?",
+    "a": "Ja, das Ergebnis ist eine Standard-JPEG-Datei, die jedes Formular akzeptiert."
+   },
+   {
+    "q": "Kann ich viele Dateien auf einmal verarbeiten?",
+    "a": "Ja. Fügen Sie bis zu 40 hinzu und nutzen Sie „Alle herunterladen“."
+   }
+  ]
+ },
+ "compress-jpeg-under-50kb": {
+  "name": "JPEG unter 50 KB komprimieren",
+  "desc": "Ein JPEG für Profilbilder und Ausweis-Uploads auf unter 50 KB verkleinern. Größe wählen und zuerst die Vorschau prüfen.",
+  "about": "Ein 50-KB-JPEG ist eine übliche Größe für Profilbilder, Ausweisfotos und Dokumentenscans auf Webportalen. Das Tool sucht die höchste Qualität, die unter 50 KB bleibt, und verkleinert große Bilder, da ein Kamerafoto mit mehreren Megapixeln allein durch die Qualität nicht in 50 KB passt. Das Ergebnis wird neben Ihrem Original gezeigt, sodass Sie Gesicht oder Text prüfen können.",
+  "title": "JPEG auf unter 50 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein JPEG unter 50 KB?",
+    "a": "Fügen Sie es hinzu und lassen Sie das Ziel auf 50 KB. Die beste passende Qualität wird für Sie gewählt."
+   },
+   {
+    "q": "Bleiben die Proportionen des Bildes erhalten?",
+    "a": "Ja. Wenn das Bild verkleinert wird, schrumpfen Breite und Höhe gemeinsam."
+   },
+   {
+    "q": "Warum ist mein Ergebnis nicht genau 50 KB?",
+    "a": "Es liegt knapp unter dem Limit, weil die höchste passende Qualität gewählt wird."
+   }
+  ]
+ },
+ "compress-jpeg-under-100kb": {
+  "name": "JPEG unter 100 KB komprimieren",
+  "desc": "Ein JPEG für Bewerbungs-, KYC- und Zulassungsformulare auf unter 100 KB komprimieren. Größe festlegen, ansehen, kostenlos herunterladen.",
+  "about": "100 KB ist das Limit, das viele Job-, Bank- und Hochschulportale für ein Foto oder einen Dokumenten-Upload setzen. Handyfotos haben 3 bis 8 MB und müssen daher stark komprimiert werden. Diese Seite tut das mit einer Qualitätssuche, die so viele Details erhält, wie das Limit erlaubt. Ist das Bild selbst bei niedriger Qualität zu groß, wird es zusätzlich verkleinert. Ihr Original wird neben dem Ergebnis mit den echten Größen gezeigt.",
+  "title": "JPEG auf unter 100 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Wie verkleinere ich ein JPEG auf 100 KB?",
+    "a": "Fügen Sie die .jpeg-Datei hinzu, lassen Sie 100 KB und laden Sie herunter, sobald die Vorschau passt."
+   },
+   {
+    "q": "Bleibt ein fotografiertes Dokument lesbar?",
+    "a": "Meist, wenn der Text groß ist. Ist er es nicht, probieren Sie 150 KB oder 200 KB."
+   },
+   {
+    "q": "Ist es kostenlos und privat?",
+    "a": "Ja. Es läuft in Ihrem Browser, und die Datei wird nicht hochgeladen."
+   }
+  ]
+ },
+ "compress-jpeg-under-150kb": {
+  "name": "JPEG unter 150 KB komprimieren",
+  "desc": "Ein JPEG kleiner als 150 KB machen und Gesichter und Text klar halten. Größe wählen, vergleichen, herunterladen.",
+  "about": "Ein 150-KB-JPEG erfüllt die Vorgaben vieler Antragsformulare und Marktplätze und behält deutlich mehr Details als eines mit 100 KB. Das Tool senkt die Qualität nur so weit wie nötig und lässt Dateien, die bereits unter 150 KB liegen, unberührt. Nutzen Sie den Regler, wenn Sie sehen möchten, wie sich das Bild bei einem höheren oder niedrigeren Limit verändert.",
+  "title": "JPEG auf unter 150 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Wie mache ich ein JPEG 150 KB groß?",
+    "a": "Fügen Sie es hinzu, klicken Sie auf 150 KB und prüfen Sie die Vorschau."
+   },
+   {
+    "q": "Was, wenn mein JPEG schon kleiner als 150 KB ist?",
+    "a": "Dann bleibt es unverändert."
+   },
+   {
+    "q": "Kann ich das Limit später ändern?",
+    "a": "Ja. Bewegen Sie den Regler oder geben Sie eine neue Größe ein, und die Vorschau aktualisiert sich."
+   }
+  ]
+ },
+ "compress-jpeg-under-200kb": {
+  "name": "JPEG unter 200 KB komprimieren",
+  "desc": "Ein JPEG für Formulare, E-Mail und Uploads auf unter 200 KB verkleinern. Größe festlegen, Ergebnis ansehen, kostenlos.",
+  "about": "200 KB sind ein angenehmes Limit für Porträts, Zeugnisse und gescannte Seiten, und viele Portale verwenden es. Bei dieser Größe bleibt ein JPEG am Bildschirm für das Auge sauber. Die Seite findet die beste Qualität unter 200 KB und nennt Ihnen die genaue Größe des Ergebnisses; ist das Bild riesig, wird es zusätzlich ein wenig verkleinert. Eine Vorher-Nachher-Ansicht lässt Sie das Ergebnis beurteilen.",
+  "title": "JPEG auf unter 200 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein JPEG auf 200 KB?",
+    "a": "Fügen Sie es hinzu, lassen Sie 200 KB als Größe und laden Sie nach der Vorschau herunter."
+   },
+   {
+    "q": "Sieht 200 KB gut aus?",
+    "a": "Für die Bildschirmnutzung ja. Es ist nicht für große Drucke gedacht."
+   },
+   {
+    "q": "Kann ich einen Stapel komprimieren?",
+    "a": "Ja, und gemeinsam in einer ZIP herunterladen."
+   }
+  ]
+ },
+ "compress-jpeg-under-300kb": {
+  "name": "JPEG unter 300 KB komprimieren",
+  "desc": "Ein JPEG mit sehr geringem sichtbarem Verlust auf unter 300 KB komprimieren. Größe wählen, mit dem Original vergleichen.",
+  "about": "300 KB behalten bei einem Porträt, einem Produktbild oder einem gescannten Zeugnis gute Details. Ein .jpeg vom Handy ist meist 10- bis 30-mal größer, und der Unterschied ist am Bildschirm kaum zu sehen. Diese Seite sucht die höchste Qualität, die unter 300 KB passt, und verringert die Abmessungen nur, wenn die Qualität allein es nicht schafft.",
+  "title": "JPEG auf unter 300 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein JPEG unter 300 KB?",
+    "a": "Fügen Sie es hinzu, wählen Sie 300 KB und laden Sie herunter."
+   },
+   {
+    "q": "Ist es gut genug für eine Website?",
+    "a": "Ja, für Inhaltsbilder ist es in Ordnung. Hero-Banner brauchen eventuell 500 KB."
+   },
+   {
+    "q": "Verlassen meine Dateien mein Gerät?",
+    "a": "Nein. Alles läuft in Ihrem Browser."
+   }
+  ]
+ },
+ "compress-jpeg-under-500kb": {
+  "name": "JPEG unter 500 KB komprimieren",
+  "desc": "Ein JPEG für WhatsApp und E-Mail auf unter 500 KB verkleinern. Größe festlegen, Ergebnis ansehen, herunterladen.",
+  "about": "Ein 500-KB-JPEG ist klein genug für WhatsApp, E-Mail und die meisten Upload-Formulare und groß genug, dass ein bildschirmfüllendes Bild noch gut aussieht. Die meisten Fotos brauchen dafür nur eine leichte Komprimierung. Das Tool zeigt beide Versionen mit ihren Größen und lässt Dateien, die bereits unter 500 KB liegen, unverändert.",
+  "title": "JPEG auf unter 500 KB komprimieren online kostenlos | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Wie mache ich ein JPEG unter 500 KB?",
+    "a": "Fügen Sie es hinzu, klicken Sie auf die Schaltfläche 500 KB und laden Sie herunter."
+   },
+   {
+    "q": "Sieht es anders aus?",
+    "a": "Am Handy- oder Laptop-Bildschirm meist nicht."
+   },
+   {
+    "q": "Kann ich es über WhatsApp senden?",
+    "a": "Ja, ein 500-KB-Bild wird auch bei schwacher Verbindung schnell gesendet."
+   }
+  ]
+ },
+ "compress-jpeg-under-1mb": {
+  "name": "JPEG unter 1 MB komprimieren",
+  "desc": "Ein JPEG fast ohne sichtbaren Verlust auf unter 1 MB komprimieren. Größe wählen, ansehen, kostenlos herunterladen.",
+  "about": "1 MB ist die Obergrenze vieler Webformulare und Support-Systeme. Ein modernes Handyfoto als .jpeg hat 3 bis 8 MB, daher ist eine mäßige Komprimierung nötig, die selten auffällt. Die Seite wählt die höchste Qualität, die unter 1 MB passt, und lässt kleinere Dateien unberührt, sodass nichts ohne Grund neu komprimiert wird.",
+  "title": "JPEG auf unter 1 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Wie komprimiere ich ein JPEG auf 1 MB?",
+    "a": "Fügen Sie das Foto hinzu, wählen Sie 1 MB und vergleichen Sie die Vorschau."
+   },
+   {
+    "q": "Sieht das Bild gleich aus?",
+    "a": "Bei den meisten Fotos ja."
+   },
+   {
+    "q": "Kann ich 0,8 MB eingeben?",
+    "a": "Ja. Geben Sie eine beliebige Zahl ein und wählen Sie KB oder MB."
+   }
+  ]
+ },
+ "compress-jpeg-under-2mb": {
+  "name": "JPEG unter 2 MB komprimieren",
+  "desc": "Ein JPEG für E-Mail und Uploads auf unter 2 MB verkleinern und fast die volle Qualität behalten. Größe festlegen, ansehen, herunterladen.",
+  "about": "Websites und E-Mail-Dienste hören oft bei 2 MB auf, während ein Handyfoto 5 bis 10 MB haben kann. Eine leichte Komprimierung bringt ein .jpeg fast ohne sichtbare Veränderung unter 2 MB. Diese Seite behält die höchste passende Qualität, und ein Foto, das bereits unter 2 MB liegt, bleibt unverändert.",
+  "title": "JPEG auf unter 2 MB komprimieren online kostenlos | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Wie bekomme ich ein JPEG unter 2 MB?",
+    "a": "Fügen Sie es hinzu, lassen Sie das Ziel auf 2 MB und laden Sie herunter."
+   },
+   {
+    "q": "Geht Qualität verloren?",
+    "a": "Nur wenig; eine leichte Komprimierung genügt."
+   },
+   {
+    "q": "Was, wenn mein Foto 20 MB hat?",
+    "a": "Das funktioniert auch: Qualität und bei Bedarf die Pixelgröße werden gesenkt, bis es passt."
+   }
+  ]
+ },
+ "add-watermark-to-pdf": {
+  "name": "Wasserzeichen in PDF einfügen",
+  "desc": "Text oder Logo auf jede Seite eines PDFs stempeln: Neigung, Größe, Deckkraft und Position stellen Sie selbst ein.",
+  "about": "Kennzeichnen Sie ein PDF als VERTRAULICH, ENTWURF oder mit Ihrem Firmenlogo. Wählen Sie Text oder ein Bild, wie groß und wie geneigt es ist, wie transparent und wohin es kommt: in die Mitte, in eine Ecke oder wiederholt über die ganze Seite. Sie können es auf einige Seiten beschränken. Text funktioniert in jeder Sprache, die Ihr Browser darstellen kann, und das PDF verlässt nie Ihr Gerät.",
+  "title": "Wasserzeichen in PDF einfügen online kostenlos | Toolz Baba",
+  "tab": "PDF"
+ },
+ "add-watermark-to-video": {
+  "name": "Wasserzeichen in Video einfügen",
+  "desc": "Setzen Sie Ihren Namen, Text oder Ihr Logo auf ein Video: Position, Größe und Deckkraft wählen.",
+  "about": "Schützen Sie Ihre Videos mit einem Text- oder Logo-Wasserzeichen. Wählen Sie, wohin es kommt (in eine beliebige Ecke, oben, unten oder in die Mitte), wie groß es ist und wie transparent. Laden Sie für das sauberste Ergebnis ein PNG-Logo mit transparentem Hintergrund hoch. Das Video wird in Ihrem Browser neu kodiert, es wird also nichts hochgeladen.",
+  "title": "Wasserzeichen in Video einfügen online kostenlos | Toolz Baba",
+  "metaDesc": "Text- oder Logo-Wasserzeichen in ein Video einfügen: Position, Größe, Deckkraft wählen. Kostenlos, ohne Anmeldung, Video bleibt bei Ihnen.",
+  "tab": "Video"
+ },
+ "blur-redact-pdf": {
+  "name": "PDF unkenntlich machen & schwärzen",
+  "desc": "Namen, Nummern und Gesichter in einem PDF verbergen: Kästen auf die Seite zeichnen und dauerhaft schwärzen oder weichzeichnen.",
+  "about": "Zeichnen Sie Kästen über alles Private, etwa eine Telefonnummer, einen Ausweis, eine Kontonummer oder eine Unterschrift, und decken Sie es mit einem schwarzen Kasten, einem weißen Kasten, einer Unschärfe oder einer Verpixelung ab. Der Text und die Bilder unter den Kästen werden aus der Datei selbst entfernt, sodass sie später weder kopiert noch wiederhergestellt werden können. Ihr PDF wird in Ihrem Browser verarbeitet und nie hochgeladen.",
+  "title": "PDF unkenntlich machen & schwärzen online kostenlos | Toolz Baba",
+  "tab": "PDF unkenntlich machen"
+ },
+ "linkedin-carousel-maker": {
+  "name": "LinkedIn-Karussell-Ersteller",
+  "desc": "Schreiben Sie Ihre Folien als Text und erhalten Sie ein fertiges LinkedIn-Karussell als PDF sowie PNG-Folien.",
+  "about": "Tippen oder fügen Sie Ihre Folien ein, getrennt durch eine Zeile mit drei Strichen. Die erste Zeile jeder Folie ist ihr Titel, der Rest der Text; beginnen Sie eine Zeile mit einem Strich für einen Aufzählungspunkt. Wählen Sie ein Farbthema, eine Schriftart und eine Foliengröße, fügen Sie Ihren Namen und Ihr Foto hinzu und laden Sie ein PDF herunter, das Sie als Dokument bei LinkedIn hochladen, oder die Folien als PNG-Bilder. Alles wird in Ihrem Browser erstellt.",
+  "title": "LinkedIn-Karussell erstellen online kostenlos | Toolz Baba",
+  "tab": "LinkedIn-Karussell"
+ },
+ "instagram-image-carousel-splitter": {
+  "name": "Instagram-Karussell-Teiler",
+  "desc": "Ein breites Bild in nahtlose Instagram-Karussell-Folien (2 bis 10) schneiden, bereit zum Posten in der Reihenfolge.",
+  "about": "Verwandeln Sie ein Panorama, ein Banner oder einen langen Screenshot in ein wischbares Instagram-Karussell, bei dem das Bild von einer Folie zur nächsten weiterläuft. Wählen Sie, wie viele Folien (das Tool schlägt die beste Anzahl vor), das Folienformat (4:5 Hochformat, quadratisch oder Querformat) und ob die Folien gefüllt oder das ganze Bild auf unscharfem Hintergrund gezeigt werden soll. Sie erhalten die Folien als nummerierte Dateien in einer ZIP oder einzeln.",
+  "title": "Instagram-Karussell teilen online kostenlos | Toolz Baba",
+  "tab": "Instagram-Karussell"
+ },
+ "ai-headshot-generator": {
+  "name": "KI-Bewerbungsfoto-Generator",
+  "desc": "Aus einem normalen Foto ein sauberes professionelles Porträtfoto machen: Die KI findet Ihr Gesicht, tauscht den Hintergrund und rahmt Sie als Kopf-und-Schultern-Bild.",
+  "about": "Laden Sie ein Selfie oder ein beliebiges Foto von sich hoch und erhalten Sie ein gepflegtes Profilbild für LinkedIn, einen Lebenslauf oder eine Unternehmensseite. Die KI findet Ihr Gesicht, stellt Sie frei, setzt Sie auf einen Studiohintergrund (grau, beige, blau, dunkel, weiß, unscharf oder in Ihrer eigenen Farbe) und rahmt Sie als Kopf-und-Schultern-Bild im quadratischen oder 4:5-Format, auf Wunsch mit leichter Retusche. Es verwendet Ihr eigenes Foto und erfindet kein neues Gesicht, und alles läuft auf Ihrem Gerät, das Foto wird also nie hochgeladen.",
+  "title": "KI-Bewerbungsfoto-Generator online kostenlos | Toolz Baba",
+  "tab": "KI-Porträtfoto"
+ },
+ "video-to-text": {
+  "name": "Video in Text (Transkription)",
+  "desc": "Gesprochenes aus einer Video- oder Audiodatei in Text umwandeln, mit Untertiteln (SRT, VTT). Die KI läuft in Ihrem Browser.",
+  "about": "Erhalten Sie ein Transkript eines Videos, einer Vorlesung, eines Interviews, einer Meeting-Aufnahme oder einer Sprachnachricht. Die Sprach-KI Whisper läuft auf Ihrem eigenen Gerät, die Datei wird also nie hochgeladen. Sie versteht viele Sprachen, darunter Englisch und Hindi, kann die Sprache selbst erkennen, ins Englische übersetzen und liefert Ihnen reinen Text sowie SRT- und VTT-Untertiteldateien mit Zeitstempeln. Bei der ersten Nutzung wird das Modell einmalig heruntergeladen (40 oder 80 MB).",
+  "title": "Video in Text umwandeln (Transkription) online kostenlos | Toolz Baba",
+  "tab": "Video in Text"
+ },
+ "text-to-audio": {
+  "name": "Text in Audio (Sprachausgabe)",
+  "desc": "Geschriebenen Text in gesprochenes Audio auf Englisch oder Hindi umwandeln und als WAV oder MP3 speichern. Läuft in Ihrem Browser.",
+  "about": "Fügen Sie Ihren Text ein oder tippen Sie ihn und lassen Sie ihn von einer KI-Stimme vorlesen, laden Sie das Audio dann als WAV- oder MP3-Datei herunter. Es stehen englische und Hindi-Stimmen zur Verfügung. Die Stimme wird beim ersten Mal in Ihren Browser heruntergeladen (etwa 38 MB), und alles läuft auf Ihrem Gerät, Ihr Text wird also nirgendwohin gesendet. Die Stimme ist klar, aber etwas roboterhaft, was für Erzählungen, Notizen und Barrierefreiheit passt.",
+  "title": "Text in Audio umwandeln (Sprachausgabe) online kostenlos | Toolz Baba",
+  "tab": "Text in Audio"
+ },
+ "video-to-audio": {
+  "name": "Video-in-Audio-Konverter",
+  "desc": "Den Ton aus einem Video extrahieren und als MP3, M4A, WAV, OGG oder FLAC speichern. Läuft in Ihrem Browser.",
+  "about": "Ziehen Sie die Tonspur aus einem beliebigen Video, etwa einer MP4-, MOV-, MKV- oder WebM-Datei, und speichern Sie sie als MP3, M4A, WAV, OGG oder FLAC. Sie können die Qualität für MP3, M4A und OGG wählen und mehrere Videos auf einmal umwandeln. Ihr Video wird auf Ihrem eigenen Gerät verarbeitet und nie hochgeladen.",
+  "title": "Video in Audio umwandeln online kostenlos | Toolz Baba",
+  "tab": "Video in Audio"
+ },
+ "mp4-to-mp3": {
+  "name": "MP4-in-MP3-Konverter",
+  "desc": "MP4-Video in Ihrem Browser in MP3-Audio umwandeln. Qualität wählen; es wird nichts hochgeladen.",
+  "about": "Machen Sie aus einem MP4-Video mit wenigen Klicks eine MP3-Datei: Fügen Sie das Video hinzu, wählen Sie eine Qualität (192 kbps sind ein guter Standard, 320 kbps die beste) und laden Sie die MP3 herunter. Musikvideos, Vorlesungen, Interviews und Aufnahmen funktionieren alle, und mehrere Dateien können auf einmal umgewandelt werden. Die Umwandlung läuft auf Ihrem eigenen Gerät, ohne Upload und ohne Dateigrößenlimit von uns.",
+  "title": "MP4 in MP3 umwandeln online kostenlos: Audio extrahieren | Toolz Baba",
+  "metaDesc": "MP4-Video im Browser in MP3 umwandeln. Qualität bis 320 kbps, mehrere Dateien auf einmal. Kostenlos, es wird nichts hochgeladen.",
+  "tab": "MP4 in MP3"
+ },
+ "ocr-pdf": {
+  "name": "PDF-OCR: Gescanntes PDF in Text",
+  "desc": "Den Text in einem gescannten PDF auslesen und kopieren oder als .txt-Datei speichern. Englisch und Hindi. Läuft in Ihrem Browser.",
+  "about": "Ein gescanntes PDF besteht nur aus Bildern von Seiten, daher können Sie seinen Text weder markieren noch durchsuchen. OCR (optische Zeichenerkennung) liest diese Bilder und verwandelt sie zurück in Text, den Sie kopieren, bearbeiten oder speichern können. Fügen Sie ein gescanntes PDF hinzu, wählen Sie Englisch, Hindi oder beides und kopieren Sie das Ergebnis oder speichern Sie es als .txt-Datei. Die OCR läuft in Ihrem Browser, das Dokument wird also nicht hochgeladen.",
+  "title": "PDF-OCR online kostenlos: gescanntes PDF in Text, Hindi | Toolz Baba",
+  "tab": "PDF-OCR",
+  "faq": [
+   {
+    "q": "Wie kopiere ich Text aus einem gescannten PDF?",
+    "a": "Fügen Sie das PDF hier hinzu, wählen Sie die Sprache und starten Sie die OCR. Wenn sie fertig ist, kopieren Sie den Text oder speichern ihn als .txt-Datei."
+   },
+   {
+    "q": "Liest es Hindi?",
+    "a": "Ja. Wählen Sie Hindi oder Englisch und Hindi zusammen für Dokumente, die beides mischen."
+   },
+   {
+    "q": "Wie genau ist es?",
+    "a": "Saubere, gerade Scans von gedrucktem Text gelingen sehr gut. Handschrift, unscharfe Fotos und schiefe Seiten führen zu mehr Fehlern."
+   },
+   {
+    "q": "Wie viele Seiten kann es lesen?",
+    "a": "Es liest die ersten 30 Seiten jedes PDFs. Bei einem längeren Dokument teilen Sie es zuerst mit „PDF teilen“ in Teile."
+   }
+  ]
+ },
+ "split-video": {
+  "name": "Video teilen",
+  "desc": "Ein Video in gleiche Teile oder in Teile fester Länge schneiden. Sie erhalten die Teile in einer ZIP.",
+  "about": "Teilen Sie ein langes Video in kürzere Clips, zum Beispiel 30-Sekunden-Teile für den WhatsApp-Status oder Instagram-Stories, oder in 2 bis 100 gleiche Teile. Der schnelle Modus schneidet ohne Neukodierung, ist also rasch fertig und behält die Originalqualität; der genaue Modus kodiert für exakte Schnittpunkte neu. Alles läuft in Ihrem Browser.",
+  "title": "Video teilen online kostenlos | Toolz Baba",
+  "metaDesc": "Ein langes Video in gleiche Teile oder Teile fester Länge teilen, etwa 30 Sekunden für den WhatsApp-Status, und als ZIP erhalten. Kostenlos und privat.",
+  "tab": "Video teilen"
+ },
+ "merge-audio": {
+  "name": "Audiodateien zusammenfügen",
+  "desc": "Mehrere Audiodateien in gewählter Reihenfolge zu einer verbinden, auf Wunsch mit Pause dazwischen.",
+  "about": "Kombinieren Sie MP3-, WAV-, M4A-, FLAC- oder OGG-Dateien zu einem einzigen Titel. Bringen Sie sie mit den Pfeilen in Reihenfolge, fügen Sie auf Wunsch eine kurze Stille dazwischen ein und speichern Sie das Ergebnis als MP3, M4A, WAV, OGG oder FLAC. Dateien mit unterschiedlichen Abtastraten werden automatisch angeglichen. Ihr Audio verlässt nie Ihr Gerät.",
+  "title": "Audiodateien zusammenfügen online kostenlos | Toolz Baba",
+  "tab": "Audio zusammenfügen"
+ },
+ "color-palette-generator": {
+  "name": "Farbpaletten-Generator",
+  "desc": "Eine Farbe wählen und eine passende Palette erhalten: komplementär, analog, triadisch und mehr, mit Farbabstufungen.",
+  "about": "Gehen Sie von einer beliebigen Farbe aus und erstellen Sie nach Regeln der Farbtheorie eine Palette, die zusammenpasst: komplementär, analog, triadisch, tetradisch, geteilt-komplementär oder einfarbig (monochrom). Sehen Sie HEX-, RGB- und HSL-Werte jeder Farbe und wie gut lesbar schwarzer oder weißer Text darauf ist, erhalten Sie eine Abstufung von 50 bis 900 und kopieren Sie die Palette als HEX, CSS-Variablen, JSON oder Tailwind-Farben oder speichern Sie sie als Bild.",
+  "title": "Farbpaletten-Generator online kostenlos | Toolz Baba",
+  "tab": "Paletten-Generator"
+ },
+ "website-color-palette-extractor": {
+  "name": "Website-Farbpalette auslesen",
+  "desc": "Eine Website-Adresse eingeben und die Farben erhalten, die ihr Design wirklich verwendet, mit kopierbaren HEX-Codes.",
+  "about": "Finden Sie die Markenfarben jeder öffentlichen Website: Geben Sie ihre Adresse ein, und das Tool liest die Seite und ihre Stylesheets, zählt jede Farbe, gewichtet die für Hintergründe, Text und Theme-Einstellungen verwendeten stärker und zeigt die Hauptfarben mit HEX- und RGB-Werten. Blenden Sie Weiß, Schwarz und Grautöne aus, um die Akzentfarben zu sehen, und kopieren Sie sie dann als Liste, CSS-Variablen oder JSON. Seiten, die ihr gesamtes Aussehen mit JavaScript zeichnen, zeigen eventuell weniger Farben.",
+  "title": "Website-Farbpalette auslesen online kostenlos | Toolz Baba",
+  "tab": "Von einer Website",
+  "privacy": "Unser Server ruft die von Ihnen genannte öffentliche Seite ab und sendet nur die Liste ihrer Farben zurück. Es wird nichts gespeichert.",
+  "privacyTitle": "Nur öffentliche Seiten",
+  "badge": "Liest öffentliche Seiten",
+  "how": [
+   "<b>Geben Sie</b> die Website-Adresse ein",
+   "<b>Sehen Sie</b> die Farben, die ihr Design verwendet",
+   "<b>Kopieren Sie</b> die gewünschten"
+  ]
+ },
+ "temporary-file-upload-direct-link-share": {
+  "name": "Temporäre Datei teilen (Direktlink)",
+  "desc": "Eine Datei hochladen und einen Direktlink zum Download erhalten, der nach einer Stunde, einem Tag, einer Woche oder einem Monat von selbst abläuft.",
+  "about": "Teilen Sie eine Datei ohne E-Mail-Anhänge oder Konten: Laden Sie bis zu 5 Dateien hoch (je 20 MB), wählen Sie, wie lange der Link funktionieren soll, und senden Sie den Direktlink. Jeder mit dem Link kann die Datei herunterladen, bis er abläuft, und Sie können sie früher löschen. Programme, Skripte und Webseiten sind nicht erlaubt, Dateien werden immer heruntergeladen und nie innerhalb der Seite geöffnet, und nach der von Ihnen gewählten Zeit wird nichts aufbewahrt.",
+  "title": "Temporäre Datei teilen (Direktlink) online kostenlos | Toolz Baba",
+  "tab": "Temporäre Datei teilen",
+  "privacy": "Dateien werden bei Cloudflare gespeichert, bis der Link abläuft. Jeder mit dem Link kann die Datei herunterladen, laden Sie also nichts Privates hoch.",
+  "privacyTitle": "Per Link geteilt",
+  "badge": "Dateien laufen automatisch ab",
+  "how": [
+   "<b>Fügen Sie Ihre Dateien hinzu</b> (bis zu 5, je 20 MB)",
+   "<b>Wählen Sie</b>, wie lange der Link funktionieren soll",
+   "<b>Kopieren Sie</b> den Direktlink und teilen Sie ihn"
+  ]
+ },
+ "markdown-to-pdf": {
+  "name": "Markdown in PDF",
+  "desc": "Markdown in ein sauberes PDF verwandeln. Tippen oder einfügen, Vorschau ansehen, Seitengröße wählen und herunterladen.",
+  "about": "Schreiben oder fügen Sie Markdown ein (Überschriften, Listen, Tabellen, Code, Zitate und Links) und erhalten Sie ein gepflegtes PDF. Wählen Sie A4 oder US Letter, die Schrift (modern oder buchartig), die Textgröße und die Ränder. Auch Hindi und andere indische Schriften funktionieren. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "Markdown in PDF umwandeln online kostenlos | Toolz Baba",
+  "tab": "Markdown in PDF",
+  "faq": [
+   {
+    "q": "Wie wandle ich eine Markdown-Datei in PDF um?",
+    "a": "Laden Sie die .md-Datei oder fügen Sie ihren Text ein, prüfen Sie die Vorschau, wählen Sie die Seitengröße und klicken Sie auf PDF erstellen. Das PDF wird auf Ihrem Gerät erstellt."
+   },
+   {
+    "q": "Bleiben Tabellen und Codeblöcke erhalten?",
+    "a": "Ja. Tabellen, Codeblöcke, Zitate, Listen, Links und Überschriften sind alle im PDF enthalten. Bilder aus dem Web werden nicht hinzugefügt; als Datenadressen geschriebene Bilder schon."
+   }
+  ]
+ },
+ "markdown-to-html": {
+  "name": "Markdown in HTML",
+  "desc": "Markdown in eine vollständige Webseite verwandeln, die Sie öffnen, teilen oder hochladen können. Live-Vorschau, ohne Anmeldung.",
+  "about": "Fügen Sie Markdown ein oder laden Sie es und erhalten Sie eine vollständige HTML-Seite mit eigenem sauberem Stil, bereit zum Öffnen im Browser oder zum Einstellen auf eine Website. Sie können das HTML auch kopieren. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "Markdown in HTML umwandeln online kostenlos | Toolz Baba",
+  "tab": "Markdown in HTML",
+  "faq": [
+   {
+    "q": "Kann ich das HTML kopieren, statt es herunterzuladen?",
+    "a": "Ja. Nach der Umwandlung wird das HTML unter dem Ergebnis mit einer Schaltfläche Kopieren angezeigt."
+   },
+   {
+    "q": "Braucht die Seite noch etwas, um richtig auszusehen?",
+    "a": "Nein. Der Stil steckt in der Seite selbst, sie sieht daher überall gleich aus."
+   }
+  ]
+ },
+ "markdown-to-word": {
+  "name": "Markdown in Word",
+  "desc": "Markdown in ein Word-Dokument (.docx) mit echten Überschriften, Listen, Links und Tabellen verwandeln.",
+  "about": "Wandeln Sie Markdown in eine Word-Datei um, die sich in Word, Google Docs und LibreOffice öffnen lässt. Überschriften werden zu echten Word-Überschriften (die Navigation funktioniert also), und Listen, Fett- und Kursivdruck, Links, Zitate, Code und Tabellen bleiben erhalten. Bilder erscheinen als ihre Beschreibung. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "Markdown in Word (DOCX) umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "Markdown in eine Word-Datei (DOCX) mit echten Überschriften, Listen, Tabellen und Links umwandeln. Kostenlos und privat.",
+  "tab": "Markdown in Word",
+  "faq": [
+   {
+    "q": "Funktionieren die Überschriften im Navigationsbereich von Word?",
+    "a": "Ja. Es sind echte Formate von Überschrift 1 bis Überschrift 6."
+   },
+   {
+    "q": "Sind Bilder enthalten?",
+    "a": "Noch nicht: Ein Bild erscheint als seine Beschreibung in eckigen Klammern."
+   }
+  ]
+ },
+ "html-to-markdown": {
+  "name": "HTML in Markdown",
+  "desc": "HTML in sauberes Markdown verwandeln: Überschriften, Listen, Links, Code und Tabellen. Einfügen oder Datei laden.",
+  "about": "Fügen Sie HTML ein oder laden Sie eine .html-Datei und erhalten Sie lesbares Markdown: Überschriften, Fett- und Kursivdruck, Listen, Links, Codeblöcke und Tabellen. Skripte und Stile entfallen. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "HTML in Markdown umwandeln online kostenlos | Toolz Baba",
+  "tab": "HTML in Markdown",
+  "faq": [
+   {
+    "q": "Werden Tabellen umgewandelt?",
+    "a": "Ja, in Markdown-Tabellen (GitHub-Stil). Die erste Zeile wird zur Kopfzeile."
+   },
+   {
+    "q": "Was passiert mit Skripten und CSS?",
+    "a": "Sie werden entfernt, nur der Inhalt wird umgewandelt."
+   }
+  ]
+ },
+ "docx-to-markdown": {
+  "name": "Word (DOCX) in Markdown",
+  "desc": "Ein Word-Dokument in Markdown verwandeln. Überschriften, Listen, Fettdruck, Links und Tabellen bleiben erhalten; Bilder kommen als Dateien.",
+  "about": "Fügen Sie eine .docx-Datei hinzu und erhalten Sie Markdown mit Überschriften, Listen, Fett- und Kursivdruck, Links und Tabellen. Bilder werden nach Ihrer Wahl in einem Bilderordner gespeichert (eine ZIP), im Markdown eingebettet oder weggelassen. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "Word (DOCX) in Markdown umwandeln online kostenlos | Toolz Baba",
+  "tab": "Word in Markdown",
+  "faq": [
+   {
+    "q": "Funktioniert es mit alten .doc-Dateien?",
+    "a": "Nein, nur mit .docx. Öffnen Sie eine alte Datei zuerst in Word oder Google Docs und speichern Sie sie als .docx."
+   },
+   {
+    "q": "Was passiert mit den Bildern?",
+    "a": "Standardmäßig werden sie als Dateien in einem Bilderordner neben der .md-Datei gespeichert, alles in einer ZIP. Sie können sie auch einbetten oder weglassen."
+   }
+  ]
+ },
+ "pdf-to-markdown": {
+  "name": "PDF in Markdown",
+  "desc": "Ein PDF in Markdown verwandeln: Überschriften aus den großen Buchstaben, Listen und Absätze aus dem Layout.",
+  "about": "Fügen Sie ein PDF mit echtem Text hinzu und erhalten Sie Markdown: Größere Buchstaben werden zu Überschriften, Aufzählungen und nummerierte Listen bleiben erhalten, und Zeilen werden zu Absätzen verbunden. Tabellen und Spalten werden nicht neu aufgebaut, prüfen Sie das Ergebnis also. Ein Scan hat keinen Text: Nutzen Sie zuerst „Bild in Text (OCR)“. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "PDF in Markdown umwandeln online kostenlos | Toolz Baba",
+  "tab": "PDF in Markdown",
+  "faq": [
+   {
+    "q": "Warum ist mein PDF nach der Umwandlung leer?",
+    "a": "Es ist wahrscheinlich ein Scan (ein Bild einer Seite). Lassen Sie es zuerst durch „Bild in Text (OCR)“ laufen."
+   },
+   {
+    "q": "Bleiben Tabellen erhalten?",
+    "a": "Nicht als Tabellen: Ihr Text kommt als Zeilen heraus. Prüfen und ordnen Sie Tabellen von Hand."
+   }
+  ]
+ },
+ "html-to-pdf": {
+  "name": "HTML in PDF",
+  "desc": "HTML in ein PDF verwandeln: Code einfügen oder eine .html-Datei laden, Vorschau ansehen und herunterladen.",
+  "about": "Fügen Sie HTML ein oder laden Sie eine .html-Datei und erhalten Sie ein PDF. Einfaches CSS, Tabellen, Listen und Bilder (als Datenadressen) werden unterstützt. Skripte werden nicht ausgeführt, und Bilder oder Stylesheets aus dem Web werden nicht geladen: Setzen Sie das CSS in ein style-Tag. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "HTML in PDF umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "HTML in ein PDF verwandeln: Code einfügen oder .html-Datei laden, Vorschau prüfen, herunterladen. Tabellen und CSS funktionieren. Kostenlos.",
+  "tab": "HTML in PDF",
+  "faq": [
+   {
+    "q": "Warum fehlen manche Bilder?",
+    "a": "Das PDF wird auf Ihrem Gerät erstellt und lädt nichts aus dem Web herunter. Verwenden Sie Bilder als Datenadressen (base64) oder fügen Sie sie danach im PDF-Editor hinzu."
+   },
+   {
+    "q": "Werden Skripte ausgeführt?",
+    "a": "Nein. Nur die Seite, wie sie geschrieben ist, wird in ein PDF verwandelt."
+   }
+  ]
+ },
+ "excel-to-pdf": {
+  "name": "Excel in PDF",
+  "desc": "Excel-Tabellen (XLSX, XLS, CSV, ODS) in PDF-Tabellen umwandeln, die Sie teilen und drucken können. Läuft in Ihrem Browser.",
+  "about": "Senden Sie eine Tabelle als PDF, wenn andere sie nur lesen oder drucken müssen: Niemand kann die Zahlen versehentlich ändern, und sie öffnet sich auf jedem Handy. Fügen Sie eine XLSX-, XLS-, CSV- oder ODS-Datei hinzu und wandeln Sie sie um. Jedes Blatt wird zu einer Tabelle auf Querformat-Seiten, bei mehreren Blättern mit dem Blattnamen als Überschrift. Die Werte bleiben erhalten, Farben, Zellformate und Diagramme jedoch nicht, prüfen Sie das PDF also vor dem Versenden. Die Datei wird in Ihrem Browser umgewandelt und nicht hochgeladen.",
+  "title": "Excel in PDF umwandeln online kostenlos | Toolz Baba",
+  "tab": "Excel in PDF",
+  "faq": [
+   {
+    "q": "Wie wandle ich Excel in PDF um?",
+    "a": "Fügen Sie die XLSX-, XLS-, CSV- oder ODS-Datei hinzu, klicken Sie auf die Schaltfläche zum Umwandeln und laden Sie das PDF herunter."
+   },
+   {
+    "q": "Bleiben Farben und Diagramme erhalten?",
+    "a": "Nein. Das PDF zeigt die Werte jedes Blattes als einfache Tabelle. Für eine exakte Kopie mit Farben und Diagrammen nutzen Sie „Als PDF speichern“ in Excel oder Google Tabellen."
+   },
+   {
+    "q": "Funktioniert es mit Hindi-Text?",
+    "a": "Ja. Hindi und andere indische Schriften in den Zellen werden im PDF korrekt dargestellt."
+   }
+  ]
+ },
+ "jpg-to-pdf": {
+  "name": "JPG in PDF",
+  "desc": "JPG-Fotos zu einem PDF zusammenfügen. Seitengröße und Reihenfolge wählen. Läuft in Ihrem Browser.",
+  "about": "Kombinieren Sie ein oder mehrere JPG-(JPEG-)Bilder zu einem einzigen PDF. Wählen Sie A4, US Letter, A5 oder die Größe des Bildes, legen Sie Ausrichtung und Rand fest und ordnen Sie die Seiten neu an. Die JPG-Daten werden ohne Qualitätsverlust in das PDF eingefügt. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "JPG in PDF umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "Ein oder mehrere JPG-Fotos in ein PDF umwandeln. A4, Letter oder Fotogröße, Reihenfolge und Ränder wählen. Kostenlos, ohne Upload.",
+  "tab": "JPG in PDF",
+  "faq": [
+   {
+    "q": "Wie wandle ich JPG in PDF um?",
+    "a": "Fügen Sie Ihre JPG-Bilder hinzu, bringen Sie sie in Reihenfolge, wählen Sie die Seitengröße und klicken Sie auf PDF erstellen."
+   },
+   {
+    "q": "Kann ich aus mehreren JPGs ein PDF machen?",
+    "a": "Ja. Fügen Sie alle hinzu und legen Sie die Reihenfolge mit den Pfeilen fest."
+   }
+  ]
+ },
+ "png-to-pdf": {
+  "name": "PNG in PDF",
+  "desc": "PNG-Bilder zu einem PDF zusammenfügen. Transparenz bleibt erhalten. Seitengröße und Reihenfolge wählen.",
+  "about": "Kombinieren Sie ein oder mehrere PNG-Bilder zu einem einzigen PDF. Transparente Teile bleiben transparent. Wählen Sie A4, US Letter, A5 oder die Größe des Bildes, legen Sie Ausrichtung und Rand fest und ordnen Sie die Seiten neu an. Ihre Datei bleibt auf Ihrem Gerät: Sie wird in Ihrem Browser umgewandelt und nie hochgeladen.",
+  "title": "PNG in PDF umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "PNG-Bilder in ein PDF umwandeln und ihre Transparenz behalten. Seitengröße, Reihenfolge und Ränder wählen. Kostenlos, ohne Anmeldung, läuft im Browser.",
+  "tab": "PNG in PDF",
+  "faq": [
+   {
+    "q": "Behält PNG in PDF die Transparenz?",
+    "a": "Ja. Transparente Bereiche bleiben im PDF transparent."
+   },
+   {
+    "q": "Kann ich mehrere PNGs in ein PDF packen?",
+    "a": "Ja. Fügen Sie alle hinzu und legen Sie die Reihenfolge mit den Pfeilen fest."
+   }
+  ]
+ },
+ "png-to-jpg": {
+  "name": "PNG in JPG",
+  "desc": "PNG-Bilder in Ihrem Browser in JPG umwandeln. Qualität und Hintergrundfarbe für transparente Teile wählen.",
+  "about": "JPG-Dateien sind meist viel kleiner als PNG-Dateien und eignen sich daher besser für E-Mail, WhatsApp und Upload-Formulare. Fügen Sie Ihre PNG-Bilder hinzu, wählen Sie eine Qualität (90 Prozent sehen wie das Original aus) und wandeln Sie um. JPG kann nicht transparent sein, daher werden transparente Bereiche mit einer von Ihnen gewählten Farbe gefüllt; Weiß ist die Voreinstellung. Sie können bis zu 40 Bilder auf einmal umwandeln, und sie werden auf Ihrem eigenen Gerät umgewandelt, es wird also nichts hochgeladen.",
+  "title": "PNG in JPG umwandeln online kostenlos | Toolz Baba",
+  "tab": "PNG in JPG",
+  "faq": [
+   {
+    "q": "Wie wandle ich PNG in JPG um?",
+    "a": "Fügen Sie Ihre PNG-Dateien hinzu, prüfen Sie, dass unter „Umwandeln in“ JPG ausgewählt ist, stellen Sie die Qualität ein und klicken Sie auf Umwandeln. Laden Sie dann die JPG-Dateien herunter."
+   },
+   {
+    "q": "Was passiert mit dem transparenten Hintergrund?",
+    "a": "JPG unterstützt keine Transparenz, daher werden transparente Bereiche mit der von Ihnen gewählten Hintergrundfarbe gefüllt. Weiß ist die Voreinstellung."
+   },
+   {
+    "q": "Wird das JPG kleiner als das PNG?",
+    "a": "Meist ja, bei Fotos und Screenshots mit vielen Farben oft um ein Vielfaches kleiner."
+   }
+  ]
+ },
+ "jpg-to-png": {
+  "name": "JPG in PNG",
+  "desc": "JPG-Fotos in Ihrem Browser in PNG umwandeln. Verlustfreie Ausgabe, bis zu 40 Bilder auf einmal.",
+  "about": "PNG ist ein verlustfreies Format: Ist Ihr Bild einmal ein PNG, verliert es beim erneuten Bearbeiten und Speichern keine Qualität mehr. Das macht es zu einer guten Wahl für Screenshots, Logos und Bilder, die Sie weiter bearbeiten möchten. Fügen Sie Ihre JPG-Dateien hinzu, prüfen Sie, dass PNG ausgewählt ist, und wandeln Sie um. Beachten Sie, dass ein aus einem Foto erstelltes PNG meist größer ist als das JPG. Alles geschieht in Ihrem Browser, Ihre Fotos werden also nicht hochgeladen.",
+  "title": "JPG in PNG umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "JPG-Fotos im Browser in verlustfreies PNG umwandeln, bis zu 40 auf einmal. Kostenlos, ohne Anmeldung, ohne Upload.",
+  "tab": "JPG in PNG",
+  "faq": [
+   {
+    "q": "Wie mache ich aus einem JPG ein PNG?",
+    "a": "Fügen Sie die JPG-Dateien hinzu, stellen Sie sicher, dass unter „Umwandeln in“ PNG ausgewählt ist, und klicken Sie auf Umwandeln. Laden Sie die PNG-Dateien herunter, wenn sie fertig sind."
+   },
+   {
+    "q": "Verbessert die Umwandlung von JPG in PNG die Qualität?",
+    "a": "Nein. Sie behält die Qualität, die das JPG bereits hat, verhindert aber weiteren Verlust, wenn Sie das Bild erneut bearbeiten und speichern."
+   },
+   {
+    "q": "Warum ist mein PNG größer als das JPG?",
+    "a": "PNG speichert jedes Pixel exakt, während JPG Details verwirft, die man kaum sieht. Bei Fotos macht das das PNG größer."
+   }
+  ]
+ },
+ "webp-to-jpg": {
+  "name": "WebP in JPG",
+  "desc": "WebP-Bilder in JPG umwandeln, damit sie überall geöffnet werden. Qualität wählen. Läuft in Ihrem Browser.",
+  "about": "Viele Websites liefern Bilder inzwischen als WebP aus, was manche Apps, ältere Handys und Upload-Formulare noch immer nicht akzeptieren. Wandeln Sie sie in JPG um, das sich überall öffnen lässt. Fügen Sie Ihre WebP-Dateien hinzu, wählen Sie eine Qualität und wandeln Sie bis zu 40 auf einmal um. Transparente Teile eines WebP werden mit der von Ihnen gewählten Hintergrundfarbe gefüllt, da JPG nicht transparent sein kann. Ihre Bilder verlassen nie Ihr Gerät.",
+  "title": "WebP in JPG umwandeln online kostenlos | Toolz Baba",
+  "tab": "WebP in JPG",
+  "faq": [
+   {
+    "q": "Wie wandle ich WebP in JPG um?",
+    "a": "Fügen Sie die WebP-Dateien hinzu, lassen Sie unter „Umwandeln in“ JPG ausgewählt, wählen Sie die Qualität und klicken Sie auf Umwandeln."
+   },
+   {
+    "q": "Warum kann ich eine WebP-Datei nicht öffnen?",
+    "a": "Manche ältere Programme und Websites unterstützen WebP noch nicht. Eine JPG-Kopie lässt sich in praktisch jeder App öffnen."
+   }
+  ]
+ },
+ "heic-to-jpg": {
+  "name": "HEIC in JPG",
+  "desc": "iPhone-HEIC-Fotos in Ihrem Browser in JPG umwandeln. Keine App, kein Upload, bis zu 40 Fotos auf einmal.",
+  "about": "iPhones speichern Fotos als HEIC, was Windows, viele Websites und Behördenformulare nicht akzeptieren. Wandeln Sie sie hier in JPG um: Fügen Sie Ihre HEIC-Fotos hinzu, lassen Sie JPG ausgewählt und klicken Sie auf Umwandeln. Sie können die Qualität wählen und bis zu 40 Fotos auf einmal umwandeln. Die Fotos werden auf Ihrem eigenen Handy oder Computer umgewandelt und nie auf einen Server hochgeladen.",
+  "title": "HEIC in JPG umwandeln online kostenlos: iPhone-Fotos | Toolz Baba",
+  "tab": "HEIC in JPG",
+  "faq": [
+   {
+    "q": "Wie wandle ich HEIC unter Windows in JPG um?",
+    "a": "Öffnen Sie diese Seite, fügen Sie Ihre HEIC-Dateien hinzu, lassen Sie JPG ausgewählt und klicken Sie auf Umwandeln. Es ist weder eine App noch eine Erweiterung nötig."
+   },
+   {
+    "q": "Funktioniert es auf einem iPhone?",
+    "a": "Ja. Öffnen Sie die Seite in Safari, tippen Sie auf „Dateien auswählen“, wählen Sie die Fotos und wandeln Sie sie um."
+   },
+   {
+    "q": "Werden meine Fotos hochgeladen?",
+    "a": "Nein. Die Umwandlung läuft in Ihrem Browser, und die Fotos bleiben auf Ihrem Gerät."
+   }
+  ]
+ },
+ "jpg-to-webp": {
+  "name": "JPG in WebP",
+  "desc": "JPG- und PNG-Bilder in WebP für eine schnellere Website umwandeln. Qualität wählen, viele auf einmal umwandeln.",
+  "about": "WebP-Bilder sind bei gleicher sichtbarer Qualität oft 25 bis 35 Prozent kleiner als JPG, sodass Seiten schneller laden und weniger Daten verbrauchen. Fügen Sie Ihre JPG- oder PNG-Dateien hinzu, lassen Sie WebP ausgewählt, wählen Sie die Qualität (80 bis 90 Prozent sind ein guter Bereich) und wandeln Sie bis zu 40 auf einmal um. WebP behält die Transparenz und ersetzt damit auch PNG bei Logos und Grafiken. Alles läuft in Ihrem Browser.",
+  "title": "JPG in WebP umwandeln online kostenlos | Toolz Baba",
+  "tab": "JPG in WebP",
+  "faq": [
+   {
+    "q": "Ist WebP besser als JPG?",
+    "a": "Für Websites meist ja: kleinere Dateien bei gleicher Qualität, dazu Transparenz. Zum Teilen mit Personen, die ältere Apps nutzen, ist JPG sicherer."
+   },
+   {
+    "q": "Kann ich hier auch PNG in WebP umwandeln?",
+    "a": "Ja. Fügen Sie PNG-Dateien auf dieselbe Weise hinzu; transparente Bereiche bleiben im WebP transparent."
+   }
+  ]
+ },
+ "pdf-to-jpg": {
+  "name": "PDF in JPG",
+  "desc": "Jede Seite eines PDFs in ein JPG-Bild verwandeln. Qualität (DPI) und Seiten wählen. Läuft in Ihrem Browser.",
+  "about": "Wandeln Sie PDF-Seiten in JPG-Bilder um, die Sie über WhatsApp teilen, online posten oder in eine Präsentation einfügen können. Fügen Sie ein PDF hinzu, lassen Sie JPG ausgewählt, wählen Sie die Qualität von 72 DPI (kleine Dateien) bis 300 DPI (Druckqualität) und wandeln Sie alle Seiten oder nur die benötigten um, etwa 1-3,5. Mehrere Seiten werden zusammen in einer ZIP-Datei geliefert. Das PDF wird auf Ihrem Gerät verarbeitet und nicht hochgeladen.",
+  "title": "PDF in JPG umwandeln online kostenlos: hohe Qualität | Toolz Baba",
+  "tab": "PDF in JPG",
+  "faq": [
+   {
+    "q": "Wie wandle ich ein PDF in JPG um?",
+    "a": "Fügen Sie das PDF hinzu, lassen Sie JPG ausgewählt, wählen Sie DPI und Seiten und klicken Sie auf In Bilder umwandeln."
+   },
+   {
+    "q": "Kann ich nur eine Seite umwandeln?",
+    "a": "Ja. Geben Sie die Seitenzahl unter Seiten ein, zum Beispiel 3, oder einen Bereich wie 2-4."
+   },
+   {
+    "q": "Welche DPI sollte ich wählen?",
+    "a": "150 DPI sind am Bildschirm scharf. Nutzen Sie 300 DPI für den Druck und 72 DPI für die kleinsten Dateien."
+   }
+  ]
+ },
+ "pdf-to-png": {
+  "name": "PDF in PNG",
+  "desc": "PDF-Seiten in scharfe, verlustfreie PNG-Bilder verwandeln. DPI und Seiten wählen. Läuft in Ihrem Browser.",
+  "about": "PNG hält Text und Linien perfekt scharf und ist damit die beste Wahl für Seiten mit Diagrammen, Tabellen oder Kleingedrucktem. Fügen Sie ein PDF hinzu, lassen Sie PNG ausgewählt, wählen Sie Auflösung und Seiten und wandeln Sie um. Mehrere Seiten kommen zusammen in einer ZIP-Datei. Die Umwandlung läuft in Ihrem Browser, das Dokument bleibt also privat.",
+  "title": "PDF in PNG umwandeln online kostenlos | Toolz Baba",
+  "tab": "PDF in PNG",
+  "faq": [
+   {
+    "q": "PNG oder JPG für PDF-Seiten?",
+    "a": "PNG für Seiten, die überwiegend aus Text und Zeichnungen bestehen (schärfer, keine Unschärfe um Buchstaben), JPG für Seiten, die überwiegend aus Fotos bestehen (kleinere Dateien)."
+   },
+   {
+    "q": "Kann ich wählen, welche Seiten umgewandelt werden?",
+    "a": "Ja. Geben Sie „alle“ oder Seitenzahlen und Bereiche wie 1-3,5 ein."
+   }
+  ]
+ },
+ "rotate-pdf": {
+  "name": "PDF drehen",
+  "desc": "Eine Seite oder jede Seite eines PDFs drehen und speichern. Miniaturen ansehen, zum Drehen klicken. Läuft in Ihrem Browser.",
+  "about": "Korrigieren Sie gescannte Seiten, die auf dem Kopf stehen oder seitlich liegen. Fügen Sie das PDF hinzu, und Sie sehen jede Seite als Miniatur: Klicken Sie auf die Drehen-Schaltfläche einer Seite, um sie um 90 Grad zu drehen, so oft Sie möchten, und speichern Sie dann. Die Drehung wird im neuen PDF gespeichert, es öffnet sich also überall richtig herum. Auf demselben Bildschirm können Sie auch Seiten löschen oder umsortieren. Ihr PDF verlässt nie Ihr Gerät.",
+  "title": "PDF-Seiten drehen online kostenlos: dauerhaft speichern | Toolz Baba",
+  "tab": "PDF drehen",
+  "faq": [
+   {
+    "q": "Wie drehe ich ein PDF und speichere es?",
+    "a": "Fügen Sie das PDF hinzu, klicken Sie bei den Seiten, die Sie drehen möchten, auf die Drehen-Schaltfläche und klicken Sie dann auf Speichern, um das neue PDF herunterzuladen."
+   },
+   {
+    "q": "Kann ich nur eine Seite drehen?",
+    "a": "Ja. Jede Seite hat eine eigene Drehen-Schaltfläche, sodass Sie nur die Seiten drehen, die es brauchen."
+   },
+   {
+    "q": "Ist die Drehung dauerhaft?",
+    "a": "Ja. Sie wird in der neuen PDF-Datei gespeichert, nicht nur im Betrachter."
+   }
+  ]
+ },
+ "delete-pdf-pages": {
+  "name": "PDF-Seiten löschen",
+  "desc": "Seiten aus einem PDF entfernen: Miniaturen ansehen, zu löschende Seiten anklicken, speichern. Läuft in Ihrem Browser.",
+  "about": "Entfernen Sie leere Seiten, Werbung oder Seiten, die Sie nicht teilen möchten. Fügen Sie das PDF hinzu, um jede Seite als Miniatur zu sehen, klicken Sie bei den zu entfernenden Seiten auf Löschen und speichern Sie ein neues PDF, das nur die behaltenen Seiten enthält. Vor dem Speichern können Sie Seiten auch drehen und umsortieren. Es wird nichts hochgeladen: Das PDF wird in Ihrem Browser bearbeitet.",
+  "title": "Seiten aus PDF löschen online kostenlos | Toolz Baba",
+  "tab": "Seiten löschen",
+  "faq": [
+   {
+    "q": "Wie lösche ich eine Seite aus einem PDF?",
+    "a": "Fügen Sie das PDF hinzu, klicken Sie bei der zu entfernenden Seite auf Löschen und speichern Sie das neue PDF."
+   },
+   {
+    "q": "Wird die Originaldatei geändert?",
+    "a": "Nein. Sie laden ein neues PDF herunter; Ihre Originaldatei bleibt, wie sie war."
+   }
+  ]
+ },
+ "extract-pdf-pages": {
+  "name": "PDF-Seiten extrahieren",
+  "desc": "Ausgewählte Seiten eines PDFs in ein neues PDF kopieren, zum Beispiel 1-3,5. Läuft in Ihrem Browser.",
+  "about": "Brauchen Sie nur wenige Seiten aus einem langen PDF, etwa ein Kapitel oder die unterschriebenen Seiten eines Vertrags? Fügen Sie das PDF hinzu, geben Sie die gewünschten Seiten ein (zum Beispiel 1-3,5,8-10) und erhalten Sie ein neues PDF mit genau diesen Seiten in dieser Reihenfolge. Das Original bleibt unberührt, und die Datei wird auf Ihrem Gerät verarbeitet.",
+  "title": "Seiten aus PDF extrahieren online kostenlos | Toolz Baba",
+  "metaDesc": "Ausgewählte Seiten eines PDFs, etwa 1-3,5, in ein neues PDF kopieren. Das Original bleibt unberührt. Kostenlos, im Browser.",
+  "tab": "Seiten extrahieren",
+  "faq": [
+   {
+    "q": "Wie extrahiere ich Seiten aus einem PDF?",
+    "a": "Fügen Sie das PDF hinzu, geben Sie die Seitenzahlen oder Bereiche unter Seiten ein, zum Beispiel 2-4,7, und klicken Sie auf PDF teilen."
+   },
+   {
+    "q": "Kann ich die Seiten stattdessen in getrennte Dateien legen?",
+    "a": "Ja. Stellen Sie „Art des Teilens“ auf Eigene Bereiche, und jeder Bereich wird zu einem eigenen PDF."
+   }
+  ]
+ },
+ "wav-to-mp3": {
+  "name": "WAV-in-MP3-Konverter",
+  "desc": "WAV-Audio in Ihrem Browser in MP3 umwandeln. MP3-Dateien sind etwa zehnmal kleiner als WAV.",
+  "about": "Wandeln Sie WAV-Dateien in MP3 um: Fügen Sie eine Datei oder bis zu 20 hinzu, wählen Sie die Qualität und laden Sie die MP3-Dateien herunter. MP3-Dateien sind etwa zehnmal kleiner als WAV. Die Umwandlung läuft auf Ihrem eigenen Gerät, Ihr Audio wird also nie hochgeladen, und eine Anmeldung ist nicht nötig.",
+  "title": "WAV in MP3 umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "WAV online im Browser in MP3 umwandeln, bis zu 20 Dateien auf einmal. MP3 ist etwa zehnmal kleiner. Kostenlos, ohne Upload.",
+  "tab": "WAV in MP3",
+  "dropLabel": "Ziehen Sie Ihre WAV-Dateien hierher"
+ },
+ "m4a-to-mp3": {
+  "name": "M4A-in-MP3-Konverter",
+  "desc": "M4A-Audio in Ihrem Browser in MP3 umwandeln. Ideal für iPhone-Aufnahmen und Sprachmemos.",
+  "about": "Wandeln Sie M4A-Dateien in MP3 um: Fügen Sie eine Datei oder bis zu 20 hinzu, wählen Sie die Qualität und laden Sie die MP3-Dateien herunter. Ideal für iPhone-Aufnahmen und Sprachmemos. Die Umwandlung läuft auf Ihrem eigenen Gerät, Ihr Audio wird also nie hochgeladen, und eine Anmeldung ist nicht nötig.",
+  "title": "M4A in MP3 umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "M4A online im Browser in MP3 umwandeln, bis zu 20 Dateien auf einmal. Ideal für iPhone-Aufnahmen und Sprachmemos. Kostenlos, ohne Anmeldung, ohne Upload.",
+  "tab": "M4A in MP3",
+  "dropLabel": "Ziehen Sie Ihre M4A-Dateien hierher"
+ },
+ "mp3-to-wav": {
+  "name": "MP3-in-WAV-Konverter",
+  "desc": "MP3-Audio in Ihrem Browser in WAV umwandeln. WAV lässt sich in jedem Audio-Editor öffnen.",
+  "about": "Wandeln Sie MP3-Dateien in WAV um: Fügen Sie eine Datei oder bis zu 20 hinzu, wählen Sie die Qualität und laden Sie die WAV-Dateien herunter. WAV lässt sich in jedem Audio-Editor öffnen. Die Umwandlung läuft auf Ihrem eigenen Gerät, Ihr Audio wird also nie hochgeladen, und eine Anmeldung ist nicht nötig.",
+  "title": "MP3 in WAV umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "MP3 online im Browser in WAV umwandeln, bis zu 20 Dateien auf einmal. WAV lässt sich in jedem Audio-Editor öffnen. Kostenlos, ohne Anmeldung, ohne Upload.",
+  "tab": "MP3 in WAV",
+  "dropLabel": "Ziehen Sie Ihre MP3-Dateien hierher"
+ },
+ "flac-to-mp3": {
+  "name": "FLAC-in-MP3-Konverter",
+  "desc": "FLAC-Audio in Ihrem Browser in MP3 umwandeln. Spielen Sie Ihre verlustfreie Musik auf jedem Gerät ab.",
+  "about": "Wandeln Sie FLAC-Dateien in MP3 um: Fügen Sie eine Datei oder bis zu 20 hinzu, wählen Sie die Qualität und laden Sie die MP3-Dateien herunter. Spielen Sie Ihre verlustfreie Musik auf jedem Gerät ab. Die Umwandlung läuft auf Ihrem eigenen Gerät, Ihr Audio wird also nie hochgeladen, und eine Anmeldung ist nicht nötig.",
+  "title": "FLAC in MP3 umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "FLAC online im Browser in MP3 umwandeln, bis zu 20 Dateien auf einmal. Verlustfreie Musik auf jedem Gerät. Kostenlos, ohne Upload.",
+  "tab": "FLAC in MP3",
+  "dropLabel": "Ziehen Sie Ihre FLAC-Dateien hierher"
+ },
+ "ogg-to-mp3": {
+  "name": "OGG-in-MP3-Konverter",
+  "desc": "OGG-Audio in Ihrem Browser in MP3 umwandeln. Funktioniert auch mit WhatsApp-Sprachnachrichten (OPUS).",
+  "about": "Wandeln Sie OGG-Dateien in MP3 um: Fügen Sie eine Datei oder bis zu 20 hinzu, wählen Sie die Qualität und laden Sie die MP3-Dateien herunter. Funktioniert auch mit WhatsApp-Sprachnachrichten (OPUS). Die Umwandlung läuft auf Ihrem eigenen Gerät, Ihr Audio wird also nie hochgeladen, und eine Anmeldung ist nicht nötig.",
+  "title": "OGG in MP3 umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "OGG online im Browser in MP3 umwandeln, bis zu 20 Dateien auf einmal. Auch für WhatsApp-Sprachnachrichten (OPUS). Kostenlos, ohne Upload.",
+  "tab": "OGG in MP3",
+  "dropLabel": "Ziehen Sie Ihre OGG-Dateien hierher"
+ },
+ "aac-to-mp3": {
+  "name": "AAC-in-MP3-Konverter",
+  "desc": "AAC-Audio in Ihrem Browser in MP3 umwandeln. Läuft auf jedem Handy, in jedem Auto und auf jedem Lautsprecher.",
+  "about": "Wandeln Sie AAC-Dateien in MP3 um: Fügen Sie eine Datei oder bis zu 20 hinzu, wählen Sie die Qualität und laden Sie die MP3-Dateien herunter. Läuft auf jedem Handy, in jedem Auto und auf jedem Lautsprecher. Die Umwandlung läuft auf Ihrem eigenen Gerät, Ihr Audio wird also nie hochgeladen, und eine Anmeldung ist nicht nötig.",
+  "title": "AAC in MP3 umwandeln online kostenlos | Toolz Baba",
+  "metaDesc": "AAC online im Browser in MP3 umwandeln, bis zu 20 Dateien auf einmal. Läuft auf jedem Handy, Auto und Lautsprecher. Kostenlos, ohne Upload.",
+  "tab": "AAC in MP3",
+  "dropLabel": "Ziehen Sie Ihre AAC-Dateien hierher"
+ }
+}

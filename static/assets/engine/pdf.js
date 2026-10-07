@@ -25,7 +25,7 @@
   // '1-3,5,8-' -> zero-based page indexes (order kept, duplicates kept)
   function parsePages(spec, count) {
     spec = String(spec || 'all').trim().toLowerCase();
-    if (spec === '' || spec === 'all') return [...Array(count).keys()];
+    if (spec === '' || !/\d/.test(spec)) return [...Array(count).keys()];   // 'all', or the word for it in any language
     const pages = [];
     for (const part of spec.replace(/\s+/g, '').split(',')) {
       const m = /^(\d*)-?(\d*)$/.exec(part);

@@ -1,0 +1,3036 @@
+{
+ "_categories": {
+  "image": "Gambar",
+  "ai": "AI & Peningkatan",
+  "pdf": "PDF & Dokumen",
+  "video": "Video & Audio",
+  "dev": "Teks & Developer",
+  "util": "Utilitas"
+ },
+ "compress-image": {
+  "name": "Kompres Gambar",
+  "desc": "Perkecil ukuran file JPG, PNG, dan WebP tanpa perbedaan kualitas yang terlihat.",
+  "about": "Kecilkan ukuran file gambar JPG, PNG, WebP, GIF, AVIF, dan HEIC. Pilih kualitas dan format keluaran, batasi lebar gambar, dan kompres hingga 40 gambar sekaligus. File PNG bisa diperkecil lagi dengan mengurangi jumlah warna, dan hasilnya menunjukkan persis seberapa kecil setiap file.",
+  "title": "Kompres Gambar Online Gratis: Perkecil Ukuran Foto dalam KB | Toolz Baba",
+  "metaDesc": "Kompres foto JPG, PNG, WebP, dan HEIC tanpa penurunan kualitas terlihat. Hingga 40 sekaligus, atau ke ukuran pas seperti 50 KB. Gratis, privat, tanpa daftar.",
+  "steps": [
+   "Tambahkan gambar Anda: JPG, PNG, WebP, GIF, AVIF, atau HEIC, hingga 40 sekaligus.",
+   "Atur kualitas (70 sampai 80 persen biasanya terlihat sama) dan, jika mau, format keluaran serta lebar maksimum.",
+   "Klik Kompres lalu unduh file yang sudah lebih kecil."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil ukuran foto tanpa menurunkan kualitas?",
+    "a": "Gunakan kualitas 70 sampai 80 persen: perbedaannya biasanya tidak terlihat, dan ukuran file sering kali jadi beberapa kali lebih kecil. Menetapkan lebar maksimum seperti 1920 px akan memperkecil foto yang sangat besar lebih jauh lagi."
+   },
+   {
+    "q": "Bagaimana cara mengompres gambar ke ukuran pas seperti 50 KB?",
+    "a": "Gunakan tombol ukuran di tab JPG / JPEG (10 KB sampai 2 MB), atau Ubah Ukuran Foto & Tanda Tangan ke KB untuk formulir ujian dan lamaran kerja yang juga membutuhkan ukuran piksel yang tepat."
+   },
+   {
+    "q": "Bisakah mengompres banyak gambar sekaligus?",
+    "a": "Bisa, hingga 40 gambar sekali proses."
+   },
+   {
+    "q": "Apakah gambar saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "resize-image": {
+  "name": "Ubah Ukuran Gambar",
+  "desc": "Ubah ukuran berdasarkan piksel, persentase, atau muat dalam kotak. Mendukung banyak file.",
+  "about": "Ubah ukuran satu atau banyak gambar berdasarkan lebar, tinggi, persentase, atau dengan memuatnya di dalam sebuah kotak. Pengecilan dilakukan bertahap agar teks dan garis tipis tetap tajam. Semuanya diproses di browser Anda, dan Anda bisa menyimpan sebagai PNG, JPG, atau WebP.",
+  "title": "Ubah Ukuran Gambar Online Gratis: Ganti Ukuran Foto dalam Piksel | Toolz Baba",
+  "metaDesc": "Ubah ukuran gambar berdasarkan piksel, persentase, atau muat dalam kotak, satu atau banyak sekaligus, simpan sebagai JPG, PNG, atau WebP. Hasil tajam.",
+  "steps": [
+   "Tambahkan satu atau banyak gambar.",
+   "Pilih ukuran baru berdasarkan lebar, tinggi, persentase, atau kotak tempat gambar dimuat.",
+   "Simpan sebagai PNG, JPG, atau WebP."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah ukuran gambar tanpa menurunkan kualitas?",
+    "a": "Memperkecil gambar akan tetap tajam: alat ini mengecilkan secara bertahap agar teks dan garis tipis tetap jelas. Memperbesar gambar terlalu jauh akan membuatnya buram; gunakan Peningkat Resolusi Gambar untuk itu."
+   },
+   {
+    "q": "Bisakah mengubah ukuran banyak gambar sekaligus?",
+    "a": "Bisa, tambahkan beberapa gambar dan semuanya diubah ukurannya dengan pengaturan yang sama."
+   },
+   {
+    "q": "Bagaimana cara mengubah ukuran ke ukuran file dalam KB?",
+    "a": "Gunakan Ubah Ukuran Foto & Tanda Tangan ke KB, yang juga mengatur ukuran piksel atau cm persis seperti yang diminta formulir."
+   }
+  ]
+ },
+ "crop-image": {
+  "name": "Potong Gambar",
+  "desc": "Seret untuk memotong dengan preset rasio (1:1, 16:9, 4:5...).",
+  "about": "Potong gambar dengan menyeret kotak di atasnya, atau ketik nilai piksel yang tepat. Kunci bentuknya ke 1:1, 4:3, 3:2, 16:9, 9:16, 4:5, atau 3:4, lalu simpan sebagai PNG, JPG, atau WebP. Pemotongan dilakukan di browser Anda dengan resolusi penuh.",
+  "title": "Potong Gambar Online Gratis: 1:1, 16:9, 4:5, dan Ukuran Bebas | Toolz Baba",
+  "metaDesc": "Potong foto dengan menyeret kotak atau mengetik piksel yang tepat, dengan bentuk 1:1, 4:3, 16:9, 9:16, dan 4:5. Resolusi penuh, gratis, tanpa unggah.",
+  "steps": [
+   "Tambahkan gambar Anda.",
+   "Seret kotaknya, atau ketik nilai piksel yang tepat, lalu kunci bentuk seperti 1:1 atau 16:9 jika perlu.",
+   "Simpan sebagai PNG, JPG, atau WebP."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memotong foto menjadi persegi?",
+    "a": "Tambahkan foto, pilih bentuk 1:1, lalu seret kotak ke bagian yang ingin Anda simpan."
+   },
+   {
+    "q": "Apakah memotong menurunkan kualitas?",
+    "a": "Tidak. Pemotongan dilakukan dengan resolusi penuh; hanya bagian di luar kotak yang dibuang."
+   }
+  ]
+ },
+ "convert-image": {
+  "name": "Konverter Format Gambar",
+  "desc": "Konversi antara JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO. Bisa membuka HEIC juga.",
+  "about": "Konversi gambar antara JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, dan ICO. Foto HEIC dari iPhone didukung sebagai input. Pilih kualitasnya, dan tentukan warna latar untuk format yang tidak bisa transparan. Konversi hingga 40 file sekaligus.",
+  "title": "Konverter Gambar Online Gratis: JPG, PNG, WebP, HEIC | Toolz Baba",
+  "metaDesc": "Konversi gambar antara JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, dan ICO, termasuk foto HEIC iPhone. Hingga 40 sekaligus, gratis dan privat.",
+  "tabAll": "Semua format",
+  "steps": [
+   "Tambahkan gambar Anda: JPG, PNG, WebP, HEIC, dan lainnya, hingga 40 sekaligus.",
+   "Pilih format di bagian Konversi ke, beserta kualitasnya.",
+   "Klik Konversi lalu unduh file barunya."
+  ],
+  "faq": [
+   {
+    "q": "Ke format apa saja saya bisa mengonversi?",
+    "a": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, dan ICO."
+   },
+   {
+    "q": "Bisakah mengonversi foto HEIC dari iPhone?",
+    "a": "Bisa. Foto HEIC bisa ditambahkan dan dikonversi ke JPG atau format lain di sini."
+   },
+   {
+    "q": "Apa yang terjadi pada transparansi saat dikonversi ke JPG?",
+    "a": "JPG dan BMP tidak bisa transparan, jadi area transparan diisi dengan warna latar yang Anda pilih."
+   },
+   {
+    "q": "Apakah gambar saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "rotate-flip": {
+  "name": "Putar & Balik",
+  "desc": "Putar 90° atau sudut apa pun, dan balik secara horizontal atau vertikal.",
+  "about": "Putar gambar 90, 180, atau 270 derajat, luruskan beberapa derajat untuk meratakan cakrawala, dan balik secara horizontal atau vertikal. Pratinjau diperbarui langsung dan pekerjaan dilakukan di browser Anda.",
+  "title": "Putar Gambar Online Gratis: Balik dan Luruskan Foto | Toolz Baba",
+  "metaDesc": "Putar foto 90, 180, atau 270 derajat, luruskan cakrawala yang miring beberapa derajat, atau balik foto. Pratinjau langsung, gratis, jalan di browser.",
+  "steps": [
+   "Tambahkan gambar Anda.",
+   "Putar 90, 180, atau 270 derajat, luruskan beberapa derajat, atau balik.",
+   "Unduh hasilnya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara meluruskan foto yang miring?",
+    "a": "Gunakan pengaturan sudut halus untuk memutarnya beberapa derajat sampai cakrawala rata; pratinjau diperbarui langsung."
+   },
+   {
+    "q": "Bisakah membalik selfie yang terlihat terbalik seperti cermin?",
+    "a": "Bisa. Balik secara horizontal untuk menukar kiri dan kanan."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "social-media-image-resizer": {
+  "name": "Pengubah Ukuran Gambar Medsos",
+  "desc": "Satu gambar → ukuran yang pas untuk Instagram, Facebook, X, LinkedIn, YouTube, Pinterest.",
+  "about": "Ubah satu gambar menjadi ukuran yang pas untuk postingan, story, sampul, dan foto profil di Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok, dan WhatsApp. Pilih potong agar memenuhi ukuran atau muatkan seluruh gambar dengan latar buram, lalu unduh semua ukuran dalam satu ZIP.",
+  "title": "Pengubah Ukuran Gambar Media Sosial: Instagram, YouTube, WhatsApp | Toolz Baba",
+  "metaDesc": "Ubah ukuran satu gambar untuk postingan, story, dan sampul Instagram, Facebook, X, LinkedIn, YouTube, Pinterest, TikTok, WhatsApp. Semua dalam satu ZIP.",
+  "steps": [
+   "Tambahkan satu gambar.",
+   "Pilih platform dan ukuran yang Anda butuhkan, lalu pilih potong agar memenuhi atau muatkan dengan latar buram.",
+   "Unduh semua ukuran sekaligus dalam satu ZIP."
+  ],
+  "faq": [
+   {
+    "q": "Platform apa saja yang tersedia?",
+    "a": "Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok, dan WhatsApp: postingan, story, sampul, dan foto profil."
+   },
+   {
+    "q": "Bagaimana kalau bentuk gambar saya tidak sesuai?",
+    "a": "Pilih potong agar memenuhi ukuran, atau muatkan agar seluruh gambar tetap utuh dengan salinan buramnya di belakang."
+   },
+   {
+    "q": "Apakah gambar saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "thumbnail-generator": {
+  "name": "Pembuat Thumbnail",
+  "desc": "Buat thumbnail dari gambar atau frame mana pun dari video, dengan teks judul opsional.",
+  "about": "Buat thumbnail dari gambar atau dari frame mana pun di video. Pilih ukuran seperti 1280x720, tambahkan judul dengan garis tepi, pertegas warna, dan jaga file tetap di bawah batas ukuran seperti 2 MB milik YouTube. Berjalan di browser Anda, jadi video Anda tidak pernah meninggalkan perangkat.",
+  "title": "Pembuat Thumbnail YouTube Online Gratis (1280x720) | Toolz Baba",
+  "metaDesc": "Buat thumbnail 1280x720 dari gambar atau frame video mana pun, tambahkan judul tebal, pertegas warna, dan tetap di bawah batas 2 MB YouTube. Gratis.",
+  "steps": [
+   "Tambahkan gambar, atau video lalu pilih frame yang Anda mau.",
+   "Pilih ukuran, seperti 1280x720, dan tambahkan judul.",
+   "Unduh thumbnail, dijaga di bawah batas ukuran seperti 2 MB milik YouTube."
+  ],
+  "faq": [
+   {
+    "q": "Berapa ukuran thumbnail YouTube?",
+    "a": "1280x720 piksel (16:9), dan file harus di bawah 2 MB. Keduanya sudah diatur otomatis di sini."
+   },
+   {
+    "q": "Bisakah mengambil frame dari video saya?",
+    "a": "Bisa. Tambahkan video lalu pilih momen yang Anda inginkan sebagai thumbnail."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi video Anda tidak pernah meninggalkan perangkat."
+   }
+  ]
+ },
+ "exif-remover": {
+  "name": "Penghapus EXIF",
+  "desc": "Hapus info lokasi GPS, kamera, dan tanggal dari foto sebelum dibagikan.",
+  "about": "Foto sering membawa detail tersembunyi seperti lokasi GPS, model kamera, dan waktu pengambilan. Alat ini menghapus metadata tersebut. File JPEG dibersihkan tanpa dikodekan ulang, jadi kualitas gambar tidak terpengaruh, dan Anda bisa melihat apa yang ditemukan di setiap file.",
+  "title": "Hapus Data EXIF dan Lokasi GPS dari Foto Gratis | Toolz Baba",
+  "metaDesc": "Hapus lokasi GPS, model kamera, dan tanggal dari foto sebelum dibagikan. JPEG tetap berkualitas penuh. Lihat apa yang tersembunyi. Gratis, tanpa unggah.",
+  "steps": [
+   "Tambahkan foto Anda.",
+   "Lihat detail tersembunyi yang ditemukan di setiap foto, seperti lokasi GPS dan kamera.",
+   "Hapus metadata lalu unduh salinan yang sudah bersih."
+  ],
+  "faq": [
+   {
+    "q": "Apa itu data EXIF?",
+    "a": "Detail tersembunyi yang tersimpan di foto: sering kali lokasi GPS yang tepat, model kamera atau ponsel, serta tanggal dan waktu pengambilan."
+   },
+   {
+    "q": "Apakah menghapus EXIF menurunkan kualitas foto?",
+    "a": "Tidak. File JPEG dibersihkan tanpa dikodekan ulang, jadi gambarnya sendiri tidak tersentuh."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "add-watermark-to-image": {
+  "name": "Penambah Watermark",
+  "desc": "Tambahkan watermark teks atau logo. Atur posisi, ubin, dan opasitas. Mendukung banyak file.",
+  "about": "Tambahkan watermark teks atau logo ke gambar Anda. Pilih posisinya atau ubinkan ke seluruh gambar, atur opasitas, ukuran, dan rotasi, dan proses banyak gambar sekaligus. Semuanya berjalan di browser Anda.",
+  "title": "Tambah Watermark ke Foto Online Gratis: Teks atau Logo | Toolz Baba",
+  "metaDesc": "Tambahkan watermark teks atau logo ke banyak foto sekaligus. Atur posisi, ukuran, opasitas, dan sudut, atau ubinkan. Gratis, tanpa daftar, jalan di browser.",
+  "tabAll": "Gambar",
+  "steps": [
+   "Tambahkan satu atau banyak gambar.",
+   "Ketik teks Anda atau tambahkan logo, lalu atur posisi atau ubinkan, opasitas, ukuran, dan rotasi.",
+   "Unduh gambar yang sudah diberi watermark."
+  ],
+  "faq": [
+   {
+    "q": "Bisakah menambahkan logo saya sebagai watermark?",
+    "a": "Bisa. Gunakan gambar logo (PNG dengan latar transparan hasilnya paling bagus) sebagai ganti teks."
+   },
+   {
+    "q": "Bisakah memberi watermark ke banyak foto sekaligus?",
+    "a": "Bisa. Tambahkan semuanya dan watermark yang sama diterapkan ke setiap foto."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "pixelate-image": {
+  "name": "Pikselasi Gambar",
+  "desc": "Pikselasi seluruh gambar atau hanya area terpilih (sembunyikan pelat nomor, teks, wajah).",
+  "about": "Pikselasi seluruh gambar atau hanya area yang Anda pilih, atau pikselasi semuanya kecuali satu area. Gunakan untuk menyembunyikan pelat nomor, teks, dokumen, atau wajah. Berjalan di browser Anda.",
+  "title": "Pikselasi Gambar Online Gratis: Sembunyikan Wajah, Teks, Pelat Nomor | Toolz Baba",
+  "metaDesc": "Pikselasi seluruh foto atau hanya bagian yang dipilih untuk menyembunyikan wajah, pelat nomor, teks, atau dokumen. Gratis dan privat: jalan di browser.",
+  "tabAll": "Gambar",
+  "steps": [
+   "Tambahkan gambar Anda.",
+   "Pikselasi seluruh gambar, hanya area yang dipilih, atau semuanya kecuali satu area.",
+   "Unduh hasilnya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menyembunyikan pelat nomor atau teks di foto?",
+    "a": "Pilih area itu dan pikselasi hanya bagian tersebut; sisa foto tetap tajam."
+   },
+   {
+    "q": "Bisakah pikselasi dibatalkan?",
+    "a": "Tidak. Detail yang disembunyikan diganti di file yang disimpan, jadi simpan file asli jika Anda mungkin membutuhkannya."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "meme-generator": {
+  "name": "Pembuat Meme",
+  "desc": "Teks atas dan bawah ala meme klasik, atau bilah keterangan.",
+  "about": "Buat meme dari gambar apa pun dengan teks atas dan bawah gaya klasik, atau taruh bilah keterangan di atas gambar. Atur ukuran dan warna lalu unduh sebagai JPG, PNG, atau WebP. Berjalan di browser Anda.",
+  "title": "Pembuat Meme Online Gratis: Teks Atas dan Bawah | Toolz Baba",
+  "metaDesc": "Buat meme dari gambar apa pun dengan teks atas dan bawah klasik atau bilah keterangan. Ubah ukuran dan warna, unduh sebagai JPG, PNG, atau WebP. Gratis.",
+  "steps": [
+   "Tambahkan gambar.",
+   "Ketik teks atas dan bawah, atau gunakan bilah keterangan di atas gambar.",
+   "Atur ukuran dan warna lalu unduh sebagai JPG, PNG, atau WebP."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat meme dengan teks atas dan bawah?",
+    "a": "Tambahkan gambar, ketik kalimat Anda di kotak teks atas dan bawah, lalu unduh."
+   },
+   {
+    "q": "Apakah ada watermark?",
+    "a": "Tidak. Meme Anda diunduh tanpa watermark apa pun."
+   }
+  ]
+ },
+ "photo-collage-maker": {
+  "name": "Pembuat Kolase",
+  "desc": "Gabungkan 2–9 foto menjadi tata letak kisi atau unggulan.",
+  "about": "Gabungkan dua sampai sembilan foto menjadi kolase dengan tata letak kisi, baris, kolom, atau unggulan. Atur ukuran kanvas, jarak, bingkai, sudut membulat, dan warna latar, lalu unduh. Semuanya berjalan di browser Anda.",
+  "title": "Pembuat Kolase Foto Online Gratis: 2 sampai 9 Foto | Toolz Baba",
+  "metaDesc": "Gabungkan 2 sampai 9 foto menjadi kolase kisi, baris, kolom, atau unggulan. Atur jarak, bingkai, sudut membulat, dan latar. Gratis, tanpa watermark.",
+  "tabAll": "Kolase foto",
+  "steps": [
+   "Tambahkan 2 sampai 9 foto.",
+   "Pilih tata letak kisi, baris, kolom, atau unggulan.",
+   "Atur jarak, bingkai, sudut, dan latar, lalu unduh."
+  ],
+  "faq": [
+   {
+    "q": "Berapa banyak foto yang bisa ada dalam kolase?",
+    "a": "Dari dua sampai sembilan."
+   },
+   {
+    "q": "Bisakah mengubah ukuran kolase?",
+    "a": "Bisa. Atur ukuran kanvas, serta jarak, bingkai, sudut membulat, dan warna latar."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "screenshot-beautifier": {
+  "name": "Pemercantik Screenshot",
+  "desc": "Taruh screenshot di atas gradien dengan bingkai jendela, bayangan, dan sudut membulat.",
+  "about": "Buat screenshot polos terlihat rapi. Taruh di atas latar gradien atau warna solid dengan bingkai jendela macOS atau browser, sudut membulat, bayangan, dan padding, dalam bentuk seperti 16:9 atau persegi. Berjalan di browser Anda.",
+  "title": "Pemercantik Screenshot: Latar Gradien dan Bingkai | Toolz Baba",
+  "metaDesc": "Taruh screenshot di atas latar gradien atau solid dengan bingkai macOS atau browser, sudut membulat, dan bayangan, dalam 16:9 atau persegi. Gratis.",
+  "steps": [
+   "Tambahkan screenshot.",
+   "Pilih latar, bingkai jendela, sudut, bayangan, dan bentuk seperti 16:9.",
+   "Unduh gambar yang sudah dipercantik."
+  ],
+  "faq": [
+   {
+    "q": "Apa fungsi pemercantik screenshot?",
+    "a": "Alat ini menaruh screenshot Anda di atas latar gradien atau warna solid dengan bingkai jendela macOS atau browser, sudut membulat, bayangan, dan padding."
+   },
+   {
+    "q": "Apakah screenshot saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "favicon-generator": {
+  "name": "Pembuat Favicon",
+  "desc": "Buat favicon.ico, Apple touch icon, ikon Android, dan manifest dari satu gambar.",
+  "about": "Buat paket favicon lengkap dari satu gambar: favicon.ico, PNG 16x16 dan 32x32, Apple touch icon, ikon Android, web manifest, dan cuplikan HTML untuk ditempel di situs Anda. Berjalan di browser Anda.",
+  "title": "Pembuat Favicon: Ikon ICO, Apple Touch, dan Android | Toolz Baba",
+  "metaDesc": "Buat favicon.ico, PNG 16 dan 32 px, Apple touch icon, ikon Android, web manifest, dan cuplikan HTML dari satu gambar. Gratis.",
+  "steps": [
+   "Tambahkan satu gambar persegi, seperti logo Anda.",
+   "Buat paket favicon.",
+   "Unduh lalu tempel cuplikan HTML ke bagian head situs Anda."
+  ],
+  "faq": [
+   {
+    "q": "File apa saja yang dibuat?",
+    "a": "favicon.ico, PNG 16x16 dan 32x32, Apple touch icon, ikon Android, dan web manifest, plus HTML untuk menambahkannya ke situs Anda."
+   },
+   {
+    "q": "Gambar seperti apa yang paling cocok?",
+    "a": "Logo atau simbol yang sederhana dan persegi. Detail halus akan hilang pada ukuran 16x16 piksel."
+   }
+  ]
+ },
+ "image-to-svg": {
+  "name": "Gambar ke SVG",
+  "desc": "Telusuri logo, ikon, dan gambar menjadi SVG vektor yang bisa diskalakan.",
+  "about": "Telusuri logo, ikon, dan gambar sederhana menjadi grafik vektor SVG yang bisa diskalakan. Pilih preset untuk logo, foto, atau garis hitam putih. File vektor tetap tajam di ukuran berapa pun.",
+  "title": "Konverter Gambar ke SVG Online Gratis: Vektorkan Logo | Toolz Baba",
+  "metaDesc": "Telusuri logo, ikon, dan gambar garis PNG dan JPG menjadi vektor SVG yang tetap tajam di ukuran berapa pun. Preset untuk logo, foto, dan garis.",
+  "steps": [
+   "Tambahkan logo, ikon, atau gambar.",
+   "Pilih preset: logo, foto, atau garis hitam putih.",
+   "Konversi lalu unduh SVG-nya."
+  ],
+  "faq": [
+   {
+    "q": "Mengapa mengonversi logo ke SVG?",
+    "a": "SVG adalah format vektor: tetap tajam di ukuran berapa pun, dari ikon situs web sampai cetakan besar."
+   },
+   {
+    "q": "Apakah bisa untuk foto?",
+    "a": "Bisa, dengan preset foto, tetapi ukuran SVG jadi besar. Logo, ikon, dan gambar datar memberi hasil terbaik."
+   }
+  ]
+ },
+ "resize-image-to-kb": {
+  "name": "Ubah Ukuran Foto & Tanda Tangan ke KB",
+  "desc": "Buat foto atau tanda tangan berukuran pas dalam piksel/cm dan di bawah 20, 50, atau 100 KB. Untuk formulir ujian dan lamaran kerja.",
+  "about": "Formulir pemerintah dan ujian sering meminta foto atau tanda tangan dengan ukuran tertentu dan ukuran file seperti 20-50 KB. Masukkan ukuran dalam piksel, sentimeter, milimeter, atau inci, atur KB minimum dan maksimum, dan alat ini mencari kualitas JPG terbaik yang muat. Alat ini juga bisa mengatur 200 atau 300 DPI. Semuanya berjalan di browser Anda, jadi foto Anda tidak pernah diunggah.",
+  "title": "Ubah Ukuran Foto dan Tanda Tangan ke 20 KB, 50 KB, 100 KB | Toolz Baba",
+  "metaDesc": "Buat foto atau tanda tangan seukuran yang diminta formulir ujian atau lamaran kerja, dalam piksel atau cm, dan di bawah 20, 50, atau 100 KB. Gratis.",
+  "steps": [
+   "Tambahkan foto atau tanda tangan Anda.",
+   "Masukkan ukuran yang diminta formulir (piksel, cm, mm, atau inci) beserta KB minimum dan maksimum.",
+   "Unduh JPG-nya: alat ini memilih kualitas terbaik yang masih muat dalam batas."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah ukuran foto menjadi 20 KB atau 50 KB untuk formulir?",
+    "a": "Tambahkan foto, atur KB maksimum (dan minimum jika perlu) yang diizinkan formulir, masukkan ukuran yang dibutuhkan, lalu unduh. Alat ini mencari kualitas JPG terbaik yang muat."
+   },
+   {
+    "q": "Bisakah mengubah ukuran tanda tangan juga?",
+    "a": "Bisa. Tambahkan foto atau pindaian tanda tangan Anda lalu masukkan ukuran tanda tangan dan batas KB dari formulir."
+   },
+   {
+    "q": "Bisakah mengatur 200 atau 300 DPI?",
+    "a": "Bisa, alat ini dapat menetapkan 200 atau 300 DPI di dalam file untuk formulir yang memintanya."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Semuanya berjalan di browser Anda, jadi foto Anda tidak pernah diunggah."
+   }
+  ]
+ },
+ "passport-size-photo-maker": {
+  "name": "Pembuat Pas Foto",
+  "desc": "Ubah selfie menjadi pas foto paspor atau KTP: latar polos, ukuran yang benar, dan lembar cetak dengan banyak salinan.",
+  "about": "Unggah foto menghadap depan. Alat ini menghapus latar dengan AI, menaruh orangnya di latar putih, biru, abu-abu, atau merah polos, memotong kepala ke ukuran dan posisi yang tepat untuk ukuran umum seperti 35x45 mm dan 51x51 mm (2x2 inci), dan bisa menata lembar 4x6 inci, 5x7 inci, atau A4 dengan panduan potong agar Anda bisa mencetak beberapa salinan sekaligus. Selalu periksa aturan negara Anda untuk ukuran, ekspresi, dan latar.",
+  "title": "Pembuat Pas Foto Paspor Online Gratis: 35x45 mm | Toolz Baba",
+  "metaDesc": "Ubah selfie jadi pas foto paspor atau visa: AI menghapus latar, memotong ke 35x45 mm atau 2x2 inci, dan membuat lembar cetak. Gratis.",
+  "tabAll": "Pas foto",
+  "steps": [
+   "Tambahkan foto atau selfie menghadap depan.",
+   "Pilih ukuran (misalnya 35x45 mm atau 2x2 inci) dan warna latar.",
+   "Unduh fotonya, atau lembar cetak 4x6 inci, 5x7 inci, atau A4 dengan banyak salinan."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat pas foto paspor di rumah?",
+    "a": "Ambil foto menghadap depan di depan dinding apa saja, tambahkan di sini, pilih ukuran dan latar putih, lalu unduh. AI menghapus latar dan memotong kepala ke ukuran yang tepat."
+   },
+   {
+    "q": "Berapa ukuran foto paspor India?",
+    "a": "Paspor India memakai 35x45 mm (visa India memakai 51x51 mm, atau 2x2 inci). Kedua ukuran tersedia, tetapi selalu periksa aturan terbaru untuk permohonan Anda."
+   },
+   {
+    "q": "Bisakah mencetak beberapa salinan dalam satu lembar?",
+    "a": "Bisa. Tata di lembar 4x6 inci, 5x7 inci, atau A4 dengan panduan potong."
+   }
+  ]
+ },
+ "image-to-text": {
+  "name": "Gambar ke Teks (OCR)",
+  "desc": "Ekstrak teks dari foto, screenshot, atau PDF hasil pindai. Mendukung bahasa Inggris dan Hindi. Jalan di browser Anda.",
+  "about": "Baca teks di foto, screenshot, atau PDF hasil pindai lalu salin atau simpan sebagai file .txt. Mendukung bahasa Inggris dan Hindi (atau keduanya sekaligus). Mesin OCR berjalan sepenuhnya di dalam browser Anda, jadi dokumen Anda tetap di perangkat. Untuk hasil terbaik, gunakan gambar yang tajam, lurus, dan terang.",
+  "title": "Konverter Gambar ke Teks (OCR) Gratis: Inggris dan Hindi | Toolz Baba",
+  "metaDesc": "Salin teks dari foto, screenshot, atau PDF hasil pindai dalam bahasa Inggris atau Hindi. Simpan sebagai .txt. Gratis, gambar tetap di perangkat Anda.",
+  "tabAll": "Gambar ke teks",
+  "steps": [
+   "Tambahkan foto, screenshot, atau PDF hasil pindai.",
+   "Pilih bahasa Inggris, Hindi, atau keduanya.",
+   "Salin teksnya atau simpan sebagai file .txt."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menyalin teks dari gambar?",
+    "a": "Tambahkan gambar, pilih bahasa, lalu mulai. Saat teks muncul, salin atau simpan sebagai file .txt."
+   },
+   {
+    "q": "Apakah bisa membaca bahasa Hindi?",
+    "a": "Bisa. Pilih Hindi, atau Inggris dan Hindi bersamaan."
+   },
+   {
+    "q": "Bagaimana cara mendapatkan hasil terbaik?",
+    "a": "Gunakan gambar yang tajam, lurus, dan terang. Foto buram atau miring dan tulisan tangan menghasilkan lebih banyak kesalahan."
+   },
+   {
+    "q": "Apakah gambar saya diunggah?",
+    "a": "Tidak. OCR berjalan sepenuhnya di browser Anda, jadi dokumen Anda tetap di perangkat."
+   }
+  ]
+ },
+ "remove-background": {
+  "name": "Penghapus Latar",
+  "desc": "Potong subjek dan dapatkan PNG transparan.",
+  "about": "Hapus latar dari foto dengan AI dan dapatkan PNG atau WebP transparan. Pilih model untuk foto umum, orang, atau anime dan ilustrasi. Cocok untuk produk, potret, hewan peliharaan, dan benda.",
+  "title": "Hapus Latar dari Gambar Gratis: PNG Transparan | Toolz Baba",
+  "metaDesc": "Hapus latar dari foto dengan AI dan unduh PNG atau WebP transparan. Cocok untuk orang, produk, hewan peliharaan, dan gambar. Tanpa watermark.",
+  "steps": [
+   "Tambahkan foto orang, produk, hewan peliharaan, atau benda.",
+   "Pilih model: foto umum, orang, atau anime dan ilustrasi.",
+   "Unduh hasil potongan sebagai PNG atau WebP transparan."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menghapus latar foto secara gratis?",
+    "a": "Tambahkan foto di sini dan AI memotong subjeknya. Unduh sebagai PNG atau WebP transparan. Tanpa daftar dan tanpa watermark."
+   },
+   {
+    "q": "Model mana yang sebaiknya saya pilih?",
+    "a": "Gunakan model orang untuk potret, model anime untuk gambar dan ilustrasi, dan model umum untuk produk, hewan peliharaan, dan lainnya."
+   },
+   {
+    "q": "Bisakah menaruh latar baru di belakang subjek?",
+    "a": "Bisa, gunakan Ganti Latar untuk menaruh warna atau gambar lain di belakang hasil potongan."
+   }
+  ]
+ },
+ "replace-background": {
+  "name": "Ganti Latar",
+  "desc": "Ganti latar dengan warna, gradien, blur, atau foto lain.",
+  "about": "Ganti latar foto dengan warna solid, gradien, salinan buram dari aslinya, foto lain, atau tanpa latar sama sekali. Subjek dipotong otomatis dengan AI.",
+  "title": "Ganti Latar Foto Online Gratis: Warna atau Foto | Toolz Baba",
+  "metaDesc": "Ganti latar foto dengan warna, gradien, blur, atau gambar lain. AI memotong subjeknya untuk Anda. Gratis, tanpa watermark.",
+  "steps": [
+   "Tambahkan foto.",
+   "Pilih latar baru: warna, gradien, salinan buram, foto lain, atau tanpa latar.",
+   "Unduh hasilnya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengganti latar foto?",
+    "a": "Tambahkan foto; AI memotong subjeknya. Lalu pilih warna, gradien, blur, atau gambar lain sebagai latar baru."
+   },
+   {
+    "q": "Bisakah mendapatkan latar putih untuk foto produk?",
+    "a": "Bisa. Pilih warna solid dan atur ke putih."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "upscale-image": {
+  "name": "Peningkat Resolusi Gambar",
+  "desc": "Perbesar 2×–4× dengan AI dan jaga detail tetap tajam.",
+  "about": "Perbesar gambar kecil atau buram 2x, 3x, atau 4x dengan AI upscaler yang menjaga detail tetap tajam, atau gunakan mode cepat untuk gambar yang sangat besar. Paling cocok untuk gambar hingga sekitar 2,5 megapiksel.",
+  "title": "AI Image Upscaler Gratis: Perbesar Gambar 2x, 3x, 4x Jadi HD | Toolz Baba",
+  "metaDesc": "Perbesar gambar kecil atau buram 2x, 3x, atau 4x dengan AI upscaler yang menjaga detail tetap tajam. Gratis, tanpa daftar, jalan di browser Anda.",
+  "steps": [
+   "Tambahkan gambar yang kecil atau buram.",
+   "Pilih 2x, 3x, atau 4x, serta mode AI atau mode cepat.",
+   "Unduh gambar yang lebih besar dan lebih tajam."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menambah resolusi gambar?",
+    "a": "Tambahkan gambar lalu pilih 2x, 3x, atau 4x. AI upscaler menambahkan detail sehingga hasilnya tetap tajam, bukan buram."
+   },
+   {
+    "q": "Gambar seperti apa yang paling cocok?",
+    "a": "Gambar hingga sekitar 2,5 megapiksel. Gunakan mode cepat untuk gambar yang sangat besar."
+   }
+  ]
+ },
+ "face-blur": {
+  "name": "Blur Wajah",
+  "desc": "Deteksi wajah otomatis lalu blur, pikselasi, atau tutup.",
+  "about": "Deteksi wajah secara otomatis lalu blur, pikselasi, atau tutup dengan bentuk hitam. Atur kekuatan, area di sekitar setiap wajah, dan sensitivitas deteksi. Berguna sebelum membagikan foto orang lain.",
+  "title": "Blur Wajah di Foto Online Gratis: Otomatis | Toolz Baba",
+  "metaDesc": "Temukan setiap wajah di foto secara otomatis lalu blur, pikselasi, atau tutup sebelum dibagikan. Atur kekuatan dan area. Gratis dan privat.",
+  "steps": [
+   "Tambahkan foto.",
+   "Pilih blur, pikselasi, atau penutup hitam, lalu atur kekuatan dan areanya.",
+   "Unduh foto dengan wajah yang sudah disembunyikan."
+  ],
+  "faq": [
+   {
+    "q": "Apakah wajah ditemukan otomatis?",
+    "a": "Ya. Wajah dideteksi untuk Anda; atur sensitivitas deteksi jika ada yang terlewat."
+   },
+   {
+    "q": "Blur atau pikselasi: mana yang lebih aman?",
+    "a": "Keduanya menyembunyikan wajah dengan baik pada kekuatan tinggi. Penutup hitam menyembunyikannya sepenuhnya."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "anime-style": {
+  "name": "Gaya Anime",
+  "desc": "Ubah foto menjadi seni bergaya anime (tampilan Hayao atau Shinkai).",
+  "about": "Ubah foto menjadi karya bergaya anime menggunakan model AI transfer gaya. Pilih tampilan Hayao yang lembut dan seperti lukisan, atau tampilan Shinkai yang hidup dan sinematik.",
+  "title": "Ubah Foto Jadi Anime Gratis: Filter Anime AI | Toolz Baba",
+  "metaDesc": "Ubah foto menjadi seni bergaya anime dengan AI: tampilan Hayao yang lembut atau Shinkai yang hidup. Gratis, tanpa daftar, foto tetap di perangkat Anda.",
+  "steps": [
+   "Tambahkan foto.",
+   "Pilih tampilan Hayao (lembut, seperti lukisan) atau Shinkai (hidup, sinematik).",
+   "Unduh gambar bergaya anime Anda."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah foto menjadi anime?",
+    "a": "Tambahkan foto, pilih gaya, dan biarkan AI melukisnya ulang dengan tampilan anime itu."
+   },
+   {
+    "q": "Apa bedanya kedua gaya?",
+    "a": "Hayao lembut dan seperti lukisan; Shinkai hidup dan sinematik, dengan langit cerah dan cahaya kuat."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "image-to-pdf": {
+  "name": "Gambar ke PDF",
+  "desc": "Gabungkan gambar menjadi satu PDF. Pilih ukuran halaman dan urutan.",
+  "about": "Gabungkan gambar menjadi satu PDF. Pilih A4, US Letter, A5, atau ukuran asli gambar, atur orientasi dan margin, dan susun ulang halamannya. HEIC, PNG, JPG, WebP, dan lainnya didukung.",
+  "title": "Konverter Gambar ke PDF Gratis: JPG, PNG, HEIC ke PDF | Toolz Baba",
+  "metaDesc": "Gabungkan gambar JPG, PNG, HEIC, dan WebP menjadi satu PDF. Pilih A4 atau Letter, orientasi, margin, dan atur urutannya. Gratis, tanpa unggah.",
+  "tabAll": "Gambar apa saja",
+  "steps": [
+   "Tambahkan gambar Anda: JPG, PNG, HEIC, WebP, dan lainnya.",
+   "Susun urutannya lalu pilih ukuran halaman, orientasi, dan margin.",
+   "Klik Buat PDF lalu unduh."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah foto menjadi satu PDF?",
+    "a": "Tambahkan semua foto, susun urutannya dengan tanda panah, pilih A4 atau ukuran halaman lain, lalu klik Buat PDF."
+   },
+   {
+    "q": "Bisakah memakai foto HEIC dari iPhone?",
+    "a": "Bisa, HEIC bekerja sama baiknya dengan JPG, PNG, dan WebP."
+   },
+   {
+    "q": "Apakah gambar saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "pdf-to-image": {
+  "name": "PDF ke Gambar",
+  "desc": "Ubah halaman PDF menjadi gambar PNG, JPG, atau WebP.",
+  "about": "Konversi halaman PDF menjadi gambar PNG, JPG, atau WebP. Pilih resolusi dari 72 sampai 300 DPI dan pilih semua halaman atau rentang seperti 1-3,5. Beberapa halaman dikirim dalam bentuk ZIP.",
+  "title": "Konverter PDF ke Gambar Gratis: PDF ke JPG, PNG, WebP | Toolz Baba",
+  "metaDesc": "Ubah halaman PDF menjadi gambar JPG, PNG, atau WebP pada 72 sampai 300 DPI. Konversi semua halaman atau beberapa saja. Gratis dan privat.",
+  "tabAll": "Semua format",
+  "steps": [
+   "Tambahkan PDF.",
+   "Pilih PNG, JPG, atau WebP, kualitas (DPI), dan halamannya.",
+   "Klik Konversi ke gambar lalu unduh (beberapa halaman dalam satu ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "DPI berapa yang sebaiknya saya pakai?",
+    "a": "150 DPI tajam di layar, 300 DPI untuk cetak, 72 DPI untuk file terkecil."
+   },
+   {
+    "q": "Bisakah mengonversi hanya beberapa halaman?",
+    "a": "Bisa. Ketik halaman dan rentang seperti 1-3,5."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "merge-pdf": {
+  "name": "Gabung PDF",
+  "desc": "Gabungkan beberapa PDF menjadi satu, dengan urutan pilihan Anda.",
+  "about": "Gabungkan beberapa file PDF menjadi satu dokumen dengan urutan pilihan Anda. Susun ulang file sebelum digabung. PDF yang dilindungi kata sandi perlu dibuka kuncinya terlebih dahulu.",
+  "title": "Gabung PDF Online Gratis: Satukan File PDF Jadi Satu | Toolz Baba",
+  "metaDesc": "Gabungkan hingga 50 file PDF menjadi satu dokumen dengan urutan pilihan Anda. Gratis, tanpa daftar, tanpa watermark. PDF Anda tidak keluar dari perangkat.",
+  "steps": [
+   "Tambahkan dua atau lebih file PDF.",
+   "Susun dengan urutan yang benar menggunakan tanda panah.",
+   "Klik Gabung lalu unduh satu PDF gabungan."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menggabungkan file PDF menjadi satu?",
+    "a": "Tambahkan PDF, atur urutan dengan tanda panah, lalu klik Gabung. Anda mendapat satu PDF berisi semua halaman."
+   },
+   {
+    "q": "Bisakah menggabungkan PDF yang dilindungi kata sandi?",
+    "a": "Hapus kata sandinya terlebih dahulu dengan Buka Kunci PDF (Anda perlu tahu kata sandinya), lalu gabungkan."
+   },
+   {
+    "q": "Berapa banyak PDF yang bisa digabung?",
+    "a": "Hingga 50 file sekaligus."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "split-pdf": {
+  "name": "Pisah PDF",
+  "desc": "Pisahkan berdasarkan rentang halaman, setiap N halaman, atau ekstrak halaman terpilih.",
+  "about": "Pisahkan PDF menjadi halaman tunggal, kelompok N halaman, rentang halaman khusus, atau ekstrak halaman terpilih ke satu PDF baru. Hasilnya dikirim dalam bentuk ZIP jika ada beberapa file.",
+  "title": "Pisah PDF Online Gratis: Pisahkan atau Ekstrak Halaman | Toolz Baba",
+  "metaDesc": "Pisahkan PDF menjadi halaman tunggal, setiap N halaman, atau rentang khusus, atau ekstrak halaman pilihan ke PDF baru. Gratis, tanpa daftar, jalan di browser.",
+  "tabAll": "Pisah",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih cara memisahkan: setiap halaman, setiap N halaman, rentang khusus, atau ekstrak halaman pilihan.",
+   "Klik Pisah PDF lalu unduh filenya (beberapa file datang sebagai ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memisahkan PDF menjadi halaman terpisah?",
+    "a": "Tambahkan PDF, pilih Setiap halaman jadi PDF sendiri, lalu klik Pisah PDF. Anda mendapat ZIP berisi satu PDF per halaman."
+   },
+   {
+    "q": "Bagaimana cara mengambil hanya beberapa halaman?",
+    "a": "Pilih Ekstrak halaman terpilih lalu ketik halamannya, misalnya 1-3,5. Halaman itu disimpan sebagai satu PDF baru."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "compress-pdf": {
+  "name": "Kompres PDF",
+  "desc": "Perkecil ukuran file PDF dengan mengompres ulang gambarnya.",
+  "about": "Perkecil ukuran PDF dengan mengompres ulang gambarnya dan merapikan strukturnya. Pilih kompresi ringan, seimbang, atau kuat. Paling bagus untuk PDF dengan foto atau halaman hasil pindai.",
+  "title": "Kompres PDF Online Gratis: Perkecil Ukuran PDF dalam KB | Toolz Baba",
+  "metaDesc": "Perkecil ukuran PDF untuk email dan formulir unggah, atau hingga di bawah 100, 200, atau 500 KB. Kompresi ringan, seimbang, atau kuat. Gratis dan privat.",
+  "steps": [
+   "Tambahkan PDF Anda, atau pilih ukuran seperti di bawah 100 KB atau 500 KB.",
+   "Pilih kompresi ringan, seimbang, atau kuat.",
+   "Klik Kompres PDF lalu unduh file yang lebih kecil."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil ukuran PDF?",
+    "a": "Tambahkan PDF, pilih kompresi seimbang, lalu klik Kompres PDF. Untuk batas pasti seperti 200 KB, gunakan tombol ukuran di atas kotak unggah."
+   },
+   {
+    "q": "Mengapa PDF saya hampir tidak mengecil?",
+    "a": "Kompresi terutama memperkecil gambar di dalam PDF. PDF yang kebanyakan teks sudah kecil dan tidak bisa mengecil banyak."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "word-to-pdf": {
+  "name": "Word ke PDF",
+  "desc": "Konversi file Word (DOCX), Excel (XLSX, XLS, CSV, ODS), dan teks ke PDF. Jalan di browser Anda.",
+  "about": "Konversi dokumen Word (DOCX), spreadsheet (XLSX, XLS, CSV, ODS), dan file teks biasa ke PDF langsung di browser Anda, jadi file tidak diunggah. Judul, paragraf, daftar, tabel, dan gambar dipertahankan; tata letak rumit seperti kolom dan kotak teks hasilnya lebih sederhana daripada di Word. Bahasa Hindi dan aksara India lainnya didukung. File .doc lama, RTF, ODT, dan PowerPoint tidak bisa dikonversi di browser: buka di Word, Google Docs, atau LibreOffice lalu simpan sebagai DOCX (atau ekspor PDF) terlebih dahulu.",
+  "title": "Konverter Word ke PDF Online Gratis: DOCX ke PDF | Toolz Baba",
+  "metaDesc": "Konversi file Word (DOCX), Excel (XLSX, XLS, CSV), dan teks ke PDF di browser Anda. Mendukung Hindi. Gratis, tanpa daftar, tanpa unggah.",
+  "tabAll": "Word & Office",
+  "steps": [
+   "Tambahkan file Word (DOCX), Excel (XLSX, XLS, CSV, ODS), atau teks.",
+   "Klik Konversi ke PDF.",
+   "Unduh PDF-nya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi Word ke PDF secara gratis?",
+    "a": "Tambahkan file DOCX, klik Konversi ke PDF, lalu unduh. Tidak perlu daftar."
+   },
+   {
+    "q": "Bisakah mengonversi file .doc lama atau PowerPoint?",
+    "a": "Tidak di sini. Buka di Word, Google Docs, atau LibreOffice lalu simpan sebagai DOCX, atau ekspor sebagai PDF di sana."
+   },
+   {
+    "q": "Apakah mendukung bahasa Hindi?",
+    "a": "Ya. Bahasa Hindi dan aksara India lainnya tampil dengan benar di PDF."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "pdf-to-word": {
+  "name": "PDF ke Word",
+  "desc": "Konversi PDF menjadi dokumen Word yang bisa diedit.",
+  "about": "Konversi PDF menjadi dokumen Word yang bisa diedit. Hasil terbaik didapat pada PDF dengan teks asli. PDF hasil pindai hanyalah gambar halaman dan tidak bisa diubah menjadi teks yang bisa diedit tanpa OCR.",
+  "title": "Konverter PDF ke Word Online Gratis: DOCX yang Bisa Diedit | Toolz Baba",
+  "metaDesc": "Konversi PDF menjadi dokumen Word yang bisa diedit dengan font, ukuran, huruf tebal, dan gambar tetap terjaga. Gratis, tanpa daftar, file tetap di perangkat.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Konversi.",
+   "Unduh file Word (DOCX) yang bisa diedit."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi PDF ke file Word yang bisa diedit?",
+    "a": "Tambahkan PDF di sini lalu unduh dokumen Word-nya. Teks, font, ukuran, huruf tebal dan miring, serta gambar dipertahankan sesuai urutan baca."
+   },
+   {
+    "q": "Mengapa saya tidak bisa mengedit teks dari PDF hasil pindai?",
+    "a": "PDF hasil pindai hanyalah gambar halaman. Gunakan Gambar ke Teks (OCR) untuk membaca teksnya terlebih dahulu."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "pdf-to-excel": {
+  "name": "PDF ke Excel",
+  "desc": "Ubah tabel di PDF menjadi spreadsheet Excel (XLSX) yang bisa diurutkan, dijumlahkan, dan diedit.",
+  "about": "Ambil tabel dari PDF ke Excel tanpa mengetik ulang. Setiap halaman menjadi sheet sendiri (atau semua halaman dalam satu sheet), baris dan kolom dibangun ulang dari posisi teks di halaman, dan angka menjadi angka sungguhan yang bisa dijumlahkan. Paling cocok untuk PDF yang dibuat di komputer, seperti mutasi rekening, faktur, daftar harga, dan laporan. Halaman hasil pindai berupa gambar: jalankan OCR PDF dulu.",
+  "title": "Konverter PDF ke Excel Online Gratis: Tabel ke XLSX | Toolz Baba",
+  "metaDesc": "Konversi tabel PDF ke Excel (XLSX) di browser Anda: baris, kolom, dan angka asli terjaga, satu sheet per halaman. Gratis, tanpa daftar, tanpa unggah.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih satu sheet per halaman atau semua halaman dalam satu sheet.",
+   "Unduh file Excel (XLSX)."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi tabel PDF ke Excel?",
+    "a": "Tambahkan PDF, klik Konversi ke Excel, lalu buka file XLSX di Excel, Google Sheets, atau LibreOffice. Setiap halaman jadi satu sheet dengan tabel yang dibangun ulang menjadi baris dan kolom."
+   },
+   {
+    "q": "Apakah angkanya bisa dipakai di rumus?",
+    "a": "Ya. Angka seperti 1,234.50 atau (200) disimpan sebagai angka sungguhan, jadi SUM dan rumus lain berfungsi. Hapus centang opsinya untuk menyimpan semuanya sebagai teks."
+   },
+   {
+    "q": "Bisakah mengonversi PDF hasil pindai?",
+    "a": "Hasil pindai hanyalah gambar halaman. Gunakan OCR PDF dulu untuk mengubahnya menjadi teks, lalu konversi di sini."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "pdf-to-powerpoint": {
+  "name": "PDF ke PowerPoint",
+  "desc": "Ubah setiap halaman PDF menjadi slide PowerPoint (PPTX).",
+  "about": "Presentasikan PDF di PowerPoint, Google Slides, atau Keynote: setiap halaman menjadi slide yang terlihat persis seperti halamannya, dengan ukuran dan bentuk yang sama. Tambahkan judul, catatan, dan animasi Anda sendiri di atasnya. Praktis untuk menampilkan laporan, brosur, atau catatan kuliah dalam rapat. Semuanya dikerjakan di perangkat Anda, jadi tidak ada yang diunggah.",
+  "title": "Konverter PDF ke PowerPoint Online Gratis: PDF ke PPTX | Toolz Baba",
+  "metaDesc": "Konversi PDF ke PowerPoint (PPTX): setiap halaman menjadi slide yang terlihat persis seperti PDF-nya. Gratis, tanpa daftar, file tetap di perangkat Anda.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih kualitas gambar.",
+   "Unduh file PowerPoint (PPTX)."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah PDF menjadi PowerPoint?",
+    "a": "Tambahkan PDF di sini lalu klik Konversi ke PowerPoint. Setiap halaman menjadi satu slide dalam file PPTX yang bisa dibuka di PowerPoint, Google Slides, dan Keynote."
+   },
+   {
+    "q": "Bisakah mengedit teks di slide?",
+    "a": "Setiap slide menampilkan halaman sebagai gambar, jadi terlihat persis seperti PDF-nya. Anda bisa menambahkan kotak teks, catatan, dan bentuk baru di atasnya. Untuk mengedit kata aslinya, gunakan PDF ke Word."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "powerpoint-to-pdf": {
+  "name": "PowerPoint ke PDF",
+  "desc": "Konversi presentasi PowerPoint (PPTX) ke PDF, satu slide per halaman.",
+  "about": "Kirim presentasi sebagai PDF yang tampil sama di setiap ponsel dan komputer, tanpa PowerPoint. Gambar, bentuk, kotak teks, tabel, serta warna dan font tema Anda digambar ke halaman PDF pada ukuran slide. Grafik, SmartArt, video, dan animasi tidak disertakan, jadi periksa hasilnya untuk slide yang memakainya. Beberapa presentasi bisa dikonversi sekaligus, di perangkat Anda sendiri.",
+  "title": "Konverter PowerPoint ke PDF Online Gratis: PPTX ke PDF | Toolz Baba",
+  "metaDesc": "Konversi presentasi PowerPoint (PPTX) ke PDF di browser Anda: gambar, bentuk, teks, dan tabel terjaga, satu slide per halaman. Gratis, tanpa unggah.",
+  "steps": [
+   "Tambahkan file PPTX Anda.",
+   "Klik Konversi ke PDF.",
+   "Unduh PDF-nya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi PowerPoint ke PDF?",
+    "a": "Tambahkan file PPTX lalu klik Konversi ke PDF. Setiap slide menjadi satu halaman PDF."
+   },
+   {
+    "q": "Apakah bisa untuk file .ppt lama?",
+    "a": "Tidak langsung. Buka file .ppt di PowerPoint, Google Slides, atau LibreOffice lalu simpan sebagai PPTX terlebih dahulu."
+   },
+   {
+    "q": "Apakah grafik dan animasi tetap ada?",
+    "a": "Animasi tidak bisa menjadi bagian dari PDF. Grafik dan SmartArt belum digambar; gambar, bentuk, teks, dan tabel sudah."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "markdown-converter": {
+  "name": "Konverter Markdown",
+  "desc": "Markdown ke PDF, HTML, atau Word, dan HTML, Word, atau PDF kembali ke Markdown.",
+  "about": "Satu tempat untuk semua konversi Markdown: ubah Markdown menjadi PDF, halaman web, atau file Word, atau ubah halaman HTML, dokumen Word, atau PDF kembali menjadi Markdown yang bersih. Ketik atau tempel teks Anda dan lihat pratinjaunya, atau tambahkan file. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter Markdown: MD ke PDF, Word, HTML dan Sebaliknya | Toolz Baba",
+  "metaDesc": "Konversi Markdown ke PDF, HTML, atau Word, dan HTML, Word, atau PDF kembali ke Markdown, dengan pratinjau langsung. Gratis dan privat: jalan di browser Anda.",
+  "tabAll": "Semua konverter",
+  "steps": [
+   "Ketik atau tempel teks Anda, atau tambahkan file.",
+   "Pilih konversinya, misalnya Markdown ke PDF atau Word ke Markdown.",
+   "Periksa pratinjau lalu unduh."
+  ],
+  "faq": [
+   {
+    "q": "Konversi apa saja yang tersedia?",
+    "a": "Markdown ke PDF, HTML, atau Word, dan HTML, Word, atau PDF kembali ke Markdown."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "organize-pdf": {
+  "name": "Atur Halaman PDF",
+  "desc": "Susun ulang, hapus, dan putar halaman PDF secara visual: seret thumbnail, lalu simpan PDF baru.",
+  "about": "Lihat setiap halaman PDF Anda sebagai thumbnail. Seret halaman untuk menyusun ulang, klik untuk memutar atau menghapusnya, lalu simpan PDF baru. Semuanya terjadi di browser Anda, jadi PDF tidak pernah diunggah.",
+  "title": "Atur Halaman PDF Online Gratis: Susun Ulang dan Putar | Toolz Baba",
+  "metaDesc": "Susun ulang, putar, dan hapus halaman PDF dengan menyeret thumbnail, lalu simpan PDF baru. Gratis, tanpa daftar, PDF tidak pernah diunggah.",
+  "tabAll": "Atur",
+  "steps": [
+   "Tambahkan PDF untuk melihat setiap halaman sebagai thumbnail.",
+   "Seret halaman untuk menyusun ulang, dan putar atau hapus yang Anda perlukan.",
+   "Simpan dan unduh PDF baru."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah urutan halaman PDF?",
+    "a": "Tambahkan PDF lalu seret thumbnail halaman ke urutan yang Anda mau, kemudian simpan."
+   },
+   {
+    "q": "Bisakah memutar atau menghapus halaman juga?",
+    "a": "Bisa, setiap halaman punya tombol untuk memutar atau menghapusnya."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Semuanya terjadi di browser Anda, jadi PDF tidak pernah diunggah."
+   }
+  ]
+ },
+ "esign-pdf": {
+  "name": "Tanda Tangan PDF",
+  "desc": "Gambar, ketik, atau unggah tanda tangan Anda dan tempatkan di halaman mana pun di PDF.",
+  "about": "Buat tanda tangan dengan menggambarnya, mengetik nama Anda dalam gaya tulisan tangan, atau mengunggah gambar, lalu seret ke posisi yang tepat di halaman mana pun dan ubah ukurannya. Anda bisa menandatangani beberapa halaman sekaligus. Ini menambahkan gambar tanda tangan visual; bukan tanda tangan digital berbasis sertifikat.",
+  "title": "Tanda Tangan PDF Online Gratis: Tambah Tanda Tangan ke PDF | Toolz Baba",
+  "metaDesc": "Tanda tangani PDF dengan menggambar, mengetik, atau mengunggah tanda tangan, lalu tempatkan di halaman mana pun. Gratis, privat, tanpa daftar.",
+  "steps": [
+   "Tambahkan PDF yang perlu Anda tanda tangani.",
+   "Gambar, ketik, atau unggah tanda tangan Anda.",
+   "Seret ke posisi yang tepat di halaman mana pun, ubah ukurannya, lalu unduh PDF yang sudah ditandatangani."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menandatangani PDF online secara gratis?",
+    "a": "Tambahkan PDF, buat tanda tangan dengan menggambar, mengetik, atau mengunggah gambar, tempatkan di halaman, lalu unduh."
+   },
+   {
+    "q": "Apakah ini tanda tangan digital yang sah secara hukum?",
+    "a": "Ini menambahkan gambar tanda tangan Anda, seperti menandatangani di atas kertas. Ini bukan tanda tangan digital berbasis sertifikat, yang dibutuhkan oleh sebagian dokumen pemerintah dan hukum."
+   },
+   {
+    "q": "Bisakah menandatangani beberapa halaman?",
+    "a": "Bisa, Anda dapat menempatkan tanda tangan di beberapa halaman sekaligus."
+   }
+  ]
+ },
+ "add-page-numbers-to-pdf": {
+  "name": "Tambah Nomor Halaman ke PDF",
+  "desc": "Tambahkan nomor halaman ke PDF: pilih posisi, format, nomor awal, dan halaman untuk memulai.",
+  "about": "Tambahkan nomor halaman ke setiap halaman PDF. Pilih posisi (atas atau bawah, kiri, tengah, atau kanan), format (1, Halaman 1, Halaman 1 dari 10), nomor pertama, ukuran dan warna, dan lewati halaman sampul jika perlu. Halaman yang diputar ditangani dengan benar.",
+  "title": "Tambah Nomor Halaman ke PDF Online Gratis | Toolz Baba",
+  "metaDesc": "Beri nomor halaman PDF di atas atau bawah dengan format 1, Halaman 1, atau Halaman 1 dari 10. Pilih nomor awal dan lewati sampul. Gratis dan privat.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih posisi, format (1, Halaman 1, atau Halaman 1 dari 10), nomor pertama, ukuran, dan warna.",
+   "Tambahkan nomornya lalu unduh PDF-nya."
+  ],
+  "faq": [
+   {
+    "q": "Bisakah melewati halaman sampul?",
+    "a": "Bisa. Pilih halaman tempat penomoran dimulai, sehingga halaman sampul tetap tanpa nomor."
+   },
+   {
+    "q": "Format nomor apa saja yang tersedia?",
+    "a": "1, Halaman 1, atau Halaman 1 dari 10, di atas atau bawah, kiri, tengah, atau kanan."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "protect-pdf": {
+  "name": "Lindungi PDF dengan Kata Sandi",
+  "desc": "Kunci PDF dengan kata sandi menggunakan enkripsi AES-256. Cetak atau salin bisa diblokir secara opsional.",
+  "about": "Tambahkan kata sandi agar hanya orang yang mengetahuinya yang bisa membuka PDF Anda. File dienkripsi dengan AES-256. Anda juga bisa memilih apakah mencetak, menyalin teks, dan mengedit diizinkan. Simpan kata sandinya baik-baik: tidak bisa dipulihkan.",
+  "title": "Kunci PDF dengan Kata Sandi Online Gratis: AES-256 | Toolz Baba",
+  "metaDesc": "Kunci PDF dengan kata sandi menggunakan enkripsi AES-256, dan pilih apakah mencetak, menyalin, dan mengedit diizinkan. Gratis, tanpa daftar.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Ketik kata sandi dan pilih apakah mencetak, menyalin, dan mengedit diizinkan.",
+   "Unduh PDF yang sudah dikunci."
+  ],
+  "faq": [
+   {
+    "q": "Seberapa aman perlindungannya?",
+    "a": "PDF dienkripsi dengan AES-256, sehingga tidak bisa dibuka tanpa kata sandi."
+   },
+   {
+    "q": "Bagaimana kalau saya lupa kata sandinya?",
+    "a": "Kata sandi tidak bisa dipulihkan, jadi simpan di tempat yang aman."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "unlock-pdf": {
+  "name": "Buka Kunci PDF (Hapus Kata Sandi)",
+  "desc": "Hapus kata sandi buka dari PDF jika Anda tahu kata sandinya.",
+  "about": "Jika Anda tahu kata sandi PDF dan bosan mengetiknya, alat ini menyimpan salinan yang terbuka tanpa kata sandi. Hanya berfungsi jika Anda memasukkan kata sandi yang benar: alat ini tidak membobol atau menembus perlindungan.",
+  "title": "Buka Kunci PDF: Hapus Kata Sandi PDF Online Gratis | Toolz Baba",
+  "metaDesc": "Hapus kata sandi dari PDF yang Anda ketahui kata sandinya dan simpan salinan yang terbuka tanpanya. Gratis, privat, tanpa daftar. Tidak membobol PDF.",
+  "steps": [
+   "Tambahkan PDF yang dilindungi kata sandi.",
+   "Ketik kata sandinya.",
+   "Unduh salinan yang terbuka tanpa kata sandi."
+  ],
+  "faq": [
+   {
+    "q": "Bisakah membuka PDF jika saya tidak tahu kata sandinya?",
+    "a": "Tidak. Alat ini hanya berfungsi dengan kata sandi yang benar; tidak membobol atau menembus perlindungan."
+   },
+   {
+    "q": "Mengapa membuka kunci PDF yang sudah bisa saya buka?",
+    "a": "Agar Anda tidak perlu mengetik kata sandi setiap kali, atau agar bisa digabung atau diedit dengan alat lain."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "video-converter": {
+  "name": "Konverter Video",
+  "desc": "Konversi ke MP4, WebM, MKV, MOV, AVI, atau ekstrak audio sebagai MP3, M4A, WAV.",
+  "about": "Konversi video ke MP4, WebM, MKV, MOV, atau AVI, atau ekstrak audionya sebagai MP3, M4A, WAV, OGG, atau FLAC. Pilih kualitas dan perkecil resolusi jika perlu. File hingga 2 GB didukung.",
+  "title": "Konverter Video Online Gratis: MP4, MOV, MKV, MP3 | Toolz Baba",
+  "metaDesc": "Konversi video ke MP4, WebM, MKV, MOV, atau AVI, atau ekstrak audio sebagai MP3, M4A, atau WAV. File hingga 2 GB. Gratis dan privat: jalan di browser.",
+  "steps": [
+   "Tambahkan video Anda (hingga 2 GB).",
+   "Pilih MP4, WebM, MKV, MOV, atau AVI, atau format audio seperti MP3.",
+   "Konversi lalu unduh."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi video ke MP4?",
+    "a": "Tambahkan video, pilih MP4, atur kualitas, lalu konversi."
+   },
+   {
+    "q": "Bisakah mengambil audionya sebagai MP3?",
+    "a": "Bisa. Pilih MP3, M4A, WAV, OGG, atau FLAC untuk mengekstrak suaranya saja."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "audio-converter": {
+  "name": "Konverter Audio",
+  "desc": "Konversi audio ke MP3, M4A, WAV, FLAC, atau OGG: lagu, rekaman, pesan suara, dan suara dari video.",
+  "about": "Konversi file WAV, M4A, AAC, FLAC, OGG, OPUS, WMA, dan AMR (termasuk pesan suara WhatsApp dan rekaman ponsel) ke MP3, M4A, WAV, FLAC, atau OGG. Pilih kualitas, konversi hingga 20 file sekaligus, dan unduh bersamaan. Alat ini juga bisa mengambil suara dari video. Semuanya berjalan di perangkat Anda sendiri: audio Anda tidak pernah diunggah.",
+  "title": "Konverter Audio Online Gratis: MP3, WAV, M4A, FLAC, OGG | Toolz Baba",
+  "metaDesc": "Konversi file audio ke MP3, M4A, WAV, FLAC, atau OGG di browser Anda, hingga 20 sekaligus, dengan kualitas pilihan Anda. Gratis, dan tidak ada yang diunggah.",
+  "steps": [
+   "Tambahkan file audio Anda.",
+   "Pilih format dan kualitas.",
+   "Unduh file yang sudah dikonversi."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi audio ke MP3?",
+    "a": "Tambahkan file Anda, biarkan MP3 terpilih (192 kbps adalah pilihan bawaan yang bagus), lalu klik Konversi. Unduh file MP3 saat sudah siap."
+   },
+   {
+    "q": "Format mana yang sebaiknya saya pilih?",
+    "a": "MP3 bisa diputar di mana saja. M4A berukuran kecil dan bagus di iPhone. WAV dan FLAC menjaga kualitas penuh; FLAC berukuran sekitar setengah dari WAV."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "video-to-gif": {
+  "name": "Video ke GIF",
+  "desc": "Ubah klip apa pun menjadi GIF animasi berkualitas tinggi.",
+  "about": "Ubah bagian mana pun dari video menjadi GIF animasi. Atur waktu mulai, durasi, frame per detik, dan lebar. Palet warna dibuat untuk setiap GIF agar warnanya tetap bersih.",
+  "title": "Konverter Video ke GIF Gratis: MP4 ke GIF Kualitas HD | Toolz Baba",
+  "metaDesc": "Ubah bagian mana pun dari video menjadi GIF animasi berkualitas tinggi. Atur awal, durasi, lebar, dan frame rate. Gratis, tanpa watermark, tanpa unggah.",
+  "steps": [
+   "Tambahkan video (MP4, MOV, WebM, dan lainnya).",
+   "Atur waktu mulai, durasi, frame per detik, dan lebar.",
+   "Buat GIF lalu unduh."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi MP4 ke GIF?",
+    "a": "Tambahkan MP4, pilih bagian yang Anda mau dengan waktu mulai dan durasi, atur lebar dan frame per detik, lalu buat GIF-nya."
+   },
+   {
+    "q": "Bagaimana cara memperkecil GIF?",
+    "a": "Gunakan bagian video yang lebih pendek, lebar yang lebih kecil, dan frame per detik yang lebih sedikit. Kompres GIF bisa memperkecilnya lagi."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "gif-to-video": {
+  "name": "GIF ke Video",
+  "desc": "Konversi GIF menjadi video MP4 atau WebM yang kecil.",
+  "about": "Konversi animasi GIF menjadi video MP4 atau WebM yang jauh lebih kecil, dan ulangi animasinya jika Anda ingin klip yang lebih panjang. Video dimuat lebih cepat dan diputar mulus di ponsel.",
+  "title": "Konverter GIF ke MP4 Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi animasi GIF menjadi video MP4 atau WebM yang jauh lebih kecil, cepat dimuat, dan diputar mulus di ponsel. Ulangi untuk klip lebih panjang. Gratis.",
+  "steps": [
+   "Tambahkan GIF.",
+   "Pilih MP4 atau WebM, dan berapa kali diulang.",
+   "Konversi lalu unduh videonya."
+  ],
+  "faq": [
+   {
+    "q": "Mengapa mengonversi GIF ke MP4?",
+    "a": "Videonya biasanya jauh lebih kecil, dimuat lebih cepat, dan diputar mulus di ponsel."
+   },
+   {
+    "q": "Bisakah membuat videonya lebih panjang?",
+    "a": "Bisa. Ulangi animasinya untuk membuat klip yang lebih panjang."
+   }
+  ]
+ },
+ "video-trimmer": {
+  "name": "Pemotong Video",
+  "desc": "Potong satu bagian dari video. Pratinjau lalu pilih awal dan akhir.",
+  "about": "Potong satu bagian dari file video atau audio. Pratinjau, tandai awal dan akhir, lalu pilih potongan yang tepat atau potongan cepat tanpa kehilangan kualitas yang mengikuti keyframe terdekat.",
+  "title": "Potong Video Online Gratis: Pangkas Awal dan Akhir | Toolz Baba",
+  "metaDesc": "Potong bagian yang Anda mau dari file video atau audio. Pratinjau, tandai awal dan akhir, pilih potongan tepat atau cepat. Gratis dan privat.",
+  "steps": [
+   "Tambahkan file video atau audio.",
+   "Putar lalu tandai awal dan akhirnya.",
+   "Pilih potongan yang tepat atau potongan cepat tanpa kehilangan kualitas, lalu unduh."
+  ],
+  "faq": [
+   {
+    "q": "Apa bedanya potongan tepat dan potongan cepat?",
+    "a": "Potongan tepat dimulai persis di titik yang Anda tandai. Potongan cepat tanpa kehilangan kualitas dan lebih cepat, tetapi mengikuti keyframe terdekat, jadi bisa dimulai sedikit lebih awal."
+   },
+   {
+    "q": "Bisakah memotong audio juga?",
+    "a": "Bisa, file audio bekerja dengan cara yang sama."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "compress-video": {
+  "name": "Kompres Video",
+  "desc": "Perkecil video berdasarkan tingkat kualitas atau target ukuran file.",
+  "about": "Perkecil video dengan memilih tingkat kualitas atau target ukuran file dalam MB, misalnya agar muat dalam batas unggah email atau chat. Anda juga bisa menurunkan resolusi.",
+  "title": "Kompres Video Online Gratis: Perkecil Ukuran MP4 dalam MB | Toolz Baba",
+  "metaDesc": "Perkecil video berdasarkan kualitas atau ke target ukuran dalam MB, untuk WhatsApp, email, atau batas unggah. Turunkan resolusi juga. Gratis, tanpa watermark.",
+  "tabAll": "Kompres video",
+  "steps": [
+   "Tambahkan video Anda.",
+   "Pilih tingkat kualitas atau target ukuran dalam MB, dan turunkan resolusi jika mau.",
+   "Kompres lalu unduh video yang lebih kecil."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil video agar muat untuk WhatsApp atau email?",
+    "a": "Pilih target ukuran lalu ketik batasnya dalam MB; alat ini memilih pengaturan yang pas."
+   },
+   {
+    "q": "Apakah mengompres video menurunkan kualitas?",
+    "a": "Sedikit. Menurunkan resolusi, misalnya ke 720p, sering menghemat paling banyak dengan perubahan yang paling tidak terlihat."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "video-merger": {
+  "name": "Penggabung Video",
+  "desc": "Gabungkan beberapa klip video menjadi satu MP4, dengan urutan pilihan Anda. Ukuran dan format berbeda tidak masalah.",
+  "about": "Gabungkan dua klip atau lebih menjadi satu MP4. Klip dengan resolusi, frame rate, atau format berbeda disesuaikan otomatis, dan klip tanpa suara juga ditangani. Susun ulang klip sebelum menggabungkan.",
+  "title": "Gabung Video Online Gratis: Satukan Klip Jadi Satu MP4 | Toolz Baba",
+  "metaDesc": "Gabungkan dua klip video atau lebih menjadi satu MP4 dengan urutan pilihan Anda. Ukuran dan format berbeda disesuaikan otomatis. Gratis, tanpa watermark.",
+  "steps": [
+   "Tambahkan dua klip atau lebih.",
+   "Susun dengan urutan yang Anda mau.",
+   "Gabung lalu unduh satu MP4."
+  ],
+  "faq": [
+   {
+    "q": "Bisakah menggabungkan video dengan ukuran atau format berbeda?",
+    "a": "Bisa. Resolusi, frame rate, dan format yang berbeda disesuaikan secara otomatis."
+   },
+   {
+    "q": "Bagaimana kalau ada klip tanpa suara?",
+    "a": "Itu juga ditangani: video gabungan diputar seperti biasa."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "change-video-speed": {
+  "name": "Pengubah Kecepatan Video",
+  "desc": "Percepat video (timelapse) atau perlambat, dari 0,25x sampai 8x. Nada suara tetap alami.",
+  "about": "Buat video lebih cepat untuk timelapse atau lebih lambat untuk slow motion, dari 0,25x sampai 8x. Suara dipercepat atau diperlambat dengan nada yang tetap terjaga, atau Anda bisa membisukannya.",
+  "title": "Ubah Kecepatan Video Online Gratis: 0,25x sampai 8x | Toolz Baba",
+  "metaDesc": "Percepat video untuk timelapse atau perlambat untuk slow motion, dari 0,25x sampai 8x, dengan suara yang terdengar alami. Gratis dan privat, tanpa daftar.",
+  "steps": [
+   "Tambahkan video.",
+   "Pilih kecepatan dari 0,25x (slow motion) sampai 8x (timelapse), dan pertahankan atau bisukan suaranya.",
+   "Unduh video barunya."
+  ],
+  "faq": [
+   {
+    "q": "Apakah suara jadi seperti tupai saat dipercepat?",
+    "a": "Tidak. Nada suara tetap alami saat kecepatan berubah. Anda juga bisa membisukan suaranya."
+   },
+   {
+    "q": "Bagaimana cara membuat video slow motion?",
+    "a": "Pilih kecepatan di bawah 1x, seperti 0,5x atau 0,25x."
+   },
+   {
+    "q": "Apakah video saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "json-formatter": {
+  "name": "Pemformat & Validator JSON",
+  "desc": "Rapikan, perkecil, dan validasi JSON. Menunjukkan baris dan kolom tepat dari setiap kesalahan.",
+  "about": "Tempel JSON untuk membuatnya mudah dibaca dengan 2 atau 4 spasi atau tab, memperkecilnya, mengurutkan kunci, atau memeriksa apakah valid. Jika ada kesalahan, alat ini menunjuk ke baris dan kolomnya. Semuanya terjadi di browser Anda.",
+  "title": "Pemformat dan Validator JSON Online: Rapikan JSON | Toolz Baba",
+  "metaDesc": "Format, perkecil, dan validasi JSON, urutkan kunci, dan lihat baris dan kolom tepat dari setiap kesalahan. Gratis, data Anda tidak keluar dari browser.",
+  "steps": [
+   "Tempel JSON Anda.",
+   "Format dengan 2 atau 4 spasi atau tab, perkecil, atau urutkan kuncinya.",
+   "Salin hasilnya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara menemukan kesalahan di JSON saya?",
+    "a": "Tempel di sini: jika tidak valid, alat ini menunjukkan baris dan kolom tepat dari kesalahannya."
+   },
+   {
+    "q": "Apakah JSON saya dikirim ke server?",
+    "a": "Tidak. Semuanya terjadi di browser Anda."
+   }
+  ]
+ },
+ "word-counter": {
+  "name": "Penghitung Kata & Karakter",
+  "desc": "Hitung kata, karakter, kalimat, dan paragraf, lengkap dengan waktu baca dan kata kunci teratas.",
+  "about": "Tempel atau ketik teks untuk melihat jumlah kata, karakter (dengan dan tanpa spasi), kalimat, dan paragraf, ditambah perkiraan waktu baca dan bicara serta kata yang paling sering dipakai. Mendukung teks bahasa Inggris dan Hindi.",
+  "title": "Penghitung Kata dan Karakter Online Gratis | Toolz Baba",
+  "metaDesc": "Hitung kata, karakter (dengan dan tanpa spasi), kalimat, dan paragraf, serta lihat waktu baca dan kata kunci teratas. Bahasa Inggris dan Hindi.",
+  "steps": [
+   "Tempel atau ketik teks Anda.",
+   "Lihat kata, karakter, kalimat, paragraf, dan waktu baca secara instan.",
+   "Periksa kata yang paling sering dipakai."
+  ],
+  "faq": [
+   {
+    "q": "Apakah menghitung karakter dengan dan tanpa spasi?",
+    "a": "Ya, keduanya ditampilkan."
+   },
+   {
+    "q": "Apakah bisa untuk bahasa Hindi?",
+    "a": "Ya, alat ini menghitung teks bahasa Inggris dan Hindi."
+   },
+   {
+    "q": "Apakah teks saya disimpan di suatu tempat?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi apa yang Anda ketik tidak pernah dikirim ke mana pun."
+   }
+  ]
+ },
+ "text-case-converter": {
+  "name": "Pengubah Huruf Besar Kecil",
+  "desc": "Ubah teks menjadi HURUF BESAR, huruf kecil, Title Case, Sentence case, camelCase, snake_case, dan lainnya.",
+  "about": "Ubah teks antara HURUF BESAR, huruf kecil, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan lainnya hanya dengan satu klik, lalu salin hasilnya.",
+  "title": "Pengubah Huruf Besar Kecil: Huruf Kapital, Huruf Kecil, Title Case | Toolz Baba",
+  "metaDesc": "Ubah teks menjadi HURUF BESAR, huruf kecil, Title Case, Sentence case, camelCase, snake_case, kebab-case, dan lainnya dengan satu klik. Gratis dan instan.",
+  "steps": [
+   "Tempel teks Anda.",
+   "Klik jenis huruf yang Anda butuhkan: HURUF BESAR, huruf kecil, Title Case, camelCase, dan lainnya.",
+   "Salin hasilnya."
+  ],
+  "faq": [
+   {
+    "q": "Jenis huruf apa saja yang didukung?",
+    "a": "HURUF BESAR, huruf kecil, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan lainnya."
+   },
+   {
+    "q": "Apakah teks saya dikirim ke suatu tempat?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi apa yang Anda ketik tidak pernah dikirim ke mana pun."
+   }
+  ]
+ },
+ "password-generator": {
+  "name": "Pembuat Kata Sandi",
+  "desc": "Buat kata sandi acak yang kuat. Pilih panjang dan karakter, lalu lihat seberapa kuat hasilnya.",
+  "about": "Buat kata sandi acak yang kuat dengan generator angka acak aman di browser Anda. Pilih panjang dan karakter yang disertakan, lewati karakter yang mirip, buat beberapa sekaligus, dan lihat perkiraan kekuatannya. Kata sandi tidak pernah dikirim ke mana pun.",
+  "title": "Pembuat Kata Sandi yang Kuat: Acak dan Aman | Toolz Baba",
+  "metaDesc": "Buat kata sandi acak yang kuat dengan generator aman di browser Anda. Pilih panjang dan karakter, lalu lihat kekuatannya. Tidak pernah dikirim ke mana pun.",
+  "steps": [
+   "Pilih panjang dan karakter yang disertakan.",
+   "Buat satu atau beberapa kata sandi dan periksa kekuatannya.",
+   "Salin yang Anda mau."
+  ],
+  "faq": [
+   {
+    "q": "Apakah kata sandinya benar-benar acak?",
+    "a": "Ya. Kata sandi berasal dari generator angka acak aman di browser Anda."
+   },
+   {
+    "q": "Seberapa panjang sebaiknya kata sandi?",
+    "a": "Minimal 12 sampai 16 karakter dengan campuran jenis karakter; makin panjang makin kuat."
+   },
+   {
+    "q": "Apakah kata sandinya dikirim atau disimpan di suatu tempat?",
+    "a": "Tidak. Kata sandi dibuat di browser Anda dan tidak pernah dikirim ke mana pun."
+   }
+  ]
+ },
+ "hash-uuid-generator": {
+  "name": "Pembuat Hash & UUID",
+  "desc": "Buat UUID dan hash MD5, SHA-1, SHA-256, SHA-384, atau SHA-512 dari teks dan file.",
+  "about": "Buat UUID acak (versi 4 dan versi 7 yang berurutan waktu), dan hitung checksum MD5, SHA-1, SHA-256, SHA-384, dan SHA-512 dari teks atau file untuk memeriksa unduhan. File dibaca di browser Anda dan tidak pernah diunggah.",
+  "title": "Pembuat Hash dan UUID: SHA-256, MD5 | Toolz Baba",
+  "metaDesc": "Buat UUID v4 dan v7, serta hash MD5, SHA-1, SHA-256, SHA-384, atau SHA-512 dari teks atau file untuk memeriksa unduhan. Gratis, tanpa unggah.",
+  "steps": [
+   "Pilih UUID, atau jenis hash seperti SHA-256.",
+   "Ketik teks atau tambahkan file.",
+   "Salin hasilnya, atau bandingkan dengan checksum yang diberikan kepada Anda."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memeriksa bahwa unduhan tidak rusak?",
+    "a": "Tambahkan file yang diunduh, pilih hash yang tercantum di situs web (sering kali SHA-256), lalu bandingkan kedua nilainya."
+   },
+   {
+    "q": "Apa bedanya UUID v4 dan v7?",
+    "a": "v4 sepenuhnya acak; v7 diawali dengan waktu, sehingga ID baru terurut sesuai urutan pembuatan."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dibaca di browser Anda dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "url-encoder": {
+  "name": "Encoder & Decoder URL",
+  "desc": "Enkode atau dekode URL dan teks, dan pecah URL menjadi host, path, dan parameter query.",
+  "about": "Enkode teks agar aman ditaruh di URL, dekode teks yang di-percent-encode, dan pecah URL lengkap menjadi bagian-bagiannya (protokol, host, path, dan parameter query) untuk dibaca atau diedit.",
+  "title": "Encoder dan Decoder URL Online: Percent Encoding | Toolz Baba",
+  "metaDesc": "Enkode teks untuk URL, dekode teks percent-encoded, dan pecah URL menjadi host, path, dan parameter query untuk dibaca atau diedit. Gratis dan instan.",
+  "steps": [
+   "Tempel teks atau URL.",
+   "Enkode, dekode, atau pecah URL menjadi bagian-bagiannya.",
+   "Salin hasilnya."
+  ],
+  "faq": [
+   {
+    "q": "Apa itu URL encoding?",
+    "a": "Karakter seperti spasi dan & diganti dengan kode seperti %20 agar teks bisa dipakai dengan aman di dalam alamat web."
+   },
+   {
+    "q": "Bisakah mengedit parameter query sebuah URL?",
+    "a": "Bisa. Pecah URL untuk melihat protokol, host, path, dan setiap parameter, lalu edit."
+   }
+  ]
+ },
+ "image-color-palette-extractor": {
+  "name": "Pengambil Palet Warna",
+  "desc": "Ambil warna utama dari gambar apa pun. Salin HEX, RGB, CSS.",
+  "about": "Ekstrak warna dominan dari gambar apa pun. Salin nilai HEX, RGB, dan HSL, ekspor variabel CSS atau JSON, unduh palet sebagai gambar, dan klik gambar untuk memilih warna yang tepat. Berjalan di browser Anda.",
+  "title": "Palet Warna dari Gambar: Ambil HEX dan RGB | Toolz Baba",
+  "metaDesc": "Ambil warna utama dari gambar apa pun dan salin nilai HEX, RGB, atau HSL, variabel CSS, atau JSON. Klik untuk memilih warna yang tepat. Gratis.",
+  "tabAll": "Dari gambar",
+  "steps": [
+   "Tambahkan gambar.",
+   "Lihat warna utamanya, atau klik gambar untuk memilih warna yang tepat.",
+   "Salin HEX, RGB, atau HSL, atau ekspor CSS, JSON, atau gambar palet."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mendapatkan kode HEX warna di gambar?",
+    "a": "Tambahkan gambar lalu klik titik yang Anda mau; warna persisnya ditampilkan dalam HEX, RGB, dan HSL."
+   },
+   {
+    "q": "Apakah gambar saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "qr-code-generator": {
+  "name": "Pembuat Kode QR",
+  "desc": "URL, teks, Wi-Fi, email, telepon, atau kartu kontak. PNG atau SVG, dengan warna dan logo.",
+  "about": "Buat kode QR untuk tautan, teks, jaringan Wi-Fi, chat WhatsApp, email, nomor telepon, SMS, dan kartu kontak. Pilih warna dan gaya titik, tambahkan logo di tengah, lalu unduh sebagai PNG atau SVG.",
+  "title": "Pembuat Kode QR Gratis: Link, Wi-Fi, WhatsApp, Logo | Toolz Baba",
+  "metaDesc": "Buat kode QR untuk tautan, Wi-Fi, WhatsApp, email, telepon, SMS, dan kartu kontak. Tambah warna dan logo, unduh PNG atau SVG. Gratis, tidak kedaluwarsa.",
+  "steps": [
+   "Pilih isi kode: tautan, teks, Wi-Fi, WhatsApp, email, telepon, SMS, atau kartu kontak.",
+   "Pilih warna dan gaya titik, dan tambahkan logo jika mau.",
+   "Unduh sebagai PNG atau SVG."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat kode QR untuk sebuah tautan?",
+    "a": "Pilih jenis tautan, tempel alamatnya, lalu unduh kode QR sebagai PNG atau SVG."
+   },
+   {
+    "q": "Bisakah membuat kode QR untuk Wi-Fi?",
+    "a": "Bisa. Masukkan nama jaringan dan kata sandi; orang memindainya untuk bergabung tanpa mengetik."
+   },
+   {
+    "q": "Apakah kode QR kedaluwarsa?",
+    "a": "Tidak. Alamat atau teks disimpan di dalam kodenya sendiri, jadi tetap berfungsi selama tautan yang dituju masih berfungsi."
+   },
+   {
+    "q": "PNG atau SVG?",
+    "a": "PNG untuk ponsel, dokumen, dan WhatsApp; SVG untuk cetak ukuran besar, karena tetap tajam di ukuran berapa pun."
+   }
+  ]
+ },
+ "base64": {
+  "name": "Konverter Base64",
+  "desc": "Enkode atau dekode teks dan file. Dapatkan data URI untuk gambar.",
+  "about": "Enkode dan dekode Base64 untuk teks (dengan dukungan Unicode penuh) dan file. Dapatkan data URI untuk gambar, atau ubah string Base64 kembali menjadi file yang bisa diunduh. Berjalan di browser Anda.",
+  "title": "Base64 Encode dan Decode Online: Teks dan File | Toolz Baba",
+  "metaDesc": "Enkode atau dekode Base64 untuk teks dan file, buat data URI untuk gambar, atau ubah Base64 kembali menjadi file. Gratis, jalan di browser Anda.",
+  "steps": [
+   "Tempel teks atau tambahkan file.",
+   "Enkode atau dekode.",
+   "Salin hasilnya, atau unduh file hasil dekode."
+  ],
+  "faq": [
+   {
+    "q": "Apa itu data URI?",
+    "a": "Gambar yang ditulis sebagai teks Base64, yang bisa langsung dimasukkan ke HTML atau CSS sebagai pengganti tautan file."
+   },
+   {
+    "q": "Apakah mendukung teks Hindi dan emoji?",
+    "a": "Ya, enkode teks mendukung Unicode penuh."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. Alat ini berjalan di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "image-cdn": {
+  "name": "Gambar ke Link CDN",
+  "desc": "Unggah gambar dan dapatkan link langsung dalam semua format (JPG, PNG, WebP, AVIF...) dengan opsi ubah ukuran.",
+  "about": "Unggah gambar dan dapatkan link langsung ke gambar itu dalam format JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, dan ICO. Tambahkan ?w=800 ke link mana pun untuk mengubah ukurannya. Versi hasil konversi disimpan di cache agar cepat dimuat.",
+  "tabAll": "Link gambar"
+ },
+ "split-audio": {
+  "name": "Potong & Pisah Audio",
+  "desc": "Potong bagian file audio yang Anda mau, atau pisahkan menjadi bagian dengan durasi tertentu atau bagian yang sama panjang.",
+  "about": "Potong klip dari lagu, rekaman, atau pesan suara: putar, tandai awal dan akhir bagiannya, tambahkan fade in atau fade out, lalu simpan sebagai MP3, M4A, WAV, OGG, atau FLAC. Atau pisahkan file panjang menjadi trek yang lebih pendek, baik setiap beberapa menit maupun menjadi beberapa bagian yang sama panjang, dan dapatkan dalam ZIP. Anda juga bisa mengambil suara dari file video. Semuanya berjalan di browser Anda.",
+  "title": "Pemotong Audio Online Gratis: Potong dan Pisah MP3 | Toolz Baba",
+  "metaDesc": "Potong klip dari lagu atau rekaman dengan fade, atau pisahkan file panjang menjadi bagian sama panjang. Simpan sebagai MP3, WAV, dan lainnya. Gratis.",
+  "tabAll": "Pisah audio",
+  "steps": [
+   "Tambahkan file audio (atau video untuk diambil suaranya).",
+   "Tandai bagian yang dipertahankan dan tambahkan fade, atau pilih pisah setiap beberapa menit atau menjadi bagian sama panjang.",
+   "Simpan sebagai MP3, M4A, WAV, OGG, atau FLAC."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memotong bagian dari lagu?",
+    "a": "Tambahkan lagu, putar, tandai awal dan akhir bagian Anda, tambahkan fade jika mau, lalu simpan."
+   },
+   {
+    "q": "Bisakah memisahkan rekaman panjang menjadi beberapa bagian?",
+    "a": "Bisa, setiap beberapa menit atau menjadi beberapa bagian sama panjang, dikirim dalam ZIP."
+   },
+   {
+    "q": "Apakah audio saya diunggah?",
+    "a": "Tidak. Semuanya berjalan di browser Anda."
+   }
+  ]
+ },
+ "font-library": {
+  "name": "Pustaka Font",
+  "desc": "Jelajahi dan pratinjau 50 font gratis, termasuk aksara Hindi dan India lainnya, lalu unduh.",
+  "about": "Pustaka 50 font gratis yang bisa Anda cari, pratinjau dengan teks sendiri, dan unduh: keluarga sans-serif, serif, display, tulisan tangan, dan monospace, ditambah font Hindi (Devanagari), Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, dan Malayalam. Setiap kartu menunjukkan aksara yang bisa digambar font tersebut dan lisensinya (sebagian besar berlisensi SIL Open Font License, jadi bebas dipakai untuk karya komersial juga). Unduh font apa pun sebagai ZIP beserta catatan lisensinya, salin CSS siap pakai, atau gunakan langsung di Editor PDF.",
+  "title": "Download Font Gratis: 50 Font Termasuk Font Hindi | Toolz Baba",
+  "metaDesc": "Pratinjau dan unduh 50 font gratis dengan teks Anda sendiri, termasuk font Hindi, Tamil, Telugu, Bengali, dan Gujarati, sebagian besar gratis untuk komersial.",
+  "steps": [
+   "Cari atau jelajahi 50 font.",
+   "Ketik teks Anda sendiri untuk pratinjau.",
+   "Unduh font sebagai ZIP, salin CSS-nya, atau gunakan di Editor PDF."
+  ],
+  "faq": [
+   {
+    "q": "Apakah font ini gratis untuk penggunaan komersial?",
+    "a": "Sebagian besar berlisensi SIL Open Font License, yang mengizinkan penggunaan komersial. Setiap kartu font menunjukkan lisensinya."
+   },
+   {
+    "q": "Apakah ada font Hindi?",
+    "a": "Ya. Ada font Hindi (Devanagari), ditambah Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada, dan Malayalam."
+   }
+  ]
+ },
+ "pdf-editor": {
+  "name": "Editor PDF",
+  "desc": "Edit PDF di browser Anda: ubah teks, tambah teks dengan 50 font, gambar, bentuk, dan sorotan, lalu unduh sebagai PDF, Word, gambar, atau teks.",
+  "about": "Buka PDF dan edit langsung di halamannya. Klik baris teks mana pun untuk mengubahnya, tambahkan teks baru dengan pilihan 50 font gratis (termasuk Hindi dan aksara India lainnya), masukkan gambar, gambar persegi panjang, lingkaran, garis, dan panah, beri sorotan, gambar dengan tangan, tutup bagian yang ingin dihilangkan dengan warna putih, putar atau hapus halaman, dan tambahkan halaman kosong. Setelah selesai, unduh hasilnya sebagai PDF, file Word, gambar halaman, atau teks biasa. Semuanya dikerjakan di browser Anda, jadi PDF Anda tidak pernah diunggah.",
+  "title": "Editor PDF Online Gratis: Edit Teks di PDF | Toolz Baba",
+  "metaDesc": "Edit teks PDF, tambah teks dengan 50 font termasuk Hindi, gambar, bentuk, dan sorotan, lalu simpan sebagai PDF atau Word. Gratis, PDF tidak pernah diunggah.",
+  "steps": [
+   "Buka PDF Anda.",
+   "Klik teks untuk mengubahnya, atau tambahkan teks, gambar, bentuk, sorotan, dan coretan.",
+   "Unduh sebagai PDF, Word, gambar halaman, atau teks."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengedit teks di PDF?",
+    "a": "Buka PDF lalu klik baris teks yang ingin diubah, kemudian ketik. Anda juga bisa menambahkan teks baru dengan 50 font gratis."
+   },
+   {
+    "q": "Bisakah mengetik dalam bahasa Hindi?",
+    "a": "Bisa. Fontnya mencakup Hindi dan aksara India lainnya."
+   },
+   {
+    "q": "Apakah PDF saya diunggah?",
+    "a": "Tidak. Semuanya dikerjakan di browser Anda, jadi PDF Anda tidak pernah diunggah."
+   }
+  ]
+ },
+ "crop-pdf": {
+  "name": "Potong PDF",
+  "desc": "Buang margin putih halaman PDF secara otomatis, atau potong sesuai margin pilihan Anda.",
+  "about": "Pangkas halaman PDF agar isinya memenuhi layar: bagus untuk membaca makalah dan buku hasil pindai di ponsel atau e-reader, atau untuk membuang tanda potong dari file cetak. Mode otomatis menemukan isi di setiap halaman dan menghapus tepi kosongnya; mode manual memotong margin yang Anda ketik dalam milimeter. Pilih semua halaman atau satu rentang.",
+  "title": "Potong PDF Online Gratis: Hapus Margin Putih | Toolz Baba",
+  "metaDesc": "Potong halaman PDF online: buang margin putih otomatis atau dalam milimeter, untuk semua halaman atau satu rentang. Gratis, tanpa daftar, tanpa unggah.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih otomatis atau margin Anda sendiri.",
+   "Unduh PDF yang sudah dipotong."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara memotong margin PDF?",
+    "a": "Tambahkan PDF, biarkan Otomatis terpilih, lalu klik Potong PDF. Margin putih di setiap halaman dibuang, dengan menyisakan sedikit ruang di sekitar isi."
+   },
+   {
+    "q": "Apakah bagian yang dipotong dihapus?",
+    "a": "Bagian itu disembunyikan (area halaman yang terlihat diubah), jadi ukuran file tetap hampir sama dan tidak ada yang ditulis ulang di halaman."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "flatten-pdf": {
+  "name": "Ratakan PDF",
+  "desc": "Kunci kolom formulir, komentar, dan tanda tangan ke dalam halaman agar tidak bisa diubah.",
+  "about": "Ratakan PDF sebelum Anda kirim agar formulir yang sudah diisi, tanda tangan, komentar, dan sorotan menjadi bagian dari halaman dan tidak bisa lagi diedit, dipindah, atau dihapus. Teks tetap tajam dan bisa dicari. Butuh lebih? Ubah setiap halaman menjadi gambar, sehingga tidak ada apa pun di file yang bisa diedit atau disalin sama sekali.",
+  "title": "Ratakan PDF Online Gratis: Kunci Formulir dan Komentar | Toolz Baba",
+  "metaDesc": "Ratakan PDF online: kunci formulir yang sudah diisi, tanda tangan, dan komentar ke dalam halaman, atau ubah halaman menjadi gambar. Gratis, tanpa unggah.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih formulir dan komentar, atau semuanya menjadi gambar.",
+   "Unduh PDF yang sudah diratakan."
+  ],
+  "faq": [
+   {
+    "q": "Apa fungsi meratakan PDF?",
+    "a": "Ini menggabungkan kolom formulir, komentar, stempel, dan tanda tangan ke dalam isi halaman, sehingga terlihat sama di mana pun dan tidak bisa lagi diubah."
+   },
+   {
+    "q": "Apakah orang masih bisa menyalin teksnya?",
+    "a": "Dengan formulir dan komentar, ya: teks tetap bisa dicari. Pilih Semuanya menjadi gambar jika tidak boleh disalin."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "compare-pdf": {
+  "name": "Bandingkan PDF",
+  "desc": "Temukan setiap perbedaan teks di dua versi PDF, lengkap dengan laporan yang jelas.",
+  "about": "Periksa apa yang berubah di antara dua versi kontrak, skripsi, atau penawaran. Tambahkan PDF lama dan yang baru: setiap kata yang dihapus atau ditambahkan didaftar bersama teks di sekitarnya dan halamannya, dalam laporan PDF yang bisa Anda simpan atau bagikan. Hanya teks yang dibandingkan, bukan gambar atau tata letak.",
+  "title": "Bandingkan PDF Online Gratis: Temukan Perbedaan Dua PDF | Toolz Baba",
+  "metaDesc": "Bandingkan dua PDF dan lihat setiap kata yang ditambah dan dihapus, lengkap dengan nomor halaman. Gratis, tanpa daftar, file tetap di perangkat Anda.",
+  "steps": [
+   "Tambahkan PDF lama, lalu PDF baru.",
+   "Klik Bandingkan PDF.",
+   "Buka atau unduh laporannya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara membandingkan dua file PDF?",
+    "a": "Tambahkan versi lama lebih dulu dan versi baru kedua, lalu klik Bandingkan PDF. Laporan menunjukkan teks yang dihapus dengan warna merah dan yang ditambahkan dengan warna hijau, beserta nomor halaman."
+   },
+   {
+    "q": "Apakah gambar dan tata letak juga dibandingkan?",
+    "a": "Tidak, yang dibandingkan adalah kata-katanya. Memindahkan paragraf akan muncul sebagai dihapus di satu tempat dan ditambahkan di tempat lain."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "repair-pdf": {
+  "name": "Perbaiki PDF",
+  "desc": "Perbaiki PDF rusak yang tidak bisa dibuka atau menampilkan error, dan simpan salinan yang bersih.",
+  "about": "PDF bisa rusak karena unduhan terputus, disk penuh, atau program yang bermasalah, lalu tidak bisa dibuka, menampilkan error, atau kehilangan halaman. Perbaiki PDF membangun ulang struktur internal file, memulihkan setiap halaman yang bisa dibaca, dan menyimpan salinan yang bersih. Ini juga membantu untuk PDF yang ditolak situs unggah.",
+  "title": "Perbaiki PDF Online Gratis: Betulkan File PDF Rusak atau Corrupt | Toolz Baba",
+  "metaDesc": "Perbaiki PDF yang rusak atau corrupt di browser Anda: strukturnya dibangun ulang dan halaman yang terbaca dipulihkan ke salinan bersih. Gratis, tanpa unggah.",
+  "steps": [
+   "Tambahkan PDF yang rusak.",
+   "Klik Perbaiki PDF.",
+   "Unduh salinan yang sudah diperbaiki."
+  ],
+  "faq": [
+   {
+    "q": "Apakah semua PDF rusak bisa diperbaiki?",
+    "a": "Sebagian besar file dengan struktur rusak bisa dibangun ulang. Jika sebagian file hilang atau tertimpa, halaman yang masih terbaca akan dipulihkan."
+   },
+   {
+    "q": "Mengapa situs unggah menolak PDF saya?",
+    "a": "Sering kali file memiliki kesalahan struktur kecil. Salinan yang diperbaiki dan disimpan dengan bersih biasanya diterima."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "pdf-to-text": {
+  "name": "PDF ke Teks",
+  "desc": "Ambil semua teks dari PDF sebagai file teks biasa (TXT).",
+  "about": "Menyalin teks dari PDF halaman demi halaman itu lambat dan memutus baris. PDF ke Teks mengambil semua kata sekaligus dan menyimpannya sebagai file TXT yang bisa dibuka di mana saja, ditempel ke email, atau dipakai di program lain. Bekerja dengan bahasa apa pun, dan Anda bisa menandai di mana setiap halaman dimulai. Untuk hasil pindai, gunakan OCR PDF.",
+  "title": "Konverter PDF ke Teks Online Gratis: Ekstrak Teks ke TXT | Toolz Baba",
+  "metaDesc": "Ekstrak semua teks dari PDF ke file TXT biasa, bahasa apa pun, dengan penanda halaman jika mau. Gratis, tanpa daftar, tanpa unggah.",
+  "steps": [
+   "Tambahkan PDF Anda.",
+   "Pilih halamannya.",
+   "Unduh file teksnya."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana cara mengekstrak teks dari PDF?",
+    "a": "Tambahkan PDF lalu klik Ambil teksnya. File TXT berisi semua kata akan diunduh."
+   },
+   {
+    "q": "Mengapa tidak ada teks yang ditemukan?",
+    "a": "PDF-nya kemungkinan hasil pindai, yaitu gambar halaman. Gunakan OCR PDF untuk membaca kata-kata dari gambar."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda, jadi file Anda tetap ada di perangkat dan tidak pernah diunggah."
+   }
+  ]
+ },
+ "compress-png": {
+  "name": "Kompres PNG",
+  "desc": "Perkecil file PNG dan pertahankan transparansinya. Kurangi warna, ubah ukuran, dan kompres banyak PNG sekaligus. Jalan di browser Anda.",
+  "about": "PNG adalah format lossless, jadi file PNG sering kali jauh lebih besar dari yang seharusnya, terutama screenshot, logo, dan grafik dengan warna datar. Alat ini memperkecilnya dengan mengurangi gambar menjadi palet optimal hingga 256 warna, yang untuk kebanyakan grafik terlihat sama tetapi bisa memangkas ukuran setengahnya atau lebih. Area transparan tetap transparan. Anda juga bisa membatasi lebar untuk memperkecil PNG yang sangat besar, atau mengonversi ke WebP untuk file yang lebih kecil lagi. Kompres hingga 40 PNG sekaligus; hasilnya menunjukkan persis seberapa kecil setiap file. Jika PNG sudah sekecil mungkin, Anda mendapat file aslinya kembali, bukan file yang lebih besar. Untuk foto, JPG atau WebP akan selalu lebih kecil daripada PNG. File PNG Anda tidak pernah meninggalkan perangkat.",
+  "title": "Kompres PNG Online Gratis: Perkecil Ukuran File PNG | Toolz Baba",
+  "tab": "PNG"
+ },
+ "compress-jpeg": {
+  "name": "Kompres JPEG",
+  "desc": "Perkecil ukuran foto JPEG dengan slider kualitas dan ukuran sebelum/sesudah secara langsung. Kompres banyak JPEG sekaligus. Jalan di browser Anda.",
+  "about": "Kompresi JPEG adalah kompromi antara ukuran file dan kualitas. Alat ini membiarkan Anda memilih kualitasnya sendiri: sekitar 70 sampai 80 persen biasanya mustahil dibedakan dari aslinya dan sering membuat foto beberapa kali lebih kecil. Anda juga bisa mengatur lebar maksimum untuk memperkecil foto yang sangat besar, atau mengonversi ke WebP atau AVIF jika ingin file sekecil mungkin. Tambahkan hingga 40 file JPEG sekaligus dan unduh bersamaan sebagai ZIP. Jika JPEG sudah terkompresi dengan baik, alat ini mengembalikan file aslinya, bukan file yang lebih besar. Semuanya berjalan di browser Anda, jadi foto Anda tidak pernah diunggah.",
+  "title": "Kompres JPEG Online Gratis: Perkecil Ukuran JPEG | Toolz Baba",
+  "tab": "JPEG"
+ },
+ "compress-jpg": {
+  "name": "Kompres JPG",
+  "desc": "Perkecil foto JPG untuk email, WhatsApp, dan formulir. Pilih kualitas, batasi lebar, kompres banyak file JPG sekaligus.",
+  "about": "Foto langsung dari ponsel atau kamera sering berukuran 3 sampai 10 MB, terlalu besar untuk email, WhatsApp, portal lowongan kerja, atau formulir online. Letakkan file JPG Anda di sini, pilih kualitas (75 persen adalah titik awal yang bagus) dan, jika mau, lebar maksimum, lalu dapatkan file yang jauh lebih kecil yang tetap terlihat tajam di layar. JPG dan JPEG adalah format yang sama dengan ekstensi file berbeda, dan keduanya ditangani di sini. Jika Anda butuh ukuran pas seperti di bawah 50 KB untuk formulir, gunakan alat Ubah Ukuran Foto & Tanda Tangan ke KB, yang mencari kualitas terbaik untuk batas Anda. Foto Anda diproses di perangkat sendiri dan tidak diunggah.",
+  "title": "Kompres JPG Online Gratis: Perkecil Ukuran JPG | Toolz Baba",
+  "tab": "JPG / JPEG"
+ },
+ "compress-gif": {
+  "name": "Kompres GIF",
+  "desc": "Perkecil ukuran file GIF animasi dengan warna lebih sedikit, lebar lebih kecil, atau frame rate lebih rendah. Jalan di browser Anda.",
+  "about": "GIF animasi cepat sekali membesar. Alat ini memperkecilnya sambil mempertahankan animasi, dengan tiga cara: warna lebih sedikit (GIF mengizinkan 256, tetapi 64 atau 128 sering terlihat baik-baik saja), lebar lebih kecil, dan frame rate lebih rendah. Coba kurangi warna dulu, karena biasanya paling sedikit mengubah tampilan. GIF dikodekan ulang dengan palet warna optimal untuk seluruh animasi, dan Anda melihat ukuran sebelum dan sesudah. Jika GIF sudah terkompresi dengan baik, Anda mendapat file aslinya kembali, bukan yang lebih besar. Untuk penghematan terbesar, pertimbangkan mengonversi GIF menjadi video dengan alat GIF ke Video, yang biasanya jauh lebih kecil. GIF Anda diproses di browser dan tidak pernah diunggah.",
+  "title": "Kompres GIF Online Gratis: Perkecil Ukuran GIF Animasi | Toolz Baba",
+  "tab": "GIF"
+ },
+ "compress-jpg-under-10kb": {
+  "name": "Kompres JPG di Bawah 10 KB",
+  "desc": "Padatkan foto atau tanda tangan JPG hingga di bawah 10 KB. Ketik ukurannya, lihat hasilnya sebelum mengunduh. Jalan di browser Anda.",
+  "about": "10 KB sangat kecil, kira-kira seukuran file teks pendek, dan merupakan batas yang ditetapkan beberapa formulir online untuk tanda tangan atau foto yang sangat kecil. Pindaian tanda tangan atau potongan wajah kecil muat dengan mudah; foto kamera penuh harus diperkecil banyak, jadi halaman ini mengurangi ukuran piksel gambar dengan sendirinya ketika menurunkan kualitas saja tidak cukup. Untuk hasil terbaik di 10 KB, potong gambar dulu agar hanya berisi yang diminta formulir: lebih sedikit piksel berarti lebih banyak kualitas tersisa untuk tiap piksel.",
+  "title": "Kompres JPG ke Bawah 10 KB Online Gratis | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPG lebih kecil dari 10 KB?",
+    "a": "Tambahkan gambar, biarkan ukuran di 10 KB, dan periksa pratinjaunya. Halaman ini menurunkan kualitas dan, jika perlu, lebar dan tinggi sampai file di bawah 10 KB, lalu Anda klik Unduh."
+   },
+   {
+    "q": "Apakah foto masih terbaca pada 10 KB?",
+    "a": "Tanda tangan, stempel, atau potongan kecil ala pas foto biasanya masih. Foto besar yang detail menjadi sangat kecil dan lembut pada 10 KB, jadi untuk foto coba 20 KB atau 50 KB."
+   },
+   {
+    "q": "Bisakah dipakai untuk tanda tangan?",
+    "a": "Bisa. Pindai atau foto tanda tangan di kertas putih, potong rapat di sekelilingnya, lalu tambahkan di sini. Gambar kecil hitam di atas putih terkompresi dengan sangat baik."
+   }
+  ]
+ },
+ "compress-jpg-under-20kb": {
+  "name": "Kompres JPG di Bawah 20 KB",
+  "desc": "Kompres JPG hingga di bawah 20 KB untuk formulir ujian, lamaran kerja, dan beasiswa. Pilih ukuran dan lihat hasilnya dulu.",
+  "about": "20 KB adalah batas umum di portal yang meminta foto atau tanda tangan di samping formulir pendaftaran yang panjang. Pada ukuran ini foto wajah selebar beberapa ratus piksel masih terlihat bersih, tetapi foto kamera besar harus diperkecil dulu. Halaman ini mencoba kualitas yang baik lebih dulu, lalu menurunkan kualitas dan, hanya jika terpaksa, ukuran piksel, dan berhenti pada gambar terbaik yang masih muat di bawah 20 KB. Pratinjau menunjukkan persis apa yang akan Anda unduh, jadi Anda bisa menilai wajah atau tanda tangan sebelum menyimpan.",
+  "title": "Kompres JPG ke Bawah 20 KB Online Gratis | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPG ke 20 KB?",
+    "a": "Tambahkan gambar Anda dan biarkan ukuran di 20 KB. Alat ini mencari kualitas tertinggi yang muat dan menampilkan ukuran file baru di bawah pratinjau."
+   },
+   {
+    "q": "Foto saya 3 MB. Apakah benar-benar bisa jadi 20 KB?",
+    "a": "Biasanya bisa, karena sebagian besar ukuran foto ponsel berasal dari piksel yang tidak Anda butuhkan di formulir. Gambar diperkecil hingga selebar beberapa ratus piksel, yang lebih dari cukup untuk kolom foto kecil."
+   },
+   {
+    "q": "Apakah gambar saya diunggah ke mana pun?",
+    "a": "Tidak. Gambar diproses oleh browser Anda dan tidak pernah meninggalkan perangkat."
+   }
+  ]
+ },
+ "compress-jpg-under-50kb": {
+  "name": "Kompres JPG di Bawah 50 KB",
+  "desc": "Perkecil JPG hingga di bawah 50 KB tanpa terlihat berantakan. Atur ukuran, lihat hasilnya, unduh. Gratis dan privat.",
+  "about": "50 KB adalah ukuran yang diizinkan banyak situs untuk foto profil, foto KTP, atau pindaian dokumen. Cukup lega sehingga potret selebar sekitar 500 piksel tetap menjaga wajah yang jelas dan tepi yang tajam. Tambahkan JPG Anda, biarkan ukuran di 50 KB dan halaman ini menghitung kualitas terbaik yang muat. Gambar besar juga diperkecil sedikit, karena foto selebar 4000 piksel tidak bisa muat dalam 50 KB pada kualitas apa pun. Jika hasilnya terlalu lembut, naikkan batasnya atau potong bagian yang tidak Anda butuhkan.",
+  "title": "Kompres JPG ke Bawah 50 KB Online Gratis | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPG di bawah 50 KB?",
+    "a": "Tambahkan file, biarkan target di 50 KB, dan unduh saat pratinjau sudah terlihat pas. Alat ini memilihkan kualitasnya untuk Anda."
+   },
+   {
+    "q": "Seperti apa tampilan foto 50 KB?",
+    "a": "Potret selebar sekitar 400 sampai 600 piksel terlihat bersih di layar. Tidak dimaksudkan untuk dicetak besar."
+   },
+   {
+    "q": "Bisakah mengompres beberapa gambar ke 50 KB sekaligus?",
+    "a": "Bisa. Tambahkan semuanya, lalu gunakan Unduh semua untuk mendapatkan ZIP di mana setiap gambar di bawah 50 KB."
+   }
+  ]
+ },
+ "compress-jpg-under-100kb": {
+  "name": "Kompres JPG di Bawah 100 KB",
+  "desc": "Kompres JPG hingga di bawah 100 KB, batas yang diminta kebanyakan formulir lamaran kerja, KYC, dan penerimaan. Pilih ukuran dan lihat pratinjaunya.",
+  "about": "100 KB adalah batas unggah yang paling sering Anda temui: portal lowongan kerja, formulir KYC dan bank, pendaftaran kuliah, beasiswa, dan situs pemerintah. Foto ponsel biasa berukuran 20 sampai 50 kali lebih besar, jadi butuh kompresi sungguhan, tetapi 100 KB masih menyisakan ruang untuk potret atau foto dokumen yang mudah dibaca. Halaman ini mencari kualitas terbaik yang tetap di bawah 100 KB dan menampilkan hasilnya di samping aslinya, sehingga Anda bisa memeriksa bahwa teks dan wajah masih jelas sebelum mengunduh.",
+  "title": "Kompres JPG ke Bawah 100 KB Online Gratis | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil JPG ke 100 KB?",
+    "a": "Tambahkan gambar, biarkan target di 100 KB dan lihat pratinjaunya. Ukuran yang ditampilkan di bawahnya adalah ukuran asli file yang akan Anda unduh."
+   },
+   {
+    "q": "Apakah dokumen tetap terbaca pada 100 KB?",
+    "a": "Foto halaman cetak biasanya masih jika tulisannya cukup besar. Jika tulisan kecilnya jadi buram, coba 150 KB atau 200 KB."
+   },
+   {
+    "q": "Mengapa file saya sedikit di bawah 100 KB, bukan tepat 100?",
+    "a": "Alat ini memilih kualitas tertinggi yang tidak melewati batas, jadi hasilnya persis di bawahnya."
+   }
+  ]
+ },
+ "compress-jpg-under-150kb": {
+  "name": "Kompres JPG di Bawah 150 KB",
+  "desc": "Buat JPG lebih kecil dari 150 KB dengan ukuran pilihan Anda. Lihat hasilnya sebelum mengunduh. Jalan di browser Anda.",
+  "about": "150 KB berada di antara batas 100 KB yang sangat ketat dan batas 200 KB yang lebih longgar, dan beberapa formulir pendaftaran dan marketplace memakainya. Tambahan 50 KB dari target 100 KB terasa pada wajah atau teks hasil foto. Tambahkan JPG Anda dan halaman ini menurunkan kualitas sampai file persis di bawah 150 KB, memperkecil ukuran piksel hanya jika itu tidak cukup. Jika foto Anda sudah di bawah 150 KB, foto itu dibiarkan apa adanya, bukan dikompres ulang dan dibuat lebih buruk.",
+  "title": "Kompres JPG ke Bawah 150 KB Online Gratis | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPG ke 150 KB?",
+    "a": "Tambahkan file, atur ukuran ke 150 KB (atau klik tombol 150 KB), lalu unduh setelah memeriksa pratinjau."
+   },
+   {
+    "q": "Bagaimana kalau gambar saya sudah di bawah 150 KB?",
+    "a": "Maka gambar dibiarkan tak tersentuh. Mengompres ulang JPG kecil hanya mengurangi kualitas."
+   },
+   {
+    "q": "Apakah 150 KB cukup untuk foto yang jelas?",
+    "a": "Untuk potret atau dokumen yang dilihat di layar, ya. Foto lanskap besar akan terlihat lebih lembut, karena harus memuat lebih sedikit piksel."
+   }
+  ]
+ },
+ "compress-jpg-under-200kb": {
+  "name": "Kompres JPG di Bawah 200 KB",
+  "desc": "Kompres JPG hingga di bawah 200 KB untuk formulir, email, dan unggahan. Atur ukuran, lihat hasilnya, unduh gratis.",
+  "about": "200 KB adalah batas yang nyaman untuk foto KTP, sertifikat, dan lampiran, dan banyak portal pemerintah dan kampus memakainya. Pada ukuran ini potret tetap bersih dan halaman yang difoto tetap terbaca. Halaman ini mencari kualitas tertinggi yang muat di bawah 200 KB, sehingga Anda mempertahankan detail sebanyak yang diizinkan batas. Anda melihat gambar asli dan hasilnya berdampingan beserta ukurannya, dan jika Anda berubah pikiran soal batasnya, Anda bisa menggeser slider dan pratinjau langsung diperbarui.",
+  "title": "Kompres JPG ke Bawah 200 KB Online Gratis | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil JPG ke 200 KB?",
+    "a": "Tambahkan, biarkan target di 200 KB, periksa pratinjau, lalu klik Unduh."
+   },
+   {
+    "q": "Apakah 200 KB membuat foto terlihat jelek?",
+    "a": "Tidak untuk penggunaan di layar. Foto tipikal selebar 1000 piksel terlihat bagus pada 200 KB. Foto yang sangat besar diperkecil agar muat."
+   },
+   {
+    "q": "Bisakah mengubah ukuran tanpa mengulang dari awal?",
+    "a": "Bisa. Ketik ukuran baru atau geser slider dan pratinjau langsung diperbarui."
+   }
+  ]
+ },
+ "compress-jpg-under-300kb": {
+  "name": "Kompres JPG di Bawah 300 KB",
+  "desc": "Perkecil JPG hingga di bawah 300 KB sambil menjaganya tetap tajam. Pilih ukuran, bandingkan dengan aslinya, unduh.",
+  "about": "300 KB adalah ukuran yang bagus untuk gambar yang harus tetap jelas: foto profil yang detail, sertifikat hasil pindai, foto produk untuk listing, atau gambar yang ingin Anda kirim lewat email bersama beberapa gambar lain. Kebanyakan foto ponsel 10 sampai 30 kali lebih besar, dan perbedaannya sulit terlihat di layar. Alat ini menjaga kualitas tertinggi yang tetap di bawah 300 KB dan hanya mengurangi dimensi ketika kualitas saja tidak cukup. Gunakan pratinjau untuk membandingkan dengan aslinya sebelum mengunduh.",
+  "title": "Kompres JPG ke Bawah 300 KB Online Gratis | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPG ke 300 KB?",
+    "a": "Tambahkan, pilih 300 KB, lalu unduh setelah pratinjau terlihat pas."
+   },
+   {
+    "q": "Apakah JPG 300 KB bagus untuk situs web?",
+    "a": "Cukup baik untuk gambar konten di kebanyakan halaman. Untuk banner hero besar, batas yang sedikit lebih tinggi seperti 500 KB menjaga lebih banyak detail."
+   },
+   {
+    "q": "Bisakah mengompres satu folder penuh foto?",
+    "a": "Tambahkan banyak file sekaligus lalu gunakan Unduh semua (ZIP). Setiap gambar dikompres sendiri-sendiri agar muat di bawah 300 KB."
+   }
+  ]
+ },
+ "compress-jpg-under-500kb": {
+  "name": "Kompres JPG di Bawah 500 KB",
+  "desc": "Kompres JPG hingga di bawah 500 KB untuk email, WhatsApp, dan unggahan. Atur ukuran, lihat pratinjau, lalu unduh. Privat dan gratis.",
+  "about": "500 KB adalah setengah megabyte: cukup kecil untuk WhatsApp dan email, cukup besar agar gambar layar penuh tetap bagus. Ini batas di banyak iklan baris, CMS, dan sistem tiket. Pada 500 KB kebanyakan foto hanya butuh kompresi ringan dan menjaga hampir semua detailnya. Halaman ini mencari kualitas terbaik yang muat, menampilkan kedua versi berdampingan, dan membiarkan file yang sudah di bawah batas apa adanya.",
+  "title": "Kompres JPG ke Bawah 500 KB Online Gratis | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPG di bawah 500 KB?",
+    "a": "Tambahkan gambar, klik tombol 500 KB atau ketik 500, periksa pratinjau, lalu unduh."
+   },
+   {
+    "q": "Apakah saya akan melihat perbedaan dari aslinya?",
+    "a": "Biasanya tidak di layar ponsel atau laptop. Perbesar pratinjau untuk membandingkan detail halus."
+   },
+   {
+    "q": "Bisakah hasilnya dikirim lewat WhatsApp?",
+    "a": "Bisa, JPG 500 KB terkirim cepat bahkan di koneksi lambat."
+   }
+  ]
+ },
+ "compress-jpg-under-1mb": {
+  "name": "Kompres JPG di Bawah 1 MB",
+  "desc": "Perkecil JPG hingga di bawah 1 MB dengan hampir tanpa penurunan yang terlihat. Pilih ukuran, lihat hasilnya, lalu unduh.",
+  "about": "1 MB adalah batas di banyak formulir web, sistem tiket dukungan, marketplace, dan gerbang email. Foto ponsel biasanya 3 sampai 8 MB, jadi untuk mencapai di bawah 1 MB dibutuhkan kompresi sedang yang jarang terlihat. Halaman ini mencoba kualitas tinggi lebih dulu dan turun hanya sejauh yang diperlukan, sehingga Anda mendapat gambar terbaik yang muat. Jika file Anda sudah di bawah 1 MB, file itu dibiarkan tak tersentuh, jadi tidak ada yang hilang tanpa alasan.",
+  "title": "Kompres JPG ke Bawah 1 MB Online Gratis | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPG ke bawah 1 MB?",
+    "a": "Tambahkan foto, pilih 1 MB, lalu bandingkan pratinjau dengan aslinya. Ukuran di bawah pratinjau adalah ukuran asli yang diunduh."
+   },
+   {
+    "q": "Apakah JPG 1 MB terlihat sama?",
+    "a": "Untuk kebanyakan foto terlihat sama di layar. Hanya gambar yang sangat besar atau sangat detail yang kehilangan detail terlihat."
+   },
+   {
+    "q": "Bisakah mengetik 1,5 MB atau 0,8 MB?",
+    "a": "Bisa. Ketik angka apa pun dan ganti antara KB dan MB. Pratinjau diperbarui saat Anda mengetik."
+   }
+  ]
+ },
+ "compress-jpg-under-2mb": {
+  "name": "Kompres JPG di Bawah 2 MB",
+  "desc": "Kompres JPG hingga di bawah 2 MB untuk email dan unggahan, dengan kualitas hampir penuh. Atur ukuran, lihat pratinjau, unduh.",
+  "about": "Banyak situs web dan layanan email berhenti menerima gambar di atas 2 MB, dan foto ponsel modern sering berukuran 4 sampai 10 MB. Untuk mencapai di bawah 2 MB hanya butuh kompresi ringan, jadi gambar biasanya terlihat hampir sama dengan aslinya. Halaman ini menjaga kualitas tertinggi yang muat dan menampilkan ukuran sebelum dan sesudah. Jika foto Anda sudah di bawah 2 MB, foto itu dibiarkan apa adanya, dan jika Anda butuh lebih kecil, Anda bisa menurunkan batas dengan slider.",
+  "title": "Kompres JPG ke Bawah 2 MB Online Gratis | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil foto ke bawah 2 MB?",
+    "a": "Tambahkan foto, biarkan target di 2 MB, lalu unduh setelah melihat pratinjau."
+   },
+   {
+    "q": "Apakah kualitasnya turun?",
+    "a": "Hanya sedikit. Kompresi ringan sudah cukup untuk dari beberapa megabyte menjadi di bawah 2 MB."
+   },
+   {
+    "q": "Bagaimana kalau foto saya 20 MB?",
+    "a": "Tetap bisa. Alat ini menurunkan kualitas dan, jika perlu, ukuran piksel sampai file muat."
+   }
+  ]
+ },
+ "compress-pdf-under-100kb": {
+  "name": "Kompres PDF di Bawah 100 KB",
+  "desc": "Kompres PDF hingga di bawah 100 KB untuk formulir dan email. Alat ini mencoba pengaturan yang lebih kuat sampai file muat. Jalan di browser Anda.",
+  "about": "100 KB adalah batas yang ketat, dan beberapa formulir online dan portal menetapkannya untuk unggahan dokumen. PDF yang kebanyakan teks bisa sudah kecil, sedangkan hasil pindai atau PDF dengan foto sering berukuran beberapa megabyte karena gambarnya. Halaman ini memperkecil gambar di dalam PDF, mencoba pengaturan yang makin kuat sampai file di bawah 100 KB, lalu menampilkan halaman pertama agar Anda bisa memeriksa bahwa masih terbaca. Hasil pindai banyak halaman mungkin terlalu besar untuk mencapai 100 KB: pisahkan menjadi beberapa bagian dulu.",
+  "title": "Kompres PDF ke Bawah 100 KB Online Gratis | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres PDF ke bawah 100 KB?",
+    "a": "Tambahkan PDF, biarkan ukuran di 100 KB, lalu klik Kompres. Alat ini menurunkan kualitas gambar selangkah demi selangkah sampai file muat."
+   },
+   {
+    "q": "Mengapa PDF saya tidak bisa di bawah 100 KB?",
+    "a": "Teks, font, dan struktur halaman tidak bisa mengecil banyak. PDF panjang dengan banyak halaman pindai terlalu besar untuk 100 KB, jadi pisahkan dan kompres setiap bagiannya."
+   },
+   {
+    "q": "Apakah PDF saya keluar dari komputer saya?",
+    "a": "Tidak. Kompresi berjalan di browser Anda, jadi file tidak pernah meninggalkan perangkat."
+   }
+  ]
+ },
+ "compress-pdf-under-200kb": {
+  "name": "Kompres PDF di Bawah 200 KB",
+  "desc": "Perkecil PDF hingga di bawah 200 KB untuk unggahan lamaran kerja, penerimaan, dan KYC. Halaman ini mencoba pengaturan lebih kuat sampai muat.",
+  "about": "200 KB adalah batas unggah yang umum untuk CV, sertifikat, atau pindaian KTP. Sebagian besar ukuran PDF seperti itu adalah gambar di dalamnya, seperti halaman pindai atau foto. Halaman ini menurunkan resolusi dan kualitas gambar tersebut secara bertahap sampai file di bawah 200 KB, dan menampilkan halaman pertama hasilnya agar Anda bisa memeriksa bahwa teksnya masih terbaca. Jika PDF sudah di bawah 200 KB, file itu dibiarkan tidak berubah.",
+  "title": "Kompres PDF ke Bawah 200 KB Online Gratis | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat PDF di bawah 200 KB?",
+    "a": "Tambahkan PDF, biarkan 200 KB sebagai ukuran, lalu klik Kompres ke bawah 200 KB."
+   },
+   {
+    "q": "Apakah teks di PDF tetap tajam?",
+    "a": "Teks asli tetap tajam karena hanya gambar yang dikompres ulang. Halaman pindai adalah gambar, jadi menjadi sedikit lebih lembut."
+   },
+   {
+    "q": "Bisakah mengompres beberapa PDF sekaligus?",
+    "a": "Bisa, hingga 10. Hasilnya diunduh dalam satu ZIP."
+   }
+  ]
+ },
+ "compress-pdf-under-300kb": {
+  "name": "Kompres PDF di Bawah 300 KB",
+  "desc": "Kompres PDF hingga di bawah 300 KB dengan ukuran pilihan Anda. Pratinjau halaman pertama menunjukkan hasilnya. Gratis, di browser Anda.",
+  "about": "300 KB cukup untuk dokumen pendek dengan beberapa gambar atau beberapa halaman pindai. Halaman ini mengompres ulang gambar di dalam PDF Anda secara bertahap, dari pengaturan ringan hingga kuat, dan berhenti di pengaturan pertama yang membuat file di bawah 300 KB, sehingga PDF menjaga kualitas sebanyak yang diizinkan batas. Font, tautan, dan teks asli dibiarkan. Jika batas tidak bisa dicapai, Anda diberi tahu seberapa dekat hasilnya.",
+  "title": "Kompres PDF ke Bawah 300 KB Online Gratis | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil PDF ke 300 KB?",
+    "a": "Tambahkan file, atur ukuran ke 300 KB, lalu klik Kompres. Anda mendapat ukuran baru dan pratinjau halaman pertama."
+   },
+   {
+    "q": "Bagaimana kalau hasilnya masih di atas 300 KB?",
+    "a": "Berarti PDF punya sedikit yang bisa diperkecil, seperti font dan teks. Halaman ini menampilkan ukuran terkecil yang dicapainya."
+   },
+   {
+    "q": "Apakah aman untuk dokumen pribadi?",
+    "a": "Ya. File diproses di perangkat Anda dan tidak diunggah."
+   }
+  ]
+ },
+ "compress-pdf-under-500kb": {
+  "name": "Kompres PDF di Bawah 500 KB",
+  "desc": "Buat PDF lebih kecil dari 500 KB untuk email dan formulir web. Atur ukuran, kompres, dan periksa halaman pertama.",
+  "about": "Setengah megabyte adalah batas umum untuk formulir web, lamaran, dan gerbang email. PDF yang dibuat dari foto atau hasil pindai sering berukuran 5 sampai 20 MB, jadi gambarnya harus dikompres ulang. Halaman ini melakukannya secara bertahap, dari lembut ke kuat, dan berhenti begitu PDF di bawah 500 KB, sehingga Anda mendapat kualitas terbaik yang muat. Untuk dokumen yang sudah di bawah 500 KB, tidak ada yang diubah.",
+  "title": "Kompres PDF ke Bawah 500 KB Online Gratis | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres PDF ke 500 KB?",
+    "a": "Tambahkan PDF lalu klik Kompres ke bawah 500 KB. Periksa halaman pertama di hasilnya sebelum mengunduh."
+   },
+   {
+    "q": "Seberapa banyak PDF bisa mengecil?",
+    "a": "PDF dari hasil pindai atau foto sering mengecil 80 persen atau lebih. PDF berisi teks biasa hampir tidak mengecil, karena sudah kecil."
+   },
+   {
+    "q": "Bisakah hasilnya dimasukkan ke email?",
+    "a": "Bisa, 500 KB jauh di bawah batas semua layanan email."
+   }
+  ]
+ },
+ "compress-pdf-under-1mb": {
+  "name": "Kompres PDF di Bawah 1 MB",
+  "desc": "Kompres PDF hingga di bawah 1 MB dengan sedikit perubahan yang terlihat. Pilih ukuran, kompres, periksa halaman pertama.",
+  "about": "1 MB adalah batas tipikal untuk lamaran, tiket dukungan, dan gerbang email, dan PDF hasil pindai banyak halaman dengan mudah berukuran 10 MB atau lebih. Untuk mencapai 1 MB, gambar di PDF dikompres ulang, dan pengaturan pertama yang paling ringan yang membuat file di bawah 1 MB dipakai, sehingga halaman tetap sejelas mungkin. Jika PDF Anda sudah di bawah 1 MB, file itu dibiarkan apa adanya.",
+  "title": "Kompres PDF ke Bawah 1 MB Online Gratis | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat PDF di bawah 1 MB?",
+    "a": "Tambahkan, biarkan ukuran di 1 MB, lalu klik Kompres. Hasilnya menampilkan ukuran baru dan halaman pertama."
+   },
+   {
+    "q": "Apakah halamannya tetap terlihat bagus?",
+    "a": "Pada 1 MB kebanyakan dokumen terlihat hampir sama di layar. PDF dengan banyak foto satu halaman penuh menjadi lebih lembut."
+   },
+   {
+    "q": "Bisakah menggabungkan PDF lalu mengompresnya?",
+    "a": "Bisa. Gabungkan dulu dengan alat Gabung PDF, lalu bawa file gabungannya ke sini."
+   }
+  ]
+ },
+ "compress-pdf-under-2mb": {
+  "name": "Kompres PDF di Bawah 2 MB",
+  "desc": "Perkecil PDF hingga di bawah 2 MB untuk unggahan dan email. Atur ukuran, kompres, dan periksa hasilnya. Privat dan gratis.",
+  "about": "Situs web dan layanan email sering membatasi 2 MB, sementara PDF hasil pindai bisa 10 sampai 50 MB. Untuk di bawah 2 MB biasanya hanya butuh kompresi ulang ringan pada gambar, jadi halaman terlihat hampir tidak berubah. Alat ini mencoba pengaturan paling lembut lebih dulu dan naik ke yang lebih kuat hanya jika perlu. Jika PDF sudah lebih kecil dari 2 MB, file itu dibiarkan apa adanya, dan Anda bisa menurunkan batas jika butuh lebih kecil lagi.",
+  "title": "Kompres PDF ke Bawah 2 MB Online Gratis | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres PDF ke 2 MB?",
+    "a": "Tambahkan PDF, biarkan ukuran di 2 MB, lalu klik Kompres ke bawah 2 MB."
+   },
+   {
+    "q": "Apakah kualitasnya turun banyak?",
+    "a": "Tidak banyak. Kompresi ringan biasanya cukup untuk 2 MB, dan Anda bisa membandingkan halaman pertama sebelum mengunduh."
+   },
+   {
+    "q": "Apakah bisa dipakai di ponsel?",
+    "a": "Bisa, di browser modern mana pun. PDF yang sangat besar lebih lambat di ponsel."
+   }
+  ]
+ },
+ "compress-png-under-10kb": {
+  "name": "Kompres PNG di Bawah 10 KB",
+  "desc": "Kompres PNG hingga di bawah 10 KB: ikon, logo kecil, dan tanda tangan di latar transparan. Pilih ukuran, pratinjau, unduh.",
+  "about": "10 KB sangat kecil untuk PNG, karena PNG menyimpan setiap piksel tanpa kehilangan. Ini cocok untuk ikon, logo sederhana, stempel, dan tanda tangan di latar transparan, dan tidak cocok untuk fotografi. Halaman ini pertama-tama mengurangi jumlah warna (dari 256 turun hingga 32), yang hampir tidak merugikan grafik datar, dan baru kemudian memperkecil ukuran piksel. Area transparan tetap transparan. Jika Anda butuh foto di bawah 10 KB, JPG akan terlihat jauh lebih baik.",
+  "title": "Kompres PNG ke Bawah 10 KB Online Gratis | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat PNG di bawah 10 KB?",
+    "a": "Tambahkan PNG dan biarkan ukuran di 10 KB. Halaman ini menurunkan jumlah warna dan, jika perlu, lebar dan tinggi sampai file muat, dan menampilkan hasilnya sebelum Anda mengunduh."
+   },
+   {
+    "q": "Apakah latar transparan tetap ada?",
+    "a": "Ya. Hasilnya tetap PNG dan menjaga transparansinya."
+   },
+   {
+    "q": "Mengapa screenshot saya masih terlalu besar?",
+    "a": "Screenshot dan foto punya banyak warna dan detail. Coba 50 KB atau lebih, atau simpan gambar sebagai JPG dengan halaman JPG."
+   }
+  ]
+ },
+ "compress-png-under-20kb": {
+  "name": "Kompres PNG di Bawah 20 KB",
+  "desc": "Perkecil PNG hingga di bawah 20 KB dan pertahankan transparansinya. Atur ukuran, bandingkan dengan aslinya, unduh. Gratis, di browser Anda.",
+  "about": "PNG di bawah 20 KB realistis untuk logo, tombol, lencana, ilustrasi kecil, atau pindaian tanda tangan. Ukuran file PNG bergantung pada berapa banyak warna yang dipakai gambar, jadi alat ini memangkas palet lebih dulu, yang hampir tidak terlihat pada grafik datar, dan memperkecil dimensi hanya jika palet saja tidak bisa mencapai 20 KB. Pratinjau menampilkan area transparan, jadi Anda bisa melihat persis apa yang akan disimpan.",
+  "title": "Kompres PNG ke Bawah 20 KB Online Gratis | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres PNG ke 20 KB?",
+    "a": "Tambahkan file, biarkan ukuran di 20 KB, periksa pratinjau, lalu klik Unduh."
+   },
+   {
+    "q": "Apakah mengurangi warna membuat gambar jelek?",
+    "a": "Untuk logo dan karya datar hampir tidak terlihat. Foto jadi terlihat berundak warna, jadi gunakan JPG untuk foto."
+   },
+   {
+    "q": "Apakah PNG diunggah ke server?",
+    "a": "Tidak. PNG dikompres di browser Anda dan tetap di perangkat."
+   }
+  ]
+ },
+ "compress-png-under-50kb": {
+  "name": "Kompres PNG di Bawah 50 KB",
+  "desc": "Buat PNG lebih kecil dari 50 KB untuk situs web dan formulir, dengan transparansi tetap terjaga. Pilih ukuran dan lihat pratinjaunya.",
+  "about": "50 KB adalah ukuran yang praktis untuk logo situs web, ikon UI, favicon, dan ilustrasi kecil. Pada ukuran ini kebanyakan grafik datar menjaga tepi yang bersih dan transparansi, dengan palet 64 sampai 256 warna. Halaman ini mencoba palet terbaik lebih dulu dan hanya memperkecil ukuran piksel jika file masih terlalu besar. Screenshot teks bisa jauh melebihi 50 KB, jadi jika hasilnya jadi kecil dan buram, naikkan batasnya.",
+  "title": "Kompres PNG ke Bawah 50 KB Online Gratis | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat PNG di bawah 50 KB?",
+    "a": "Tambahkan dan biarkan target di 50 KB. Pengaturan terbaik yang muat dipilihkan untuk Anda."
+   },
+   {
+    "q": "Bisakah logo transparan tetap di 50 KB?",
+    "a": "Bisa. Transparansi dipertahankan, dan kebanyakan logo muat dengan mudah."
+   },
+   {
+    "q": "Bagaimana kalau gambarnya jadi buram?",
+    "a": "Berarti 50 KB terlalu sedikit untuk ukurannya. Gunakan batas lebih tinggi seperti 100 KB, atau kurangi lebar maksimum sendiri."
+   }
+  ]
+ },
+ "compress-png-under-100kb": {
+  "name": "Kompres PNG di Bawah 100 KB",
+  "desc": "Kompres PNG hingga di bawah 100 KB tanpa kehilangan transparansi. Pilih ukuran, periksa pratinjau, unduh gratis.",
+  "about": "100 KB adalah batas unggah umum untuk logo, tanda tangan, gambar KTP, dan grafik di formulir dan sistem konten. Screenshot PNG biasa berukuran 5 sampai 20 kali lebih besar. Untuk mencapai di bawah 100 KB, alat ini mengurangi warna lebih dulu, yang menjaga grafik tetap tajam, lalu, jika terpaksa, mengurangi dimensi gambar. Semuanya ditampilkan dalam pratinjau sebelum dan sesudah dengan ukuran file sebenarnya, dan area transparan dipertahankan.",
+  "title": "Kompres PNG ke Bawah 100 KB Online Gratis | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil PNG ke 100 KB?",
+    "a": "Tambahkan PNG, biarkan 100 KB sebagai target, dan unduh setelah pratinjau terlihat pas."
+   },
+   {
+    "q": "Mengapa PNG mudah sekali membesar?",
+    "a": "PNG menyimpan setiap piksel secara persis, jadi foto dan screenshot dengan banyak warna berukuran besar. Mengurangi warna yang membuatnya lebih kecil."
+   },
+   {
+    "q": "Apakah gambar saya aman?",
+    "a": "Ya. Tidak ada yang diunggah; pekerjaan terjadi di browser Anda."
+   }
+  ]
+ },
+ "compress-png-under-150kb": {
+  "name": "Kompres PNG di Bawah 150 KB",
+  "desc": "Perkecil PNG hingga di bawah 150 KB. Warna dikurangi lebih dulu, jadi grafik tetap tajam. Atur ukuran dan lihat hasilnya.",
+  "about": "Pada 150 KB grafik PNG bisa menjaga banyak detail: potongan produk dengan latar transparan, diagram, grafik, dan mockup UI. Alat ini menurunkan jumlah warna selangkah demi selangkah dan hanya mengurangi ukuran piksel jika itu tidak cukup. Jika file Anda sudah di bawah 150 KB, file itu dikembalikan tanpa perubahan, jadi Anda tidak pernah kehilangan kualitas tanpa alasan.",
+  "title": "Kompres PNG ke Bawah 150 KB Online Gratis | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres PNG ke 150 KB?",
+    "a": "Tambahkan, atur 150 KB (atau klik tombol 150 KB), lalu unduh setelah pratinjau."
+   },
+   {
+    "q": "Bagaimana kalau PNG saya sudah lebih kecil?",
+    "a": "Maka dibiarkan apa adanya."
+   },
+   {
+    "q": "Apakah bisa untuk gambar produk dengan transparansi?",
+    "a": "Ya, latar transparan tetap transparan."
+   }
+  ]
+ },
+ "compress-png-under-200kb": {
+  "name": "Kompres PNG di Bawah 200 KB",
+  "desc": "Kompres PNG hingga di bawah 200 KB untuk situs web, email, dan formulir. Pilih ukuran, bandingkan hasilnya, unduh.",
+  "about": "200 KB menyisakan cukup ruang untuk logo yang detail, diagram, atau gambar produk potongan dengan latar transparan. Screenshot layar penuh sering berukuran 1 sampai 3 MB sebagai PNG, jadi butuh palet yang lebih kecil dan kadang dimensi yang lebih kecil untuk turun ke 200 KB. Halaman ini memilih pengaturan yang memberi hasil terbaik di bawah batas dan membiarkan Anda membandingkannya dengan aslinya sebelum menyimpan.",
+  "title": "Kompres PNG ke Bawah 200 KB Online Gratis | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil PNG ke 200 KB?",
+    "a": "Tambahkan gambar dan biarkan ukuran di 200 KB. Bandingkan pratinjau lalu unduh."
+   },
+   {
+    "q": "Apakah screenshot tetap terbaca?",
+    "a": "Biasanya ya, selama teksnya tidak kecil sekali. Jika buram, coba 300 KB atau 500 KB."
+   },
+   {
+    "q": "Bisakah memproses banyak PNG sekaligus?",
+    "a": "Bisa. Tambahkan semuanya lalu gunakan Unduh semua untuk ZIP."
+   }
+  ]
+ },
+ "compress-png-under-300kb": {
+  "name": "Kompres PNG di Bawah 300 KB",
+  "desc": "Perkecil PNG hingga di bawah 300 KB sambil menjaganya tetap tajam. Atur ukuran, bandingkan, unduh. Transparansi dipertahankan.",
+  "about": "300 KB adalah ukuran yang bagus untuk grafik web yang harus terlihat tajam: banner dengan teks, grafik, screenshot, dan ilustrasi. Alat ini mencoba palet yang kaya lebih dulu dan turun hanya jika terpaksa, sehingga Anda menjaga warna sebanyak yang diizinkan batas. Jika itu tidak cukup, gambar dibuat sedikit lebih kecil. Anda melihat gambar asli dan hasilnya berdampingan, beserta ukurannya.",
+  "title": "Kompres PNG ke Bawah 300 KB Online Gratis | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat PNG 300 KB atau lebih kecil?",
+    "a": "Tambahkan, pilih 300 KB, lalu unduh setelah memeriksa pratinjau."
+   },
+   {
+    "q": "Apakah saya akan melihat perbedaannya?",
+    "a": "Pada grafik datar hampir tidak. Pada foto dalam PNG Anda mungkin melihat sedikit pita warna, dan JPG pilihan yang lebih baik di sana."
+   },
+   {
+    "q": "Apakah ada batas jumlah file?",
+    "a": "Anda bisa menambahkan hingga 40 file sekaligus."
+   }
+  ]
+ },
+ "compress-png-under-500kb": {
+  "name": "Kompres PNG di Bawah 500 KB",
+  "desc": "Kompres PNG hingga di bawah 500 KB untuk email dan unggahan. Pilih ukuran, lihat hasilnya, unduh gratis.",
+  "about": "Setengah megabyte adalah batas umum untuk unggahan di formulir web dan sistem konten, dan screenshot atau grafik biasa yang diekspor sebagai PNG berukuran 1 sampai 5 MB. Pada 500 KB kebanyakan grafik hanya butuh pengurangan warna ringan dan menjaga tepi yang tajam serta area transparannya. Halaman ini memilih pengaturan terbaik di bawah batas dan menampilkan ukuran asli file yang akan Anda dapatkan.",
+  "title": "Kompres PNG ke Bawah 500 KB Online Gratis | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat PNG di bawah 500 KB?",
+    "a": "Tambahkan file, klik tombol 500 KB, lalu unduh setelah pratinjau."
+   },
+   {
+    "q": "Apakah transparansi hilang?",
+    "a": "Tidak. Area transparan tetap transparan."
+   },
+   {
+    "q": "Bagaimana dengan foto yang disimpan sebagai PNG?",
+    "a": "Foto dalam PNG berukuran besar. Kompres sebagai JPG untuk file yang jauh lebih kecil dengan tampilan yang sama."
+   }
+  ]
+ },
+ "compress-png-under-1mb": {
+  "name": "Kompres PNG di Bawah 1 MB",
+  "desc": "Perkecil PNG hingga di bawah 1 MB dengan sedikit perubahan yang terlihat. Atur ukuran, bandingkan dengan aslinya, unduh.",
+  "about": "1 MB adalah batas tipikal untuk formulir, sistem tiket, dan gerbang email. Screenshot besar atau grafik beresolusi tinggi dalam PNG bisa berukuran 3 sampai 10 MB, tetapi biasanya bisa di bawah 1 MB dengan pengurangan warna ringan yang tidak terlihat. Alat ini memakai palet terkaya yang muat dan memperkecil dimensi hanya sebagai pilihan terakhir. Jika PNG Anda sudah di bawah 1 MB, file itu tidak disentuh.",
+  "title": "Kompres PNG ke Bawah 1 MB Online Gratis | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres PNG ke 1 MB?",
+    "a": "Tambahkan gambar, pilih 1 MB, lalu unduh setelah pratinjau terlihat pas."
+   },
+   {
+    "q": "Apakah terlihat sama?",
+    "a": "Untuk kebanyakan grafik ya. Pratinjau memungkinkan Anda memeriksa sebelum menyimpan."
+   },
+   {
+    "q": "Bisakah mengetik ukuran seperti 1,5 MB?",
+    "a": "Bisa. Ketik nilai apa pun dan ganti satuan antara KB dan MB."
+   }
+  ]
+ },
+ "compress-png-under-2mb": {
+  "name": "Kompres PNG di Bawah 2 MB",
+  "desc": "Kompres PNG hingga di bawah 2 MB untuk situs web dan unggahan, dengan hampir tanpa perubahan yang terlihat. Gratis dan privat.",
+  "about": "Banyak situs dan layanan email menolak file di atas 2 MB, sementara screenshot retina atau grafik besar hasil ekspor sering berukuran 5 sampai 15 MB sebagai PNG. Untuk di bawah 2 MB biasanya hanya butuh pengurangan palet ringan, jadi gambar terlihat hampir sama dan tetap transparan di tempat yang transparan. Jika file sudah di bawah 2 MB, file itu dikembalikan tanpa perubahan.",
+  "title": "Kompres PNG ke Bawah 2 MB Online Gratis | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil PNG ke bawah 2 MB?",
+    "a": "Tambahkan, biarkan ukuran di 2 MB, lalu unduh setelah melihat pratinjau."
+   },
+   {
+    "q": "Seberapa banyak kualitas yang hilang?",
+    "a": "Sangat sedikit. Jumlah warna dikurangi hanya sejauh yang diperlukan."
+   },
+   {
+    "q": "Apakah bisa dipakai di ponsel?",
+    "a": "Bisa, di browser modern mana pun. Gambar yang sangat besar butuh waktu lebih lama di ponsel."
+   }
+  ]
+ },
+ "compress-jpeg-under-10kb": {
+  "name": "Kompres JPEG di Bawah 10 KB",
+  "desc": "Kompres JPEG hingga di bawah 10 KB untuk unggahan sangat kecil seperti tanda tangan. Lihat hasilnya sebelum mengunduh. Jalan di browser Anda.",
+  "about": "Beberapa formulir meminta JPEG tidak lebih dari 10 KB, biasanya untuk tanda tangan atau stempel kecil. File .jpeg adalah format yang persis sama dengan file .jpg, jadi halaman ini bekerja untuk keduanya. Untuk mencapai 10 KB, alat ini menurunkan kualitas dan, karena gambar besar tidak bisa muat di 10 KB pada kualitas apa pun, memperkecil gambar. Potong rapat di sekitar tanda tangan sebelum menambahkannya: lebih sedikit piksel berarti hasil yang lebih jelas.",
+  "title": "Kompres JPEG ke Bawah 10 KB Online Gratis | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil JPEG ke 10 KB?",
+    "a": "Tambahkan file .jpeg Anda dan biarkan ukuran di 10 KB. Pratinjau menunjukkan hasil dan ukuran persisnya."
+   },
+   {
+    "q": "Apakah .jpeg berbeda dari .jpg?",
+    "a": "Tidak. Keduanya format yang sama; hanya ekstensinya yang berbeda."
+   },
+   {
+    "q": "Bisakah foto wajah muat di 10 KB?",
+    "a": "Yang sangat kecil bisa, tetapi akan terlihat lembut. Untuk foto, 20 KB sampai 50 KB lebih baik."
+   }
+  ]
+ },
+ "compress-jpeg-under-20kb": {
+  "name": "Kompres JPEG di Bawah 20 KB",
+  "desc": "Buat JPEG lebih kecil dari 20 KB untuk formulir ujian dan pendaftaran. Pilih ukuran, pratinjau, unduh.",
+  "about": "20 KB adalah batas umum untuk foto kecil atau tanda tangan di formulir pendaftaran. Halaman ini mengodekan JPEG pada kualitas yang baik lebih dulu dan menurunkannya, lalu mengurangi ukuran piksel, sampai file persis di bawah 20 KB. Untuk foto wajah, selebar beberapa ratus piksel sudah cukup untuk kolom seperti itu. Tambahkan beberapa JPEG dan unduh semuanya dalam ZIP, masing-masing disesuaikan dengan batas.",
+  "title": "Kompres JPEG ke Bawah 20 KB Online Gratis | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPEG ke 20 KB?",
+    "a": "Tambahkan gambar, biarkan ukuran di 20 KB, periksa pratinjau, lalu unduh."
+   },
+   {
+    "q": "Apakah hasilnya tetap JPEG?",
+    "a": "Ya, hasilnya adalah file JPEG standar yang diterima formulir mana pun."
+   },
+   {
+    "q": "Bisakah memproses banyak file sekaligus?",
+    "a": "Bisa. Tambahkan hingga 40 lalu gunakan Unduh semua."
+   }
+  ]
+ },
+ "compress-jpeg-under-50kb": {
+  "name": "Kompres JPEG di Bawah 50 KB",
+  "desc": "Perkecil JPEG hingga di bawah 50 KB untuk foto profil dan unggahan KTP. Pilih ukuran dan periksa pratinjau dulu.",
+  "about": "JPEG 50 KB adalah ukuran umum untuk foto profil, foto KTP, dan pindaian dokumen di portal web. Alat ini mencari kualitas tertinggi yang tetap di bawah 50 KB dan memperkecil gambar besar, karena foto kamera beberapa megapiksel tidak bisa dipadatkan ke 50 KB hanya dengan kualitas. Hasilnya ditampilkan di samping aslinya, jadi Anda bisa memeriksa wajah atau teksnya.",
+  "title": "Kompres JPEG ke Bawah 50 KB Online Gratis | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPEG di bawah 50 KB?",
+    "a": "Tambahkan dan biarkan target di 50 KB. Kualitas terbaik yang muat dipilihkan untuk Anda."
+   },
+   {
+    "q": "Apakah proporsi gambar tetap terjaga?",
+    "a": "Ya. Saat gambar diperkecil, lebar dan tinggi mengecil bersamaan."
+   },
+   {
+    "q": "Mengapa hasil saya tidak persis 50 KB?",
+    "a": "Hasilnya persis di bawah batas, karena kualitas tertinggi yang muat yang dipilih."
+   }
+  ]
+ },
+ "compress-jpeg-under-100kb": {
+  "name": "Kompres JPEG di Bawah 100 KB",
+  "desc": "Kompres JPEG hingga di bawah 100 KB untuk formulir lamaran kerja, KYC, dan penerimaan. Atur ukuran, pratinjau, unduh gratis.",
+  "about": "100 KB adalah batas yang ditetapkan banyak portal kerja, bank, dan kampus untuk unggahan foto atau dokumen. Foto ponsel berukuran 3 sampai 8 MB, jadi harus dikompres kuat, dan halaman ini melakukannya dengan pencarian kualitas yang menyisakan detail sebanyak yang diizinkan batas. Jika gambar terlalu besar bahkan pada kualitas rendah, gambar juga diperkecil. File asli Anda ditampilkan di samping hasilnya dengan ukuran sebenarnya.",
+  "title": "Kompres JPEG ke Bawah 100 KB Online Gratis | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara memperkecil JPEG ke 100 KB?",
+    "a": "Tambahkan file .jpeg, biarkan 100 KB, dan unduh setelah pratinjau terlihat pas."
+   },
+   {
+    "q": "Apakah dokumen yang difoto tetap terbaca?",
+    "a": "Biasanya, jika teksnya besar. Jika tidak, coba 150 KB atau 200 KB."
+   },
+   {
+    "q": "Apakah gratis dan privat?",
+    "a": "Ya. Berjalan di browser Anda dan file tidak diunggah."
+   }
+  ]
+ },
+ "compress-jpeg-under-150kb": {
+  "name": "Kompres JPEG di Bawah 150 KB",
+  "desc": "Buat JPEG lebih kecil dari 150 KB sambil menjaga wajah dan teks tetap jelas. Pilih ukuran, bandingkan, unduh.",
+  "about": "JPEG 150 KB sesuai aturan banyak formulir pendaftaran dan marketplace dan menjaga detail yang jauh lebih banyak daripada yang 100 KB. Alat ini menurunkan kualitas hanya sejauh yang diperlukan dan membiarkan file yang sudah di bawah 150 KB tak tersentuh. Gunakan slider jika Anda ingin melihat bagaimana gambar berubah pada batas yang lebih tinggi atau lebih rendah.",
+  "title": "Kompres JPEG ke Bawah 150 KB Online Gratis | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPEG 150 KB?",
+    "a": "Tambahkan, klik 150 KB, dan periksa pratinjau."
+   },
+   {
+    "q": "Bagaimana kalau JPEG saya sudah lebih kecil dari 150 KB?",
+    "a": "Dibiarkan apa adanya."
+   },
+   {
+    "q": "Bisakah mengubah batas nanti?",
+    "a": "Bisa. Geser slider atau ketik ukuran baru dan pratinjau diperbarui."
+   }
+  ]
+ },
+ "compress-jpeg-under-200kb": {
+  "name": "Kompres JPEG di Bawah 200 KB",
+  "desc": "Perkecil JPEG hingga di bawah 200 KB untuk formulir, email, dan unggahan. Atur ukuran, lihat hasilnya, gratis.",
+  "about": "200 KB adalah batas yang nyaman untuk potret, sertifikat, dan halaman pindai, dan banyak portal memakainya. Pada ukuran ini JPEG tetap bersih di mata saat dilihat di layar. Halaman ini mencari kualitas terbaik di bawah 200 KB dan memberi tahu ukuran hasil persisnya; jika gambarnya sangat besar, gambar juga diperkecil sedikit. Tampilan sebelum dan sesudah membantu Anda menilai hasilnya.",
+  "title": "Kompres JPEG ke Bawah 200 KB Online Gratis | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPEG ke 200 KB?",
+    "a": "Tambahkan, biarkan 200 KB sebagai ukuran, lalu unduh setelah pratinjau."
+   },
+   {
+    "q": "Apakah 200 KB terlihat bagus?",
+    "a": "Untuk penggunaan di layar, ya. Tidak dimaksudkan untuk cetakan besar."
+   },
+   {
+    "q": "Bisakah mengompres sekumpulan file?",
+    "a": "Bisa, dan unduh bersamaan dalam ZIP."
+   }
+  ]
+ },
+ "compress-jpeg-under-300kb": {
+  "name": "Kompres JPEG di Bawah 300 KB",
+  "desc": "Kompres JPEG hingga di bawah 300 KB dengan sedikit sekali penurunan yang terlihat. Pilih ukuran, bandingkan dengan aslinya.",
+  "about": "300 KB menjaga detail yang baik pada potret, gambar produk, atau sertifikat hasil pindai. File .jpeg dari ponsel biasanya 10 sampai 30 kali lebih besar, dan perbedaannya sulit terlihat di layar. Halaman ini mencari kualitas tertinggi yang muat di bawah 300 KB dan hanya mengurangi dimensi jika kualitas saja tidak cukup.",
+  "title": "Kompres JPEG ke Bawah 300 KB Online Gratis | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPEG di bawah 300 KB?",
+    "a": "Tambahkan, pilih 300 KB, lalu unduh."
+   },
+   {
+    "q": "Apakah cukup bagus untuk situs web?",
+    "a": "Ya, cocok untuk gambar konten. Banner hero mungkin butuh 500 KB."
+   },
+   {
+    "q": "Apakah file saya meninggalkan perangkat?",
+    "a": "Tidak. Semuanya berjalan di browser Anda."
+   }
+  ]
+ },
+ "compress-jpeg-under-500kb": {
+  "name": "Kompres JPEG di Bawah 500 KB",
+  "desc": "Perkecil JPEG hingga di bawah 500 KB untuk WhatsApp dan email. Atur ukuran, lihat hasilnya, unduh.",
+  "about": "JPEG 500 KB cukup kecil untuk WhatsApp, email, dan kebanyakan formulir unggah, dan cukup besar agar gambar layar penuh tetap bagus. Kebanyakan foto hanya butuh kompresi ringan untuk sampai ke sana. Alat ini menampilkan kedua versi beserta ukurannya, dan membiarkan file yang sudah di bawah 500 KB apa adanya.",
+  "title": "Kompres JPEG ke Bawah 500 KB Online Gratis | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPEG di bawah 500 KB?",
+    "a": "Tambahkan, klik tombol 500 KB, lalu unduh."
+   },
+   {
+    "q": "Apakah akan terlihat berbeda?",
+    "a": "Biasanya tidak di layar ponsel atau laptop."
+   },
+   {
+    "q": "Bisakah dikirim lewat WhatsApp?",
+    "a": "Bisa, gambar 500 KB terkirim cepat bahkan di koneksi lemah."
+   }
+  ]
+ },
+ "compress-jpeg-under-1mb": {
+  "name": "Kompres JPEG di Bawah 1 MB",
+  "desc": "Kompres JPEG hingga di bawah 1 MB dengan hampir tanpa penurunan yang terlihat. Pilih ukuran, pratinjau, unduh gratis.",
+  "about": "1 MB adalah batas di banyak formulir web dan sistem dukungan. Foto ponsel modern sebagai .jpeg berukuran 3 sampai 8 MB, jadi dibutuhkan kompresi sedang, dan itu jarang terlihat. Halaman ini memilih kualitas tertinggi yang muat di bawah 1 MB dan membiarkan file yang lebih kecil tak tersentuh, jadi tidak ada yang dikompres ulang tanpa alasan.",
+  "title": "Kompres JPEG ke Bawah 1 MB Online Gratis | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengompres JPEG ke 1 MB?",
+    "a": "Tambahkan foto, pilih 1 MB, dan bandingkan pratinjau."
+   },
+   {
+    "q": "Apakah gambarnya terlihat sama?",
+    "a": "Untuk kebanyakan foto, ya."
+   },
+   {
+    "q": "Bisakah mengetik 0,8 MB?",
+    "a": "Bisa. Ketik angka apa pun dan pilih KB atau MB."
+   }
+  ]
+ },
+ "compress-jpeg-under-2mb": {
+  "name": "Kompres JPEG di Bawah 2 MB",
+  "desc": "Perkecil JPEG hingga di bawah 2 MB untuk email dan unggahan, dengan kualitas hampir penuh. Atur ukuran, pratinjau, unduh.",
+  "about": "Situs web dan layanan email sering membatasi 2 MB, sementara foto ponsel bisa 5 sampai 10 MB. Kompresi ringan membuat .jpeg di bawah 2 MB dengan hampir tanpa perubahan yang terlihat. Halaman ini menjaga kualitas tertinggi yang muat, dan foto yang sudah di bawah 2 MB dibiarkan apa adanya.",
+  "title": "Kompres JPEG ke Bawah 2 MB Online Gratis | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Bagaimana cara membuat JPEG di bawah 2 MB?",
+    "a": "Tambahkan, biarkan target di 2 MB, lalu unduh."
+   },
+   {
+    "q": "Apakah kualitasnya hilang?",
+    "a": "Hanya sedikit; kompresi ringan sudah cukup."
+   },
+   {
+    "q": "Bagaimana kalau foto saya 20 MB?",
+    "a": "Itu juga bisa: kualitas dan, jika perlu, ukuran piksel diturunkan sampai muat."
+   }
+  ]
+ },
+ "add-watermark-to-pdf": {
+  "name": "Tambah Watermark ke PDF",
+  "desc": "Cap teks atau logo di setiap halaman PDF: kemiringan, ukuran, opasitas, dan posisi Anda yang atur.",
+  "about": "Tandai PDF sebagai RAHASIA, DRAF, atau dengan logo perusahaan Anda. Pilih teks atau gambar, seberapa besar dan miring, seberapa transparan, dan di mana letaknya: tengah, sudut, atau diulang di seluruh halaman. Anda bisa membatasinya ke beberapa halaman. Teks bekerja dalam bahasa apa pun yang bisa ditampilkan browser Anda, dan PDF tidak pernah meninggalkan perangkat.",
+  "title": "Tambah Watermark ke PDF Online Gratis | Toolz Baba",
+  "tab": "PDF"
+ },
+ "add-watermark-to-video": {
+  "name": "Tambah Watermark ke Video",
+  "desc": "Taruh nama, teks, atau logo Anda di video: pilih posisi, ukuran, dan opasitas.",
+  "about": "Lindungi video Anda dengan menambahkan watermark teks atau logo. Pilih di mana letaknya (sudut mana pun, atas, bawah, atau tengah), seberapa besar, dan seberapa transparan. Unggah logo PNG dengan latar transparan untuk tampilan paling bersih. Video dikodekan ulang di browser Anda, jadi tidak ada yang diunggah.",
+  "title": "Tambah Watermark ke Video Online Gratis | Toolz Baba",
+  "metaDesc": "Tambahkan watermark teks atau logo ke video: atur posisi, ukuran, dan opasitas, lalu unduh. Gratis, tanpa daftar, video tetap di perangkat Anda.",
+  "tab": "Video"
+ },
+ "blur-redact-pdf": {
+  "name": "Blur & Sensor PDF",
+  "desc": "Sembunyikan nama, nomor, dan wajah di PDF: gambar kotak di halaman lalu hitamkan atau blur secara permanen.",
+  "about": "Gambar kotak di atas apa pun yang privat, seperti nomor telepon, KTP, nomor rekening, atau tanda tangan, lalu tutup dengan kotak hitam, kotak putih, blur, atau pikselasi. Teks dan gambar di bawah kotak dihapus dari file itu sendiri, jadi tidak bisa disalin atau dipulihkan nanti. PDF Anda diproses di browser dan tidak pernah diunggah.",
+  "title": "Blur & Sensor PDF Online Gratis | Toolz Baba",
+  "tab": "Blur & sensor PDF"
+ },
+ "linkedin-carousel-maker": {
+  "name": "Pembuat Carousel LinkedIn",
+  "desc": "Tulis slide Anda sebagai teks dan dapatkan carousel LinkedIn siap posting dalam bentuk PDF, plus slide PNG.",
+  "about": "Ketik atau tempel slide Anda, dipisahkan oleh satu baris tiga tanda hubung. Baris pertama setiap slide adalah judulnya dan sisanya adalah teks; mulai baris dengan tanda hubung untuk poin. Pilih tema warna, font, dan ukuran slide, tambahkan nama dan foto Anda, lalu unduh PDF untuk diunggah ke LinkedIn sebagai dokumen, atau slide sebagai gambar PNG. Semuanya dibuat di browser Anda.",
+  "title": "Pembuat Carousel LinkedIn Online Gratis | Toolz Baba",
+  "tab": "Carousel LinkedIn"
+ },
+ "instagram-image-carousel-splitter": {
+  "name": "Pemotong Carousel Instagram",
+  "desc": "Potong satu gambar lebar menjadi slide carousel Instagram yang menyambung (2 sampai 10), siap diposting berurutan.",
+  "about": "Ubah panorama, banner, atau screenshot panjang menjadi carousel Instagram yang bisa digeser di mana gambar bersambung dari satu slide ke slide berikutnya. Pilih jumlah slide (alat ini menyarankan jumlah terbaik), bentuk slide (potret 4:5, persegi, atau lanskap) dan apakah slide diisi penuh atau menampilkan seluruh gambar di atas latar buram. Anda mendapat slide sebagai file bernomor dalam ZIP, atau satu per satu.",
+  "title": "Pemotong Carousel Instagram Online Gratis | Toolz Baba",
+  "tab": "Carousel Instagram"
+ },
+ "ai-headshot-generator": {
+  "name": "Pembuat Headshot AI",
+  "desc": "Ubah foto biasa menjadi headshot profesional yang rapi: AI menemukan wajah Anda, mengganti latar, dan membingkai Anda dari kepala hingga bahu.",
+  "about": "Unggah selfie atau foto diri Anda dan dapatkan foto profil yang rapi untuk LinkedIn, CV, atau halaman perusahaan. AI menemukan wajah Anda, memotong Anda, menaruh Anda di latar studio (abu-abu, krem, biru, gelap, putih, buram, atau warna pilihan Anda) dan membingkai Anda dari kepala hingga bahu dalam bentuk persegi atau 4:5, dengan sentuhan ringan opsional. Alat ini memakai foto Anda sendiri, tidak membuat wajah baru, dan semuanya berjalan di perangkat Anda sehingga foto tidak pernah diunggah.",
+  "title": "Pembuat Headshot AI Online Gratis | Toolz Baba",
+  "tab": "Headshot AI"
+ },
+ "video-to-text": {
+  "name": "Video ke Teks (Transkripsi)",
+  "desc": "Ubah ucapan di file video atau audio menjadi teks, lengkap dengan subtitle (SRT, VTT). AI berjalan di browser Anda.",
+  "about": "Dapatkan transkrip video, kuliah, wawancara, rekaman rapat, atau pesan suara. AI ucapan Whisper berjalan di perangkat Anda sendiri, jadi file tidak pernah diunggah. Alat ini memahami banyak bahasa termasuk Inggris dan Hindi, bisa mendeteksi bahasa sendiri, bisa menerjemahkan ke bahasa Inggris, dan memberi Anda teks biasa plus file subtitle SRT dan VTT dengan penanda waktu. Penggunaan pertama mengunduh model sekali (40 atau 80 MB).",
+  "title": "Video ke Teks (Transkripsi) Online Gratis | Toolz Baba",
+  "tab": "Video ke teks"
+ },
+ "text-to-audio": {
+  "name": "Teks ke Audio (Text to Speech)",
+  "desc": "Ubah teks tertulis menjadi audio ucapan dalam bahasa Inggris atau Hindi dan simpan sebagai WAV atau MP3. Jalan di browser Anda.",
+  "about": "Tempel atau ketik teks Anda dan dapatkan dibacakan dengan suara AI, lalu unduh audionya sebagai file WAV atau MP3. Suara bahasa Inggris dan Hindi tersedia. Suara diunduh ke browser Anda saat pertama kali (sekitar 38 MB) dan semuanya berjalan di perangkat Anda, jadi teks Anda tidak pernah dikirim ke mana pun. Suaranya jelas tetapi agak robotik, cocok untuk narasi, catatan, dan aksesibilitas.",
+  "title": "Teks ke Audio (Text to Speech) Online Gratis | Toolz Baba",
+  "tab": "Teks ke audio"
+ },
+ "video-to-audio": {
+  "name": "Konverter Video ke Audio",
+  "desc": "Ambil suara dari video dan simpan sebagai MP3, M4A, WAV, OGG, atau FLAC. Jalan di browser Anda.",
+  "about": "Ambil trek audio dari video apa pun, seperti file MP4, MOV, MKV, atau WebM, dan simpan sebagai MP3, M4A, WAV, OGG, atau FLAC. Anda bisa memilih kualitas untuk MP3, M4A, dan OGG, dan mengonversi beberapa video sekaligus. Video Anda diproses di perangkat sendiri dan tidak pernah diunggah.",
+  "title": "Konverter Video ke Audio Online Gratis | Toolz Baba",
+  "tab": "Video ke audio"
+ },
+ "mp4-to-mp3": {
+  "name": "Konverter MP4 ke MP3",
+  "desc": "Konversi video MP4 ke audio MP3 di browser Anda. Pilih kualitas; tidak ada yang diunggah.",
+  "about": "Ubah video MP4 menjadi file MP3 dalam beberapa klik: tambahkan video, pilih kualitas (192 kbps adalah pilihan bawaan yang bagus, 320 kbps yang terbaik) dan unduh MP3-nya. Video musik, kuliah, wawancara, dan rekaman semuanya bisa, dan beberapa file bisa dikonversi sekaligus. Konversi berjalan di perangkat Anda sendiri tanpa unggah dan tanpa batas ukuran file dari kami.",
+  "title": "Konverter MP4 ke MP3 Online Gratis: Ekstrak Audio | Toolz Baba",
+  "metaDesc": "Konversi video MP4 ke audio MP3 di browser Anda. Pilih kualitas hingga 320 kbps dan konversi beberapa file sekaligus. Gratis, dan tidak ada yang diunggah.",
+  "tab": "MP4 ke MP3"
+ },
+ "ocr-pdf": {
+  "name": "OCR PDF: PDF Hasil Pindai ke Teks",
+  "desc": "Baca teks di PDF hasil pindai lalu salin atau simpan sebagai file .txt. Inggris dan Hindi. Jalan di browser Anda.",
+  "about": "PDF hasil pindai hanyalah gambar halaman, jadi Anda tidak bisa memilih atau mencari teksnya. OCR (optical character recognition) membaca gambar-gambar itu dan mengubahnya kembali menjadi teks yang bisa Anda salin, edit, atau simpan. Tambahkan PDF hasil pindai, pilih Inggris, Hindi, atau keduanya, lalu salin hasilnya atau simpan sebagai file .txt. OCR berjalan di browser Anda, jadi dokumen tidak diunggah.",
+  "title": "OCR PDF Online Gratis: PDF Hasil Pindai ke Teks, Hindi | Toolz Baba",
+  "tab": "OCR PDF",
+  "faq": [
+   {
+    "q": "Bagaimana cara menyalin teks dari PDF hasil pindai?",
+    "a": "Tambahkan PDF di sini, pilih bahasa, lalu mulai OCR. Setelah selesai, salin teksnya atau simpan sebagai file .txt."
+   },
+   {
+    "q": "Apakah bisa membaca bahasa Hindi?",
+    "a": "Ya. Pilih Hindi, atau Inggris dan Hindi bersamaan untuk dokumen yang mencampur keduanya."
+   },
+   {
+    "q": "Seberapa akurat hasilnya?",
+    "a": "Pindaian bersih dan lurus dari teks cetak hasilnya sangat baik. Tulisan tangan, foto buram, dan halaman miring menghasilkan lebih banyak kesalahan."
+   },
+   {
+    "q": "Berapa halaman yang bisa dibaca?",
+    "a": "Alat ini membaca 30 halaman pertama dari setiap PDF. Untuk dokumen yang lebih panjang, pisahkan dulu menjadi beberapa bagian dengan Pisah PDF."
+   }
+  ]
+ },
+ "split-video": {
+  "name": "Pisah Video",
+  "desc": "Potong video menjadi bagian yang sama panjang atau bagian dengan durasi tertentu. Anda mendapat bagian-bagiannya dalam ZIP.",
+  "about": "Pisahkan video panjang menjadi klip yang lebih pendek, misalnya bagian 30 detik untuk status WhatsApp atau story Instagram, atau menjadi 2 sampai 100 bagian yang sama panjang. Mode cepat memotong tanpa pengodean ulang, jadi selesai dengan cepat dan menjaga kualitas asli; mode akurat mengodekan ulang untuk titik potong yang tepat. Semuanya berjalan di browser Anda.",
+  "title": "Pisah Video Online Gratis | Toolz Baba",
+  "metaDesc": "Pisahkan video panjang menjadi bagian sama panjang atau berdurasi tertentu, seperti 30 detik untuk status WhatsApp, dalam ZIP. Gratis dan privat.",
+  "tab": "Pisah video"
+ },
+ "merge-audio": {
+  "name": "Gabung File Audio",
+  "desc": "Gabungkan beberapa file audio menjadi satu, dengan urutan pilihan Anda, dengan jeda opsional di antaranya.",
+  "about": "Gabungkan file MP3, WAV, M4A, FLAC, atau OGG menjadi satu trek. Susun urutannya dengan tanda panah, tambahkan keheningan singkat di antaranya jika mau, dan simpan hasilnya sebagai MP3, M4A, WAV, OGG, atau FLAC. File dengan sample rate berbeda disesuaikan otomatis. Audio Anda tidak pernah meninggalkan perangkat.",
+  "title": "Gabung File Audio Online Gratis | Toolz Baba",
+  "tab": "Gabung audio"
+ },
+ "color-palette-generator": {
+  "name": "Pembuat Palet Warna",
+  "desc": "Pilih satu warna dan dapatkan palet yang serasi: komplementer, analogus, triadik, dan lainnya, dengan skala gradasi.",
+  "about": "Mulai dari warna apa pun dan bangun palet yang serasi menggunakan aturan teori warna: komplementer, analogus, triadik, tetradik, split-komplementer, atau monokrom satu rona. Lihat nilai HEX, RGB, dan HSL setiap warna serta seberapa terbaca teks hitam atau putih di atasnya, dapatkan skala gradasi 50 sampai 900, dan salin palet sebagai HEX, variabel CSS, JSON, atau warna Tailwind, atau simpan sebagai gambar.",
+  "title": "Pembuat Palet Warna Online Gratis | Toolz Baba",
+  "tab": "Pembuat palet"
+ },
+ "website-color-palette-extractor": {
+  "name": "Pengambil Palet Warna Situs Web",
+  "desc": "Ketik alamat situs web dan dapatkan warna yang benar-benar dipakai desainnya, dengan kode HEX yang bisa disalin.",
+  "about": "Temukan warna merek situs web publik mana pun: masukkan alamatnya dan alat ini membaca halaman beserta style sheet-nya, menghitung setiap warna, memberi bobot lebih pada warna yang dipakai untuk latar, teks, dan pengaturan tema, dan menampilkan warna utama dengan nilai HEX dan RGB. Sembunyikan putih, hitam, dan abu-abu untuk melihat warna aksen, lalu salin sebagai daftar, variabel CSS, atau JSON. Situs yang menggambar seluruh tampilannya dengan JavaScript mungkin menampilkan lebih sedikit warna.",
+  "title": "Pengambil Palet Warna Situs Web Online Gratis | Toolz Baba",
+  "tab": "Dari situs web",
+  "privacy": "Server kami mengambil halaman publik yang Anda sebutkan dan hanya mengirim kembali daftar warnanya. Tidak ada yang disimpan.",
+  "privacyTitle": "Hanya halaman publik",
+  "badge": "Membaca halaman publik",
+  "how": [
+   "<b>Ketik</b> alamat situs web",
+   "<b>Lihat</b> warna yang dipakai desainnya",
+   "<b>Salin</b> yang Anda mau"
+  ]
+ },
+ "temporary-file-upload-direct-link-share": {
+  "name": "Berbagi File Sementara (Link Langsung)",
+  "desc": "Unggah file dan dapatkan link unduhan langsung yang kedaluwarsa sendiri setelah satu jam, satu hari, satu minggu, atau satu bulan.",
+  "about": "Bagikan file tanpa lampiran email atau akun: unggah hingga 5 file (masing-masing 20 MB), pilih berapa lama link berfungsi, dan kirim link langsungnya. Siapa pun yang punya link bisa mengunduh file sampai kedaluwarsa, dan Anda bisa menghapusnya lebih awal. Program, skrip, dan halaman web tidak diizinkan, file selalu diunduh dan tidak pernah dibuka di dalam situs, dan tidak ada yang disimpan setelah waktu yang Anda pilih.",
+  "title": "Berbagi File Sementara (Link Langsung) Online Gratis | Toolz Baba",
+  "tab": "Berbagi file sementara",
+  "privacy": "File disimpan di Cloudflare sampai link kedaluwarsa. Siapa pun yang punya link bisa mengunduh file, jadi jangan unggah apa pun yang bersifat privat.",
+  "privacyTitle": "Dibagikan lewat link",
+  "badge": "File kedaluwarsa otomatis",
+  "how": [
+   "<b>Tambahkan file Anda</b> (hingga 5, masing-masing 20 MB)",
+   "<b>Pilih</b> berapa lama link berfungsi",
+   "<b>Salin</b> link langsungnya dan bagikan"
+  ]
+ },
+ "markdown-to-pdf": {
+  "name": "Markdown ke PDF",
+  "desc": "Ubah Markdown menjadi PDF yang rapi. Ketik atau tempel, lihat pratinjau, pilih ukuran halaman, dan unduh.",
+  "about": "Tulis atau tempel Markdown (judul, daftar, tabel, kode, kutipan, dan tautan) dan dapatkan PDF yang rapi. Pilih A4 atau US Letter, jenis huruf (modern atau ala buku), ukuran teks, dan margin. Bahasa Hindi dan aksara India lainnya juga bisa. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter Markdown ke PDF Online Gratis | Toolz Baba",
+  "tab": "Markdown ke PDF",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi file Markdown ke PDF?",
+    "a": "Muat file .md atau tempel teksnya, periksa pratinjau, pilih ukuran halaman, lalu klik Buat PDF. PDF dibuat di perangkat Anda."
+   },
+   {
+    "q": "Apakah tabel dan blok kode tetap ada?",
+    "a": "Ya. Tabel, blok kode, kutipan, daftar, tautan, dan judul semuanya ada di PDF. Gambar dari web tidak ditambahkan; gambar yang ditulis sebagai alamat data ditambahkan."
+   }
+  ]
+ },
+ "markdown-to-html": {
+  "name": "Markdown ke HTML",
+  "desc": "Ubah Markdown menjadi halaman web lengkap yang bisa dibuka, dibagikan, atau diunggah. Pratinjau langsung, tanpa daftar.",
+  "about": "Tempel atau muat Markdown dan dapatkan halaman HTML lengkap dengan gaya bersihnya sendiri, siap dibuka di browser atau ditaruh di situs web. Anda juga bisa menyalin HTML-nya. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter Markdown ke HTML Online Gratis | Toolz Baba",
+  "tab": "Markdown ke HTML",
+  "faq": [
+   {
+    "q": "Bisakah menyalin HTML alih-alih mengunduhnya?",
+    "a": "Bisa. Setelah konversi, HTML ditampilkan di bawah hasil dengan tombol Salin."
+   },
+   {
+    "q": "Apakah halaman butuh hal lain agar terlihat benar?",
+    "a": "Tidak. Gayanya ada di dalam halaman, jadi terlihat sama di mana pun."
+   }
+  ]
+ },
+ "markdown-to-word": {
+  "name": "Markdown ke Word",
+  "desc": "Ubah Markdown menjadi dokumen Word (.docx) dengan judul, daftar, tautan, dan tabel yang asli.",
+  "about": "Konversi Markdown ke file Word yang bisa dibuka di Word, Google Docs, dan LibreOffice. Judul menjadi judul Word yang asli (jadi panel navigasi berfungsi), dan daftar, huruf tebal dan miring, tautan, kutipan, kode, dan tabel dipertahankan. Gambar ditampilkan sebagai deskripsinya. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter Markdown ke Word (DOCX) Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi Markdown ke file Word (DOCX) dengan judul, daftar, tabel, dan tautan asli yang bisa dibuka di Word dan Google Docs. Gratis dan privat.",
+  "tab": "Markdown ke Word",
+  "faq": [
+   {
+    "q": "Apakah judulnya berfungsi di panel navigasi Word?",
+    "a": "Ya. Judulnya memakai gaya Heading 1 sampai Heading 6 yang asli."
+   },
+   {
+    "q": "Apakah gambar disertakan?",
+    "a": "Belum: gambar ditampilkan sebagai deskripsinya dalam tanda kurung siku."
+   }
+  ]
+ },
+ "html-to-markdown": {
+  "name": "HTML ke Markdown",
+  "desc": "Ubah HTML menjadi Markdown yang bersih: judul, daftar, tautan, kode, dan tabel. Tempel atau muat file.",
+  "about": "Tempel HTML atau muat file .html dan dapatkan Markdown yang mudah dibaca: judul, huruf tebal dan miring, daftar, tautan, blok kode, dan tabel. Skrip dan gaya tidak disertakan. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter HTML ke Markdown Online Gratis | Toolz Baba",
+  "tab": "HTML ke Markdown",
+  "faq": [
+   {
+    "q": "Apakah tabel dikonversi?",
+    "a": "Ya, menjadi tabel Markdown (gaya GitHub). Baris pertama menjadi header."
+   },
+   {
+    "q": "Apa yang terjadi pada skrip dan CSS?",
+    "a": "Dihapus, hanya konten yang dikonversi."
+   }
+  ]
+ },
+ "docx-to-markdown": {
+  "name": "Word (DOCX) ke Markdown",
+  "desc": "Ubah dokumen Word menjadi Markdown. Judul, daftar, huruf tebal, tautan, dan tabel dipertahankan; gambar berupa file.",
+  "about": "Tambahkan file .docx dan dapatkan Markdown dengan judul, daftar, huruf tebal dan miring, tautan, dan tabel. Gambar disimpan di folder images (satu ZIP), dimasukkan ke dalam Markdown, atau dibuang, sesuai pilihan Anda. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter Word (DOCX) ke Markdown Online Gratis | Toolz Baba",
+  "tab": "Word ke Markdown",
+  "faq": [
+   {
+    "q": "Apakah bisa untuk file .doc lama?",
+    "a": "Tidak, hanya .docx. Buka file lama di Word atau Google Docs dan simpan sebagai .docx dulu."
+   },
+   {
+    "q": "Apa yang terjadi pada gambar?",
+    "a": "Secara bawaan disimpan sebagai file di folder images di samping file .md, semuanya dalam satu ZIP. Anda juga bisa menyematkannya atau membuangnya."
+   }
+  ]
+ },
+ "pdf-to-markdown": {
+  "name": "PDF ke Markdown",
+  "desc": "Ubah PDF menjadi Markdown: judul dari huruf besar, daftar dan paragraf dari tata letak.",
+  "about": "Tambahkan PDF dengan teks asli dan dapatkan Markdown: huruf yang lebih besar menjadi judul, daftar berpoin dan bernomor dipertahankan, dan baris digabung menjadi paragraf. Tabel dan kolom tidak dibangun ulang, jadi periksa hasilnya. Hasil pindai tidak punya teks: gunakan Gambar ke Teks (OCR) dulu. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter PDF ke Markdown Online Gratis | Toolz Baba",
+  "tab": "PDF ke Markdown",
+  "faq": [
+   {
+    "q": "Mengapa PDF saya kosong setelah dikonversi?",
+    "a": "Kemungkinan itu hasil pindai (gambar halaman). Jalankan dulu lewat Gambar ke Teks (OCR)."
+   },
+   {
+    "q": "Apakah tabel dipertahankan?",
+    "a": "Bukan sebagai tabel: teksnya keluar sebagai baris. Periksa dan rapikan tabel secara manual."
+   }
+  ]
+ },
+ "html-to-pdf": {
+  "name": "HTML ke PDF",
+  "desc": "Ubah HTML menjadi PDF: tempel kodenya atau muat file .html, lihat pratinjau, dan unduh.",
+  "about": "Tempel HTML atau muat file .html dan dapatkan PDF. CSS dasar, tabel, daftar, dan gambar (sebagai alamat data) didukung. Skrip tidak dijalankan, dan gambar atau style sheet dari web tidak dimuat: taruh CSS di tag style. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter HTML ke PDF Online Gratis | Toolz Baba",
+  "metaDesc": "Ubah HTML menjadi PDF: tempel kodenya atau muat file .html, periksa pratinjau, dan unduh. Tabel, daftar, dan CSS dasar berfungsi. Gratis dan privat.",
+  "tab": "HTML ke PDF",
+  "faq": [
+   {
+    "q": "Mengapa beberapa gambar hilang?",
+    "a": "PDF dibuat di perangkat Anda dan tidak mengunduh apa pun dari web. Gunakan gambar sebagai alamat data (base64) atau tambahkan di Editor PDF setelahnya."
+   },
+   {
+    "q": "Apakah skrip dijalankan?",
+    "a": "Tidak. Hanya halaman sebagaimana tertulis yang diubah menjadi PDF."
+   }
+  ]
+ },
+ "excel-to-pdf": {
+  "name": "Excel ke PDF",
+  "desc": "Konversi spreadsheet Excel (XLSX, XLS, CSV, ODS) menjadi tabel PDF yang bisa dibagikan dan dicetak. Jalan di browser Anda.",
+  "about": "Kirim spreadsheet sebagai PDF ketika orang hanya perlu membaca atau mencetaknya: tidak ada yang bisa mengubah angka secara tidak sengaja dan bisa dibuka di ponsel mana pun. Tambahkan file XLSX, XLS, CSV, atau ODS lalu konversi. Setiap sheet menjadi tabel di halaman lanskap, dengan nama sheet sebagai judul jika ada beberapa. Nilainya dipertahankan, tetapi warna, gaya sel, dan grafik tidak, jadi periksa PDF sebelum mengirim. File dikonversi di browser Anda dan tidak diunggah.",
+  "title": "Konverter Excel ke PDF Online Gratis | Toolz Baba",
+  "tab": "Excel ke PDF",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi Excel ke PDF?",
+    "a": "Tambahkan file XLSX, XLS, CSV, atau ODS lalu klik tombol konversi, kemudian unduh PDF-nya."
+   },
+   {
+    "q": "Apakah warna dan grafik dipertahankan?",
+    "a": "Tidak. PDF menampilkan nilai setiap sheet sebagai tabel polos. Untuk salinan persis dengan warna dan grafik, gunakan Simpan sebagai PDF di Excel atau Google Sheets."
+   },
+   {
+    "q": "Apakah bisa untuk teks Hindi?",
+    "a": "Ya. Bahasa Hindi dan aksara India lainnya di dalam sel ditampilkan dengan benar di PDF."
+   }
+  ]
+ },
+ "jpg-to-pdf": {
+  "name": "JPG ke PDF",
+  "desc": "Ubah foto JPG menjadi satu PDF. Pilih ukuran halaman dan urutan. Jalan di browser Anda.",
+  "about": "Gabungkan satu atau banyak gambar JPG (JPEG) menjadi satu PDF. Pilih A4, US Letter, A5, atau ukuran gambar, atur orientasi dan margin, dan susun ulang halaman. Data JPG dimasukkan ke PDF tanpa kehilangan kualitas. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter JPG ke PDF Online Gratis | Toolz Baba",
+  "metaDesc": "Ubah satu atau banyak foto JPG menjadi satu PDF. Pilih A4, Letter, atau ukuran foto, atur urutan dan margin. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "JPG ke PDF",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi JPG ke PDF?",
+    "a": "Tambahkan gambar JPG Anda, susun urutannya, pilih ukuran halaman, lalu klik Buat PDF."
+   },
+   {
+    "q": "Bisakah membuat satu PDF dari beberapa JPG?",
+    "a": "Bisa. Tambahkan semuanya dan gunakan tanda panah untuk mengatur urutan."
+   }
+  ]
+ },
+ "png-to-pdf": {
+  "name": "PNG ke PDF",
+  "desc": "Ubah gambar PNG menjadi satu PDF. Transparansi dipertahankan. Pilih ukuran halaman dan urutan.",
+  "about": "Gabungkan satu atau banyak gambar PNG menjadi satu PDF. Bagian transparan tetap transparan. Pilih A4, US Letter, A5, atau ukuran gambar, atur orientasi dan margin, dan susun ulang halaman. File Anda tetap di perangkat: dikonversi di browser Anda dan tidak pernah diunggah.",
+  "title": "Konverter PNG ke PDF Online Gratis | Toolz Baba",
+  "metaDesc": "Ubah gambar PNG menjadi satu PDF dan pertahankan transparansinya. Pilih ukuran halaman, urutan, dan margin. Gratis, tanpa daftar, jalan di browser.",
+  "tab": "PNG ke PDF",
+  "faq": [
+   {
+    "q": "Apakah PNG ke PDF mempertahankan transparansi?",
+    "a": "Ya. Area transparan tetap transparan di PDF."
+   },
+   {
+    "q": "Bisakah memasukkan beberapa PNG ke satu PDF?",
+    "a": "Bisa. Tambahkan semuanya dan gunakan tanda panah untuk mengatur urutan."
+   }
+  ]
+ },
+ "png-to-jpg": {
+  "name": "PNG ke JPG",
+  "desc": "Konversi gambar PNG ke JPG di browser Anda. Pilih kualitas dan warna latar untuk bagian transparan.",
+  "about": "File JPG biasanya jauh lebih kecil daripada file PNG, sehingga lebih cocok untuk email, WhatsApp, dan formulir unggah. Tambahkan gambar PNG Anda, pilih kualitas (90 persen terlihat sama dengan aslinya) lalu konversi. JPG tidak bisa transparan, jadi area transparan diisi dengan warna pilihan Anda; putih adalah bawaannya. Anda bisa mengonversi hingga 40 gambar sekaligus, dan dikonversi di perangkat Anda sendiri, jadi tidak ada yang diunggah.",
+  "title": "Konverter PNG ke JPG Online Gratis | Toolz Baba",
+  "tab": "PNG ke JPG",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi PNG ke JPG?",
+    "a": "Tambahkan file PNG Anda, pastikan JPG terpilih di Konversi ke, atur kualitas, lalu klik Konversi. Kemudian unduh file JPG-nya."
+   },
+   {
+    "q": "Apa yang terjadi pada latar transparan?",
+    "a": "JPG tidak mendukung transparansi, jadi area transparan diisi dengan warna latar yang Anda pilih. Putih adalah bawaannya."
+   },
+   {
+    "q": "Apakah JPG akan lebih kecil dari PNG?",
+    "a": "Biasanya ya, sering kali beberapa kali lebih kecil untuk foto dan screenshot dengan banyak warna."
+   }
+  ]
+ },
+ "jpg-to-png": {
+  "name": "JPG ke PNG",
+  "desc": "Konversi foto JPG ke PNG di browser Anda. Hasil lossless, hingga 40 gambar sekaligus.",
+  "about": "PNG adalah format lossless: setelah gambar Anda menjadi PNG, kualitasnya tidak turun lagi saat Anda mengedit dan menyimpannya kembali. Itu membuatnya pilihan yang bagus untuk screenshot, logo, dan gambar yang ingin terus Anda edit. Tambahkan file JPG Anda, pastikan PNG terpilih, lalu konversi. Perlu diingat bahwa PNG dari foto biasanya lebih besar daripada JPG-nya. Semuanya terjadi di browser Anda, jadi foto Anda tidak diunggah.",
+  "title": "Konverter JPG ke PNG Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi foto JPG ke PNG lossless di browser Anda, hingga 40 sekaligus. Tidak ada lagi penurunan kualitas saat diedit ulang. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "JPG ke PNG",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengubah JPG menjadi PNG?",
+    "a": "Tambahkan file JPG, pastikan PNG terpilih di Konversi ke, lalu klik Konversi. Unduh file PNG saat sudah siap."
+   },
+   {
+    "q": "Apakah mengonversi JPG ke PNG meningkatkan kualitas?",
+    "a": "Tidak. Kualitas yang sudah dimiliki JPG dipertahankan, tetapi menghentikan penurunan lebih lanjut saat Anda mengedit dan menyimpan gambar lagi."
+   },
+   {
+    "q": "Mengapa PNG saya lebih besar dari JPG?",
+    "a": "PNG menyimpan setiap piksel secara persis, sedangkan JPG membuang detail yang hampir tidak terlihat. Untuk foto, itu membuat PNG lebih besar."
+   }
+  ]
+ },
+ "webp-to-jpg": {
+  "name": "WebP ke JPG",
+  "desc": "Konversi gambar WebP ke JPG agar bisa dibuka di mana saja. Pilih kualitas. Jalan di browser Anda.",
+  "about": "Banyak situs web kini menyajikan gambar sebagai WebP, yang masih belum diterima sebagian aplikasi, ponsel lama, dan formulir unggah. Konversi ke JPG, yang bisa dibuka di mana saja. Tambahkan file WebP Anda, pilih kualitas, dan konversi hingga 40 sekaligus. Bagian transparan dari WebP diisi dengan warna latar pilihan Anda, karena JPG tidak bisa transparan. Gambar Anda tidak pernah meninggalkan perangkat.",
+  "title": "Konverter WebP ke JPG Online Gratis | Toolz Baba",
+  "tab": "WebP ke JPG",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi WebP ke JPG?",
+    "a": "Tambahkan file WebP, biarkan JPG terpilih di Konversi ke, pilih kualitas, lalu klik Konversi."
+   },
+   {
+    "q": "Mengapa saya tidak bisa membuka file WebP?",
+    "a": "Sebagian program dan situs web lama belum mendukung WebP. Salinan JPG bisa dibuka di hampir semua aplikasi."
+   }
+  ]
+ },
+ "heic-to-jpg": {
+  "name": "HEIC ke JPG",
+  "desc": "Konversi foto HEIC iPhone ke JPG di browser Anda. Tanpa aplikasi, tanpa unggah, hingga 40 foto sekaligus.",
+  "about": "iPhone menyimpan foto sebagai HEIC, yang tidak diterima Windows, banyak situs web, dan formulir pemerintah. Konversi ke JPG di sini: tambahkan foto HEIC Anda, biarkan JPG terpilih, lalu klik Konversi. Anda bisa memilih kualitas dan mengonversi hingga 40 foto sekaligus. Foto dikonversi di ponsel atau komputer Anda sendiri, jadi tidak pernah diunggah ke server.",
+  "title": "Konverter HEIC ke JPG Online Gratis: Foto iPhone | Toolz Baba",
+  "tab": "HEIC ke JPG",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi HEIC ke JPG di Windows?",
+    "a": "Buka halaman ini, tambahkan file HEIC Anda, biarkan JPG terpilih, lalu klik Konversi. Tidak perlu aplikasi atau ekstensi."
+   },
+   {
+    "q": "Apakah bisa di iPhone?",
+    "a": "Ya. Buka halaman di Safari, ketuk Pilih file, pilih fotonya, lalu konversi."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Konversi berjalan di browser Anda dan foto tetap di perangkat."
+   }
+  ]
+ },
+ "jpg-to-webp": {
+  "name": "JPG ke WebP",
+  "desc": "Konversi gambar JPG dan PNG ke WebP untuk situs web yang lebih cepat. Pilih kualitas, konversi banyak sekaligus.",
+  "about": "Gambar WebP sering 25 sampai 35 persen lebih kecil daripada JPG pada kualitas terlihat yang sama, jadi halaman dimuat lebih cepat dan memakai lebih sedikit data. Tambahkan file JPG atau PNG Anda, biarkan WebP terpilih, pilih kualitas (80 sampai 90 persen adalah rentang yang bagus) dan konversi hingga 40 sekaligus. WebP menjaga transparansi, jadi juga bisa menggantikan PNG untuk logo dan grafik. Semuanya berjalan di browser Anda.",
+  "title": "Konverter JPG ke WebP Online Gratis | Toolz Baba",
+  "tab": "JPG ke WebP",
+  "faq": [
+   {
+    "q": "Apakah WebP lebih baik dari JPG?",
+    "a": "Untuk situs web, biasanya ya: file lebih kecil pada kualitas yang sama, plus transparansi. Untuk dibagikan ke orang yang memakai aplikasi lama, JPG lebih aman."
+   },
+   {
+    "q": "Bisakah mengonversi PNG ke WebP di sini juga?",
+    "a": "Bisa. Tambahkan file PNG dengan cara yang sama; area transparan tetap transparan di WebP."
+   }
+  ]
+ },
+ "pdf-to-jpg": {
+  "name": "PDF ke JPG",
+  "desc": "Ubah setiap halaman PDF menjadi gambar JPG. Pilih kualitas (DPI) dan halamannya. Jalan di browser Anda.",
+  "about": "Konversi halaman PDF menjadi gambar JPG yang bisa dibagikan di WhatsApp, diposting online, atau dimasukkan ke presentasi. Tambahkan PDF, biarkan JPG terpilih, pilih kualitas dari 72 DPI (file kecil) sampai 300 DPI (kualitas cetak) dan konversi semua halaman atau hanya yang Anda butuhkan, seperti 1-3,5. Beberapa halaman dikirim bersama dalam satu file ZIP. PDF diproses di perangkat Anda dan tidak diunggah.",
+  "title": "Konverter PDF ke JPG Online Gratis: Kualitas Tinggi | Toolz Baba",
+  "tab": "PDF ke JPG",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengonversi PDF ke JPG?",
+    "a": "Tambahkan PDF, biarkan JPG terpilih, pilih DPI dan halamannya, lalu klik Konversi ke gambar."
+   },
+   {
+    "q": "Bisakah mengonversi hanya satu halaman?",
+    "a": "Bisa. Ketik nomor halaman di Halaman, misalnya 3, atau rentang seperti 2-4."
+   },
+   {
+    "q": "DPI berapa yang sebaiknya saya pilih?",
+    "a": "150 DPI tajam di layar. Gunakan 300 DPI untuk mencetak, dan 72 DPI untuk file terkecil."
+   }
+  ]
+ },
+ "pdf-to-png": {
+  "name": "PDF ke PNG",
+  "desc": "Ubah halaman PDF menjadi gambar PNG yang tajam dan lossless. Pilih DPI dan halamannya. Jalan di browser Anda.",
+  "about": "PNG menjaga teks dan garis tetap sangat tajam, sehingga paling cocok untuk halaman dengan diagram, tabel, atau tulisan kecil. Tambahkan PDF, biarkan PNG terpilih, pilih resolusi dan halamannya, lalu konversi. Beberapa halaman datang bersama dalam satu file ZIP. Konversi berjalan di browser Anda, jadi dokumen tetap privat.",
+  "title": "Konverter PDF ke PNG Online Gratis | Toolz Baba",
+  "tab": "PDF ke PNG",
+  "faq": [
+   {
+    "q": "PNG atau JPG untuk halaman PDF?",
+    "a": "PNG untuk halaman yang kebanyakan teks dan gambar (lebih tajam, tanpa buram di sekitar huruf), JPG untuk halaman yang kebanyakan foto (file lebih kecil)."
+   },
+   {
+    "q": "Bisakah memilih halaman mana yang dikonversi?",
+    "a": "Bisa. Ketik all, atau nomor halaman dan rentang seperti 1-3,5."
+   }
+  ]
+ },
+ "rotate-pdf": {
+  "name": "Putar PDF",
+  "desc": "Putar satu halaman atau semua halaman PDF lalu simpan. Lihat thumbnail, klik untuk memutar. Jalan di browser Anda.",
+  "about": "Perbaiki halaman pindai yang terbalik atau miring. Tambahkan PDF dan Anda melihat setiap halaman sebagai thumbnail: klik tombol putar pada halaman untuk memutarnya 90 derajat, sebanyak yang Anda perlukan, lalu simpan. Rotasi disimpan di PDF baru, jadi terbuka dengan benar di mana saja. Anda juga bisa menghapus atau menyusun ulang halaman di layar yang sama. PDF Anda tidak pernah meninggalkan perangkat.",
+  "title": "Putar Halaman PDF Online Gratis: Simpan Permanen | Toolz Baba",
+  "tab": "Putar PDF",
+  "faq": [
+   {
+    "q": "Bagaimana cara memutar PDF lalu menyimpannya?",
+    "a": "Tambahkan PDF, klik tombol putar pada halaman yang ingin diputar, lalu klik simpan untuk mengunduh PDF baru."
+   },
+   {
+    "q": "Bisakah memutar hanya satu halaman?",
+    "a": "Bisa. Setiap halaman punya tombol putar sendiri, jadi Anda bisa memutar hanya halaman yang perlu."
+   },
+   {
+    "q": "Apakah rotasinya permanen?",
+    "a": "Ya. Disimpan di file PDF baru, bukan hanya di penampil."
+   }
+  ]
+ },
+ "delete-pdf-pages": {
+  "name": "Hapus Halaman PDF",
+  "desc": "Buang halaman dari PDF: lihat thumbnail, klik halaman yang akan dihapus, simpan. Jalan di browser Anda.",
+  "about": "Buang halaman kosong, iklan, atau halaman yang tidak ingin Anda bagikan. Tambahkan PDF untuk melihat setiap halaman sebagai thumbnail, klik hapus pada halaman yang akan dibuang, dan simpan PDF baru yang hanya berisi halaman yang Anda pertahankan. Anda juga bisa memutar dan menyusun ulang halaman sebelum menyimpan. Tidak ada yang diunggah: PDF diedit di browser Anda.",
+  "title": "Hapus Halaman dari PDF Online Gratis | Toolz Baba",
+  "tab": "Hapus halaman",
+  "faq": [
+   {
+    "q": "Bagaimana cara menghapus halaman dari PDF?",
+    "a": "Tambahkan PDF, klik tombol hapus pada halaman yang ingin dibuang, lalu simpan PDF baru."
+   },
+   {
+    "q": "Apakah file aslinya berubah?",
+    "a": "Tidak. Anda mengunduh PDF baru; file asli Anda tetap seperti semula."
+   }
+  ]
+ },
+ "extract-pdf-pages": {
+  "name": "Ekstrak Halaman PDF",
+  "desc": "Salin halaman pilihan dari PDF ke PDF baru, misalnya 1-3,5. Jalan di browser Anda.",
+  "about": "Hanya butuh beberapa halaman dari PDF yang panjang, seperti satu bab atau halaman bertanda tangan dari kontrak? Tambahkan PDF, ketik halaman yang Anda mau (misalnya 1-3,5,8-10) dan dapatkan satu PDF baru dengan halaman itu saja, dalam urutan tersebut. File asli tidak tersentuh, dan file diproses di perangkat Anda.",
+  "title": "Ekstrak Halaman dari PDF Online Gratis | Toolz Baba",
+  "metaDesc": "Salin halaman pilihan dari PDF, seperti 1-3,5, ke satu PDF baru dalam urutan itu. File asli tidak tersentuh. Gratis, tanpa daftar, jalan di browser.",
+  "tab": "Ekstrak halaman",
+  "faq": [
+   {
+    "q": "Bagaimana cara mengekstrak halaman dari PDF?",
+    "a": "Tambahkan PDF, ketik nomor halaman atau rentang di Halaman, misalnya 2-4,7, lalu klik Pisah PDF."
+   },
+   {
+    "q": "Bisakah halamannya dijadikan file terpisah?",
+    "a": "Bisa. Ubah Cara memisahkan menjadi Rentang khusus, dan setiap rentang menjadi PDF sendiri."
+   }
+  ]
+ },
+ "wav-to-mp3": {
+  "name": "Konverter WAV ke MP3",
+  "desc": "Konversi audio WAV ke MP3 di browser Anda. File MP3 sekitar sepuluh kali lebih kecil dari WAV.",
+  "about": "Ubah file WAV menjadi MP3: tambahkan satu file atau hingga 20, pilih kualitas, dan unduh file MP3-nya. File MP3 sekitar sepuluh kali lebih kecil dari WAV. Konversi berjalan di perangkat Anda sendiri, jadi audio Anda tidak pernah diunggah dan tanpa daftar.",
+  "title": "Konverter WAV ke MP3 Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi WAV ke MP3 online di browser Anda, hingga 20 file sekaligus. File MP3 sekitar sepuluh kali lebih kecil dari WAV. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "WAV ke MP3",
+  "dropLabel": "Letakkan file WAV Anda di sini"
+ },
+ "m4a-to-mp3": {
+  "name": "Konverter M4A ke MP3",
+  "desc": "Konversi audio M4A ke MP3 di browser Anda. Cocok untuk rekaman iPhone dan memo suara.",
+  "about": "Ubah file M4A menjadi MP3: tambahkan satu file atau hingga 20, pilih kualitas, dan unduh file MP3-nya. Cocok untuk rekaman iPhone dan memo suara. Konversi berjalan di perangkat Anda sendiri, jadi audio Anda tidak pernah diunggah dan tanpa daftar.",
+  "title": "Konverter M4A ke MP3 Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi M4A ke MP3 online di browser Anda, hingga 20 file sekaligus. Cocok untuk rekaman iPhone dan memo suara. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "M4A ke MP3",
+  "dropLabel": "Letakkan file M4A Anda di sini"
+ },
+ "mp3-to-wav": {
+  "name": "Konverter MP3 ke WAV",
+  "desc": "Konversi audio MP3 ke WAV di browser Anda. WAV bisa dibuka di setiap editor audio.",
+  "about": "Ubah file MP3 menjadi WAV: tambahkan satu file atau hingga 20, pilih kualitas, dan unduh file WAV-nya. WAV bisa dibuka di setiap editor audio. Konversi berjalan di perangkat Anda sendiri, jadi audio Anda tidak pernah diunggah dan tanpa daftar.",
+  "title": "Konverter MP3 ke WAV Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi MP3 ke WAV online di browser Anda, hingga 20 file sekaligus. WAV bisa dibuka di setiap editor audio. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "MP3 ke WAV",
+  "dropLabel": "Letakkan file MP3 Anda di sini"
+ },
+ "flac-to-mp3": {
+  "name": "Konverter FLAC ke MP3",
+  "desc": "Konversi audio FLAC ke MP3 di browser Anda. Putar musik lossless Anda di perangkat apa pun.",
+  "about": "Ubah file FLAC menjadi MP3: tambahkan satu file atau hingga 20, pilih kualitas, dan unduh file MP3-nya. Putar musik lossless Anda di perangkat apa pun. Konversi berjalan di perangkat Anda sendiri, jadi audio Anda tidak pernah diunggah dan tanpa daftar.",
+  "title": "Konverter FLAC ke MP3 Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi FLAC ke MP3 online di browser Anda, hingga 20 file sekaligus. Putar musik lossless Anda di perangkat apa pun. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "FLAC ke MP3",
+  "dropLabel": "Letakkan file FLAC Anda di sini"
+ },
+ "ogg-to-mp3": {
+  "name": "Konverter OGG ke MP3",
+  "desc": "Konversi audio OGG ke MP3 di browser Anda. Bisa juga untuk pesan suara WhatsApp (OPUS).",
+  "about": "Ubah file OGG menjadi MP3: tambahkan satu file atau hingga 20, pilih kualitas, dan unduh file MP3-nya. Bisa juga untuk pesan suara WhatsApp (OPUS). Konversi berjalan di perangkat Anda sendiri, jadi audio Anda tidak pernah diunggah dan tanpa daftar.",
+  "title": "Konverter OGG ke MP3 Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi OGG ke MP3 online di browser Anda, hingga 20 file sekaligus. Bisa juga untuk pesan suara WhatsApp (OPUS). Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "OGG ke MP3",
+  "dropLabel": "Letakkan file OGG Anda di sini"
+ },
+ "aac-to-mp3": {
+  "name": "Konverter AAC ke MP3",
+  "desc": "Konversi audio AAC ke MP3 di browser Anda. Bisa diputar di setiap ponsel, mobil, dan speaker.",
+  "about": "Ubah file AAC menjadi MP3: tambahkan satu file atau hingga 20, pilih kualitas, dan unduh file MP3-nya. Bisa diputar di setiap ponsel, mobil, dan speaker. Konversi berjalan di perangkat Anda sendiri, jadi audio Anda tidak pernah diunggah dan tanpa daftar.",
+  "title": "Konverter AAC ke MP3 Online Gratis | Toolz Baba",
+  "metaDesc": "Konversi AAC ke MP3 online di browser Anda, hingga 20 file sekaligus. Bisa diputar di setiap ponsel, mobil, dan speaker. Gratis, tanpa daftar, tanpa unggah.",
+  "tab": "AAC ke MP3",
+  "dropLabel": "Letakkan file AAC Anda di sini"
+ }
+}

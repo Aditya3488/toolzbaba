@@ -1,43 +1,43 @@
 {
  "/": {
   "date": "2026-10-07",
-  "hash": "eaca473c83922d12"
+  "hash": "75b5b27c621a77b8"
  },
  "/aac-to-mp3": {
   "date": "2026-10-07",
-  "hash": "d4f2a654e32cd8c3"
+  "hash": "27517693079a8fb5"
  },
  "/add-page-numbers-to-pdf": {
   "date": "2026-10-07",
-  "hash": "4574b46f5c70a979"
+  "hash": "8ce43cb1e93ea096"
  },
  "/add-watermark-to-image": {
   "date": "2026-10-07",
-  "hash": "6f0baba1f4cce13d"
+  "hash": "9ddbde631e5c7073"
  },
  "/add-watermark-to-pdf": {
   "date": "2026-10-07",
-  "hash": "0670d67ae5e2f3e8"
+  "hash": "06776fc22b6b48a2"
  },
  "/add-watermark-to-video": {
   "date": "2026-10-07",
-  "hash": "0d080aa856834d9b"
+  "hash": "5557db47e7753fb0"
  },
  "/ai-headshot-generator": {
   "date": "2026-10-07",
-  "hash": "8e2156409312b782"
+  "hash": "f874a62ba77e44d7"
  },
  "/anime-style": {
   "date": "2026-10-07",
-  "hash": "d26c2e94d6eabdb3"
+  "hash": "074f52b8e6dfac71"
  },
  "/audio-converter": {
   "date": "2026-10-07",
-  "hash": "d622a533fb4fee2f"
+  "hash": "1e60f583b907afa2"
  },
  "/base64": {
   "date": "2026-10-07",
-  "hash": "06d71eb98257e164"
+  "hash": "3a742f8a578a85a2"
  },
  "/blog": {
   "date": "2026-10-06",
@@ -45,191 +45,783 @@
  },
  "/blur-redact-pdf": {
   "date": "2026-10-07",
-  "hash": "0dfe0707050b9a28"
+  "hash": "9286691608c81691"
+ },
+ "/bn/": {
+  "date": "2026-10-07",
+  "hash": "bf297e7512507f60"
+ },
+ "/bn/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "391d1cbf6053b771"
+ },
+ "/bn/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "f5023d077e0c93a1"
+ },
+ "/bn/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "05f55c3c2f3521f1"
+ },
+ "/bn/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "5f0a9d16b092daf2"
+ },
+ "/bn/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "87109453569e7042"
+ },
+ "/bn/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "94ac8270f13478e7"
+ },
+ "/bn/anime-style": {
+  "date": "2026-10-07",
+  "hash": "808b0ba2c0e6948c"
+ },
+ "/bn/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "9d23ed5c06dc11b3"
+ },
+ "/bn/base64": {
+  "date": "2026-10-07",
+  "hash": "c4b5048bbef3d0a3"
+ },
+ "/bn/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "be21d54f298470f1"
+ },
+ "/bn/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "5d05e106552675d0"
+ },
+ "/bn/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "09c4d63d944b5bcd"
+ },
+ "/bn/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "6723118d9f786fbe"
+ },
+ "/bn/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "9a18984d13daed39"
+ },
+ "/bn/compress-image": {
+  "date": "2026-10-07",
+  "hash": "a53f03a9932f16f6"
+ },
+ "/bn/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "398375fb8f3f8626"
+ },
+ "/bn/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "0b2f4d41bc72a084"
+ },
+ "/bn/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "0b9fb9be91deb495"
+ },
+ "/bn/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "7eb0f072c8e23f0e"
+ },
+ "/bn/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "96af271d4791c5c8"
+ },
+ "/bn/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "5e12884f04f9c75f"
+ },
+ "/bn/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "85270671ac92e0ed"
+ },
+ "/bn/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "6006c63b725f26d6"
+ },
+ "/bn/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "6a58bb752be0be48"
+ },
+ "/bn/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "625e9e9c6cd5c2b3"
+ },
+ "/bn/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "b5b847d04eda8133"
+ },
+ "/bn/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "7e27b7574f96c946"
+ },
+ "/bn/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "cd1ae95b527c75e0"
+ },
+ "/bn/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "70b87f0b9a536ed4"
+ },
+ "/bn/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "d85ef6d2e8f91058"
+ },
+ "/bn/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "75aa4c55ec7bbb43"
+ },
+ "/bn/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "c3d2be8e5409f7a6"
+ },
+ "/bn/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "a458925544e4192f"
+ },
+ "/bn/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "7bfe2f5f0a8d858d"
+ },
+ "/bn/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "63097eba450143ce"
+ },
+ "/bn/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "9a1ad8c245d421d7"
+ },
+ "/bn/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "3a0c5cb1701a40ba"
+ },
+ "/bn/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "ae5a2a67ba79fc06"
+ },
+ "/bn/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "998c27a96d2a3cdd"
+ },
+ "/bn/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "c9f785b90a4316c6"
+ },
+ "/bn/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "bc59e32525b0215e"
+ },
+ "/bn/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "8d10eb79370cb417"
+ },
+ "/bn/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "9a233d72ef95c4e0"
+ },
+ "/bn/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "c10f9118c15758f1"
+ },
+ "/bn/compress-png": {
+  "date": "2026-10-07",
+  "hash": "928767b67efec01f"
+ },
+ "/bn/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "a9bd85c0d3bfa2c4"
+ },
+ "/bn/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "fe948931bcdbccb0"
+ },
+ "/bn/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "ea3500dea51112ca"
+ },
+ "/bn/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "ae18f70e5a6f74f0"
+ },
+ "/bn/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "75d316d3d55edbff"
+ },
+ "/bn/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "42869e46021bd4bb"
+ },
+ "/bn/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "aea5f2aa9f03be18"
+ },
+ "/bn/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "ec6bc9653e89f01a"
+ },
+ "/bn/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "66e0399ed2f45bfd"
+ },
+ "/bn/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "2afc45a2b01956f0"
+ },
+ "/bn/compress-video": {
+  "date": "2026-10-07",
+  "hash": "6c05631ee496c9d7"
+ },
+ "/bn/convert-image": {
+  "date": "2026-10-07",
+  "hash": "10fcd5993a02b451"
+ },
+ "/bn/crop-image": {
+  "date": "2026-10-07",
+  "hash": "64275b5b0d1c2386"
+ },
+ "/bn/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "7e6938c25cd8f36e"
+ },
+ "/bn/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "9aaadb1de1b589aa"
+ },
+ "/bn/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "c891c634c18fc774"
+ },
+ "/bn/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "3894dc4b5fd2a456"
+ },
+ "/bn/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "fa675af7a2d8bd3c"
+ },
+ "/bn/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "4781f9b4821c3c60"
+ },
+ "/bn/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "dc3592f4e810d8ea"
+ },
+ "/bn/face-blur": {
+  "date": "2026-10-07",
+  "hash": "d647a3a9908ac527"
+ },
+ "/bn/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "2ea7c645a2e1f407"
+ },
+ "/bn/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "9ad1ecb5afe965d5"
+ },
+ "/bn/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "87d4d72c72b33b49"
+ },
+ "/bn/font-library": {
+  "date": "2026-10-07",
+  "hash": "6370cc0ccead63d3"
+ },
+ "/bn/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "9da2e6d9a2ce117c"
+ },
+ "/bn/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "77b5efc2a72e07ff"
+ },
+ "/bn/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "3f9aa20aa2ab6dc0"
+ },
+ "/bn/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "5e528796a195902d"
+ },
+ "/bn/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "5cc511676e63ebe6"
+ },
+ "/bn/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "9b50771cd73a7d58"
+ },
+ "/bn/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "0a3d8d48f6cdc7a4"
+ },
+ "/bn/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "572fcf190844026e"
+ },
+ "/bn/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "4ef71d7782e82a57"
+ },
+ "/bn/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "399302c89630a39a"
+ },
+ "/bn/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "c3cfb918f2e328bf"
+ },
+ "/bn/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "df197ceb5a74099a"
+ },
+ "/bn/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "439dc2b356530c7f"
+ },
+ "/bn/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "a50e12653638b145"
+ },
+ "/bn/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "af7648544890d8ab"
+ },
+ "/bn/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "22cd2396ef519145"
+ },
+ "/bn/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "3a8c097608789066"
+ },
+ "/bn/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "a629e505d068a220"
+ },
+ "/bn/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "e939362c61a1afe5"
+ },
+ "/bn/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "87d16c6bf0948d57"
+ },
+ "/bn/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "d9c96e8d6596ca54"
+ },
+ "/bn/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "3bd560bccbf9d041"
+ },
+ "/bn/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "9ebf07a51abb73fd"
+ },
+ "/bn/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "e5449e2d89d366c6"
+ },
+ "/bn/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "0c4dd1edd446f87b"
+ },
+ "/bn/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "1593f4efdc12f0fa"
+ },
+ "/bn/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "3295c598cd1020b0"
+ },
+ "/bn/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "7ce270f0e5d26180"
+ },
+ "/bn/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "0cb44337b92d2b32"
+ },
+ "/bn/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "3d2d3867f1f625c3"
+ },
+ "/bn/password-generator": {
+  "date": "2026-10-07",
+  "hash": "324abcf9e38da359"
+ },
+ "/bn/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "cdb4e8ce8330728e"
+ },
+ "/bn/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "62fa5e32595f4e39"
+ },
+ "/bn/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "523093103c6e2870"
+ },
+ "/bn/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "10dd0335cddd8a3c"
+ },
+ "/bn/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "13c4d5f3b310e93b"
+ },
+ "/bn/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "e7558bee929db880"
+ },
+ "/bn/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "08bb2b1b7a9bfcbf"
+ },
+ "/bn/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "4def60d77363cf0c"
+ },
+ "/bn/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "3bba2e4fc66159fc"
+ },
+ "/bn/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "b57774a669e70b83"
+ },
+ "/bn/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "a151dfccd31cd44f"
+ },
+ "/bn/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "15ccb47176f69f5d"
+ },
+ "/bn/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "02e4cc843233db1c"
+ },
+ "/bn/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "e5f1f88389417a9f"
+ },
+ "/bn/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "35f6a794a09b2deb"
+ },
+ "/bn/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "a6e3a749ba0b8e2f"
+ },
+ "/bn/remove-background": {
+  "date": "2026-10-07",
+  "hash": "c26bdd06e08a2878"
+ },
+ "/bn/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "bd6b9228c5320207"
+ },
+ "/bn/replace-background": {
+  "date": "2026-10-07",
+  "hash": "00ef64e8407a5ea6"
+ },
+ "/bn/resize-image": {
+  "date": "2026-10-07",
+  "hash": "72fe05ec1495cc74"
+ },
+ "/bn/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "a1b4904bebff95ea"
+ },
+ "/bn/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "c074cb6b812acf85"
+ },
+ "/bn/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "00ea6bdce1c38d9b"
+ },
+ "/bn/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "d64b89be3d6a7848"
+ },
+ "/bn/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "042fc62657216a34"
+ },
+ "/bn/split-audio": {
+  "date": "2026-10-07",
+  "hash": "50474050112c2e50"
+ },
+ "/bn/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "ab82b1cf44addaae"
+ },
+ "/bn/split-video": {
+  "date": "2026-10-07",
+  "hash": "16204686c6234026"
+ },
+ "/bn/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "8da5097ffb770425"
+ },
+ "/bn/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "46dc4795b0fc68af"
+ },
+ "/bn/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "59d5b07ace3409d3"
+ },
+ "/bn/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "46967415cc1a3cfa"
+ },
+ "/bn/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "62396698b0b81860"
+ },
+ "/bn/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "41f89da4670c578f"
+ },
+ "/bn/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "95a1987298c78eea"
+ },
+ "/bn/video-converter": {
+  "date": "2026-10-07",
+  "hash": "6aabe2cf35eab511"
+ },
+ "/bn/video-merger": {
+  "date": "2026-10-07",
+  "hash": "45cedd45a567bdf6"
+ },
+ "/bn/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "4738da11444f0aad"
+ },
+ "/bn/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "1ef355b9bde6ed24"
+ },
+ "/bn/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "dd3f7edf53a47cb6"
+ },
+ "/bn/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "19a75c35ee6eec87"
+ },
+ "/bn/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "2050c1d8aff6caf4"
+ },
+ "/bn/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "d7e19a9ad28af245"
+ },
+ "/bn/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "c767f65a57cb438b"
+ },
+ "/bn/word-counter": {
+  "date": "2026-10-07",
+  "hash": "c61ef2a377d24c22"
+ },
+ "/bn/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "4c27caafde2d5824"
  },
  "/change-video-speed": {
   "date": "2026-10-07",
-  "hash": "9e22e7621a95cbb0"
+  "hash": "c6b6cbed90becc75"
  },
  "/color-palette-generator": {
   "date": "2026-10-07",
-  "hash": "221f2fc1177f3042"
+  "hash": "1f9474da1b56fc11"
  },
  "/compare-pdf": {
   "date": "2026-10-07",
-  "hash": "8fdcdad12daec6b8"
+  "hash": "16b63d8eb017dc8b"
  },
  "/compress-gif": {
   "date": "2026-10-07",
-  "hash": "b0daf6f2e1934dbd"
+  "hash": "64b007ec57e13ee9"
  },
  "/compress-image": {
   "date": "2026-10-07",
-  "hash": "ff8bf04993cbcda3"
+  "hash": "5e08fb263f017595"
  },
  "/compress-jpeg": {
   "date": "2026-10-07",
-  "hash": "83796e89dcd5ae14"
+  "hash": "c4f8fb029d078c4c"
  },
  "/compress-jpeg-under-100kb": {
   "date": "2026-10-07",
-  "hash": "9fdb058a91791b51"
+  "hash": "18ad3c5bd4681d8c"
  },
  "/compress-jpeg-under-10kb": {
   "date": "2026-10-07",
-  "hash": "4fda33603cba6fd7"
+  "hash": "2c3975b682cc16eb"
  },
  "/compress-jpeg-under-150kb": {
   "date": "2026-10-07",
-  "hash": "7a726a950cbac16c"
+  "hash": "c7ef845e9d444314"
  },
  "/compress-jpeg-under-1mb": {
   "date": "2026-10-07",
-  "hash": "e5cc4d69300e4b8f"
+  "hash": "6a69719715cd7a13"
  },
  "/compress-jpeg-under-200kb": {
   "date": "2026-10-07",
-  "hash": "2c73bee952ae8071"
+  "hash": "18e83f1ded64dcbd"
  },
  "/compress-jpeg-under-20kb": {
   "date": "2026-10-07",
-  "hash": "c2e60bb494587c91"
+  "hash": "4ff6db66aa8fa8ab"
  },
  "/compress-jpeg-under-2mb": {
   "date": "2026-10-07",
-  "hash": "fcd4e8ad5ca91611"
+  "hash": "97af84e56dd42b17"
  },
  "/compress-jpeg-under-300kb": {
   "date": "2026-10-07",
-  "hash": "fff6fb6210ebe096"
+  "hash": "a97f020a8e50fa82"
  },
  "/compress-jpeg-under-500kb": {
   "date": "2026-10-07",
-  "hash": "e93cdc556b5d2d9f"
+  "hash": "197208db4cb79c85"
  },
  "/compress-jpeg-under-50kb": {
   "date": "2026-10-07",
-  "hash": "75bca5c302bd8bf9"
+  "hash": "69c4f0685eb9bf8d"
  },
  "/compress-jpg": {
   "date": "2026-10-07",
-  "hash": "2024b488358d0ac1"
+  "hash": "2c69ef2d7f627b4e"
  },
  "/compress-jpg-under-100kb": {
   "date": "2026-10-07",
-  "hash": "a7dc502288e650a2"
+  "hash": "76a642ecbc1aacdc"
  },
  "/compress-jpg-under-10kb": {
   "date": "2026-10-07",
-  "hash": "6529ac7b6769b519"
+  "hash": "5c9ca824df2d5884"
  },
  "/compress-jpg-under-150kb": {
   "date": "2026-10-07",
-  "hash": "3315de55b17fa32c"
+  "hash": "c7fc1bf20e4ecda5"
  },
  "/compress-jpg-under-1mb": {
   "date": "2026-10-07",
-  "hash": "7c4bc03ac4de16b8"
+  "hash": "61740d9349b70a28"
  },
  "/compress-jpg-under-200kb": {
   "date": "2026-10-07",
-  "hash": "57621ef3adea28d5"
+  "hash": "8b9b85dd201de0a3"
  },
  "/compress-jpg-under-20kb": {
   "date": "2026-10-07",
-  "hash": "f946e194ea40ecb0"
+  "hash": "b92277f81212359e"
  },
  "/compress-jpg-under-2mb": {
   "date": "2026-10-07",
-  "hash": "90a05cbf35f11eed"
+  "hash": "f16fccb7b044050b"
  },
  "/compress-jpg-under-300kb": {
   "date": "2026-10-07",
-  "hash": "fc8b490346382d65"
+  "hash": "60a4c7a4c46aef98"
  },
  "/compress-jpg-under-500kb": {
   "date": "2026-10-07",
-  "hash": "622eca5c876f7052"
+  "hash": "9094b6526d56cd7c"
  },
  "/compress-jpg-under-50kb": {
   "date": "2026-10-07",
-  "hash": "f37e976c02d51236"
+  "hash": "f2c98336bc397b0a"
  },
  "/compress-pdf": {
   "date": "2026-10-07",
-  "hash": "aa79300d099b5733"
+  "hash": "2d1c46c76cb0fc57"
  },
  "/compress-pdf-under-100kb": {
   "date": "2026-10-07",
-  "hash": "d474dec7efdecf40"
+  "hash": "35ca12970b6474d8"
  },
  "/compress-pdf-under-1mb": {
   "date": "2026-10-07",
-  "hash": "bf15fce5c2196623"
+  "hash": "99abcbefa1975677"
  },
  "/compress-pdf-under-200kb": {
   "date": "2026-10-07",
-  "hash": "46520bef42be9c3c"
+  "hash": "00af289f37f7ba24"
  },
  "/compress-pdf-under-2mb": {
   "date": "2026-10-07",
-  "hash": "56bccb85b343d286"
+  "hash": "12c056febdc7c201"
  },
  "/compress-pdf-under-300kb": {
   "date": "2026-10-07",
-  "hash": "63b672778b901b41"
+  "hash": "1b7acd789b001a18"
  },
  "/compress-pdf-under-500kb": {
   "date": "2026-10-07",
-  "hash": "f383c1b52ae5b7ba"
+  "hash": "468d923ad02f72c2"
  },
  "/compress-png": {
   "date": "2026-10-07",
-  "hash": "f6fbb6eca9ada193"
+  "hash": "2f1509f7942a8491"
  },
  "/compress-png-under-100kb": {
   "date": "2026-10-07",
-  "hash": "8965b54e5e140021"
+  "hash": "9abf7c4c5e24ba78"
  },
  "/compress-png-under-10kb": {
   "date": "2026-10-07",
-  "hash": "13fcb5511488b6da"
+  "hash": "9d0b3e0a2a35fef4"
  },
  "/compress-png-under-150kb": {
   "date": "2026-10-07",
-  "hash": "591c2a1076de013e"
+  "hash": "d3ee8096338b3ad6"
  },
  "/compress-png-under-1mb": {
   "date": "2026-10-07",
-  "hash": "9b7ef615863dbe30"
+  "hash": "539b95154080250f"
  },
  "/compress-png-under-200kb": {
   "date": "2026-10-07",
-  "hash": "796163de2af0319b"
+  "hash": "71e1d690df916abf"
  },
  "/compress-png-under-20kb": {
   "date": "2026-10-07",
-  "hash": "e9c5ad3b12486a71"
+  "hash": "5750e2d4da14e160"
  },
  "/compress-png-under-2mb": {
   "date": "2026-10-07",
-  "hash": "3f6f5cd0200a9c60"
+  "hash": "2a5007af7f098b31"
  },
  "/compress-png-under-300kb": {
   "date": "2026-10-07",
-  "hash": "2d5d4d8087f974f0"
+  "hash": "ba4a8af5489aa412"
  },
  "/compress-png-under-500kb": {
   "date": "2026-10-07",
-  "hash": "8b153462a83cb4de"
+  "hash": "422fbeb9dd056971"
  },
  "/compress-png-under-50kb": {
   "date": "2026-10-07",
-  "hash": "ff3153bbf1b80165"
+  "hash": "506160a5ed53f02f"
  },
  "/compress-video": {
   "date": "2026-10-07",
-  "hash": "f66b0bada997c121"
+  "hash": "0212152d4591fbc9"
  },
  "/contact": {
   "date": "2026-10-06",
@@ -237,239 +829,3791 @@
  },
  "/convert-image": {
   "date": "2026-10-07",
-  "hash": "44acdadaabac3602"
+  "hash": "e82e2c9323333826"
  },
  "/crop-image": {
   "date": "2026-10-07",
-  "hash": "73499508f7ec5e44"
+  "hash": "2f510de9a6c40815"
  },
  "/crop-pdf": {
   "date": "2026-10-07",
-  "hash": "1ad7614f3e3b6aab"
+  "hash": "7633cec4f0b69b17"
+ },
+ "/de/": {
+  "date": "2026-10-07",
+  "hash": "b4cd7cdaf2a415be"
+ },
+ "/de/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "2d8af62654efeb52"
+ },
+ "/de/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "977d69df3679d1da"
+ },
+ "/de/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "ac5d234264cb7403"
+ },
+ "/de/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "a9477f88d7243762"
+ },
+ "/de/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "699e909508a2622f"
+ },
+ "/de/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "65b45a56c95bcaf1"
+ },
+ "/de/anime-style": {
+  "date": "2026-10-07",
+  "hash": "03239d3354aa1586"
+ },
+ "/de/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "a7e74a32e7a2855d"
+ },
+ "/de/base64": {
+  "date": "2026-10-07",
+  "hash": "6d85cb4fa949224f"
+ },
+ "/de/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "7d83f79df7ffacb9"
+ },
+ "/de/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "5af9593ed7575250"
+ },
+ "/de/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "e52363b3bf311cad"
+ },
+ "/de/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "721eca1f0f1c2f47"
+ },
+ "/de/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "7309d88343a38761"
+ },
+ "/de/compress-image": {
+  "date": "2026-10-07",
+  "hash": "31b841fd5c0f6721"
+ },
+ "/de/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "89d0d8ada22b34f5"
+ },
+ "/de/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "8a810d1c3ca0b86a"
+ },
+ "/de/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "f55224368645a62f"
+ },
+ "/de/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "8a89820a07975b32"
+ },
+ "/de/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "0492340083c3ca10"
+ },
+ "/de/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "721acbdaeeb002f0"
+ },
+ "/de/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "0d6e97d608a8f33d"
+ },
+ "/de/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "98c65b3bc5d2f09a"
+ },
+ "/de/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "afce7b36ecfa51a1"
+ },
+ "/de/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "c2819a2a5e499570"
+ },
+ "/de/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "9a4ddd8bbcb32484"
+ },
+ "/de/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "b1d1315a8471b6cc"
+ },
+ "/de/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "fd600e9d2fc034ea"
+ },
+ "/de/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "0f95fff1eab55921"
+ },
+ "/de/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "c4191af718e7b68b"
+ },
+ "/de/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "6807e0036e07f958"
+ },
+ "/de/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "d584aaee430f2706"
+ },
+ "/de/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "18e61e90d58828e4"
+ },
+ "/de/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "2b8b47d5d894aaf6"
+ },
+ "/de/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "fb476a25be55c4d8"
+ },
+ "/de/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "73227c4b43de2ebb"
+ },
+ "/de/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "5245141a025b156b"
+ },
+ "/de/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "3abd2352de2785d1"
+ },
+ "/de/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "2b59d75d0b0466f9"
+ },
+ "/de/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "af6a63fb56f344da"
+ },
+ "/de/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "8d3dd514b2d52ad3"
+ },
+ "/de/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "8f56ed5ebac111fe"
+ },
+ "/de/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "f35a0fe477d1e592"
+ },
+ "/de/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "1d736cba07da60ad"
+ },
+ "/de/compress-png": {
+  "date": "2026-10-07",
+  "hash": "ba2178b1e6aa241c"
+ },
+ "/de/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "e96e6ca3d376f052"
+ },
+ "/de/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "29ff0f646407e7d1"
+ },
+ "/de/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "62f24298d473813e"
+ },
+ "/de/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "0cd80eca94ad8032"
+ },
+ "/de/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "5a42f8007cdea66a"
+ },
+ "/de/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "bb75903aed9fd779"
+ },
+ "/de/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "80f5afb72176c9bc"
+ },
+ "/de/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "427510cfd54f3dcb"
+ },
+ "/de/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "59e870ac4f02f5a9"
+ },
+ "/de/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "572c1d4153105c1f"
+ },
+ "/de/compress-video": {
+  "date": "2026-10-07",
+  "hash": "7d6b532a8207d1d7"
+ },
+ "/de/convert-image": {
+  "date": "2026-10-07",
+  "hash": "4aa4e457d55c58f4"
+ },
+ "/de/crop-image": {
+  "date": "2026-10-07",
+  "hash": "39b15d807def2e0d"
+ },
+ "/de/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "4e69561671a6ab3e"
+ },
+ "/de/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "db6f6d4e6be16b55"
+ },
+ "/de/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "f963886a7ef57e14"
+ },
+ "/de/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "7b1d64ae9ed99a87"
+ },
+ "/de/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "9184a47a4d5d6467"
+ },
+ "/de/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "ecb06d7e46ed6530"
+ },
+ "/de/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "92fa6eca93b83f49"
+ },
+ "/de/face-blur": {
+  "date": "2026-10-07",
+  "hash": "741540cabc5d4b0c"
+ },
+ "/de/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "4e0a43fd01e585dd"
+ },
+ "/de/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "7ffaffd6a5b7e809"
+ },
+ "/de/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "265de47eed72a79e"
+ },
+ "/de/font-library": {
+  "date": "2026-10-07",
+  "hash": "33c734a578c3983a"
+ },
+ "/de/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "7223e364ab361053"
+ },
+ "/de/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "62d71b0a1fded2d6"
+ },
+ "/de/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "bd7c430f4b4d931e"
+ },
+ "/de/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "842ea0164d18138e"
+ },
+ "/de/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "6d5a0177dd735b16"
+ },
+ "/de/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "33c3247bf3b93e5c"
+ },
+ "/de/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "b599a2c03eaa11cf"
+ },
+ "/de/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "46c135b9cdd9be0d"
+ },
+ "/de/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "f0c58d6ab3581bc4"
+ },
+ "/de/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "fc443a7771bc231e"
+ },
+ "/de/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "d2c0e973e9ce1353"
+ },
+ "/de/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "4b8adf4bb23870e2"
+ },
+ "/de/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "f743ee5bc82ad132"
+ },
+ "/de/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "8be98b1c63e62a7c"
+ },
+ "/de/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "d7a2878f03f7ca11"
+ },
+ "/de/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "be6883bbcce39db4"
+ },
+ "/de/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "0a64621cfaec7835"
+ },
+ "/de/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "0e464aa405caae29"
+ },
+ "/de/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "2aa1dca30264a91e"
+ },
+ "/de/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "1656206a812dbc1a"
+ },
+ "/de/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "a3a6a47960ad7b5c"
+ },
+ "/de/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "6192443e65e14507"
+ },
+ "/de/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "9c6dd3056947f80d"
+ },
+ "/de/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "31e808f90c62a1e7"
+ },
+ "/de/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "39a0cc4014906839"
+ },
+ "/de/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "31bf1b4f32d6c3c5"
+ },
+ "/de/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "eb23781eba2f5454"
+ },
+ "/de/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "6ffb22bcc351ef49"
+ },
+ "/de/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "52ba018e08552183"
+ },
+ "/de/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "e57408919c9f04ba"
+ },
+ "/de/password-generator": {
+  "date": "2026-10-07",
+  "hash": "8f5f7e4ab8cb3213"
+ },
+ "/de/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "600abbceec10e9ab"
+ },
+ "/de/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "cde5e29ea261af59"
+ },
+ "/de/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "4e57c1f5f8c5c68e"
+ },
+ "/de/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "bbb46c3e35bf6912"
+ },
+ "/de/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "8a03b906048bfefc"
+ },
+ "/de/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "8e0083748c964731"
+ },
+ "/de/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "f07e06113e6f3c60"
+ },
+ "/de/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "5903d28fb10ebdb9"
+ },
+ "/de/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "838fa14bb16eb07f"
+ },
+ "/de/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "a23e72727a763bc9"
+ },
+ "/de/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "02b238f388065480"
+ },
+ "/de/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "2aa6fb1693a4683a"
+ },
+ "/de/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "dd9f06986b71715e"
+ },
+ "/de/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "453b3dd065115d77"
+ },
+ "/de/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "0b789d5900d824aa"
+ },
+ "/de/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "f89c99801057272b"
+ },
+ "/de/remove-background": {
+  "date": "2026-10-07",
+  "hash": "4d35601ce6d7a8a4"
+ },
+ "/de/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "2cf32e2e1f6562d4"
+ },
+ "/de/replace-background": {
+  "date": "2026-10-07",
+  "hash": "219473f519db8bbe"
+ },
+ "/de/resize-image": {
+  "date": "2026-10-07",
+  "hash": "29fda7c8edfa2e58"
+ },
+ "/de/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "06330f596459d474"
+ },
+ "/de/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "db30d31003e12892"
+ },
+ "/de/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "cde3813810ba2f01"
+ },
+ "/de/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "727de37304a7f4d8"
+ },
+ "/de/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "8095c567223f4079"
+ },
+ "/de/split-audio": {
+  "date": "2026-10-07",
+  "hash": "4778c2d77fe8bda1"
+ },
+ "/de/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "fa74a53def0fa25d"
+ },
+ "/de/split-video": {
+  "date": "2026-10-07",
+  "hash": "b7cd1ba58716eb2f"
+ },
+ "/de/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "24e4888579f713d4"
+ },
+ "/de/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "6160f1b351a88bce"
+ },
+ "/de/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "5175626ca26f0aa7"
+ },
+ "/de/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "95d785e6614bac6b"
+ },
+ "/de/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "32d3ae5cf00e7fd5"
+ },
+ "/de/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "02479e5c872379a7"
+ },
+ "/de/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "5ef46b9fb1935981"
+ },
+ "/de/video-converter": {
+  "date": "2026-10-07",
+  "hash": "70c74071b857def9"
+ },
+ "/de/video-merger": {
+  "date": "2026-10-07",
+  "hash": "3c5b87ea8915950a"
+ },
+ "/de/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "701d3ff23b593c2d"
+ },
+ "/de/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "4c59f331ce81e486"
+ },
+ "/de/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "a21c4f04cfbb8184"
+ },
+ "/de/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "b18b1821630052f2"
+ },
+ "/de/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "42cc3a4517a3a308"
+ },
+ "/de/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "f26f0611ae2292b5"
+ },
+ "/de/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "67c23545ac4b1dad"
+ },
+ "/de/word-counter": {
+  "date": "2026-10-07",
+  "hash": "af86bae09c6e6690"
+ },
+ "/de/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "349bd3536b1be43e"
  },
  "/delete-pdf-pages": {
   "date": "2026-10-07",
-  "hash": "cebb69861758df02"
+  "hash": "9db1114ab8e99d99"
  },
  "/docx-to-markdown": {
   "date": "2026-10-07",
-  "hash": "0a4643737864313f"
+  "hash": "54186bf8696cfaf8"
+ },
+ "/es/": {
+  "date": "2026-10-07",
+  "hash": "d91d15fde87b3b76"
+ },
+ "/es/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "6a4e145172d2811e"
+ },
+ "/es/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "c3bb14bd6dae50ca"
+ },
+ "/es/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "f93d3c1d86f6fae3"
+ },
+ "/es/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "9529bcaa9b184992"
+ },
+ "/es/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "6d45f17559ea74a2"
+ },
+ "/es/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "7d8daa1e8f7ac39f"
+ },
+ "/es/anime-style": {
+  "date": "2026-10-07",
+  "hash": "2da2e3dc91c1a46e"
+ },
+ "/es/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "3a51384c4f358a54"
+ },
+ "/es/base64": {
+  "date": "2026-10-07",
+  "hash": "13b36bc2b731d57e"
+ },
+ "/es/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "f154fba2f0a49683"
+ },
+ "/es/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "ba2e34868756b10a"
+ },
+ "/es/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "78bb6bdc97e60a1a"
+ },
+ "/es/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "5547d41a34123dbc"
+ },
+ "/es/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "f5bdf8e9dc14ae5e"
+ },
+ "/es/compress-image": {
+  "date": "2026-10-07",
+  "hash": "179c4febc21ff396"
+ },
+ "/es/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "bf2bcefd1c875be1"
+ },
+ "/es/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "d87ab4f6b1741f56"
+ },
+ "/es/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "61ea0f83f8ed9825"
+ },
+ "/es/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "94e65bdcaed5dfc9"
+ },
+ "/es/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "9ce2963abe2e592e"
+ },
+ "/es/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "7451513f1e3fff71"
+ },
+ "/es/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "505219953c27ae7a"
+ },
+ "/es/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "e1201c7060978e7c"
+ },
+ "/es/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "0ca5d137705feee0"
+ },
+ "/es/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "640b2d6a2c0010e6"
+ },
+ "/es/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "c666bbcd568ca39c"
+ },
+ "/es/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "fb8959187fc0c620"
+ },
+ "/es/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "88f07660d5dd22ed"
+ },
+ "/es/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "4412aa954d5bed44"
+ },
+ "/es/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "19ac80e5bcab2118"
+ },
+ "/es/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "1916feea0e762403"
+ },
+ "/es/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "04881c3f166df13c"
+ },
+ "/es/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "11de130652b13f8c"
+ },
+ "/es/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "d771256633c3d0ee"
+ },
+ "/es/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "ff59a7fc14bc7846"
+ },
+ "/es/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "246c35788cbd0752"
+ },
+ "/es/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "32b208aa31eec67d"
+ },
+ "/es/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "1a4b664f0b566a98"
+ },
+ "/es/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "0ab078b1a4943a25"
+ },
+ "/es/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "1f83c335b9a7550c"
+ },
+ "/es/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "30dbfae0d8fe0a9c"
+ },
+ "/es/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "4270f43acbf78d42"
+ },
+ "/es/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "30cf9321aaf47045"
+ },
+ "/es/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "2bfb62558665e02b"
+ },
+ "/es/compress-png": {
+  "date": "2026-10-07",
+  "hash": "f6c90d681959b7b7"
+ },
+ "/es/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "7b88d093f4490bd9"
+ },
+ "/es/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "34da2c5c1a562484"
+ },
+ "/es/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "c3799a38b9a15fae"
+ },
+ "/es/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "0ee049bd896458b5"
+ },
+ "/es/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "d8dace4ceb7c08be"
+ },
+ "/es/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "4ff91402545c8f8a"
+ },
+ "/es/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "6437e6b49c9d98be"
+ },
+ "/es/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "87d44d704a5e66ee"
+ },
+ "/es/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "6dd4577b733c7147"
+ },
+ "/es/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "2ef85554c98593f8"
+ },
+ "/es/compress-video": {
+  "date": "2026-10-07",
+  "hash": "0d62089d078c30a8"
+ },
+ "/es/convert-image": {
+  "date": "2026-10-07",
+  "hash": "00d1095feb95c714"
+ },
+ "/es/crop-image": {
+  "date": "2026-10-07",
+  "hash": "f80d26be55bfa192"
+ },
+ "/es/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "8ddd49c421819c5c"
+ },
+ "/es/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "144beb3b031edd85"
+ },
+ "/es/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "37d1a6b520791a55"
+ },
+ "/es/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "ac5eae181eb1859d"
+ },
+ "/es/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "c4580e817f3bda9a"
+ },
+ "/es/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "cd98ef941a4b8096"
+ },
+ "/es/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "f3c439411b52f164"
+ },
+ "/es/face-blur": {
+  "date": "2026-10-07",
+  "hash": "4a495f14b2ba5c4c"
+ },
+ "/es/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "1dc1529d5a2e4c71"
+ },
+ "/es/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "28854cff7a4e4af3"
+ },
+ "/es/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "73134a19960925cc"
+ },
+ "/es/font-library": {
+  "date": "2026-10-07",
+  "hash": "9d5069b69b20d762"
+ },
+ "/es/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "17748a14127d2bfd"
+ },
+ "/es/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "b49454cbc43aafaa"
+ },
+ "/es/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "1f603372490f5e46"
+ },
+ "/es/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "0ff670adc476d31e"
+ },
+ "/es/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "e90abe913083518a"
+ },
+ "/es/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "ac16f447433176a2"
+ },
+ "/es/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "8eef33837026dc85"
+ },
+ "/es/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "7dfa199e04a2375d"
+ },
+ "/es/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "5f19d46fa622d891"
+ },
+ "/es/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "65137de35f1e5bb0"
+ },
+ "/es/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "bbb82392701960ef"
+ },
+ "/es/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "0ddd20fa23762a8f"
+ },
+ "/es/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "94c643cf54307b84"
+ },
+ "/es/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "3b1db76dbfe1473b"
+ },
+ "/es/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "0a6f72e5cf11af25"
+ },
+ "/es/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "087134b8b70a19ec"
+ },
+ "/es/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "415314206cde1655"
+ },
+ "/es/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "2176716b3ee2baba"
+ },
+ "/es/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "ce72e722acf22361"
+ },
+ "/es/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "787a452e8fbe50c1"
+ },
+ "/es/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "8ab40765fe51e4d1"
+ },
+ "/es/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "1a24c53f27d84ff2"
+ },
+ "/es/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "643aa753070352c6"
+ },
+ "/es/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "07cb2cf62944ca53"
+ },
+ "/es/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "fcdf463f7fd2383c"
+ },
+ "/es/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "328766124ff5ee33"
+ },
+ "/es/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "0d7d5799636ff82d"
+ },
+ "/es/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "7d8786d5310d0b0b"
+ },
+ "/es/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "197aeaa150ab4f8a"
+ },
+ "/es/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "591ab0f75dfff568"
+ },
+ "/es/password-generator": {
+  "date": "2026-10-07",
+  "hash": "6d01ae2be74eee75"
+ },
+ "/es/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "366c1a8956ab230b"
+ },
+ "/es/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "ffff2b7e4a342875"
+ },
+ "/es/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "71773a9b44038d6f"
+ },
+ "/es/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "6031369d2e768a7d"
+ },
+ "/es/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "f8d42fc2dfb9dbcb"
+ },
+ "/es/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "ca4f1a0a4edc040c"
+ },
+ "/es/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "e28192993f0b3566"
+ },
+ "/es/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "9bce1459b86f9d7a"
+ },
+ "/es/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "17b37d3e86913282"
+ },
+ "/es/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "21f4dca22c5cb716"
+ },
+ "/es/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "9f3df0f789c97e7c"
+ },
+ "/es/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "3401a2ada7e17682"
+ },
+ "/es/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "948d814f003f81b2"
+ },
+ "/es/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "40ee8724573fae78"
+ },
+ "/es/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "3437ea931fa267f1"
+ },
+ "/es/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "14919aebf51ad158"
+ },
+ "/es/remove-background": {
+  "date": "2026-10-07",
+  "hash": "d30dececa3d51eca"
+ },
+ "/es/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "6f14669cf025238d"
+ },
+ "/es/replace-background": {
+  "date": "2026-10-07",
+  "hash": "abbe22cc675a4b71"
+ },
+ "/es/resize-image": {
+  "date": "2026-10-07",
+  "hash": "2df08debf0235b4d"
+ },
+ "/es/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "3cbbc1a4f9350f3e"
+ },
+ "/es/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "de470b0d0b4ebdf9"
+ },
+ "/es/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "dbb7c67930faaf94"
+ },
+ "/es/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "5400b38d60740621"
+ },
+ "/es/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "c0662a7e0ebe42a9"
+ },
+ "/es/split-audio": {
+  "date": "2026-10-07",
+  "hash": "7cfd0f3993298d79"
+ },
+ "/es/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "a6c85dfecafabcf3"
+ },
+ "/es/split-video": {
+  "date": "2026-10-07",
+  "hash": "79c9fbb5fc3bcb48"
+ },
+ "/es/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "d00702e449ee5d47"
+ },
+ "/es/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "0e3097281facab78"
+ },
+ "/es/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "9eeb0216997e6a78"
+ },
+ "/es/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "9fc739f48b4027a7"
+ },
+ "/es/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "54a9b97c12c18d8e"
+ },
+ "/es/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "0c876327c01ad4cb"
+ },
+ "/es/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "6d3b5d2fa4db54e8"
+ },
+ "/es/video-converter": {
+  "date": "2026-10-07",
+  "hash": "1c04df04be2f716d"
+ },
+ "/es/video-merger": {
+  "date": "2026-10-07",
+  "hash": "96a5eb663c30cd2b"
+ },
+ "/es/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "305dd75a77117a9e"
+ },
+ "/es/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "c25f21c6c33ee037"
+ },
+ "/es/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "d8c66ca2d317197d"
+ },
+ "/es/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "0f72c3bab23ccef4"
+ },
+ "/es/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "4d38e62fcc6de6a5"
+ },
+ "/es/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "36966906d9b2d86f"
+ },
+ "/es/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "4c1711bdd59a25fa"
+ },
+ "/es/word-counter": {
+  "date": "2026-10-07",
+  "hash": "84ae44e35da05e2e"
+ },
+ "/es/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "cadcec5fec9a2b62"
  },
  "/esign-pdf": {
   "date": "2026-10-07",
-  "hash": "01f42b580d81e97e"
+  "hash": "db4754ff6aa9912e"
  },
  "/excel-to-pdf": {
   "date": "2026-10-07",
-  "hash": "d2492d57fd4ec548"
+  "hash": "94525761406c0f78"
  },
  "/exif-remover": {
   "date": "2026-10-07",
-  "hash": "5da3b5679f8b2efa"
+  "hash": "30b139c0ec07dd8b"
  },
  "/extract-pdf-pages": {
   "date": "2026-10-07",
-  "hash": "dcdd86578c333895"
+  "hash": "10110eeb107a93ba"
  },
  "/face-blur": {
   "date": "2026-10-07",
-  "hash": "71cc08c19b5aa889"
+  "hash": "4c7ba4ad7d4d4749"
  },
  "/favicon-generator": {
   "date": "2026-10-07",
-  "hash": "0be3b3db216db5fa"
+  "hash": "038249369ade42ca"
  },
  "/flac-to-mp3": {
   "date": "2026-10-07",
-  "hash": "d79c92ed3caea9c2"
+  "hash": "636ee9b55a72b0c7"
  },
  "/flatten-pdf": {
   "date": "2026-10-07",
-  "hash": "9d2f7fb7a606a524"
+  "hash": "27ae2c497ec5450b"
  },
  "/font-library": {
   "date": "2026-10-07",
-  "hash": "e56f13688e7b7ed7"
+  "hash": "c5a72441a6afd8e6"
+ },
+ "/fr/": {
+  "date": "2026-10-07",
+  "hash": "501c576d12eb5e99"
+ },
+ "/fr/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "106f68e47c56c0a9"
+ },
+ "/fr/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "c9edbe90d7c23371"
+ },
+ "/fr/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "aebeb88e49d28bae"
+ },
+ "/fr/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "7d809206ef6eca62"
+ },
+ "/fr/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "8b6b3ae80d6a8202"
+ },
+ "/fr/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "8b0883ebc3eaca03"
+ },
+ "/fr/anime-style": {
+  "date": "2026-10-07",
+  "hash": "f12142e208d69687"
+ },
+ "/fr/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "80c3f37fb2c99868"
+ },
+ "/fr/base64": {
+  "date": "2026-10-07",
+  "hash": "dda517aab7ba0fed"
+ },
+ "/fr/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "ba2eca9d1565228e"
+ },
+ "/fr/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "4e56baed61cbee29"
+ },
+ "/fr/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "35f0d36db22c2435"
+ },
+ "/fr/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "2b013c1367649197"
+ },
+ "/fr/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "81ec1ec7cb5480f8"
+ },
+ "/fr/compress-image": {
+  "date": "2026-10-07",
+  "hash": "93b52374cbbd1554"
+ },
+ "/fr/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "bf91baae31e1346f"
+ },
+ "/fr/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "3d180ab0dbf1357b"
+ },
+ "/fr/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "e0ed370c73ae5031"
+ },
+ "/fr/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "185c49c5abb4eb01"
+ },
+ "/fr/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "d2fe20e4768984b3"
+ },
+ "/fr/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "350707cb65e14c6e"
+ },
+ "/fr/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "2e23e0c27596b9ab"
+ },
+ "/fr/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "c357d38c15aa5cbf"
+ },
+ "/fr/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "0e3551362351d525"
+ },
+ "/fr/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "d2b4a8621f7d6f25"
+ },
+ "/fr/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "9bd541e982cf139b"
+ },
+ "/fr/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "d51b5c5cd5306db1"
+ },
+ "/fr/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "3a9a8e2c1ec91ffb"
+ },
+ "/fr/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "0faabed879d5e2e3"
+ },
+ "/fr/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "bcca6e084d39d47e"
+ },
+ "/fr/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "cfa92067218c565d"
+ },
+ "/fr/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "ff474ecac651436a"
+ },
+ "/fr/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "f54bb1b60a86e428"
+ },
+ "/fr/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "4cfb990c299e8112"
+ },
+ "/fr/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "036302c12dec2afd"
+ },
+ "/fr/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "7909a5a1be98aaf6"
+ },
+ "/fr/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "9c1e01dd738f8394"
+ },
+ "/fr/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "56e6b30545b39d9c"
+ },
+ "/fr/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "0b31582447aeda4c"
+ },
+ "/fr/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "42c5bfed6941f535"
+ },
+ "/fr/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "25ce8de4e33c1f91"
+ },
+ "/fr/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "137b5758aee7e631"
+ },
+ "/fr/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "7c75d39010365c6b"
+ },
+ "/fr/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "7760b4545ee13497"
+ },
+ "/fr/compress-png": {
+  "date": "2026-10-07",
+  "hash": "5b849317aefba3e4"
+ },
+ "/fr/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "e2970ebb2f067586"
+ },
+ "/fr/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "d58096dd3443e3f1"
+ },
+ "/fr/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "4a50b6a0fb54cd57"
+ },
+ "/fr/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "43e57080c45ac694"
+ },
+ "/fr/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "4d84fdc3ce2e20b1"
+ },
+ "/fr/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "d80a2deb32c21753"
+ },
+ "/fr/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "b3ff62b87dad7148"
+ },
+ "/fr/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "7abe2d3090a4c996"
+ },
+ "/fr/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "9f9eba2835480ded"
+ },
+ "/fr/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "6540d3b90f7f4376"
+ },
+ "/fr/compress-video": {
+  "date": "2026-10-07",
+  "hash": "1c778a816325463f"
+ },
+ "/fr/convert-image": {
+  "date": "2026-10-07",
+  "hash": "3c6b12279e966714"
+ },
+ "/fr/crop-image": {
+  "date": "2026-10-07",
+  "hash": "2fdaefc903c3689c"
+ },
+ "/fr/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "a3b79a7e31997d48"
+ },
+ "/fr/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "103c03a02ac0f064"
+ },
+ "/fr/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "beb280a4507e4fa1"
+ },
+ "/fr/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "fbb68724a75ea316"
+ },
+ "/fr/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "373a8c882695936a"
+ },
+ "/fr/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "93e5880534788c73"
+ },
+ "/fr/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "b36c87b15f50bff5"
+ },
+ "/fr/face-blur": {
+  "date": "2026-10-07",
+  "hash": "443df942075db134"
+ },
+ "/fr/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "f05e103abab6418f"
+ },
+ "/fr/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "f89c7da650dce684"
+ },
+ "/fr/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "017d7fff925ee0c9"
+ },
+ "/fr/font-library": {
+  "date": "2026-10-07",
+  "hash": "7c4b746fc50617c3"
+ },
+ "/fr/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "e347d7b070c5ce2d"
+ },
+ "/fr/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "27648f7c41611f6e"
+ },
+ "/fr/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "8a701f97f0705973"
+ },
+ "/fr/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "8c15b08674e47746"
+ },
+ "/fr/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "59c713ea2073a9ec"
+ },
+ "/fr/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "a18842c5d99909b4"
+ },
+ "/fr/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "3fc491f2894f8eee"
+ },
+ "/fr/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "88116d0398e20947"
+ },
+ "/fr/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "12dcbd0f9e645c4a"
+ },
+ "/fr/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "da97af2b2c3718d9"
+ },
+ "/fr/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "feaffe167a3da415"
+ },
+ "/fr/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "49b73efa35587daf"
+ },
+ "/fr/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "46ba71d55a5271f4"
+ },
+ "/fr/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "9cd1b17c514f8900"
+ },
+ "/fr/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "73422e26b5c6e4be"
+ },
+ "/fr/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "0c8ce5871581f4a2"
+ },
+ "/fr/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "50f5d73033353919"
+ },
+ "/fr/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "7dd0910a8b53c761"
+ },
+ "/fr/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "4a13da3c27c04f08"
+ },
+ "/fr/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "51ea73997a75f9c8"
+ },
+ "/fr/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "6c53c8469c38ef99"
+ },
+ "/fr/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "3bd65704bc3b1b55"
+ },
+ "/fr/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "33d5a8dc3f008b71"
+ },
+ "/fr/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "82799905fae67698"
+ },
+ "/fr/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "1b6ffbf6d7ed3d00"
+ },
+ "/fr/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "4694bf9352c755a6"
+ },
+ "/fr/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "c5d62fe6dd4b81f9"
+ },
+ "/fr/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "fab388b029c34cc2"
+ },
+ "/fr/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "54f4ea21153b0f25"
+ },
+ "/fr/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "a06986463b9e3152"
+ },
+ "/fr/password-generator": {
+  "date": "2026-10-07",
+  "hash": "35e6e63d2b1d9614"
+ },
+ "/fr/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "020fef9b8709bbfc"
+ },
+ "/fr/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "774f6a668479530d"
+ },
+ "/fr/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "b72f65aea03e9003"
+ },
+ "/fr/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "6ee8a0b668f9013f"
+ },
+ "/fr/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "9f8ae783743b3ac4"
+ },
+ "/fr/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "2e496a4542f1a4b9"
+ },
+ "/fr/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "15b7b22c75951282"
+ },
+ "/fr/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "61490115ecd7823f"
+ },
+ "/fr/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "dc9dc892aff94abb"
+ },
+ "/fr/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "12dceeb5b37e8a6a"
+ },
+ "/fr/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "df947d37ddc2c289"
+ },
+ "/fr/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "944d5f7a65fd617d"
+ },
+ "/fr/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "95ad568cb800fae4"
+ },
+ "/fr/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "cd94f583a8f36d4c"
+ },
+ "/fr/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "482b57b2bd7b53c0"
+ },
+ "/fr/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "af7edbf9522aee4f"
+ },
+ "/fr/remove-background": {
+  "date": "2026-10-07",
+  "hash": "4d02b76e94e26f2d"
+ },
+ "/fr/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "f8ba0e3ca46f6bb6"
+ },
+ "/fr/replace-background": {
+  "date": "2026-10-07",
+  "hash": "2e30a1550c7ae189"
+ },
+ "/fr/resize-image": {
+  "date": "2026-10-07",
+  "hash": "3eb5b6ac86e1f0a5"
+ },
+ "/fr/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "d3e75b563edc324b"
+ },
+ "/fr/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "d6d9a5845efc1e82"
+ },
+ "/fr/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "94779f8433310131"
+ },
+ "/fr/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "4dbc2438bcd3e678"
+ },
+ "/fr/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "aa71a1babdf10e72"
+ },
+ "/fr/split-audio": {
+  "date": "2026-10-07",
+  "hash": "013c3e4569395bcd"
+ },
+ "/fr/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "e675c2e0ccf914f2"
+ },
+ "/fr/split-video": {
+  "date": "2026-10-07",
+  "hash": "8c2b0db492bb309b"
+ },
+ "/fr/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "e6b0683f59a493f3"
+ },
+ "/fr/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "e6571e81d3441dd0"
+ },
+ "/fr/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "71aed73530b98981"
+ },
+ "/fr/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "1f1a48dd42d291e2"
+ },
+ "/fr/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "84a43b5edb62a718"
+ },
+ "/fr/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "37d21e59ac03e2cd"
+ },
+ "/fr/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "0450a8e5d43b01b3"
+ },
+ "/fr/video-converter": {
+  "date": "2026-10-07",
+  "hash": "2dd29d877cef12ca"
+ },
+ "/fr/video-merger": {
+  "date": "2026-10-07",
+  "hash": "782f34a5546488b3"
+ },
+ "/fr/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "ed58ae382e9f67ae"
+ },
+ "/fr/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "e9d0c8a8b18a3430"
+ },
+ "/fr/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "32a2df43f58a5add"
+ },
+ "/fr/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "2bac0a629ed3fa75"
+ },
+ "/fr/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "12b1b6464a6f9c3f"
+ },
+ "/fr/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "20de0a3c4bcc28d6"
+ },
+ "/fr/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "1dc28507d023763e"
+ },
+ "/fr/word-counter": {
+  "date": "2026-10-07",
+  "hash": "e1c0ec5d80c3d7be"
+ },
+ "/fr/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "8e87740f0d8cf23d"
  },
  "/gif-to-video": {
   "date": "2026-10-07",
-  "hash": "f7a1ba961de9ca79"
+  "hash": "d42683c22bbafebb"
  },
  "/hash-uuid-generator": {
   "date": "2026-10-07",
-  "hash": "e04a4e4c638821db"
+  "hash": "c8fd2ccc4936dd05"
  },
  "/heic-to-jpg": {
   "date": "2026-10-07",
-  "hash": "b338cf6e5f2541cb"
+  "hash": "9204c3a99b9e149f"
+ },
+ "/hi/": {
+  "date": "2026-10-07",
+  "hash": "21fdbe634e4f7b44"
+ },
+ "/hi/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "eef8782a9b7f574e"
+ },
+ "/hi/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "bde0a485d2629e1f"
+ },
+ "/hi/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "58fa17f7e9a11727"
+ },
+ "/hi/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "a89deae0cf635bea"
+ },
+ "/hi/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "a401f2516bfb7332"
+ },
+ "/hi/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "11bd1f071e7f745c"
+ },
+ "/hi/anime-style": {
+  "date": "2026-10-07",
+  "hash": "d829649b3ae78d5e"
+ },
+ "/hi/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "5ed38f6c908566df"
+ },
+ "/hi/base64": {
+  "date": "2026-10-07",
+  "hash": "30af2e404eca77b8"
+ },
+ "/hi/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "c694433213109e20"
+ },
+ "/hi/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "c8690b88c8df269e"
+ },
+ "/hi/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "935ddec565ca5169"
+ },
+ "/hi/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "e9f92dca2c70b51f"
+ },
+ "/hi/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "c6bca35ece8401ec"
+ },
+ "/hi/compress-image": {
+  "date": "2026-10-07",
+  "hash": "267568c13cadbce8"
+ },
+ "/hi/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "7cf8077982de052a"
+ },
+ "/hi/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "ec6a1e230b0ee150"
+ },
+ "/hi/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "3a63f34c0226baed"
+ },
+ "/hi/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "7bcee6be22d2a214"
+ },
+ "/hi/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "10d780e8230d4723"
+ },
+ "/hi/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "0c6cf8d524a3f170"
+ },
+ "/hi/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "532a019416ed8131"
+ },
+ "/hi/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "4fb3691b772a2a29"
+ },
+ "/hi/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "93b75badc722e167"
+ },
+ "/hi/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "dd4e8d8892776a2a"
+ },
+ "/hi/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "744571c019f3b477"
+ },
+ "/hi/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "99cbeb7d7a3fbbfa"
+ },
+ "/hi/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "73f486868a79410f"
+ },
+ "/hi/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "750f0ec8735f4c36"
+ },
+ "/hi/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "2b0fc9a3899dc81e"
+ },
+ "/hi/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "54449eea96d1669b"
+ },
+ "/hi/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "59f5754d18f597c0"
+ },
+ "/hi/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "8652c5ce148716ad"
+ },
+ "/hi/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "5b191e5bab2f36e4"
+ },
+ "/hi/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "e92ed208c1e1df0d"
+ },
+ "/hi/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "9589e1802f923bef"
+ },
+ "/hi/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "978e6437ccc06442"
+ },
+ "/hi/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "aa8c726a56eaf0d7"
+ },
+ "/hi/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "0df809ab5bae953d"
+ },
+ "/hi/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "754de2580fee7f36"
+ },
+ "/hi/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "af1708f2cc0ea88f"
+ },
+ "/hi/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "3275512e49f0f45a"
+ },
+ "/hi/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "871709ba33a9243e"
+ },
+ "/hi/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "37c2e470e438a4ac"
+ },
+ "/hi/compress-png": {
+  "date": "2026-10-07",
+  "hash": "cf7a66a4b131024a"
+ },
+ "/hi/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "1bb2f7ff486d5810"
+ },
+ "/hi/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "534344580a18a971"
+ },
+ "/hi/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "aab6c6f9a4b2c478"
+ },
+ "/hi/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "077d4dd968759c2e"
+ },
+ "/hi/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "18161ef42d783b87"
+ },
+ "/hi/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "3f280b2601e2bc20"
+ },
+ "/hi/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "e57e2dbdc54dc8a4"
+ },
+ "/hi/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "3eb05d5226e1ab6d"
+ },
+ "/hi/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "773d2f65b00e44af"
+ },
+ "/hi/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "b348f88b82bed7b8"
+ },
+ "/hi/compress-video": {
+  "date": "2026-10-07",
+  "hash": "15c72f5ef92e373c"
+ },
+ "/hi/convert-image": {
+  "date": "2026-10-07",
+  "hash": "04ccfd7a85aa7cff"
+ },
+ "/hi/crop-image": {
+  "date": "2026-10-07",
+  "hash": "514d8bec8a17a6e8"
+ },
+ "/hi/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "0584a6a6156d504f"
+ },
+ "/hi/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "a1aaa64dd8594bcd"
+ },
+ "/hi/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "3b3bc92e826d2c9e"
+ },
+ "/hi/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "981c875599a9e301"
+ },
+ "/hi/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "7584197e862eba73"
+ },
+ "/hi/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "57c641879e93f0f6"
+ },
+ "/hi/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "79a94c3cab8136e2"
+ },
+ "/hi/face-blur": {
+  "date": "2026-10-07",
+  "hash": "5683988e419a7e0e"
+ },
+ "/hi/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "54f82491f671f39a"
+ },
+ "/hi/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "56f5c1fe6d36e88f"
+ },
+ "/hi/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "ff75e7f8959c7ef2"
+ },
+ "/hi/font-library": {
+  "date": "2026-10-07",
+  "hash": "2e8a62442be647cd"
+ },
+ "/hi/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "3a2d0dd045d4fe94"
+ },
+ "/hi/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "1d706b725f2add0d"
+ },
+ "/hi/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "1aa1540becb93867"
+ },
+ "/hi/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "aa626c4d2b54dea7"
+ },
+ "/hi/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "a5f72279dd0e92ae"
+ },
+ "/hi/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "00b2dde93dcb337d"
+ },
+ "/hi/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "b6ec8045c9ebeab6"
+ },
+ "/hi/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "645ce76ead5226c3"
+ },
+ "/hi/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "eb5f824b7500279d"
+ },
+ "/hi/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "5c9350b7390408d0"
+ },
+ "/hi/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "59acd2dca688982d"
+ },
+ "/hi/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "33aed663d165d6c9"
+ },
+ "/hi/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "a940318ea949e949"
+ },
+ "/hi/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "42c0ae5fe993b98f"
+ },
+ "/hi/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "797c961aad217d30"
+ },
+ "/hi/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "5417711a3db5ca1e"
+ },
+ "/hi/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "327193425b3c654e"
+ },
+ "/hi/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "75020549e223839a"
+ },
+ "/hi/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "5f2a09c72276816b"
+ },
+ "/hi/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "887c932d5f9f4a39"
+ },
+ "/hi/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "d5a5fe240d8084c4"
+ },
+ "/hi/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "293fa19d0471606e"
+ },
+ "/hi/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "2a763f5f6a672dae"
+ },
+ "/hi/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "224d337a1b7aee9a"
+ },
+ "/hi/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "03c88a8656e42242"
+ },
+ "/hi/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "e8fd2f1791993f77"
+ },
+ "/hi/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "b39f31849083a52a"
+ },
+ "/hi/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "0651970f792d01c0"
+ },
+ "/hi/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "099937ee901da8f0"
+ },
+ "/hi/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "bdd78cc1163afeca"
+ },
+ "/hi/password-generator": {
+  "date": "2026-10-07",
+  "hash": "b4afb85fa8b8ef93"
+ },
+ "/hi/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "226654ab75b4b37a"
+ },
+ "/hi/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "d1aa7fd06e498a06"
+ },
+ "/hi/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "78bb8f466758a225"
+ },
+ "/hi/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "80a064350b790aaf"
+ },
+ "/hi/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "a61e06144dc92e57"
+ },
+ "/hi/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "c9ee9a55349d378c"
+ },
+ "/hi/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "ada9ccbf7554ad2d"
+ },
+ "/hi/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "5fd7b0731d8d5954"
+ },
+ "/hi/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "0cdd31f6817cad2c"
+ },
+ "/hi/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "30dd442fd8109e45"
+ },
+ "/hi/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "da05c238240f8872"
+ },
+ "/hi/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "23bc48b4d6100f66"
+ },
+ "/hi/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "03c2c0380ac74a1e"
+ },
+ "/hi/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "9848a5d3308eef41"
+ },
+ "/hi/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "c6d4de845da00ef9"
+ },
+ "/hi/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "7dbce5e417e382d0"
+ },
+ "/hi/remove-background": {
+  "date": "2026-10-07",
+  "hash": "2c22b73a3f1a6651"
+ },
+ "/hi/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "fa2c42e76da43cde"
+ },
+ "/hi/replace-background": {
+  "date": "2026-10-07",
+  "hash": "b8cc199553be4d91"
+ },
+ "/hi/resize-image": {
+  "date": "2026-10-07",
+  "hash": "bc69c1e45a977822"
+ },
+ "/hi/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "ac24ac44cd507349"
+ },
+ "/hi/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "9a720fd8968c6e78"
+ },
+ "/hi/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "a6753941553832bf"
+ },
+ "/hi/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "4c7d3a6f96df6001"
+ },
+ "/hi/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "8781226d843b6058"
+ },
+ "/hi/split-audio": {
+  "date": "2026-10-07",
+  "hash": "9ef041bcbb42ec7d"
+ },
+ "/hi/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "88db054f59ef8ae8"
+ },
+ "/hi/split-video": {
+  "date": "2026-10-07",
+  "hash": "3e47ce9713078a28"
+ },
+ "/hi/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "b7f36c4ebcba4bdd"
+ },
+ "/hi/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "e5d6d68c84764d08"
+ },
+ "/hi/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "e5008e584db60aaf"
+ },
+ "/hi/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "d540989ec470a840"
+ },
+ "/hi/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "43058593109eb3cb"
+ },
+ "/hi/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "aeed0d79484c57a9"
+ },
+ "/hi/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "1e7f35a2a1ed2de0"
+ },
+ "/hi/video-converter": {
+  "date": "2026-10-07",
+  "hash": "496cfdbd169e329a"
+ },
+ "/hi/video-merger": {
+  "date": "2026-10-07",
+  "hash": "9c838ecf88ece5dd"
+ },
+ "/hi/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "462123b0d6adc31a"
+ },
+ "/hi/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "141009f5a96dd9aa"
+ },
+ "/hi/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "e06ab694a5b99604"
+ },
+ "/hi/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "3b60d685003a2515"
+ },
+ "/hi/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "3f795956396d3199"
+ },
+ "/hi/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "027c1a49b6b2b5ff"
+ },
+ "/hi/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "5a20dc9545aaafbf"
+ },
+ "/hi/word-counter": {
+  "date": "2026-10-07",
+  "hash": "2cf86f9f38e14f88"
+ },
+ "/hi/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "e8c3a1a0b54c73e3"
  },
  "/html-to-markdown": {
   "date": "2026-10-07",
-  "hash": "1a8f228a3fce45a2"
+  "hash": "39ece144f0f62e5b"
  },
  "/html-to-pdf": {
   "date": "2026-10-07",
-  "hash": "5c204e6ec15c9b18"
+  "hash": "4c1315235766d053"
+ },
+ "/id/": {
+  "date": "2026-10-07",
+  "hash": "c6b0c26dd02f3582"
+ },
+ "/id/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "2c39c31a74d7bb2b"
+ },
+ "/id/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "8c323699257b5a98"
+ },
+ "/id/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "ba9e5f1814edb6f5"
+ },
+ "/id/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "8cbe22e246a0dea9"
+ },
+ "/id/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "ff4b6558d81e2d45"
+ },
+ "/id/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "3f4f72f9da318265"
+ },
+ "/id/anime-style": {
+  "date": "2026-10-07",
+  "hash": "731b415e9b83d9c8"
+ },
+ "/id/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "9fa4649ef48c0f2c"
+ },
+ "/id/base64": {
+  "date": "2026-10-07",
+  "hash": "38ba83c293fe9ab6"
+ },
+ "/id/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "763f4e24ba580e9f"
+ },
+ "/id/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "e6afc12f13193f7b"
+ },
+ "/id/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "5591df60ddf95426"
+ },
+ "/id/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "93ffeac92bc1d289"
+ },
+ "/id/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "876c2f11f7a45aff"
+ },
+ "/id/compress-image": {
+  "date": "2026-10-07",
+  "hash": "75d99df4426e180b"
+ },
+ "/id/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "b07ac49cc284f951"
+ },
+ "/id/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "4a58fa20cd778cc5"
+ },
+ "/id/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "f37cf04a7aaffe45"
+ },
+ "/id/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "26b0fe56b88c445f"
+ },
+ "/id/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "68fe7d1cb416e40d"
+ },
+ "/id/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "8dc8502107f7cede"
+ },
+ "/id/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "6560c40a79d7486b"
+ },
+ "/id/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "08fba235f2cbcdad"
+ },
+ "/id/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "eb6492c9a5199ede"
+ },
+ "/id/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "71c2eb75c3f0d1c2"
+ },
+ "/id/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "a682d443e6f55480"
+ },
+ "/id/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "daf8ec3cca09b8c5"
+ },
+ "/id/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "2fcef71651c15646"
+ },
+ "/id/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "7ab49a1b9e5ab34b"
+ },
+ "/id/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "72cf5e01149e3cfa"
+ },
+ "/id/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "250ab610e61d0be7"
+ },
+ "/id/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "40a30e032297c162"
+ },
+ "/id/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "12766e3e1e0339d7"
+ },
+ "/id/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "df9157df6e359ea7"
+ },
+ "/id/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "d0aedee77fde97e9"
+ },
+ "/id/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "15d147efa5361e66"
+ },
+ "/id/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "cbee23281e95dd58"
+ },
+ "/id/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "283ba2f59b51b97e"
+ },
+ "/id/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "59e963d8c97c8f5e"
+ },
+ "/id/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "899b022d2ce334da"
+ },
+ "/id/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "8e8454da0b18c606"
+ },
+ "/id/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "6d004ce085bdbccc"
+ },
+ "/id/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "346b69381b6c48d3"
+ },
+ "/id/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "4780b59c8a52421b"
+ },
+ "/id/compress-png": {
+  "date": "2026-10-07",
+  "hash": "726263b275ea9b37"
+ },
+ "/id/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "ab96c379c6a0dede"
+ },
+ "/id/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "31b2588df9d59cd6"
+ },
+ "/id/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "e6ea3fb267dcb34c"
+ },
+ "/id/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "a8ab06ab4103a99d"
+ },
+ "/id/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "4d99a534e60e240a"
+ },
+ "/id/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "ade499701249ee72"
+ },
+ "/id/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "bf7c37efc466362d"
+ },
+ "/id/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "186a59c0afd34b7e"
+ },
+ "/id/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "6c8911135c06c6b2"
+ },
+ "/id/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "b1d8ea76f317ed1c"
+ },
+ "/id/compress-video": {
+  "date": "2026-10-07",
+  "hash": "4de8f23aaf1aa597"
+ },
+ "/id/convert-image": {
+  "date": "2026-10-07",
+  "hash": "34674a1d0b97943b"
+ },
+ "/id/crop-image": {
+  "date": "2026-10-07",
+  "hash": "34a9e32324f0b1ee"
+ },
+ "/id/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "67cdb14b667fc966"
+ },
+ "/id/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "2dadbbf279cf45d6"
+ },
+ "/id/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "3480446ea1d8530a"
+ },
+ "/id/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "d17c9e2b2a73a682"
+ },
+ "/id/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "7a0fecf3fed2e5f3"
+ },
+ "/id/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "b56d4b5c74792b03"
+ },
+ "/id/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "4f86a5bf06d6cf52"
+ },
+ "/id/face-blur": {
+  "date": "2026-10-07",
+  "hash": "ce9f0aaff449289e"
+ },
+ "/id/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "6866b0514943c8e5"
+ },
+ "/id/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "1f3bbe9e4723099a"
+ },
+ "/id/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "db1e63b6eb17cc1a"
+ },
+ "/id/font-library": {
+  "date": "2026-10-07",
+  "hash": "d835cc53eb1d5d1e"
+ },
+ "/id/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "a04a8c1023be6a58"
+ },
+ "/id/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "06f4d75a95e89901"
+ },
+ "/id/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "ed40dc11993f4ee2"
+ },
+ "/id/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "5284fe4dd3437bb9"
+ },
+ "/id/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "23b7b65afb4df4aa"
+ },
+ "/id/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "5c5a3c6884a6620e"
+ },
+ "/id/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "4d31dfde35f2265c"
+ },
+ "/id/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "8955c55c1e60885b"
+ },
+ "/id/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "283bbbce10e0b318"
+ },
+ "/id/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "9bd6e5595027066f"
+ },
+ "/id/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "373db4b61939a7e0"
+ },
+ "/id/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "6164084746ae3b15"
+ },
+ "/id/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "ef7a6388d6e360b4"
+ },
+ "/id/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "94f9295e9deff8ac"
+ },
+ "/id/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "b75d82cfa107eda7"
+ },
+ "/id/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "2042168f50ca9371"
+ },
+ "/id/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "c40ae9d8c7a484c0"
+ },
+ "/id/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "cace4a1def838441"
+ },
+ "/id/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "d03c044aac6b3c0f"
+ },
+ "/id/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "de5f108b9c6eb6d3"
+ },
+ "/id/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "9e1fda015900ede1"
+ },
+ "/id/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "98cd2af014bc5ddc"
+ },
+ "/id/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "d297ab859cac7d05"
+ },
+ "/id/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "8495c1c144b2dc0d"
+ },
+ "/id/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "add6b23dd12d1fa4"
+ },
+ "/id/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "211d9b3bc390a813"
+ },
+ "/id/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "41677bd340de55f9"
+ },
+ "/id/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "327cd44c31c90b0b"
+ },
+ "/id/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "4a5cba9e799f8d55"
+ },
+ "/id/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "5f6146341542aca7"
+ },
+ "/id/password-generator": {
+  "date": "2026-10-07",
+  "hash": "e029398d6ec669e2"
+ },
+ "/id/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "8753cc733353810d"
+ },
+ "/id/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "ceedb38179ea6f4e"
+ },
+ "/id/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "3a7b52e5212f01f8"
+ },
+ "/id/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "a5ad7d3cbfc8d9df"
+ },
+ "/id/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "0e5efaef5db3b13f"
+ },
+ "/id/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "a0a0accaebc82393"
+ },
+ "/id/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "b357bab6353392ea"
+ },
+ "/id/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "c08081dda8600a18"
+ },
+ "/id/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "c16ac2d3081fe117"
+ },
+ "/id/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "ab01fddcd10d3db7"
+ },
+ "/id/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "88a1a52f7df5df7e"
+ },
+ "/id/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "19f93e1b85d41a07"
+ },
+ "/id/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "efae946bf27881cc"
+ },
+ "/id/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "f3d6cf54de1c1aa1"
+ },
+ "/id/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "2515d87bbf6ad034"
+ },
+ "/id/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "540f0f4e1d75e385"
+ },
+ "/id/remove-background": {
+  "date": "2026-10-07",
+  "hash": "8cc6cf1bcfeeef49"
+ },
+ "/id/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "86d11e763ed39c24"
+ },
+ "/id/replace-background": {
+  "date": "2026-10-07",
+  "hash": "80a9892ad9973be3"
+ },
+ "/id/resize-image": {
+  "date": "2026-10-07",
+  "hash": "f358dd244cffd83d"
+ },
+ "/id/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "f9bab2ef6134e308"
+ },
+ "/id/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "15cc449191fd9b4a"
+ },
+ "/id/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "49bfff9995b2ea36"
+ },
+ "/id/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "29e089a682f3c646"
+ },
+ "/id/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "1cd0017d80bde552"
+ },
+ "/id/split-audio": {
+  "date": "2026-10-07",
+  "hash": "ffffbd31b6834129"
+ },
+ "/id/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "dccfe8869a9c909e"
+ },
+ "/id/split-video": {
+  "date": "2026-10-07",
+  "hash": "04da2b6443b1034a"
+ },
+ "/id/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "acdae91a04fb827a"
+ },
+ "/id/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "397e8660405481b1"
+ },
+ "/id/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "a4ada02c356bf41e"
+ },
+ "/id/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "cea44a115c901b2d"
+ },
+ "/id/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "e570b1b10f61bd00"
+ },
+ "/id/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "9f700c8a44015e11"
+ },
+ "/id/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "3cf38b5eccdee37b"
+ },
+ "/id/video-converter": {
+  "date": "2026-10-07",
+  "hash": "5d22e77676a3187e"
+ },
+ "/id/video-merger": {
+  "date": "2026-10-07",
+  "hash": "3dacc024f8bcc5c0"
+ },
+ "/id/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "9b434aee89551683"
+ },
+ "/id/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "446c987538104b31"
+ },
+ "/id/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "4e25a84c76a15d1e"
+ },
+ "/id/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "d4cb7b44956736d1"
+ },
+ "/id/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "2d95873ecd6a03c3"
+ },
+ "/id/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "9c768a461172bb08"
+ },
+ "/id/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "5dcc56285826686b"
+ },
+ "/id/word-counter": {
+  "date": "2026-10-07",
+  "hash": "7e8d12e4c23e45e1"
+ },
+ "/id/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "00eab97740175867"
  },
  "/image-cdn": {
   "date": "2026-10-07",
-  "hash": "3f93f8ae4b4e4608"
+  "hash": "99904c5c9ba436b3"
  },
  "/image-color-palette-extractor": {
   "date": "2026-10-07",
-  "hash": "754d4a66cb855d02"
+  "hash": "0967f2e125dfa9e8"
  },
  "/image-to-pdf": {
   "date": "2026-10-07",
-  "hash": "56994b752125932c"
+  "hash": "c74550e9f1fc4aa5"
  },
  "/image-to-svg": {
   "date": "2026-10-07",
-  "hash": "c861f478cca1014f"
+  "hash": "478bd28c6eaabc5c"
  },
  "/image-to-text": {
   "date": "2026-10-07",
-  "hash": "76de5d9731b799a4"
+  "hash": "44d3d68b2923867f"
  },
  "/instagram-image-carousel-splitter": {
   "date": "2026-10-07",
-  "hash": "3dd35f29d2e746f0"
+  "hash": "1eb4858560b638e9"
+ },
+ "/ja/": {
+  "date": "2026-10-07",
+  "hash": "bd30aa4182090bb9"
+ },
+ "/ja/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "4348224c090d501a"
+ },
+ "/ja/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "f5cda2e718ae2897"
+ },
+ "/ja/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "eb989d484fc61477"
+ },
+ "/ja/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "2b6ced467800f38e"
+ },
+ "/ja/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "41dfecf294fdd4aa"
+ },
+ "/ja/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "e7edea6fa5984643"
+ },
+ "/ja/anime-style": {
+  "date": "2026-10-07",
+  "hash": "774367fab0716401"
+ },
+ "/ja/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "57e6d76b6f54a274"
+ },
+ "/ja/base64": {
+  "date": "2026-10-07",
+  "hash": "a6e29c974eee8bd8"
+ },
+ "/ja/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "0710734fe28f24ea"
+ },
+ "/ja/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "deaf44309f5bc2dd"
+ },
+ "/ja/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "8a25c153a1d07192"
+ },
+ "/ja/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "59f9fef731d7e5d9"
+ },
+ "/ja/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "f07d0fae9f128b90"
+ },
+ "/ja/compress-image": {
+  "date": "2026-10-07",
+  "hash": "ca8a4bcb9283e5f8"
+ },
+ "/ja/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "04c921466e1b10c1"
+ },
+ "/ja/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "120b5963682e669c"
+ },
+ "/ja/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "f819f4c6980a8f66"
+ },
+ "/ja/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "a9b79c94609e8dad"
+ },
+ "/ja/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "ce825493ebfe1ff8"
+ },
+ "/ja/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "54f474d09aeca68a"
+ },
+ "/ja/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "d75caa8e3520481f"
+ },
+ "/ja/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "b1554a82c396df64"
+ },
+ "/ja/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "c4d7366a1b9b1d28"
+ },
+ "/ja/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "f7ac1f61438d7176"
+ },
+ "/ja/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "ba778cce215fdf9b"
+ },
+ "/ja/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "2c1499a9dd8f2247"
+ },
+ "/ja/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "11690ed4b70f04b0"
+ },
+ "/ja/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "736d7c67a85bd6bc"
+ },
+ "/ja/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "28b9141efba0654c"
+ },
+ "/ja/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "9a2965972b3ae060"
+ },
+ "/ja/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "b233fd6d10e4a263"
+ },
+ "/ja/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "e0d5f468c0d5fb5c"
+ },
+ "/ja/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "96806b95aadc6de2"
+ },
+ "/ja/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "31d96e0bd5ac8fd4"
+ },
+ "/ja/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "d0540b15ce1cbbb1"
+ },
+ "/ja/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "eefafe4e2f1b4776"
+ },
+ "/ja/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "154e234a5e417629"
+ },
+ "/ja/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "ef73145da45392c6"
+ },
+ "/ja/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "eae79e2acce3ad94"
+ },
+ "/ja/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "bea2546030b88337"
+ },
+ "/ja/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "91a586b8a1bcd8b1"
+ },
+ "/ja/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "69041dfe84323f9a"
+ },
+ "/ja/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "1228d2c053205dcc"
+ },
+ "/ja/compress-png": {
+  "date": "2026-10-07",
+  "hash": "c3499ee0fb4cf5ba"
+ },
+ "/ja/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "cd086a4a58e2dc71"
+ },
+ "/ja/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "e48788118ca9f083"
+ },
+ "/ja/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "90ceb4c6fca0282e"
+ },
+ "/ja/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "5b1d6999b49bef6c"
+ },
+ "/ja/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "5c76e504ba8a4cb0"
+ },
+ "/ja/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "1621dfd48559e285"
+ },
+ "/ja/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "bea651598e8c2ca7"
+ },
+ "/ja/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "d4ebb55eab04ed07"
+ },
+ "/ja/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "57b858ca619e0a7a"
+ },
+ "/ja/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "c0aa082c537d5a69"
+ },
+ "/ja/compress-video": {
+  "date": "2026-10-07",
+  "hash": "65bf9ba4bac64b32"
+ },
+ "/ja/convert-image": {
+  "date": "2026-10-07",
+  "hash": "6ad319e094538a69"
+ },
+ "/ja/crop-image": {
+  "date": "2026-10-07",
+  "hash": "00e9aeffd21586fb"
+ },
+ "/ja/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "d502107eda969318"
+ },
+ "/ja/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "5aff523967d2295b"
+ },
+ "/ja/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "c76f6d0c43dd9c65"
+ },
+ "/ja/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "97a73c474d257478"
+ },
+ "/ja/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "45cbc6ae2fab82fd"
+ },
+ "/ja/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "a83bacd6ecff3cb7"
+ },
+ "/ja/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "60003f373131e9bf"
+ },
+ "/ja/face-blur": {
+  "date": "2026-10-07",
+  "hash": "1fc4b79def45cc5d"
+ },
+ "/ja/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "cf8c32fd9d467268"
+ },
+ "/ja/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "c06bac02514bef1e"
+ },
+ "/ja/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "a762b19b854d4048"
+ },
+ "/ja/font-library": {
+  "date": "2026-10-07",
+  "hash": "95a868f34cdbee5e"
+ },
+ "/ja/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "58f960b51c7cbbb4"
+ },
+ "/ja/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "686330cd5d3c46a1"
+ },
+ "/ja/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "dd777d48db67aca4"
+ },
+ "/ja/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "6c90d1492784fbbd"
+ },
+ "/ja/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "a030b1c127ebd61b"
+ },
+ "/ja/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "f0fdd658da0d5e8e"
+ },
+ "/ja/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "309f2689aee847a6"
+ },
+ "/ja/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "e3d2acb992738e3b"
+ },
+ "/ja/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "10b4a7f887d21195"
+ },
+ "/ja/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "1f8df655b15378ca"
+ },
+ "/ja/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "16cecf091d1dc653"
+ },
+ "/ja/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "dc07ab3a72b079e3"
+ },
+ "/ja/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "076ae7f5734f68e8"
+ },
+ "/ja/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "c2887d4802b95609"
+ },
+ "/ja/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "be808de37daa3cf9"
+ },
+ "/ja/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "1f42b0d719f11d9a"
+ },
+ "/ja/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "068a1703aa1c229c"
+ },
+ "/ja/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "3028b32577d73516"
+ },
+ "/ja/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "864b962d6595d7c5"
+ },
+ "/ja/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "ebee726af6c4f4cf"
+ },
+ "/ja/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "4002c76f17ddb1a3"
+ },
+ "/ja/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "84f81a5c4af3b21f"
+ },
+ "/ja/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "b7aac52098f51a90"
+ },
+ "/ja/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "448ce7dd29b20aaa"
+ },
+ "/ja/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "3c12543da1f38bb0"
+ },
+ "/ja/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "2fe077a94e624c8e"
+ },
+ "/ja/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "db3dfa503e955607"
+ },
+ "/ja/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "166b422677d2f449"
+ },
+ "/ja/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "b9ecc0b2efe32afb"
+ },
+ "/ja/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "68dab46221700364"
+ },
+ "/ja/password-generator": {
+  "date": "2026-10-07",
+  "hash": "40f80c0b8b96ef85"
+ },
+ "/ja/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "e61f3d6c68c53435"
+ },
+ "/ja/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "5940e9941fccd999"
+ },
+ "/ja/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "b72eef2200878481"
+ },
+ "/ja/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "3826ab2352757513"
+ },
+ "/ja/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "9ec72ea71239b304"
+ },
+ "/ja/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "6b8f9b2cd2672dab"
+ },
+ "/ja/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "a0e8304f7f19e0ea"
+ },
+ "/ja/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "f3b9ae94864aa847"
+ },
+ "/ja/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "66add76ec4208636"
+ },
+ "/ja/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "6e7dc12919b68670"
+ },
+ "/ja/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "623d6834bdb4a2c6"
+ },
+ "/ja/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "df40774da8770271"
+ },
+ "/ja/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "25f1c97b55e030b2"
+ },
+ "/ja/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "87f25d2b4343ce06"
+ },
+ "/ja/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "602a93e6160c91f2"
+ },
+ "/ja/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "2bcb9af273267b29"
+ },
+ "/ja/remove-background": {
+  "date": "2026-10-07",
+  "hash": "a0fb65f5b0a41b10"
+ },
+ "/ja/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "8538c99dffaa9497"
+ },
+ "/ja/replace-background": {
+  "date": "2026-10-07",
+  "hash": "9b888604b0b18d05"
+ },
+ "/ja/resize-image": {
+  "date": "2026-10-07",
+  "hash": "cd9c86ca5042505b"
+ },
+ "/ja/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "77c99091222827ee"
+ },
+ "/ja/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "b999f8a240348c5e"
+ },
+ "/ja/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "38d8829ba8930465"
+ },
+ "/ja/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "0403ef18d23b8c24"
+ },
+ "/ja/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "a3dd654b8f917230"
+ },
+ "/ja/split-audio": {
+  "date": "2026-10-07",
+  "hash": "e2cd8c6a038cc43a"
+ },
+ "/ja/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "b395c85ec1fb50ca"
+ },
+ "/ja/split-video": {
+  "date": "2026-10-07",
+  "hash": "c065c34d32ff0a16"
+ },
+ "/ja/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "9a5e9b26d1453c8e"
+ },
+ "/ja/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "f962198cbc429bbb"
+ },
+ "/ja/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "644a64c0a0a5c52b"
+ },
+ "/ja/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "e8ef17cb62826c98"
+ },
+ "/ja/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "3a5a851c9c6f407f"
+ },
+ "/ja/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "70d792669f94b29f"
+ },
+ "/ja/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "b8fc0e9672054c06"
+ },
+ "/ja/video-converter": {
+  "date": "2026-10-07",
+  "hash": "4b1d5151f1d2dcd7"
+ },
+ "/ja/video-merger": {
+  "date": "2026-10-07",
+  "hash": "bfda50a3dca64193"
+ },
+ "/ja/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "56e5141f1743af93"
+ },
+ "/ja/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "92e54a02d91eca88"
+ },
+ "/ja/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "a4440b1e163de33c"
+ },
+ "/ja/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "6ea3acad8ca5f23e"
+ },
+ "/ja/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "5fa682136b0651a4"
+ },
+ "/ja/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "f9f6c5c0bcd8ec07"
+ },
+ "/ja/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "696a6199e3d4aadb"
+ },
+ "/ja/word-counter": {
+  "date": "2026-10-07",
+  "hash": "f25c270aa9d32815"
+ },
+ "/ja/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "beab77a1c5842a44"
  },
  "/jpg-to-pdf": {
   "date": "2026-10-07",
-  "hash": "430065e246f105ec"
+  "hash": "151c780c4839c88e"
  },
  "/jpg-to-png": {
   "date": "2026-10-07",
-  "hash": "39871a6ad564900c"
+  "hash": "f63f88dc651193fa"
  },
  "/jpg-to-webp": {
   "date": "2026-10-07",
-  "hash": "301a11bcd30b25af"
+  "hash": "3337dca2192cf55b"
  },
  "/json-formatter": {
   "date": "2026-10-07",
-  "hash": "64821f2234128675"
+  "hash": "b773fe1417956474"
  },
  "/linkedin-carousel-maker": {
   "date": "2026-10-07",
-  "hash": "53b5d48467a21b65"
+  "hash": "7f182b0b782cc979"
  },
  "/m4a-to-mp3": {
   "date": "2026-10-07",
-  "hash": "faa7b1753bdf2649"
+  "hash": "e5ffe8a4b0b65ae6"
  },
  "/markdown-converter": {
   "date": "2026-10-07",
-  "hash": "11003e36da946a0f"
+  "hash": "d6e740e2b33654e0"
  },
  "/markdown-to-html": {
   "date": "2026-10-07",
-  "hash": "0c77238311cd9005"
+  "hash": "b827da839c1e9e7f"
  },
  "/markdown-to-pdf": {
   "date": "2026-10-07",
-  "hash": "e247404733432371"
+  "hash": "965181e219f87a61"
  },
  "/markdown-to-word": {
   "date": "2026-10-07",
-  "hash": "56e9d79f62bc037f"
+  "hash": "82537648bd523ae7"
  },
  "/meme-generator": {
   "date": "2026-10-07",
-  "hash": "3b2eda0698d7d856"
+  "hash": "1e61ed2e40ddbc6e"
  },
  "/merge-audio": {
   "date": "2026-10-07",
-  "hash": "fa0c84bb5a61b9b9"
+  "hash": "9698fd56d6ee2b4c"
  },
  "/merge-pdf": {
   "date": "2026-10-07",
-  "hash": "dea5cf7b19cc16a1"
+  "hash": "2143e3118a5aca52"
  },
  "/mp3-to-wav": {
   "date": "2026-10-07",
-  "hash": "df5e1303fec8b2b7"
+  "hash": "0e9187b722c2b0b5"
  },
  "/mp4-to-mp3": {
   "date": "2026-10-07",
-  "hash": "1be480440d308fa3"
+  "hash": "47cfeadb1554d92c"
  },
  "/ocr-pdf": {
   "date": "2026-10-07",
-  "hash": "3b60876f6a3236ee"
+  "hash": "cf7ade2b1be0a124"
  },
  "/ogg-to-mp3": {
   "date": "2026-10-07",
-  "hash": "dc6dc2f88d118894"
+  "hash": "97d86fe2cc52078e"
  },
  "/organize-pdf": {
   "date": "2026-10-07",
-  "hash": "dbd7b0735c5f8c34"
+  "hash": "62281a93d0ded72b"
  },
  "/passport-size-photo-maker": {
   "date": "2026-10-07",
-  "hash": "afccd98efb53c65c"
+  "hash": "8123591d21dee52c"
  },
  "/password-generator": {
   "date": "2026-10-07",
-  "hash": "3535a6f410b15789"
+  "hash": "b96614605c97e5bf"
  },
  "/pdf-editor": {
   "date": "2026-10-07",
-  "hash": "ea3d1fdb255dfb4d"
+  "hash": "f945125c64bfba73"
  },
  "/pdf-to-excel": {
   "date": "2026-10-07",
-  "hash": "4ecab89d52cccb2a"
+  "hash": "24064869ebd5ba65"
  },
  "/pdf-to-image": {
   "date": "2026-10-07",
-  "hash": "ffabd39dfa585865"
+  "hash": "af018cced6cb8c5d"
  },
  "/pdf-to-jpg": {
   "date": "2026-10-07",
-  "hash": "4e7eae75eaf9816e"
+  "hash": "1b4a13d8f6d5db99"
  },
  "/pdf-to-markdown": {
   "date": "2026-10-07",
-  "hash": "e6e4ab2e8b13648e"
+  "hash": "e5fdb8e9bb37d3eb"
  },
  "/pdf-to-png": {
   "date": "2026-10-07",
-  "hash": "3a533597d5001ea4"
+  "hash": "5d7f9cc394fbec2a"
  },
  "/pdf-to-powerpoint": {
   "date": "2026-10-07",
-  "hash": "fcc10d8a3ede75e7"
+  "hash": "212e37a58fa9e3bd"
  },
  "/pdf-to-text": {
   "date": "2026-10-07",
-  "hash": "8825090fde055e44"
+  "hash": "88e732ad2f6c2ac6"
  },
  "/pdf-to-word": {
   "date": "2026-10-07",
-  "hash": "0d0a4ef457efe0c5"
+  "hash": "ea688f723d19652b"
  },
  "/photo-collage-maker": {
   "date": "2026-10-07",
-  "hash": "2ea552d141f6fcdc"
+  "hash": "1ba046d8b08b2fe7"
  },
  "/pixelate-image": {
   "date": "2026-10-07",
-  "hash": "310e8707665a2a08"
+  "hash": "76355cfa33f707a6"
  },
  "/png-to-jpg": {
   "date": "2026-10-07",
-  "hash": "1a8a479183366495"
+  "hash": "ad7003e6206828da"
  },
  "/png-to-pdf": {
   "date": "2026-10-07",
-  "hash": "8008ed62cc88d001"
+  "hash": "e98e8a94303785a9"
  },
  "/powerpoint-to-pdf": {
   "date": "2026-10-07",
-  "hash": "243406ad30db762d"
+  "hash": "8c0a212c0dcdd72a"
  },
  "/privacy": {
   "date": "2026-10-07",
@@ -477,63 +4621,1247 @@
  },
  "/protect-pdf": {
   "date": "2026-10-07",
-  "hash": "9aa806bb8adaf9d1"
+  "hash": "89cbc101795f8e5a"
+ },
+ "/pt/": {
+  "date": "2026-10-07",
+  "hash": "2dc24b2bad62d04b"
+ },
+ "/pt/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "3645bc5e44969fab"
+ },
+ "/pt/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "24e6606f7cd3493d"
+ },
+ "/pt/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "a365985fb375d7c1"
+ },
+ "/pt/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "01e5c666d28ebe90"
+ },
+ "/pt/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "af06b7243d012a27"
+ },
+ "/pt/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "8d592b4d1f9747c3"
+ },
+ "/pt/anime-style": {
+  "date": "2026-10-07",
+  "hash": "6df91d896e969114"
+ },
+ "/pt/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "6a7860c6d5cdc09d"
+ },
+ "/pt/base64": {
+  "date": "2026-10-07",
+  "hash": "7a13966a9dead03c"
+ },
+ "/pt/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "d062be1266b8e541"
+ },
+ "/pt/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "2da86d1dbfd94ab9"
+ },
+ "/pt/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "62d53ae403d8cfd7"
+ },
+ "/pt/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "3082958de64bb512"
+ },
+ "/pt/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "585626f05a738747"
+ },
+ "/pt/compress-image": {
+  "date": "2026-10-07",
+  "hash": "11eb2337a43c2157"
+ },
+ "/pt/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "fdbb997925c70546"
+ },
+ "/pt/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "1a77ccec5b96862e"
+ },
+ "/pt/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "c4ef52213fab53a6"
+ },
+ "/pt/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "3a0173f1e4775a3b"
+ },
+ "/pt/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "222a281e3636dbf0"
+ },
+ "/pt/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "d8ffe82a9431b967"
+ },
+ "/pt/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "10400dcbdb5a94b0"
+ },
+ "/pt/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "603f9aa9eda82fe7"
+ },
+ "/pt/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "73718d1438a499b1"
+ },
+ "/pt/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "fde1c9dba94bbd49"
+ },
+ "/pt/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "7af320d5f9b67247"
+ },
+ "/pt/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "ece69d2c6a6ff4e9"
+ },
+ "/pt/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "d3b90d81c114c410"
+ },
+ "/pt/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "98201f846d6b5db3"
+ },
+ "/pt/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "7d558f3dd20885d2"
+ },
+ "/pt/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "a240abd801d651ab"
+ },
+ "/pt/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "b9b618892703aaf3"
+ },
+ "/pt/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "fca98081ca5135e9"
+ },
+ "/pt/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "1d58d60467beee34"
+ },
+ "/pt/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "de22741c8f75d829"
+ },
+ "/pt/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "2a859493f42556d7"
+ },
+ "/pt/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "65f5659402b6c95c"
+ },
+ "/pt/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "307abb58e4394f4e"
+ },
+ "/pt/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "f71bdc468dd5a027"
+ },
+ "/pt/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "564895e78d5b717c"
+ },
+ "/pt/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "84a99aa739f390bd"
+ },
+ "/pt/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "6bfd5f32ac4cdc08"
+ },
+ "/pt/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "b85fec8ce6e2fc2f"
+ },
+ "/pt/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "9b846c05607c4411"
+ },
+ "/pt/compress-png": {
+  "date": "2026-10-07",
+  "hash": "db02e73144c74afd"
+ },
+ "/pt/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "a2dfc2e62f8305b3"
+ },
+ "/pt/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "4952ba15a29a0364"
+ },
+ "/pt/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "f58cecd32cec4e38"
+ },
+ "/pt/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "95608be0a03c8088"
+ },
+ "/pt/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "0754b875892378f8"
+ },
+ "/pt/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "2ceb87639ce2157d"
+ },
+ "/pt/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "e1b298466e34bed9"
+ },
+ "/pt/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "4f7cd76d0cb53ad1"
+ },
+ "/pt/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "92ff658c8c7419d2"
+ },
+ "/pt/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "fe15c3ba1a675b27"
+ },
+ "/pt/compress-video": {
+  "date": "2026-10-07",
+  "hash": "8849c3850baa7c6b"
+ },
+ "/pt/convert-image": {
+  "date": "2026-10-07",
+  "hash": "8dbdde352cd89cef"
+ },
+ "/pt/crop-image": {
+  "date": "2026-10-07",
+  "hash": "3baa73ce4ed0f9b0"
+ },
+ "/pt/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "8705707c246c2045"
+ },
+ "/pt/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "d0936ea166c4a73f"
+ },
+ "/pt/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "fcf60212dc5a538a"
+ },
+ "/pt/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "551f458fcbf7ab5a"
+ },
+ "/pt/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "810c9ee83ebd919e"
+ },
+ "/pt/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "3985181aeb5c4a97"
+ },
+ "/pt/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "da89f3dab6009156"
+ },
+ "/pt/face-blur": {
+  "date": "2026-10-07",
+  "hash": "97c4f3eac8bb0f59"
+ },
+ "/pt/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "c75bc56c21917fb0"
+ },
+ "/pt/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "9d7f35037c212477"
+ },
+ "/pt/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "10164411c7ee47bd"
+ },
+ "/pt/font-library": {
+  "date": "2026-10-07",
+  "hash": "89d64df24b008473"
+ },
+ "/pt/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "ba5479eabd969d48"
+ },
+ "/pt/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "e9671bbe00db0564"
+ },
+ "/pt/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "3b5f630ead081954"
+ },
+ "/pt/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "2d69e02a2833dc4b"
+ },
+ "/pt/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "c513ec7724ce975e"
+ },
+ "/pt/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "5377290392735873"
+ },
+ "/pt/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "19feb33b8525b678"
+ },
+ "/pt/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "7cb3d665c1655f51"
+ },
+ "/pt/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "2043b2778a62b89c"
+ },
+ "/pt/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "37bff3a886035b26"
+ },
+ "/pt/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "90b09cca41215681"
+ },
+ "/pt/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "f0e15ca41dfadf4a"
+ },
+ "/pt/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "56b2a469f7195177"
+ },
+ "/pt/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "f70aa739ace672cd"
+ },
+ "/pt/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "51697923f9406557"
+ },
+ "/pt/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "d19ad28cc55795e3"
+ },
+ "/pt/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "59e5cf9a64233208"
+ },
+ "/pt/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "33c82d30f44400c0"
+ },
+ "/pt/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "77c69ecdcfb67cb0"
+ },
+ "/pt/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "1c24e499b32b19cf"
+ },
+ "/pt/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "85b009eb126d7539"
+ },
+ "/pt/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "d69f52bc418deacd"
+ },
+ "/pt/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "6788f6ee2911a6b9"
+ },
+ "/pt/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "79906c1838b251b6"
+ },
+ "/pt/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "96469f898ab987fe"
+ },
+ "/pt/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "b476ac3a5ba6367d"
+ },
+ "/pt/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "389a1850f2ef55d3"
+ },
+ "/pt/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "c5a4baf0812aeeb2"
+ },
+ "/pt/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "c87dc9512d289547"
+ },
+ "/pt/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "123dd9ae80324c34"
+ },
+ "/pt/password-generator": {
+  "date": "2026-10-07",
+  "hash": "1249194f730ec357"
+ },
+ "/pt/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "ef746e2600881985"
+ },
+ "/pt/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "2838c3adf133be71"
+ },
+ "/pt/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "b9605216dc99f542"
+ },
+ "/pt/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "ef2b662a4101a459"
+ },
+ "/pt/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "70064545d0f822e4"
+ },
+ "/pt/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "2802c2f84909a40b"
+ },
+ "/pt/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "128da8e8629b397e"
+ },
+ "/pt/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "7501a93a7b794b3d"
+ },
+ "/pt/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "bc6489f640d1844d"
+ },
+ "/pt/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "6ab047f62216101f"
+ },
+ "/pt/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "07818b6ef7cdbca4"
+ },
+ "/pt/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "1d565237cff46c5a"
+ },
+ "/pt/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "974a2d0672b1f7be"
+ },
+ "/pt/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "bcbc4b02a2dd2b16"
+ },
+ "/pt/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "94ce7aa78da471a9"
+ },
+ "/pt/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "7cffbda5bd6e14de"
+ },
+ "/pt/remove-background": {
+  "date": "2026-10-07",
+  "hash": "00346a7d7d8ada6b"
+ },
+ "/pt/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "498cb417ffe050de"
+ },
+ "/pt/replace-background": {
+  "date": "2026-10-07",
+  "hash": "273cc50c63863d97"
+ },
+ "/pt/resize-image": {
+  "date": "2026-10-07",
+  "hash": "3ac66b4075c6b6a6"
+ },
+ "/pt/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "20854cc2aff30129"
+ },
+ "/pt/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "1561d871747e6528"
+ },
+ "/pt/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "a822f5e246810c01"
+ },
+ "/pt/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "0a4a19f1b2d1fdf5"
+ },
+ "/pt/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "c9950577f7081fb4"
+ },
+ "/pt/split-audio": {
+  "date": "2026-10-07",
+  "hash": "a5df228e4fec4370"
+ },
+ "/pt/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "a152603273f7a898"
+ },
+ "/pt/split-video": {
+  "date": "2026-10-07",
+  "hash": "113a2240bb67bc25"
+ },
+ "/pt/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "90f932efbe62ffd5"
+ },
+ "/pt/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "72660a2d9da3439e"
+ },
+ "/pt/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "eeba5fc59c5891a8"
+ },
+ "/pt/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "c2f3f25dddb881b1"
+ },
+ "/pt/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "970dc009a2cfa9bf"
+ },
+ "/pt/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "962572ee41f0fcba"
+ },
+ "/pt/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "e1ee8858d26d1297"
+ },
+ "/pt/video-converter": {
+  "date": "2026-10-07",
+  "hash": "9091fb143554bc1c"
+ },
+ "/pt/video-merger": {
+  "date": "2026-10-07",
+  "hash": "f08b806d632adb85"
+ },
+ "/pt/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "5cc37c00be279fb3"
+ },
+ "/pt/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "f044bdfdf5944396"
+ },
+ "/pt/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "0bd7b4f294d137fc"
+ },
+ "/pt/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "d886c164ee037184"
+ },
+ "/pt/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "d352f7174c8ef6af"
+ },
+ "/pt/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "739e7e365a808aaf"
+ },
+ "/pt/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "11a2ab945d359daf"
+ },
+ "/pt/word-counter": {
+  "date": "2026-10-07",
+  "hash": "d9ef6a84334989a5"
+ },
+ "/pt/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "a5f7ecb18f0b78e8"
  },
  "/qr-code-generator": {
   "date": "2026-10-07",
-  "hash": "2518b9798bc63519"
+  "hash": "a2347612d7d8db7b"
  },
  "/remove-background": {
   "date": "2026-10-07",
-  "hash": "33da855861f686c7"
+  "hash": "8f24f4b486c1d2b8"
  },
  "/repair-pdf": {
   "date": "2026-10-07",
-  "hash": "c523ea3ad09833b4"
+  "hash": "cbe85a8b8027cf36"
  },
  "/replace-background": {
   "date": "2026-10-07",
-  "hash": "a849e8b57075d567"
+  "hash": "a4c47a2badcf4006"
  },
  "/resize-image": {
   "date": "2026-10-07",
-  "hash": "6cda266b8f851073"
+  "hash": "dc9eea6c4c80eaa7"
  },
  "/resize-image-to-kb": {
   "date": "2026-10-07",
-  "hash": "ef5355c7f6ef110c"
+  "hash": "2722794c7779b792"
  },
  "/rotate-flip": {
   "date": "2026-10-07",
-  "hash": "8672388a47ac313b"
+  "hash": "eeaf9c30a8434df7"
  },
  "/rotate-pdf": {
   "date": "2026-10-07",
-  "hash": "fe0f7cb4d886292c"
+  "hash": "9f0c5a5320ce8241"
+ },
+ "/ru/": {
+  "date": "2026-10-07",
+  "hash": "7d7b48e0db07ecc8"
+ },
+ "/ru/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "269866f52a62bd1f"
+ },
+ "/ru/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "edc22acb48f8167e"
+ },
+ "/ru/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "74e86cd3481d14d3"
+ },
+ "/ru/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "3352c73f6d5c80bf"
+ },
+ "/ru/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "f56376a4d5de3117"
+ },
+ "/ru/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "194fd60552616e17"
+ },
+ "/ru/anime-style": {
+  "date": "2026-10-07",
+  "hash": "325d71ca694aadab"
+ },
+ "/ru/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "b0152c438ee4a92c"
+ },
+ "/ru/base64": {
+  "date": "2026-10-07",
+  "hash": "0b7761fc89bd0731"
+ },
+ "/ru/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "5225873a7fdb9797"
+ },
+ "/ru/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "121c241a290b2ce6"
+ },
+ "/ru/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "1228f95881c47f33"
+ },
+ "/ru/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "fb9dc01631669cb4"
+ },
+ "/ru/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "2d72472a20474263"
+ },
+ "/ru/compress-image": {
+  "date": "2026-10-07",
+  "hash": "88f345f940dc0284"
+ },
+ "/ru/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "210e5ac85f82b13b"
+ },
+ "/ru/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "0fffc54c6f26ba17"
+ },
+ "/ru/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "d1bdc2be17bd539f"
+ },
+ "/ru/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "3c748a50b9260d27"
+ },
+ "/ru/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "f7aab4a2bfc3e96f"
+ },
+ "/ru/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "3e78c5958d75e795"
+ },
+ "/ru/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "4865aea3e65ffb19"
+ },
+ "/ru/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "887f8ea8f20a0d98"
+ },
+ "/ru/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "d0b4e78c241f0d7c"
+ },
+ "/ru/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "d202c497ce05418e"
+ },
+ "/ru/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "096d67a0e4a9a5b2"
+ },
+ "/ru/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "99a1464b0807cb59"
+ },
+ "/ru/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "c2503b46e4645e21"
+ },
+ "/ru/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "85b0a97090f9d062"
+ },
+ "/ru/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "76a0c31aac7f3b75"
+ },
+ "/ru/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "a138a4ff9e2ad235"
+ },
+ "/ru/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "c6b8afe72cb9d715"
+ },
+ "/ru/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "99ca0761bd918587"
+ },
+ "/ru/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "b27033b67eacfd66"
+ },
+ "/ru/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "6dd9b9e253b96589"
+ },
+ "/ru/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "a1d19c4871a94593"
+ },
+ "/ru/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "9da946ca7c6f7f66"
+ },
+ "/ru/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "a3b143bc70c936d8"
+ },
+ "/ru/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "a925258cab8a7c36"
+ },
+ "/ru/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "7b763296bcf817a6"
+ },
+ "/ru/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "b4debf764e7add0c"
+ },
+ "/ru/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "e2bd4c75eb7fd61f"
+ },
+ "/ru/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "d15d6d65f632d12e"
+ },
+ "/ru/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "f7af8148b5956654"
+ },
+ "/ru/compress-png": {
+  "date": "2026-10-07",
+  "hash": "55d13166e3a98b7b"
+ },
+ "/ru/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "456682681b4b3261"
+ },
+ "/ru/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "3f64ea2080d837df"
+ },
+ "/ru/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "9024d5ee468cf38a"
+ },
+ "/ru/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "435cde2075920c42"
+ },
+ "/ru/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "88ed9266010153f2"
+ },
+ "/ru/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "cd1cb45f3979a0d1"
+ },
+ "/ru/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "9fbd027f320d700b"
+ },
+ "/ru/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "5c807805d820789b"
+ },
+ "/ru/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "af8adf51dce9fefe"
+ },
+ "/ru/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "c6bac444a5a3c4ae"
+ },
+ "/ru/compress-video": {
+  "date": "2026-10-07",
+  "hash": "2c94bf168ffbcda1"
+ },
+ "/ru/convert-image": {
+  "date": "2026-10-07",
+  "hash": "8d0502864d74137b"
+ },
+ "/ru/crop-image": {
+  "date": "2026-10-07",
+  "hash": "2ffbf54a13ba3b96"
+ },
+ "/ru/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "b2fc7d30a4539381"
+ },
+ "/ru/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "ab739d5e42eb10e4"
+ },
+ "/ru/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "6ea5d56a95eab992"
+ },
+ "/ru/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "98ed0445372686eb"
+ },
+ "/ru/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "ff15c70dfc7b6e58"
+ },
+ "/ru/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "0d1f5bcfe74894c3"
+ },
+ "/ru/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "eba8ef30ccfdf345"
+ },
+ "/ru/face-blur": {
+  "date": "2026-10-07",
+  "hash": "d370de48cc2b45f9"
+ },
+ "/ru/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "d0e4ead65942260e"
+ },
+ "/ru/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "42f8154e631179cc"
+ },
+ "/ru/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "fa32dc57d29a8db9"
+ },
+ "/ru/font-library": {
+  "date": "2026-10-07",
+  "hash": "595072807de6ba74"
+ },
+ "/ru/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "49130bd1dc0204ad"
+ },
+ "/ru/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "c18433af4eae1630"
+ },
+ "/ru/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "5f95468d231e54ed"
+ },
+ "/ru/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "fc7c6eceac00e555"
+ },
+ "/ru/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "4f9bd95edd0da674"
+ },
+ "/ru/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "4cad28b10c2aaf8a"
+ },
+ "/ru/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "2131ecf5b2a7574d"
+ },
+ "/ru/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "dc3bb2ef9e552c68"
+ },
+ "/ru/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "5dc96bbfafde9d7f"
+ },
+ "/ru/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "b55e0f568cd661b6"
+ },
+ "/ru/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "f8c26f97db890321"
+ },
+ "/ru/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "88984ddb49b4c3ac"
+ },
+ "/ru/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "ea7c58fa8d760945"
+ },
+ "/ru/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "36f6042e51c5f2e7"
+ },
+ "/ru/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "3420133f93a1c045"
+ },
+ "/ru/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "9e242afe09d6a937"
+ },
+ "/ru/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "c8bd955aab4a27ff"
+ },
+ "/ru/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "6c5d1353d309eb4f"
+ },
+ "/ru/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "2747f4a23ef74036"
+ },
+ "/ru/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "b3d24b9995a18084"
+ },
+ "/ru/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "bc06235dafd60616"
+ },
+ "/ru/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "4dc6a5aee8cfc4e3"
+ },
+ "/ru/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "bf582be5364daf59"
+ },
+ "/ru/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "bf5dd7053c03653f"
+ },
+ "/ru/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "ab5d174d17b969f7"
+ },
+ "/ru/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "65d75b96fa4a21f9"
+ },
+ "/ru/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "a24bca76a78f1b65"
+ },
+ "/ru/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "011cd89c19b8f18e"
+ },
+ "/ru/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "e515d3d2293a87df"
+ },
+ "/ru/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "411b1f234cb2ac72"
+ },
+ "/ru/password-generator": {
+  "date": "2026-10-07",
+  "hash": "2fb4b07e1f3c47b0"
+ },
+ "/ru/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "57f7eb896b3e5330"
+ },
+ "/ru/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "dce58a4b5e058f7f"
+ },
+ "/ru/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "cd1945639cd39f11"
+ },
+ "/ru/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "2c0ca16f9e81ab86"
+ },
+ "/ru/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "69b6694faf4c02b3"
+ },
+ "/ru/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "64695b2e883a4c8a"
+ },
+ "/ru/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "6c38f8a760cd0231"
+ },
+ "/ru/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "7ed0cc8d2eee8781"
+ },
+ "/ru/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "0afc8f5058c7b0b1"
+ },
+ "/ru/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "f190935cd885db76"
+ },
+ "/ru/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "57fe2551ec455211"
+ },
+ "/ru/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "967d299ac240b9ca"
+ },
+ "/ru/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "38dcdcdb2ff9d1b8"
+ },
+ "/ru/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "2c6fa46b791547e0"
+ },
+ "/ru/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "38f9157aeb6e85f4"
+ },
+ "/ru/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "6f7fa1a8677c2bc3"
+ },
+ "/ru/remove-background": {
+  "date": "2026-10-07",
+  "hash": "1826053d8faa1c41"
+ },
+ "/ru/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "a8ab5ee7bc53c514"
+ },
+ "/ru/replace-background": {
+  "date": "2026-10-07",
+  "hash": "f6f85fe7a46f4e6e"
+ },
+ "/ru/resize-image": {
+  "date": "2026-10-07",
+  "hash": "bb56bb94cae8df5a"
+ },
+ "/ru/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "2a59ff1fb2764820"
+ },
+ "/ru/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "54ae7d8365c619ff"
+ },
+ "/ru/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "09afc6687790e9d7"
+ },
+ "/ru/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "d1b8150be8651cf8"
+ },
+ "/ru/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "89d6326a2601fb13"
+ },
+ "/ru/split-audio": {
+  "date": "2026-10-07",
+  "hash": "5b7f44a56e103312"
+ },
+ "/ru/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "e28ad556655d7ef0"
+ },
+ "/ru/split-video": {
+  "date": "2026-10-07",
+  "hash": "c52d29497c551f0e"
+ },
+ "/ru/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "598415952719c755"
+ },
+ "/ru/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "8b37c76ec4ff287e"
+ },
+ "/ru/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "b9504bab18590222"
+ },
+ "/ru/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "c1719fdef7fdba95"
+ },
+ "/ru/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "9f993cfd249baa05"
+ },
+ "/ru/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "52a6016e5657acaf"
+ },
+ "/ru/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "3a1b63cd42ff1daf"
+ },
+ "/ru/video-converter": {
+  "date": "2026-10-07",
+  "hash": "1cc6df8e034e9a0a"
+ },
+ "/ru/video-merger": {
+  "date": "2026-10-07",
+  "hash": "0a17d9a492152c75"
+ },
+ "/ru/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "c80862bcb80afacd"
+ },
+ "/ru/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "db0f95d6b82ea7f1"
+ },
+ "/ru/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "e4f3ee229541a17f"
+ },
+ "/ru/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "0a30a7468ee9e592"
+ },
+ "/ru/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "767200cb88c88a16"
+ },
+ "/ru/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "3021976c9b19c775"
+ },
+ "/ru/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "1a8592da602e5711"
+ },
+ "/ru/word-counter": {
+  "date": "2026-10-07",
+  "hash": "8b23c465418daf2d"
+ },
+ "/ru/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "88f860c20b4ae478"
  },
  "/screenshot-beautifier": {
   "date": "2026-10-07",
-  "hash": "fb4d3148b09e956c"
+  "hash": "15682e4d27b331de"
  },
  "/social-media-image-resizer": {
   "date": "2026-10-07",
-  "hash": "45c170751c746ba4"
+  "hash": "4cd4de0c4a317390"
  },
  "/split-audio": {
   "date": "2026-10-07",
-  "hash": "170d4d225463a411"
+  "hash": "cdff9985326e2c5f"
  },
  "/split-pdf": {
   "date": "2026-10-07",
-  "hash": "4839b0c3a1b111ed"
+  "hash": "5c7a80e337e9845a"
  },
  "/split-video": {
   "date": "2026-10-07",
-  "hash": "2a4bc4220513a88f"
+  "hash": "5e42d1d62cb70053"
  },
  "/temporary-file-upload-direct-link-share": {
   "date": "2026-10-07",
-  "hash": "145622be2f941197"
+  "hash": "c1e4ade1edead12b"
  },
  "/terms": {
   "date": "2026-10-07",
@@ -541,70 +5869,662 @@
  },
  "/text-case-converter": {
   "date": "2026-10-07",
-  "hash": "10c4356825ec397f"
+  "hash": "275f6a610020a436"
  },
  "/text-to-audio": {
   "date": "2026-10-07",
-  "hash": "1337621cb84e71c3"
+  "hash": "f16acc9e1f00a4b2"
  },
  "/thumbnail-generator": {
   "date": "2026-10-07",
-  "hash": "21d30eb0e589416f"
+  "hash": "edc34a136b38a2de"
+ },
+ "/tr/": {
+  "date": "2026-10-07",
+  "hash": "fe2040e791cbae4d"
+ },
+ "/tr/aac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "ebe691ac228dbe42"
+ },
+ "/tr/add-page-numbers-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "20482e1aeebe90dc"
+ },
+ "/tr/add-watermark-to-image": {
+  "date": "2026-10-07",
+  "hash": "58e6edd7fd5b388a"
+ },
+ "/tr/add-watermark-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "5ab5bb1f462365ac"
+ },
+ "/tr/add-watermark-to-video": {
+  "date": "2026-10-07",
+  "hash": "df089c5d5cb8ffb9"
+ },
+ "/tr/ai-headshot-generator": {
+  "date": "2026-10-07",
+  "hash": "0e5ca92b241a8b45"
+ },
+ "/tr/anime-style": {
+  "date": "2026-10-07",
+  "hash": "28651a89f2d33203"
+ },
+ "/tr/audio-converter": {
+  "date": "2026-10-07",
+  "hash": "fba72e5522023c74"
+ },
+ "/tr/base64": {
+  "date": "2026-10-07",
+  "hash": "9430527cdb9f87a1"
+ },
+ "/tr/blur-redact-pdf": {
+  "date": "2026-10-07",
+  "hash": "53f28c9b25dad52e"
+ },
+ "/tr/change-video-speed": {
+  "date": "2026-10-07",
+  "hash": "9052236899b20996"
+ },
+ "/tr/color-palette-generator": {
+  "date": "2026-10-07",
+  "hash": "b9268d63d2131973"
+ },
+ "/tr/compare-pdf": {
+  "date": "2026-10-07",
+  "hash": "2154c9d1f74d48db"
+ },
+ "/tr/compress-gif": {
+  "date": "2026-10-07",
+  "hash": "028d3e6b134b7e19"
+ },
+ "/tr/compress-image": {
+  "date": "2026-10-07",
+  "hash": "aa40be20cdabc043"
+ },
+ "/tr/compress-jpeg": {
+  "date": "2026-10-07",
+  "hash": "a0b398f2f1230794"
+ },
+ "/tr/compress-jpeg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "b27295c67b648246"
+ },
+ "/tr/compress-jpeg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "5ae179d7651507fc"
+ },
+ "/tr/compress-jpeg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "2531dd0587a4d9ab"
+ },
+ "/tr/compress-jpeg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "266d7c43e847008b"
+ },
+ "/tr/compress-jpeg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "a02cc791ae5c23cd"
+ },
+ "/tr/compress-jpeg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "9ed7eafee1b009aa"
+ },
+ "/tr/compress-jpeg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "3de978a614d65f1f"
+ },
+ "/tr/compress-jpeg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "40c9acae938ba218"
+ },
+ "/tr/compress-jpeg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "db21ff9c845c4254"
+ },
+ "/tr/compress-jpeg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "735548c39e52dec1"
+ },
+ "/tr/compress-jpg": {
+  "date": "2026-10-07",
+  "hash": "fee8e7cce2a1d34d"
+ },
+ "/tr/compress-jpg-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "a10d7ce6c7281fb0"
+ },
+ "/tr/compress-jpg-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "3744299b6be2f864"
+ },
+ "/tr/compress-jpg-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "3fc7b67fba0c31fc"
+ },
+ "/tr/compress-jpg-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "e22c387fd46bda9d"
+ },
+ "/tr/compress-jpg-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "ee8453c11745b796"
+ },
+ "/tr/compress-jpg-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "45cb7e9d1d9956fd"
+ },
+ "/tr/compress-jpg-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "bf48c3c23e5ceedb"
+ },
+ "/tr/compress-jpg-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "37af81bda6f72d06"
+ },
+ "/tr/compress-jpg-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "efce2bc83a04c467"
+ },
+ "/tr/compress-jpg-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "c855ef1e125ce9e9"
+ },
+ "/tr/compress-pdf": {
+  "date": "2026-10-07",
+  "hash": "cca0da938797ef20"
+ },
+ "/tr/compress-pdf-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "a88a1897dfef5a48"
+ },
+ "/tr/compress-pdf-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "dff3b5d02a898acc"
+ },
+ "/tr/compress-pdf-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "51d7fcd540f02f2f"
+ },
+ "/tr/compress-pdf-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "d7e9fc66d8aeb3f5"
+ },
+ "/tr/compress-pdf-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "4f99a2236dbfca62"
+ },
+ "/tr/compress-pdf-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "4643be5edab78990"
+ },
+ "/tr/compress-png": {
+  "date": "2026-10-07",
+  "hash": "dc3d672b834a084b"
+ },
+ "/tr/compress-png-under-100kb": {
+  "date": "2026-10-07",
+  "hash": "8c4412c3b2518db5"
+ },
+ "/tr/compress-png-under-10kb": {
+  "date": "2026-10-07",
+  "hash": "ef3ba079c8eb41d7"
+ },
+ "/tr/compress-png-under-150kb": {
+  "date": "2026-10-07",
+  "hash": "b85642f4135256a3"
+ },
+ "/tr/compress-png-under-1mb": {
+  "date": "2026-10-07",
+  "hash": "9e74212f0fc52663"
+ },
+ "/tr/compress-png-under-200kb": {
+  "date": "2026-10-07",
+  "hash": "4d44b475511593cd"
+ },
+ "/tr/compress-png-under-20kb": {
+  "date": "2026-10-07",
+  "hash": "afb6b9628011bed9"
+ },
+ "/tr/compress-png-under-2mb": {
+  "date": "2026-10-07",
+  "hash": "7453cc888a5a627c"
+ },
+ "/tr/compress-png-under-300kb": {
+  "date": "2026-10-07",
+  "hash": "7685ec6a0fc4c231"
+ },
+ "/tr/compress-png-under-500kb": {
+  "date": "2026-10-07",
+  "hash": "f3816de0c53a1979"
+ },
+ "/tr/compress-png-under-50kb": {
+  "date": "2026-10-07",
+  "hash": "89a78e671db3dfeb"
+ },
+ "/tr/compress-video": {
+  "date": "2026-10-07",
+  "hash": "36b18bd6b00e01c1"
+ },
+ "/tr/convert-image": {
+  "date": "2026-10-07",
+  "hash": "965d636e49d800ec"
+ },
+ "/tr/crop-image": {
+  "date": "2026-10-07",
+  "hash": "9e6ef9a1116dd13e"
+ },
+ "/tr/crop-pdf": {
+  "date": "2026-10-07",
+  "hash": "a7540fd8deac793f"
+ },
+ "/tr/delete-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "2631d69ca7b3f1d1"
+ },
+ "/tr/docx-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "ee98e27648520fa8"
+ },
+ "/tr/esign-pdf": {
+  "date": "2026-10-07",
+  "hash": "810ab356b6dc5de3"
+ },
+ "/tr/excel-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "af7925f276db4358"
+ },
+ "/tr/exif-remover": {
+  "date": "2026-10-07",
+  "hash": "b276450cef895409"
+ },
+ "/tr/extract-pdf-pages": {
+  "date": "2026-10-07",
+  "hash": "d4bd1773ceb1a783"
+ },
+ "/tr/face-blur": {
+  "date": "2026-10-07",
+  "hash": "f4c6848741ead35e"
+ },
+ "/tr/favicon-generator": {
+  "date": "2026-10-07",
+  "hash": "ceea7fe8a4bb59bb"
+ },
+ "/tr/flac-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "474334d5ad3f8c6c"
+ },
+ "/tr/flatten-pdf": {
+  "date": "2026-10-07",
+  "hash": "d323ac58c9a8fde0"
+ },
+ "/tr/font-library": {
+  "date": "2026-10-07",
+  "hash": "db27a03b5c489790"
+ },
+ "/tr/gif-to-video": {
+  "date": "2026-10-07",
+  "hash": "0bef1e91fd5eb6c3"
+ },
+ "/tr/hash-uuid-generator": {
+  "date": "2026-10-07",
+  "hash": "162de809d78fcbc3"
+ },
+ "/tr/heic-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "e810744cda270d9d"
+ },
+ "/tr/html-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "cb9c3fc2bc2d8a0d"
+ },
+ "/tr/html-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "eabd850cdb59a748"
+ },
+ "/tr/image-cdn": {
+  "date": "2026-10-07",
+  "hash": "49c7b33ab3b49594"
+ },
+ "/tr/image-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "854db56e17ddcbe4"
+ },
+ "/tr/image-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "11aefd2ff65cdadf"
+ },
+ "/tr/image-to-svg": {
+  "date": "2026-10-07",
+  "hash": "aee3b38a98055c86"
+ },
+ "/tr/image-to-text": {
+  "date": "2026-10-07",
+  "hash": "84bbf608e393e410"
+ },
+ "/tr/instagram-image-carousel-splitter": {
+  "date": "2026-10-07",
+  "hash": "40740d035c3a400f"
+ },
+ "/tr/jpg-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "907f6a833667ef73"
+ },
+ "/tr/jpg-to-png": {
+  "date": "2026-10-07",
+  "hash": "9ab5e97c8f3758ce"
+ },
+ "/tr/jpg-to-webp": {
+  "date": "2026-10-07",
+  "hash": "5c74f36f39b8768c"
+ },
+ "/tr/json-formatter": {
+  "date": "2026-10-07",
+  "hash": "3e102b2d027bd479"
+ },
+ "/tr/linkedin-carousel-maker": {
+  "date": "2026-10-07",
+  "hash": "4d4d5c3a867f91c0"
+ },
+ "/tr/m4a-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "b65ae0890c6bf8cd"
+ },
+ "/tr/markdown-converter": {
+  "date": "2026-10-07",
+  "hash": "8dd8ccc268c99226"
+ },
+ "/tr/markdown-to-html": {
+  "date": "2026-10-07",
+  "hash": "426ecab00243a602"
+ },
+ "/tr/markdown-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "3b56fd213be1e842"
+ },
+ "/tr/markdown-to-word": {
+  "date": "2026-10-07",
+  "hash": "2abaf4b58cf1e16d"
+ },
+ "/tr/meme-generator": {
+  "date": "2026-10-07",
+  "hash": "56c0ab81ed5d6cbb"
+ },
+ "/tr/merge-audio": {
+  "date": "2026-10-07",
+  "hash": "a9016259412a5e2c"
+ },
+ "/tr/merge-pdf": {
+  "date": "2026-10-07",
+  "hash": "e44ade547f1fc0bc"
+ },
+ "/tr/mp3-to-wav": {
+  "date": "2026-10-07",
+  "hash": "be82145753db0aec"
+ },
+ "/tr/mp4-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "9244741f0482ad10"
+ },
+ "/tr/ocr-pdf": {
+  "date": "2026-10-07",
+  "hash": "03fcb8e11ddbbd9e"
+ },
+ "/tr/ogg-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "5cac84dfc7a83ca6"
+ },
+ "/tr/organize-pdf": {
+  "date": "2026-10-07",
+  "hash": "01a9b5e82606d09a"
+ },
+ "/tr/passport-size-photo-maker": {
+  "date": "2026-10-07",
+  "hash": "826fca2f6d301333"
+ },
+ "/tr/password-generator": {
+  "date": "2026-10-07",
+  "hash": "846fb9b5a5613785"
+ },
+ "/tr/pdf-editor": {
+  "date": "2026-10-07",
+  "hash": "38e0d8408555aa3c"
+ },
+ "/tr/pdf-to-excel": {
+  "date": "2026-10-07",
+  "hash": "817037eb54dfd813"
+ },
+ "/tr/pdf-to-image": {
+  "date": "2026-10-07",
+  "hash": "2455190f10738f4b"
+ },
+ "/tr/pdf-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "a9eb5befe51d2121"
+ },
+ "/tr/pdf-to-markdown": {
+  "date": "2026-10-07",
+  "hash": "f04e59edfca00e0c"
+ },
+ "/tr/pdf-to-png": {
+  "date": "2026-10-07",
+  "hash": "9953961d1364b4e6"
+ },
+ "/tr/pdf-to-powerpoint": {
+  "date": "2026-10-07",
+  "hash": "4c1b1682a4b310ad"
+ },
+ "/tr/pdf-to-text": {
+  "date": "2026-10-07",
+  "hash": "3b9b13de47a5033c"
+ },
+ "/tr/pdf-to-word": {
+  "date": "2026-10-07",
+  "hash": "cd5d645a57e69ded"
+ },
+ "/tr/photo-collage-maker": {
+  "date": "2026-10-07",
+  "hash": "0ab9afd1c3c57b76"
+ },
+ "/tr/pixelate-image": {
+  "date": "2026-10-07",
+  "hash": "d02e23bf52f723b7"
+ },
+ "/tr/png-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "ca0a9b723f7260bb"
+ },
+ "/tr/png-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "b7997cedbf371f21"
+ },
+ "/tr/powerpoint-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "df2b3305f85c3d6d"
+ },
+ "/tr/protect-pdf": {
+  "date": "2026-10-07",
+  "hash": "7b8fd77614c584d2"
+ },
+ "/tr/qr-code-generator": {
+  "date": "2026-10-07",
+  "hash": "f78bb25891d82baf"
+ },
+ "/tr/remove-background": {
+  "date": "2026-10-07",
+  "hash": "7516ae461b8f1a0d"
+ },
+ "/tr/repair-pdf": {
+  "date": "2026-10-07",
+  "hash": "ad9c27b0067edfd8"
+ },
+ "/tr/replace-background": {
+  "date": "2026-10-07",
+  "hash": "7ce559f1e19bda57"
+ },
+ "/tr/resize-image": {
+  "date": "2026-10-07",
+  "hash": "f95e371d6656c2f4"
+ },
+ "/tr/resize-image-to-kb": {
+  "date": "2026-10-07",
+  "hash": "40f0ac7c08a6ed8b"
+ },
+ "/tr/rotate-flip": {
+  "date": "2026-10-07",
+  "hash": "b99b06de68de9cbe"
+ },
+ "/tr/rotate-pdf": {
+  "date": "2026-10-07",
+  "hash": "123381c67a434c01"
+ },
+ "/tr/screenshot-beautifier": {
+  "date": "2026-10-07",
+  "hash": "25cc2270c2b2b343"
+ },
+ "/tr/social-media-image-resizer": {
+  "date": "2026-10-07",
+  "hash": "150bb05c3d8bdf2e"
+ },
+ "/tr/split-audio": {
+  "date": "2026-10-07",
+  "hash": "96f4d79bbc9d29a6"
+ },
+ "/tr/split-pdf": {
+  "date": "2026-10-07",
+  "hash": "c511e580070ee6e0"
+ },
+ "/tr/split-video": {
+  "date": "2026-10-07",
+  "hash": "03f774642ec1c454"
+ },
+ "/tr/temporary-file-upload-direct-link-share": {
+  "date": "2026-10-07",
+  "hash": "ddbeee29d5b4e5b2"
+ },
+ "/tr/text-case-converter": {
+  "date": "2026-10-07",
+  "hash": "644bd3322dc547eb"
+ },
+ "/tr/text-to-audio": {
+  "date": "2026-10-07",
+  "hash": "972d3a1341f3e6a1"
+ },
+ "/tr/thumbnail-generator": {
+  "date": "2026-10-07",
+  "hash": "58abdd0fe334b4d1"
+ },
+ "/tr/unlock-pdf": {
+  "date": "2026-10-07",
+  "hash": "5729cbb2ad40e091"
+ },
+ "/tr/upscale-image": {
+  "date": "2026-10-07",
+  "hash": "4f5ef6a934d569e0"
+ },
+ "/tr/url-encoder": {
+  "date": "2026-10-07",
+  "hash": "c569936f19158f75"
+ },
+ "/tr/video-converter": {
+  "date": "2026-10-07",
+  "hash": "87134c548b2f098d"
+ },
+ "/tr/video-merger": {
+  "date": "2026-10-07",
+  "hash": "2b732a384314734b"
+ },
+ "/tr/video-to-audio": {
+  "date": "2026-10-07",
+  "hash": "8acfaeb58cb8523f"
+ },
+ "/tr/video-to-gif": {
+  "date": "2026-10-07",
+  "hash": "3775fb1c75876320"
+ },
+ "/tr/video-to-text": {
+  "date": "2026-10-07",
+  "hash": "21d20e728b53a6f3"
+ },
+ "/tr/video-trimmer": {
+  "date": "2026-10-07",
+  "hash": "9f2a053f2078e651"
+ },
+ "/tr/wav-to-mp3": {
+  "date": "2026-10-07",
+  "hash": "2b05b3b3dd8850aa"
+ },
+ "/tr/webp-to-jpg": {
+  "date": "2026-10-07",
+  "hash": "c426cb5ac29d5fea"
+ },
+ "/tr/website-color-palette-extractor": {
+  "date": "2026-10-07",
+  "hash": "211ce11f23f79dd8"
+ },
+ "/tr/word-counter": {
+  "date": "2026-10-07",
+  "hash": "a7c1b201028a3c45"
+ },
+ "/tr/word-to-pdf": {
+  "date": "2026-10-07",
+  "hash": "23b1bd8e73f1eb69"
  },
  "/unlock-pdf": {
   "date": "2026-10-07",
-  "hash": "76b505917a5a81b1"
+  "hash": "605c6ebad5cc62b3"
  },
  "/upscale-image": {
   "date": "2026-10-07",
-  "hash": "2d595a406b81435f"
+  "hash": "387dadde351ea80f"
  },
  "/url-encoder": {
   "date": "2026-10-07",
-  "hash": "6101a54bfd418853"
+  "hash": "7a0dd38e74626454"
  },
  "/video-converter": {
   "date": "2026-10-07",
-  "hash": "8d5a10fa4b1c0784"
+  "hash": "b9dafa2c0af545fa"
  },
  "/video-merger": {
   "date": "2026-10-07",
-  "hash": "99e1eb57fce32bfc"
+  "hash": "7029f90fb17ac9cb"
  },
  "/video-to-audio": {
   "date": "2026-10-07",
-  "hash": "5e97370ea52fd656"
+  "hash": "70da39783f4c22c2"
  },
  "/video-to-gif": {
   "date": "2026-10-07",
-  "hash": "1602b3a9e9792cbc"
+  "hash": "265ceae7f480bed2"
  },
  "/video-to-text": {
   "date": "2026-10-07",
-  "hash": "43d448f2c95a776f"
+  "hash": "10d793553510d0e4"
  },
  "/video-trimmer": {
   "date": "2026-10-07",
-  "hash": "6e72dce8c1fd4036"
+  "hash": "c83ddcb884d5997f"
  },
  "/wav-to-mp3": {
   "date": "2026-10-07",
-  "hash": "ac1cb42e82a23855"
+  "hash": "3cc056b9519e51d1"
  },
  "/webp-to-jpg": {
   "date": "2026-10-07",
-  "hash": "1315de8b7c64215d"
+  "hash": "ed6e1ea99579478a"
  },
  "/website-color-palette-extractor": {
   "date": "2026-10-07",
-  "hash": "a5220b98f4cc2e73"
+  "hash": "217af9812d669976"
  },
  "/word-counter": {
   "date": "2026-10-07",
-  "hash": "4279ac988bd04a14"
+  "hash": "f7f20dc39cd27f25"
  },
  "/word-to-pdf": {
   "date": "2026-10-07",
-  "hash": "4863f6824c3bc8f4"
+  "hash": "45580b4beb3d7db0"
  }
 }

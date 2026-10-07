@@ -1,0 +1,3036 @@
+{
+ "_categories": {
+  "image": "Görsel",
+  "ai": "Yapay Zeka ve İyileştirme",
+  "pdf": "PDF ve Belgeler",
+  "video": "Video ve Ses",
+  "dev": "Metin ve Geliştirici",
+  "util": "Yardımcı Araçlar"
+ },
+ "compress-image": {
+  "name": "Görsel Sıkıştırma",
+  "desc": "JPG, PNG ve WebP dosyalarını gözle görülür kayıp olmadan küçültün.",
+  "about": "JPG, PNG, WebP, GIF, AVIF ve HEIC görsellerin dosya boyutunu azaltın. Kaliteyi ve çıktı biçimini seçin, genişliği sınırlayın ve tek seferde 40 görsele kadar sıkıştırın. PNG dosyaları renk sayısı azaltılarak daha da küçültülebilir; sonuçta her dosyanın tam olarak ne kadar küçüldüğünü görürsünüz.",
+  "title": "Görsel Sıkıştırma Online Ücretsiz: Fotoğraf Boyutunu KB Olarak Küçült | Toolz Baba",
+  "metaDesc": "JPG, PNG, WebP ve HEIC fotoğrafları kaliteden kaybetmeden sıkıştırın. Tek seferde 40 dosyaya kadar veya 50 KB gibi tam bir boyuta. Ücretsiz, özel, üyelik yok.",
+  "steps": [
+   "Görsellerinizi ekleyin: JPG, PNG, WebP, GIF, AVIF veya HEIC, tek seferde 40 adede kadar.",
+   "Kaliteyi ayarlayın (yüzde 70 ile 80 genellikle aynı görünür) ve isterseniz çıktı biçimini ve en büyük genişliği seçin.",
+   "Sıkıştır'a tıklayın ve küçülen dosyaları indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir fotoğrafın kalitesini kaybetmeden boyutunu nasıl küçültürüm?",
+    "a": "Yüzde 70 ile 80 arasında bir kalite kullanın: fark genellikle görünmez ve dosya çoğu zaman birkaç kat küçülür. 1920 px gibi bir en büyük genişlik belirlemek çok büyük fotoğrafları daha da küçültür."
+   },
+   {
+    "q": "Bir görseli 50 KB gibi tam bir boyuta nasıl sıkıştırırım?",
+    "a": "JPG / JPEG sekmesindeki boyut düğmelerini (10 KB ile 2 MB arası) kullanın veya tam piksel boyutu da isteyen sınav ve iş başvuru formları için KB Olarak Fotoğraf ve İmza Boyutlandırma aracını kullanın."
+   },
+   {
+    "q": "Birçok görseli aynı anda sıkıştırabilir miyim?",
+    "a": "Evet, tek seferde 40 görsele kadar."
+   },
+   {
+    "q": "Görsellerim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "resize-image": {
+  "name": "Görsel Boyutlandırma",
+  "desc": "Boyutu piksel, yüzde veya kutuya sığdırma ile değiştirin. Toplu işlem desteklenir.",
+  "about": "Bir veya birçok görselin boyutunu genişlik, yükseklik, yüzde veya bir kutunun içine sığdırarak değiştirin. Küçültme adım adım yapıldığı için yazılar ve ince çizgiler net kalır. Her şey tarayıcınızda gerçekleşir ve PNG, JPG veya WebP olarak kaydedebilirsiniz.",
+  "title": "Görsel Boyutlandırma Online Ücretsiz: Fotoğraf Boyutunu Piksel Olarak Değiştir | Toolz Baba",
+  "metaDesc": "Görselleri piksel, yüzde veya kutuya sığacak şekilde yeniden boyutlandırın; tek tek ya da toplu, JPG, PNG veya WebP olarak kaydedin. Net sonuç, tarayıcıda çalışır.",
+  "steps": [
+   "Bir veya birçok görsel ekleyin.",
+   "Yeni boyutu genişlik, yükseklik, yüzde veya sığdırılacak bir kutu olarak seçin.",
+   "PNG, JPG veya WebP olarak kaydedin."
+  ],
+  "faq": [
+   {
+    "q": "Bir görseli kaliteyi kaybetmeden nasıl yeniden boyutlandırırım?",
+    "a": "Resmi küçültmek onu net tutar: araç adım adım küçülttüğü için yazılar ve ince çizgiler açık kalır. Çok büyütmek bulanıklık ekler; bunun için Görsel Büyütme aracını kullanın."
+   },
+   {
+    "q": "Birçok görseli aynı anda yeniden boyutlandırabilir miyim?",
+    "a": "Evet, birkaç görsel ekleyin; hepsi aynı ayarlarla yeniden boyutlandırılır."
+   },
+   {
+    "q": "Dosya boyutunu KB olarak nasıl ayarlarım?",
+    "a": "Formların istediği tam piksel veya cm boyutunu da ayarlayan KB Olarak Fotoğraf ve İmza Boyutlandırma aracını kullanın."
+   }
+  ]
+ },
+ "crop-image": {
+  "name": "Görsel Kırpma",
+  "desc": "Sürükleyerek kırpın; en boy oranı hazır ayarları (1:1, 16:9, 4:5...) mevcuttur.",
+  "about": "Üzerine bir kutu sürükleyerek veya tam piksel değerleri yazarak resmi kırpın. Şekli 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 veya 3:4 olarak kilitleyin, ardından PNG, JPG veya WebP olarak kaydedin. Kırpma tarayıcınızda tam çözünürlükte yapılır.",
+  "title": "Görsel Kırpma Online Ücretsiz: 1:1, 16:9, 4:5 ve Özel Oran | Toolz Baba",
+  "metaDesc": "Fotoğrafları kutu sürükleyerek veya tam piksel yazarak kırpın; 1:1, 4:3, 16:9, 9:16 ve 4:5 şekilleri mevcut. Tam çözünürlük, ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "Resminizi ekleyin.",
+   "Kutuyu sürükleyin veya tam piksel değerleri yazın; gerekirse 1:1 ya da 16:9 gibi bir şekli kilitleyin.",
+   "PNG, JPG veya WebP olarak kaydedin."
+  ],
+  "faq": [
+   {
+    "q": "Bir fotoğrafı kare olarak nasıl kırparım?",
+    "a": "Fotoğrafı ekleyin, 1:1 şeklini seçin ve kutuyu saklamak istediğiniz bölümün üzerine sürükleyin."
+   },
+   {
+    "q": "Kırpmak kaliteyi düşürür mü?",
+    "a": "Hayır. Kırpma tam çözünürlükte yapılır; yalnızca kutunun dışında kalan kısımlar kaldırılır."
+   }
+  ]
+ },
+ "convert-image": {
+  "name": "Görsel Biçim Dönüştürücü",
+  "desc": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO arasında dönüştürün. HEIC dosyalarını da açar.",
+  "about": "Görselleri JPG, PNG, WebP, AVIF, GIF, BMP, TIFF ve ICO arasında dönüştürün. iPhone HEIC fotoğrafları girdi olarak desteklenir. Kaliteyi seçin ve saydam olamayan biçimler için bir arka plan rengi belirleyin. Tek seferde 40 dosyaya kadar dönüştürün.",
+  "title": "Görsel Dönüştürücü Online Ücretsiz: JPG, PNG, WebP, HEIC | Toolz Baba",
+  "metaDesc": "Görselleri JPG, PNG, WebP, AVIF, GIF, BMP, TIFF ve ICO arasında dönüştürün, iPhone HEIC fotoğrafları dahil. Tek seferde 40 dosya, ücretsiz ve özel.",
+  "tabAll": "Tüm biçimler",
+  "steps": [
+   "Görsellerinizi ekleyin: JPG, PNG, WebP, HEIC ve daha fazlası, tek seferde 40 adede kadar.",
+   "Dönüştürülecek biçimi ve kaliteyi seçin.",
+   "Dönüştür'e tıklayın ve yeni dosyaları indirin."
+  ],
+  "faq": [
+   {
+    "q": "Hangi biçimlere dönüştürebilirim?",
+    "a": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF ve ICO."
+   },
+   {
+    "q": "iPhone HEIC fotoğraflarını dönüştürebilir miyim?",
+    "a": "Evet. HEIC fotoğrafları buraya eklenip JPG veya başka bir biçime dönüştürülebilir."
+   },
+   {
+    "q": "JPG'ye dönüştürürken saydamlığa ne olur?",
+    "a": "JPG ve BMP saydam olamaz; bu yüzden saydam alanlar seçtiğiniz arka plan rengiyle doldurulur."
+   },
+   {
+    "q": "Görsellerim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "rotate-flip": {
+  "name": "Döndür ve Çevir",
+  "desc": "90° veya istediğiniz açıyla döndürün; yatay ya da dikey çevirin.",
+  "about": "Bir görseli 90, 180 veya 270 derece döndürün, ufuk çizgisini düzeltmek için birkaç derece düzeltin ve yatay ya da dikey olarak çevirin. Önizleme canlı güncellenir ve işlem tarayıcınızda yapılır.",
+  "title": "Görsel Döndürme Online Ücretsiz: Fotoğrafları Çevir ve Düzelt | Toolz Baba",
+  "metaDesc": "Fotoğrafları 90, 180 veya 270 derece döndürün, eğik ufku birkaç derece düzeltin veya çevirin. Canlı önizleme, ücretsiz, tarayıcınızda çalışır.",
+  "steps": [
+   "Görselinizi ekleyin.",
+   "90, 180 veya 270 derece döndürün, birkaç derece düzeltin veya çevirin.",
+   "Sonucu indirin."
+  ],
+  "faq": [
+   {
+    "q": "Eğik çekilmiş bir fotoğrafı nasıl düzeltirim?",
+    "a": "İnce açı ayarını kullanarak ufuk düzleşene kadar birkaç derece çevirin; önizleme canlı güncellenir."
+   },
+   {
+    "q": "Ters görünen bir selfie'yi çevirebilir miyim?",
+    "a": "Evet. Sağı ve solu değiştirmek için yatay olarak çevirin."
+   },
+   {
+    "q": "Fotoğraflarım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "social-media-image-resizer": {
+  "name": "Sosyal Medya Boyutlandırma",
+  "desc": "Tek görsel → Instagram, Facebook, X, LinkedIn, YouTube, Pinterest için doğru boyut.",
+  "about": "Tek bir görseli Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok ve WhatsApp gönderileri, hikayeleri, kapakları ve profil fotoğrafları için doğru boyuta getirin. Doldurmak için kırpmayı veya görselin tamamını bulanık bir arka planla sığdırmayı seçin, ardından tüm boyutları tek bir ZIP olarak indirin.",
+  "title": "Sosyal Medya Görsel Boyutlandırma: Instagram, YouTube, WhatsApp | Toolz Baba",
+  "metaDesc": "Tek görseli Instagram, Facebook, X, LinkedIn, YouTube, Pinterest, TikTok ve WhatsApp gönderi, hikaye ve kapakları için boyutlandırın. Tüm boyutlar tek ZIP'te.",
+  "steps": [
+   "Tek bir görsel ekleyin.",
+   "İhtiyacınız olan platformları ve boyutları seçin; doldurmak için kırpmayı veya bulanık arka planla sığdırmayı seçin.",
+   "Tüm boyutları birlikte tek bir ZIP olarak indirin."
+  ],
+  "faq": [
+   {
+    "q": "Hangi platformlar dahil?",
+    "a": "Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok ve WhatsApp: gönderiler, hikayeler, kapaklar ve profil fotoğrafları."
+   },
+   {
+    "q": "Resmimin şekli uygun değilse ne olur?",
+    "a": "Boyutu doldurmak için kırpmayı veya resmin tamamını arkasında bulanık bir kopyasıyla birlikte korumak için sığdırmayı seçin."
+   },
+   {
+    "q": "Görsellerim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "thumbnail-generator": {
+  "name": "Küçük Resim Oluşturucu",
+  "desc": "Bir görselden veya videonun herhangi bir karesinden, isteğe bağlı başlık metniyle küçük resim yapın.",
+  "about": "Bir görselden veya videonun herhangi bir karesinden küçük resim oluşturun. 1280x720 gibi bir boyut seçin, çerçeveli bir başlık ekleyin, renkleri canlandırın ve dosyayı YouTube'un 2 MB sınırı gibi bir boyutun altında tutun. Tarayıcınızda çalışır; videonuz cihazınızdan hiç çıkmaz.",
+  "title": "YouTube Küçük Resim Oluşturucu Online Ücretsiz (1280x720) | Toolz Baba",
+  "metaDesc": "Görsel veya video karesinden 1280x720 küçük resim yapın, başlık ekleyin, renkleri canlandırın, YouTube'un 2 MB sınırında kalın. Ücretsiz.",
+  "steps": [
+   "Bir görsel veya video ekleyin ve istediğiniz kareyi seçin.",
+   "1280x720 gibi boyutu seçin ve bir başlık ekleyin.",
+   "Küçük resmi, YouTube'un 2 MB sınırı gibi bir boyut sınırının altında tutularak indirin."
+  ],
+  "faq": [
+   {
+    "q": "YouTube küçük resmi hangi boyutta olmalı?",
+    "a": "1280x720 piksel (16:9) ve dosya 2 MB'ın altında olmalı. İkisi de burada sizin için ayarlanır."
+   },
+   {
+    "q": "Videomdan bir kare alabilir miyim?",
+    "a": "Evet. Videoyu ekleyin ve küçük resim olarak istediğiniz anı seçin."
+   },
+   {
+    "q": "Videom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; videonuz cihazınızdan hiç çıkmaz."
+   }
+  ]
+ },
+ "exif-remover": {
+  "name": "EXIF Temizleyici",
+  "desc": "Paylaşmadan önce fotoğraflardaki GPS konumunu, kamera ve tarih bilgilerini silin.",
+  "about": "Fotoğraflar çoğu zaman GPS konumu, kamera modeli ve çekildikleri zaman gibi gizli ayrıntılar taşır. Bu araç bu meta verileri kaldırır. JPEG dosyaları yeniden kodlanmadan temizlenir, bu nedenle görüntü kalitesi etkilenmez ve her dosyada nelerin bulunduğunu görürsünüz.",
+  "title": "Fotoğraflardan EXIF Verisini ve GPS Konumunu Silin, Ücretsiz | Toolz Baba",
+  "metaDesc": "Paylaşmadan önce fotoğraflardaki GPS konumunu, kamera modelini ve tarihi silin. JPEG'ler tam kalitesini korur. Gizli bilgileri görün. Ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "Fotoğraflarınızı ekleyin.",
+   "Her birinde bulunan gizli ayrıntıları görün; örneğin GPS konumu ve kamera.",
+   "Meta verileri kaldırın ve temiz kopyaları indirin."
+  ],
+  "faq": [
+   {
+    "q": "EXIF verisi nedir?",
+    "a": "Bir fotoğrafta saklanan gizli ayrıntılar: çoğu zaman tam GPS konumu, kamera veya telefon modeli ile çekildiği tarih ve saat."
+   },
+   {
+    "q": "EXIF'i kaldırmak fotoğraf kalitesini düşürür mü?",
+    "a": "Hayır. JPEG dosyaları yeniden kodlanmadan temizlenir, bu yüzden görüntünün kendisine dokunulmaz."
+   },
+   {
+    "q": "Fotoğraflarım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "add-watermark-to-image": {
+  "name": "Filigran Ekleme",
+  "desc": "Metin veya logo filigranı ekleyin. Konumlandırın, döşeyin, opaklığı ayarlayın. Toplu işlem desteklenir.",
+  "about": "Görsellerinize metin veya logo filigranı ekleyin. Konumu seçin veya resmin üzerine döşeyin; opaklığı, boyutu ve dönüşü ayarlayın ve birçok görseli aynı anda işleyin. Her şey tarayıcınızda çalışır.",
+  "title": "Fotoğrafa Filigran Ekleme Online Ücretsiz: Metin veya Logo | Toolz Baba",
+  "metaDesc": "Birçok fotoğrafa aynı anda metin veya logo filigranı ekleyin. Konumu, boyutu, opaklığı ve açıyı ayarlayın ya da döşeyin. Ücretsiz, üyeliksiz, tarayıcınızda çalışır.",
+  "tabAll": "Görsel",
+  "steps": [
+   "Bir veya birçok görsel ekleyin.",
+   "Metninizi yazın veya logonuzu ekleyin, ardından konumu ya da döşemeyi, opaklığı, boyutu ve dönüşü ayarlayın.",
+   "Filigranlı görselleri indirin."
+  ],
+  "faq": [
+   {
+    "q": "Logomu filigran olarak ekleyebilir miyim?",
+    "a": "Evet. Metin yerine bir logo resmi kullanın (şeffaf arka planlı bir PNG en iyi görünür)."
+   },
+   {
+    "q": "Birçok fotoğrafa aynı anda filigran ekleyebilir miyim?",
+    "a": "Evet. Hepsini ekleyin; aynı filigran her birine uygulanır."
+   },
+   {
+    "q": "Fotoğraflarım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "pixelate-image": {
+  "name": "Görsel Pikselleştirme",
+  "desc": "Tüm resmi veya yalnızca seçtiğiniz alanı pikselleştirin (plaka, yazı, yüz gizleme).",
+  "about": "Bir görselin tamamını ya da yalnızca seçtiğiniz alanı pikselleştirin veya bir alan dışındaki her şeyi pikselleştirin. Plakaları, yazıları, belgeleri veya yüzleri gizlemek için kullanın. Tarayıcınızda çalışır.",
+  "title": "Görsel Pikselleştirme Online Ücretsiz: Yüz, Yazı, Plaka Gizle | Toolz Baba",
+  "metaDesc": "Fotoğrafın tamamını veya seçtiğiniz kısmı pikselleştirip yüzleri, plakaları, yazıları gizleyin. Ücretsiz ve özel, tarayıcınızda çalışır.",
+  "tabAll": "Görsel",
+  "steps": [
+   "Görselinizi ekleyin.",
+   "Resmin tamamını, yalnızca seçtiğiniz bir alanı veya bir alan dışındaki her şeyi pikselleştirin.",
+   "Sonucu indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir fotoğraftaki plakayı veya yazıyı nasıl gizlerim?",
+    "a": "O alanı seçin ve yalnızca onu pikselleştirin; fotoğrafın geri kalanı net kalır."
+   },
+   {
+    "q": "Pikselleştirme geri alınabilir mi?",
+    "a": "Hayır. Gizlenen ayrıntı kaydedilen dosyada değiştirilir; gerekebilecekse orijinalinizi saklayın."
+   },
+   {
+    "q": "Fotoğrafım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "meme-generator": {
+  "name": "Mem Oluşturucu",
+  "desc": "Klasik mem tarzında üst ve alt yazı veya bir başlık çubuğu.",
+  "about": "Herhangi bir resimden klasik üst ve alt yazılı bir mem yapın ya da görselin üstüne bir başlık çubuğu koyun. Boyutu ve renkleri ayarlayın ve JPG, PNG veya WebP olarak indirin. Tarayıcınızda çalışır.",
+  "title": "Mem Oluşturucu Online Ücretsiz: Üst ve Alt Yazı | Toolz Baba",
+  "metaDesc": "Herhangi bir resimden klasik üst ve alt yazılı veya başlık çubuklu mem yapın. Boyutu ve renkleri değiştirin, JPG, PNG veya WebP olarak indirin. Ücretsiz.",
+  "steps": [
+   "Bir resim ekleyin.",
+   "Üst ve alt yazıyı yazın veya resmin üstünde bir başlık çubuğu kullanın.",
+   "Boyutu ve renkleri ayarlayın ve JPG, PNG veya WebP olarak indirin."
+  ],
+  "faq": [
+   {
+    "q": "Üst ve alt yazılı mem nasıl yapılır?",
+    "a": "Resmi ekleyin, satırlarınızı üst ve alt yazı kutularına yazın ve indirin."
+   },
+   {
+    "q": "Filigran var mı?",
+    "a": "Hayır. Memeniz hiçbir filigran olmadan indirilir."
+   }
+  ]
+ },
+ "photo-collage-maker": {
+  "name": "Kolaj Oluşturucu",
+  "desc": "2–9 fotoğrafı ızgara veya öne çıkan düzende birleştirin.",
+  "about": "İki ila dokuz fotoğrafı ızgara, satır, sütun veya öne çıkan düzenlerle bir kolajda birleştirin. Tuval boyutunu, aralığı, kenarlığı, yuvarlak köşeleri ve arka plan rengini ayarlayın, ardından indirin. Her şey tarayıcınızda çalışır.",
+  "title": "Fotoğraf Kolajı Oluşturucu Online Ücretsiz: 2 ila 9 Fotoğraf | Toolz Baba",
+  "metaDesc": "2 ila 9 fotoğrafı ızgara, satır, sütun veya öne çıkan kolajda birleştirin. Aralık, kenarlık, yuvarlak köşe ve arka planı ayarlayın. Ücretsiz, filigransız.",
+  "tabAll": "Fotoğraf kolajı",
+  "steps": [
+   "2 ila 9 fotoğraf ekleyin.",
+   "Izgara, satır, sütun veya öne çıkan düzeni seçin.",
+   "Aralığı, kenarlığı, köşeleri ve arka planı ayarlayın, ardından indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir kolajda kaç fotoğraf olabilir?",
+    "a": "İkiden dokuza kadar."
+   },
+   {
+    "q": "Kolajın boyutunu değiştirebilir miyim?",
+    "a": "Evet. Tuval boyutunu, aralığı, kenarlığı, yuvarlak köşeleri ve arka plan rengini ayarlayın."
+   },
+   {
+    "q": "Fotoğraflarım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "screenshot-beautifier": {
+  "name": "Ekran Görüntüsü Güzelleştirici",
+  "desc": "Ekran görüntüsünü gradyan üzerine pencere çerçevesi, gölge ve yuvarlak köşelerle yerleştirin.",
+  "about": "Sade bir ekran görüntüsünü şık hale getirin. macOS veya tarayıcı pencere çerçevesi, yuvarlak köşeler, gölge ve dolgu ile gradyan veya düz bir arka plana yerleştirin; 16:9 veya kare gibi şekillerde. Tarayıcınızda çalışır.",
+  "title": "Ekran Görüntüsü Güzelleştirici: Gradyan Arka Plan ve Çerçeve | Toolz Baba",
+  "metaDesc": "Ekran görüntüsünü macOS veya tarayıcı çerçevesi, yuvarlak köşeler ve gölgeyle gradyan ya da düz arka plana koyun; 16:9 veya kare. Ücretsiz.",
+  "steps": [
+   "Bir ekran görüntüsü ekleyin.",
+   "Arka planı, pencere çerçevesini, köşeleri, gölgeyi ve 16:9 gibi şekli seçin.",
+   "Şık görseli indirin."
+  ],
+  "faq": [
+   {
+    "q": "Ekran görüntüsü güzelleştirici ne yapar?",
+    "a": "Ekran görüntünüzü macOS veya tarayıcı pencere çerçevesi, yuvarlak köşeler, gölge ve dolgu ile gradyan ya da düz bir arka plana yerleştirir."
+   },
+   {
+    "q": "Ekran görüntüm yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "favicon-generator": {
+  "name": "Favicon Oluşturucu",
+  "desc": "Tek bir görselden favicon.ico, Apple touch ikonu, Android ikonları ve manifest oluşturun.",
+  "about": "Tek bir görselden eksiksiz bir favicon paketi oluşturun: favicon.ico, 16x16 ve 32x32 PNG'ler, bir Apple touch ikonu, Android ikonları, bir web manifestosu ve sitenize yapıştıracağınız HTML kodu. Tarayıcınızda çalışır.",
+  "title": "Favicon Oluşturucu: ICO, Apple Touch ve Android İkonları | Toolz Baba",
+  "metaDesc": "Tek bir görselden favicon.ico, 16 ve 32 px PNG'ler, Apple touch ikonu, Android ikonları, web manifestosu ve HTML kodu oluşturun. Ücretsiz.",
+  "steps": [
+   "Logonuz gibi tek bir kare görsel ekleyin.",
+   "Favicon paketini oluşturun.",
+   "İndirin ve HTML kodunu sitenizin head bölümüne yapıştırın."
+  ],
+  "faq": [
+   {
+    "q": "Hangi dosyaları oluşturur?",
+    "a": "favicon.ico, 16x16 ve 32x32 PNG'ler, bir Apple touch ikonu, Android ikonları ve bir web manifestosu; ayrıca bunları sitenize eklemek için HTML kodu."
+   },
+   {
+    "q": "Hangi görsel en iyi sonucu verir?",
+    "a": "Basit, kare bir logo veya simge. İnce ayrıntılar 16x16 pikselde kaybolur."
+   }
+  ]
+ },
+ "image-to-svg": {
+  "name": "Görselden SVG'ye",
+  "desc": "Logoları, ikonları ve çizimleri ölçeklenebilir vektör SVG'ye dönüştürün.",
+  "about": "Logoları, ikonları ve basit çizimleri ölçeklenebilir SVG vektör grafiklerine dönüştürün. Logolar, fotoğraflar veya siyah beyaz çizgi sanatı için bir hazır ayar seçin. Vektör dosyaları her boyutta net kalır.",
+  "title": "Görselden SVG'ye Dönüştürücü Online Ücretsiz: Logo Vektörleştirme | Toolz Baba",
+  "metaDesc": "PNG ve JPG logoları, ikonları ve çizgi çizimlerini her boyutta net kalan ölçeklenebilir SVG vektörlere dönüştürün. Logo, fotoğraf ve çizgi sanatı hazır ayarları.",
+  "steps": [
+   "Bir logo, ikon veya çizim ekleyin.",
+   "Hazır ayarı seçin: logo, fotoğraf veya siyah beyaz çizgi sanatı.",
+   "Dönüştürün ve SVG'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "Logo neden SVG'ye dönüştürülür?",
+    "a": "SVG bir vektör biçimidir: web sitesi ikonundan büyük bir baskıya kadar her boyutta net kalır."
+   },
+   {
+    "q": "Fotoğraflarda çalışır mı?",
+    "a": "Fotoğraf hazır ayarıyla çalışabilir, ancak SVG büyük olur. En iyi sonucu logolar, ikonlar ve düz çizimler verir."
+   }
+  ]
+ },
+ "resize-image-to-kb": {
+  "name": "Fotoğraf ve İmzayı KB Olarak Boyutlandır",
+  "desc": "Fotoğrafı veya imzayı piksel/cm olarak tam boyuta ve 20, 50 veya 100 KB altına getirin. Sınav ve iş başvuru formları için.",
+  "about": "Devlet ve sınav formları çoğu zaman tam bir boyutta ve 20-50 KB gibi bir dosya boyutunda fotoğraf veya imza ister. Boyutu piksel, santimetre, milimetre veya inç olarak girin, en az ve en fazla KB değerini ayarlayın; araç sığan en iyi JPG kalitesini bulur. 200 veya 300 DPI da ayarlayabilir. Her şey tarayıcınızda çalışır, bu yüzden fotoğrafınız hiçbir zaman yüklenmez.",
+  "title": "Fotoğraf ve İmzayı 20 KB, 50 KB, 100 KB Olarak Boyutlandır | Toolz Baba",
+  "metaDesc": "Fotoğrafı veya imzayı sınav ya da iş formunun istediği tam boyuta, piksel veya cm olarak ve 20, 50 ya da 100 KB altına getirin. 200 veya 300 DPI ayarlar. Ücretsiz.",
+  "steps": [
+   "Fotoğrafınızı veya imzanızı ekleyin.",
+   "Formun istediği boyutu (piksel, cm, mm veya inç) ve en az ile en fazla KB değerini girin.",
+   "JPG'yi indirin: araç sınıra sığan en iyi kaliteyi seçer."
+  ],
+  "faq": [
+   {
+    "q": "Bir fotoğrafı form için 20 KB veya 50 KB olarak nasıl boyutlandırırım?",
+    "a": "Fotoğrafı ekleyin, formun izin verdiği en fazla (gerekirse en az) KB değerini ayarlayın, istenen boyutu girin ve indirin. Araç sığan en iyi JPG kalitesini bulur."
+   },
+   {
+    "q": "İmzayı da boyutlandırabilir miyim?",
+    "a": "Evet. İmzanızın bir fotoğrafını veya taramasını ekleyin ve formdaki imza boyutunu ile KB sınırını girin."
+   },
+   {
+    "q": "200 veya 300 DPI ayarlayabilir miyim?",
+    "a": "Evet, araç bunu isteyen formlar için dosyaya 200 veya 300 DPI yazabilir."
+   },
+   {
+    "q": "Fotoğrafım yükleniyor mu?",
+    "a": "Hayır. Her şey tarayıcınızda çalışır, bu yüzden fotoğrafınız hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "passport-size-photo-maker": {
+  "name": "Vesikalık Fotoğraf Oluşturucu",
+  "desc": "Selfie'yi pasaport veya kimlik fotoğrafına çevirin: düz arka plan, doğru boyut ve çok kopyalı bir baskı sayfası.",
+  "about": "Önden çekilmiş bir fotoğraf yükleyin. Araç arka planı yapay zekayla kaldırır, kişiyi düz beyaz, mavi, gri veya kırmızı bir arka plana yerleştirir, başı 35x45 mm ve 51x51 mm (2x2 inç) gibi yaygın boyutlar için doğru ölçü ve konuma kırpar ve aynı anda birkaç kopya basabilmeniz için kesim kılavuzlu 4x6 inç, 5x7 inç veya A4 sayfa düzeni oluşturabilir. Boyut, ifade ve arka plan için ülkenizin kesin kurallarını her zaman kontrol edin.",
+  "title": "Vesikalık Fotoğraf Oluşturucu Online Ücretsiz: 35x45 mm | Toolz Baba",
+  "metaDesc": "Selfie'yi pasaport veya vize fotoğrafına çevirin: yapay zeka arka planı kaldırır, 35x45 mm veya 2x2 inç boyutuna kırpar ve baskı sayfası hazırlar. Ücretsiz.",
+  "tabAll": "Vesikalık fotoğraf",
+  "steps": [
+   "Önden çekilmiş bir fotoğraf veya selfie ekleyin.",
+   "Boyutu (örneğin 35x45 mm veya 2x2 inç) ve arka plan rengini seçin.",
+   "Fotoğrafı veya çok kopyalı 4x6 inç, 5x7 inç ya da A4 baskı sayfasını indirin."
+  ],
+  "faq": [
+   {
+    "q": "Evde vesikalık fotoğraf nasıl yapılır?",
+    "a": "Herhangi bir duvarın önünde önden bir fotoğraf çekin, buraya ekleyin, boyutu ve beyaz arka planı seçin ve indirin. Yapay zeka arka planı kaldırır ve başı doğru boyuta kırpar."
+   },
+   {
+    "q": "Hindistan pasaport fotoğrafının boyutu nedir?",
+    "a": "Hindistan pasaportları 35x45 mm kullanır (Hindistan vizeleri 51x51 mm, yani 2x2 inç kullanır). İki boyut da mevcuttur, ancak başvurunuz için güncel kuralları her zaman kontrol edin."
+   },
+   {
+    "q": "Tek sayfaya birkaç kopya basabilir miyim?",
+    "a": "Evet. Kesim kılavuzlarıyla 4x6 inç, 5x7 inç veya A4 sayfaya yerleştirin."
+   }
+  ]
+ },
+ "image-to-text": {
+  "name": "Görselden Metne (OCR)",
+  "desc": "Fotoğraftan, ekran görüntüsünden veya taranmış PDF'den metin çıkarın. İngilizce ve Hintçe ile çalışır. Tarayıcınızda çalışır.",
+  "about": "Bir fotoğraftaki, ekran görüntüsündeki veya taranmış PDF'deki metni okuyun ve kopyalayın ya da .txt dosyası olarak kaydedin. İngilizce ve Hintçeyi (veya ikisini birden) destekler. OCR motoru tamamen tarayıcınızın içinde çalışır, bu yüzden belgeleriniz cihazınızda kalır. En iyi sonuç için net, düz ve iyi aydınlatılmış bir görsel kullanın.",
+  "title": "Görselden Metne Dönüştürücü (OCR) Ücretsiz: İngilizce ve Hintçe | Toolz Baba",
+  "metaDesc": "Fotoğraf, ekran görüntüsü veya taranmış PDF'deki metni İngilizce ya da Hintçe kopyalayın. .txt olarak kaydedin. Ücretsiz; görselleriniz çıkmaz.",
+  "tabAll": "Görselden metne",
+  "steps": [
+   "Bir fotoğraf, ekran görüntüsü veya taranmış PDF ekleyin.",
+   "İngilizce, Hintçe veya ikisini birden seçin.",
+   "Metni kopyalayın veya .txt dosyası olarak kaydedin."
+  ],
+  "faq": [
+   {
+    "q": "Bir görselden metin nasıl kopyalanır?",
+    "a": "Görseli ekleyin, dili seçin ve başlatın. Metin göründüğünde kopyalayın veya .txt dosyası olarak kaydedin."
+   },
+   {
+    "q": "Hintçeyi okur mu?",
+    "a": "Evet. Hintçeyi veya İngilizce ile Hintçeyi birlikte seçin."
+   },
+   {
+    "q": "En iyi sonucu nasıl alırım?",
+    "a": "Net, düz ve iyi aydınlatılmış bir görsel kullanın. Bulanık veya eğik fotoğraflar ve el yazısı daha çok hataya yol açar."
+   },
+   {
+    "q": "Görsellerim yükleniyor mu?",
+    "a": "Hayır. OCR tamamen tarayıcınızda çalışır, bu yüzden belgeleriniz cihazınızda kalır."
+   }
+  ]
+ },
+ "remove-background": {
+  "name": "Arka Plan Silici",
+  "desc": "Konuyu kesip çıkarın ve şeffaf bir PNG alın.",
+  "about": "Yapay zeka ile bir fotoğrafın arka planını kaldırın ve şeffaf bir PNG veya WebP alın. Genel fotoğraflar, insanlar veya anime ve çizimler için bir model seçin. Ürünlerde, portrelerde, evcil hayvanlarda ve nesnelerde çalışır.",
+  "title": "Görselden Arka Planı Kaldır Ücretsiz: Şeffaf PNG | Toolz Baba",
+  "metaDesc": "Yapay zeka ile fotoğrafların arka planını kaldırın ve şeffaf PNG veya WebP indirin. İnsanlarda, ürünlerde, evcil hayvanlarda ve çizimlerde çalışır. Filigran yok.",
+  "steps": [
+   "Bir insan, ürün, evcil hayvan veya nesne fotoğrafı ekleyin.",
+   "Modeli seçin: genel fotoğraflar, insanlar veya anime ve çizimler.",
+   "Kesilen görseli şeffaf PNG veya WebP olarak indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir fotoğrafın arka planı ücretsiz nasıl kaldırılır?",
+    "a": "Fotoğrafı buraya ekleyin; yapay zeka konuyu keser. Şeffaf PNG veya WebP olarak indirin. Üyelik yok, filigran yok."
+   },
+   {
+    "q": "Hangi modeli seçmeliyim?",
+    "a": "Portreler için insan modelini, çizimler için anime modelini, ürünler, evcil hayvanlar ve diğer her şey için genel modeli kullanın."
+   },
+   {
+    "q": "Konunun arkasına yeni bir arka plan koyabilir miyim?",
+    "a": "Evet, kesilen görselin arkasına bir renk veya başka bir resim koymak için Arka Plan Değiştirme aracını kullanın."
+   }
+  ]
+ },
+ "replace-background": {
+  "name": "Arka Plan Değiştirme",
+  "desc": "Arka planı bir renk, gradyan, bulanıklık veya başka bir fotoğrafla değiştirin.",
+  "about": "Bir fotoğrafın arka planını düz bir renk, gradyan, orijinalin bulanık bir kopyası, başka bir fotoğraf veya hiçbir şeyle değiştirin. Konu yapay zekayla otomatik olarak kesilir.",
+  "title": "Fotoğraf Arka Planını Değiştir Online Ücretsiz: Renk veya Fotoğraf | Toolz Baba",
+  "metaDesc": "Bir fotoğrafın arka planını renk, gradyan, bulanıklık veya başka bir resimle değiştirin. Yapay zeka konuyu sizin için keser. Ücretsiz, filigran yok.",
+  "steps": [
+   "Bir fotoğraf ekleyin.",
+   "Yeni arka planı seçin: renk, gradyan, bulanık kopya, başka bir fotoğraf veya hiçbiri.",
+   "Sonucu indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir fotoğrafın arka planını nasıl değiştiririm?",
+    "a": "Fotoğrafı ekleyin; yapay zeka konuyu keser. Ardından yeni arka plan olarak bir renk, gradyan, bulanıklık veya başka bir resim seçin."
+   },
+   {
+    "q": "Ürün fotoğrafı için beyaz arka plan alabilir miyim?",
+    "a": "Evet. Düz bir renk seçin ve beyaza ayarlayın."
+   },
+   {
+    "q": "Fotoğrafım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "upscale-image": {
+  "name": "Görsel Büyütme",
+  "desc": "Yapay zekayla 2×–4× büyütün ve ayrıntıları net tutun.",
+  "about": "Küçük veya bulanık resimleri, ayrıntıları net tutan bir yapay zeka büyütücüyle 2, 3 veya 4 kat büyütün ya da çok büyük görseller için hızlı modu kullanın. Yaklaşık 2,5 megapiksele kadar olan resimler için en iyisidir.",
+  "title": "Yapay Zeka Görsel Büyütme Ücretsiz: 2x, 3x, 4x HD Büyüt | Toolz Baba",
+  "metaDesc": "Küçük veya bulanık resimleri ayrıntıları net tutan bir yapay zeka büyütücüyle 2, 3 veya 4 kat büyütün. Ücretsiz, üyelik yok, tarayıcınızda çalışır.",
+  "steps": [
+   "Küçük veya bulanık bir resim ekleyin.",
+   "2x, 3x veya 4x ile yapay zeka veya hızlı modu seçin.",
+   "Daha büyük ve daha net görseli indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir görselin çözünürlüğünü nasıl artırırım?",
+    "a": "Resmi ekleyin ve 2x, 3x veya 4x seçin. Yapay zeka büyütücü ayrıntı ekler, böylece sonuç bulanık değil net kalır."
+   },
+   {
+    "q": "Hangi görseller en iyi sonucu verir?",
+    "a": "Yaklaşık 2,5 megapiksele kadar olan resimler. Çok büyük görseller için hızlı modu kullanın."
+   }
+  ]
+ },
+ "face-blur": {
+  "name": "Yüz Bulanıklaştırma",
+  "desc": "Yüzleri otomatik algılayın; bulanıklaştırın, pikselleştirin veya kapatın.",
+  "about": "Yüzleri otomatik algılayın ve bulanıklaştırın, pikselleştirin veya siyah bir şekille kapatın. Gücü, her yüzün çevresindeki alanı ve algılama hassasiyetini ayarlayın. Başkalarının fotoğraflarını paylaşmadan önce işe yarar.",
+  "title": "Fotoğraflarda Yüz Bulanıklaştırma Online Ücretsiz: Otomatik | Toolz Baba",
+  "metaDesc": "Bir fotoğraftaki tüm yüzleri otomatik bulun ve paylaşmadan önce bulanıklaştırın, pikselleştirin veya kapatın. Güç ve alanı ayarlayın. Ücretsiz ve özel.",
+  "steps": [
+   "Bir fotoğraf ekleyin.",
+   "Bulanıklaştırma, pikselleştirme veya siyah kapatmayı seçin ve gücü ile alanı ayarlayın.",
+   "Yüzleri gizlenmiş fotoğrafı indirin."
+  ],
+  "faq": [
+   {
+    "q": "Yüzleri otomatik buluyor mu?",
+    "a": "Evet. Yüzler sizin için algılanır; biri kaçarsa algılama hassasiyetini ayarlayın."
+   },
+   {
+    "q": "Bulanıklaştırma mı pikselleştirme mi: hangisi daha güvenli?",
+    "a": "Yüksek güçte ikisi de yüzleri iyi gizler. Siyah kapatma yüzleri tamamen gizler."
+   },
+   {
+    "q": "Fotoğrafım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "anime-style": {
+  "name": "Anime Stili Dönüştürme",
+  "desc": "Fotoğrafı anime tarzı bir esere çevirin (Hayao veya Shinkai görünümü).",
+  "about": "Bir yapay zeka stil aktarımı modeliyle fotoğrafı anime tarzı bir esere çevirin. Yumuşak ve resim gibi Hayao görünümünü veya canlı ve sinematik Shinkai görünümünü seçin.",
+  "title": "Fotoğrafı Anime'ye Çevirme Ücretsiz: Yapay Zeka Anime Filtresi | Toolz Baba",
+  "metaDesc": "Yapay zeka ile fotoğrafı anime tarzı bir esere çevirin: yumuşak Hayao veya canlı Shinkai görünümü. Ücretsiz, üyelik yok; fotoğrafınız cihazınızda kalır.",
+  "steps": [
+   "Bir fotoğraf ekleyin.",
+   "Hayao (yumuşak, resim gibi) veya Shinkai (canlı, sinematik) görünümünü seçin.",
+   "Anime tarzı resminizi indirin."
+  ],
+  "faq": [
+   {
+    "q": "Fotoğrafı anime'ye nasıl çeviririm?",
+    "a": "Fotoğrafı ekleyin, bir stil seçin ve yapay zekanın onu o anime görünümüyle yeniden boyamasına izin verin."
+   },
+   {
+    "q": "İki stil arasındaki fark nedir?",
+    "a": "Hayao yumuşak ve resim gibidir; Shinkai ise parlak gökyüzü ve güçlü ışıkla canlı ve sinematiktir."
+   },
+   {
+    "q": "Fotoğrafım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "image-to-pdf": {
+  "name": "Görselden PDF'ye",
+  "desc": "Görselleri tek bir PDF'de birleştirin. Sayfa boyutunu ve sırasını seçin.",
+  "about": "Görselleri tek bir PDF'de birleştirin. A4, US Letter, A5 veya görselin kendi boyutunu seçin, yönü ve kenar boşluklarını ayarlayın ve sayfaların sırasını değiştirin. HEIC, PNG, JPG, WebP ve daha fazlası desteklenir.",
+  "title": "Görselden PDF'ye Dönüştürücü Ücretsiz: JPG, PNG, HEIC'ten PDF'ye | Toolz Baba",
+  "metaDesc": "JPG, PNG, HEIC ve WebP resimleri tek PDF'de birleştirin. A4 veya Letter, yön ve kenar boşluklarını seçin, sırayı belirleyin. Ücretsiz, hiçbir şey yüklenmez.",
+  "tabAll": "Tüm görseller",
+  "steps": [
+   "Görsellerinizi ekleyin: JPG, PNG, HEIC, WebP ve daha fazlası.",
+   "Sıraya koyun ve sayfa boyutunu, yönü ve kenar boşluğunu seçin.",
+   "PDF Oluştur'a tıklayın ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "Fotoğrafları tek bir PDF'ye nasıl dönüştürürüm?",
+    "a": "Tüm fotoğrafları ekleyin, oklarla sıraya koyun, A4 veya başka bir sayfa boyutu seçin ve PDF Oluştur'a tıklayın."
+   },
+   {
+    "q": "iPhone HEIC fotoğraflarını kullanabilir miyim?",
+    "a": "Evet, HEIC de JPG, PNG ve WebP gibi çalışır."
+   },
+   {
+    "q": "Görsellerim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "pdf-to-image": {
+  "name": "PDF'den Görsele",
+  "desc": "PDF sayfalarını PNG, JPG veya WebP görsellere çevirin.",
+  "about": "PDF sayfalarını PNG, JPG veya WebP görsellere dönüştürün. Çözünürlüğü 72 ile 300 DPI arasında seçin ve tüm sayfaları ya da 1-3,5 gibi bir aralığı belirleyin. Birden çok sayfa ZIP olarak teslim edilir.",
+  "title": "PDF'den Görsele Dönüştürücü Ücretsiz: PDF'den JPG, PNG, WebP'ye | Toolz Baba",
+  "metaDesc": "PDF sayfalarını 72 ile 300 DPI arasında JPG, PNG veya WebP görsellere çevirin. Tüm sayfalar ya da birkaçı; çoklu sayfa tek ZIP'te. Ücretsiz.",
+  "tabAll": "Tüm biçimler",
+  "steps": [
+   "Bir PDF ekleyin.",
+   "PNG, JPG veya WebP'yi, kaliteyi (DPI) ve sayfaları seçin.",
+   "Görsellere Dönüştür'e tıklayın ve indirin (birden çok sayfa tek ZIP'te gelir)."
+  ],
+  "faq": [
+   {
+    "q": "Hangi DPI'yı kullanmalıyım?",
+    "a": "150 DPI ekranlarda nettir, 300 DPI baskı içindir, 72 DPI en küçük dosyaları verir."
+   },
+   {
+    "q": "Yalnızca bazı sayfaları dönüştürebilir miyim?",
+    "a": "Evet. Sayfaları ve 1-3,5 gibi aralıkları yazın."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "merge-pdf": {
+  "name": "PDF Birleştirme",
+  "desc": "Birkaç PDF'yi seçtiğiniz sırayla tek PDF'de birleştirin.",
+  "about": "Birkaç PDF dosyasını seçtiğiniz sırayla tek bir belgede birleştirin. Birleştirmeden önce dosyaların sırasını değiştirin. Parola korumalı PDF'lerin önce parolasının kaldırılması gerekir.",
+  "title": "PDF Birleştirme Online Ücretsiz: PDF Dosyalarını Tek Dosyada Birleştir | Toolz Baba",
+  "metaDesc": "50 PDF dosyasına kadar seçtiğiniz sırayla tek belgede birleştirin. Ücretsiz, üyelik ve filigran yok. PDF'leriniz cihazınızdan çıkmaz.",
+  "steps": [
+   "İki veya daha fazla PDF dosyası ekleyin.",
+   "Oklarla doğru sıraya koyun.",
+   "Birleştir'e tıklayın ve tek bir birleşik PDF indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF dosyalarını tek dosyada nasıl birleştiririm?",
+    "a": "PDF'leri ekleyin, oklarla sırayı ayarlayın ve Birleştir'e tıklayın. Tüm sayfaları içeren tek bir PDF alırsınız."
+   },
+   {
+    "q": "Parola korumalı PDF'leri birleştirebilir miyim?",
+    "a": "Önce PDF Kilidi Açma ile parolayı kaldırın (parolayı bilmeniz gerekir), sonra birleştirin."
+   },
+   {
+    "q": "Kaç PDF birleştirebilirim?",
+    "a": "Tek seferde 50 dosyaya kadar."
+   },
+   {
+    "q": "PDF'lerim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "split-pdf": {
+  "name": "PDF Bölme",
+  "desc": "Sayfa aralıklarına, her N sayfada bir bölün veya seçili sayfaları ayıklayın.",
+  "about": "Bir PDF'yi tek sayfalara, N sayfalık gruplara, özel sayfa aralıklarına bölün veya seçili sayfaları yeni bir PDF'de ayıklayın. Birden çok dosya olduğunda sonuçlar ZIP olarak teslim edilir.",
+  "title": "PDF Bölme Online Ücretsiz: Sayfaları Ayır veya Çıkar | Toolz Baba",
+  "metaDesc": "PDF'yi tek sayfalara, her N sayfaya veya özel aralıklara bölün ya da seçili sayfaları yeni bir PDF'ye çıkarın. Ücretsiz, üyeliksiz, tarayıcınızda çalışır.",
+  "tabAll": "Böl",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Nasıl böleceğinizi seçin: her sayfa, her N sayfa, özel aralıklar veya seçili sayfaları ayıklama.",
+   "PDF'yi Böl'e tıklayın ve dosyaları indirin (birden çok dosya ZIP olarak gelir)."
+  ],
+  "faq": [
+   {
+    "q": "PDF'yi ayrı sayfalara nasıl bölerim?",
+    "a": "PDF'yi ekleyin, Her sayfa ayrı PDF seçeneğini seçin ve PDF'yi Böl'e tıklayın. Sayfa başına bir PDF içeren bir ZIP alırsınız."
+   },
+   {
+    "q": "Yalnızca bazı sayfaları nasıl çıkarırım?",
+    "a": "Seçili sayfaları ayıkla seçeneğini seçin ve sayfaları yazın; örneğin 1-3,5. Bunlar tek yeni bir PDF olarak kaydedilir."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "compress-pdf": {
+  "name": "PDF Sıkıştırma",
+  "desc": "Görselleri yeniden sıkıştırarak PDF dosya boyutunu küçültün.",
+  "about": "Görsellerini yeniden sıkıştırarak ve yapısını temizleyerek bir PDF'nin boyutunu küçültün. Hafif, dengeli veya güçlü sıkıştırmayı seçin. Fotoğraflı veya taranmış sayfalı PDF'lerde en iyi sonucu verir.",
+  "title": "PDF Sıkıştırma Online Ücretsiz: PDF Boyutunu KB Olarak Küçült | Toolz Baba",
+  "metaDesc": "E-posta ve yükleme formları için PDF dosya boyutunu küçültün veya 100, 200 ya da 500 KB altına getirin. Hafif, dengeli veya güçlü sıkıştırma. Ücretsiz ve özel.",
+  "steps": [
+   "PDF'inizi ekleyin veya 100 KB ya da 500 KB altı gibi bir boyut seçin.",
+   "Hafif, dengeli veya güçlü sıkıştırmayı seçin.",
+   "PDF'yi Sıkıştır'a tıklayın ve küçülen dosyayı indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'nin boyutunu nasıl küçültürüm?",
+    "a": "PDF'yi ekleyin, dengeli sıkıştırmayı seçin ve PDF'yi Sıkıştır'a tıklayın. 200 KB gibi kesin bir sınır için yükleme kutusunun üstündeki boyut düğmelerini kullanın."
+   },
+   {
+    "q": "PDF'im neden neredeyse hiç küçülmedi?",
+    "a": "Sıkıştırma çoğunlukla PDF'in içindeki resimleri küçültür. Çoğunlukla metinden oluşan bir PDF zaten küçüktür ve fazla küçülemez."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "word-to-pdf": {
+  "name": "Word'den PDF'ye",
+  "desc": "Word (DOCX), Excel (XLSX, XLS, CSV, ODS) ve metin dosyalarını PDF'ye dönüştürün. Tarayıcınızda çalışır.",
+  "about": "Word belgelerini (DOCX), elektronik tabloları (XLSX, XLS, CSV, ODS) ve düz metin dosyalarını doğrudan tarayıcınızda PDF'ye dönüştürün; dosya yüklenmez. Başlıklar, paragraflar, listeler, tablolar ve resimler korunur; sütunlar ve metin kutuları gibi karmaşık düzenler Word'dekinden daha basit çıkar. Hintçe ve diğer Hint alfabeleri desteklenir. Eski .doc, RTF, ODT ve PowerPoint dosyaları tarayıcıda dönüştürülemez: önce bunları Word, Google Docs veya LibreOffice'te açıp DOCX olarak kaydedin (veya PDF olarak dışa aktarın).",
+  "title": "Word'den PDF'ye Dönüştürücü Online Ücretsiz: DOCX'ten PDF'ye | Toolz Baba",
+  "metaDesc": "Word (DOCX), Excel (XLSX, XLS, CSV) ve metin dosyalarını tarayıcınızda PDF'ye dönüştürün. Hintçe desteklenir. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tabAll": "Word ve Office",
+  "steps": [
+   "Bir Word (DOCX), Excel (XLSX, XLS, CSV, ODS) veya metin dosyası ekleyin.",
+   "PDF'ye Dönüştür'e tıklayın.",
+   "PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "Word'ü ücretsiz PDF'ye nasıl dönüştürürüm?",
+    "a": "DOCX dosyasını ekleyin, PDF'ye Dönüştür'e tıklayın ve indirin. Üyelik gerekmez."
+   },
+   {
+    "q": "Eski bir .doc veya PowerPoint dosyasını dönüştürebilir miyim?",
+    "a": "Burada hayır. Word, Google Docs veya LibreOffice'te açıp DOCX olarak kaydedin ya da orada PDF olarak dışa aktarın."
+   },
+   {
+    "q": "Hintçeyi destekliyor mu?",
+    "a": "Evet. Hintçe ve diğer Hint alfabeleri PDF'de doğru görüntülenir."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "pdf-to-word": {
+  "name": "PDF'den Word'e",
+  "desc": "PDF'yi düzenlenebilir bir Word belgesine dönüştürün.",
+  "about": "PDF'yi düzenlenebilir bir Word belgesine dönüştürün. Gerçek metin içeren PDF'lerde en iyi sonucu verir. Taranmış PDF'ler yalnızca sayfa resimleridir ve OCR olmadan düzenlenebilir metne dönüştürülemez.",
+  "title": "PDF'den Word'e Dönüştürücü Online Ücretsiz: Düzenlenebilir DOCX | Toolz Baba",
+  "metaDesc": "PDF'yi yazı tiplerini, boyutları, kalın yazıyı ve resimleri koruyan düzenlenebilir bir Word belgesine dönüştürün. Ücretsiz, üyeliksiz; PDF'iniz cihazınızda kalır.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Dönüştürün.",
+   "Düzenlenebilir Word (DOCX) dosyasını indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'yi düzenlenebilir Word dosyasına nasıl dönüştürürüm?",
+    "a": "PDF'yi buraya ekleyin ve Word belgesini indirin. Metin, yazı tipleri, boyutlar, kalın ve italik yazı ile resimler okuma sırasına göre korunur."
+   },
+   {
+    "q": "Taranmış bir PDF'deki metni neden düzenleyemiyorum?",
+    "a": "Taranmış PDF yalnızca sayfa resimlerinden oluşur. Önce metni okumak için Görselden Metne (OCR) aracını kullanın."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "pdf-to-excel": {
+  "name": "PDF'den Excel'e",
+  "desc": "PDF içindeki tabloları sıralayabileceğiniz, toplayabileceğiniz ve düzenleyebileceğiniz bir Excel tablosuna (XLSX) çevirin.",
+  "about": "Tabloları yeniden yazmadan PDF'den çıkarıp Excel'e alın. Her sayfa kendi sayfası olur (veya tüm sayfalar tek sayfaya konur), satırlar ve sütunlar metnin sayfadaki konumundan yeniden oluşturulur ve sayılar toplanabilen gerçek sayılara dönüşür. Banka ekstreleri, faturalar, fiyat listeleri ve raporlar gibi bilgisayarda hazırlanmış PDF'lerde en iyi sonucu verir. Taranmış sayfalar resimdir: önce onlara PDF OCR uygulayın.",
+  "title": "PDF'den Excel'e Dönüştürücü Online Ücretsiz: Tabloları XLSX'e Çevir | Toolz Baba",
+  "metaDesc": "PDF tablolarını tarayıcınızda Excel'e (XLSX) dönüştürün: satırlar, sütunlar ve gerçek sayılar korunur. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Sayfa başına bir sayfa veya tüm sayfalar tek sayfada seçeneğini belirleyin.",
+   "Excel (XLSX) dosyasını indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF tablosunu Excel'e nasıl dönüştürürüm?",
+    "a": "PDF'yi ekleyin, Excel'e Dönüştür'e tıklayın ve XLSX dosyasını Excel, Google E-Tablolar veya LibreOffice'te açın. Her sayfa, tablosu satır ve sütunlara yeniden oluşturulmuş bir sayfa olur."
+   },
+   {
+    "q": "Sayılar formüllerde çalışır mı?",
+    "a": "Evet. 1,234.50 veya (200) gibi sayılar gerçek sayı olarak saklanır, bu yüzden TOPLA ve diğer formüller çalışır. Her şeyi metin olarak tutmak için seçeneğin işaretini kaldırın."
+   },
+   {
+    "q": "Taranmış bir PDF'yi dönüştürebilir mi?",
+    "a": "Tarama yalnızca sayfanın bir resmidir. Önce PDF OCR ile metne çevirin, sonra burada dönüştürün."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "pdf-to-powerpoint": {
+  "name": "PDF'den PowerPoint'e",
+  "desc": "PDF'nin her sayfasını bir PowerPoint slaytına (PPTX) çevirin.",
+  "about": "PDF'yi PowerPoint, Google Slaytlar veya Keynote'ta sunun: her sayfa, aynı boyutta ve şekilde sayfanın tıpkısı olan bir slayt olur. Üzerine kendi başlıklarınızı, notlarınızı ve animasyonlarınızı ekleyin. Bir raporu, broşürü veya ders notunu toplantıda göstermek için kullanışlıdır. Her şey cihazınızda yapılır, bu yüzden hiçbir şey yüklenmez.",
+  "title": "PDF'den PowerPoint'e Dönüştürücü Online Ücretsiz: PDF'den PPTX'e | Toolz Baba",
+  "metaDesc": "PDF'yi PowerPoint'e (PPTX) dönüştürün: her sayfa PDF'in tıpkısı olan bir slayt olur. Ücretsiz, üyeliksiz; dosyanız cihazınızda kalır.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Resim kalitesini seçin.",
+   "PowerPoint (PPTX) dosyasını indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'yi PowerPoint'e nasıl çeviririm?",
+    "a": "PDF'yi buraya ekleyin ve PowerPoint'e Dönüştür'e tıklayın. Her sayfa, PowerPoint, Google Slaytlar ve Keynote'ta açılan bir PPTX dosyasında bir slayt olur."
+   },
+   {
+    "q": "Slayttaki metni düzenleyebilir miyim?",
+    "a": "Her slayt sayfayı bir resim olarak gösterir, bu yüzden PDF'in tıpkısı görünür. Üzerine yeni metin kutuları, notlar ve şekiller ekleyebilirsiniz. Asıl sözcükleri düzenlemek için PDF'den Word'e aracını kullanın."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "powerpoint-to-pdf": {
+  "name": "PowerPoint'ten PDF'ye",
+  "desc": "PowerPoint sunumlarını (PPTX) PDF'ye dönüştürün, sayfa başına bir slayt.",
+  "about": "Sunumu, PowerPoint olmadan her telefonda ve bilgisayarda aynı açılan bir PDF olarak gönderin. Resimler, şekiller, metin kutuları, tablolar ile temanızın renkleri ve yazı tipleri slayt boyutunda PDF sayfalarına çizilir. Grafikler, SmartArt, videolar ve animasyonlar dışarıda bırakılır; bunları kullanan slaytlar için sonucu kontrol edin. Birkaç sunum aynı anda, kendi cihazınızda dönüştürülebilir.",
+  "title": "PowerPoint'ten PDF'ye Dönüştürücü Online Ücretsiz: PPTX'ten PDF'ye | Toolz Baba",
+  "metaDesc": "PowerPoint (PPTX) sunumlarını tarayıcınızda PDF'ye dönüştürün: resimler, şekiller, metin ve tablolar korunur, sayfa başına bir slayt. Ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "PPTX dosyalarınızı ekleyin.",
+   "PDF'ye Dönüştür'e tıklayın.",
+   "PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "PowerPoint'i PDF'ye nasıl dönüştürürüm?",
+    "a": "PPTX dosyasını ekleyin ve PDF'ye Dönüştür'e tıklayın. Her slayt PDF'in bir sayfası olur."
+   },
+   {
+    "q": "Eski .ppt dosyalarıyla çalışır mı?",
+    "a": "Doğrudan değil. Önce .ppt dosyasını PowerPoint, Google Slaytlar veya LibreOffice'te açıp PPTX olarak kaydedin."
+   },
+   {
+    "q": "Grafikler ve animasyonlar korunur mu?",
+    "a": "Animasyonlar PDF'nin parçası olamaz. Grafikler ve SmartArt henüz çizilmiyor; resimler, şekiller, metin ve tablolar çiziliyor."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "markdown-converter": {
+  "name": "Markdown Dönüştürücü",
+  "desc": "Markdown'dan PDF, HTML veya Word'e; HTML, Word veya PDF'den Markdown'a.",
+  "about": "Her Markdown dönüşümü için tek yer: Markdown'ı PDF'ye, web sayfasına veya Word dosyasına çevirin ya da bir HTML sayfasını, Word belgesini veya PDF'yi temiz Markdown'a dönüştürün. Metninizi yazın veya yapıştırın ve önizlemeyi izleyin ya da bir dosya ekleyin. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "Markdown Dönüştürücü: MD'den PDF, Word, HTML'ye ve Geri | Toolz Baba",
+  "metaDesc": "Markdown'ı PDF, HTML veya Word'e; HTML, Word veya PDF'yi Markdown'a canlı önizlemeyle dönüştürün. Ücretsiz ve özel: tarayıcınızda çalışır.",
+  "tabAll": "Tüm dönüştürücüler",
+  "steps": [
+   "Metninizi yazın veya yapıştırın ya da bir dosya ekleyin.",
+   "Dönüşümü seçin; örneğin Markdown'dan PDF'ye veya Word'den Markdown'a.",
+   "Önizlemeyi kontrol edin ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "Hangi dönüşümler mevcut?",
+    "a": "Markdown'dan PDF, HTML veya Word'e ve HTML, Word veya PDF'den Markdown'a."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "organize-pdf": {
+  "name": "PDF Sayfalarını Düzenleme",
+  "desc": "PDF sayfalarını görsel olarak yeniden sıralayın, silin ve döndürün: küçük resimleri sürükleyin, sonra yeni bir PDF kaydedin.",
+  "about": "PDF'inizin her sayfasını küçük resim olarak görün. Sıralamak için sayfaları sürükleyin, döndürmek veya silmek için tıklayın, sonra yeni bir PDF kaydedin. Her şey tarayıcınızda gerçekleşir, bu yüzden PDF hiçbir zaman yüklenmez.",
+  "title": "PDF Sayfalarını Düzenleme Online Ücretsiz: Yeniden Sırala ve Döndür | Toolz Baba",
+  "metaDesc": "PDF sayfalarını küçük resimleri sürükleyerek yeniden sıralayın, döndürün ve silin, sonra yeni bir PDF kaydedin. Ücretsiz, üyeliksiz; PDF hiçbir zaman yüklenmez.",
+  "tabAll": "Düzenle",
+  "steps": [
+   "Her sayfayı küçük resim olarak görmek için bir PDF ekleyin.",
+   "Sayfaları sürükleyerek yeniden sıralayın; ihtiyacınız olanları döndürün veya silin.",
+   "Yeni PDF'yi kaydedin ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF sayfalarının sırasını nasıl değiştiririm?",
+    "a": "PDF'yi ekleyin ve sayfa küçük resimlerini istediğiniz sıraya sürükleyin, sonra kaydedin."
+   },
+   {
+    "q": "Sayfaları döndürebilir veya silebilir miyim?",
+    "a": "Evet, her sayfada döndürmek veya silmek için düğmeler var."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Her şey tarayıcınızda gerçekleşir, bu yüzden PDF hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "esign-pdf": {
+  "name": "PDF İmzalama",
+  "desc": "İmzanızı çizin, yazın veya yükleyin ve PDF'nin herhangi bir sayfasına yerleştirin.",
+  "about": "İmzanızı çizerek, adınızı el yazısı stilinde yazarak veya bir resim yükleyerek oluşturun, sonra herhangi bir sayfada doğru yere sürükleyin ve boyutlandırın. Birkaç sayfayı tek seferde imzalayabilirsiniz. Bu, görsel bir imza resmi ekler; sertifika tabanlı dijital imza değildir.",
+  "title": "PDF İmzalama Online Ücretsiz: PDF'ye İmza Ekle | Toolz Baba",
+  "metaDesc": "İmzanızı çizerek, yazarak veya yükleyerek PDF'yi imzalayın, sonra herhangi bir sayfaya yerleştirin. Birkaç sayfayı aynı anda imzalayın. Ücretsiz ve özel, üyelik yok.",
+  "steps": [
+   "İmzalamanız gereken PDF'yi ekleyin.",
+   "İmzanızı çizin, yazın veya yükleyin.",
+   "Herhangi bir sayfada doğru yere sürükleyin, boyutlandırın ve imzalı PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'yi online ücretsiz nasıl imzalarım?",
+    "a": "PDF'yi ekleyin, imzanızı çizerek, yazarak veya resim yükleyerek oluşturun, sayfaya yerleştirin ve indirin."
+   },
+   {
+    "q": "Bu yasal bir dijital imza mı?",
+    "a": "Kağıda imza atmak gibi, imzanızın bir resmini ekler. Bazı resmi ve hukuki belgelerin istediği sertifika tabanlı dijital imza değildir."
+   },
+   {
+    "q": "Birkaç sayfayı imzalayabilir miyim?",
+    "a": "Evet, imzanızı tek seferde birkaç sayfaya yerleştirebilirsiniz."
+   }
+  ]
+ },
+ "add-page-numbers-to-pdf": {
+  "name": "PDF'ye Sayfa Numarası Ekleme",
+  "desc": "PDF'ye sayfa numarası ekleyin: konumu, biçimi, başlangıç numarasını ve hangi sayfadan başlanacağını seçin.",
+  "about": "PDF'nin her sayfasına sayfa numarası ekleyin. Konumu (üst veya alt; sol, orta veya sağ), biçimi (1, Sayfa 1, Sayfa 1 / 10), ilk numarayı, boyutu ve rengi seçin; gerekirse kapak sayfasını atlayın. Döndürülmüş sayfalar doğru şekilde işlenir.",
+  "title": "PDF'ye Sayfa Numarası Ekleme Online Ücretsiz | Toolz Baba",
+  "metaDesc": "PDF sayfalarını üst veya alta 1, Sayfa 1 ya da Sayfa 1 / 10 biçiminde numaralandırın. Başlangıç numarasını seçin ve kapak sayfasını atlayın. Ücretsiz ve özel.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Konumu, biçimi (1, Sayfa 1 veya Sayfa 1 / 10), ilk numarayı, boyutu ve rengi seçin.",
+   "Numaraları ekleyin ve PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "Kapak sayfasını atlayabilir miyim?",
+    "a": "Evet. Numaralandırmaya başlanacak sayfayı seçin; böylece kapak sayfası numarasız kalır."
+   },
+   {
+    "q": "Numaralar hangi biçimlerde olabilir?",
+    "a": "1, Sayfa 1 veya Sayfa 1 / 10; üstte veya altta, solda, ortada veya sağda."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "protect-pdf": {
+  "name": "PDF'yi Parolayla Koruma",
+  "desc": "PDF'yi AES-256 şifrelemesiyle parolayla kilitleyin. İsteğe bağlı olarak yazdırmayı veya kopyalamayı engelleyin.",
+  "about": "PDF'inizi yalnızca parolayı bilenlerin açabilmesi için parola ekleyin. Dosya AES-256 ile şifrelenir. Ayrıca yazdırmaya, metin kopyalamaya ve düzenlemeye izin verilip verilmeyeceğini seçebilirsiniz. Parolayı güvenli tutun: geri alınamaz.",
+  "title": "PDF'yi Parolayla Koruma Online Ücretsiz: AES-256 | Toolz Baba",
+  "metaDesc": "PDF'yi AES-256 şifrelemesiyle parolayla kilitleyin ve yazdırma, kopyalama ile düzenlemeye izin verilip verilmeyeceğini seçin. Ücretsiz, üyelik yok.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Bir parola yazın ve yazdırma, kopyalama ve düzenlemeye izin verilip verilmeyeceğini seçin.",
+   "Kilitli PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "Koruma ne kadar güvenli?",
+    "a": "PDF AES-256 ile şifrelenir, bu yüzden parola olmadan açılamaz."
+   },
+   {
+    "q": "Parolayı unutursam ne olur?",
+    "a": "Geri alınamaz, bu yüzden güvenli bir yerde saklayın."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "unlock-pdf": {
+  "name": "PDF Kilidi Açma (Parola Kaldırma)",
+  "desc": "Parolayı biliyorsanız PDF'nin açılış parolasını kaldırın.",
+  "about": "Bir PDF'nin parolasını biliyor ve her seferinde yazmaktan yorulduysanız, bu araç parolasız açılan bir kopya kaydeder. Yalnızca doğru parolayı girdiğinizde çalışır: korumayı kırmaz ve aşmaz.",
+  "title": "PDF Kilidi Açma: PDF Parolasını Online Ücretsiz Kaldır | Toolz Baba",
+  "metaDesc": "Parolasını bildiğiniz bir PDF'nin parolasını kaldırıp parolasız açılan bir kopya kaydedin. Ücretsiz, özel, üyelik yok. PDF kırmaz.",
+  "steps": [
+   "Parola korumalı PDF'yi ekleyin.",
+   "Parolasını yazın.",
+   "Parolasız açılan bir kopyayı indirin."
+  ],
+  "faq": [
+   {
+    "q": "Parolayı bilmiyorsam PDF'yi açabilir mi?",
+    "a": "Hayır. Yalnızca doğru parolayla çalışır; korumayı kırmaz ve aşmaz."
+   },
+   {
+    "q": "Zaten açabildiğim bir PDF'nin kilidini neden açayım?",
+    "a": "Parolayı her seferinde yazmak zorunda kalmamanız veya onu diğer araçlarla birleştirebilmeniz ya da düzenleyebilmeniz için."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "video-converter": {
+  "name": "Video Dönüştürücü",
+  "desc": "MP4, WebM, MKV, MOV, AVI'ye dönüştürün veya sesi MP3, M4A, WAV olarak çıkarın.",
+  "about": "Videoyu MP4, WebM, MKV, MOV veya AVI'ye dönüştürün ya da sesi MP3, M4A, WAV, OGG veya FLAC olarak çıkarın. Kaliteyi seçin ve gerekirse çözünürlüğü küçültün. 2 GB'a kadar dosyalar desteklenir.",
+  "title": "Video Dönüştürücü Online Ücretsiz: MP4, MOV, MKV, MP3 | Toolz Baba",
+  "metaDesc": "Videoları MP4, WebM, MKV, MOV veya AVI'ye dönüştürün ya da sesi MP3, M4A veya WAV olarak çıkarın. 2 GB'a kadar dosyalar. Ücretsiz ve özel: tarayıcınızda çalışır.",
+  "steps": [
+   "Videonuzu ekleyin (2 GB'a kadar).",
+   "MP4, WebM, MKV, MOV veya AVI ya da MP3 gibi bir ses biçimi seçin.",
+   "Dönüştürün ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "Videoyu MP4'e nasıl dönüştürürüm?",
+    "a": "Videoyu ekleyin, MP4'ü seçin, kaliteyi ayarlayın ve dönüştürün."
+   },
+   {
+    "q": "Sesi MP3 olarak alabilir miyim?",
+    "a": "Evet. Yalnızca sesi çıkarmak için MP3, M4A, WAV, OGG veya FLAC seçin."
+   },
+   {
+    "q": "Videom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "audio-converter": {
+  "name": "Ses Dönüştürücü",
+  "desc": "Sesi MP3, M4A, WAV, FLAC veya OGG'ye dönüştürün: şarkılar, kayıtlar, sesli mesajlar ve videoların sesi.",
+  "about": "WAV, M4A, AAC, FLAC, OGG, OPUS, WMA ve AMR dosyalarını (WhatsApp sesli mesajları ve telefon kayıtları dahil) MP3, M4A, WAV, FLAC veya OGG'ye dönüştürün. Kaliteyi seçin, tek seferde 20 dosyaya kadar dönüştürün ve hepsini birlikte indirin. Videolardan sesi de çıkarır. Her şey kendi cihazınızda çalışır: sesiniz hiçbir zaman yüklenmez.",
+  "title": "Ses Dönüştürücü Online Ücretsiz: MP3, WAV, M4A, FLAC, OGG | Toolz Baba",
+  "metaDesc": "Ses dosyalarını tarayıcınızda MP3, M4A, WAV, FLAC veya OGG'ye dönüştürün; tek seferde 20 dosyaya kadar, seçtiğiniz kaliteyle. Ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "Ses dosyalarınızı ekleyin.",
+   "Biçimi ve kaliteyi seçin.",
+   "Dönüştürülen dosyaları indirin."
+  ],
+  "faq": [
+   {
+    "q": "Sesi MP3'e nasıl dönüştürürüm?",
+    "a": "Dosyalarınızı ekleyin, MP3'ü seçili bırakın (192 kbps iyi bir varsayılandır) ve Dönüştür'e tıklayın. Hazır olduklarında MP3 dosyalarını indirin."
+   },
+   {
+    "q": "Hangi biçimi seçmeliyim?",
+    "a": "MP3 her yerde çalar. M4A küçüktür ve iPhone'da harikadır. WAV ve FLAC tam kaliteyi korur; FLAC, WAV'ın yaklaşık yarısı boyutundadır."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "video-to-gif": {
+  "name": "Videodan GIF'e",
+  "desc": "Herhangi bir klibi yüksek kaliteli animasyonlu GIF'e çevirin.",
+  "about": "Herhangi bir videonun bir bölümünü animasyonlu GIF'e çevirin. Başlangıç zamanını, uzunluğu, saniyedeki kare sayısını ve genişliği ayarlayın. Renkleri temiz tutmak için her GIF için bir palet oluşturulur.",
+  "title": "Videodan GIF'e Dönüştürücü Ücretsiz: MP4'ten HD GIF'e | Toolz Baba",
+  "metaDesc": "Videonun herhangi bir bölümünü yüksek kaliteli animasyonlu GIF'e çevirin. Başlangıç, uzunluk, genişlik ve kare hızı ayarlı. Ücretsiz, filigransız.",
+  "steps": [
+   "Bir video ekleyin (MP4, MOV, WebM ve daha fazlası).",
+   "Başlangıç zamanını, uzunluğu, saniyedeki kare sayısını ve genişliği ayarlayın.",
+   "GIF'i oluşturun ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "MP4'ü GIF'e nasıl dönüştürürüm?",
+    "a": "MP4'ü ekleyin, başlangıç zamanı ve uzunlukla istediğiniz bölümü seçin, genişliği ve saniyedeki kare sayısını ayarlayın ve GIF'i oluşturun."
+   },
+   {
+    "q": "GIF'i nasıl küçültürüm?",
+    "a": "Videonun daha kısa bir bölümünü, daha küçük bir genişliği ve daha az kare sayısını kullanın. GIF Sıkıştırma onu daha da küçültebilir."
+   },
+   {
+    "q": "Videom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "gif-to-video": {
+  "name": "GIF'ten Videoya",
+  "desc": "GIF'leri küçük MP4 veya WebM videolara dönüştürün.",
+  "about": "GIF animasyonlarını çok daha küçük MP4 veya WebM videolara dönüştürün ve daha uzun bir klip istiyorsanız animasyonu tekrarlayın. Videolar daha hızlı yüklenir ve telefonlarda akıcı oynar.",
+  "title": "GIF'ten MP4'e Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "GIF animasyonlarını hızlı yüklenen ve telefonlarda akıcı oynayan çok daha küçük MP4 veya WebM videolara dönüştürün. Daha uzun klip için döngüye alın. Ücretsiz.",
+  "steps": [
+   "Bir GIF ekleyin.",
+   "MP4 veya WebM'i ve kaç kez tekrarlanacağını seçin.",
+   "Dönüştürün ve videoyu indirin."
+  ],
+  "faq": [
+   {
+    "q": "GIF neden MP4'e dönüştürülür?",
+    "a": "Video genellikle çok daha küçüktür, daha hızlı yüklenir ve telefonlarda akıcı oynar."
+   },
+   {
+    "q": "Videoyu daha uzun yapabilir miyim?",
+    "a": "Evet. Daha uzun bir klip için animasyonu tekrarlayın."
+   }
+  ]
+ },
+ "video-trimmer": {
+  "name": "Video Kesme",
+  "desc": "Videodan bir bölüm kesin. Önizleyin ve başlangıç ile bitişi seçin.",
+  "about": "Bir video veya ses dosyasından bir bölüm kesin. Önizleyin, başlangıç ve bitişi işaretleyin ve en yakın anahtar kareye oturan tam bir kesim ya da hızlı, kayıpsız bir kesim seçin.",
+  "title": "Videoyu Online Ücretsiz Kes: Başlangıç ve Bitişi Kırp | Toolz Baba",
+  "metaDesc": "Bir video veya ses dosyasından istediğiniz bölümü kesin. Önizleyin, başlangıç ve bitişi işaretleyin, tam veya hızlı kayıpsız kesimi seçin. Ücretsiz ve özel.",
+  "steps": [
+   "Bir video veya ses dosyası ekleyin.",
+   "Oynatın ve başlangıç ile bitişi işaretleyin.",
+   "Tam kesim veya hızlı kayıpsız kesimi seçin, sonra indirin."
+  ],
+  "faq": [
+   {
+    "q": "Tam kesim ile hızlı kesim arasındaki fark nedir?",
+    "a": "Tam kesim tam olarak işaretlediğiniz yerden başlar. Hızlı kesim kayıpsız ve daha hızlıdır ama en yakın anahtar kareye oturur, bu yüzden biraz daha erken başlayabilir."
+   },
+   {
+    "q": "Sesi de kesebilir miyim?",
+    "a": "Evet, ses dosyaları da aynı şekilde çalışır."
+   },
+   {
+    "q": "Videom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "compress-video": {
+  "name": "Video Sıkıştırma",
+  "desc": "Videoları kalite düzeyine veya hedef dosya boyutuna göre küçültün.",
+  "about": "Bir kalite düzeyi veya MB cinsinden hedef dosya boyutu seçerek videoyu küçültün; örneğin e-posta veya sohbet yükleme sınırına sığdırmak için. Çözünürlüğü de düşürebilirsiniz.",
+  "title": "Videoyu Online Ücretsiz Sıkıştır: MP4 Boyutunu MB Olarak Küçült | Toolz Baba",
+  "metaDesc": "Videoyu kaliteye göre veya MB cinsinden hedef boyuta küçültün; WhatsApp, e-posta veya yükleme sınırları için. Çözünürlüğü de düşürün. Ücretsiz, filigransız.",
+  "tabAll": "Video sıkıştırma",
+  "steps": [
+   "Videonuzu ekleyin.",
+   "Bir kalite düzeyi veya MB cinsinden hedef boyut seçin; isterseniz çözünürlüğü düşürün.",
+   "Sıkıştırın ve küçülen videoyu indirin."
+  ],
+  "faq": [
+   {
+    "q": "Videoyu WhatsApp veya e-posta için yeterince küçük nasıl yaparım?",
+    "a": "Hedef boyutu seçin ve sınırı MB olarak yazın; araç buna sığacak ayarları seçer."
+   },
+   {
+    "q": "Videoyu sıkıştırmak kaliteyi düşürür mü?",
+    "a": "Biraz. Çözünürlüğü düşürmek, örneğin 720p'ye, genellikle en az görünür değişiklikle en çok yer kazandırır."
+   },
+   {
+    "q": "Videom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "video-merger": {
+  "name": "Video Birleştirme",
+  "desc": "Birkaç video klibini seçtiğiniz sırayla tek MP4'te birleştirin. Farklı boyut ve biçimler sorun değil.",
+  "about": "İki veya daha fazla klibi tek bir MP4'te birleştirin. Farklı çözünürlük, kare hızı veya biçime sahip klipler otomatik olarak eşleştirilir; sessiz klipler de işlenir. Birleştirmeden önce kliplerin sırasını değiştirin.",
+  "title": "Videoları Online Ücretsiz Birleştir: Klipleri Tek MP4'te Birleştir | Toolz Baba",
+  "metaDesc": "İki veya daha fazla video klibini seçtiğiniz sırayla tek MP4'te birleştirin. Farklı boyut ve biçimler sizin için eşleştirilir. Ücretsiz, filigransız.",
+  "steps": [
+   "İki veya daha fazla klip ekleyin.",
+   "İstediğiniz sıraya koyun.",
+   "Birleştirin ve tek bir MP4 indirin."
+  ],
+  "faq": [
+   {
+    "q": "Farklı boyut veya biçimdeki videoları birleştirebilir miyim?",
+    "a": "Evet. Farklı çözünürlükler, kare hızları ve biçimler otomatik olarak eşleştirilir."
+   },
+   {
+    "q": "Bir klibin sesi yoksa ne olur?",
+    "a": "O da işlenir: birleştirilen video normal şekilde oynar."
+   },
+   {
+    "q": "Videolarım yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "change-video-speed": {
+  "name": "Video Hız Değiştirme",
+  "desc": "Videoyu hızlandırın (hızlandırılmış çekim) veya yavaşlatın, 0,25x ile 8x arasında. Ses perdesi doğal kalır.",
+  "about": "Videoyu hızlandırılmış çekim için hızlandırın veya ağır çekim için yavaşlatın, 0,25x ile 8x arasında. Ses, perdesi korunarak hızlandırılır veya yavaşlatılır ya da sessize alabilirsiniz.",
+  "title": "Video Hızını Online Ücretsiz Değiştir: 0,25x ile 8x | Toolz Baba",
+  "metaDesc": "Videoyu hızlandırılmış çekim için hızlandırın veya ağır çekim için yavaşlatın, 0,25x ile 8x arasında, doğal sesli. Ücretsiz ve özel, üyelik yok.",
+  "steps": [
+   "Bir video ekleyin.",
+   "0,25x (ağır çekim) ile 8x (hızlandırılmış çekim) arasında bir hız seçin ve sesi koruyun ya da sessize alın.",
+   "Yeni videoyu indirin."
+  ],
+  "faq": [
+   {
+    "q": "Hızlandırınca sesler çipmunk gibi mi çıkar?",
+    "a": "Hayır. Hız değişince ses perdesi doğal tutulur. Sesi sessize de alabilirsiniz."
+   },
+   {
+    "q": "Ağır çekim videosu nasıl yapılır?",
+    "a": "0,5x veya 0,25x gibi 1x'in altında bir hız seçin."
+   },
+   {
+    "q": "Videom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "json-formatter": {
+  "name": "JSON Biçimlendirici ve Doğrulayıcı",
+  "desc": "JSON'u düzenleyin, küçültün ve doğrulayın. Her hatanın tam satır ve sütununu gösterir.",
+  "about": "JSON'u yapıştırarak 2 veya 4 boşluk ya da sekmelerle okunabilir hale getirin, küçültün, anahtarları sıralayın veya geçerli olup olmadığını kontrol edin. Bir hata varsa araç satırı ve sütunu gösterir. Her şey tarayıcınızda gerçekleşir.",
+  "title": "JSON Biçimlendirici ve Doğrulayıcı Online: JSON'u Düzenle | Toolz Baba",
+  "metaDesc": "JSON'u biçimlendirin, küçültün ve doğrulayın, anahtarları sıralayın ve her hatanın tam satır ve sütununu görün. Ücretsiz; verileriniz tarayıcınızdan çıkmaz.",
+  "steps": [
+   "JSON'unuzu yapıştırın.",
+   "2 veya 4 boşluk ya da sekmelerle biçimlendirin, küçültün veya anahtarları sıralayın.",
+   "Sonucu kopyalayın."
+  ],
+  "faq": [
+   {
+    "q": "JSON'umdaki hatayı nasıl bulurum?",
+    "a": "Buraya yapıştırın: geçersizse araç hatanın tam satırını ve sütununu gösterir."
+   },
+   {
+    "q": "JSON'um bir sunucuya gönderiliyor mu?",
+    "a": "Hayır. Her şey tarayıcınızda gerçekleşir."
+   }
+  ]
+ },
+ "word-counter": {
+  "name": "Kelime ve Karakter Sayacı",
+  "desc": "Kelimeleri, karakterleri, cümleleri ve paragrafları sayın; okuma süresi ve en çok geçen anahtar kelimelerle.",
+  "about": "Kelime, karakter (boşluklu ve boşluksuz), cümle ve paragraf sayısını, tahmini okuma ve konuşma süresini ve en çok kullanılan kelimeleri görmek için metni yapıştırın veya yazın. İngilizce ve Hintçe metinlerle çalışır.",
+  "title": "Kelime Sayacı ve Karakter Sayacı Online Ücretsiz | Toolz Baba",
+  "metaDesc": "Kelimeleri, karakterleri (boşluklu ve boşluksuz), cümleleri ve paragrafları sayın; okuma süresini ve en çok geçen anahtar kelimeleri görün. İngilizce ve Hintçe.",
+  "steps": [
+   "Metninizi yapıştırın veya yazın.",
+   "Kelime, karakter, cümle, paragraf sayısını ve okuma süresini anında görün.",
+   "En çok kullanılan kelimeleri inceleyin."
+  ],
+  "faq": [
+   {
+    "q": "Karakterleri boşluklu ve boşluksuz sayar mı?",
+    "a": "Evet, ikisi de gösterilir."
+   },
+   {
+    "q": "Hintçeyle çalışır mı?",
+    "a": "Evet, İngilizce ve Hintçe metni sayar."
+   },
+   {
+    "q": "Metnim bir yerde saklanıyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır, bu yüzden yazdıklarınız hiçbir yere gönderilmez."
+   }
+  ]
+ },
+ "text-case-converter": {
+  "name": "Harf Büyüklüğü Dönüştürücü",
+  "desc": "Metni BÜYÜK HARF, küçük harf, Başlık Biçimi, Cümle biçimi, camelCase, snake_case ve daha fazlasına çevirin.",
+  "about": "Metni BÜYÜK HARF, küçük harf, Başlık Biçimi, Cümle biçimi, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE ve daha fazlası arasında tek tıkla dönüştürün, sonra sonucu kopyalayın.",
+  "title": "Harf Büyüklüğü Dönüştürücü: Büyük Harf, Küçük Harf, Başlık Biçimi | Toolz Baba",
+  "metaDesc": "Metni BÜYÜK HARF, küçük harf, Başlık Biçimi, Cümle biçimi, camelCase, snake_case, kebab-case ve daha fazlasına tek tıkla çevirin. Ücretsiz ve anında.",
+  "steps": [
+   "Metninizi yapıştırın.",
+   "İhtiyacınız olan biçime tıklayın: BÜYÜK HARF, küçük harf, Başlık Biçimi, camelCase ve daha fazlası.",
+   "Sonucu kopyalayın."
+  ],
+  "faq": [
+   {
+    "q": "Hangi biçimler destekleniyor?",
+    "a": "BÜYÜK HARF, küçük harf, Başlık Biçimi, Cümle biçimi, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE ve daha fazlası."
+   },
+   {
+    "q": "Metnim bir yere gönderiliyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır, bu yüzden yazdıklarınız hiçbir yere gönderilmez."
+   }
+  ]
+ },
+ "password-generator": {
+  "name": "Parola Oluşturucu",
+  "desc": "Güçlü rastgele parolalar oluşturun. Uzunluğu ve karakterleri seçin, ne kadar güçlü olduklarını görün.",
+  "about": "Tarayıcınızın güvenli rastgele sayı üretecini kullanarak güçlü rastgele parolalar oluşturun. Uzunluğu ve hangi karakterlerin dahil edileceğini seçin, birbirine benzeyen karakterleri atlayın, aynı anda birkaç tane üretin ve gücün bir tahminini görün. Parolalar hiçbir yere gönderilmez.",
+  "title": "Güçlü Parola Oluşturucu: Rastgele ve Güvenli | Toolz Baba",
+  "metaDesc": "Tarayıcınızın güvenli üreteciyle güçlü rastgele parolalar oluşturun. Uzunluğu ve karakterleri seçin, gücü görün. Hiçbir yere gönderilmez.",
+  "steps": [
+   "Uzunluğu ve hangi karakterlerin dahil edileceğini seçin.",
+   "Bir veya birkaç parola üretin ve gücünü kontrol edin.",
+   "İstediğinizi kopyalayın."
+  ],
+  "faq": [
+   {
+    "q": "Parolalar gerçekten rastgele mi?",
+    "a": "Evet. Tarayıcınızın güvenli rastgele sayı üretecinden gelirler."
+   },
+   {
+    "q": "Bir parola ne kadar uzun olmalı?",
+    "a": "Karışık karakter türleriyle en az 12 ila 16 karakter; ne kadar uzunsa o kadar güçlüdür."
+   },
+   {
+    "q": "Parolalar bir yere gönderiliyor veya kaydediliyor mu?",
+    "a": "Hayır. Tarayıcınızda oluşturulurlar ve hiçbir yere gönderilmezler."
+   }
+  ]
+ },
+ "hash-uuid-generator": {
+  "name": "Hash ve UUID Oluşturucu",
+  "desc": "Metin ve dosyalar için UUID'ler ile MD5, SHA-1, SHA-256, SHA-384 veya SHA-512 hash'leri üretin.",
+  "about": "Rastgele UUID'ler (sürüm 4 ve zamana göre sıralı sürüm 7) oluşturun ve bir indirmeyi doğrulamak için metnin veya bir dosyanın MD5, SHA-1, SHA-256, SHA-384 ve SHA-512 sağlama toplamlarını hesaplayın. Dosya tarayıcınızda okunur ve hiçbir zaman yüklenmez.",
+  "title": "Hash Oluşturucu ve UUID Oluşturucu: SHA-256, MD5 | Toolz Baba",
+  "metaDesc": "UUID v4 ve v7 ile metin veya dosyaların MD5, SHA-1, SHA-256, SHA-384 ya da SHA-512 hash'lerini üretin, indirmeleri doğrulayın. Ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "UUID'yi veya SHA-256 gibi bir hash türünü seçin.",
+   "Metin yazın veya bir dosya ekleyin.",
+   "Sonucu kopyalayın veya size verilen sağlama toplamıyla karşılaştırın."
+  ],
+  "faq": [
+   {
+    "q": "Bir indirmenin bozuk olmadığını nasıl kontrol ederim?",
+    "a": "İndirdiğiniz dosyayı ekleyin, web sitesinin listelediği hash'i seçin (çoğunlukla SHA-256) ve iki değeri karşılaştırın."
+   },
+   {
+    "q": "UUID v4 ile v7 arasındaki fark nedir?",
+    "a": "v4 tamamen rastgeledir; v7 zamanla başlar, bu yüzden yeni kimlikler oluşturulma sırasına göre sıralanır."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dosya tarayıcınızda okunur ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "url-encoder": {
+  "name": "URL Kodlayıcı ve Çözücü",
+  "desc": "URL'leri ve metni kodlayın veya çözün, bir URL'yi ana makine, yol ve sorgu parametrelerine ayırın.",
+  "about": "Metni bir URL'ye güvenle konabilecek şekilde kodlayın, yüzde kodlu metni çözün ve tam bir URL'yi okumak veya düzenlemek için parçalarına (protokol, ana makine, yol ve sorgu parametreleri) ayırın.",
+  "title": "URL Kodlayıcı ve Çözücü Online: Yüzde Kodlama | Toolz Baba",
+  "metaDesc": "Metni URL için kodlayın, yüzde kodlu metni çözün ve bir URL'yi okumak veya düzenlemek için ana makine, yol ve sorgu parametrelerine ayırın. Ücretsiz ve anında.",
+  "steps": [
+   "Metni veya bir URL'yi yapıştırın.",
+   "Kodlayın, çözün veya URL'yi parçalarına ayırın.",
+   "Sonucu kopyalayın."
+  ],
+  "faq": [
+   {
+    "q": "URL kodlama nedir?",
+    "a": "Boşluk ve & gibi karakterler, metin bir web adresinin içinde güvenle kullanılabilsin diye %20 gibi kodlarla değiştirilir."
+   },
+   {
+    "q": "Bir URL'nin sorgu parametrelerini düzenleyebilir miyim?",
+    "a": "Evet. Protokolü, ana makineyi, yolu ve her parametreyi görmek için URL'yi ayırın ve düzenleyin."
+   }
+  ]
+ },
+ "image-color-palette-extractor": {
+  "name": "Renk Paleti Çıkarıcı",
+  "desc": "Herhangi bir görselin ana renklerini çıkarın. HEX, RGB, CSS kopyalayın.",
+  "about": "Herhangi bir görselden baskın renkleri çıkarın. HEX, RGB ve HSL değerlerini kopyalayın, CSS değişkenlerini veya JSON'u dışa aktarın, paleti görsel olarak indirin ve tam bir rengi seçmek için resme tıklayın. Tarayıcınızda çalışır.",
+  "title": "Görselden Renk Paleti: HEX ve RGB Çıkar | Toolz Baba",
+  "metaDesc": "Herhangi bir görselin ana renklerini çıkarın ve HEX, RGB ya da HSL değerlerini, CSS değişkenlerini veya JSON'u kopyalayın. Tam renk seçmek için tıklayın. Ücretsiz.",
+  "tabAll": "Görselden",
+  "steps": [
+   "Bir görsel ekleyin.",
+   "Ana renklerini görün veya tam bir rengi seçmek için resme tıklayın.",
+   "HEX, RGB veya HSL kopyalayın ya da CSS, JSON veya palet görselini dışa aktarın."
+  ],
+  "faq": [
+   {
+    "q": "Bir görseldeki rengin HEX kodunu nasıl alırım?",
+    "a": "Görseli ekleyin ve istediğiniz noktaya tıklayın; tam renk HEX, RGB ve HSL olarak gösterilir."
+   },
+   {
+    "q": "Görselim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "qr-code-generator": {
+  "name": "QR Kod Oluşturucu",
+  "desc": "URL, metin, Wi-Fi, e-posta, telefon veya kartvizit. PNG veya SVG, renkler ve logoyla.",
+  "about": "Bağlantılar, metin, Wi-Fi ağları, WhatsApp sohbetleri, e-posta, telefon numaraları, SMS ve kartvizitler için QR kodları oluşturun. Renkleri ve nokta stilini seçin, ortaya bir logo ekleyin ve PNG veya SVG olarak indirin.",
+  "title": "QR Kod Oluşturucu Ücretsiz: Bağlantı, Wi-Fi, WhatsApp, Logo | Toolz Baba",
+  "metaDesc": "Bağlantılar, Wi-Fi, WhatsApp, e-posta, telefon, SMS ve kartvizitler için QR kod yapın. Renk ve logo ekleyin, PNG veya SVG indirin. Ücretsiz, süresi dolmaz.",
+  "steps": [
+   "Kodun neyi içereceğini seçin: bağlantı, metin, Wi-Fi, WhatsApp, e-posta, telefon, SMS veya kartvizit.",
+   "Renkleri ve nokta stilini seçin, isterseniz logo ekleyin.",
+   "PNG veya SVG olarak indirin."
+  ],
+  "faq": [
+   {
+    "q": "Bir bağlantı için QR kod nasıl yapılır?",
+    "a": "Bağlantı türünü seçin, adresi yapıştırın ve QR kodu PNG veya SVG olarak indirin."
+   },
+   {
+    "q": "Wi-Fi için QR kod yapabilir miyim?",
+    "a": "Evet. Ağ adını ve parolayı girin; insanlar yazmadan katılmak için taratır."
+   },
+   {
+    "q": "QR kodların süresi dolar mı?",
+    "a": "Hayır. Adres veya metin kodun kendisinde saklanır, bu yüzden işaret ettiği bağlantı çalıştığı sürece çalışmaya devam eder."
+   },
+   {
+    "q": "PNG mi SVG mi?",
+    "a": "Telefonlar, belgeler ve WhatsApp için PNG; büyük baskı için SVG, çünkü her boyutta net kalır."
+   }
+  ]
+ },
+ "base64": {
+  "name": "Base64 Dönüştürücü",
+  "desc": "Metni ve dosyaları kodlayın veya çözün. Görseller için data URI alın.",
+  "about": "Metin (tam Unicode desteğiyle) ve dosyalar için Base64 kodlayın ve çözün. Görseller için data URI alın veya bir Base64 dizesini indirilebilir bir dosyaya geri çevirin. Tarayıcınızda çalışır.",
+  "title": "Base64 Kodlama ve Çözme Online: Metin ve Dosyalar | Toolz Baba",
+  "metaDesc": "Metin ve dosyalar için Base64 kodlayın veya çözün, görseller için data URI yapın ya da Base64'ü dosyaya geri çevirin. Ücretsiz, tarayıcınızda çalışır.",
+  "steps": [
+   "Metni yapıştırın veya bir dosya ekleyin.",
+   "Kodlayın veya çözün.",
+   "Sonucu kopyalayın veya çözülen dosyayı indirin."
+  ],
+  "faq": [
+   {
+    "q": "Data URI nedir?",
+    "a": "Base64 metni olarak yazılmış bir görsel; dosya bağlantısı yerine doğrudan HTML veya CSS'in içine koyabilirsiniz."
+   },
+   {
+    "q": "Hintçe ve emoji içeren metinleri işler mi?",
+    "a": "Evet, metin kodlaması tam Unicode desteğine sahiptir."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda çalışır; dosyalarınız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "image-cdn": {
+  "name": "Görselden CDN Bağlantısı",
+  "desc": "Bir görsel yükleyin ve yeniden boyutlandırma seçenekleriyle her biçimde (JPG, PNG, WebP, AVIF...) doğrudan bağlantılar alın.",
+  "about": "Bir görsel yükleyin ve ona JPG, PNG, WebP, AVIF, GIF, BMP, TIFF ve ICO biçimlerinde doğrudan bağlantılar alın. Yeniden boyutlandırmak için herhangi bir bağlantıya ?w=800 ekleyin. Dönüştürülen sürümler hızlı yükleme için önbelleğe alınır.",
+  "tabAll": "Görsel bağlantısı"
+ },
+ "split-audio": {
+  "name": "Ses Kesme ve Bölme",
+  "desc": "Bir ses dosyasından istediğiniz bölümü kesin veya belirli uzunlukta ya da eşit parçalara bölün.",
+  "about": "Bir şarkıdan, kayıttan veya sesli mesajdan klip kesin: oynatın, bölümün nerede başlayıp bittiğini işaretleyin, ağırlaşarak girme veya çıkma (fade) ekleyin ve MP3, M4A, WAV, OGG veya FLAC olarak kaydedin. Ya da uzun bir dosyayı her birkaç dakikada bir veya belirli sayıda eşit parçaya bölerek daha kısa parçalara ayırın ve ZIP olarak alın. Video dosyasından sesi de çıkarabilirsiniz. Her şey tarayıcınızda çalışır.",
+  "title": "Ses Kesme Online Ücretsiz: MP3 Kes ve Böl | Toolz Baba",
+  "metaDesc": "Bir şarkıdan veya kayıttan fade efektli klip kesin ya da uzun bir dosyayı eşit parçalara veya her birkaç dakikada bir bölün. MP3, WAV ve daha fazlası. Ücretsiz.",
+  "tabAll": "Ses bölme",
+  "steps": [
+   "Bir ses dosyası ekleyin (veya sesini almak için bir video).",
+   "Saklanacak bölümü işaretleyin ve fade ekleyin ya da her birkaç dakikada bir veya eşit parçalara bölmeyi seçin.",
+   "MP3, M4A, WAV, OGG veya FLAC olarak kaydedin."
+  ],
+  "faq": [
+   {
+    "q": "Bir şarkının bir bölümünü nasıl keserim?",
+    "a": "Şarkıyı ekleyin, oynatın, bölümünüzün nerede başlayıp bittiğini işaretleyin, isterseniz fade ekleyin ve kaydedin."
+   },
+   {
+    "q": "Uzun bir kaydı parçalara bölebilir miyim?",
+    "a": "Evet, her birkaç dakikada bir veya belirli sayıda eşit parçaya, ZIP olarak teslim edilir."
+   },
+   {
+    "q": "Sesim yükleniyor mu?",
+    "a": "Hayır. Her şey tarayıcınızda çalışır."
+   }
+  ]
+ },
+ "font-library": {
+  "name": "Yazı Tipi Kütüphanesi",
+  "desc": "Hintçe ve diğer Hint alfabeleri dahil 50 ücretsiz yazı tipine göz atın, önizleyin ve indirin.",
+  "about": "Arayabileceğiniz, kendi metninizle önizleyebileceğiniz ve indirebileceğiniz 50 ücretsiz yazı tipinden oluşan bir kütüphane: tırnaksız (sans-serif), tırnaklı (serif), başlık (display), el yazısı ve eş aralıklı (monospace) aileler ile Hintçe (Devanagari), Bengalce, Tamilce, Telugu, Gujarati, Pencapça, Kannada ve Malayalam yazı tipleri. Her kart, yazı tipinin çizebildiği alfabeleri ve lisansını gösterir (çoğu SIL Open Font License altındadır, bu yüzden ticari işlerde de ücretsiz kullanılabilir). Herhangi bir yazı tipini lisans notuyla ZIP olarak indirin, hazır CSS kopyalayın veya doğrudan PDF Düzenleyici'de kullanın.",
+  "title": "Ücretsiz Yazı Tipi İndir: Hintçe Yazı Tipleri Dahil 50 Yazı Tipi | Toolz Baba",
+  "metaDesc": "Hintçe, Tamilce, Telugu, Bengalce ve Gujarati yazı tipleri dahil 50 ücretsiz yazı tipini kendi metninizle önizleyin ve indirin; çoğu ticari kullanıma ücretsiz.",
+  "steps": [
+   "50 yazı tipinde arayın veya göz atın.",
+   "Önizlemek için kendi metninizi yazın.",
+   "Bir yazı tipini ZIP olarak indirin, CSS'ini kopyalayın veya PDF Düzenleyici'de kullanın."
+  ],
+  "faq": [
+   {
+    "q": "Bu yazı tipleri ticari kullanım için ücretsiz mi?",
+    "a": "Çoğu ticari kullanıma izin veren SIL Open Font License altındadır. Her yazı tipi kartı lisansını gösterir."
+   },
+   {
+    "q": "Hintçe yazı tipleri var mı?",
+    "a": "Evet. Hintçe (Devanagari) yazı tiplerinin yanı sıra Bengalce, Tamilce, Telugu, Gujarati, Pencapça, Kannada ve Malayalam da var."
+   }
+  ]
+ },
+ "pdf-editor": {
+  "name": "PDF Düzenleyici",
+  "desc": "PDF'yi tarayıcınızda düzenleyin: metni değiştirin, 50 yazı tipiyle metin, resim, şekil ve vurgu ekleyin, sonra PDF, Word, görsel veya metin olarak indirin.",
+  "about": "Bir PDF açın ve doğrudan sayfa üzerinde düzenleyin. Değiştirmek için herhangi bir metin satırına tıklayın, 50 ücretsiz yazı tipinden (Hintçe ve diğer Hint alfabeleri dahil) seçtiğinizle yeni metin ekleyin, resim koyun, dikdörtgen, daire, çizgi ve ok çizin, vurgulayın, elle çizin, istemediğiniz kısımları beyazla kapatın, sayfaları döndürün veya silin ve boş sayfa ekleyin. İşiniz bitince sonucu PDF, Word dosyası, sayfa görselleri veya düz metin olarak indirin. Her şey tarayıcınızda yapılır, bu yüzden PDF'iniz hiçbir zaman yüklenmez.",
+  "title": "PDF Düzenleyici Online Ücretsiz: PDF'de Metin Düzenle | Toolz Baba",
+  "metaDesc": "PDF metnini düzenleyin, Hintçe dahil 50 yazı tipiyle metin, resim, şekil ve vurgu ekleyin, PDF veya Word olarak kaydedin. Ücretsiz; PDF hiçbir zaman yüklenmez.",
+  "steps": [
+   "PDF'inizi açın.",
+   "Değiştirmek için metne tıklayın veya metin, resim, şekil, vurgu ve çizim ekleyin.",
+   "PDF, Word, sayfa görselleri veya metin olarak indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'deki metni nasıl düzenlerim?",
+    "a": "PDF'yi açın ve değiştirmek istediğiniz metin satırına tıklayın, sonra yazın. 50 ücretsiz yazı tipiyle yeni metin de ekleyebilirsiniz."
+   },
+   {
+    "q": "Hintçe yazabilir miyim?",
+    "a": "Evet. Yazı tipleri arasında Hintçe ve diğer Hint alfabeleri var."
+   },
+   {
+    "q": "PDF'im yükleniyor mu?",
+    "a": "Hayır. Her şey tarayıcınızda yapılır, bu yüzden PDF'iniz hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "crop-pdf": {
+  "name": "PDF Kırpma",
+  "desc": "PDF sayfalarındaki beyaz kenar boşluklarını otomatik olarak kesin veya seçtiğiniz boşluklara göre kırpın.",
+  "about": "İçerik ekranı kaplasın diye PDF sayfalarını kırpın: makaleleri ve taranmış kitapları telefonda veya e-okuyucuda okumak ya da bir baskı dosyasından kırpma işaretlerini kesmek için harika. Otomatik mod her sayfadaki içeriği bulur ve boş kenarlığı kaldırır; manuel mod milimetre olarak yazdığınız kenar boşluklarını keser. Tüm sayfaları veya bir aralığı seçin.",
+  "title": "PDF Kırpma Online Ücretsiz: Beyaz Kenar Boşluklarını Kaldır | Toolz Baba",
+  "metaDesc": "PDF sayfalarını online kırpın: beyaz kenar boşluklarını otomatik veya milimetreyle kesin, tüm sayfalar ya da bir aralık. Ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Otomatik veya kendi kenar boşluklarınızı seçin.",
+   "Kırpılan PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'nin kenar boşluklarını nasıl kırparım?",
+    "a": "PDF'yi ekleyin, Otomatik seçeneğini seçili bırakın ve PDF'yi Kırp'a tıklayın. Her sayfanın beyaz kenar boşlukları kesilir, içeriğin etrafında biraz boşluk bırakılır."
+   },
+   {
+    "q": "Kesilen kısım silinir mi?",
+    "a": "Gizlenir (sayfanın görünür alanı değiştirilir), bu yüzden dosya boyutu hemen hemen aynı kalır ve sayfadaki hiçbir şey yeniden yazılmaz."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "flatten-pdf": {
+  "name": "PDF Düzleştirme",
+  "desc": "Form alanlarını, yorumları ve imzaları sayfaya kilitleyin, böylece değiştirilemezler.",
+  "about": "Göndermeden önce PDF'yi düzleştirin; doldurulmuş form, imzanız, yorumlar ve vurgular sayfanın parçası olur ve artık düzenlenemez, taşınamaz veya silinemez. Metin net ve aranabilir kalır. Daha fazlası mı gerekiyor? Her sayfayı resme çevirin, böylece dosyadaki hiçbir şey düzenlenemez veya kopyalanamaz.",
+  "title": "PDF Düzleştirme Online Ücretsiz: Formları ve Yorumları Kilitle | Toolz Baba",
+  "metaDesc": "PDF'yi online düzleştirin: doldurulmuş formları, imzaları ve yorumları sayfaya kilitleyin veya sayfaları resme çevirin. Ücretsiz; hiçbir şey yüklenmez.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Formlar ve yorumları ya da her şeyi resme çevirmeyi seçin.",
+   "Düzleştirilmiş PDF'yi indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'yi düzleştirmek ne yapar?",
+    "a": "Form alanlarını, yorumları, damgaları ve imzaları sayfa içeriğiyle birleştirir; böylece her yerde aynı görünürler ve artık değiştirilemezler."
+   },
+   {
+    "q": "İnsanlar metni yine de kopyalayabilir mi?",
+    "a": "Formlar ve yorumlarda evet: metin aranabilir kalır. Kopyalanmaması gerekiyorsa Her şeyi resme çevir seçeneğini seçin."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "compare-pdf": {
+  "name": "PDF Karşılaştırma",
+  "desc": "İki PDF sürümünün metnindeki her farkı net bir raporla bulun.",
+  "about": "Bir sözleşmenin, tezin veya teklifin iki sürümü arasında nelerin değiştiğini kontrol edin. Eski PDF'yi ve yenisini ekleyin: kaldırılan veya eklenen her sözcük, çevresindeki metin ve bulunduğu sayfayla birlikte, saklayabileceğiniz veya paylaşabileceğiniz bir PDF raporunda listelenir. Yalnızca metin karşılaştırılır; resimler veya düzen karşılaştırılmaz.",
+  "title": "PDF Karşılaştırma Online Ücretsiz: İki PDF Arasındaki Farkları Bul | Toolz Baba",
+  "metaDesc": "İki PDF'yi karşılaştırın ve eklenen ile kaldırılan her sözcüğü sayfa numaralarıyla net bir raporda görün. Ücretsiz, üyeliksiz; dosyalarınız cihazınızda kalır.",
+  "steps": [
+   "Önce eski PDF'yi, sonra yeni PDF'yi ekleyin.",
+   "PDF'leri Karşılaştır'a tıklayın.",
+   "Raporu açın veya indirin."
+  ],
+  "faq": [
+   {
+    "q": "İki PDF dosyasını nasıl karşılaştırırım?",
+    "a": "Önce eski sürümü, sonra yeni sürümü ekleyin, ardından PDF'leri Karşılaştır'a tıklayın. Rapor kaldırılan metni kırmızıyla, eklenen metni yeşille, sayfa numaralarıyla birlikte gösterir."
+   },
+   {
+    "q": "Resimleri ve düzeni karşılaştırır mı?",
+    "a": "Hayır, sözcükleri karşılaştırır. Bir paragrafı taşımak, bir yerde kaldırılmış, başka bir yerde eklenmiş olarak görünür."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "repair-pdf": {
+  "name": "PDF Onarma",
+  "desc": "Açılmayan veya hata gösteren hasarlı bir PDF'yi düzeltin ve temiz bir kopya kaydedin.",
+  "about": "Bir PDF, yarıda kalan bir indirme, dolu bir disk veya hatalı bir program yüzünden hasar görebilir; sonra açılmaz, hata gösterir veya sayfaları eksik olur. PDF Onarma, dosyanın iç yapısını yeniden oluşturur, okuyabildiği her sayfayı kurtarır ve temiz bir kopya kaydeder. Yükleme sitelerinin reddettiği PDF'lere de yardımcı olur.",
+  "title": "PDF Onarma Online Ücretsiz: Hasarlı veya Bozuk PDF Dosyalarını Düzelt | Toolz Baba",
+  "metaDesc": "Hasarlı veya bozuk bir PDF'yi tarayıcınızda onarın: yapı yeniden oluşturulur ve okunabilir sayfalar temiz bir kopyaya kurtarılır. Ücretsiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "Hasarlı PDF'yi ekleyin.",
+   "PDF'yi Onar'a tıklayın.",
+   "Onarılmış kopyayı indirin."
+  ],
+  "faq": [
+   {
+    "q": "Her hasarlı PDF onarılabilir mi?",
+    "a": "Yapısı bozulmuş dosyaların çoğu yeniden oluşturulabilir. Dosyanın bazı bölümleri eksikse veya üzerine yazılmışsa, hâlâ okunabilen sayfalar kurtarılır."
+   },
+   {
+    "q": "Bir yükleme sitesi PDF'imi neden reddediyor?",
+    "a": "Çoğu zaman dosyada küçük yapısal hatalar vardır. Onarılmış, temiz kaydedilmiş bir kopya genellikle kabul edilir."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "pdf-to-text": {
+  "name": "PDF'den Metne",
+  "desc": "Bir PDF'deki tüm metni düz metin (TXT) dosyası olarak alın.",
+  "about": "Metni PDF'den sayfa sayfa kopyalamak yavaştır ve satır sonlarını kaybettirir. PDF'den Metne tüm sözcükleri bir seferde çıkarır ve her yerde açabileceğiniz, e-postaya yapıştırabileceğiniz veya başka bir programda kullanabileceğiniz bir TXT dosyası olarak kaydeder. Her dilde çalışır ve her sayfanın nerede başladığını işaretleyebilirsiniz. Taramalar için PDF OCR kullanın.",
+  "title": "PDF'den Metne Dönüştürücü Online Ücretsiz: Metni TXT'ye Çıkar | Toolz Baba",
+  "metaDesc": "Bir PDF'deki tüm metni düz TXT dosyasına çıkarın, her dilde, isterseniz sayfa işaretleriyle. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "steps": [
+   "PDF'inizi ekleyin.",
+   "Sayfaları seçin.",
+   "Metin dosyasını indirin."
+  ],
+  "faq": [
+   {
+    "q": "PDF'den metni nasıl çıkarırım?",
+    "a": "PDF'yi ekleyin ve Metni al'a tıklayın. Tüm sözcükleri içeren bir TXT dosyası indirilir."
+   },
+   {
+    "q": "Neden hiç metin bulunamadı?",
+    "a": "PDF büyük olasılıkla bir taramadır, yani sayfanın bir resmidir. Sözcükleri resimlerden okumak için PDF OCR kullanın."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda yapılır; dosyanız cihazınızda kalır ve hiçbir zaman yüklenmez."
+   }
+  ]
+ },
+ "compress-png": {
+  "name": "PNG Sıkıştırma",
+  "desc": "PNG dosyalarını küçültün ve saydamlığı koruyun. Renkleri azaltın, yeniden boyutlandırın ve birçok PNG'yi aynı anda sıkıştırın. Tarayıcınızda çalışır.",
+  "about": "PNG kayıpsız bir biçimdir, bu yüzden PNG dosyaları, özellikle ekran görüntüleri, logolar ve düz renkli grafikler, çoğu zaman gerekenden çok daha büyüktür. Bu araç, resmi en fazla 256 renkli optimize edilmiş bir palete indirerek onları küçültür; bu, çoğu grafikte aynı görünür ama boyutu yarıya veya daha fazlasına düşürebilir. Saydam alanlar saydam kalır. Çok büyük PNG'leri küçültmek için genişliği de sınırlayabilir veya daha da küçük bir dosya için WebP'ye dönüştürebilirsiniz. Tek seferde 40 PNG'ye kadar sıkıştırın; sonuç her dosyanın tam olarak ne kadar küçüldüğünü gösterir. Bir PNG zaten olabildiğince küçükse, daha büyük bir dosya yerine orijinali geri alırsınız. Fotoğraflar için JPG veya WebP her zaman PNG'den küçük olur. PNG dosyalarınız cihazınızdan hiç çıkmaz.",
+  "title": "PNG Sıkıştırma Online Ücretsiz: PNG Dosya Boyutunu Küçült | Toolz Baba",
+  "tab": "PNG"
+ },
+ "compress-jpeg": {
+  "name": "JPEG Sıkıştırma",
+  "desc": "JPEG fotoğrafların boyutunu kalite kaydırıcısı ve canlı önce/sonra boyutlarıyla küçültün. Birçok JPEG'i aynı anda sıkıştırın. Tarayıcınızda çalışır.",
+  "about": "JPEG sıkıştırma, dosya boyutu ile kalite arasında bir denge kurmaktır. Bu araç kaliteyi kendiniz seçmenizi sağlar: yüzde 70 ile 80 civarı genellikle orijinalden ayırt edilemez ve bir fotoğrafı çoğu zaman birkaç kat küçültür. Çok büyük fotoğrafları küçültmek için en büyük genişlik belirleyebilir veya mümkün olan en küçük dosyayı istiyorsanız WebP ya da AVIF'e dönüştürebilirsiniz. Tek seferde 40 JPEG dosyasına kadar ekleyin ve hepsini ZIP olarak birlikte indirin. Bir JPEG zaten iyi sıkıştırılmışsa, araç daha büyük bir dosya yerine orijinali geri verir. Her şey tarayıcınızda çalışır, bu yüzden fotoğraflarınız hiçbir zaman yüklenmez.",
+  "title": "JPEG Sıkıştırma Online Ücretsiz: JPEG Boyutunu Küçült | Toolz Baba",
+  "tab": "JPEG"
+ },
+ "compress-jpg": {
+  "name": "JPG Sıkıştırma",
+  "desc": "JPG fotoğrafları e-posta, WhatsApp ve formlar için küçültün. Kaliteyi seçin, genişliği sınırlayın, birçok JPG dosyasını aynı anda sıkıştırın.",
+  "about": "Doğrudan telefondan veya kameradan gelen fotoğraflar çoğu zaman 3 ile 10 MB arasındadır; bu e-posta, WhatsApp, iş portalları veya online formlar için çok büyüktür. JPG dosyalarınızı buraya bırakın, bir kalite seçin (yüzde 75 iyi bir başlangıç noktasıdır) ve isterseniz en büyük genişliği belirleyin; ekranda hâlâ net görünen çok daha küçük dosyalar elde edin. JPG ve JPEG, dosya uzantısı farklı olan aynı biçimdir ve ikisi de burada işlenir. Bir form için 50 KB altı gibi tam bir boyuta ihtiyacınız varsa, sınırınız için en iyi kaliteyi bulan KB Olarak Fotoğraf ve İmza Boyutlandırma aracını kullanın. Fotoğraflarınız kendi cihazınızda işlenir ve yüklenmez.",
+  "title": "JPG Sıkıştırma Online Ücretsiz: JPG'yi Küçült | Toolz Baba",
+  "tab": "JPG / JPEG"
+ },
+ "compress-gif": {
+  "name": "GIF Sıkıştırma",
+  "desc": "Animasyonlu GIF'lerin dosya boyutunu daha az renk, daha küçük genişlik veya daha düşük kare hızı kullanarak azaltın. Tarayıcınızda çalışır.",
+  "about": "Animasyonlu GIF'ler çok çabuk büyür. Bu araç, animasyonu koruyarak onları üç yolla küçültür: daha az renk (GIF'ler 256 renge izin verir ama 64 veya 128 çoğu zaman iyi görünür), daha küçük genişlik ve daha düşük kare hızı. Görünümü genellikle en az değiştirdiği için önce daha az renk deneyin. GIF, tüm animasyon için optimize edilmiş bir renk paletiyle yeniden kodlanır ve öncesi ile sonrası boyutunu görürsünüz. GIF zaten iyi sıkıştırılmışsa, daha büyük bir dosya yerine orijinali geri alırsınız. En büyük tasarruf için, genellikle kat kat daha küçük olan GIF'ten Videoya aracıyla GIF'i videoya dönüştürmeyi düşünün. GIF'iniz tarayıcınızda işlenir ve hiçbir zaman yüklenmez.",
+  "title": "GIF Sıkıştırma Online Ücretsiz: Animasyonlu GIF Boyutunu Küçült | Toolz Baba",
+  "tab": "GIF"
+ },
+ "compress-jpg-under-10kb": {
+  "name": "JPG'yi 10 KB Altına Sıkıştırma",
+  "desc": "Bir JPG fotoğrafı veya imzayı 10 KB altına sıkıştırın. Boyutu yazın, indirmeden önce sonucu görün. Tarayıcınızda çalışır.",
+  "about": "10 KB çok küçüktür, kısa bir metin dosyası kadardır ve bazı online formların imza veya çok küçük bir fotoğraf için koyduğu sınırdır. Bir imza taraması veya küçük bir yüz kırpması kolayca sığar; tam bir kamera fotoğrafının çok küçültülmesi gerekir, bu yüzden kaliteyi düşürmek yetmediğinde bu sayfa resmin piksel boyutunu da kendiliğinden azaltır. 10 KB'ta en iyi sonuç için önce resmi yalnızca formun istediği kısmı kalacak şekilde kırpın: daha az piksel, her piksel için daha fazla kalite demektir.",
+  "title": "JPG'yi 10 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 10 KB'tan küçük nasıl yaparım?",
+    "a": "Resmi ekleyin, boyutu 10 KB'ta bırakın ve önizlemeyi kontrol edin. Sayfa, dosya 10 KB altına inene kadar kaliteyi ve gerekirse genişlik ile yüksekliği düşürür; sonra İndir'e tıklarsınız."
+   },
+   {
+    "q": "Bir fotoğraf 10 KB'ta hâlâ okunaklı olur mu?",
+    "a": "İmza, mühür veya küçük vesikalık tarzı bir kırpma genellikle olur. Büyük ve ayrıntılı bir fotoğraf 10 KB'ta çok küçük ve yumuşak olur; fotoğraflar için bunun yerine 20 KB veya 50 KB deneyin."
+   },
+   {
+    "q": "İmza için kullanabilir miyim?",
+    "a": "Evet. İmzayı beyaz kağıda tarayın veya fotoğraflayın, etrafından sıkı kırpın, sonra buraya ekleyin. Beyaz üzerine siyah küçük görseller çok iyi sıkışır."
+   }
+  ]
+ },
+ "compress-jpg-under-20kb": {
+  "name": "JPG'yi 20 KB Altına Sıkıştırma",
+  "desc": "Sınav, iş ve burs formları için JPG'yi 20 KB altına sıkıştırın. Boyutu seçin ve önce sonucu önizleyin.",
+  "about": "20 KB, uzun bir başvuru formunun yanında fotoğraf veya imza isteyen portallarda yaygın bir sınırdır. Bu boyutta birkaç yüz piksel genişliğindeki bir yüz fotoğrafı hâlâ temiz görünür, ama büyük bir kamera fotoğrafının önce küçültülmesi gerekir. Bu sayfa önce iyi bir kaliteyi dener, sonra kaliteyi ve yalnızca gerekirse piksel boyutunu düşürür ve 20 KB altına sığan en iyi resimde durur. Önizleme tam olarak neyi indireceğinizi gösterir, böylece kaydetmeden önce yüzü veya imzayı değerlendirebilirsiniz.",
+  "title": "JPG'yi 20 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 20 KB'a nasıl sıkıştırırım?",
+    "a": "Resminizi ekleyin ve boyutu 20 KB'ta tutun. Araç sığan en yüksek kaliteyi bulur ve yeni dosya boyutunu önizlemenin altında gösterir."
+   },
+   {
+    "q": "Fotoğrafım 3 MB. Gerçekten 20 KB olabilir mi?",
+    "a": "Genellikle evet, çünkü bir telefon fotoğrafının boyutunun çoğu, formda ihtiyaç duymadığınız piksellerden gelir. Resim birkaç yüz piksel genişliğe küçültülür; bu küçük bir fotoğraf alanı için fazlasıyla yeterlidir."
+   },
+   {
+    "q": "Resmim bir yere yükleniyor mu?",
+    "a": "Hayır. Resim tarayıcınızda işlenir ve cihazınızdan hiç çıkmaz."
+   }
+  ]
+ },
+ "compress-jpg-under-50kb": {
+  "name": "JPG'yi 50 KB Altına Sıkıştırma",
+  "desc": "JPG'yi gözle görülür bozulma olmadan 50 KB altına indirin. Boyutu ayarlayın, sonucu önizleyin, indirin. Ücretsiz ve özel.",
+  "about": "50 KB, birçok sitenin profil resmi, kimlik fotoğrafı veya belge taraması için izin verdiği boyuttur. Yaklaşık 500 piksel genişliğindeki bir portrenin net yüzlerini ve keskin kenarlarını koruyacak kadar geniştir. JPG'nizi ekleyin, boyutu 50 KB'ta tutun; sayfa sığan en iyi kaliteyi hesaplar. Büyük resimler de biraz küçültülür, çünkü 4000 piksel genişliğindeki bir fotoğraf hiçbir kalitede 50 KB'a sığmaz. Sonuç çok yumuşak görünürse sınırı yükseltin veya ihtiyacınız olmayan kısımları kırpın.",
+  "title": "JPG'yi 50 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 50 KB altına nasıl indiririm?",
+    "a": "Dosyayı ekleyin, hedefi 50 KB'ta bırakın ve önizleme doğru göründüğünde indirin. Araç kaliteyi sizin için seçer."
+   },
+   {
+    "q": "50 KB'lık bir fotoğraf nasıl görünür?",
+    "a": "Yaklaşık 400 ile 600 piksel genişliğindeki bir portre ekranda temiz görünür. Büyük baskı için tasarlanmamıştır."
+   },
+   {
+    "q": "Birkaç resmi aynı anda 50 KB'a sıkıştırabilir miyim?",
+    "a": "Evet. Hepsini ekleyin ve her resmin 50 KB altında olduğu bir ZIP almak için Tümünü indir'i kullanın."
+   }
+  ]
+ },
+ "compress-jpg-under-100kb": {
+  "name": "JPG'yi 100 KB Altına Sıkıştırma",
+  "desc": "JPG'yi, çoğu iş, KYC ve kayıt formunun istediği sınır olan 100 KB altına sıkıştırın. Boyutu seçin ve önizleyin.",
+  "about": "100 KB, en sık karşılaşacağınız yükleme sınırıdır: iş portalları, KYC ve banka formları, üniversite kayıtları, burs ve devlet siteleri. Normal bir telefon fotoğrafı 20 ile 50 kat daha büyüktür, bu yüzden gerçek bir sıkıştırma gerekir, ama 100 KB hâlâ kolay okunan bir portre veya belge fotoğrafına yer bırakır. Bu sayfa 100 KB altında kalan en iyi kaliteyi bulur ve sonucu orijinalinizin yanında gösterir; böylece indirmeden önce yazıların ve yüzlerin hâlâ net olduğunu kontrol edebilirsiniz.",
+  "title": "JPG'yi 100 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 100 KB'a nasıl küçültürüm?",
+    "a": "Resmi ekleyin, hedefi 100 KB'ta tutun ve önizlemeye bakın. Altında gösterilen boyut, indireceğiniz dosyanın gerçek boyutudur."
+   },
+   {
+    "q": "Belgeler 100 KB'ta okunaklı kalır mı?",
+    "a": "Basılı sayfa fotoğrafları, yazı yeterince büyükse genellikle kalır. Küçük yazılar bulanıklaşırsa 150 KB veya 200 KB deneyin."
+   },
+   {
+    "q": "Dosyam neden tam 100 KB değil de biraz altında?",
+    "a": "Araç sınırı aşmayan en yüksek kaliteyi seçer, bu yüzden sonuç sınırın hemen altında olur."
+   }
+  ]
+ },
+ "compress-jpg-under-150kb": {
+  "name": "JPG'yi 150 KB Altına Sıkıştırma",
+  "desc": "Seçtiğiniz boyutla JPG'yi 150 KB'tan küçük yapın. İndirmeden önce sonucu görün. Tarayıcınızda çalışır.",
+  "about": "150 KB, çok sıkı 100 KB sınırı ile daha rahat 200 KB sınırı arasında yer alır ve bazı başvuru formları ve pazar yerleri bunu kullanır. 100 KB hedefine göre fazladan 50 KB, bir yüzde veya fotoğraflanmış yazıda fark edilir. JPG'nizi ekleyin; sayfa dosya 150 KB'ın hemen altına inene kadar kaliteyi düşürür, piksel boyutunu yalnızca bu yetmezse küçültür. Fotoğrafınız zaten 150 KB altındaysa, yeniden sıkıştırılıp kötüleştirilmek yerine olduğu gibi korunur.",
+  "title": "JPG'yi 150 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 150 KB'a nasıl sıkıştırırım?",
+    "a": "Dosyayı ekleyin, boyutu 150 KB'a ayarlayın (veya 150 KB düğmesine tıklayın) ve önizlemeyi kontrol ettikten sonra indirin."
+   },
+   {
+    "q": "Görselim zaten 150 KB altındaysa ne olur?",
+    "a": "O zaman dokunulmadan bırakılır. Küçük bir JPG'yi yeniden sıkıştırmak yalnızca kalite kaybettirir."
+   },
+   {
+    "q": "150 KB net bir fotoğraf için yeterli mi?",
+    "a": "Ekranda gösterilen bir portre veya belge için evet. Büyük bir manzara fotoğrafı daha yumuşak görünür, çünkü daha az piksel taşımak zorundadır."
+   }
+  ]
+ },
+ "compress-jpg-under-200kb": {
+  "name": "JPG'yi 200 KB Altına Sıkıştırma",
+  "desc": "Formlar, e-posta ve yüklemeler için JPG'yi 200 KB altına sıkıştırın. Boyutu ayarlayın, sonucu önizleyin, ücretsiz indirin.",
+  "about": "200 KB, kimlik fotoğrafları, sertifikalar ve ekler için rahat bir sınırdır ve birçok devlet ve üniversite portalı bunu kullanır. Bu boyutta bir portre temiz kalır ve fotoğraflanmış bir sayfa okunaklı kalır. Bu sayfa 200 KB altına sığan en yüksek kaliteyi arar, böylece sınırın izin verdiği kadar ayrıntıyı korursunuz. Orijinali ve sonucu boyutlarıyla yan yana görürsünüz; sınır konusunda fikrinizi değiştirirseniz kaydırıcıyı oynatabilirsiniz, önizleme hemen güncellenir.",
+  "title": "JPG'yi 200 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 200 KB'a nasıl küçültürüm?",
+    "a": "Ekleyin, hedefi 200 KB'ta tutun, önizlemeyi kontrol edin ve İndir'e tıklayın."
+   },
+   {
+    "q": "200 KB bir fotoğrafı kötü gösterir mi?",
+    "a": "Ekran kullanımı için hayır. Tipik 1000 piksel genişliğindeki bir fotoğraf 200 KB'ta iyi görünür. Çok büyük fotoğraflar sığması için küçültülür."
+   },
+   {
+    "q": "Baştan başlamadan boyutu değiştirebilir miyim?",
+    "a": "Evet. Yeni bir boyut yazın veya kaydırıcıyı oynatın; önizleme hemen güncellenir."
+   }
+  ]
+ },
+ "compress-jpg-under-300kb": {
+  "name": "JPG'yi 300 KB Altına Sıkıştırma",
+  "desc": "JPG'yi net kalmasını sağlayarak 300 KB altına küçültün. Boyutu seçin, orijinalle karşılaştırın, indirin.",
+  "about": "300 KB, net kalması gereken resimler için iyi bir boyuttur: ayrıntılı bir profil fotoğrafı, taranmış bir sertifika, bir ilan için ürün fotoğrafı veya diğerleriyle birlikte e-postayla göndermek istediğiniz bir resim. Çoğu telefon fotoğrafı 10 ile 30 kat daha büyüktür ve fark ekranda zor görülür. Araç 300 KB altında kalan en yüksek kaliteyi korur ve boyutları yalnızca kalite tek başına yetmediğinde azaltır. İndirmeden önce orijinalle karşılaştırmak için önizlemeyi kullanın.",
+  "title": "JPG'yi 300 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 300 KB'a nasıl sıkıştırırım?",
+    "a": "Ekleyin, 300 KB'ı seçin ve önizleme doğru göründüğünde indirin."
+   },
+   {
+    "q": "300 KB'lık bir JPG web sitesi için iyi mi?",
+    "a": "Çoğu sayfadaki bir içerik görseli için iyidir. Büyük ana sayfa bannerları için 500 KB gibi biraz daha yüksek bir sınır daha fazla ayrıntıyı korur."
+   },
+   {
+    "q": "Bir klasör dolusu fotoğrafı sıkıştırabilir miyim?",
+    "a": "Birçok dosyayı aynı anda ekleyin ve Tümünü indir (ZIP) seçeneğini kullanın. Her resim 300 KB altına sığacak şekilde ayrı ayrı sıkıştırılır."
+   }
+  ]
+ },
+ "compress-jpg-under-500kb": {
+  "name": "JPG'yi 500 KB Altına Sıkıştırma",
+  "desc": "E-posta, WhatsApp ve yüklemeler için JPG'yi 500 KB altına sıkıştırın. Boyutu ayarlayın, önizleyin ve indirin. Özel ve ücretsiz.",
+  "about": "500 KB yarım megabayttır: WhatsApp ve e-posta için yeterince küçük, tam ekran bir resmin hâlâ iyi görünmesi için yeterince büyük. Birçok ilan, CMS ve bilet sisteminin sınırıdır. 500 KB'ta çoğu fotoğrafın yalnızca hafif bir sıkıştırmaya ihtiyacı vardır ve neredeyse tüm ayrıntılarını korur. Bu sayfa sığan en iyi kaliteyi bulur, iki sürümü yan yana gösterir ve sınırın altındaki dosyaları olduğu gibi bırakır.",
+  "title": "JPG'yi 500 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "JPG'yi 500 KB altına nasıl indiririm?",
+    "a": "Resmi ekleyin, 500 KB düğmesine tıklayın veya 500 yazın, önizlemeyi kontrol edin ve indirin."
+   },
+   {
+    "q": "Orijinalden farkı fark eder miyim?",
+    "a": "Telefon veya dizüstü ekranında genellikle hayır. İnce ayrıntıları karşılaştırmak için önizlemeyi yakınlaştırın."
+   },
+   {
+    "q": "Sonucu WhatsApp'ta gönderebilir miyim?",
+    "a": "Evet, 500 KB'lık bir JPG yavaş bağlantıda bile hızlı gider."
+   }
+  ]
+ },
+ "compress-jpg-under-1mb": {
+  "name": "JPG'yi 1 MB Altına Sıkıştırma",
+  "desc": "JPG'yi neredeyse hiç görünür kayıp olmadan 1 MB altına indirin. Boyutu seçin, sonucu önizleyin ve indirin.",
+  "about": "1 MB, birçok web formunun, destek talebi sisteminin, pazar yerinin ve e-posta ağ geçidinin sınırıdır. Telefon fotoğrafları genellikle 3 ile 8 MB arasındadır, bu yüzden 1 MB altına inmek nadiren fark edilen orta düzeyde bir sıkıştırma gerektirir. Sayfa önce yüksek bir kaliteyi dener ve yalnızca gerektiği kadar düşer; böylece sığan en güzel görünen resmi alırsınız. Dosyanız zaten 1 MB altındaysa dokunulmadan bırakılır, yani boş yere hiçbir şey kaybedilmez.",
+  "title": "JPG'yi 1 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "JPG'yi 1 MB altına nasıl sıkıştırırım?",
+    "a": "Fotoğrafı ekleyin, 1 MB'ı seçin ve önizlemeyi orijinalle karşılaştırın. Önizlemenin altındaki boyut, indirilen dosyanın gerçek boyutudur."
+   },
+   {
+    "q": "1 MB'lık bir JPG aynı görünür mü?",
+    "a": "Çoğu fotoğraf için ekranda aynı görünür. Yalnızca çok büyük veya çok ayrıntılı resimler görünür ayrıntı kaybeder."
+   },
+   {
+    "q": "1,5 MB veya 0,8 MB yazabilir miyim?",
+    "a": "Evet. Herhangi bir sayı yazın ve KB ile MB arasında geçiş yapın. Önizleme siz yazdıkça güncellenir."
+   }
+  ]
+ },
+ "compress-jpg-under-2mb": {
+  "name": "JPG'yi 2 MB Altına Sıkıştırma",
+  "desc": "E-posta ve yüklemeler için JPG'yi neredeyse tam kaliteyi koruyarak 2 MB altına sıkıştırın. Boyutu ayarlayın, önizleyin, indirin.",
+  "about": "Birçok web sitesi ve e-posta hizmeti 2 MB üzerindeki resimleri kabul etmeyi bırakır ve modern bir telefon fotoğrafı çoğu zaman 4 ile 10 MB arasındadır. 2 MB altına inmek yalnızca hafif bir sıkıştırma gerektirir, bu yüzden resim genellikle orijinaliyle neredeyse aynı görünür. Bu sayfa sığan en yüksek kaliteyi korur ve öncesi ile sonrası boyutunu gösterir. Fotoğrafınız zaten 2 MB altındaysa olduğu gibi bırakılır; daha küçük istiyorsanız sınırı kaydırıcıyla düşürebilirsiniz.",
+  "title": "JPG'yi 2 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Bir fotoğrafı 2 MB altına nasıl küçültürüm?",
+    "a": "Fotoğrafı ekleyin, hedefi 2 MB'ta tutun ve önizlemeye bir göz attıktan sonra indirin."
+   },
+   {
+    "q": "Kalite kaybeder mi?",
+    "a": "Yalnızca biraz. Birkaç megabayttan 2 MB altına inmek için hafif bir sıkıştırma yeterlidir."
+   },
+   {
+    "q": "Fotoğrafım 20 MB ise ne olur?",
+    "a": "O da olur. Araç, dosya sığana kadar kaliteyi ve gerekirse piksel boyutunu düşürür."
+   }
+  ]
+ },
+ "compress-pdf-under-100kb": {
+  "name": "PDF'yi 100 KB Altına Sıkıştırma",
+  "desc": "Formlar ve e-posta için PDF'yi 100 KB altına sıkıştırın. Dosya sığana kadar daha güçlü ayarlar dener. Tarayıcınızda çalışır.",
+  "about": "100 KB sıkı bir sınırdır ve bazı online formlar ve portallar belge yüklemesi için bunu koyar. Çoğunlukla metinden oluşan bir PDF zaten küçük olabilir; bir tarama veya fotoğraflı bir PDF ise resimleri yüzünden çoğu zaman birkaç megabayttır. Bu sayfa PDF'in içindeki resimleri küçültür; dosya 100 KB altına inene kadar giderek daha güçlü ayarlar dener, sonra hâlâ okunabilir olduğunu kontrol etmeniz için ilk sayfayı gösterir. Çok sayfalı bir tarama 100 KB'a inemeyecek kadar büyük olabilir: önce parçalara bölün.",
+  "title": "PDF'yi 100 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "PDF'yi 100 KB altına nasıl sıkıştırırım?",
+    "a": "PDF'yi ekleyin, boyutu 100 KB'ta tutun ve Sıkıştır'a tıklayın. Araç, dosya sığana kadar resim kalitesini adım adım düşürür."
+   },
+   {
+    "q": "PDF'im neden 100 KB altına inemiyor?",
+    "a": "Metin, yazı tipleri ve sayfa yapısı fazla küçülemez. Çok sayıda taranmış sayfası olan uzun bir PDF 100 KB için çok büyüktür; bölün ve her parçayı sıkıştırın."
+   },
+   {
+    "q": "PDF'im bilgisayarımdan çıkıyor mu?",
+    "a": "Hayır. Sıkıştırma tarayıcınızda çalışır, bu yüzden dosya cihazınızdan hiç çıkmaz."
+   }
+  ]
+ },
+ "compress-pdf-under-200kb": {
+  "name": "PDF'yi 200 KB Altına Sıkıştırma",
+  "desc": "İş, kayıt ve KYC yüklemeleri için PDF'yi 200 KB altına indirin. Sayfa sığana kadar daha güçlü ayarlar dener.",
+  "about": "200 KB, bir özgeçmiş, sertifika veya kimlik taraması için yaygın bir yükleme sınırıdır. Böyle bir PDF'in boyutunun çoğu, taranmış bir sayfa veya fotoğraf gibi içindeki görsellerdir. Bu sayfa, dosya 200 KB altına inene kadar bu görsellerin çözünürlüğünü ve kalitesini adım adım düşürür ve metnin hâlâ okunabilir olduğunu kontrol etmeniz için sonucun ilk sayfasını gösterir. PDF zaten 200 KB altındaysa değiştirilmeden korunur.",
+  "title": "PDF'yi 200 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "PDF'yi 200 KB altına nasıl indiririm?",
+    "a": "PDF'yi ekleyin, boyut olarak 200 KB'ı tutun ve 200 KB altına sıkıştır'a tıklayın."
+   },
+   {
+    "q": "PDF'deki metin net kalır mı?",
+    "a": "Gerçek metin net kalır, çünkü yalnızca resimler yeniden sıkıştırılır. Taranmış sayfalar resimdir, bu yüzden biraz yumuşar."
+   },
+   {
+    "q": "Birkaç PDF'yi aynı anda sıkıştırabilir miyim?",
+    "a": "Evet, 10'a kadar. Sonuçlar tek ZIP olarak indirilir."
+   }
+  ]
+ },
+ "compress-pdf-under-300kb": {
+  "name": "PDF'yi 300 KB Altına Sıkıştırma",
+  "desc": "Seçtiğiniz boyutla PDF'yi 300 KB altına sıkıştırın. İlk sayfa önizlemesi sonucu gösterir. Ücretsiz, tarayıcınızda.",
+  "about": "300 KB, birkaç görselli kısa bir belge veya birkaç taranmış sayfa için yeterlidir. Bu sayfa PDF'inizin içindeki resimleri hafif bir ayardan güçlü bir ayara adım adım yeniden sıkıştırır ve dosyayı 300 KB altına indiren ilk ayarda durur; böylece PDF sınırın izin verdiği kadar kaliteyi korur. Yazı tipleri, bağlantılar ve gerçek metne dokunulmaz. Sınıra ulaşılamadığında ne kadar yaklaştığı size söylenir.",
+  "title": "PDF'yi 300 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "PDF'yi 300 KB'a nasıl küçültürüm?",
+    "a": "Dosyayı ekleyin, boyutu 300 KB'a ayarlayın ve Sıkıştır'a tıklayın. Yeni boyutu ve bir ilk sayfa önizlemesini alırsınız."
+   },
+   {
+    "q": "Sonuç hâlâ 300 KB üzerindeyse ne olur?",
+    "a": "O zaman PDF'de yazı tipleri ve metin gibi küçülebilecek çok az şey vardır. Sayfa ulaştığı en küçük boyutu gösterir."
+   },
+   {
+    "q": "Özel belgeler için güvenli mi?",
+    "a": "Evet. Dosya cihazınızda işlenir ve yüklenmez."
+   }
+  ]
+ },
+ "compress-pdf-under-500kb": {
+  "name": "PDF'yi 500 KB Altına Sıkıştırma",
+  "desc": "E-posta ve web formları için PDF'yi 500 KB'tan küçük yapın. Boyutu ayarlayın, sıkıştırın ve ilk sayfayı kontrol edin.",
+  "about": "Yarım megabayt, web formları, başvurular ve e-posta ağ geçitleri için yaygın bir sınırdır. Fotoğraflardan veya taramalardan oluşan bir PDF çoğu zaman 5 ile 20 MB arasındadır, bu yüzden resimlerin yeniden sıkıştırılması gerekir. Bu sayfa bunu hafiften güçlüye adım adım yapar ve PDF 500 KB altına iner inmez durur; böylece sığan en iyi kaliteyi korursunuz. Zaten 500 KB altındaki bir belgede hiçbir şey değiştirilmez.",
+  "title": "PDF'yi 500 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "PDF'yi 500 KB'a nasıl sıkıştırırım?",
+    "a": "PDF'yi ekleyin ve 500 KB altına sıkıştır'a tıklayın. İndirmeden önce sonuçtaki ilk sayfayı kontrol edin."
+   },
+   {
+    "q": "Bir PDF ne kadar küçülebilir?",
+    "a": "Taramalardan veya fotoğraflardan oluşan bir PDF çoğu zaman yüzde 80 veya daha fazla küçülür. Düz metinden oluşan bir PDF, zaten küçük olduğu için neredeyse hiç küçülmez."
+   },
+   {
+    "q": "Sonucu e-postaya koyabilir miyim?",
+    "a": "Evet, 500 KB her e-posta hizmetinin sınırının çok altındadır."
+   }
+  ]
+ },
+ "compress-pdf-under-1mb": {
+  "name": "PDF'yi 1 MB Altına Sıkıştırma",
+  "desc": "PDF'yi neredeyse görünür değişiklik olmadan 1 MB altına sıkıştırın. Boyutu seçin, sıkıştırın, ilk sayfayı kontrol edin.",
+  "about": "1 MB, başvurular, destek talepleri ve e-posta ağ geçitleri için tipik bir sınırdır ve çok sayfalı taranmış bir PDF kolayca 10 MB veya daha fazla olur. 1 MB'a ulaşmak için PDF'deki resimler yeniden sıkıştırılır ve dosyayı 1 MB altına indiren ilk, en hafif ayar kullanılır; böylece sayfalar mümkün olduğunca net kalır. PDF'iniz zaten 1 MB altındaysa olduğu gibi bırakılır.",
+  "title": "PDF'yi 1 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "PDF'yi 1 MB altına nasıl indiririm?",
+    "a": "Ekleyin, boyutu 1 MB'ta tutun ve Sıkıştır'a tıklayın. Sonuç yeni boyutu ve ilk sayfayı gösterir."
+   },
+   {
+    "q": "Sayfalar hâlâ iyi görünür mü?",
+    "a": "1 MB'ta çoğu belge ekranda neredeyse aynı görünür. Çok sayıda tam sayfa fotoğrafı olan bir PDF yumuşar."
+   },
+   {
+    "q": "PDF'leri birleştirip sıkıştırabilir miyim?",
+    "a": "Evet. Önce PDF Birleştirme aracıyla birleştirin, sonra birleşik dosyayı buraya getirin."
+   }
+  ]
+ },
+ "compress-pdf-under-2mb": {
+  "name": "PDF'yi 2 MB Altına Sıkıştırma",
+  "desc": "Yüklemeler ve e-posta için PDF'yi 2 MB altına indirin. Boyutu ayarlayın, sıkıştırın ve sonucu kontrol edin. Özel ve ücretsiz.",
+  "about": "Web siteleri ve e-posta hizmetleri çoğu zaman 2 MB'ta durur, oysa taranmış bir PDF 10 ile 50 MB olabilir. 2 MB altına inmek genellikle yalnızca resimlerin hafif yeniden sıkıştırılmasını gerektirir, bu yüzden sayfalar neredeyse değişmemiş görünür. Araç önce en yumuşak ayarı dener ve yalnızca gerekirse daha güçlüye geçer. PDF zaten 2 MB'tan küçükse olduğu gibi bırakılır ve daha da küçük istiyorsanız sınırı düşürebilirsiniz.",
+  "title": "PDF'yi 2 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "PDF'yi 2 MB'a nasıl sıkıştırırım?",
+    "a": "PDF'yi ekleyin, boyutu 2 MB'ta tutun ve 2 MB altına sıkıştır'a tıklayın."
+   },
+   {
+    "q": "Kaliteyi çok düşürür mü?",
+    "a": "Fazla değil. 2 MB için genellikle hafif bir sıkıştırma yeterlidir ve indirmeden önce ilk sayfayı karşılaştırabilirsiniz."
+   },
+   {
+    "q": "Telefonda çalışır mı?",
+    "a": "Evet, her modern tarayıcıda. Çok büyük PDF'ler telefonda daha yavaştır."
+   }
+  ]
+ },
+ "compress-png-under-10kb": {
+  "name": "PNG'yi 10 KB Altına Sıkıştırma",
+  "desc": "PNG'yi 10 KB altına sıkıştırın: şeffaf arka planlı ikonlar, küçük logolar ve imzalar. Boyutu seçin, önizleyin, indirin.",
+  "about": "PNG için 10 KB çok küçüktür, çünkü PNG her pikseli kayıpsız saklar. İkonlar, basit logolar, mühürler ve şeffaf arka planlı bir imza için işe yarar; fotoğraflar için yaramaz. Bu sayfa önce renk sayısını azaltır (256'dan 32'ye kadar); bu düz bir grafiğe neredeyse hiçbir şey kaybettirmez, ve ancak sonra piksel boyutunu küçültür. Şeffaf alanlar şeffaf kalır. Bir fotoğrafı 10 KB altına indirmeniz gerekiyorsa, JPG çok daha iyi görünür.",
+  "title": "PNG'yi 10 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 10 KB altına nasıl indiririm?",
+    "a": "PNG'yi ekleyin ve boyutu 10 KB'ta tutun. Sayfa, dosya sığana kadar renk sayısını ve gerekirse genişlik ile yüksekliği düşürür ve indirmeden önce sonucu gösterir."
+   },
+   {
+    "q": "Şeffaf arka plan kalır mı?",
+    "a": "Evet. Sonuç hâlâ bir PNG'dir ve şeffaflığını korur."
+   },
+   {
+    "q": "Ekran görüntüm neden hâlâ çok büyük?",
+    "a": "Ekran görüntüleri ve fotoğraflar çok sayıda renk ve ayrıntı içerir. 50 KB veya daha fazlasını deneyin ya da resmi JPG sayfasıyla JPG olarak kaydedin."
+   }
+  ]
+ },
+ "compress-png-under-20kb": {
+  "name": "PNG'yi 20 KB Altına Sıkıştırma",
+  "desc": "PNG'yi 20 KB altına indirin ve şeffaflığını koruyun. Boyutu ayarlayın, orijinalle karşılaştırın, indirin. Ücretsiz, tarayıcınızda.",
+  "about": "20 KB altında bir PNG; logo, düğme, rozet, küçük bir illüstrasyon veya imza taraması için gerçekçidir. Bir PNG'nin dosya boyutu resmin kaç renk kullandığına bağlıdır; bu yüzden araç önce paleti keser (düz grafiklerde neredeyse görünmez) ve boyutları yalnızca palet tek başına 20 KB'a ulaşamazsa küçültür. Önizleme şeffaf alanları gösterir, böylece neyi kaydedeceğinizi tam olarak görebilirsiniz.",
+  "title": "PNG'yi 20 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 20 KB'a nasıl sıkıştırabilirim?",
+    "a": "Dosyayı ekleyin, boyutu 20 KB'ta bırakın, önizlemeyi kontrol edin ve İndir'e tıklayın."
+   },
+   {
+    "q": "Renkleri azaltmak resmi çirkinleştirir mi?",
+    "a": "Logolar ve düz çizimlerde neredeyse görünmez. Fotoğraflar posterize bir görünüm alır, bu yüzden fotoğraflar için JPG kullanın."
+   },
+   {
+    "q": "PNG bir sunucuya yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda sıkıştırılır ve cihazınızda kalır."
+   }
+  ]
+ },
+ "compress-png-under-50kb": {
+  "name": "PNG'yi 50 KB Altına Sıkıştırma",
+  "desc": "Web siteleri ve formlar için PNG'yi 50 KB'tan küçük yapın, şeffaflığı koruyun. Boyutu seçin ve sonucu önizleyin.",
+  "about": "50 KB; web sitesi logoları, arayüz ikonları, favicon'lar ve küçük illüstrasyonlar için kullanışlı bir boyuttur. Bu boyutta çoğu düz grafik, 64 ile 256 renkli bir palet kullanarak temiz kenarlarını ve şeffaflığını korur. Sayfa önce en iyi paleti dener ve piksel boyutunu yalnızca dosya hâlâ çok büyükse küçültür. Metin içeren bir ekran görüntüsü 50 KB'ın epey üzerinde olabilir; sonuç küçülüp bulanıklaşırsa sınırı yükseltin.",
+  "title": "PNG'yi 50 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 50 KB altına nasıl indiririm?",
+    "a": "Ekleyin ve hedefi 50 KB'ta tutun. Sığan en iyi ayarlar sizin için seçilir."
+   },
+   {
+    "q": "Şeffaf bir logoyu 50 KB'ta koruyabilir miyim?",
+    "a": "Evet. Şeffaflık korunur ve çoğu logo kolayca sığar."
+   },
+   {
+    "q": "Resim bulanıklaşırsa ne olur?",
+    "a": "O zaman 50 KB, boyutuna göre çok azdır. 100 KB gibi daha yüksek bir sınır kullanın veya en büyük genişliği kendiniz azaltın."
+   }
+  ]
+ },
+ "compress-png-under-100kb": {
+  "name": "PNG'yi 100 KB Altına Sıkıştırma",
+  "desc": "PNG'yi şeffaflığı kaybetmeden 100 KB altına sıkıştırın. Boyutu seçin, önizlemeyi kontrol edin, ücretsiz indirin.",
+  "about": "100 KB; formlarda ve içerik sistemlerinde logolar, imzalar, kimlik görselleri ve grafikler için yaygın bir yükleme sınırıdır. Tipik bir PNG ekran görüntüsü 5 ile 20 kat daha büyüktür. 100 KB altına inmek için araç önce grafikleri net tutan renkleri azaltır, sonra gerekirse görsel boyutlarını küçültür. Her şey gerçek dosya boyutlarıyla bir öncesi ve sonrası önizlemesinde gösterilir ve şeffaf alanlar korunur.",
+  "title": "PNG'yi 100 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 100 KB'a nasıl küçültürüm?",
+    "a": "PNG'yi ekleyin, hedefi 100 KB'ta tutun ve önizleme doğru göründüğünde indirin."
+   },
+   {
+    "q": "PNG neden bu kadar kolay büyür?",
+    "a": "PNG her pikseli tam olarak korur, bu yüzden çok renkli fotoğraflar ve ekran görüntüleri büyüktür. Renkleri azaltmak onları küçülten şeydir."
+   },
+   {
+    "q": "Görselim güvende mi?",
+    "a": "Evet. Hiçbir şey yüklenmez; işlem tarayıcınızda gerçekleşir."
+   }
+  ]
+ },
+ "compress-png-under-150kb": {
+  "name": "PNG'yi 150 KB Altına Sıkıştırma",
+  "desc": "PNG'yi 150 KB altına indirin. Önce renkler azaltılır, böylece grafikler net kalır. Boyutu ayarlayın ve sonucu önizleyin.",
+  "about": "150 KB'ta bir PNG grafiği çok ayrıntı koruyabilir: şeffaf arka planlı ürün kesitleri, diyagramlar, grafikler ve arayüz taslakları. Araç renk sayısını adım adım düşürür ve piksel boyutunu yalnızca bu yetmediğinde küçültür. Dosyanız zaten 150 KB altındaysa değiştirilmeden geri verilir, bu yüzden boş yere kalite kaybetmezsiniz.",
+  "title": "PNG'yi 150 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 150 KB'a nasıl sıkıştırırım?",
+    "a": "Ekleyin, 150 KB'a ayarlayın (veya 150 KB düğmesine tıklayın) ve önizlemeden sonra indirin."
+   },
+   {
+    "q": "PNG'im zaten daha küçükse ne olur?",
+    "a": "O zaman olduğu gibi korunur."
+   },
+   {
+    "q": "Şeffaflıklı ürün görselleri için çalışır mı?",
+    "a": "Evet, şeffaf arka plan şeffaf kalır."
+   }
+  ]
+ },
+ "compress-png-under-200kb": {
+  "name": "PNG'yi 200 KB Altına Sıkıştırma",
+  "desc": "Web siteleri, e-posta ve formlar için PNG'yi 200 KB altına sıkıştırın. Boyutu seçin, sonucu karşılaştırın, indirin.",
+  "about": "200 KB; ayrıntılı bir logo, bir diyagram veya şeffaf arka planlı kesilmiş bir ürün resmi için yeterli yer bırakır. Tam ekran bir ekran görüntüsü PNG olarak çoğu zaman 1 ile 3 MB'tır, bu yüzden 200 KB'a inmek için daha küçük bir palete ve bazen daha küçük boyutlara ihtiyaç duyar. Bu sayfa, sınırın altında en güzel görünen sonucu veren ayarları seçer ve kaydetmeden önce orijinalle karşılaştırmanıza izin verir.",
+  "title": "PNG'yi 200 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 200 KB'a nasıl küçültürüm?",
+    "a": "Resmi ekleyin ve boyutu 200 KB'ta tutun. Önizlemeyi karşılaştırın ve indirin."
+   },
+   {
+    "q": "Ekran görüntüsü okunaklı kalır mı?",
+    "a": "Yazı çok küçük değilse genellikle evet. Bulanıksa 300 KB veya 500 KB deneyin."
+   },
+   {
+    "q": "Birçok PNG'yi aynı anda işleyebilir miyim?",
+    "a": "Evet. Hepsini ekleyin ve ZIP için Tümünü indir'i kullanın."
+   }
+  ]
+ },
+ "compress-png-under-300kb": {
+  "name": "PNG'yi 300 KB Altına Sıkıştırma",
+  "desc": "PNG'yi keskin tutarak 300 KB altına indirin. Boyutu ayarlayın, karşılaştırın, indirin. Şeffaflık korunur.",
+  "about": "300 KB; keskin görünmesi gereken web grafikleri için iyi bir boyuttur: metinli bannerlar, grafikler, ekran görüntüleri ve illüstrasyonlar. Araç önce zengin bir palet dener ve yalnızca gerektiğinde daha aşağı iner; böylece sınırın izin verdiği kadar renk korursunuz. Bu yetmezse görsel biraz küçültülür. Orijinali ve sonucu boyutlarıyla yan yana görürsünüz.",
+  "title": "PNG'yi 300 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 300 KB veya daha küçük nasıl yaparım?",
+    "a": "Ekleyin, 300 KB'ı seçin ve önizlemeyi kontrol ettikten sonra indirin."
+   },
+   {
+    "q": "Farkı görür müyüm?",
+    "a": "Düz grafiklerde neredeyse hiç. PNG'deki fotoğraflarda hafif bantlaşma görebilirsiniz ve orada JPG daha iyi bir seçimdir."
+   },
+   {
+    "q": "Dosya sayısında bir sınır var mı?",
+    "a": "Tek seferde 40 dosyaya kadar ekleyebilirsiniz."
+   }
+  ]
+ },
+ "compress-png-under-500kb": {
+  "name": "PNG'yi 500 KB Altına Sıkıştırma",
+  "desc": "E-posta ve yüklemeler için PNG'yi 500 KB altına sıkıştırın. Boyutu seçin, sonucu önizleyin, ücretsiz indirin.",
+  "about": "Yarım megabayt, web formlarında ve içerik sistemlerinde yüklemeler için yaygın bir sınırdır ve PNG olarak dışa aktarılmış tipik bir ekran görüntüsü veya grafik 1 ile 5 MB'tır. 500 KB'ta çoğu grafik yalnızca hafif bir renk azaltmaya ihtiyaç duyar ve keskin kenarlarını ile şeffaf alanlarını korur. Sayfa sınırın altındaki en iyi ayarları seçer ve alacağınız dosyanın gerçek boyutunu gösterir.",
+  "title": "PNG'yi 500 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "PNG'yi 500 KB altına nasıl indiririm?",
+    "a": "Dosyayı ekleyin, 500 KB düğmesine tıklayın ve önizlemeden sonra indirin."
+   },
+   {
+    "q": "Şeffaflığı kaybeder miyim?",
+    "a": "Hayır. Şeffaf alanlar şeffaf kalır."
+   },
+   {
+    "q": "PNG olarak kaydedilmiş bir fotoğraf ne olur?",
+    "a": "PNG'deki fotoğraflar büyüktür. Aynı görünümde çok daha küçük bir dosya için onları JPG olarak sıkıştırın."
+   }
+  ]
+ },
+ "compress-png-under-1mb": {
+  "name": "PNG'yi 1 MB Altına Sıkıştırma",
+  "desc": "PNG'yi neredeyse görünür değişiklik olmadan 1 MB altına indirin. Boyutu ayarlayın, orijinalle karşılaştırın, indirin.",
+  "about": "1 MB; formlar, bilet sistemleri ve e-posta ağ geçitleri için tipik bir sınırdır. PNG olarak büyük bir ekran görüntüsü veya yüksek çözünürlüklü bir grafik 3 ile 10 MB olabilir, ama genellikle göremeyeceğiniz hafif bir renk azaltmayla 1 MB altına iner. Araç sığan en zengin paleti kullanır ve boyutları yalnızca son çare olarak küçültür. PNG'niz zaten 1 MB altındaysa dokunulmaz.",
+  "title": "PNG'yi 1 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "PNG'yi 1 MB'a nasıl sıkıştırırım?",
+    "a": "Resmi ekleyin, 1 MB'ı seçin ve önizleme doğru göründüğünde indirin."
+   },
+   {
+    "q": "Aynı görünür mü?",
+    "a": "Çoğu grafik için evet. Önizleme, kaydetmeden önce kontrol etmenizi sağlar."
+   },
+   {
+    "q": "1,5 MB gibi bir boyut yazabilir miyim?",
+    "a": "Evet. Herhangi bir değer yazın ve birimi KB ile MB arasında değiştirin."
+   }
+  ]
+ },
+ "compress-png-under-2mb": {
+  "name": "PNG'yi 2 MB Altına Sıkıştırma",
+  "desc": "Web siteleri ve yüklemeler için PNG'yi neredeyse hiç görünür değişiklik olmadan 2 MB altına sıkıştırın. Ücretsiz ve özel.",
+  "about": "Birçok site ve e-posta hizmeti 2 MB üzerindeki dosyaları reddeder; retina ekran görüntüsü veya büyük bir dışa aktarılmış grafik ise PNG olarak çoğu zaman 5 ile 15 MB'tır. 2 MB altına inmek genellikle yalnızca hafif bir palet azaltması gerektirir, bu yüzden resim neredeyse aynı görünür ve eskiden şeffaf olduğu yerlerde şeffaf kalır. Dosya zaten 2 MB altındaysa değiştirilmeden geri verilir.",
+  "title": "PNG'yi 2 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "PNG'yi 2 MB altına nasıl indiririm?",
+    "a": "Ekleyin, boyutu 2 MB'ta tutun ve önizlemeye bir göz attıktan sonra indirin."
+   },
+   {
+    "q": "Ne kadar kalite kaybedilir?",
+    "a": "Çok az. Renk sayısı yalnızca gerektiği kadar azaltılır."
+   },
+   {
+    "q": "Telefonda çalışır mı?",
+    "a": "Evet, her modern tarayıcıda. Çok büyük görseller telefonda daha uzun sürer."
+   }
+  ]
+ },
+ "compress-jpeg-under-10kb": {
+  "name": "JPEG'i 10 KB Altına Sıkıştırma",
+  "desc": "İmza gibi küçücük yüklemeler için JPEG'i 10 KB altına sıkıştırın. İndirmeden önce sonucu görün. Tarayıcınızda çalışır.",
+  "about": "Bazı formlar, genellikle bir imza veya küçük bir mühür için, en fazla 10 KB'lık bir JPEG ister. .jpeg dosyası, .jpg dosyasıyla tamamen aynı biçimdir, bu yüzden bu sayfa ikisinde de çalışır. 10 KB'a ulaşmak için araç kaliteyi düşürür ve büyük bir resim hiçbir kalitede 10 KB'a sığmayacağı için resmi küçültür. Eklemeden önce imzanın etrafından sıkı kırpın: daha az piksel, daha net sonuç demektir.",
+  "title": "JPEG'i 10 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 10 KB'a nasıl küçültürüm?",
+    "a": ".jpeg dosyanızı ekleyin ve boyutu 10 KB'ta tutun. Önizleme sonucu ve tam boyutunu gösterir."
+   },
+   {
+    "q": ".jpeg, .jpg'den farklı mı?",
+    "a": "Hayır. Aynı biçimdir; yalnızca uzantı farklıdır."
+   },
+   {
+    "q": "Bir yüz fotoğrafı 10 KB'a sığar mı?",
+    "a": "Çok küçük bir tanesi sığar ama yumuşak olur. Fotoğraflar için 20 KB ile 50 KB daha iyi çalışır."
+   }
+  ]
+ },
+ "compress-jpeg-under-20kb": {
+  "name": "JPEG'i 20 KB Altına Sıkıştırma",
+  "desc": "Sınav ve başvuru formları için JPEG'i 20 KB'tan küçük yapın. Boyutu seçin, önizleyin, indirin.",
+  "about": "20 KB, başvuru formlarında küçük bir fotoğraf veya imza için yaygın bir sınırdır. Sayfa JPEG'i önce iyi bir kaliteyle kodlar ve kaliteyi düşürür, sonra dosya 20 KB'ın hemen altına inene kadar piksel boyutunu küçültür. Bir yüz fotoğrafı için böyle bir alanda birkaç yüz piksel genişlik yeterlidir. Birkaç JPEG ekleyin ve her biri sınıra uydurulmuş olarak hepsini ZIP içinde indirin.",
+  "title": "JPEG'i 20 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 20 KB'a nasıl sıkıştırabilirim?",
+    "a": "Resmi ekleyin, boyutu 20 KB'ta bırakın, önizlemeyi kontrol edin ve indirin."
+   },
+   {
+    "q": "Sonuç hâlâ JPEG olur mu?",
+    "a": "Evet, sonuç her formun kabul ettiği standart bir JPEG dosyasıdır."
+   },
+   {
+    "q": "Birçok dosyayı aynı anda yapabilir miyim?",
+    "a": "Evet. 40'a kadar ekleyin ve Tümünü indir'i kullanın."
+   }
+  ]
+ },
+ "compress-jpeg-under-50kb": {
+  "name": "JPEG'i 50 KB Altına Sıkıştırma",
+  "desc": "Profil resimleri ve kimlik yüklemeleri için JPEG'i 50 KB altına indirin. Boyutu seçin ve önce önizlemeyi kontrol edin.",
+  "about": "50 KB'lık bir JPEG, web portallarında profil resimleri, kimlik fotoğrafları ve belge taramaları için yaygın bir boyuttur. Araç 50 KB altında kalan en yüksek kaliteyi arar ve büyük resimleri küçültür; çünkü birkaç megapiksellik bir kamera fotoğrafı yalnızca kaliteyle 50 KB'a sıkıştırılamaz. Sonuç orijinalinizin yanında gösterilir, böylece yüzü veya metni kontrol edebilirsiniz.",
+  "title": "JPEG'i 50 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 50 KB altına nasıl indiririm?",
+    "a": "Ekleyin ve hedefi 50 KB'ta tutun. Sığan en iyi kalite sizin için seçilir."
+   },
+   {
+    "q": "Resmin oranlarını korur mu?",
+    "a": "Evet. Resim küçültüldüğünde genişlik ve yükseklik birlikte küçülür."
+   },
+   {
+    "q": "Sonucum neden tam 50 KB değil?",
+    "a": "Sınırın hemen altındadır, çünkü sığan en yüksek kalite seçilir."
+   }
+  ]
+ },
+ "compress-jpeg-under-100kb": {
+  "name": "JPEG'i 100 KB Altına Sıkıştırma",
+  "desc": "İş, KYC ve kayıt formları için JPEG'i 100 KB altına sıkıştırın. Boyutu ayarlayın, önizleyin, ücretsiz indirin.",
+  "about": "100 KB, birçok iş, banka ve üniversite portalının fotoğraf veya belge yüklemesi için koyduğu sınırdır. Telefon fotoğrafları 3 ile 8 MB olduğundan sert sıkıştırılmaları gerekir ve bu sayfa bunu, sınırın izin verdiği kadar ayrıntıyı bırakan bir kalite aramasıyla yapar. Resim düşük kalitede bile çok büyükse ayrıca küçültülür. Orijinaliniz sonucun yanında gerçek boyutlarla gösterilir.",
+  "title": "JPEG'i 100 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 100 KB'a nasıl küçültürüm?",
+    "a": ".jpeg dosyasını ekleyin, 100 KB'ı koruyun ve önizleme doğru göründüğünde indirin."
+   },
+   {
+    "q": "Fotoğraflanmış bir belge okunaklı kalır mı?",
+    "a": "Yazı büyükse genellikle kalır. Değilse 150 KB veya 200 KB deneyin."
+   },
+   {
+    "q": "Ücretsiz ve özel mi?",
+    "a": "Evet. Tarayıcınızda çalışır ve dosya yüklenmez."
+   }
+  ]
+ },
+ "compress-jpeg-under-150kb": {
+  "name": "JPEG'i 150 KB Altına Sıkıştırma",
+  "desc": "Yüzleri ve yazıyı net tutarak JPEG'i 150 KB'tan küçük yapın. Boyutu seçin, karşılaştırın, indirin.",
+  "about": "150 KB'lık bir JPEG birçok başvuru formunun ve pazar yerinin kurallarına uyar ve 100 KB'lık olandan belirgin şekilde daha fazla ayrıntıyı korur. Araç kaliteyi yalnızca gerektiği kadar düşürür ve zaten 150 KB altındaki dosyalara dokunmaz. Resmin daha yüksek veya daha düşük bir sınırda nasıl değiştiğini görmek istiyorsanız kaydırıcıyı kullanın.",
+  "title": "JPEG'i 150 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "JPEG'i nasıl 150 KB yaparım?",
+    "a": "Ekleyin, 150 KB'a tıklayın ve önizlemeyi kontrol edin."
+   },
+   {
+    "q": "JPEG'im zaten 150 KB'tan küçükse ne olur?",
+    "a": "Olduğu gibi korunur."
+   },
+   {
+    "q": "Sınırı sonradan değiştirebilir miyim?",
+    "a": "Evet. Kaydırıcıyı oynatın veya yeni bir boyut yazın; önizleme güncellenir."
+   }
+  ]
+ },
+ "compress-jpeg-under-200kb": {
+  "name": "JPEG'i 200 KB Altına Sıkıştırma",
+  "desc": "Formlar, e-posta ve yüklemeler için JPEG'i 200 KB altına indirin. Boyutu ayarlayın, sonucu önizleyin, ücretsiz.",
+  "about": "200 KB; portreler, sertifikalar ve taranmış sayfalar için rahat bir sınırdır ve birçok portal bunu kullanır. Bu boyutta bir JPEG ekranda göze temiz görünür. Sayfa 200 KB altındaki en iyi kaliteyi bulur ve tam sonuç boyutunu söyler; resim çok büyükse ayrıca biraz küçültülür. Öncesi ve sonrası görünümü sonucu değerlendirmenizi sağlar.",
+  "title": "JPEG'i 200 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 200 KB'a nasıl sıkıştırırım?",
+    "a": "Ekleyin, boyut olarak 200 KB'ı koruyun ve önizlemeden sonra indirin."
+   },
+   {
+    "q": "200 KB iyi görünür mü?",
+    "a": "Ekran kullanımı için evet. Büyük baskı için tasarlanmamıştır."
+   },
+   {
+    "q": "Toplu sıkıştırabilir miyim?",
+    "a": "Evet ve hepsini birlikte ZIP olarak indirebilirsiniz."
+   }
+  ]
+ },
+ "compress-jpeg-under-300kb": {
+  "name": "JPEG'i 300 KB Altına Sıkıştırma",
+  "desc": "JPEG'i çok az görünür kayıpla 300 KB altına sıkıştırın. Boyutu seçin, orijinalle karşılaştırın.",
+  "about": "300 KB; bir portrede, ürün resminde veya taranmış sertifikada iyi ayrıntıyı korur. Telefondan gelen bir .jpeg genellikle 10 ile 30 kat daha büyüktür ve fark ekranda zor görülür. Bu sayfa 300 KB altına sığan en yüksek kaliteyi arar ve boyutları yalnızca kalite tek başına yetmezse azaltır.",
+  "title": "JPEG'i 300 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 300 KB altına nasıl indiririm?",
+    "a": "Ekleyin, 300 KB'ı seçin ve indirin."
+   },
+   {
+    "q": "Bir web sitesi için yeterince iyi mi?",
+    "a": "Evet, içerik görselleri için iyidir. Ana sayfa bannerları 500 KB isteyebilir."
+   },
+   {
+    "q": "Dosyalarım cihazımdan çıkıyor mu?",
+    "a": "Hayır. Her şey tarayıcınızda çalışır."
+   }
+  ]
+ },
+ "compress-jpeg-under-500kb": {
+  "name": "JPEG'i 500 KB Altına Sıkıştırma",
+  "desc": "WhatsApp ve e-posta için JPEG'i 500 KB altına indirin. Boyutu ayarlayın, sonucu önizleyin, indirin.",
+  "about": "500 KB'lık bir JPEG WhatsApp, e-posta ve çoğu yükleme formu için yeterince küçük, tam ekran bir resmin hâlâ iyi görünmesi için yeterince büyüktür. Çoğu fotoğrafın oraya varmak için yalnızca hafif bir sıkıştırmaya ihtiyacı vardır. Araç her iki sürümü boyutlarıyla gösterir ve zaten 500 KB altındaki dosyaları olduğu gibi korur.",
+  "title": "JPEG'i 500 KB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "JPEG'i 500 KB altına nasıl indiririm?",
+    "a": "Ekleyin, 500 KB düğmesine tıklayın ve indirin."
+   },
+   {
+    "q": "Farklı görünür mü?",
+    "a": "Telefon veya dizüstü ekranında genellikle hayır."
+   },
+   {
+    "q": "WhatsApp'tan gönderebilir miyim?",
+    "a": "Evet, 500 KB'lık bir resim zayıf bağlantıda bile hızlı gider."
+   }
+  ]
+ },
+ "compress-jpeg-under-1mb": {
+  "name": "JPEG'i 1 MB Altına Sıkıştırma",
+  "desc": "JPEG'i neredeyse hiç görünür kayıp olmadan 1 MB altına sıkıştırın. Boyutu seçin, önizleyin, ücretsiz indirin.",
+  "about": "1 MB, birçok web formunun ve destek sisteminin sınırıdır. .jpeg olarak modern bir telefon fotoğrafı 3 ile 8 MB olduğundan orta düzeyde bir sıkıştırma gerekir ve bu nadiren belli olur. Sayfa 1 MB altına sığan en yüksek kaliteyi seçer ve daha küçük dosyalara dokunmaz; böylece boş yere hiçbir şey yeniden sıkıştırılmaz.",
+  "title": "JPEG'i 1 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "JPEG'i 1 MB'a nasıl sıkıştırırım?",
+    "a": "Fotoğrafı ekleyin, 1 MB'ı seçin ve önizlemeyi karşılaştırın."
+   },
+   {
+    "q": "Resim aynı görünür mü?",
+    "a": "Çoğu fotoğraf için evet."
+   },
+   {
+    "q": "0,8 MB yazabilir miyim?",
+    "a": "Evet. Herhangi bir sayı yazın ve KB veya MB seçin."
+   }
+  ]
+ },
+ "compress-jpeg-under-2mb": {
+  "name": "JPEG'i 2 MB Altına Sıkıştırma",
+  "desc": "E-posta ve yüklemeler için JPEG'i neredeyse tam kaliteyi koruyarak 2 MB altına indirin. Boyutu ayarlayın, önizleyin, indirin.",
+  "about": "Web siteleri ve e-posta hizmetleri çoğu zaman 2 MB'ta durur, oysa bir telefon fotoğrafı 5 ile 10 MB olabilir. Hafif bir sıkıştırma, bir .jpeg dosyasını neredeyse hiç görünür değişiklik olmadan 2 MB altına indirir. Bu sayfa sığan en yüksek kaliteyi korur ve zaten 2 MB altındaki bir fotoğraf olduğu gibi bırakılır.",
+  "title": "JPEG'i 2 MB Altına Sıkıştır Online Ücretsiz | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "JPEG'i 2 MB altına nasıl indiririm?",
+    "a": "Ekleyin, hedefi 2 MB'ta tutun ve indirin."
+   },
+   {
+    "q": "Kalite kaybedilir mi?",
+    "a": "Yalnızca biraz; hafif bir sıkıştırma yeterlidir."
+   },
+   {
+    "q": "Fotoğrafım 20 MB ise ne olur?",
+    "a": "O da olur: dosya sığana kadar kalite ve gerekirse piksel boyutu düşürülür."
+   }
+  ]
+ },
+ "add-watermark-to-pdf": {
+  "name": "PDF'ye Filigran Ekleme",
+  "desc": "PDF'in her sayfasına metin veya logo damgası vurun: eğim, boyut, opaklık ve konum sizin elinizde.",
+  "about": "PDF'yi GİZLİ, TASLAK olarak veya şirket logonuzla işaretleyin. Metin veya görsel, ne kadar büyük ve eğik olacağı, ne kadar saydam olacağı ve nereye konacağı: orta, bir köşe veya tüm sayfaya tekrarlanmış. Bazı sayfalarla sınırlayabilirsiniz. Metin, tarayıcınızın gösterebildiği her dilde çalışır ve PDF cihazınızdan çıkmaz.",
+  "title": "PDF'ye Filigran Ekleme Online Ücretsiz | Toolz Baba",
+  "tab": "PDF"
+ },
+ "add-watermark-to-video": {
+  "name": "Videoya Filigran Ekleme",
+  "desc": "Videoya adınızı, metninizi veya logonuzu koyun: konumu, boyutu ve opaklığı seçin.",
+  "about": "Metin veya logo filigranı ekleyerek videolarınızı koruyun. Nereye konacağını (herhangi bir köşe, üst, alt veya orta), ne kadar büyük ve ne kadar saydam olacağını seçin. En temiz görünüm için şeffaf arka planlı bir PNG logo yükleyin. Video tarayıcınızda yeniden kodlanır, bu yüzden hiçbir şey yüklenmez.",
+  "title": "Videoya Filigran Ekleme Online Ücretsiz | Toolz Baba",
+  "metaDesc": "Videoya metin veya logo filigranı ekleyin: konumu, boyutu ve opaklığı ayarlayın, sonra indirin. Ücretsiz, üyeliksiz; videonuz cihazınızda kalır.",
+  "tab": "Video"
+ },
+ "blur-redact-pdf": {
+  "name": "PDF Bulanıklaştırma ve Karartma",
+  "desc": "PDF'deki adları, numaraları ve yüzleri gizleyin: sayfaya kutular çizin ve kalıcı olarak karartın veya bulanıklaştırın.",
+  "about": "Telefon numarası, kimlik, hesap numarası veya imza gibi özel her şeyin üzerine kutular çizin ve siyah kutu, beyaz kutu, bulanıklık veya pikselleştirmeyle kapatın. Kutuların altındaki metin ve resimler dosyanın kendisinden kaldırılır, bu yüzden sonradan kopyalanamaz veya geri getirilemez. PDF'iniz tarayıcınızda işlenir ve hiçbir zaman yüklenmez.",
+  "title": "PDF Bulanıklaştırma ve Karartma Online Ücretsiz | Toolz Baba",
+  "tab": "PDF bulanıklaştırma ve karartma"
+ },
+ "linkedin-carousel-maker": {
+  "name": "LinkedIn Karusel Oluşturucu",
+  "desc": "Slaytlarınızı metin olarak yazın ve paylaşıma hazır bir LinkedIn karuselini PDF olarak, ayrıca PNG slaytlar olarak alın.",
+  "about": "Slaytlarınızı üç tireli bir satırla ayırarak yazın veya yapıştırın. Her slaytın ilk satırı başlığıdır, gerisi metindir; madde işareti için satıra tire ile başlayın. Bir renk teması, yazı tipi ve slayt boyutu seçin, adınızı ve fotoğrafınızı ekleyin ve LinkedIn'e belge olarak yüklemek için bir PDF ya da slaytları PNG resim olarak indirin. Her şey tarayıcınızda yapılır.",
+  "title": "LinkedIn Karusel Oluşturucu Online Ücretsiz | Toolz Baba",
+  "tab": "LinkedIn karuseli"
+ },
+ "instagram-image-carousel-splitter": {
+  "name": "Instagram Karusel Bölücü",
+  "desc": "Tek geniş resmi kesintisiz Instagram karusel slaytlarına (2 ile 10) bölün, sırayla paylaşıma hazır.",
+  "about": "Bir panoramayı, bannerı veya uzun bir ekran görüntüsünü, resmin bir slayttan diğerine devam ettiği kaydırılabilir bir Instagram karuseline çevirin. Kaç slayt olacağını (araç en iyi sayıyı önerir), slayt şeklini (4:5 dikey, kare veya yatay) ve slaytları doldurmayı mı yoksa tüm resmi bulanık bir arka planda göstermeyi mi seçin. Slaytları ZIP içinde numaralı dosyalar olarak ya da tek tek alırsınız.",
+  "title": "Instagram Karusel Bölücü Online Ücretsiz | Toolz Baba",
+  "tab": "Instagram karuseli"
+ },
+ "ai-headshot-generator": {
+  "name": "Yapay Zeka Profil Fotoğrafı Oluşturucu",
+  "desc": "Sıradan bir fotoğrafı temiz, profesyonel bir profil fotoğrafına çevirin: yapay zeka yüzünüzü bulur, arka planı değiştirir ve sizi baş ve omuz kadrajına alır.",
+  "about": "Bir selfie veya kendinize ait herhangi bir fotoğraf yükleyin ve LinkedIn, özgeçmiş veya şirket sayfası için derli toplu bir profil resmi alın. Yapay zeka yüzünüzü bulur, sizi keser, bir stüdyo arka planına (gri, bej, mavi, koyu, beyaz, bulanık veya kendi renginiz) koyar ve sizi kare veya 4:5 biçiminde baş ve omuz kadrajına alır; isteğe bağlı hafif rötuşla. Kendi fotoğrafınızı kullanır, yeni bir yüz uydurmaz ve her şey cihazınızda çalışır, bu yüzden fotoğraf hiçbir zaman yüklenmez.",
+  "title": "Yapay Zeka Profil Fotoğrafı Oluşturucu Online Ücretsiz | Toolz Baba",
+  "tab": "Yapay zeka profil fotoğrafı"
+ },
+ "video-to-text": {
+  "name": "Videodan Metne (Yazıya Dökme)",
+  "desc": "Bir video veya ses dosyasında söylenenleri altyazılarla (SRT, VTT) metne çevirin. Yapay zeka tarayıcınızda çalışır.",
+  "about": "Bir videonun, dersin, röportajın, toplantı kaydının veya sesli mesajın dökümünü alın. Whisper konuşma yapay zekası kendi cihazınızda çalışır, bu yüzden dosya hiçbir zaman yüklenmez. İngilizce ve Hintçe dahil birçok dili anlar, dili kendisi algılayabilir, İngilizceye çevirebilir ve size düz metnin yanı sıra zaman damgalı SRT ve VTT altyazı dosyaları verir. İlk kullanımda model bir kez indirilir (40 veya 80 MB).",
+  "title": "Videodan Metne (Yazıya Dökme) Online Ücretsiz | Toolz Baba",
+  "tab": "Videodan metne"
+ },
+ "text-to-audio": {
+  "name": "Metinden Sese (Konuşma Sentezi)",
+  "desc": "Yazılı metni İngilizce veya Hintçe konuşulan sese çevirin ve WAV ya da MP3 olarak kaydedin. Tarayıcınızda çalışır.",
+  "about": "Metninizi yapıştırın veya yazın, bir yapay zeka sesiyle sesli okunmasını sağlayın, sonra sesi WAV veya MP3 dosyası olarak indirin. İngilizce ve Hintçe sesler mevcuttur. Ses ilk seferde tarayıcınıza indirilir (yaklaşık 38 MB) ve her şey cihazınızda çalışır, bu yüzden metniniz hiçbir yere gönderilmez. Ses net ama biraz robotiktir; bu da anlatım, notlar ve erişilebilirlik için uygundur.",
+  "title": "Metinden Sese (Konuşma Sentezi) Online Ücretsiz | Toolz Baba",
+  "tab": "Metinden sese"
+ },
+ "video-to-audio": {
+  "name": "Videodan Sese Dönüştürücü",
+  "desc": "Videodan sesi çıkarın ve MP3, M4A, WAV, OGG veya FLAC olarak kaydedin. Tarayıcınızda çalışır.",
+  "about": "MP4, MOV, MKV veya WebM dosyası gibi herhangi bir videodan ses parçasını çıkarın ve MP3, M4A, WAV, OGG veya FLAC olarak kaydedin. MP3, M4A ve OGG için kaliteyi seçebilir ve birkaç videoyu aynı anda dönüştürebilirsiniz. Videonuz kendi cihazınızda işlenir ve hiçbir zaman yüklenmez.",
+  "title": "Videodan Sese Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "Videodan sese"
+ },
+ "mp4-to-mp3": {
+  "name": "MP4'ten MP3'e Dönüştürücü",
+  "desc": "MP4 videoyu tarayıcınızda MP3 sese dönüştürün. Kaliteyi seçin; hiçbir şey yüklenmez.",
+  "about": "Birkaç tıkla bir MP4 videoyu MP3 dosyasına çevirin: videoyu ekleyin, bir kalite seçin (192 kbps iyi bir varsayılandır, 320 kbps en iyisidir) ve MP3'ü indirin. Müzik videoları, dersler, röportajlar ve kayıtların hepsi çalışır ve birkaç dosya aynı anda dönüştürülebilir. Dönüştürme kendi cihazınızda, yükleme olmadan ve bizden gelen bir dosya boyutu sınırı olmadan çalışır.",
+  "title": "MP4'ten MP3'e Dönüştürücü Online Ücretsiz: Ses Çıkar | Toolz Baba",
+  "metaDesc": "MP4 videoyu tarayıcınızda MP3 sese dönüştürün. 320 kbps'ye kadar kaliteyi seçin ve birkaç dosyayı aynı anda dönüştürün. Ücretsiz, hiçbir şey yüklenmez.",
+  "tab": "MP4'ten MP3'e"
+ },
+ "ocr-pdf": {
+  "name": "PDF OCR: Taranmış PDF'den Metne",
+  "desc": "Taranmış bir PDF'deki metni okuyun ve kopyalayın ya da .txt dosyası olarak kaydedin. İngilizce ve Hintçe. Tarayıcınızda çalışır.",
+  "about": "Taranmış bir PDF yalnızca sayfa resimlerinden oluşur, bu yüzden metnini seçemez veya arayamazsınız. OCR (optik karakter tanıma) bu resimleri okur ve kopyalayabileceğiniz, düzenleyebileceğiniz veya kaydedebileceğiniz metne geri çevirir. Taranmış bir PDF ekleyin, İngilizce, Hintçe veya ikisini birden seçin ve sonucu kopyalayın ya da .txt dosyası olarak kaydedin. OCR tarayıcınızda çalışır, bu yüzden belge yüklenmez.",
+  "title": "PDF OCR Online Ücretsiz: Taranmış PDF'den Metne, Hintçe | Toolz Baba",
+  "tab": "PDF OCR",
+  "faq": [
+   {
+    "q": "Taranmış bir PDF'den metin nasıl kopyalanır?",
+    "a": "PDF'yi buraya ekleyin, dili seçin ve OCR'ı başlatın. Bittiğinde metni kopyalayın veya .txt dosyası olarak kaydedin."
+   },
+   {
+    "q": "Hintçeyi okur mu?",
+    "a": "Evet. Hintçeyi veya her ikisini karıştıran belgeler için İngilizce ile Hintçeyi birlikte seçin."
+   },
+   {
+    "q": "Ne kadar doğru?",
+    "a": "Basılı metnin temiz, düz taramaları çok iyi çıkar. El yazısı, bulanık fotoğraflar ve eğik sayfalar daha çok hataya yol açar."
+   },
+   {
+    "q": "Kaç sayfa okuyabilir?",
+    "a": "Her PDF'nin ilk 30 sayfasını okur. Daha uzun bir belge için önce PDF Bölme ile parçalara ayırın."
+   }
+  ]
+ },
+ "split-video": {
+  "name": "Video Bölme",
+  "desc": "Videoyu eşit parçalara veya belirli uzunlukta parçalara bölün. Parçaları ZIP olarak alırsınız.",
+  "about": "Uzun bir videoyu daha kısa kliplere bölün; örneğin WhatsApp durumu veya Instagram hikayeleri için 30 saniyelik parçalara ya da 2 ile 100 eşit parçaya. Hızlı mod yeniden kodlamadan keser, bu yüzden çabuk biter ve orijinal kaliteyi korur; doğru mod, tam kesim noktaları için yeniden kodlar. Her şey tarayıcınızda çalışır.",
+  "title": "Videoyu Online Ücretsiz Böl | Toolz Baba",
+  "metaDesc": "Uzun bir videoyu eşit parçalara veya WhatsApp durumu için 30 saniye gibi belirli uzunlukta parçalara bölün ve ZIP olarak alın. Ücretsiz ve özel.",
+  "tab": "Video bölme"
+ },
+ "merge-audio": {
+  "name": "Ses Dosyalarını Birleştirme",
+  "desc": "Birkaç ses dosyasını seçtiğiniz sırayla, aralarında isteğe bağlı bir boşlukla tek dosyada birleştirin.",
+  "about": "MP3, WAV, M4A, FLAC veya OGG dosyalarını tek bir parçada birleştirin. Oklarla sıraya koyun, isterseniz aralarına kısa bir sessizlik ekleyin ve sonucu MP3, M4A, WAV, OGG veya FLAC olarak kaydedin. Farklı örnekleme hızlarına sahip dosyalar otomatik olarak eşleştirilir. Sesiniz cihazınızdan hiç çıkmaz.",
+  "title": "Ses Dosyalarını Online Ücretsiz Birleştir | Toolz Baba",
+  "tab": "Ses birleştirme"
+ },
+ "color-palette-generator": {
+  "name": "Renk Paleti Oluşturucu",
+  "desc": "Bir renk seçin ve uyumlu bir palet alın: tamamlayıcı, komşu, üçlü ve daha fazlası, ton ölçeğiyle.",
+  "about": "Herhangi bir renkten başlayın ve renk teorisi kurallarını kullanarak birlikte iyi çalışan bir palet oluşturun: tamamlayıcı, komşu, üçlü, dörtlü, bölünmüş tamamlayıcı veya tek tonlu monokrom. Her rengin HEX, RGB ve HSL değerlerini ve üzerinde siyah veya beyaz yazının ne kadar okunaklı olduğunu görün, 50 ile 900 arası bir ton ölçeği alın ve paleti HEX, CSS değişkenleri, JSON veya Tailwind renkleri olarak kopyalayın ya da görsel olarak kaydedin.",
+  "title": "Renk Paleti Oluşturucu Online Ücretsiz | Toolz Baba",
+  "tab": "Palet oluşturucu"
+ },
+ "website-color-palette-extractor": {
+  "name": "Web Sitesi Renk Paleti Çıkarıcı",
+  "desc": "Bir web sitesi adresi yazın ve tasarımının gerçekten kullandığı renkleri, kopyalayabileceğiniz HEX kodlarıyla alın.",
+  "about": "Herhangi bir herkese açık web sitesinin marka renklerini bulun: adresini girin; araç sayfayı ve stil sayfalarını okur, her rengi sayar, arka planlar, metin ve tema ayarları için kullanılanlara daha fazla ağırlık verir ve ana renkleri HEX ve RGB değerleriyle gösterir. Vurgu renklerini görmek için beyazı, siyahı ve grileri gizleyin, sonra bunları liste, CSS değişkenleri veya JSON olarak kopyalayın. Tüm görünümünü JavaScript ile çizen siteler daha az renk gösterebilir.",
+  "title": "Web Sitesi Renk Paleti Çıkarıcı Online Ücretsiz | Toolz Baba",
+  "tab": "Web sitesinden",
+  "privacy": "Sunucumuz adını verdiğiniz herkese açık sayfayı alır ve yalnızca renk listesini geri gönderir. Hiçbir şey saklanmaz.",
+  "privacyTitle": "Yalnızca herkese açık sayfalar",
+  "badge": "Herkese açık sayfaları okur",
+  "how": [
+   "Web sitesi adresini <b>yazın</b>",
+   "Tasarımının kullandığı renkleri <b>görün</b>",
+   "İstediklerinizi <b>kopyalayın</b>"
+  ]
+ },
+ "temporary-file-upload-direct-link-share": {
+  "name": "Geçici Dosya Paylaşımı (Doğrudan Bağlantı)",
+  "desc": "Bir dosya yükleyin ve bir saat, bir gün, bir hafta veya bir ay sonra kendiliğinden sona eren doğrudan bir indirme bağlantısı alın.",
+  "about": "E-posta eki veya hesap olmadan dosya paylaşın: en fazla 5 dosya yükleyin (her biri 20 MB), bağlantının ne kadar süre çalışacağını seçin ve doğrudan bağlantıyı gönderin. Bağlantıya sahip herkes süresi dolana kadar dosyayı indirebilir ve siz onu daha erken silebilirsiniz. Programlara, komut dosyalarına ve web sayfalarına izin verilmez, dosyalar her zaman indirilir ve site içinde asla açılmaz, ve seçtiğiniz süreden sonra hiçbir şey saklanmaz.",
+  "title": "Geçici Dosya Paylaşımı (Doğrudan Bağlantı) Online Ücretsiz | Toolz Baba",
+  "tab": "Geçici dosya paylaşımı",
+  "privacy": "Dosyalar bağlantının süresi dolana kadar Cloudflare'de saklanır. Bağlantıya sahip herkes dosyayı indirebilir, bu yüzden özel hiçbir şey yüklemeyin.",
+  "privacyTitle": "Bağlantıyla paylaşılır",
+  "badge": "Dosyaların süresi otomatik dolar",
+  "how": [
+   "<b>Dosyalarınızı ekleyin</b> (en fazla 5, her biri 20 MB)",
+   "Bağlantının ne kadar süre çalışacağını <b>seçin</b>",
+   "Doğrudan bağlantıyı <b>kopyalayın</b> ve paylaşın"
+  ]
+ },
+ "markdown-to-pdf": {
+  "name": "Markdown'dan PDF'ye",
+  "desc": "Markdown'ı temiz bir PDF'ye çevirin. Yazın veya yapıştırın, önizlemeyi görün, sayfa boyutunu seçin ve indirin.",
+  "about": "Markdown yazın veya yapıştırın (başlıklar, listeler, tablolar, kod, alıntılar ve bağlantılar) ve derli toplu bir PDF alın. A4 veya US Letter'ı, yazı tipini (modern veya kitap benzeri), metin boyutunu ve kenar boşluklarını seçin. Hintçe ve diğer Hint alfabeleri de çalışır. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "Markdown'dan PDF'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "Markdown'dan PDF'ye",
+  "faq": [
+   {
+    "q": "Markdown dosyasını PDF'ye nasıl dönüştürürüm?",
+    "a": ".md dosyasını yükleyin veya metnini yapıştırın, önizlemeyi kontrol edin, sayfa boyutunu seçin ve PDF Oluştur'a tıklayın. PDF cihazınızda oluşturulur."
+   },
+   {
+    "q": "Tablolar ve kod blokları korunur mu?",
+    "a": "Evet. Tablolar, kod blokları, alıntılar, listeler, bağlantılar ve başlıkların hepsi PDF'de yer alır. Webden gelen resimler eklenmez; veri adresi olarak yazılmış resimler eklenir."
+   }
+  ]
+ },
+ "markdown-to-html": {
+  "name": "Markdown'dan HTML'ye",
+  "desc": "Markdown'ı açabileceğiniz, paylaşabileceğiniz veya yükleyebileceğiniz eksiksiz bir web sayfasına çevirin. Canlı önizleme, üyelik yok.",
+  "about": "Markdown yapıştırın veya yükleyin ve kendi temiz stiliyle, tarayıcıda açmaya veya bir web sitesine koymaya hazır eksiksiz bir HTML sayfası alın. HTML'i kopyalayabilirsiniz de. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "Markdown'dan HTML'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "Markdown'dan HTML'ye",
+  "faq": [
+   {
+    "q": "İndirmek yerine HTML'i kopyalayabilir miyim?",
+    "a": "Evet. Dönüştürdükten sonra HTML, sonucun altında bir Kopyala düğmesiyle gösterilir."
+   },
+   {
+    "q": "Sayfanın doğru görünmesi için başka bir şeye ihtiyaç var mı?",
+    "a": "Hayır. Stil sayfanın içindedir, bu yüzden her yerde aynı görünür."
+   }
+  ]
+ },
+ "markdown-to-word": {
+  "name": "Markdown'dan Word'e",
+  "desc": "Markdown'ı gerçek başlıklar, listeler, bağlantılar ve tablolarla bir Word belgesine (.docx) çevirin.",
+  "about": "Markdown'ı Word, Google Docs ve LibreOffice'te açılan bir Word dosyasına dönüştürün. Başlıklar gerçek Word başlıkları olur (bu yüzden gezinti bölmesi çalışır); listeler, kalın ve italik yazı, bağlantılar, alıntılar, kod ve tablolar korunur. Resimler açıklamaları olarak gösterilir. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "Markdown'dan Word (DOCX) Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "Markdown'ı Word ve Google Docs'ta açılan, gerçek başlık, liste, tablo ve bağlantılı bir Word (DOCX) dosyasına dönüştürün. Ücretsiz ve özel.",
+  "tab": "Markdown'dan Word'e",
+  "faq": [
+   {
+    "q": "Başlıklar Word'ün gezinti bölmesinde çalışır mı?",
+    "a": "Evet. Bunlar gerçek Başlık 1 ile Başlık 6 stilleridir."
+   },
+   {
+    "q": "Resimler dahil mi?",
+    "a": "Henüz değil: bir resim, köşeli parantez içinde açıklaması olarak gösterilir."
+   }
+  ]
+ },
+ "html-to-markdown": {
+  "name": "HTML'den Markdown'a",
+  "desc": "HTML'i temiz Markdown'a çevirin: başlıklar, listeler, bağlantılar, kod ve tablolar. Yapıştırın veya dosya yükleyin.",
+  "about": "HTML yapıştırın veya bir .html dosyası yükleyin ve okunabilir Markdown alın: başlıklar, kalın ve italik yazı, listeler, bağlantılar, kod blokları ve tablolar. Komut dosyaları ve stiller dışarıda bırakılır. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "HTML'den Markdown'a Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "HTML'den Markdown'a",
+  "faq": [
+   {
+    "q": "Tablolar dönüştürülür mü?",
+    "a": "Evet, Markdown (GitHub tarzı) tablolarına. İlk satır başlık olur."
+   },
+   {
+    "q": "Komut dosyalarına ve CSS'e ne olur?",
+    "a": "Kaldırılırlar, yalnızca içerik dönüştürülür."
+   }
+  ]
+ },
+ "docx-to-markdown": {
+  "name": "Word'den (DOCX) Markdown'a",
+  "desc": "Bir Word belgesini Markdown'a çevirin. Başlıklar, listeler, kalın yazı, bağlantılar ve tablolar korunur; resimler dosya olarak gelir.",
+  "about": "Bir .docx dosyası ekleyin ve başlıklar, listeler, kalın ve italik yazı, bağlantılar ve tablolarla Markdown alın. Resimler, seçtiğinize göre bir images klasörüne (tek ZIP) kaydedilir, Markdown'ın içine konur veya dışarıda bırakılır. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "Word'den (DOCX) Markdown'a Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "Word'den Markdown'a",
+  "faq": [
+   {
+    "q": "Eski .doc dosyalarıyla çalışır mı?",
+    "a": "Hayır, yalnızca .docx. Eski bir dosyayı önce Word veya Google Docs'ta açıp .docx olarak kaydedin."
+   },
+   {
+    "q": "Resimlere ne olur?",
+    "a": "Varsayılan olarak .md dosyasının yanındaki bir images klasörüne dosya olarak, hepsi tek ZIP içinde kaydedilir. Ayrıca gömebilir veya dışarıda bırakabilirsiniz."
+   }
+  ]
+ },
+ "pdf-to-markdown": {
+  "name": "PDF'den Markdown'a",
+  "desc": "PDF'yi Markdown'a çevirin: büyük harflerden başlıklar, düzenden listeler ve paragraflar.",
+  "about": "Gerçek metin içeren bir PDF ekleyin ve Markdown alın: daha büyük harfler başlık olur, madde işaretli ve numaralı listeler korunur ve satırlar paragraflara birleştirilir. Tablolar ve sütunlar yeniden oluşturulmaz, bu yüzden sonucu kontrol edin. Bir taramada metin yoktur: önce Görselden Metne (OCR) aracını kullanın. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "PDF'den Markdown'a Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "PDF'den Markdown'a",
+  "faq": [
+   {
+    "q": "PDF'im dönüştürdükten sonra neden boş?",
+    "a": "Büyük olasılıkla bir taramadır (bir sayfa resmi). Önce Görselden Metne (OCR) aracından geçirin."
+   },
+   {
+    "q": "Tablolar korunur mu?",
+    "a": "Tablo olarak değil: metinleri satırlar halinde çıkar. Tabloları elle kontrol edip düzenleyin."
+   }
+  ]
+ },
+ "html-to-pdf": {
+  "name": "HTML'den PDF'ye",
+  "desc": "HTML'i PDF'ye çevirin: kodu yapıştırın veya bir .html dosyası yükleyin, önizlemeyi görün ve indirin.",
+  "about": "HTML yapıştırın veya bir .html dosyası yükleyin ve PDF alın. Temel CSS, tablolar, listeler ve resimler (veri adresi olarak) desteklenir. Komut dosyaları çalışmaz ve webden resimler veya stil sayfaları yüklenmez: CSS'i bir style etiketine koyun. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "HTML'den PDF'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "HTML'i PDF'ye çevirin: kodu yapıştırın veya .html dosyası yükleyin, önizleyin, indirin. Tablolar, listeler, temel CSS çalışır. Ücretsiz ve özel.",
+  "tab": "HTML'den PDF'ye",
+  "faq": [
+   {
+    "q": "Bazı resimler neden eksik?",
+    "a": "PDF cihazınızda oluşturulur ve webden bir şey indirmez. Resimleri veri adresi (base64) olarak kullanın veya sonradan PDF Düzenleyici'de ekleyin."
+   },
+   {
+    "q": "Komut dosyaları çalışır mı?",
+    "a": "Hayır. Yalnızca sayfa yazıldığı haliyle PDF'ye çevrilir."
+   }
+  ]
+ },
+ "excel-to-pdf": {
+  "name": "Excel'den PDF'ye",
+  "desc": "Excel tablolarını (XLSX, XLS, CSV, ODS) paylaşabileceğiniz ve yazdırabileceğiniz PDF tablolarına dönüştürün. Tarayıcınızda çalışır.",
+  "about": "İnsanların yalnızca okuması veya yazdırması gerektiğinde bir elektronik tabloyu PDF olarak gönderin: kimse sayıları yanlışlıkla değiştiremez ve her telefonda açılır. Bir XLSX, XLS, CSV veya ODS dosyası ekleyin ve dönüştürün. Her sayfa, yatay sayfalarda bir tablo olur; birkaç sayfa varsa sayfa adı başlık olarak yer alır. Değerler korunur, ancak renkler, hücre stilleri ve grafikler korunmaz, bu yüzden göndermeden önce PDF'yi kontrol edin. Dosya tarayıcınızda dönüştürülür ve yüklenmez.",
+  "title": "Excel'den PDF'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "Excel'den PDF'ye",
+  "faq": [
+   {
+    "q": "Excel'i PDF'ye nasıl dönüştürürüm?",
+    "a": "XLSX, XLS, CSV veya ODS dosyasını ekleyin ve dönüştür düğmesine tıklayın, sonra PDF'yi indirin."
+   },
+   {
+    "q": "Renkler ve grafikler korunur mu?",
+    "a": "Hayır. PDF, her sayfanın değerlerini düz bir tablo olarak gösterir. Renkler ve grafiklerle birebir bir kopya için Excel veya Google E-Tablolar'daki PDF Olarak Kaydet'i kullanın."
+   },
+   {
+    "q": "Hintçe metinle çalışır mı?",
+    "a": "Evet. Hücrelerdeki Hintçe ve diğer Hint alfabeleri PDF'de doğru görüntülenir."
+   }
+  ]
+ },
+ "jpg-to-pdf": {
+  "name": "JPG'den PDF'ye",
+  "desc": "JPG fotoğrafları tek PDF'ye çevirin. Sayfa boyutunu ve sırayı seçin. Tarayıcınızda çalışır.",
+  "about": "Bir veya birçok JPG (JPEG) resmi tek bir PDF'de birleştirin. A4, US Letter, A5 veya resmin boyutunu seçin, yönü ve kenar boşluğunu ayarlayın ve sayfaların sırasını değiştirin. JPG verisi PDF'ye kalite kaybı olmadan konur. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "JPG'den PDF'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "Bir veya birçok JPG fotoğrafı tek PDF'ye çevirin. A4, Letter veya fotoğraf boyutunu seçin, sırayı ayarlayın. Ücretsiz, üyeliksiz, yüklenmez.",
+  "tab": "JPG'den PDF'ye",
+  "faq": [
+   {
+    "q": "JPG'yi PDF'ye nasıl dönüştürürüm?",
+    "a": "JPG resimlerinizi ekleyin, sıraya koyun, sayfa boyutunu seçin ve PDF Oluştur'a tıklayın."
+   },
+   {
+    "q": "Birkaç JPG'den tek PDF yapabilir miyim?",
+    "a": "Evet. Hepsini ekleyin ve sırayı ayarlamak için okları kullanın."
+   }
+  ]
+ },
+ "png-to-pdf": {
+  "name": "PNG'den PDF'ye",
+  "desc": "PNG resimleri tek PDF'ye çevirin. Şeffaflığı korur. Sayfa boyutunu ve sırayı seçin.",
+  "about": "Bir veya birçok PNG resmi tek bir PDF'de birleştirin. Şeffaf kısımlar şeffaf kalır. A4, US Letter, A5 veya resmin boyutunu seçin, yönü ve kenar boşluğunu ayarlayın ve sayfaların sırasını değiştirin. Dosyanız cihazınızda kalır: tarayıcınızda dönüştürülür ve hiçbir zaman yüklenmez.",
+  "title": "PNG'den PDF'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "PNG resimleri tek PDF'ye çevirin ve şeffaflıklarını koruyun. Sayfa boyutunu, sırayı ve kenar boşluklarını seçin. Ücretsiz, üyeliksiz, tarayıcınızda çalışır.",
+  "tab": "PNG'den PDF'ye",
+  "faq": [
+   {
+    "q": "PNG'den PDF'ye dönüştürme şeffaflığı korur mu?",
+    "a": "Evet. Şeffaf alanlar PDF'de şeffaf kalır."
+   },
+   {
+    "q": "Birkaç PNG'yi tek PDF'ye koyabilir miyim?",
+    "a": "Evet. Hepsini ekleyin ve sırayı ayarlamak için okları kullanın."
+   }
+  ]
+ },
+ "png-to-jpg": {
+  "name": "PNG'den JPG'ye",
+  "desc": "PNG görselleri tarayıcınızda JPG'ye dönüştürün. Kaliteyi ve şeffaf kısımlar için bir arka plan rengini seçin.",
+  "about": "JPG dosyaları genellikle PNG dosyalarından çok daha küçüktür; bu da onları e-posta, WhatsApp ve yükleme formları için daha iyi yapar. PNG görsellerinizi ekleyin, bir kalite seçin (yüzde 90 orijinalle aynı görünür) ve dönüştürün. JPG şeffaf olamaz, bu yüzden şeffaf alanlar seçtiğiniz bir renkle doldurulur; varsayılan beyazdır. Tek seferde 40 görsele kadar dönüştürebilirsiniz ve kendi cihazınızda dönüştürüldükleri için hiçbir şey yüklenmez.",
+  "title": "PNG'den JPG'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "PNG'den JPG'ye",
+  "faq": [
+   {
+    "q": "PNG'yi JPG'ye nasıl dönüştürürüm?",
+    "a": "PNG dosyalarınızı ekleyin, Dönüştürülecek biçim altında JPG'nin seçili olduğunu kontrol edin, kaliteyi ayarlayın ve Dönüştür'e tıklayın. Sonra JPG dosyalarını indirin."
+   },
+   {
+    "q": "Şeffaf arka plana ne olur?",
+    "a": "JPG şeffaflığı desteklemez, bu yüzden şeffaf alanlar seçtiğiniz arka plan rengiyle doldurulur. Varsayılan beyazdır."
+   },
+   {
+    "q": "JPG, PNG'den küçük olur mu?",
+    "a": "Genellikle evet; çok renkli fotoğraflar ve ekran görüntüleri için çoğu zaman birkaç kat küçük."
+   }
+  ]
+ },
+ "jpg-to-png": {
+  "name": "JPG'den PNG'ye",
+  "desc": "JPG fotoğrafları tarayıcınızda PNG'ye dönüştürün. Kayıpsız çıktı, tek seferde 40 görsele kadar.",
+  "about": "PNG kayıpsız bir biçimdir: resminiz bir kez PNG olduğunda, onu tekrar düzenleyip kaydettiğinizde daha fazla kalite kaybetmez. Bu, onu ekran görüntüleri, logolar ve düzenlemeye devam etmek istediğiniz görseller için iyi bir seçim yapar. JPG dosyalarınızı ekleyin, PNG'nin seçili olduğunu kontrol edin ve dönüştürün. Bir fotoğraftan yapılan PNG'nin genellikle JPG'den daha büyük olduğunu unutmayın. Her şey tarayıcınızda gerçekleşir, bu yüzden fotoğraflarınız yüklenmez.",
+  "title": "JPG'den PNG'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "JPG fotoğrafları tarayıcınızda kayıpsız PNG'ye dönüştürün, tek seferde 40'a kadar. Tekrar düzenlerken kalite kaybı yok. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tab": "JPG'den PNG'ye",
+  "faq": [
+   {
+    "q": "JPG'yi PNG'ye nasıl çeviririm?",
+    "a": "JPG dosyalarını ekleyin, Dönüştürülecek biçim altında PNG'nin seçili olduğundan emin olun ve Dönüştür'e tıklayın. Hazır olduklarında PNG dosyalarını indirin."
+   },
+   {
+    "q": "JPG'yi PNG'ye dönüştürmek kaliteyi artırır mı?",
+    "a": "Hayır. JPG'nin zaten sahip olduğu kaliteyi korur, ama resmi tekrar düzenleyip kaydettiğinizde daha fazla kaybı durdurur."
+   },
+   {
+    "q": "PNG'm neden JPG'den büyük?",
+    "a": "PNG her pikseli tam olarak saklar, JPG ise pek görmediğiniz ayrıntıyı atar. Fotoğraflarda bu PNG'yi daha büyük yapar."
+   }
+  ]
+ },
+ "webp-to-jpg": {
+  "name": "WebP'den JPG'ye",
+  "desc": "WebP görselleri her yerde açılsın diye JPG'ye dönüştürün. Kaliteyi seçin. Tarayıcınızda çalışır.",
+  "about": "Birçok web sitesi artık resimleri WebP olarak sunuyor ve bazı uygulamalar, eski telefonlar ve yükleme formları hâlâ bunu kabul etmiyor. Onları her yerde açılan JPG'ye dönüştürün. WebP dosyalarınızı ekleyin, bir kalite seçin ve tek seferde 40'a kadar dönüştürün. JPG şeffaf olamayacağı için bir WebP'nin şeffaf kısımları seçtiğiniz arka plan rengiyle doldurulur. Görselleriniz cihazınızdan hiç çıkmaz.",
+  "title": "WebP'den JPG'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "WebP'den JPG'ye",
+  "faq": [
+   {
+    "q": "WebP'yi JPG'ye nasıl dönüştürürüm?",
+    "a": "WebP dosyalarını ekleyin, Dönüştürülecek biçim altında JPG'yi seçili tutun, kaliteyi seçin ve Dönüştür'e tıklayın."
+   },
+   {
+    "q": "Bir WebP dosyasını neden açamıyorum?",
+    "a": "Bazı eski programlar ve web siteleri henüz WebP'yi desteklemiyor. Bir JPG kopyası neredeyse her uygulamada açılır."
+   }
+  ]
+ },
+ "heic-to-jpg": {
+  "name": "HEIC'ten JPG'ye",
+  "desc": "iPhone HEIC fotoğraflarını tarayıcınızda JPG'ye dönüştürün. Uygulama yok, yükleme yok, tek seferde 40 fotoğrafa kadar.",
+  "about": "iPhone'lar fotoğrafları HEIC olarak kaydeder; Windows, birçok web sitesi ve devlet formu bunu kabul etmez. Onları burada JPG'ye dönüştürün: HEIC fotoğraflarınızı ekleyin, JPG'yi seçili tutun ve Dönüştür'e tıklayın. Kaliteyi seçebilir ve tek seferde 40 fotoğrafa kadar dönüştürebilirsiniz. Fotoğraflar kendi telefonunuzda veya bilgisayarınızda dönüştürülür, bu yüzden bir sunucuya hiç yüklenmez.",
+  "title": "HEIC'ten JPG'ye Dönüştürücü Online Ücretsiz: iPhone Fotoğrafları | Toolz Baba",
+  "tab": "HEIC'ten JPG'ye",
+  "faq": [
+   {
+    "q": "Windows'ta HEIC'i JPG'ye nasıl dönüştürürüm?",
+    "a": "Bu sayfayı açın, HEIC dosyalarınızı ekleyin, JPG'yi seçili tutun ve Dönüştür'e tıklayın. Uygulama veya eklenti gerekmez."
+   },
+   {
+    "q": "iPhone'da çalışır mı?",
+    "a": "Evet. Sayfayı Safari'de açın, Dosya seç'e dokunun, fotoğrafları seçin ve dönüştürün."
+   },
+   {
+    "q": "Fotoğraflarım yükleniyor mu?",
+    "a": "Hayır. Dönüştürme tarayıcınızda çalışır ve fotoğraflar cihazınızda kalır."
+   }
+  ]
+ },
+ "jpg-to-webp": {
+  "name": "JPG'den WebP'ye",
+  "desc": "Daha hızlı bir web sitesi için JPG ve PNG görselleri WebP'ye dönüştürün. Kaliteyi seçin, birçoğunu aynı anda dönüştürün.",
+  "about": "WebP resimleri, aynı görünür kalitede genellikle JPG'den yüzde 25 ile 35 daha küçüktür; bu yüzden sayfalar daha hızlı yüklenir ve daha az veri kullanır. JPG veya PNG dosyalarınızı ekleyin, WebP'yi seçili tutun, kaliteyi seçin (yüzde 80 ile 90 iyi bir aralıktır) ve tek seferde 40'a kadar dönüştürün. WebP şeffaflığı korur, bu yüzden logolar ve grafikler için PNG'nin yerini de alır. Her şey tarayıcınızda çalışır.",
+  "title": "JPG'den WebP'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "JPG'den WebP'ye",
+  "faq": [
+   {
+    "q": "WebP, JPG'den daha mı iyi?",
+    "a": "Web siteleri için genellikle evet: aynı kalitede daha küçük dosyalar ve ayrıca şeffaflık. Eski uygulamalar kullanan insanlarla paylaşmak için JPG daha güvenlidir."
+   },
+   {
+    "q": "PNG'yi de burada WebP'ye dönüştürebilir miyim?",
+    "a": "Evet. PNG dosyalarını aynı şekilde ekleyin; şeffaf alanlar WebP'de şeffaf kalır."
+   }
+  ]
+ },
+ "pdf-to-jpg": {
+  "name": "PDF'den JPG'ye",
+  "desc": "PDF'nin her sayfasını JPG görsele çevirin. Kaliteyi (DPI) ve sayfaları seçin. Tarayıcınızda çalışır.",
+  "about": "PDF sayfalarını WhatsApp'ta paylaşabileceğiniz, online yayınlayabileceğiniz veya sunuma koyabileceğiniz JPG resimlere dönüştürün. Bir PDF ekleyin, JPG'yi seçili tutun, kaliteyi 72 DPI (küçük dosyalar) ile 300 DPI (baskı kalitesi) arasında seçin ve tüm sayfaları ya da yalnızca ihtiyacınız olanları, örneğin 1-3,5, dönüştürün. Birkaç sayfa birlikte tek ZIP dosyasında teslim edilir. PDF cihazınızda işlenir ve yüklenmez.",
+  "title": "PDF'den JPG'ye Dönüştürücü Online Ücretsiz: Yüksek Kalite | Toolz Baba",
+  "tab": "PDF'den JPG'ye",
+  "faq": [
+   {
+    "q": "PDF'yi JPG'ye nasıl dönüştürürüm?",
+    "a": "PDF'yi ekleyin, JPG'yi seçili tutun, DPI'ı ve sayfaları seçin ve Görsellere Dönüştür'e tıklayın."
+   },
+   {
+    "q": "Yalnızca bir sayfayı dönüştürebilir miyim?",
+    "a": "Evet. Sayfalar alanına sayfa numarasını, örneğin 3, veya 2-4 gibi bir aralık yazın."
+   },
+   {
+    "q": "Hangi DPI'ı seçmeliyim?",
+    "a": "150 DPI ekranlarda nettir. Baskı için 300 DPI, en küçük dosyalar için 72 DPI kullanın."
+   }
+  ]
+ },
+ "pdf-to-png": {
+  "name": "PDF'den PNG'ye",
+  "desc": "PDF sayfalarını net, kayıpsız PNG görsellere çevirin. DPI'ı ve sayfaları seçin. Tarayıcınızda çalışır.",
+  "about": "PNG, metni ve çizgileri mükemmel net tutar; bu da onu diyagramlı, tablolu veya küçük yazılı sayfalar için en iyi seçim yapar. Bir PDF ekleyin, PNG'yi seçili tutun, çözünürlüğü ve sayfaları seçin ve dönüştürün. Birkaç sayfa birlikte tek ZIP dosyasında gelir. Dönüştürme tarayıcınızda çalışır, bu yüzden belge özel kalır.",
+  "title": "PDF'den PNG'ye Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "tab": "PDF'den PNG'ye",
+  "faq": [
+   {
+    "q": "PDF sayfaları için PNG mi JPG mi?",
+    "a": "Çoğunlukla metin ve çizimden oluşan sayfalar için PNG (daha net, harflerin etrafında bulanıklık yok), çoğunlukla fotoğraftan oluşan sayfalar için JPG (daha küçük dosyalar)."
+   },
+   {
+    "q": "Hangi sayfaların dönüştürüleceğini seçebilir miyim?",
+    "a": "Evet. tümü veya sayfa numaralarını ve 1-3,5 gibi aralıkları yazın."
+   }
+  ]
+ },
+ "rotate-pdf": {
+  "name": "PDF Döndürme",
+  "desc": "PDF'nin bir sayfasını veya her sayfasını döndürün ve kaydedin. Küçük resimleri görün, çevirmek için tıklayın. Tarayıcınızda çalışır.",
+  "about": "Ters veya yan duran taranmış sayfaları düzeltin. PDF'yi ekleyin ve her sayfayı küçük resim olarak görün: bir sayfanın döndür düğmesine tıklayarak onu 90 derece, ihtiyacınız kadar çevirin, sonra kaydedin. Döndürme yeni PDF'de saklanır, bu yüzden her yerde doğru yönde açılır. Aynı ekranda sayfaları silebilir veya yeniden sıralayabilirsiniz de. PDF'iniz cihazınızdan hiç çıkmaz.",
+  "title": "PDF Sayfalarını Online Ücretsiz Döndür: Kalıcı Olarak Kaydet | Toolz Baba",
+  "tab": "PDF döndürme",
+  "faq": [
+   {
+    "q": "PDF'yi nasıl döndürüp kaydederim?",
+    "a": "PDF'yi ekleyin, çevirmek istediğiniz sayfaların döndür düğmesine tıklayın, sonra yeni PDF'yi indirmek için kaydet'e tıklayın."
+   },
+   {
+    "q": "Yalnızca bir sayfayı döndürebilir miyim?",
+    "a": "Evet. Her sayfanın kendi döndür düğmesi vardır, bu yüzden yalnızca gerekenleri çevirebilirsiniz."
+   },
+   {
+    "q": "Döndürme kalıcı mı?",
+    "a": "Evet. Yalnızca görüntüleyicide değil, yeni PDF dosyasında kaydedilir."
+   }
+  ]
+ },
+ "delete-pdf-pages": {
+  "name": "PDF Sayfalarını Silme",
+  "desc": "PDF'den sayfaları kaldırın: küçük resimleri görün, silinecek sayfalara tıklayın, kaydedin. Tarayıcınızda çalışır.",
+  "about": "Boş sayfaları, reklamları veya paylaşmak istemediğiniz sayfaları kaldırın. Her sayfayı küçük resim olarak görmek için PDF'yi ekleyin, kaldırılacak sayfalarda sil'e tıklayın ve yalnızca sakladığınız sayfaları içeren yeni bir PDF kaydedin. Kaydetmeden önce sayfaları döndürebilir ve yeniden sıralayabilirsiniz de. Hiçbir şey yüklenmez: PDF tarayıcınızda düzenlenir.",
+  "title": "PDF'den Sayfa Silme Online Ücretsiz | Toolz Baba",
+  "tab": "Sayfa silme",
+  "faq": [
+   {
+    "q": "PDF'den bir sayfayı nasıl silerim?",
+    "a": "PDF'yi ekleyin, kaldırmak istediğiniz sayfadaki sil düğmesine tıklayın ve yeni PDF'yi kaydedin."
+   },
+   {
+    "q": "Özgün dosya değişir mi?",
+    "a": "Hayır. Yeni bir PDF indirirsiniz; özgün dosyanız olduğu gibi kalır."
+   }
+  ]
+ },
+ "extract-pdf-pages": {
+  "name": "PDF Sayfalarını Ayıklama",
+  "desc": "Bir PDF'nin seçili sayfalarını yeni bir PDF'ye kopyalayın, örneğin 1-3,5. Tarayıcınızda çalışır.",
+  "about": "Uzun bir PDF'den yalnızca birkaç sayfaya mı ihtiyacınız var; örneğin bir bölüm veya bir sözleşmenin imzalı sayfaları? PDF'yi ekleyin, istediğiniz sayfaları yazın (örneğin 1-3,5,8-10) ve yalnızca bu sayfaları, bu sırayla içeren tek bir yeni PDF alın. Özgün dosyaya dokunulmaz ve dosya cihazınızda işlenir.",
+  "title": "PDF'den Sayfa Ayıklama Online Ücretsiz | Toolz Baba",
+  "metaDesc": "Bir PDF'nin 1-3,5 gibi seçili sayfalarını bu sırayla tek bir yeni PDF'ye kopyalayın. Özgün dosyaya dokunulmaz. Ücretsiz, üyeliksiz, tarayıcınızda çalışır.",
+  "tab": "Sayfa ayıklama",
+  "faq": [
+   {
+    "q": "PDF'den sayfaları nasıl ayıklarım?",
+    "a": "PDF'yi ekleyin, Sayfalar alanına sayfa numaralarını veya aralıkları, örneğin 2-4,7, yazın ve PDF'yi Böl'e tıklayın."
+   },
+   {
+    "q": "Sayfaları bunun yerine ayrı dosyalara koyabilir miyim?",
+    "a": "Evet. Nasıl bölüneceği ayarını Özel aralıklar olarak değiştirin; her aralık kendi PDF'si olur."
+   }
+  ]
+ },
+ "wav-to-mp3": {
+  "name": "WAV'den MP3'e Dönüştürücü",
+  "desc": "WAV sesi tarayıcınızda MP3'e dönüştürün. MP3 dosyaları WAV'dan yaklaşık on kat küçüktür.",
+  "about": "WAV dosyalarını MP3'e çevirin: bir dosya veya 20'ye kadar dosya ekleyin, kaliteyi seçin ve MP3 dosyalarını indirin. MP3 dosyaları WAV'dan yaklaşık on kat küçüktür. Dönüştürme kendi cihazınızda çalışır, bu yüzden sesiniz hiçbir zaman yüklenmez ve üyelik gerekmez.",
+  "title": "WAV'den MP3'e Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "WAV'yi tarayıcınızda online MP3'e dönüştürün, tek seferde 20 dosyaya kadar. MP3, WAV'dan yaklaşık on kat küçüktür. Ücretsiz, hiçbir şey yüklenmez.",
+  "tab": "WAV'den MP3'e",
+  "dropLabel": "WAV dosyalarınızı buraya bırakın"
+ },
+ "m4a-to-mp3": {
+  "name": "M4A'dan MP3'e Dönüştürücü",
+  "desc": "M4A sesi tarayıcınızda MP3'e dönüştürün. iPhone kayıtları ve sesli notlar için harika.",
+  "about": "M4A dosyalarını MP3'e çevirin: bir dosya veya 20'ye kadar dosya ekleyin, kaliteyi seçin ve MP3 dosyalarını indirin. iPhone kayıtları ve sesli notlar için harika. Dönüştürme kendi cihazınızda çalışır, bu yüzden sesiniz hiçbir zaman yüklenmez ve üyelik gerekmez.",
+  "title": "M4A'dan MP3'e Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "M4A'yı tarayıcınızda online MP3'e dönüştürün, tek seferde 20 dosyaya kadar. iPhone kayıtları ve sesli notlar için harika. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tab": "M4A'dan MP3'e",
+  "dropLabel": "M4A dosyalarınızı buraya bırakın"
+ },
+ "mp3-to-wav": {
+  "name": "MP3'ten WAV'a Dönüştürücü",
+  "desc": "MP3 sesi tarayıcınızda WAV'a dönüştürün. WAV her ses düzenleyicide açılır.",
+  "about": "MP3 dosyalarını WAV'a çevirin: bir dosya veya 20'ye kadar dosya ekleyin, kaliteyi seçin ve WAV dosyalarını indirin. WAV her ses düzenleyicide açılır. Dönüştürme kendi cihazınızda çalışır, bu yüzden sesiniz hiçbir zaman yüklenmez ve üyelik gerekmez.",
+  "title": "MP3'ten WAV'a Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "MP3'ü tarayıcınızda online WAV'a dönüştürün, tek seferde 20 dosyaya kadar. WAV her ses düzenleyicide açılır. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tab": "MP3'ten WAV'a",
+  "dropLabel": "MP3 dosyalarınızı buraya bırakın"
+ },
+ "flac-to-mp3": {
+  "name": "FLAC'ten MP3'e Dönüştürücü",
+  "desc": "FLAC sesi tarayıcınızda MP3'e dönüştürün. Kayıpsız müziğinizi her cihazda çalın.",
+  "about": "FLAC dosyalarını MP3'e çevirin: bir dosya veya 20'ye kadar dosya ekleyin, kaliteyi seçin ve MP3 dosyalarını indirin. Kayıpsız müziğinizi her cihazda çalın. Dönüştürme kendi cihazınızda çalışır, bu yüzden sesiniz hiçbir zaman yüklenmez ve üyelik gerekmez.",
+  "title": "FLAC'ten MP3'e Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "FLAC'i tarayıcınızda online MP3'e dönüştürün, tek seferde 20 dosyaya kadar. Kayıpsız müziğinizi her cihazda çalın. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tab": "FLAC'ten MP3'e",
+  "dropLabel": "FLAC dosyalarınızı buraya bırakın"
+ },
+ "ogg-to-mp3": {
+  "name": "OGG'den MP3'e Dönüştürücü",
+  "desc": "OGG sesi tarayıcınızda MP3'e dönüştürün. WhatsApp sesli mesajlarıyla (OPUS) da çalışır.",
+  "about": "OGG dosyalarını MP3'e çevirin: bir dosya veya 20'ye kadar dosya ekleyin, kaliteyi seçin ve MP3 dosyalarını indirin. WhatsApp sesli mesajlarıyla (OPUS) da çalışır. Dönüştürme kendi cihazınızda çalışır, bu yüzden sesiniz hiçbir zaman yüklenmez ve üyelik gerekmez.",
+  "title": "OGG'den MP3'e Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "OGG'yi tarayıcınızda online MP3'e dönüştürün, tek seferde 20 dosyaya kadar. WhatsApp sesli mesajlarıyla (OPUS) da çalışır. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tab": "OGG'den MP3'e",
+  "dropLabel": "OGG dosyalarınızı buraya bırakın"
+ },
+ "aac-to-mp3": {
+  "name": "AAC'den MP3'e Dönüştürücü",
+  "desc": "AAC sesi tarayıcınızda MP3'e dönüştürün. Her telefonda, arabada ve hoparlörde çalar.",
+  "about": "AAC dosyalarını MP3'e çevirin: bir dosya veya 20'ye kadar dosya ekleyin, kaliteyi seçin ve MP3 dosyalarını indirin. Her telefonda, arabada ve hoparlörde çalar. Dönüştürme kendi cihazınızda çalışır, bu yüzden sesiniz hiçbir zaman yüklenmez ve üyelik gerekmez.",
+  "title": "AAC'den MP3'e Dönüştürücü Online Ücretsiz | Toolz Baba",
+  "metaDesc": "AAC'yi tarayıcınızda online MP3'e dönüştürün, tek seferde 20 dosyaya kadar. Her telefonda, arabada ve hoparlörde çalar. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
+  "tab": "AAC'den MP3'e",
+  "dropLabel": "AAC dosyalarınızı buraya bırakın"
+ }
+}

@@ -763,3 +763,18 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .cloudbtn i { width:16px; height:16px; display:inline-block; background-size:contain; background-repeat:no-repeat; }
 .cloudbtn i.gd { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230F9D58' d='M8 3h8l7 12h-8z'/%3E%3Cpath fill='%23FFC107' d='M8 3 1 15l4 7 7-12z'/%3E%3Cpath fill='%234285F4' d='M5 22h14l4-7H9z'/%3E%3C/svg%3E"); }
 .cloudbtn i.db { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230061FF'%3E%3Cpath d='M6 2 0 6l6 4 6-4zM18 2l-6 4 6 4 6-4zM0 14l6 4 6-4-6-4zM18 10l-6 4 6 4 6-4zM6 19.3l6 4 6-4-6-4z'/%3E%3C/svg%3E"); }
+
+/* language picker and the "use the site in your language?" bar */
+.langwrap { position:relative; }
+.langbtn { width:auto; padding:0 9px; gap:5px; display:inline-flex; align-items:center; } .langbtn[hidden] { display:none; }
+.langbtn .langcode { font-size:.72rem; font-weight:700; letter-spacing:.03em; }
+.langmenu { position:absolute; top:calc(100% + 8px); inset-inline-end:0; z-index:60; background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow-lg); padding:6px; min-width:190px; max-height:70vh; overflow:auto; display:grid; }
+.langmenu a { padding:8px 12px; border-radius:8px; color:var(--text); font-size:.9rem; } .langmenu a:hover { background:var(--bg2); text-decoration:none; } .langmenu a.on { color:var(--accent); font-weight:700; }
+.langbar { position:fixed; inset-inline:12px; bottom:12px; z-index:90; display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; background:var(--card); border:1px solid var(--border2); border-radius:14px; padding:10px 14px; box-shadow:var(--shadow-lg); max-width:560px; margin:0 auto; font-size:.92rem; }
+@media (max-width:640px) { .langbtn .langcode { display:none; } .langbtn { padding:0; width:38px; justify-content:center; } }
+/* right-to-left pages (Arabic) */
+[dir=rtl] .tcard .go { right:auto; left:14px; transform:scaleX(-1); }
+[dir=rtl] .steps, [dir=rtl] .prose ul, [dir=rtl] ol, [dir=rtl] ul { padding-inline-start:20px; }
+
+.foot-langs { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:6px 16px; font-size:.84rem; } .foot-langs a.on { color:var(--text); font-weight:700; }
+.langmenu[hidden] { display:none; }

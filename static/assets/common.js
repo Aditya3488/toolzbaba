@@ -26,6 +26,101 @@
     return n;
   };
   const el = HT.el;
+
+  // ---------------------------------------------------------------- languages
+  // English lives at the site root, every other language under /<code>/ (build.py writes the pages, with the tool texts already
+  // translated). The page's <html lang> says which one this is. Everything the scripts draw (buttons, menus, messages) is
+  // translated as it appears, from /assets/i18n/<code>.json: an exact English phrase, or a pattern like "Page {0} of {1}".
+  HT.lang = (document.documentElement.lang || 'en').toLowerCase();
+  HT.L = HT.lang === 'en' ? '' : '/' + HT.lang;
+  HT.href = slug => HT.L + '/' + slug;
+  let dict = null, patterns = [];
+  HT.t = (s, ...a) => { let t = (dict && dict[s]) || s; a.forEach((v, i) => { t = t.split('{' + i + '}').join(v); }); return t; };
+  const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const translate = s => {
+    if (!dict || !s || s.length > 600 || !/[A-Za-z]/.test(s)) return s;
+    if (dict[s]) return dict[s];
+    for (const p of patterns) {
+      if (p.head && !s.startsWith(p.head)) continue;
+      const m = p.re.exec(s); if (!m) continue;
+      let t = p.to; p.nums.forEach((n, i) => { t = t.split('{' + n + '}').join(p.plural.has(n) ? '' : m[i + 1]); }); return t;
+    }
+    return s;
+  };
+  const SKIP = 'script,style,textarea,pre,code,[contenteditable],[data-notr],#seo';
+  const doText = n => { const v = n.nodeValue, core = v.trim(); if (!core) return; const t = translate(core); if (t !== core) n.nodeValue = v.replace(core, t); };
+  const doAttrs = e => { for (const a of ['placeholder', 'title', 'aria-label']) { const v = e.getAttribute && e.getAttribute(a); if (v) { const t = translate(v); if (t !== v) e.setAttribute(a, t); } } };
+  const walkTr = root => {
+    if (root.nodeType === 3) { if (!(root.parentElement && root.parentElement.closest(SKIP))) doText(root); return; }
+    if (root.nodeType !== 1 || root.closest(SKIP)) return;
+    doAttrs(root);
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, { acceptNode: n => (n.nodeType === 1 && n.matches(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT) });
+    for (let n = w.nextNode(); n; n = w.nextNode()) (n.nodeType === 3 ? doText : doAttrs)(n);
+  };
+  HT.i18n = HT.lang === 'en' ? Promise.resolve(null) : fetch(HT.ver('/assets/i18n/' + HT.lang + '.json')).then(r => (r.ok ? r.json() : null)).catch(() => null).then(d => {
+    if (!d) return null;
+    dict = d;
+    patterns = Object.keys(d).filter(k => /\{\d+\}/.test(k)).map(k => {
+      const parts = k.split(/(\{\d+\})/), nums = [], plural = new Set(); let src = '^';
+      parts.forEach((part, i) => {
+        const m = /^\{(\d+)\}$/.exec(part); if (!m) { src += reEsc(part); return; }
+        const pl = /[a-z]$/.test(parts[i - 1] || ''); nums.push(m[1]); if (pl) plural.add(m[1]);
+        src += pl ? '([a-z]{0,2})' : '([\\s\\S]+?)';
+      });
+      return { head: parts[0], nums, plural, to: d[k], re: new RegExp(src + '$') };
+    }).sort((a, b) => b.head.length - a.head.length);
+    const go = () => {
+      walkTr(document.body);
+      new MutationObserver(ms => { for (const m of ms) {
+        if (m.type === 'characterData') { if (!(m.target.parentElement && m.target.parentElement.closest(SKIP))) doText(m.target); }
+        else if (m.type === 'attributes') { if (!m.target.closest(SKIP)) doAttrs(m.target); }
+        else m.addedNodes.forEach(walkTr);
+      } }).observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['placeholder', 'title', 'aria-label'] });
+    };
+    document.body ? go() : addEventListener('DOMContentLoaded', go);
+    return d;
+  });
+  // the page in another language (the same address, under that language's folder)
+  const LANG_PREFIX = /^\/(hi|bn|es|pt|id|fr|de|ru|ja|tr|vi|it|ar|pl)(?=\/|$)/;
+  HT.pathIn = code => { const rest = location.pathname.replace(LANG_PREFIX, '') || '/'; return (code === 'en' ? '' : '/' + code) + rest + location.search + location.hash; };
+  const langsP = () => fetch(HT.ver('/assets/langs.json')).then(r => (r.ok ? r.json() : [])).catch(() => []);
+  const langPicker = () => {
+    const b = el('button', { class: 'iconbtn langbtn', type: 'button', 'aria-label': 'Language', title: 'Language', 'aria-expanded': 'false', hidden: true },
+      HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg>'),
+      el('span', { class: 'langcode', text: HT.lang.toUpperCase() }));
+    const menu = el('div', { class: 'langmenu', hidden: true, role: 'menu' }), wrap = el('div', { class: 'langwrap' }, b, menu);
+    langsP().then(list => {
+      if (list.length < 2) return;
+      b.hidden = false;
+      for (const l of list) menu.append(el('a', { href: HT.pathIn(l.code), hreflang: l.code, lang: l.code, role: 'menuitem', class: l.code === HT.lang ? 'on' : null, 'data-notr': '', text: l.name,
+        onclick: () => { try { localStorage.setItem('tz_lang', l.code); } catch { } } }));
+    });
+    const close = () => { menu.hidden = true; b.setAttribute('aria-expanded', 'false'); };
+    b.onclick = e => { e.stopPropagation(); menu.hidden = !menu.hidden; b.setAttribute('aria-expanded', menu.hidden ? 'false' : 'true'); };
+    document.addEventListener('click', e => { if (!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    return wrap;
+  };
+  // an English page, a visitor whose browser speaks one of our languages: offer it once (never a forced redirect, so search engines and
+  // people who prefer English see English)
+  const suggestLang = () => {
+    if (HT.lang !== 'en') return;
+    let saved = null; try { saved = localStorage.getItem('tz_lang'); } catch { }
+    if (saved) return;
+    const want = (navigator.languages || [navigator.language || '']).map(x => String(x).toLowerCase().split('-')[0]).find(x => x && x !== 'en');
+    if (!want) return;
+    langsP().then(async list => {
+      const l = list.find(x => x.code === want); if (!l) return;
+      const d = await fetch(HT.ver('/assets/i18n/' + l.code + '.json')).then(r => r.json()).catch(() => null), say = s => (d && d[s]) || s;
+      const no = () => { try { localStorage.setItem('tz_lang', 'en'); } catch { } bar.remove(); };
+      const bar = el('div', { class: 'langbar', lang: l.code, dir: l.rtl ? 'rtl' : null, 'data-notr': '' },
+        el('span', { text: say('Use Toolz Baba in {0}?').replace('{0}', l.name) }),
+        el('a', { class: 'btn sm', href: HT.pathIn(l.code), text: say('Switch'), onclick: () => { try { localStorage.setItem('tz_lang', l.code); } catch { } } }),
+        el('button', { class: 'btn ghost sm', type: 'button', text: say('Not now'), onclick: no }));
+      document.body.append(bar);
+    });
+  };
+
   // small inline SVG icons (static strings only, never user data)
   const ICON = {
     upload: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>',
@@ -187,7 +282,7 @@
   }
   const cloudButtons = (box, accept, multiple, take) => HT.config().then(c => {
     if (window.crossOriginIsolated || !(c.dropboxAppKey || (c.googleApiKey && c.googleClientId))) return;
-    const go = (fn, name) => async e => { e.stopPropagation(); try { HT.toast('Opening ' + name + '...'); const files = await fn(); if (files.length) take(files); } catch (x) { HT.toast(x.message || 'Could not open ' + name + '.'); } };
+    const go = (fn, name) => async e => { e.stopPropagation(); try { HT.toast(HT.t('Opening {0}...', name)); const files = await fn(); if (files.length) take(files); } catch (x) { HT.toast(x.message || HT.t('Could not open {0}.', name)); } };
     const row = el('div', { class: 'drop-cloud' }, el('span', { text: 'or open from' }),
       c.googleApiKey && c.googleClientId ? el('button', { type: 'button', class: 'cloudbtn', onclick: go(() => fromDrive(accept, multiple, c), 'Google Drive') }, el('i', { class: 'gd' }), 'Google Drive') : null,
       c.dropboxAppKey ? el('button', { type: 'button', class: 'cloudbtn', onclick: go(() => fromDropbox(accept, multiple, c.dropboxAppKey), 'Dropbox') }, el('i', { class: 'db' }), 'Dropbox') : null);
@@ -660,7 +755,8 @@
   // A first-time visitor has no saved list yet: it is fetched together with tools.json (waiting at most 1.2 s for it), so an archived tool is never
   // shown at all. Later visits use the saved list straight away and refresh it in the background when it is older than 10 minutes.
   HT.loadTools = () => toolsP || (toolsP = (async () => {
-    const saved = statusCache(), tp = fetch(HT.ver('/assets/tools.json')).then(r => r.json());
+    const saved = statusCache(), tp = (HT.lang === 'en' ? Promise.reject() : fetch(HT.ver('/assets/tools.' + HT.lang + '.json')).then(r => (r.ok ? r.json() : Promise.reject())))
+      .catch(() => fetch(HT.ver('/assets/tools.json')).then(r => r.json()));
     if (!saved) await Promise.all([tp, Promise.race([HT.status.refresh(true), new Promise(r => setTimeout(r, 1200))])]);
     else if (Date.now() - saved.t >= STATUS_TTL) (window.requestIdleCallback || (f => setTimeout(f, 1500)))(() => HT.status.refresh(true));
     return sortOutArchived(await tp);
@@ -831,10 +927,11 @@
   };
 
   applyTheme(themeNow());
-  const cycleTheme = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); document.querySelectorAll('.bmbtn .tzstar').forEach(HT.playStar); HT.toast('Theme: ' + (next || 'automatic')); };
+  const themeName = t => (t === 'light' ? 'Light' : t === 'dark' ? 'Dark' : 'Automatic');
+  const cycleTheme = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); document.querySelectorAll('.bmbtn .tzstar').forEach(HT.playStar); HT.toast(HT.t('Theme: {0}', HT.t(themeName(next)))); };
   const themeButton = () => {
     const b = el('button', { class: 'iconbtn themebtn', type: 'button', 'aria-label': 'Change theme' });
-    const paint = () => { const t = themeNow(); b.textContent = ''; b.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto)); b.title = 'Theme: ' + (t || 'auto') + ' (click to change)'; };
+    const paint = () => { const t = themeNow(); b.textContent = ''; b.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto)); b.title = HT.t('Theme: {0} (click to change)', HT.t(themeName(t))); };
     b.onclick = () => { cycleTheme(); paint(); };
     paint(); return b;
   };
@@ -862,11 +959,13 @@
   const direction = it => { for (const w of [words(it.slug), words(it.name)]) { const i = w.indexOf('to'); if (i > 0 && i < w.length - 1) return { from: w.slice(0, i), to: w.slice(i + 1) }; } return null; };
   const CAT_WORDS = { image: 'image photo picture', ai: 'ai artificial intelligence enhance', pdf: 'pdf document documents', video: 'video audio movie sound', dev: 'text developer code', util: 'utility utilities' };
   HT.searchItems = data => [
-    ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: '/' + t.slug, isTab: false, hay: '' })),
-    ...(data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base) || {}; return { ...v, cat: v.cat || b.cat, kind: v.kind || b.kind, icon: v.base, href: '/' + v.slug, isTab: true, keywords: (v.keywords || '') + ' ' + (b.keywords || ''), popular: 99 }; }),
+    ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: HT.href(t.slug), isTab: false, hay: '' })),
+    ...(data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base) || {}; return { ...v, cat: v.cat || b.cat, kind: v.kind || b.kind, icon: v.base, href: HT.href(v.slug), isTab: true, keywords: (v.keywords || '') + ' ' + (b.keywords || ''), popular: 99 }; }),
   ].filter(t => t.cat);
-  const words = s => String(s).toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g, ' ').trim().split(/\s+/).filter(Boolean);
+  const words = s => String(s).toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim().split(/\s+/).filter(Boolean);
   const near = (a, b) => { if (Math.abs(a.length - b.length) > 1 || a.length < 4) return false; for (let k = 0; k < a.length - 1; k++) if (a[k] !== b[k]) { if (a.length === b.length && a[k] === b[k + 1] && a[k + 1] === b[k] && a.slice(k + 2) === b.slice(k + 2)) return true; break; } let i = 0, j = 0, miss = 0; while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; } else { if (++miss > 1) return false; if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; } } } return miss + (a.length - i) + (b.length - j) <= 1; };
+  // the same word with another ending: they share at least 4 letters, and all but the last 2 of the shorter one
+  const sameStem = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i >= 4 && i >= Math.min(a.length, b.length) - 2; };
   HT.searchTools = (data, query) => {
     const STOP = new Set(['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'free', 'online', 'tool', 'tools', 'converter', 'convert', 'make', 'maker', 'create', 'file', 'files', 'how', 'can', 'i', 'with']);
     const raw = words(query).flatMap(w => /^\d+(kb|mb)$/.test(w) ? [w.replace(/^\d+/, '')] : /^\d+$/.test(w) ? [] : [w]);   // "20kb" -> "kb": Resize to KB
@@ -884,7 +983,8 @@
         alts.forEach((a, k) => { const w = k ? 0.6 : 1;
           if (nameW.includes(a) || slugW.includes(a)) best = Math.max(best, 10 * w); else if (nameW.some(x => x.startsWith(a)) || slugW.some(x => x.startsWith(a))) best = Math.max(best, 6 * w);
           else if (text.includes(a)) best = Math.max(best, 2.5 * w); else if (text.some(x => x.startsWith(a)) && a.length >= 3) best = Math.max(best, 1.5 * w);
-          else if (nameW.some(x => near(a, x)) || slugW.some(x => near(a, x))) best = Math.max(best, 4 * w); });
+          else if (nameW.some(x => near(a, x)) || slugW.some(x => near(a, x))) best = Math.max(best, 4 * w);
+          else if (a.length >= 4 && nameW.some(x => sameStem(a, x))) best = Math.max(best, 5 * w); });   // same word, other ending (сжать / сжатие, images / image)
         if (!best) { all = false; break; } score += best;
       }
       if (!all) continue;
@@ -917,7 +1017,7 @@
       if (!q || !data) return res.classList.add('hidden');
       const r = HT.searchTools(data, q); items = [...r.hits, ...r.related];
       if (!r.hits.length) { res.append(el('div', { class: 'help', style: { padding: '10px 12px' }, text: 'No matching tools. Try a shorter word like "pdf" or "image".' })); if (r.related.length) { } return res.classList.remove('hidden'); }
-      const row = t => el('a', { class: 'cat-' + t.cat, href: t.href || '/' + t.slug }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: t.isTab ? 'in ' + (data.tools.find(x => x.slug === t.base) || { name: '' }).name : catOf(data, t.cat).name }));
+      const row = t => el('a', { class: 'cat-' + t.cat, href: t.href || HT.href(t.slug) }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: t.isTab ? 'in ' + (data.tools.find(x => x.slug === t.base) || { name: '' }).name : catOf(data, t.cat).name }));
       r.hits.forEach(t => res.append(row(t)));
       if (r.related.length) { res.append(el('div', { class: 'hrel', text: 'Related' })); r.related.forEach(t => res.append(row(t))); }
       res.classList.remove('hidden');
@@ -928,7 +1028,7 @@
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
-      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || '/' + t.slug; }
+      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || HT.href(t.slug); }
       else if (e.key === 'Escape') { input.value = ''; show(); input.blur(); }
     });
     document.addEventListener('click', e => { if (!box.contains(e.target)) res.classList.add('hidden'); });
@@ -983,7 +1083,7 @@
     const sections = (data, key) => {
       const menu = NAV_MENUS.find(m => m[1] === key), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), box = el('div', { class: 'nv-grid ' + key });
       if (menu[2]) { const groups = menu[2].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', Math.min(groups.length, 4)); for (const [title, items] of groups) box.append(sec(title, items)); }
-      else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: '/' + t.slug })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
+      else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: HT.href(t.slug) })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
       return box;
     };
     // ---- computer: menus under the bar
@@ -995,7 +1095,7 @@
     };
     const open = async it => {
       clearTimeout(timer); if (openItem === it) return; close();
-      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'all') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
+      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'all') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
       openItem = it; it.panel.hidden = false; place(it); it.btn.setAttribute('aria-expanded', 'true'); it.wrap.classList.add('open');
     };
     for (const [label, key] of NAV_MENUS) {
@@ -1021,7 +1121,7 @@
         if (recent.length) mobile.append(el('div', { class: 'nv-mrecent' }, el('h4', { text: 'Your recent tools' }), el('ul', {}, recent.map(t => el('li', {}, link(t))))));
         for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key)));
         mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' }));
-        const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), 'Theme: ' + (t ? t[0].toUpperCase() + t.slice(1) : 'Automatic')); };
+        const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), HT.t('Theme: {0}', HT.t(themeName(t)))); };
         tb.onclick = () => { cycleTheme(); paint(); }; paint(); mobile.append(tb); }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
     };
@@ -1038,7 +1138,8 @@
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), navbar.msearch, bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: HT.L + '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), navbar.msearch, langPicker(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
+    suggestLang();
     HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
@@ -1048,23 +1149,26 @@
     const col = (title, links) => el('div', {}, el('h4', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
     const popular = el('div', {}, el('h4', { text: 'Popular' }), el('ul', {}));
     const f = el('footer', { class: 'foot' }, el('div', { class: 'foot-in' },
-      el('div', { class: 'foot-brand' }, el('a', { href: '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
-      col('Tools', [['Image tools', '/#image'], ['AI tools', '/#ai'], ['PDF & documents', '/#pdf'], ['Video & audio', '/#video'], ['Text & developer', '/#dev'], ['Utilities', '/#util']]),
+      el('div', { class: 'foot-brand' }, el('a', { href: HT.L + '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
+      col('Tools', [['Image tools', '#image'], ['AI tools', '#ai'], ['PDF & documents', '#pdf'], ['Video & audio', '#video'], ['Text & developer', '#dev'], ['Utilities', '#util']].map(([t, h]) => [t, HT.L + '/' + h])),
       popular,
       col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     const all = el('nav', { class: 'foot-all', 'aria-label': 'All tools' }); f.querySelector('.foot-bottom').before(all);
+    // every language the site has, by its own name (people and search engines find the other versions from any page)
+    langsP().then(list => { if (list.length > 1) f.querySelector('.foot-bottom').before(el('nav', { class: 'foot-langs', 'aria-label': 'Language', 'data-notr': '' },
+      list.map(l => el('a', { href: HT.pathIn(l.code), hreflang: l.code, lang: l.code, class: l.code === HT.lang ? 'on' : null, text: l.name })))); });
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
     HT.loadTools().then(d => {
-      const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name }))));
-      for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h4', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))))); }
+      const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: HT.href(t.slug), text: t.name }))));
+      for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h4', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: HT.href(t.slug), text: t.name })))))); }
     });
   };
 
   // tools.json gives a tool an emoji in `icon` (not an icon name): only a plain name (a tab page uses the name of its tool) picks another icon
-  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/' + t.slug },
+  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || HT.href(t.slug) },
     el('div', { class: 'ic' }, HT.toolIcon(iconKey(t))),
     el('div', {}, el('b', { text: t.name }), el('span', { class: 'd', text: t.desc }),
       el('div', {}, t.kind === 'client' ? el('span', { class: 'tag local', text: 'In your browser' }) : null, t.cat === 'ai' ? el('span', { class: 'tag ai', text: 'AI' }) : null)),
@@ -1085,7 +1189,7 @@
       ratingCache[slug] = Promise.resolve(j); return j;
     },
   };
-  const fmtVotes = n => n.toLocaleString('en') + (n === 1 ? ' vote' : ' votes');
+  const fmtVotes = n => HT.t(n === 1 ? '{0} vote' : '{0} votes', n.toLocaleString('en'));
   const STAR_WORDS = ['', 'Poor', 'Could be better', 'Good', 'Very good', 'Excellent'];
   // five star buttons; onDone(summary) after a vote
   const starRow = (slug, onDone) => {
@@ -1107,12 +1211,12 @@
     if (!s || !(s.count >= MIN_SHOWN) || s.avg == null) { if (b) b.remove(); return; }
     if (!b) { b = el('a', { class: 'badge rate', href: '#rate' }); badges.prepend(b); }
     b.textContent = ''; b.append(el('span', { class: 'st', text: '\u2605' }), ' ' + s.avg.toFixed(1) + ' ', el('small', { text: '(' + fmtVotes(s.count) + ')' }));
-    b.title = s.avg.toFixed(1) + ' out of 5 from ' + fmtVotes(s.count);
+    b.title = HT.t('{0} out of 5 from {1}', s.avg.toFixed(1), fmtVotes(s.count));
     for (const sc of document.querySelectorAll('script[type="application/ld+json"]')) {
       try { const j = JSON.parse(sc.textContent); if (j['@type'] === 'WebApplication') { j.aggregateRating = { '@type': 'AggregateRating', ratingValue: s.avg, ratingCount: s.count, bestRating: 5, worstRating: 1 }; sc.textContent = JSON.stringify(j); } } catch { }
     }
   };
-  const rateNote = (s, voted) => (voted ? 'Thanks for rating! ' : '') + (s && s.count >= MIN_SHOWN ? s.avg.toFixed(1) + ' out of 5 from ' + fmtVotes(s.count) + '.' : voted ? '' : 'Tell us how it worked for you.');
+  const rateNote = (s, voted) => (voted ? HT.t('Thanks for rating!') + ' ' : '') + (s && s.count >= MIN_SHOWN ? HT.t('{0} out of 5 from {1}.', s.avg.toFixed(1), fmtVotes(s.count)) : voted ? '' : HT.t('Tell us how it worked for you.'));
   HT.rateCard = slug => {
     const note = el('p', { class: 'rnote' }), card = el('div', { class: 'sidecard ratecard', id: 'rate' }, el('h3', { text: 'Rate this tool' }), starRow(slug, s => { note.textContent = rateNote(s, true); showRating(s); }), note);
     HT.rating.get(slug).then(s => { note.textContent = rateNote(s, false); showRating(s); });
@@ -1127,7 +1231,7 @@
     work.append(el('div', { class: 'card', style: { textAlign: 'center', padding: '34px 22px' } },
       el('h1', { text: (t.name || 'This tool') + ' is taking a break', style: { fontSize: '1.5rem' } }),
       el('p', { class: 'help', style: { margin: '10px 0 18px' }, text: 'We switched it off for a while. Please try again later, or use one of the other tools.' }),
-      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: '/' + x.slug, text: x.name })))));
+      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: HT.L + '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: HT.L + '/' + x.slug, text: x.name })))));
   };
 
   HT.mount = async () => {
@@ -1145,21 +1249,21 @@
     if (!meta) {
       const gone = (data.archivedTools || []).find(t => t.slug === slug);
       if (gone) { document.querySelector('#crumb') && (document.getElementById('crumb').textContent = ''); document.getElementById('thead').textContent = ''; HT.unavailable(work, data, gone); }
-      else work.append(el('h1', { text: 'Tool not found' }), el('p', {}, el('a', { href: '/', text: '← Back to all tools' })));
+      else work.append(el('h1', { text: 'Tool not found' }), el('p', {}, el('a', { href: HT.L + '/', text: '← Back to all tools' })));
       return;
     }
     if (HT.isAdmin() && data.archivedSlugs && (data.archivedSlugs.has(slug) || data.archivedSlugs.has(baseSlug))) work.before(el('div', { class: 'help', style: { background: 'var(--warn-bg, #fff4d6)', border: '1px solid #f0d58a', borderRadius: '10px', padding: '8px 12px', marginBottom: '12px' }, text: 'This tool is archived. Visitors do not see it. You can, because you are signed in to the admin panel in this browser.' }));
     const cat = catOf(data, meta.cat), client = meta.kind === 'client';
     HT.recent.add(slug);
     page.classList.add('cat-' + meta.cat);
-    const pathOf = s => '/' + s; // every tool and tab lives at the site root
+    const pathOf = s => HT.href(s); // every tool and tab lives at the site root (under /<language>/ for the other languages)
     const metaFor = s => {  // a tool, or a format page merged onto its base tool
       const t = data.tools.find(x => x.slug === s); if (t) return t;
       const v = (data.variants || []).find(x => x.slug === s), b = v && data.tools.find(x => x.slug === v.base); return b ? { ...b, ...v } : null;
     };
     const drawCrumb = (m, isVariant) => {
       const c = document.getElementById('crumb'); c.textContent = '';
-      c.append(el('a', { href: '/', text: 'All tools' }), ' / ', el('a', { href: '/#' + m.cat, text: cat.name }), ' / ',
+      c.append(el('a', { href: HT.L + '/', text: 'All tools' }), ' / ', el('a', { href: HT.L + '/#' + m.cat, text: cat.name }), ' / ',
         ...(isVariant ? [el('a', { href: pathOf(m.parent || baseSlug), text: (m.parent ? metaFor(m.parent) : data.tools.find(t => t.slug === baseSlug)).name }), ' / ' + m.name] : [m.name]));
     };
     drawCrumb(meta, !!variant);
@@ -1251,13 +1355,14 @@
     const how = meta.how ? meta.how : client && meta.cat === 'dev' ? ['<b>Type or paste</b> your text or pick your options', '<b>See</b> the result straight away', '<b>Copy</b> it or download it'] : client ? ['<b>Add your file</b>: it stays on your device', '<b>Adjust</b> the settings and watch the live preview', '<b>Download</b> the finished result']
       : ['<b>Add your images</b> (drag and drop or paste)', '<b>Wait</b> a moment while they upload', '<b>Copy</b> the links. They keep working for 90 days'];
     const side = document.getElementById('side');
-    const stepsUl = el('ol', { class: 'steps' }); how.forEach(h => { const li = el('li'), sp = el('span'); sp.innerHTML = h; li.append(sp); stepsUl.append(li); });
+    await HT.i18n;   // the steps hold <b> parts: translated whole, before they are split into pieces on the page
+    const stepsUl = el('ol', { class: 'steps' }); how.forEach(h => { const li = el('li'), sp = el('span'); sp.innerHTML = HT.t(h); li.append(sp); stepsUl.append(li); });
     side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'How it works' }), stepsUl),
       el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: meta.privacyTitle || (client ? 'Private by design' : 'Shared by link') }),
         meta.privacy || (client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.'))));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== baseSlug && !t.href).slice(0, 6);
     side.append(HT.rateCard(baseSlug));
-    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
+    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: HT.t('More {0} tools', cat.name) }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: HT.href(t.slug) }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 
     HT.footer();
     const later = window.requestIdleCallback || (f => setTimeout(f, 1500));
@@ -1272,7 +1377,7 @@
   // visitor leaves the page. /admin shows them per tool. Nothing is sent from the admin's own browser or when "Do Not Track" is on.
   HT.rum = (() => {
     const RATE = 0.1, runs = [];
-    const page = (() => { const p = location.pathname.replace(/\/+$/, ''); if (!p) return 'home'; const m = p.match(/^\/(?:tool\/)?([a-z0-9][a-z0-9-]*)$/); return m && !['privacy', 'terms', 'contact', 'takedown', 'admin', '404'].includes(m[1]) ? m[1] : null; })();
+    const page = (() => { const p = location.pathname.replace(/\/+$/, ''); if (!p || LANG_PREFIX.test(p) && !p.replace(LANG_PREFIX, '')) return 'home'; const m = p.replace(LANG_PREFIX, '').match(/^\/(?:tool\/)?([a-z0-9][a-z0-9-]*)$/); return m && !['privacy', 'terms', 'contact', 'takedown', 'admin', '404'].includes(m[1]) ? m[1] : null; })();
     const on = page && Math.random() < RATE && 'PerformanceObserver' in window && navigator.sendBeacon && navigator.doNotTrack !== '1' && !HT.isAdmin();
     const api = { run: (slug, ms, ok) => { if (on) runs.push({ s: slug, ms: Math.round(ms), ok: ok ? 1 : 0 }); } };
     if (!on) return api;
