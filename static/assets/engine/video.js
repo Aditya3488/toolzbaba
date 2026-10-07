@@ -324,6 +324,9 @@
     return outs;
   });
 
+  // the Audio Converter (and its pages such as /wav-to-mp3) takes audio files too: the same job, the video part is simply absent
+  HT.engines['audio-converter'] = HT.engines['video-to-audio'];
+
   // ---------------------------------------------------------------- split video / audio into parts
   const pad2 = n => String(n).padStart(2, '0');
   async function splitMedia(ctx, session, audioOnly) {

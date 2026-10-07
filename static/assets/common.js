@@ -145,6 +145,55 @@
 
   HT.matches = matches;
 
+
+  // ---------------------------------------------------------------- open files from Google Drive or Dropbox
+  // Shown under the drop box only when the site has the keys (build.py: GOOGLE_API_KEY + GOOGLE_CLIENT_ID + GOOGLE_APP_ID,
+  // DROPBOX_APP_KEY; see README). The file goes straight from Google or Dropbox into this browser: it is still never sent to us.
+  // Pages that run the AI with cross-origin isolation can't host the sign-in popups, so the buttons are left out there.
+  const loadJs = (src, attrs = {}) => new Promise((res, rej) => {
+    if (document.querySelector(`script[src="${src}"]`)) return res();
+    const s = el('script', { src, ...attrs }); s.onload = res; s.onerror = () => rej(new Error('Could not reach ' + new URL(src).hostname + '. Check your connection.')); document.head.append(s);
+  });
+  const EXT_MIME = { pdf: 'application/pdf', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', gif: 'image/gif', heic: 'image/heic', avif: 'image/avif', svg: 'image/svg+xml',
+    docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    xls: 'application/vnd.ms-excel', csv: 'text/csv', txt: 'text/plain', md: 'text/markdown', html: 'text/html', mp3: 'audio/mpeg', wav: 'audio/wav', m4a: 'audio/mp4', mp4: 'video/mp4', mov: 'video/quicktime', webm: 'video/webm' };
+  const WILD = { 'image/*': ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/avif'], 'video/*': ['video/mp4', 'video/quicktime', 'video/webm', 'video/x-matroska'], 'audio/*': ['audio/mpeg', 'audio/wav', 'audio/mp4', 'audio/ogg', 'audio/flac', 'audio/aac'] };
+  const acceptTokens = accept => String(accept || '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+  async function fromDropbox(accept, multiple, key) {
+    if (!window.Dropbox) await loadJs('https://www.dropbox.com/static/api/2/dropins.js', { id: 'dropboxjs', 'data-app-key': key });
+    const exts = [...new Set(acceptTokens(accept).map(t => (t.startsWith('.') ? t : t === 'image/*' ? 'images' : t === 'video/*' ? 'video' : t === 'audio/*' ? 'audio' : null)).filter(Boolean))];
+    const list = await new Promise(res => Dropbox.choose({ linkType: 'direct', multiselect: !!multiple, extensions: exts.length ? exts : undefined, success: res, cancel: () => res([]) }));
+    return Promise.all(list.map(async f => { const r = await fetch(f.link); if (!r.ok) throw new Error(`Could not download ${f.name} from Dropbox.`); return new File([await r.blob()], f.name); }));
+  }
+  let gToken = null;
+  async function fromDrive(accept, multiple, c) {
+    await loadJs('https://apis.google.com/js/api.js'); await new Promise(r => gapi.load('picker', r));
+    await loadJs('https://accounts.google.com/gsi/client');
+    if (!gToken || gToken.until < Date.now()) gToken = await new Promise((res, rej) => google.accounts.oauth2.initTokenClient({ client_id: c.googleClientId, scope: 'https://www.googleapis.com/auth/drive.file',
+      callback: r => (r.error ? rej(new Error('Google: ' + r.error)) : res({ token: r.access_token, until: Date.now() + (r.expires_in - 60) * 1000 })), error_callback: e => rej(new Error((e && e.message) || 'Google sign-in was closed.')) }).requestAccessToken({ prompt: '' }));
+    const mimes = [...new Set(acceptTokens(accept).flatMap(t => WILD[t] || (t.startsWith('.') ? [EXT_MIME[t.slice(1)]] : t.includes('/') ? [t] : [])).filter(Boolean))];
+    const docs = await new Promise(res => {
+      const view = new google.picker.DocsView(google.picker.ViewId.DOCS).setIncludeFolders(true); if (mimes.length) view.setMimeTypes(mimes.join(','));
+      const b = new google.picker.PickerBuilder().addView(view).setOAuthToken(gToken.token).setDeveloperKey(c.googleApiKey).setAppId(c.googleAppId).setOrigin(location.origin)
+        .setCallback(d => { if (d.action === google.picker.Action.PICKED) res(d.docs); else if (d.action === google.picker.Action.CANCEL) res([]); });
+      if (multiple) b.enableFeature(google.picker.Feature.MULTISELECT_ENABLED);
+      b.build().setVisible(true);
+    });
+    return Promise.all(docs.map(async d => {
+      const r = await fetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(d.id)}?alt=media`, { headers: { Authorization: 'Bearer ' + gToken.token } });
+      if (!r.ok) throw new Error(`Could not download ${d.name} from Google Drive${/google-apps/.test(d.mimeType) ? ' (Google Docs files must be downloaded as a normal file first)' : ''}.`);
+      return new File([await r.blob()], d.name, { type: d.mimeType });
+    }));
+  }
+  const cloudButtons = (box, accept, multiple, take) => HT.config().then(c => {
+    if (window.crossOriginIsolated || !(c.dropboxAppKey || (c.googleApiKey && c.googleClientId))) return;
+    const go = (fn, name) => async e => { e.stopPropagation(); try { HT.toast('Opening ' + name + '...'); const files = await fn(); if (files.length) take(files); } catch (x) { HT.toast(x.message || 'Could not open ' + name + '.'); } };
+    const row = el('div', { class: 'drop-cloud' }, el('span', { text: 'or open from' }),
+      c.googleApiKey && c.googleClientId ? el('button', { type: 'button', class: 'cloudbtn', onclick: go(() => fromDrive(accept, multiple, c), 'Google Drive') }, el('i', { class: 'gd' }), 'Google Drive') : null,
+      c.dropboxAppKey ? el('button', { type: 'button', class: 'cloudbtn', onclick: go(() => fromDropbox(accept, multiple, c.dropboxAppKey), 'Dropbox') }, el('i', { class: 'db' }), 'Dropbox') : null);
+    box.append(row);
+  }).catch(() => { });
+
   // ---------------------------------------------------------------- dropzone
   HT.dropzone = ({ accept, multiple = false, label, hint, onFiles }) => {
     const input = el('input', { type: 'file', hidden: true, accept: accept || null, multiple: multiple || null });
@@ -167,6 +216,7 @@
     box.addEventListener('drop', e => take(e.dataTransfer.files));
     const onPaste = e => { if (!document.body.contains(box)) return document.removeEventListener('paste', onPaste); const fs = [...(e.clipboardData?.files || [])]; if (fs.length) take(fs); };
     document.addEventListener('paste', onPaste);
+    cloudButtons(box, accept, multiple, take);
     return box;
   };
 
@@ -550,6 +600,20 @@
   GLYPH['mp4-to-mp3'] = GLYPH['video-to-audio']; TOOL_COLOR['mp4-to-mp3'] = TOOL_COLOR['video-to-audio'];
   for (const k of ['markdown-converter', 'markdown-to-pdf', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown', 'pdf-to-markdown']) { GLYPH[k] = GLYPH['markdown-converter']; TOOL_COLOR[k] = 'indigo'; }
   TOOL_COLOR['html-to-pdf'] = 'amber';
+  // batch 2: more PDF tools and the audio converter
+  Object.assign(GLYPH, {
+    'pdf-to-excel': '<rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M3.5 14.5h17M9.5 4v16"/>',
+    'pdf-to-powerpoint': '<rect x="3" y="4" width="18" height="12.5" rx="2.2"/><path d="M12 16.5V20M8.5 20h7M8 12.5v-3M12 12.5v-5M16 12.5v-2"/>',
+    'powerpoint-to-pdf': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><rect x="8" y="11" width="8" height="6" rx="1"/>',
+    'crop-pdf': '<path d="M6 2.5v14a2 2 0 0 0 2 2h13.5"/><path d="M2.5 6H16a2 2 0 0 1 2 2v13.5"/>',
+    'flatten-pdf': '<path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+    'compare-pdf': '<rect x="3" y="4" width="8" height="16" rx="1.8"/><rect x="13" y="4" width="8" height="16" rx="1.8"/><path d="M5.5 9h3M5.5 12h3M15.5 9h3M15.5 12h3"/>',
+    'repair-pdf': '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5a2 2 0 0 0 2.9 2.9l5.8-5.8a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.5-.5-2.4z"/>',
+    'pdf-to-text': '<path d="M5 5h14M12 5v14M8.5 19h7"/>',
+    'audio-converter': '<path d="M9 17V5l10-2v12"/><circle cx="6.5" cy="17" r="2.5"/><circle cx="16.5" cy="15" r="2.5"/>',
+  });
+  Object.assign(TOOL_COLOR, { 'pdf-to-excel': 'green', 'pdf-to-powerpoint': 'orange', 'powerpoint-to-pdf': 'red', 'crop-pdf': 'teal', 'flatten-pdf': 'indigo',
+    'compare-pdf': 'blue', 'repair-pdf': 'amber', 'pdf-to-text': 'purple', 'audio-converter': 'pink' });
   // NEW-TOOL-ICONS-END
   // HT.toolIcon('compress-image') -> <span class="ticon"> gradient tile with the white glyph. size: 'xs' | undefined (fills its box)
   HT.toolIcon = (key, size) => {
@@ -718,6 +782,15 @@
     'video-trimmer': ['compress-video', 'video-to-gif', 'video-merger', 'mp4-to-mp3'],
     'video-to-gif': ['compress-image', 'gif-to-video', 'video-trimmer', 'compress-video'],
     'qr-code-generator': ['compress-image', 'add-watermark-to-image', 'password-generator', 'url-encoder'],
+    'pdf-to-excel': ['pdf-to-word', 'pdf-to-text', 'compress-pdf', 'merge-pdf'],
+    'pdf-to-powerpoint': ['compress-pdf', 'pdf-to-word', 'pdf-to-image', 'merge-pdf'],
+    'powerpoint-to-pdf': ['compress-pdf', 'merge-pdf', 'esign-pdf', 'add-page-numbers-to-pdf'],
+    'crop-pdf': ['compress-pdf', 'merge-pdf', 'organize-pdf', 'pdf-to-image'],
+    'compare-pdf': ['pdf-editor', 'esign-pdf', 'merge-pdf', 'pdf-to-word'],
+    'repair-pdf': ['compress-pdf', 'pdf-editor', 'merge-pdf', 'unlock-pdf'],
+    'flatten-pdf': ['protect-pdf', 'compress-pdf', 'esign-pdf', 'merge-pdf'],
+    'pdf-to-text': ['word-counter', 'pdf-to-word', 'text-case-converter', 'pdf-to-excel'],
+    'audio-converter': ['split-audio', 'merge-audio', 'video-to-text', 'compress-video'],
   };
   const NEXT_CAT = { image: ['compress-image', 'resize-image-to-kb', 'image-to-pdf', 'remove-background'], ai: ['compress-image', 'upscale-image', 'remove-background', 'passport-size-photo-maker'],
     pdf: ['compress-pdf', 'merge-pdf', 'pdf-editor', 'esign-pdf'], video: ['compress-video', 'video-to-gif', 'mp4-to-mp3', 'video-trimmer'],
@@ -780,7 +853,7 @@
     trim: ['cut'], crop: ['cut'], rotate: ['flip'], flip: ['rotate'], qr: ['qrcode'], barcode: ['qr'], link: ['url', 'cdn'], upload: ['share', 'cdn'], share: ['link', 'upload'], font: ['fonts', 'typeface'], fonts: ['font'], edit: ['editor'], editor: ['edit'], web: ['website', 'html'], webpage: ['html', 'website'],
     tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'],
     bg: ['background'], remover: ['remove'], eraser: ['remove'], mp4: ['video'], mov: ['video'], avi: ['video'], mkv: ['video'], webm: ['video'], wav: ['audio'], m4a: ['audio'], aac: ['audio'],
-    powerpoint: ['ppt', 'office'], excel: ['xls', 'office'], kb: ['kb', 'size'], heic: ['iphone', 'image'], signatures: ['signature'] };
+    powerpoint: ['ppt', 'pptx', 'office', 'slides'], excel: ['xls', 'xlsx', 'office'], slides: ['powerpoint'], pptx: ['powerpoint'], txt: ['text'], diff: ['compare'], fix: ['repair'], corrupt: ['repair'], flat: ['flatten'], kb: ['kb', 'size'], heic: ['iphone', 'image'], signatures: ['signature'] };
   // a file type and the kind of tool that takes it, for "X to Y" searches: "pdf to jpg" must find PDF to Image and never JPG to PDF
   const KIND = { jpg: 'image', jpeg: 'image', png: 'image', webp: 'image', heic: 'image', avif: 'image', gif: 'image', bmp: 'image', tiff: 'image', photo: 'image', picture: 'image', img: 'image',
     doc: 'word', docx: 'word', mp4: 'video', mov: 'video', avi: 'video', mkv: 'video', webm: 'video', mp3: 'audio', wav: 'audio', md: 'markdown', xls: 'excel', xlsx: 'excel', ppt: 'powerpoint', pptx: 'powerpoint' };
@@ -878,16 +951,16 @@
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
     ]],
     ['PDF', 'pdf', [
-      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
-      ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf']],
+      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf', 'crop-pdf', 'compare-pdf', 'repair-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
+      ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf', 'flatten-pdf']],
       ['PDF security', ['protect-pdf', 'unlock-pdf']],
       ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
     ]],
     ['Video & audio', 'video', [
       ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
-      ['Audio', ['split-audio', 'merge-audio', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio']],
+      ['Audio', ['audio-converter', 'wav-to-mp3', 'm4a-to-mp3', 'split-audio', 'merge-audio', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio']],
       ['Words from sound', ['video-to-text', 'text-to-audio']],
     ]],
     ['AI', 'ai', [
@@ -895,11 +968,11 @@
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
     ['Convert', 'convert', [
-      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
+      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
       ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
       ['Images', ['png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'jpg-to-webp', 'convert-image', 'image-to-svg']],
-      ['Video and audio', ['video-converter', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
+      ['Video and audio', ['video-converter', 'audio-converter', 'wav-to-mp3', 'm4a-to-mp3', 'mp3-to-wav', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
     ]],
     ['All tools', 'all', null],
   ];

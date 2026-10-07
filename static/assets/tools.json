@@ -1034,6 +1034,125 @@
    "metaDesc": "Convert a PDF into an editable Word document that keeps fonts, sizes, bold and pictures. Free, no sign-up, and your PDF stays on your device."
   },
   {
+   "slug": "pdf-to-excel",
+   "cat": "pdf",
+   "icon": "📊",
+   "name": "PDF to Excel",
+   "desc": "Turn tables in a PDF into an Excel spreadsheet (XLSX) you can sort, sum and edit.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Get the tables out of a PDF and into Excel without retyping them. Every page becomes its own sheet (or all pages go on one sheet), rows and columns are rebuilt from where the text sits on the page, and numbers become real numbers you can add up. It works best on PDFs that were made on a computer, such as bank statements, invoices, price lists and reports. Scanned pages are pictures: run OCR PDF on them first.",
+   "keywords": "xlsx xls spreadsheet table sheet csv bank statement invoice convert",
+   "steps": [
+    "Add your PDF.",
+    "Choose one sheet per page or all pages on one sheet.",
+    "Download the Excel (XLSX) file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert a PDF table to Excel?",
+     "a": "Add the PDF, click Convert to Excel and open the XLSX file in Excel, Google Sheets or LibreOffice. Each page is a sheet with the table rebuilt into rows and columns."
+    },
+    {
+     "q": "Will the numbers work in formulas?",
+     "a": "Yes. Numbers such as 1,234.50 or (200) are stored as real numbers, so SUM and other formulas work. Untick the option to keep everything as text."
+    },
+    {
+     "q": "Can it convert a scanned PDF?",
+     "a": "A scan is only a picture of the page. Use OCR PDF first to turn it into text, then convert it here."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "PDF to Excel Converter Online Free: Tables to XLSX | Toolz Baba",
+   "metaDesc": "Convert PDF tables to Excel (XLSX) in your browser: rows, columns and real numbers kept, one sheet per page. Free, no sign-up, nothing uploaded.",
+   "aliases": [
+    "pdf-to-xlsx",
+    "pdf-to-xls"
+   ]
+  },
+  {
+   "slug": "pdf-to-powerpoint",
+   "cat": "pdf",
+   "icon": "📽️",
+   "name": "PDF to PowerPoint",
+   "desc": "Turn every page of a PDF into a PowerPoint slide (PPTX).",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Present a PDF in PowerPoint, Google Slides or Keynote: each page becomes a slide that looks exactly like the page, at the same size and shape. Add your own titles, notes and animations on top. Handy for showing a report, a brochure or lecture notes in a meeting. Everything is done on your device, so nothing is uploaded.",
+   "keywords": "pptx ppt powerpoint slides presentation keynote google slides convert",
+   "steps": [
+    "Add your PDF.",
+    "Pick the picture quality.",
+    "Download the PowerPoint (PPTX) file."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a PDF into a PowerPoint?",
+     "a": "Add the PDF here and click Convert to PowerPoint. Every page becomes one slide in a PPTX file that opens in PowerPoint, Google Slides and Keynote."
+    },
+    {
+     "q": "Can I edit the text on the slides?",
+     "a": "Each slide shows the page as a picture, so it looks exactly like the PDF. You can add new text boxes, notes and shapes on top. To edit the original words, use PDF to Word."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "PDF to PowerPoint Converter Online Free: PDF to PPTX | Toolz Baba",
+   "metaDesc": "Convert a PDF to PowerPoint (PPTX): every page becomes a slide that looks exactly like the PDF. Free, no sign-up, and your file stays on your device.",
+   "aliases": [
+    "pdf-to-pptx",
+    "pdf-to-ppt"
+   ]
+  },
+  {
+   "slug": "powerpoint-to-pdf",
+   "cat": "pdf",
+   "icon": "📑",
+   "name": "PowerPoint to PDF",
+   "desc": "Convert PowerPoint presentations (PPTX) to PDF, one slide per page.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Send a presentation as a PDF that opens the same on every phone and computer, without PowerPoint. Pictures, shapes, text boxes, tables and the colours and fonts of your theme are drawn onto PDF pages at the slide size. Charts, SmartArt, videos and animations are left out, so check the result for slides that use them. Several presentations can be converted at once, on your own device.",
+   "keywords": "pptx ppt powerpoint slides presentation convert",
+   "steps": [
+    "Add your PPTX files.",
+    "Click Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert a PowerPoint to PDF?",
+     "a": "Add the PPTX file and click Convert to PDF. Each slide becomes one page of the PDF."
+    },
+    {
+     "q": "Does it work with old .ppt files?",
+     "a": "Not directly. Open the .ppt file in PowerPoint, Google Slides or LibreOffice and save it as PPTX first."
+    },
+    {
+     "q": "Will charts and animations be kept?",
+     "a": "Animations can't be part of a PDF. Charts and SmartArt are not drawn yet; pictures, shapes, text and tables are."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "PowerPoint to PDF Converter Online Free: PPTX to PDF | Toolz Baba",
+   "metaDesc": "Convert PowerPoint (PPTX) presentations to PDF in your browser: pictures, shapes, text and tables kept, one slide per page. Free, nothing uploaded.",
+   "aliases": [
+    "pptx-to-pdf",
+    "ppt-to-pdf"
+   ]
+  },
+  {
    "slug": "markdown-converter",
    "cat": "pdf",
    "icon": "📝",
@@ -1263,6 +1382,43 @@
      "q": "Is my video uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
+   ]
+  },
+  {
+   "slug": "audio-converter",
+   "cat": "video",
+   "icon": "🎧",
+   "name": "Audio Converter",
+   "desc": "Convert audio to MP3, M4A, WAV, FLAC or OGG: songs, recordings, voice notes and the sound of videos.",
+   "kind": "client",
+   "engine": "video",
+   "js": "more-tools",
+   "about": "Convert WAV, M4A, AAC, FLAC, OGG, OPUS, WMA and AMR files (WhatsApp voice notes and phone recordings too) to MP3, M4A, WAV, FLAC or OGG. Pick the quality, convert up to 20 files at once, and download them together. It also takes the sound out of videos. Everything runs on your own device: your audio is never uploaded.",
+   "keywords": "mp3 wav m4a aac flac ogg opus wma amr voice note recording song music convert sound",
+   "steps": [
+    "Add your audio files.",
+    "Choose the format and quality.",
+    "Download the converted files."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert audio to MP3?",
+     "a": "Add your files, keep MP3 selected (192 kbps is a good default) and click Convert. Download the MP3 files when they are ready."
+    },
+    {
+     "q": "Which format should I choose?",
+     "a": "MP3 plays everywhere. M4A is small and great on iPhone. WAV and FLAC keep the full quality; FLAC is about half the size of WAV."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "Audio Converter Online Free: MP3, WAV, M4A, FLAC, OGG | Toolz Baba",
+   "metaDesc": "Convert audio files to MP3, M4A, WAV, FLAC or OGG in your browser, up to 20 at once, with the quality you choose. Free, and nothing is uploaded.",
+   "aliases": [
+    "mp3-converter",
+    "audio-to-mp3"
    ]
   },
   {
@@ -1850,6 +2006,185 @@
    ],
    "title": "PDF Editor Online Free: Edit Text in PDF | Toolz Baba",
    "metaDesc": "Edit PDF text, add text in 50 fonts including Hindi, pictures, shapes and highlights, and save as PDF or Word. Free, and the PDF is never uploaded."
+  },
+  {
+   "slug": "crop-pdf",
+   "cat": "pdf",
+   "icon": "✂️",
+   "name": "Crop PDF",
+   "desc": "Cut the white margins off PDF pages automatically, or crop them by margins you choose.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Trim PDF pages so the content fills the screen: great for reading papers and scanned books on a phone or e-reader, or for cutting crop marks off a print file. Automatic mode finds the content on each page and removes the empty border; manual mode cuts the margins you type in millimetres. Choose all pages or a range.",
+   "keywords": "trim margins cut border whitespace page size resize",
+   "steps": [
+    "Add your PDF.",
+    "Choose automatic or your own margins.",
+    "Download the cropped PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I crop the margins of a PDF?",
+     "a": "Add the PDF, keep Automatically selected and click Crop PDF. The white margins of every page are cut away, keeping a little space around the content."
+    },
+    {
+     "q": "Is the cut-off part deleted?",
+     "a": "It is hidden (the page's visible area is changed), so the file size stays about the same and nothing on the page is rewritten."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "Crop PDF Online Free: Remove White Margins | Toolz Baba",
+   "metaDesc": "Crop PDF pages online: cut the white margins away automatically or by millimetres, for all pages or a range. Free, no sign-up, nothing uploaded.",
+   "aliases": [
+    "trim-pdf"
+   ]
+  },
+  {
+   "slug": "flatten-pdf",
+   "cat": "pdf",
+   "icon": "🧱",
+   "name": "Flatten PDF",
+   "desc": "Lock form fields, comments and signatures into the page so they can't be changed.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Flatten a PDF before you send it so the filled-in form, your signature, comments and highlights become part of the page and can no longer be edited, moved or deleted. The text stays sharp and searchable. Need more? Turn every page into a picture, so nothing in the file can be edited or copied at all.",
+   "keywords": "flat lock form fields fillable annotations comments signature print",
+   "steps": [
+    "Add your PDF.",
+    "Choose forms and comments, or everything into pictures.",
+    "Download the flattened PDF."
+   ],
+   "faq": [
+    {
+     "q": "What does flattening a PDF do?",
+     "a": "It merges form fields, comments, stamps and signatures into the page content, so they look the same everywhere and can no longer be changed."
+    },
+    {
+     "q": "Can people still copy the text?",
+     "a": "With forms and comments, yes: the text stays searchable. Choose Everything into pictures if it must not be copied."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "Flatten PDF Online Free: Lock Forms and Comments | Toolz Baba",
+   "metaDesc": "Flatten a PDF online: lock filled-in forms, signatures and comments into the page, or turn pages into pictures. Free, and nothing is uploaded."
+  },
+  {
+   "slug": "compare-pdf",
+   "cat": "pdf",
+   "icon": "🔍",
+   "name": "Compare PDF",
+   "desc": "Find every difference in the text of two PDF versions, with a clear report.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Check what changed between two versions of a contract, a thesis or an offer. Add the old PDF and the new one: every word that was removed or added is listed with the text around it and the page it is on, in a PDF report you can keep or share. Only the text is compared, not pictures or layout.",
+   "keywords": "diff difference compare versions changes contract track changes",
+   "steps": [
+    "Add the old PDF, then the new PDF.",
+    "Click Compare PDFs.",
+    "Open or download the report."
+   ],
+   "faq": [
+    {
+     "q": "How do I compare two PDF files?",
+     "a": "Add the old version first and the new version second, then click Compare PDFs. The report shows removed text in red and added text in green, with page numbers."
+    },
+    {
+     "q": "Does it compare pictures and layout?",
+     "a": "No, it compares the words. Moving a paragraph shows up as removed in one place and added in another."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "Compare PDF Online Free: Find Differences Between Two PDFs | Toolz Baba",
+   "metaDesc": "Compare two PDFs and see every added and removed word, with page numbers, in a clear report. Free, no sign-up, and your files stay on your device.",
+   "aliases": [
+    "pdf-compare",
+    "diff-pdf"
+   ]
+  },
+  {
+   "slug": "repair-pdf",
+   "cat": "pdf",
+   "icon": "🩹",
+   "name": "Repair PDF",
+   "desc": "Fix a damaged PDF that won't open or shows errors, and save a clean copy.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "A PDF can get damaged by an interrupted download, a full disk or a faulty program, and then it won't open, shows errors or misses pages. Repair PDF rebuilds the file's internal structure, recovers every page it can read and saves a clean copy. It also helps with PDFs that upload sites reject.",
+   "keywords": "fix corrupt damaged broken recover error open",
+   "steps": [
+    "Add the damaged PDF.",
+    "Click Repair PDF.",
+    "Download the repaired copy."
+   ],
+   "faq": [
+    {
+     "q": "Can every damaged PDF be fixed?",
+     "a": "Most files with a broken structure can be rebuilt. If parts of the file are missing or overwritten, the pages that are still readable are recovered."
+    },
+    {
+     "q": "Why does an upload site reject my PDF?",
+     "a": "Often the file has small structural errors. A repaired, cleanly saved copy is usually accepted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "Repair PDF Online Free: Fix Damaged or Corrupt PDF Files | Toolz Baba",
+   "metaDesc": "Repair a damaged or corrupt PDF in your browser: the structure is rebuilt and readable pages are recovered into a clean copy. Free, nothing uploaded.",
+   "aliases": [
+    "fix-pdf"
+   ]
+  },
+  {
+   "slug": "pdf-to-text",
+   "cat": "pdf",
+   "icon": "📄",
+   "name": "PDF to Text",
+   "desc": "Get all the text out of a PDF as a plain text (TXT) file.",
+   "kind": "client",
+   "engine": "pdf-more",
+   "js": "more-tools",
+   "about": "Copying text out of a PDF page by page is slow and loses line breaks. PDF to Text takes all the words out at once and saves them as a TXT file you can open anywhere, paste into an email or use in another program. It works with any language, and you can mark where each page starts. For scans, use OCR PDF.",
+   "keywords": "txt extract text copy plain words",
+   "steps": [
+    "Add your PDF.",
+    "Choose the pages.",
+    "Download the text file."
+   ],
+   "faq": [
+    {
+     "q": "How do I extract text from a PDF?",
+     "a": "Add the PDF and click Get the text. A TXT file with all the words is downloaded."
+    },
+    {
+     "q": "Why is no text found?",
+     "a": "The PDF is probably a scan, which is a picture of the page. Use OCR PDF to read the words from the pictures."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser, so your file stays on your device and is never uploaded."
+    }
+   ],
+   "title": "PDF to Text Converter Online Free: Extract Text to TXT | Toolz Baba",
+   "metaDesc": "Extract all the text from a PDF into a plain TXT file, any language, with page markers if you like. Free, no sign-up, nothing uploaded.",
+   "aliases": [
+    "pdf-to-txt",
+    "extract-text-from-pdf"
+   ]
   }
  ],
  "variants": [
@@ -3710,6 +4045,90 @@
    ],
    "cat": "pdf",
    "metaDesc": "Copy chosen pages of a PDF, such as 1-3,5, into one new PDF in that order. The original stays untouched. Free, no sign-up, runs in your browser."
+  },
+  {
+   "slug": "wav-to-mp3",
+   "base": "audio-converter",
+   "tab": "WAV to MP3",
+   "name": "WAV to MP3 Converter",
+   "preset": {
+    "format": "mp3"
+   },
+   "dropLabel": "Drop your WAV files here",
+   "title": "WAV to MP3 Converter Online Free | Toolz Baba",
+   "desc": "Convert WAV audio to MP3 in your browser. MP3 files are about ten times smaller than WAV.",
+   "about": "Turn WAV files into MP3: add one file or up to 20, choose the quality and download the MP3 files. MP3 files are about ten times smaller than WAV. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
+   "metaDesc": "Convert WAV to MP3 online in your browser, up to 20 files at once. MP3 files are about ten times smaller than WAV. Free, no sign-up, nothing uploaded."
+  },
+  {
+   "slug": "m4a-to-mp3",
+   "base": "audio-converter",
+   "tab": "M4A to MP3",
+   "name": "M4A to MP3 Converter",
+   "preset": {
+    "format": "mp3"
+   },
+   "dropLabel": "Drop your M4A files here",
+   "title": "M4A to MP3 Converter Online Free | Toolz Baba",
+   "desc": "Convert M4A audio to MP3 in your browser. Great for iPhone recordings and voice memos.",
+   "about": "Turn M4A files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Great for iPhone recordings and voice memos. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
+   "metaDesc": "Convert M4A to MP3 online in your browser, up to 20 files at once. Great for iPhone recordings and voice memos. Free, no sign-up, nothing uploaded."
+  },
+  {
+   "slug": "mp3-to-wav",
+   "base": "audio-converter",
+   "tab": "MP3 to WAV",
+   "name": "MP3 to WAV Converter",
+   "preset": {
+    "format": "wav"
+   },
+   "dropLabel": "Drop your MP3 files here",
+   "title": "MP3 to WAV Converter Online Free | Toolz Baba",
+   "desc": "Convert MP3 audio to WAV in your browser. WAV opens in every audio editor.",
+   "about": "Turn MP3 files into WAV: add one file or up to 20, choose the quality and download the WAV files. WAV opens in every audio editor. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
+   "metaDesc": "Convert MP3 to WAV online in your browser, up to 20 files at once. WAV opens in every audio editor. Free, no sign-up, nothing uploaded."
+  },
+  {
+   "slug": "flac-to-mp3",
+   "base": "audio-converter",
+   "tab": "FLAC to MP3",
+   "name": "FLAC to MP3 Converter",
+   "preset": {
+    "format": "mp3"
+   },
+   "dropLabel": "Drop your FLAC files here",
+   "title": "FLAC to MP3 Converter Online Free | Toolz Baba",
+   "desc": "Convert FLAC audio to MP3 in your browser. Play your lossless music on any device.",
+   "about": "Turn FLAC files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Play your lossless music on any device. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
+   "metaDesc": "Convert FLAC to MP3 online in your browser, up to 20 files at once. Play your lossless music on any device. Free, no sign-up, nothing uploaded."
+  },
+  {
+   "slug": "ogg-to-mp3",
+   "base": "audio-converter",
+   "tab": "OGG to MP3",
+   "name": "OGG to MP3 Converter",
+   "preset": {
+    "format": "mp3"
+   },
+   "dropLabel": "Drop your OGG files here",
+   "title": "OGG to MP3 Converter Online Free | Toolz Baba",
+   "desc": "Convert OGG audio to MP3 in your browser. Works with WhatsApp voice notes (OPUS) too.",
+   "about": "Turn OGG files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Works with WhatsApp voice notes (OPUS) too. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
+   "metaDesc": "Convert OGG to MP3 online in your browser, up to 20 files at once. Works with WhatsApp voice notes (OPUS) too. Free, no sign-up, nothing uploaded."
+  },
+  {
+   "slug": "aac-to-mp3",
+   "base": "audio-converter",
+   "tab": "AAC to MP3",
+   "name": "AAC to MP3 Converter",
+   "preset": {
+    "format": "mp3"
+   },
+   "dropLabel": "Drop your AAC files here",
+   "title": "AAC to MP3 Converter Online Free | Toolz Baba",
+   "desc": "Convert AAC audio to MP3 in your browser. Plays on every phone, car and speaker.",
+   "about": "Turn AAC files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Plays on every phone, car and speaker. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
+   "metaDesc": "Convert AAC to MP3 online in your browser, up to 20 files at once. Plays on every phone, car and speaker. Free, no sign-up, nothing uploaded."
   }
  ]
 }

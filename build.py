@@ -31,6 +31,12 @@ CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "hello@toolzbaba.com")
 TAGLINE = os.environ.get("SITE_TAGLINE", "Free online image, PDF, video and file tools")
 HEAD_EXTRA = os.environ.get("HEAD_EXTRA", "")
 GTM_ID = os.environ.get("GTM_ID", "GTM-T3R5TWTD").strip()
+# "open from Google Drive / Dropbox" under every drop box: public browser keys, restricted to this site's address (see README).
+# Leave them empty and the buttons don't show.
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "").strip()
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "").strip()
+GOOGLE_APP_ID = os.environ.get("GOOGLE_APP_ID", "").strip()   # the Google Cloud project number
+DROPBOX_APP_KEY = os.environ.get("DROPBOX_APP_KEY", "").strip()
 if GTM_ID and not re.fullmatch(r"GTM-[A-Z0-9]+", GTM_ID):
     raise SystemExit(f"GTM_ID must look like GTM-XXXXXXX, got {GTM_ID!r}")
 
@@ -201,7 +207,8 @@ def build():
     data = json.loads((STATIC / "assets" / "tools.json").read_text("utf-8"))
     (DIST / "assets" / "tools.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
     (DIST / "assets" / "site.json").write_text(json.dumps(
-        {"siteName": SITE_NAME, "tagline": TAGLINE, "contactEmail": CONTACT_EMAIL}), "utf-8")
+        {"siteName": SITE_NAME, "tagline": TAGLINE, "contactEmail": CONTACT_EMAIL, "googleApiKey": GOOGLE_API_KEY, "googleClientId": GOOGLE_CLIENT_ID,
+         "googleAppId": GOOGLE_APP_ID, "dropboxAppKey": DROPBOX_APP_KEY}), "utf-8")
     tools = data["tools"]
 
     # home

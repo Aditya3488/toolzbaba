@@ -345,6 +345,17 @@ A small CMS built into the admin panel (the Blog tab), free on Cloudflare: no Wo
 * **Renaming** a published post keeps the old address as a 301 redirect (`blog:moved:<old>`).
 * KV keys: `blog:index` (summaries), `blog:post:<slug>`, `blog:moved:<slug>`, `blogimg:<id>.<ext>`. Code: `functions/blog/*`, `functions/api/admin/blog/*`, `functions/api/admin/blog-image.js`, `lib/blog-store.js`.
 
+### Ratings, next steps, recent tools
+* **Rate this tool** (`functions/api/rating.js`): votes live in the D1 database `toolzbaba-ratings` (binding `DB` in `wrangler.toml`, table `ratings`: one row per tool and visitor, the visitor being a salted hash of the IP, salt `RATING_SALT` or else `ADMIN_KEY`). A tool and its tab pages share one score. The average shows by the tool's name and as `aggregateRating` in the page data once there are 5 votes (`MIN_SHOWN` in `common.js`). Real votes only: Google penalises made-up ratings.
+* **After a download** (`nextSteps` in `common.js`): Share (the phone's share sheet), Do another file, the stars, and 4 next tools (`NEXT` per tool, `NEXT_CAT` per category).
+* **Recent tools**: the last 8 tools a visitor opened, in their own browser (`tz_recent`), shown on the home page and in the phone menu.
+
+### Open from Google Drive / Dropbox
+The buttons under each drop box appear only when `build.py` has the keys (environment variables, or the defaults in `build.py`; for the GitHub workflow add them to the build step's `env`). They are public browser keys, safe in the page because they are locked to the site's address:
+* **Dropbox**: dropbox.com/developers > Create app > Scoped access, App folder or Full Dropbox > in Settings add `toolzbaba.com` under "Chooser / Saver / Embedder domains". Put the App key in `DROPBOX_APP_KEY`.
+* **Google Drive**: console.cloud.google.com > new project > enable "Google Picker API" and "Google Drive API" > OAuth consent screen (External, scope `drive.file`, publish it) > Credentials: an API key (restrict it to HTTP referrer `https://toolzbaba.com/*` and to the Picker API) -> `GOOGLE_API_KEY`; an OAuth client ID of type Web application with authorised JavaScript origin `https://toolzbaba.com` -> `GOOGLE_CLIENT_ID`; the project number (Dashboard) -> `GOOGLE_APP_ID`.
+The file goes from Google or Dropbox straight into the browser; nothing passes through our server. The AI pages (cross-origin isolated) don't show the buttons.
+
 ### Keeping the site fast
 
 Rules that keep the numbers in the admin panel green: tool code and models load only when a tool is used; public pages never load admin code; the tool page reserves the room its script-built parts will need (`.thead`, `.shell`, the home page chips and list in `app.css`, "Layout stability"), and the side cards are added after the tool is in place, so nothing jumps (CLS was 0.5 to 1.4 before, now about 0.05); images are served in the size shown (`hero-art-330/540.webp`, `logo-315.webp`). The remaining weight on every page is ads/analytics from Google Tag Manager (about 200 KB): loading it after the page has settled would be the next big win.
