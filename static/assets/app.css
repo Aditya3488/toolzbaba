@@ -673,19 +673,32 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .crumb { display:none; }
 
 /* ============================================================ the animated star (Bookmark button and toast)
-   One sprite of 12 frames, 96x96 each, laid out left to right (assets/brand/star-sprite.webp, 1152x96).
-   background-size 1200% makes one frame fill the box; background-position-x 0% shows frame 01, 100% frame 12, and frame n
-   (1-12) is at (n-1)/11 * 100%. The box never changes size (no layout shift); only the picture inside it changes. */
-.tzstar { --tzs:20px; display:inline-block; flex:none; width:var(--tzs); height:var(--tzs); background:url(/assets/brand/star-sprite.webp) no-repeat; background-size:1200% 100%; background-position:100% 0; }
-/* To change the speed: the 2.2s below (the frame timings are percentages of it). To switch the animation off: delete this rule.
-   It plays even when the device asks for less motion: a small star for two seconds, it is part of the brand. */
-.tzstar.play { animation:tzstar 2.2s step-end 1 both; }
-@media (prefers-reduced-motion:reduce) { .tzstar.play { animation:tzstar 2.2s step-end 1 both !important; } }   /* wins over the site-wide "no animations" rule at the top */
-@keyframes tzstar {   /* 01-03 quick pop, 04 settle, 05 the smile (held ~0.75 s), 06 blink, 07-08 eyes open, 09-10 small bounce, 11-12 settle */
-  0% { background-position:0% 0; }           4% { background-position:9.0909% 0; }    8% { background-position:18.1818% 0; }
-  13% { background-position:27.2727% 0; }    18% { background-position:36.3636% 0; }  52% { background-position:45.4545% 0; }
-  60% { background-position:54.5454% 0; }    66% { background-position:63.6363% 0; }  72% { background-position:72.7272% 0; }
-  79% { background-position:81.8181% 0; }    87% { background-position:90.9090% 0; }  94%, 100% { background-position:100% 0; }
+   One body, three faces (assets/brand/star-faces.webp, 288x96, made by brand-source/make-star-faces.py): 0% the resting
+   face, 50% the smile, 100% the blink. The face changes in a blink (as faces do); the body moves smoothly: it pops in with
+   a little spring, tilts its head while smiling, crouches, hops and lands softly (squash and stretch, eased like a real
+   movement: slow into and out of every turn). The box never changes size (no layout shift); only what is drawn in it moves. */
+.tzstar { --tzs:20px; display:inline-block; flex:none; width:var(--tzs); height:var(--tzs); background:url(/assets/brand/star-faces.webp) no-repeat;
+  background-size:300% 100%; background-position:0% 0; transform-origin:50% 88%; }
+/* To change the speed: the 2.6s below (the timings are percentages of it). To switch the animation off: delete this rule.
+   It plays even when the device asks for less motion: a small star for under three seconds, it is part of the brand. */
+.tzstar.play { animation:tzface 2.6s step-end 1 both, tzbody 2.6s linear 1 both; }
+@media (prefers-reduced-motion:reduce) { .tzstar.play { animation:tzface 2.6s step-end 1 both, tzbody 2.6s linear 1 both !important; } }   /* wins over the site-wide "no animations" rule at the top */
+@keyframes tzface {   /* resting while it pops in, the smile (held ~0.8 s), eyes open, one blink, eyes open */
+  0% { background-position:0% 0; }  18% { background-position:50% 0; }  49% { background-position:0% 0; }
+  57% { background-position:100% 0; }  62%, 100% { background-position:0% 0; }
+}
+@keyframes tzbody {   /* every step names the same three moves, so the browser glides between them */
+  0% { transform:translateY(0) rotate(0deg) scale(.2, .2); animation-timing-function:cubic-bezier(.2, .9, .3, 1.25); }    /* pop in, with a little overshoot */
+  15% { transform:translateY(0) rotate(0deg) scale(1.05, 1.05); animation-timing-function:ease-in-out; }
+  22% { transform:translateY(0) rotate(0deg) scale(1, 1); animation-timing-function:ease-in-out; }
+  31% { transform:translateY(-2%) rotate(-7deg) scale(1.03, 1.03); animation-timing-function:ease-in-out; }       /* tilts its head while smiling */
+  43% { transform:translateY(-2%) rotate(-4deg) scale(1.03, 1.03); animation-timing-function:ease-in-out; }
+  53% { transform:translateY(0) rotate(0deg) scale(1, 1); animation-timing-function:cubic-bezier(.4, 0, .6, 1); }
+  62% { transform:translateY(0) rotate(0deg) scale(1.08, .9); animation-timing-function:cubic-bezier(.25, .8, .35, 1); }  /* crouches */
+  72% { transform:translateY(-16%) rotate(0deg) scale(.95, 1.06); animation-timing-function:cubic-bezier(.55, 0, .8, .45); } /* hop: slows at the top */
+  81% { transform:translateY(0) rotate(0deg) scale(1.07, .92); animation-timing-function:cubic-bezier(.25, .8, .35, 1); }   /* lands, softly */
+  90% { transform:translateY(-3%) rotate(0deg) scale(.98, 1.02); animation-timing-function:ease-in-out; }
+  100% { transform:translateY(0) rotate(0deg) scale(1, 1); }
 }
 .bmbtn .tzstar { margin:-2px 0 -2px -2px; }
 

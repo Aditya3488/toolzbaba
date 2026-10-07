@@ -777,9 +777,9 @@
     if (android) return { key: null, steps: 'Tap the ⋮ menu in your browser, then the star ☆ ("Add to bookmarks"). You can also pick "Install app" or "Add to Home screen".' };
     return { key: mac ? ['⌘', 'D'] : ['Ctrl', 'D'], steps: 'Press these keys on your keyboard while you are on this page:' };
   };
-  // ---- the star: 12 hand-drawn frames in one sprite (assets/brand/star-sprite.webp, made by brand-source/make-star-sprite.py).
-  // .tzstar shows frame 12 (the resting star); adding .play runs the 1-second animation once (see @keyframes tzstar in app.css).
-  const STAR_SPRITE = '/assets/brand/star-sprite.webp';
+  // ---- the star: one body with three faces (assets/brand/star-faces.webp, made by brand-source/make-star-faces.py).
+  // .tzstar shows the resting star; adding .play runs the animation once: the faces swap, the body moves smoothly (tzface and tzbody in app.css).
+  const STAR_SPRITE = '/assets/brand/star-faces.webp';
   let starReady = false;
   HT.star = (px, { play = false } = {}) => {
     const s = el('span', { class: 'tzstar', 'aria-hidden': 'true' }); s.style.setProperty('--tzs', px + 'px');
