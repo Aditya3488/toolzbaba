@@ -520,9 +520,9 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* Layout stability (CLS): the tool page is built by script, so the room it needs is reserved up front. Without this the "about" text at the bottom
    is painted first and then jumps down when the tool appears (Google measures that as layout shift and ranks pages lower for it). */
 .crumb { min-height:1.35em; }
-.thead { min-height:130px; }
+.thead:empty { min-height:130px; }   /* the page normally arrives with its title block filled in (build.py) */
 .shell { min-height:max(560px, 85vh); }
-@media (max-width:560px) { .thead { min-height:176px; } .shell { min-height:max(520px, 80vh); } }
+@media (max-width:560px) { .thead:empty { min-height:176px; } .shell { min-height:max(520px, 80vh); } }
 /* home page: the popular chips, the trust row and the tool list are filled in by script, so their room is reserved (no jumping hero picture, no jumping footer) */
 #trust { min-height:22px; } #list { min-height:120vh; }
 @media (max-width:560px) { #trust { min-height:52px; } }
@@ -711,3 +711,47 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 @keyframes bmfunnelout { 0% { opacity:1; transform:translate(-50%,0) scale(1,1); } 100% { opacity:0; transform:translate(-50%,-46px) scale(.22,.12); } }
 @media (prefers-reduced-motion:reduce) { .bmtoast { animation:none; } .bmtoast.out { animation:none; opacity:0; } }
 @media (max-width:560px) { .bmtoast { top:68px; } }
+
+/* ---------- growth round: phone header search, phone menu extras, what-next card, full footer list, compact phone grid ---------- */
+.nv-msbtn { display:none; }
+@media (max-width:820px) { .nv-msbtn { display:grid; } }
+@media (max-width:640px) { .top .themebtn { display:none; } }
+.nv-mtheme { width:100%; background:none; border:0; border-bottom:1px solid var(--border); font:inherit; cursor:pointer; text-align:left; }
+.nv-mtheme svg { width:18px; height:18px; color:var(--muted); }
+.nv-mrecent { padding:8px 0 4px; border-bottom:1px solid var(--border); } .nv-mrecent h4 { margin:6px 0 4px; font-size:.74rem; text-transform:uppercase; letter-spacing:.06em; color:var(--faint); }
+.nv-mrecent ul { list-style:none; margin:0; padding:0; } .nv-mrecent a { display:flex; align-items:center; gap:10px; padding:8px 0; color:var(--text); font-weight:600; }
+.chip.mine { border-color:color-mix(in srgb,var(--accent) 40%,var(--border)); background:var(--accent-soft); }
+
+/* after a download */
+.nextcard { margin:16px 0 4px; background:var(--card); border:1px solid color-mix(in srgb,var(--ok) 35%,var(--border)); border-radius:var(--r); padding:14px 16px; box-shadow:var(--shadow-sm); animation:rise .3s ease both; }
+.next-h { display:flex; align-items:center; gap:10px; flex-wrap:wrap; } .next-h > svg { width:22px; height:22px; color:var(--ok); flex:none; } .next-h b { font-size:1.02rem; } .next-h .sp { flex:1; }
+.next-h .btn svg { width:16px; height:16px; }
+.next-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin-top:12px; }
+.next-t { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border:1px solid var(--border); border-radius:12px; color:var(--text); background:var(--bg); }
+.next-t:hover { border-color:var(--accent); text-decoration:none; } .next-t b { display:block; font-size:.92rem; } .next-t small { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:var(--muted); font-size:.8rem; line-height:1.35; }
+.next-t i { flex:none; }
+
+/* footer: every tool */
+.foot-all { grid-column:1/-1; display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:18px 24px; border-top:1px solid var(--border); padding-top:22px; }
+.foot-all ul { gap:6px; font-size:.84rem; }
+
+/* phone home page: two tools per row, name first (the page was ~11,000px tall with one big card per row) */
+@media (max-width:560px) {
+  #list .grid { grid-template-columns:1fr 1fr; gap:10px; }
+  #list .tcard { flex-direction:column; gap:8px; padding:12px; }
+  #list .tcard .ic { width:40px; height:40px; }
+  #list .tcard b { font-size:.92rem; line-height:1.25; }
+  #list .tcard span.d { font-size:.78rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  #list .tcard .tag.local { display:none; } #list .tcard .tag { margin-top:4px; }
+  #list .tcard .go { display:none; }
+}
+
+/* rate this tool */
+.rstars { display:inline-flex; gap:2px; }
+.rstars button { border:0; background:none; padding:2px 3px; font-size:1.55rem; line-height:1; color:var(--border2); cursor:pointer; transition:transform .1s, color .1s; }
+.rstars button.on { color:#f5a623; } .rstars button:hover { transform:scale(1.15); }
+.rstars button:focus-visible { outline:2px solid var(--accent); border-radius:6px; }
+.ratecard .rnote { margin:6px 0 0; color:var(--muted); font-size:.84rem; min-height:1.2em; }
+.next-rate { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:10px; color:var(--muted); font-size:.9rem; }
+.badge.rate { color:var(--text); text-decoration:none; } .badge.rate .st { color:#f5a623; } .badge.rate small { color:var(--muted); font-weight:500; }
+@media (max-width:560px) { .next-row { grid-template-columns:1fr 1fr; } .next-t small { display:none; } .next-t { align-items:center; } }

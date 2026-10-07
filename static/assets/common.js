@@ -38,6 +38,8 @@
     auto: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8m-4-4v4"/></svg>',
     star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>',
     bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>',
+    again: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
   };
   HT.ICON = ICON;
   HT.svg = html => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; };
@@ -66,7 +68,8 @@
   HT.download = (blobOrUrl, name) => {
     const url = typeof blobOrUrl === 'string' ? blobOrUrl : URL.createObjectURL(blobOrUrl);
     const a = el('a', { href: url, download: name }); document.body.append(a); a.click(); a.remove();
-    try { bookmarkNudge(); } catch { }
+    lastFile = typeof blobOrUrl === 'string' ? { url: blobOrUrl, name } : { blob: blobOrUrl, name };
+    afterDownload();
     if (typeof blobOrUrl !== 'string') setTimeout(() => URL.revokeObjectURL(url), 4000);
   };
   HT.zip = async entries => {
@@ -659,7 +662,8 @@
     };
     // Esc = not now; Ctrl+D / Cmd+D while the toast shows = they bookmarked: let the browser do it, then say goodbye
     const onKey = e => { if (e.key === 'Escape') close({ notNow: true }); else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') { snooze(30 * 24 * HOUR); setTimeout(() => close(), 300); } };
-    const sub = el('p', { class: 'bmsub', text: 'Just bookmark this site.' });
+    // where the browser can install the site as an app (Chrome, Edge, Android), that is the better offer: it sits on the home screen
+    const sub = el('p', { class: 'bmsub', text: installEvt ? 'Install the free app: one tap from your home screen.' : 'Just bookmark this site.' });
     const yes = async () => {
       if (toast.classList.contains('how')) return;
       snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
@@ -671,7 +675,7 @@
     const star = HT.star(40);
     const toast = el('div', { class: 'bmtoast', role: 'button', tabindex: '0', 'aria-label': 'Never miss free tools: bookmark this site', title: installEvt ? 'Install Toolz Baba as an app' : 'Bookmark this site' },
       el('button', { class: 'bmx', type: 'button', 'aria-label': 'Not now', title: 'Not now', text: '×', onclick: e => { e.stopPropagation(); close({ notNow: true }); } }),
-      star, el('div', { class: 'bmtext' }, el('b', { class: 'bmtitle', text: 'Never miss free tools' }), sub));
+      star, el('div', { class: 'bmtext' }, el('b', { class: 'bmtitle', text: installEvt ? 'Get the Toolz Baba app' : 'Never miss free tools' }), sub));
     toast.addEventListener('click', yes);
     toast.addEventListener('keydown', e => { if (e.target === toast && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); yes(); } });
     document.body.append(toast); document.addEventListener('keydown', onKey);
@@ -685,13 +689,80 @@
     setTimeout(() => HT.bookmark({ fromDownload: true }), 1200);
   };
   // download links a tool shows ("Download merged.pdf") count too, not only HT.download()
-  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#tool a[download]'); if (a) bookmarkNudge(); }, true);
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#tool a[download]'); if (a) { lastFile = { url: a.href, name: a.getAttribute('download') || '' }; afterDownload(); } }, true);
+
+  // ---------------------------------------------------------------- after a download: share it, do another, or go on to the next tool
+  // The next tools are the usual next step for this tool (NEXT), then good ones from its category (NEXT_CAT); slugs that don't exist are skipped.
+  const NEXT = {
+    'compress-image': ['resize-image-to-kb', 'convert-image', 'image-to-pdf', 'passport-size-photo-maker'],
+    'resize-image': ['compress-image', 'crop-image', 'convert-image', 'image-to-pdf'],
+    'resize-image-to-kb': ['passport-size-photo-maker', 'compress-image', 'image-to-pdf', 'crop-image'],
+    'passport-size-photo-maker': ['resize-image-to-kb', 'image-to-pdf', 'compress-image', 'remove-background'],
+    'convert-image': ['compress-image', 'resize-image', 'image-to-pdf', 'image-to-svg'],
+    'crop-image': ['resize-image', 'compress-image', 'add-watermark-to-image', 'image-to-pdf'],
+    'remove-background': ['replace-background', 'passport-size-photo-maker', 'upscale-image', 'compress-image'],
+    'replace-background': ['compress-image', 'upscale-image', 'passport-size-photo-maker', 'social-media-image-resizer'],
+    'upscale-image': ['compress-image', 'remove-background', 'convert-image', 'crop-image'],
+    'image-to-text': ['pdf-editor', 'word-counter', 'image-to-pdf', 'text-case-converter'],
+    'image-to-pdf': ['compress-pdf', 'merge-pdf', 'esign-pdf', 'pdf-editor'],
+    'pdf-to-image': ['compress-image', 'image-to-text', 'image-to-pdf', 'crop-image'],
+    'merge-pdf': ['compress-pdf', 'organize-pdf', 'add-page-numbers-to-pdf', 'esign-pdf'],
+    'split-pdf': ['merge-pdf', 'compress-pdf', 'pdf-to-image', 'organize-pdf'],
+    'compress-pdf': ['merge-pdf', 'pdf-editor', 'esign-pdf', 'protect-pdf'],
+    'word-to-pdf': ['compress-pdf', 'merge-pdf', 'esign-pdf', 'protect-pdf'],
+    'pdf-to-word': ['word-to-pdf', 'pdf-editor', 'compress-pdf', 'word-counter'],
+    'pdf-editor': ['compress-pdf', 'esign-pdf', 'merge-pdf', 'protect-pdf'],
+    'esign-pdf': ['compress-pdf', 'protect-pdf', 'merge-pdf', 'add-page-numbers-to-pdf'],
+    'video-converter': ['compress-video', 'video-trimmer', 'video-to-gif', 'mp4-to-mp3'],
+    'compress-video': ['video-trimmer', 'video-to-gif', 'mp4-to-mp3', 'video-converter'],
+    'video-trimmer': ['compress-video', 'video-to-gif', 'video-merger', 'mp4-to-mp3'],
+    'video-to-gif': ['compress-image', 'gif-to-video', 'video-trimmer', 'compress-video'],
+    'qr-code-generator': ['compress-image', 'add-watermark-to-image', 'password-generator', 'url-encoder'],
+  };
+  const NEXT_CAT = { image: ['compress-image', 'resize-image-to-kb', 'image-to-pdf', 'remove-background'], ai: ['compress-image', 'upscale-image', 'remove-background', 'passport-size-photo-maker'],
+    pdf: ['compress-pdf', 'merge-pdf', 'pdf-editor', 'esign-pdf'], video: ['compress-video', 'video-to-gif', 'mp4-to-mp3', 'video-trimmer'],
+    dev: ['qr-code-generator', 'password-generator', 'json-formatter', 'word-counter'], util: ['qr-code-generator', 'compress-image', 'image-color-palette-extractor', 'font-library'] };
+  let lastFile = null;   // what "Share" sends: { blob } or { url }, and its name
+  const canShareFiles = () => { try { return !!(navigator.canShare && navigator.canShare({ files: [new File(['x'], 'x.txt', { type: 'text/plain' })] })); } catch { return false; } };
+  const shareLast = async () => {
+    if (!lastFile) return HT.toast('Download a file first.');
+    try {
+      const blob = lastFile.blob || await fetch(lastFile.url).then(r => r.blob());
+      const file = new File([blob], lastFile.name || 'file', { type: blob.type || 'application/octet-stream' });
+      if (!navigator.canShare({ files: [file] })) return HT.toast('This browser cannot share this kind of file. It is in your downloads.');
+      await navigator.share({ files: [file], title: file.name });
+    } catch (e) { if (!e || e.name !== 'AbortError') HT.toast('Could not share: ' + (e && e.message || 'unknown error')); }
+  };
+  const nextSteps = async () => {
+    const app = document.getElementById('app'); if (!app || !document.getElementById('tool') || document.querySelector('.nextcard')) return;
+    const slug = location.pathname.split('/').filter(Boolean).pop() || '', data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t]));
+    const me = by.get(slug) || {}, base = me.base || slug;
+    const picks = [...(NEXT[slug] || NEXT[base] || []), ...(NEXT_CAT[me.cat] || [])].filter((s, i, a) => s !== slug && s !== base && a.indexOf(s) === i)
+      .map(s => by.get(s)).filter(t => t && t.base !== base).slice(0, 4);
+    const card = el('section', { class: 'nextcard', 'aria-label': 'What next' },
+      el('div', { class: 'next-h' }, HT.svg(ICON.check), el('b', { text: 'Done! What next?' }), el('span', { class: 'sp' }),
+        canShareFiles() ? el('button', { class: 'btn sec sm', type: 'button', onclick: shareLast }, HT.svg(ICON.share), 'Share') : null,
+        el('button', { class: 'btn ghost sm', type: 'button', onclick: () => location.reload() }, HT.svg(ICON.again), 'Do another file')),
+      el('div', { class: 'next-rate' }, el('span', { text: 'How did it go?' }), starRow(base, s => { HT.toast('Thanks for rating!'); showRating(s); })),
+      picks.length ? el('div', { class: 'next-row' }, picks.map(t => el('a', { class: 'next-t cat-' + t.cat, href: t.href },
+        el('i', {}, HT.toolIcon(iconKey(t), 'xs')), el('span', {}, el('b', { text: t.name }), el('small', { text: t.desc }))))) : null);
+    app.after(card);
+  };
+  const afterDownload = () => { try { bookmarkNudge(); } catch { } setTimeout(() => nextSteps().catch(() => { }), 500); };
+
+  // ---------------------------------------------------------------- the tools this visitor used last (kept in this browser only)
+  const RECENT = 'tz_recent';
+  HT.recent = {
+    list: () => { try { const a = JSON.parse(localStorage.getItem(RECENT) || '[]'); return Array.isArray(a) ? a.filter(s => typeof s === 'string' && /^[a-z0-9-]{1,80}$/.test(s)).slice(0, 8) : []; } catch { return []; } },
+    add: slug => { try { localStorage.setItem(RECENT, JSON.stringify([slug, ...HT.recent.list().filter(s => s !== slug)].slice(0, 8))); } catch { } },
+  };
 
   applyTheme(themeNow());
+  const cycleTheme = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); document.querySelectorAll('.bmbtn .tzstar').forEach(HT.playStar); HT.toast('Theme: ' + (next || 'automatic')); };
   const themeButton = () => {
-    const b = el('button', { class: 'iconbtn', type: 'button', 'aria-label': 'Change theme' });
+    const b = el('button', { class: 'iconbtn themebtn', type: 'button', 'aria-label': 'Change theme' });
     const paint = () => { const t = themeNow(); b.textContent = ''; b.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto)); b.title = 'Theme: ' + (t || 'auto') + ' (click to change)'; };
-    b.onclick = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); paint(); document.querySelectorAll('.bmbtn .tzstar').forEach(HT.playStar); HT.toast('Theme: ' + (next || 'automatic')); };
+    b.onclick = () => { cycleTheme(); paint(); };
     paint(); return b;
   };
 
@@ -870,14 +941,22 @@
     const burger = el('button', { class: 'nv-burger', type: 'button', 'aria-label': 'Menu', 'aria-expanded': 'false' }, HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'));
     const mobile = el('div', { class: 'nv-m', hidden: 'hidden' }); let mFilled = false;
     const closeM = () => { mobile.hidden = true; burger.setAttribute('aria-expanded', 'false'); };
-    burger.addEventListener('click', async () => {
-      if (!mobile.hidden) return closeM();
+    const openM = async () => {
       // on a phone the header has no search box, so the menu starts with one (the same search as the header's)
-      if (!mFilled) { const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search 55+ tools...'; mobile.append(s);
-        const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
+      if (!mFilled) { mFilled = true; const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search all tools...'; mobile.append(s);
+        const data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(x => by.get(x)).filter(Boolean).slice(0, 4);
+        if (recent.length) mobile.append(el('div', { class: 'nv-mrecent' }, el('h4', { text: 'Your recent tools' }), el('ul', {}, recent.map(t => el('li', {}, link(t))))));
+        for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key)));
+        mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' }));
+        const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), 'Theme: ' + (t ? t[0].toUpperCase() + t.slice(1) : 'Automatic')); };
+        tb.onclick = () => { cycleTheme(); paint(); }; paint(); mobile.append(tb); }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
-    });
-    return { nav, burger, mobile };
+    };
+    burger.addEventListener('click', () => (mobile.hidden ? openM() : closeM()));
+    // a phone has no room for the search box: this button opens the menu with its search ready to type in
+    const msearch = el('button', { class: 'iconbtn nv-msbtn', type: 'button', 'aria-label': 'Search tools', title: 'Search tools' }, HT.svg(ICON.search));
+    msearch.addEventListener('click', async () => { await openM(); const i = mobile.querySelector('.nv-msearch input'); if (i) i.focus(); });
+    return { nav, burger, mobile, msearch };
   };
 
   HT.header = active => {
@@ -886,7 +965,7 @@
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), navbar.msearch, bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
     HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
@@ -902,9 +981,13 @@
       col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
+    const all = el('nav', { class: 'foot-all', 'aria-label': 'All tools' }); f.querySelector('.foot-bottom').before(all);
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
-    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))); });
+    HT.loadTools().then(d => {
+      const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name }))));
+      for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h4', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))))); }
+    });
   };
 
   // tools.json gives a tool an emoji in `icon` (not an icon name): only a plain name (a tab page uses the name of its tool) picks another icon
@@ -914,6 +997,54 @@
       el('div', {}, t.kind === 'client' ? el('span', { class: 'tag local', text: 'In your browser' }) : null, t.cat === 'ai' ? el('span', { class: 'tag ai', text: 'AI' }) : null)),
     el('span', { class: 'go', text: '\u2192' }));
   HT.cardFor = cardFor;
+
+  // ---------------------------------------------------------------- "Rate this tool"
+  // Votes go to /api/rating (one per tool and visitor, it can be changed). A tool and its tab pages share one score. The average is shown by the
+  // tool's name, and added to the page's data for search engines, only once there are MIN_SHOWN real votes.
+  const RATED = 'tz_rated', MIN_SHOWN = 5, ratingCache = {};
+  const ratedMap = () => { try { const o = JSON.parse(localStorage.getItem(RATED) || '{}'); return o && typeof o === 'object' ? o : {}; } catch { return {}; } };
+  HT.rating = {
+    get: slug => ratingCache[slug] || (ratingCache[slug] = fetch('/api/rating?tool=' + encodeURIComponent(slug)).then(r => (r.ok ? r.json() : null)).catch(() => null)),
+    async send(slug, stars) {
+      const r = await fetch('/api/rating', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ tool: slug, stars }) });
+      const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.detail || 'error ' + r.status);
+      const m = ratedMap(); m[slug] = stars; try { localStorage.setItem(RATED, JSON.stringify(m)); } catch { }
+      ratingCache[slug] = Promise.resolve(j); return j;
+    },
+  };
+  const fmtVotes = n => n.toLocaleString('en') + (n === 1 ? ' vote' : ' votes');
+  const STAR_WORDS = ['', 'Poor', 'Could be better', 'Good', 'Very good', 'Excellent'];
+  // five star buttons; onDone(summary) after a vote
+  const starRow = (slug, onDone) => {
+    const row = el('div', { class: 'rstars', role: 'radiogroup', 'aria-label': 'Rate this tool' });
+    const paint = n => row.querySelectorAll('button').forEach((b, i) => { b.classList.toggle('on', i < n); b.setAttribute('aria-checked', i + 1 === +row.dataset.v ? 'true' : 'false'); });
+    for (let i = 1; i <= 5; i++) {
+      const b = el('button', { type: 'button', role: 'radio', 'aria-label': i + (i === 1 ? ' star: ' : ' stars: ') + STAR_WORDS[i], title: STAR_WORDS[i], text: '\u2605' });
+      b.addEventListener('mouseenter', () => paint(i));
+      b.onclick = async () => { try { const s = await HT.rating.send(slug, i); row.dataset.v = i; paint(i); document.querySelectorAll('.rstars').forEach(r => { if (r !== row) { r.dataset.v = i; r.querySelectorAll('button').forEach((x, k) => x.classList.toggle('on', k < i)); } }); document.querySelectorAll('.ratecard .rnote').forEach(n => { n.textContent = rateNote(s, true); }); if (onDone) onDone(s, i); } catch (e) { HT.toast('Could not save your rating: ' + e.message); } };
+      row.append(b);
+    }
+    row.addEventListener('mouseleave', () => paint(+row.dataset.v || 0));
+    row.dataset.v = ratedMap()[slug] || 0; paint(+row.dataset.v);
+    return row;
+  };
+  const showRating = s => {
+    const badges = document.querySelector('.thead .badges'); if (!badges) return;
+    let b = badges.querySelector('.badge.rate');
+    if (!s || !(s.count >= MIN_SHOWN) || s.avg == null) { if (b) b.remove(); return; }
+    if (!b) { b = el('a', { class: 'badge rate', href: '#rate' }); badges.prepend(b); }
+    b.textContent = ''; b.append(el('span', { class: 'st', text: '\u2605' }), ' ' + s.avg.toFixed(1) + ' ', el('small', { text: '(' + fmtVotes(s.count) + ')' }));
+    b.title = s.avg.toFixed(1) + ' out of 5 from ' + fmtVotes(s.count);
+    for (const sc of document.querySelectorAll('script[type="application/ld+json"]')) {
+      try { const j = JSON.parse(sc.textContent); if (j['@type'] === 'WebApplication') { j.aggregateRating = { '@type': 'AggregateRating', ratingValue: s.avg, ratingCount: s.count, bestRating: 5, worstRating: 1 }; sc.textContent = JSON.stringify(j); } } catch { }
+    }
+  };
+  const rateNote = (s, voted) => (voted ? 'Thanks for rating! ' : '') + (s && s.count >= MIN_SHOWN ? s.avg.toFixed(1) + ' out of 5 from ' + fmtVotes(s.count) + '.' : voted ? '' : 'Tell us how it worked for you.');
+  HT.rateCard = slug => {
+    const note = el('p', { class: 'rnote' }), card = el('div', { class: 'sidecard ratecard', id: 'rate' }, el('h3', { text: 'Rate this tool' }), starRow(slug, s => { note.textContent = rateNote(s, true); showRating(s); }), note);
+    HT.rating.get(slug).then(s => { note.textContent = rateNote(s, false); showRating(s); });
+    return card;
+  };
 
   // what a visitor sees at the address of an archived tool
   HT.unavailable = (work, data, t) => {
@@ -946,6 +1077,7 @@
     }
     if (HT.isAdmin() && data.archivedSlugs && (data.archivedSlugs.has(slug) || data.archivedSlugs.has(baseSlug))) work.before(el('div', { class: 'help', style: { background: 'var(--warn-bg, #fff4d6)', border: '1px solid #f0d58a', borderRadius: '10px', padding: '8px 12px', marginBottom: '12px' }, text: 'This tool is archived. Visitors do not see it. You can, because you are signed in to the admin panel in this browser.' }));
     const cat = catOf(data, meta.cat), client = meta.kind === 'client';
+    HT.recent.add(slug);
     page.classList.add('cat-' + meta.cat);
     const pathOf = s => '/' + s; // every tool and tab lives at the site root
     const metaFor = s => {  // a tool, or a format page merged onto its base tool
@@ -958,7 +1090,9 @@
         ...(isVariant ? [el('a', { href: pathOf(m.parent || baseSlug), text: (m.parent ? metaFor(m.parent) : data.tools.find(t => t.slug === baseSlug)).name }), ' / ' + m.name] : [m.name]));
     };
     drawCrumb(meta, !!variant);
-    document.getElementById('thead').append(el('div', { class: 'ic' }, HT.toolIcon(iconKey)), el('div', {}, el('h1', { text: meta.name }), el('p', { class: 'sub', text: meta.desc }),
+    const th = document.getElementById('thead');
+    if (th.querySelector('h1')) th.querySelector('.ic').append(HT.toolIcon(iconKey));   // build.py wrote the title block into the page
+    else th.append(el('div', { class: 'ic' }, HT.toolIcon(iconKey)), el('div', {}, el('h1', { text: meta.name }), el('p', { class: 'sub', text: meta.desc }),
       el('div', { class: 'badges' }, client ? el('span', { class: 'badge ok' }, HT.svg(ICON.lock).cloneNode(true), 'Runs in your browser') : el('span', { class: 'badge ok' }, meta.badge || 'Links last 90 days'),
         meta.cat === 'ai' ? el('span', { class: 'badge', text: 'AI powered' }) : null, el('span', { class: 'badge', text: 'Free \u00b7 no sign-up' }))));
     const app = el('div', { id: 'app' });
@@ -1011,7 +1145,7 @@
 
     async function switchTo(s, push) {
       const m = metaFor(s); if (!m || s === slugNow) return;
-      slugNow = s;
+      slugNow = s; HT.recent.add(s);
       const path = pathOf(s);
       if (push) history.pushState({ slug: s }, '', path);
       tabs.forEach(a => { const on = a.dataset.slug === homeOf(m); a.classList.toggle('on', on); a.setAttribute('aria-selected', on ? 'true' : 'false'); });
@@ -1033,6 +1167,7 @@
         document.querySelectorAll('script[type="application/ld+json"]').forEach(x => x.remove());
         d.querySelectorAll('script[type="application/ld+json"]').forEach(x => { const n = document.createElement('script'); n.type = 'application/ld+json'; n.textContent = x.textContent; document.head.append(n); });
         const seo = d.getElementById('seo'); if (seo) document.getElementById('seo').innerHTML = seo.innerHTML;
+        HT.rating.get(baseSlug).then(showRating);
       }).catch(() => { });
       await mountTool(s, true);
     }
@@ -1048,6 +1183,7 @@
       el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: meta.privacyTitle || (client ? 'Private by design' : 'Shared by link') }),
         meta.privacy || (client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.'))));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== baseSlug && !t.href).slice(0, 6);
+    side.append(HT.rateCard(baseSlug));
     if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 
     HT.footer();

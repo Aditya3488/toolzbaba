@@ -17,6 +17,7 @@ import { onRequestGet as blogPost } from '../functions/blog/[slug].js';
 import { onRequestPut as blogPut, onRequestDelete as blogDelete } from '../functions/api/admin/blog/[slug].js';
 import { onRequestGet as blogList } from '../functions/api/admin/blog/index.js';
 import { onRequestPost as blogImage } from '../functions/api/admin/blog-image.js';
+import { onRequestGet as rateGet, onRequestPost as rateSet } from '../functions/api/rating.js';
 
 globalThis.caches = { default: { match: async () => undefined, put: async () => { }, delete: async () => { } } };
 class KV { constructor() { this.m = new Map(); } async put(k, v) { this.m.set(k, v); } async get(k, o) { const v = this.m.get(k); if (v === undefined) return null; if (o && o.type === 'json') return JSON.parse(v); if (o && o.type === 'arrayBuffer') return v; return typeof v === 'string' ? v : new TextDecoder().decode(v); } async delete(k) { this.m.delete(k); } }
@@ -186,6 +187,25 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
   assert.equal((await up('image/png', '<html>')).status, 415, 'fake PNG refused');
   assert.match((await (await up('image/png', png)).json()).url, /^\/blog\/images\/[A-Za-z0-9]+\.png$/);
   ok('blog: admin-only saving, private drafts, escaped posts, renames redirect');
+}
+
+// ---- ratings: one vote per tool and visitor (changeable), only real tools, stars 1-5
+{
+  const rows = new Map();
+  const DB = { prepare: sql => ({ bind: (...a) => ({ run: async () => { if (/^INSERT/.test(sql)) rows.set(a[0] + '|' + a[1], a[2]); return {}; },
+    first: async () => { const v = [...rows].filter(([k]) => k.startsWith(a[0] + '|')).map(([, s]) => s); return { n: v.length, a: v.length ? v.reduce((x, y) => x + y, 0) / v.length : null }; } }), run: async () => ({}) }) };
+  const E = { DB, ADMIN_KEY: 'salt-for-tests', ASSETS: { fetch: async () => new Response(JSON.stringify({ tools: [{ slug: 'compress-pdf' }], variants: [{ slug: 'compress-png' }] })) } };
+  const vote = (tool, stars, ip) => rateSet({ request: req('/api/rating', { method: 'POST', headers: { 'Content-Type': 'application/json', 'CF-Connecting-IP': ip }, body: JSON.stringify({ tool, stars }) }), env: E });
+  assert.equal((await vote('nope', 5, '1.1.1.1')).status, 400, 'unknown tool');
+  assert.equal((await vote('compress-pdf', 6, '1.1.1.1')).status, 400, 'stars out of range');
+  assert.equal((await vote('compress-pdf', 2.5, '1.1.1.1')).status, 400, 'half stars');
+  await vote('compress-pdf', 5, '1.1.1.1'); await vote('compress-pdf', 1, '1.1.1.1');   // the same visitor changes their vote
+  const r = await (await vote('compress-pdf', 4, '2.2.2.2')).json();
+  assert.equal(r.count, 2); assert.equal(r.avg, 2.5);
+  assert.ok(![...rows.keys()].some(k => k.includes('1.1.1.1')), 'the IP address is not stored');
+  const g = await (await rateGet({ request: req('/api/rating?tool=compress-pdf'), env: E, waitUntil: () => { } })).json();
+  assert.equal(g.count, 2);
+  ok('ratings: one changeable vote per visitor, real tools only, IPs never stored');
 }
 
 console.log(`\n${pass}/${pass} passed`);

@@ -128,8 +128,24 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
     if GTM_ID and trackers:
         text = text.replace("<body>", "<body>\n" + GTM_BODY.replace("{id}", GTM_ID), 1)
     for k, v in subs.items():
-        text = text.replace("{{" + k + "}}", str(v) if k == "SEO" else esc(v))
+        text = text.replace("{{" + k + "}}", str(v) if k in RAW_SUBS else esc(v))
     return text
+
+
+RAW_SUBS = ("SEO", "THEAD")   # these hold HTML made here; every other value is escaped
+LOCK_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+            '<rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>')
+
+
+# the tool's name, short line and badges, in the page itself: they show at once and need no reserved room (common.js adds the icon)
+def thead_html(t: dict) -> str:
+    client = t.get("kind") == "client"
+    badges = [f'<span class="badge ok">{LOCK_SVG}Runs in your browser</span>' if client else f'<span class="badge ok">{esc(t.get("badge") or "Links last 90 days")}</span>']
+    if t.get("cat") == "ai":
+        badges.append('<span class="badge">AI powered</span>')
+    badges.append('<span class="badge">Free \u00b7 no sign-up</span>')
+    return (f'<div class="ic"></div><div><h1>{esc(t["name"])}</h1><p class="sub">{esc(t["desc"])}</p>'
+            f'<div class="badges">{"".join(badges)}</div></div>')
 
 
 def seo_block(tool: dict, tools: list, variants: list | None = None) -> str:
@@ -221,7 +237,7 @@ def build():
         # "title" and "metaDesc" in tools.json are written for Google; "desc" is the short line under the tool's name on the page
         write(f"{slug}.html", render("tool.html", title=tool.get("title") or f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
                                     desc=tool.get("metaDesc") or f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
-                                    extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
+                                    extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"], "THEAD": thead_html(tool)}))
 
     # format pages (e.g. /compress-png): the same tool as its base, on its own address at the site root
     by_slug = {t["slug"]: t for t in tools}
@@ -249,7 +265,7 @@ def build():
             ld.append(faq_ld(v["faq"]))
         write(f"{slug}.html", render("tool.html", title=v.get("title") or f'{v["name"]} – Free Online Tool | {SITE_NAME}',
                                     desc=v.get("metaDesc") or f'{v["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld,
-                                    extra={"SEO": seo_block(merged, tools, data["variants"]), "TOOL_NAME": v["name"]}))
+                                    extra={"SEO": seo_block(merged, tools, data["variants"]), "TOOL_NAME": v["name"], "THEAD": thead_html(merged)}))
 
     for key, (file, title, desc) in LEGAL.items():
         write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))

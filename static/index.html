@@ -50,8 +50,12 @@
   const href = t => t.href || '/' + t.slug;
 
   // popular tools, one click from the first screen (on a phone the tool grid starts below it)
-  const pop = document.getElementById('popular'); pop.append(el('span', { text: 'Popular:' }));
-  tools.filter(t => t.popular && !t.href).sort((a, b) => a.popular - b.popular).slice(0, 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
+  const pop = document.getElementById('popular');
+  // a returning visitor: the tools they used last come first
+  const bySlug = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(s => bySlug.get(s)).filter(Boolean).slice(0, 3);
+  if (recent.length) { pop.append(el('span', { text: 'Your tools:' })); recent.forEach(t => pop.append(el('a', { class: 'chip mine', href: t.href }, HT.toolIcon(t.isTab ? t.base : t.slug, 'xs'), t.name))); }
+  pop.append(el('span', { text: 'Popular:' }));
+  tools.filter(t => t.popular && !t.href && !recent.some(r => r.slug === t.slug)).sort((a, b) => a.popular - b.popular).slice(0, recent.length ? 5 : 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
 
   // trust row
   const trust = document.getElementById('trust');

@@ -8,3 +8,9 @@ compatibility_date = "2026-09-01"
 [[kv_namespaces]]
 binding = "CDN"
 id = "b3570caa8117483091ca664aaee4cbcf"
+
+# tool ratings ("Rate this tool"): one row per tool and visitor, see functions/api/rating.js
+[[d1_databases]]
+binding = "DB"
+database_name = "toolzbaba-ratings"
+database_id = "99eac9bc-3148-4ed9-b3a4-6d5c116d676d"
