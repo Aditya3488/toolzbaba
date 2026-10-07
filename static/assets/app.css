@@ -573,7 +573,7 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .bmbtn { display:inline-flex; align-items:center; gap:7px; height:38px; padding:0 14px 0 11px; border:1px solid var(--border); border-radius:11px; background:var(--card); color:var(--text); font:inherit; font-size:.88rem; font-weight:600; cursor:pointer; flex:none; }
 .bmbtn svg { width:18px; height:18px; color:#f5a623; } .bmbtn:hover { border-color:#f5a623; background:#fff8e8; color:#111; } .bmbtn:hover svg { fill:#f5a623; }
 :root[data-theme=dark] .bmbtn:hover { background:#3c3010; color:#fff; } @media (prefers-color-scheme:dark) { :root:not([data-theme=light]) .bmbtn:hover { background:#3c3010; color:#fff; } }
-@media (max-width:640px) { .bmbtn { width:38px; padding:0; justify-content:center; } .bmbtn span { display:none; } }
+@media (max-width:640px) { .bmbtn { width:38px; padding:0; justify-content:center; } .bmbtn span:not(.tzstar) { display:none; } .bmbtn .tzstar { margin:0; } }
 
 /* Markdown / HTML converters */
 .cv-bar { display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap; } .cv-bar .sp { flex:1; }
@@ -679,24 +679,39 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
    page's place in the site from the BreadcrumbList data in the page head, which is unchanged */
 .crumb { display:none; }
 
-/* ============================================================ "Never miss free tools" popup (after a download, and from the footer) */
-.bmmodal { position:fixed; inset:0; z-index:1300; display:grid; place-items:center; padding:16px; background:rgba(8,10,22,.55); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); animation:bmfade .2s ease; }
-.bmcard { position:relative; width:min(420px,100%); background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:22px; padding:30px 26px 24px; text-align:center; box-shadow:0 30px 80px rgba(8,10,22,.35); animation:bmpop .25s cubic-bezier(.2,.9,.3,1.2); }
-.bmcard h2 { margin:14px 0 6px; font-size:1.45rem; letter-spacing:-.02em; }
-.bmsub { margin:0 auto 18px; color:var(--muted); font-size:.98rem; line-height:1.5; max-width:34ch; }
-.bmicon { width:64px; height:64px; margin:0 auto; border-radius:20px; display:grid; place-items:center; background:linear-gradient(145deg,#ffd166,#f59e0b); box-shadow:0 12px 26px -8px rgba(245,158,11,.6); }
-.bmicon svg { width:32px; height:32px; color:#fff; fill:#fff; }
-.bmx { position:absolute; top:10px; right:12px; width:34px; height:34px; border:0; border-radius:10px; background:transparent; color:var(--faint); font-size:1.5rem; line-height:1; cursor:pointer; }
+/* ============================================================ the animated star (Bookmark button and toast)
+   One sprite of 12 frames, 96x96 each, laid out left to right (assets/brand/star-sprite.webp, 1152x96).
+   background-size 1200% makes one frame fill the box; background-position-x 0% shows frame 01, 100% frame 12, and frame n
+   (1-12) is at (n-1)/11 * 100%. The box never changes size (no layout shift); only the picture inside it changes. */
+.tzstar { --tzs:20px; display:inline-block; flex:none; width:var(--tzs); height:var(--tzs); background:url(/assets/brand/star-sprite.webp) no-repeat; background-size:1200% 100%; background-position:100% 0; }
+/* To change the speed: the 1s below (the frame timings are percentages of it). To switch the animation off: delete this rule. */
+.tzstar.play { animation:tzstar 1s step-end 1 both; }
+@keyframes tzstar {   /* 01-03 fast pop, 04-05 settle, 06 blink, 07-08 recover, 09-10 small bounce, 11-12 settle */
+  0% { background-position:0% 0; }          6% { background-position:9.0909% 0; }   12% { background-position:18.1818% 0; }
+  20% { background-position:27.2727% 0; }   30% { background-position:36.3636% 0; } 42% { background-position:45.4545% 0; }
+  54% { background-position:54.5454% 0; }  62% { background-position:63.6363% 0; } 72% { background-position:72.7272% 0; }
+  81% { background-position:81.8181% 0; }  89% { background-position:90.9090% 0; } 95%, 100% { background-position:100% 0; }
+}
+@media (prefers-reduced-motion:reduce) { .tzstar.play { animation:none; } }
+.bmbtn .tzstar { margin:-2px 0 -2px -2px; }
+
+/* ============================================================ "Never miss free tools" toast (top right, just under the header) */
+.bmtoast { position:fixed; z-index:1300; top:74px; right:18px; width:min(360px,calc(100vw - 24px)); background:var(--card); color:var(--text);
+  border:1px solid var(--border); border-radius:18px; padding:16px 16px 14px; box-shadow:0 18px 50px rgba(8,10,22,.22); animation:bmin .32s cubic-bezier(.2,.9,.3,1.1); }
+.bmtoast.out { animation:bmoff .22s ease forwards; }
+.bmrow { display:flex; gap:12px; align-items:center; padding-right:26px; margin-bottom:12px; }
+.bmtitle { display:block; font-size:1.02rem; letter-spacing:-.01em; }
+.bmsub { margin:2px 0 0; color:var(--muted); font-size:.9rem; }
+.bmx { position:absolute; top:8px; right:8px; width:30px; height:30px; border:0; border-radius:9px; background:transparent; color:var(--faint); font-size:1.35rem; line-height:1; cursor:pointer; }
 .bmx:hover { background:var(--bg2); color:var(--text); }
-.bmhide { display:inline-flex; align-items:center; gap:9px; margin:0 0 18px; color:var(--muted); font-size:.9rem; cursor:pointer; user-select:none; }
+.bmhide { display:flex; align-items:center; gap:8px; margin:0 0 12px; color:var(--muted); font-size:.86rem; cursor:pointer; user-select:none; }
 .bmhide[hidden] { display:none; }
-.bmhide input { width:18px; height:18px; margin:0; accent-color:var(--accent); cursor:pointer; }
-.bmcard .bmact { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-.bmcard .bmact .btn { min-width:140px; justify-content:center; }
-.bmcard .bmact .btn svg { width:17px; height:17px; fill:currentColor; }
-.bmhow { margin:0 0 14px; color:var(--text); font-weight:600; }
-.bmcard .bmkeys { display:flex; align-items:center; justify-content:center; gap:10px; margin:0 0 20px; color:var(--muted); font-weight:700; }
-.bmcard .bmkeys kbd { min-width:58px; padding:12px 14px; border:1px solid var(--border2); border-bottom-width:3px; border-radius:12px; background:var(--bg2); color:var(--text); font:700 1.2rem ui-monospace,Consolas,monospace; }
-@keyframes bmfade { from { opacity:0; } } @keyframes bmpop { from { opacity:0; transform:translateY(14px) scale(.96); } }
-@media (prefers-reduced-motion:reduce) { .bmmodal,.bmcard { animation:none; } }
-@media (max-width:420px) { .bmcard { padding:26px 18px 20px; } .bmcard .bmact .btn { flex:1; min-width:0; } }
+.bmhide input { width:17px; height:17px; margin:0; accent-color:var(--accent); cursor:pointer; flex:none; }
+.bmtoast .bmact { display:flex; gap:8px; } .bmtoast .bmact .btn { flex:1; justify-content:center; }
+.bmhow { margin:0 0 10px; font-weight:600; font-size:.92rem; }
+.bmtoast .bmkeys { display:flex; align-items:center; gap:8px; margin:0 0 14px; color:var(--muted); font-weight:700; }
+.bmtoast .bmkeys kbd { min-width:48px; padding:8px 12px; border:1px solid var(--border2); border-bottom-width:3px; border-radius:10px; background:var(--bg2); color:var(--text); font:700 1.05rem ui-monospace,Consolas,monospace; text-align:center; }
+@keyframes bmin { from { opacity:0; transform:translateX(24px); } }
+@keyframes bmoff { to { opacity:0; transform:translateX(24px); } }
+@media (prefers-reduced-motion:reduce) { .bmtoast,.bmtoast.out { animation:none; } }
+@media (max-width:560px) { .bmtoast { top:66px; right:12px; left:12px; width:auto; } }

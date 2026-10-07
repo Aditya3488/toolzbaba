@@ -614,24 +614,43 @@
     if (android) return { key: null, steps: 'Tap the ⋮ menu in your browser, then the star ☆ ("Add to bookmarks"). You can also pick "Install app" or "Add to Home screen".' };
     return { key: mac ? ['⌘', 'D'] : ['Ctrl', 'D'], steps: 'Press these keys on your keyboard while you are on this page:' };
   };
-  // A centred popup: "Never miss free tools". Opened after a download, and from the footer's "Bookmark this site".
-  // "Bookmark" offers "Install app" where the browser supports it, otherwise it shows the keys / taps for this device.
+  // ---- the star: 12 hand-drawn frames in one sprite (assets/brand/star-sprite.webp, made by brand-source/make-star-sprite.py).
+  // .tzstar shows frame 12 (the resting star); adding .play runs the 1-second animation once (see @keyframes tzstar in app.css).
+  const STAR_SPRITE = '/assets/brand/star-sprite.webp';
+  const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  HT.star = (px, { play = false } = {}) => {
+    const s = el('span', { class: 'tzstar', 'aria-hidden': 'true' }); s.style.setProperty('--tzs', px + 'px');
+    if (play) HT.playStar(s);
+    return s;
+  };
+  HT.playStar = s => {   // starts only when the sprite has loaded, so the first frames are never played on an empty box
+    if (reduceMotion()) return;
+    const img = new Image(); img.src = STAR_SPRITE;
+    (img.decode ? img.decode() : Promise.resolve()).then(() => { s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); }).catch(() => { });
+  };
+  // the header's star plays once per visit (browser session), not again on every page
+  const starOncePerVisit = () => { try { if (sessionStorage.getItem('tz_star')) return false; sessionStorage.setItem('tz_star', '1'); return true; } catch { return false; } };
+  const bookmarkButton = () => { const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, HT.star(20, { play: starOncePerVisit() }), el('span', { text: 'Bookmark' })); b.onclick = () => HT.bookmark(); return b; };
+
+  // "Never miss free tools": a toast at the top right, just under the header. Shown after a download, and by the
+  // header's Bookmark button and the footer link. "Bookmark" offers "Install app" where the browser supports it,
+  // otherwise it shows the keys / taps for this device (no browser lets a page add a bookmark by itself).
   const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze';
   const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return Infinity; } };
   const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Date.now() + ms)); } catch { } };
   HT.bookmark = ({ fromDownload = false } = {}) => {
-    if (document.querySelector('.bmmodal')) return;
-    const k = keysFor(), before = document.activeElement;
-    const hide = el('input', { type: 'checkbox' });
-    const close = () => { if (fromDownload && hide.checked) snooze(HOUR); wrap.remove(); document.removeEventListener('keydown', esc); if (before && before.focus) before.focus(); };
+    const old = document.querySelector('.bmtoast'); if (old) old.remove();
+    const k = keysFor(), hide = el('input', { type: 'checkbox' });
+    let timer = 0, held = false;
+    const close = () => { clearTimeout(timer); if (fromDownload && hide.checked) snooze(HOUR); toast.classList.add('out'); setTimeout(() => toast.remove(), 220); document.removeEventListener('keydown', esc); };
     const esc = e => { if (e.key === 'Escape') close(); };
+    const later = () => { clearTimeout(timer); if (!held) timer = setTimeout(close, 15000); };   // goes away by itself, but not while you are reading or using it
     const keys = () => k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), el('span', { text: '+' }), el('kbd', { text: k.key[1] })) : null;
     const body = el('div', { class: 'bmbody' });
-    const howTo = () => {   // the browser cannot be asked to add a bookmark, so say exactly how
-      body.textContent = '';
+    const howTo = () => {
+      held = true; clearTimeout(timer); body.textContent = '';
       body.append(el('p', { class: 'bmhow', text: k.key ? 'Press these keys now to bookmark this page:' : k.steps }), keys(),
-        el('div', { class: 'bmact' }, el('button', { class: 'btn', type: 'button', text: 'Done', onclick: close })));
-      body.querySelector('button').focus();
+        el('div', { class: 'bmact' }, el('button', { class: 'btn sm', type: 'button', text: 'Done', onclick: close })));
     };
     const bookmark = async () => {
       snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
@@ -641,22 +660,22 @@
     body.append(
       el('label', { class: 'bmhide', hidden: fromDownload ? null : 'hidden' }, hide, el('span', { text: "Don't show this again for 1 hour" })),
       el('div', { class: 'bmact' },
-        el('button', { class: 'btn', type: 'button', onclick: bookmark }, HT.svg(ICON.star), installEvt ? 'Install app' : 'Bookmark'),
-        el('button', { class: 'btn sec', type: 'button', text: 'Not now', onclick: close })));
-    const card = el('div', { class: 'bmcard', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'bm-title' },
+        el('button', { class: 'btn sm', type: 'button', onclick: bookmark, text: installEvt ? 'Install app' : 'Bookmark' }),
+        el('button', { class: 'btn sec sm', type: 'button', text: 'Not now', onclick: close })));
+    const star = HT.star(44);
+    const toast = el('div', { class: 'bmtoast', role: 'region', 'aria-label': 'Bookmark this site', 'aria-live': 'polite' },
       el('button', { class: 'bmx', type: 'button', 'aria-label': 'Close', text: '×', onclick: close }),
-      el('div', { class: 'bmicon' }, HT.svg(ICON.star)),
-      el('h2', { id: 'bm-title', text: 'Never miss free tools' }),
-      el('p', { class: 'bmsub', text: 'Just bookmark this site. Every tool is free, with no sign-up, whenever you need it again.' }),
+      el('div', { class: 'bmrow' }, star, el('div', {}, el('b', { class: 'bmtitle', text: 'Never miss free tools' }), el('p', { class: 'bmsub', text: 'Just bookmark this site.' }))),
       body);
-    const wrap = el('div', { class: 'bmmodal', onclick: e => { if (e.target === wrap) close(); } }, card);
-    document.body.append(wrap); document.addEventListener('keydown', esc);
-    card.querySelector('.bmact .btn').focus();
+    ['mouseenter', 'focusin'].forEach(t => toast.addEventListener(t, () => { held = true; clearTimeout(timer); }));
+    ['mouseleave', 'focusout'].forEach(t => toast.addEventListener(t, e => { if (t === 'focusout' && toast.contains(e.relatedTarget)) return; if (!body.querySelector('.bmhow')) { held = false; later(); } }));
+    document.body.append(toast); document.addEventListener('keydown', esc);
+    HT.playStar(star); later();
   };
-  // after a finished download: the popup, unless it was snoozed, or already shown in the last 2 minutes (one popup for a batch of downloads)
+  // after a finished download: the toast, unless it was snoozed, or already shown in the last 2 minutes (one toast for a batch of downloads)
   let lastNudge = 0;
   const bookmarkNudge = () => {
-    if (Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmmodal')) return;
+    if (Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmtoast')) return;
     lastNudge = Date.now();
     setTimeout(() => HT.bookmark({ fromDownload: true }), 1200);
   };
@@ -862,7 +881,7 @@
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), themeButton(), navbar.burger), navbar.mobile);
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
     HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
