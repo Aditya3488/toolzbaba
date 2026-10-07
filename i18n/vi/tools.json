@@ -1,0 +1,3036 @@
+{
+ "_categories": {
+  "image": "Ảnh",
+  "ai": "AI & Nâng cấp ảnh",
+  "pdf": "PDF & Tài liệu",
+  "video": "Video & Âm thanh",
+  "dev": "Văn bản & Lập trình",
+  "util": "Tiện ích"
+ },
+ "compress-image": {
+  "name": "Nén ảnh",
+  "desc": "Giảm dung lượng ảnh JPG, PNG và WebP mà gần như không giảm chất lượng.",
+  "about": "Giảm dung lượng ảnh JPG, PNG, WebP, GIF, AVIF và HEIC. Chọn chất lượng và định dạng đầu ra, giới hạn chiều rộng và nén tối đa 40 ảnh cùng lúc. Ảnh PNG có thể nhỏ hơn nữa nhờ giảm số màu, và kết quả cho bạn biết chính xác mỗi tệp đã nhỏ đi bao nhiêu.",
+  "title": "Nén ảnh trực tuyến miễn phí: giảm dung lượng ảnh xuống KB | Toolz Baba",
+  "metaDesc": "Nén ảnh JPG, PNG, WebP, HEIC mà không mất chất lượng. Tối đa 40 ảnh cùng lúc, hoặc nén đúng dung lượng như 50 KB. Miễn phí, riêng tư, không cần đăng ký.",
+  "steps": [
+   "Thêm ảnh của bạn: JPG, PNG, WebP, GIF, AVIF hoặc HEIC, tối đa 40 ảnh cùng lúc.",
+   "Đặt chất lượng (70 đến 80 phần trăm thường nhìn không khác gì) và nếu muốn, chọn định dạng đầu ra và chiều rộng tối đa.",
+   "Bấm Nén rồi tải về các tệp đã nhỏ hơn."
+  ],
+  "faq": [
+   {
+    "q": "Làm thế nào để giảm dung lượng ảnh mà không mất chất lượng?",
+    "a": "Hãy dùng chất lượng 70 đến 80 phần trăm: sự khác biệt thường không nhìn thấy được, mà tệp thường nhỏ đi nhiều lần. Đặt chiều rộng tối đa, ví dụ 1920 px, sẽ giúp ảnh rất lớn nhỏ hơn nữa."
+   },
+   {
+    "q": "Làm sao nén ảnh về đúng dung lượng như 50 KB?",
+    "a": "Dùng các nút dung lượng ở thẻ JPG / JPEG (từ 10 KB đến 2 MB), hoặc dùng công cụ Đổi cỡ ảnh & chữ ký về KB cho các mẫu đơn thi và xin việc cần cả kích thước điểm ảnh chính xác."
+   },
+   {
+    "q": "Tôi có thể nén nhiều ảnh cùng lúc không?",
+    "a": "Có, tối đa 40 ảnh trong một lần."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "resize-image": {
+  "name": "Đổi kích thước ảnh",
+  "desc": "Đổi kích thước theo điểm ảnh, phần trăm hoặc vừa khung. Hỗ trợ xử lý hàng loạt.",
+  "about": "Đổi kích thước một hoặc nhiều ảnh theo chiều rộng, chiều cao, phần trăm, hoặc cho vừa trong một khung. Ảnh được thu nhỏ theo từng bước để chữ và nét mảnh vẫn sắc nét. Mọi thứ diễn ra ngay trong trình duyệt và bạn có thể lưu dưới dạng PNG, JPG hoặc WebP.",
+  "title": "Đổi kích thước ảnh trực tuyến miễn phí: chỉnh ảnh theo pixel | Toolz Baba",
+  "metaDesc": "Đổi kích thước ảnh theo pixel, phần trăm hoặc vừa khung, một hay nhiều ảnh cùng lúc, lưu thành JPG, PNG hoặc WebP. Ảnh sắc nét, chạy ngay trong trình duyệt.",
+  "steps": [
+   "Thêm một hoặc nhiều ảnh.",
+   "Chọn kích thước mới theo chiều rộng, chiều cao, phần trăm hoặc một khung cần vừa.",
+   "Lưu dưới dạng PNG, JPG hoặc WebP."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao đổi kích thước ảnh mà không mất chất lượng?",
+    "a": "Thu nhỏ ảnh vẫn giữ được độ sắc nét: công cụ thu nhỏ theo từng bước nên chữ và nét mảnh vẫn rõ. Phóng to nhiều sẽ làm ảnh bị mờ; hãy dùng Phóng to ảnh AI cho việc đó."
+   },
+   {
+    "q": "Tôi có thể đổi kích thước nhiều ảnh cùng lúc không?",
+    "a": "Có, hãy thêm nhiều ảnh và tất cả sẽ được đổi kích thước với cùng một thiết lập."
+   },
+   {
+    "q": "Làm sao đổi kích thước theo dung lượng tệp tính bằng KB?",
+    "a": "Hãy dùng Đổi cỡ ảnh & chữ ký về KB, công cụ này cũng đặt luôn kích thước theo điểm ảnh hoặc cm mà các mẫu đơn yêu cầu."
+   }
+  ]
+ },
+ "crop-image": {
+  "name": "Cắt ảnh",
+  "desc": "Kéo để cắt ảnh với các tỷ lệ có sẵn (1:1, 16:9, 4:5...).",
+  "about": "Cắt ảnh bằng cách kéo một khung trên ảnh, hoặc nhập chính xác giá trị điểm ảnh. Khóa tỷ lệ 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 hoặc 3:4, rồi lưu dưới dạng PNG, JPG hoặc WebP. Việc cắt được thực hiện trong trình duyệt của bạn ở độ phân giải đầy đủ.",
+  "title": "Cắt ảnh trực tuyến miễn phí: 1:1, 16:9, 4:5 và tùy chỉnh | Toolz Baba",
+  "metaDesc": "Cắt ảnh bằng cách kéo khung hoặc nhập chính xác số pixel, với các tỷ lệ 1:1, 4:3, 16:9, 9:16 và 4:5. Độ phân giải đầy đủ, miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm ảnh của bạn.",
+   "Kéo khung, hoặc nhập chính xác giá trị điểm ảnh, và khóa một tỷ lệ như 1:1 hoặc 16:9 nếu bạn cần.",
+   "Lưu dưới dạng PNG, JPG hoặc WebP."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao cắt ảnh thành hình vuông?",
+    "a": "Thêm ảnh, chọn tỷ lệ 1:1 rồi kéo khung lên phần bạn muốn giữ lại."
+   },
+   {
+    "q": "Cắt ảnh có làm giảm chất lượng không?",
+    "a": "Không. Việc cắt được thực hiện ở độ phân giải đầy đủ; chỉ phần nằm ngoài khung bị bỏ đi."
+   }
+  ]
+ },
+ "convert-image": {
+  "name": "Chuyển đổi định dạng ảnh",
+  "desc": "Chuyển đổi giữa JPG, PNG, WebP, AVIF, GIF, BMP, TIFF, ICO. Mở được cả HEIC.",
+  "about": "Chuyển đổi ảnh giữa JPG, PNG, WebP, AVIF, GIF, BMP, TIFF và ICO. Hỗ trợ ảnh HEIC từ iPhone làm đầu vào. Chọn chất lượng và chọn màu nền cho các định dạng không hỗ trợ nền trong suốt. Chuyển đổi tối đa 40 tệp cùng lúc.",
+  "title": "Chuyển đổi ảnh trực tuyến miễn phí: JPG, PNG, WebP, HEIC | Toolz Baba",
+  "metaDesc": "Chuyển đổi ảnh giữa JPG, PNG, WebP, AVIF, GIF, BMP, TIFF và ICO, kể cả ảnh HEIC từ iPhone. Tối đa 40 ảnh cùng lúc, miễn phí và riêng tư.",
+  "tabAll": "Tất cả định dạng",
+  "steps": [
+   "Thêm ảnh của bạn: JPG, PNG, WebP, HEIC và nhiều loại khác, tối đa 40 ảnh cùng lúc.",
+   "Chọn định dạng ở mục Chuyển sang, và chọn chất lượng.",
+   "Bấm Chuyển đổi rồi tải về các tệp mới."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể chuyển sang những định dạng nào?",
+    "a": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF và ICO."
+   },
+   {
+    "q": "Tôi có thể chuyển ảnh HEIC từ iPhone không?",
+    "a": "Có. Bạn có thể thêm ảnh HEIC vào đây và chuyển sang JPG hoặc bất kỳ định dạng nào khác."
+   },
+   {
+    "q": "Nền trong suốt sẽ ra sao khi chuyển sang JPG?",
+    "a": "JPG và BMP không hỗ trợ nền trong suốt, nên vùng trong suốt sẽ được tô bằng màu nền mà bạn chọn."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "rotate-flip": {
+  "name": "Xoay & lật ảnh",
+  "desc": "Xoay 90° hoặc theo góc bất kỳ, lật ngang hoặc lật dọc.",
+  "about": "Xoay ảnh 90, 180 hoặc 270 độ, chỉnh thẳng ảnh thêm vài độ để cân đường chân trời, và lật ảnh theo chiều ngang hoặc chiều dọc. Bản xem trước cập nhật trực tiếp và mọi thao tác diễn ra ngay trong trình duyệt của bạn.",
+  "title": "Xoay ảnh trực tuyến miễn phí: lật và chỉnh thẳng ảnh | Toolz Baba",
+  "metaDesc": "Xoay ảnh 90, 180 hoặc 270 độ, chỉnh thẳng đường chân trời bị nghiêng thêm vài độ, hoặc lật ảnh. Xem trước trực tiếp, miễn phí, chạy trong trình duyệt.",
+  "steps": [
+   "Thêm ảnh của bạn.",
+   "Xoay ảnh 90, 180 hoặc 270 độ, chỉnh thẳng thêm vài độ, hoặc lật ảnh.",
+   "Tải kết quả về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chỉnh thẳng một bức ảnh bị nghiêng?",
+    "a": "Dùng thiết lập góc tinh chỉnh để xoay ảnh vài độ cho đến khi đường chân trời thẳng; bản xem trước cập nhật trực tiếp."
+   },
+   {
+    "q": "Tôi có thể lật ảnh selfie bị ngược như soi gương không?",
+    "a": "Có. Hãy lật ngang để đổi chỗ trái và phải."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "social-media-image-resizer": {
+  "name": "Đổi cỡ ảnh mạng xã hội",
+  "desc": "Một ảnh → đúng kích thước cho Instagram, Facebook, X, LinkedIn, YouTube, Pinterest.",
+  "about": "Biến một ảnh thành đúng kích thước cho bài đăng, story, ảnh bìa và ảnh đại diện trên Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok và WhatsApp. Chọn cắt cho đầy khung hoặc giữ nguyên cả ảnh với nền mờ, rồi tải tất cả kích thước về trong một tệp ZIP.",
+  "title": "Đổi cỡ ảnh mạng xã hội: Instagram, YouTube, WhatsApp | Toolz Baba",
+  "metaDesc": "Đổi cỡ một ảnh cho bài đăng, story và ảnh bìa trên Instagram, Facebook, X, LinkedIn, YouTube, Pinterest, TikTok và WhatsApp. Tất cả trong một tệp ZIP.",
+  "steps": [
+   "Thêm một ảnh.",
+   "Chọn các nền tảng và kích thước bạn cần, rồi chọn cắt cho đầy khung hoặc giữ nguyên ảnh với nền mờ.",
+   "Tải tất cả kích thước về cùng lúc trong một tệp ZIP."
+  ],
+  "faq": [
+   {
+    "q": "Có những nền tảng nào?",
+    "a": "Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok và WhatsApp: bài đăng, story, ảnh bìa và ảnh đại diện."
+   },
+   {
+    "q": "Nếu ảnh của tôi sai tỷ lệ thì sao?",
+    "a": "Chọn cắt cho đầy khung, hoặc chọn vừa khung để giữ nguyên cả ảnh với một bản sao mờ của nó ở phía sau."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "thumbnail-generator": {
+  "name": "Tạo ảnh thumbnail",
+  "desc": "Tạo ảnh thumbnail từ một ảnh hoặc bất kỳ khung hình nào của video, có thể thêm chữ tiêu đề.",
+  "about": "Tạo ảnh thumbnail từ một ảnh hoặc từ bất kỳ khung hình nào của video. Chọn kích thước như 1280x720, thêm tiêu đề có viền chữ, làm màu sắc nổi bật hơn và giữ tệp dưới giới hạn dung lượng như 2 MB của YouTube. Công cụ chạy trong trình duyệt của bạn, nên video không bao giờ rời khỏi thiết bị.",
+  "title": "Tạo thumbnail YouTube trực tuyến miễn phí (1280x720) | Toolz Baba",
+  "metaDesc": "Tạo thumbnail 1280x720 từ ảnh hoặc khung hình video bất kỳ, thêm tiêu đề nổi bật, tăng màu sắc và giữ dưới giới hạn 2 MB của YouTube. Miễn phí.",
+  "steps": [
+   "Thêm một ảnh, hoặc một video rồi chọn khung hình bạn muốn.",
+   "Chọn kích thước, ví dụ 1280x720, và thêm tiêu đề.",
+   "Tải thumbnail về, dung lượng được giữ dưới giới hạn như 2 MB của YouTube."
+  ],
+  "faq": [
+   {
+    "q": "Thumbnail YouTube có kích thước bao nhiêu?",
+    "a": "1280x720 pixel (16:9), và tệp phải dưới 2 MB. Cả hai đều đã được đặt sẵn cho bạn ở đây."
+   },
+   {
+    "q": "Tôi có thể lấy một khung hình từ video của mình không?",
+    "a": "Có. Thêm video và chọn thời điểm bạn muốn làm thumbnail."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy trong trình duyệt của bạn, nên video không bao giờ rời khỏi thiết bị."
+   }
+  ]
+ },
+ "exif-remover": {
+  "name": "Xóa EXIF",
+  "desc": "Xóa vị trí GPS, thông tin máy ảnh và ngày chụp khỏi ảnh trước khi chia sẻ.",
+  "about": "Ảnh thường chứa các thông tin ẩn như vị trí GPS, kiểu máy ảnh và thời gian chụp. Công cụ này xóa những siêu dữ liệu đó. Tệp JPEG được làm sạch mà không cần mã hóa lại, nên chất lượng ảnh không bị ảnh hưởng, và bạn thấy được những gì đã tìm thấy trong mỗi tệp.",
+  "title": "Xóa dữ liệu EXIF và vị trí GPS khỏi ảnh miễn phí | Toolz Baba",
+  "metaDesc": "Xóa vị trí GPS, kiểu máy ảnh và ngày chụp khỏi ảnh trước khi chia sẻ. JPEG giữ nguyên chất lượng. Xem những gì bị ẩn. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm ảnh của bạn.",
+   "Xem các thông tin ẩn tìm thấy trong từng ảnh, như vị trí GPS và máy ảnh.",
+   "Xóa siêu dữ liệu rồi tải về các bản sao sạch."
+  ],
+  "faq": [
+   {
+    "q": "Dữ liệu EXIF là gì?",
+    "a": "Là các thông tin ẩn lưu trong ảnh: thường gồm vị trí GPS chính xác, kiểu máy ảnh hoặc điện thoại, cùng ngày giờ chụp."
+   },
+   {
+    "q": "Xóa EXIF có làm giảm chất lượng ảnh không?",
+    "a": "Không. Tệp JPEG được làm sạch mà không cần mã hóa lại, nên bản thân bức ảnh không bị thay đổi."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "add-watermark-to-image": {
+  "name": "Thêm watermark vào ảnh",
+  "desc": "Thêm watermark bằng chữ hoặc logo. Chọn vị trí, lát kín ảnh, chỉnh độ mờ. Hỗ trợ hàng loạt.",
+  "about": "Thêm watermark bằng chữ hoặc logo vào ảnh của bạn. Chọn vị trí hoặc lát kín khắp ảnh, chỉnh độ mờ, kích thước và góc xoay, và xử lý nhiều ảnh cùng lúc. Mọi thứ chạy ngay trong trình duyệt của bạn.",
+  "title": "Thêm watermark vào ảnh trực tuyến miễn phí: chữ hoặc logo | Toolz Baba",
+  "metaDesc": "Thêm watermark chữ hoặc logo vào nhiều ảnh cùng lúc. Chỉnh vị trí, kích thước, độ mờ và góc xoay, hoặc lát kín ảnh. Miễn phí, không cần đăng ký.",
+  "tabAll": "Ảnh",
+  "steps": [
+   "Thêm một hoặc nhiều ảnh.",
+   "Nhập chữ hoặc thêm logo, rồi chọn vị trí hoặc lát kín ảnh, độ mờ, kích thước và góc xoay.",
+   "Tải về các ảnh đã đóng watermark."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể dùng logo làm watermark không?",
+    "a": "Có. Hãy dùng ảnh logo (tệp PNG nền trong suốt cho kết quả đẹp nhất) thay cho chữ."
+   },
+   {
+    "q": "Tôi có thể đóng watermark nhiều ảnh cùng lúc không?",
+    "a": "Có. Thêm tất cả ảnh và cùng một watermark sẽ được áp dụng cho từng ảnh."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "pixelate-image": {
+  "name": "Làm mờ ảnh bằng ô vuông (pixelate)",
+  "desc": "Pixelate toàn bộ ảnh hoặc chỉ vùng được chọn (che biển số, chữ, khuôn mặt).",
+  "about": "Pixelate toàn bộ ảnh hoặc chỉ vùng bạn chọn, hoặc pixelate mọi thứ trừ một vùng. Dùng để che biển số xe, chữ, giấy tờ hoặc khuôn mặt. Công cụ chạy trong trình duyệt của bạn.",
+  "title": "Pixelate ảnh trực tuyến miễn phí: che mặt, chữ, biển số | Toolz Baba",
+  "metaDesc": "Pixelate toàn bộ ảnh hoặc chỉ phần bạn chọn để che khuôn mặt, biển số xe, chữ hay giấy tờ. Miễn phí và riêng tư: chạy ngay trong trình duyệt.",
+  "tabAll": "Ảnh",
+  "steps": [
+   "Thêm ảnh của bạn.",
+   "Pixelate toàn bộ ảnh, chỉ vùng bạn chọn, hoặc mọi thứ trừ một vùng.",
+   "Tải kết quả về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao che biển số xe hoặc chữ trong ảnh?",
+    "a": "Chọn vùng đó và chỉ pixelate vùng ấy; phần còn lại của ảnh vẫn sắc nét."
+   },
+   {
+    "q": "Có thể khôi phục ảnh đã pixelate không?",
+    "a": "Không. Chi tiết bị che đã được thay thế trong tệp đã lưu, nên hãy giữ lại bản gốc nếu bạn có thể cần đến."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "meme-generator": {
+  "name": "Tạo meme",
+  "desc": "Chữ trên và dưới theo kiểu meme kinh điển, hoặc thanh chú thích.",
+  "about": "Tạo meme từ bất kỳ ảnh nào với chữ trên và dưới theo kiểu kinh điển, hoặc đặt một thanh chú thích phía trên ảnh. Chỉnh cỡ chữ, màu sắc rồi tải về dưới dạng JPG, PNG hoặc WebP. Công cụ chạy trong trình duyệt của bạn.",
+  "title": "Tạo meme trực tuyến miễn phí: chữ trên và dưới | Toolz Baba",
+  "metaDesc": "Tạo meme từ bất kỳ ảnh nào với chữ trên và dưới kiểu kinh điển hoặc thanh chú thích. Đổi cỡ chữ và màu sắc, tải về JPG, PNG hoặc WebP. Miễn phí.",
+  "steps": [
+   "Thêm một ảnh.",
+   "Nhập chữ trên và chữ dưới, hoặc dùng thanh chú thích phía trên ảnh.",
+   "Chỉnh cỡ chữ và màu sắc rồi tải về dưới dạng JPG, PNG hoặc WebP."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao tạo meme có chữ trên và dưới?",
+    "a": "Thêm ảnh, nhập các dòng chữ vào ô chữ trên và chữ dưới rồi tải về."
+   },
+   {
+    "q": "Meme có bị đóng watermark không?",
+    "a": "Không. Meme của bạn được tải về mà không có watermark nào."
+   }
+  ]
+ },
+ "photo-collage-maker": {
+  "name": "Ghép ảnh collage",
+  "desc": "Ghép 2–9 ảnh thành lưới hoặc bố cục có ảnh nổi bật.",
+  "about": "Ghép hai đến chín ảnh thành một collage với bố cục dạng lưới, hàng, cột hoặc có ảnh nổi bật. Đặt kích thước khung, khoảng cách, viền, bo góc và màu nền, rồi tải về. Mọi thứ chạy ngay trong trình duyệt của bạn.",
+  "title": "Ghép ảnh collage trực tuyến miễn phí: 2 đến 9 ảnh | Toolz Baba",
+  "metaDesc": "Ghép 2 đến 9 ảnh thành collage dạng lưới, hàng, cột hoặc có ảnh nổi bật. Chỉnh khoảng cách, viền, bo góc và nền. Miễn phí, không watermark.",
+  "tabAll": "Ghép ảnh",
+  "steps": [
+   "Thêm 2 đến 9 ảnh.",
+   "Chọn bố cục dạng lưới, hàng, cột hoặc có ảnh nổi bật.",
+   "Chỉnh khoảng cách, viền, bo góc và nền, rồi tải về."
+  ],
+  "faq": [
+   {
+    "q": "Một collage có thể có bao nhiêu ảnh?",
+    "a": "Từ hai đến chín ảnh."
+   },
+   {
+    "q": "Tôi có thể đổi kích thước của collage không?",
+    "a": "Có. Bạn đặt được kích thước khung, khoảng cách, viền, bo góc và màu nền."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "screenshot-beautifier": {
+  "name": "Làm đẹp ảnh chụp màn hình",
+  "desc": "Đặt ảnh chụp màn hình lên nền chuyển màu với khung cửa sổ, đổ bóng và bo góc.",
+  "about": "Biến một ảnh chụp màn hình đơn giản thành sản phẩm chỉn chu. Đặt ảnh lên nền chuyển màu hoặc nền đơn sắc với khung cửa sổ macOS hoặc trình duyệt, bo góc, đổ bóng và khoảng đệm, theo các hình dạng như 16:9 hoặc vuông. Công cụ chạy trong trình duyệt của bạn.",
+  "title": "Làm đẹp ảnh chụp màn hình: nền chuyển màu và khung | Toolz Baba",
+  "metaDesc": "Đặt ảnh chụp màn hình lên nền chuyển màu hoặc đơn sắc với khung macOS hay trình duyệt, bo góc và đổ bóng, tỷ lệ 16:9 hoặc vuông. Miễn phí.",
+  "steps": [
+   "Thêm một ảnh chụp màn hình.",
+   "Chọn nền, khung cửa sổ, bo góc, đổ bóng và hình dạng như 16:9.",
+   "Tải về bức ảnh đã được làm đẹp."
+  ],
+  "faq": [
+   {
+    "q": "Công cụ làm đẹp ảnh chụp màn hình làm gì?",
+    "a": "Nó đặt ảnh chụp màn hình của bạn lên nền chuyển màu hoặc đơn sắc, kèm khung cửa sổ macOS hoặc trình duyệt, bo góc, đổ bóng và khoảng đệm."
+   },
+   {
+    "q": "Ảnh chụp màn hình của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "favicon-generator": {
+  "name": "Tạo favicon",
+  "desc": "Tạo favicon.ico, Apple touch icon, biểu tượng Android và manifest từ một ảnh.",
+  "about": "Tạo trọn bộ favicon từ một ảnh: favicon.ico, ảnh PNG 16x16 và 32x32, Apple touch icon, biểu tượng Android, web manifest và đoạn mã HTML để dán vào trang web của bạn. Công cụ chạy trong trình duyệt của bạn.",
+  "title": "Tạo favicon: biểu tượng ICO, Apple Touch và Android | Toolz Baba",
+  "metaDesc": "Tạo favicon.ico, PNG 16 và 32 px, Apple touch icon, biểu tượng Android, web manifest và đoạn mã HTML từ một ảnh. Miễn phí.",
+  "steps": [
+   "Thêm một ảnh vuông, ví dụ logo của bạn.",
+   "Tạo bộ favicon.",
+   "Tải về và dán đoạn mã HTML vào phần head của trang web."
+  ],
+  "faq": [
+   {
+    "q": "Công cụ tạo ra những tệp nào?",
+    "a": "favicon.ico, ảnh PNG 16x16 và 32x32, Apple touch icon, biểu tượng Android và web manifest, cùng đoạn HTML để thêm chúng vào trang web của bạn."
+   },
+   {
+    "q": "Ảnh nào cho kết quả tốt nhất?",
+    "a": "Một logo hoặc biểu tượng đơn giản, hình vuông. Chi tiết nhỏ sẽ mất đi ở kích thước 16x16 pixel."
+   }
+  ]
+ },
+ "image-to-svg": {
+  "name": "Chuyển ảnh sang SVG",
+  "desc": "Vector hóa logo, biểu tượng và hình vẽ thành SVG có thể phóng to thu nhỏ tùy ý.",
+  "about": "Vector hóa logo, biểu tượng và hình vẽ đơn giản thành đồ họa vector SVG co giãn tùy ý. Chọn thiết lập sẵn cho logo, ảnh hoặc nét vẽ đen trắng. Tệp vector luôn sắc nét ở mọi kích thước.",
+  "title": "Chuyển ảnh sang SVG trực tuyến miễn phí: vector hóa logo | Toolz Baba",
+  "metaDesc": "Vector hóa logo, biểu tượng và nét vẽ PNG, JPG thành SVG co giãn, luôn sắc nét ở mọi kích thước. Có sẵn thiết lập cho logo, ảnh và nét vẽ.",
+  "steps": [
+   "Thêm một logo, biểu tượng hoặc hình vẽ.",
+   "Chọn thiết lập: logo, ảnh hoặc nét vẽ đen trắng.",
+   "Chuyển đổi và tải SVG về."
+  ],
+  "faq": [
+   {
+    "q": "Tại sao nên chuyển logo sang SVG?",
+    "a": "SVG là định dạng vector: luôn sắc nét ở mọi kích thước, từ biểu tượng trang web đến bản in cỡ lớn."
+   },
+   {
+    "q": "Công cụ có dùng được cho ảnh chụp không?",
+    "a": "Có thể, với thiết lập dành cho ảnh, nhưng tệp SVG sẽ rất nặng. Logo, biểu tượng và hình vẽ phẳng cho kết quả tốt nhất."
+   }
+  ]
+ },
+ "resize-image-to-kb": {
+  "name": "Đổi cỡ ảnh & chữ ký về KB",
+  "desc": "Đưa ảnh hoặc chữ ký về đúng kích thước pixel/cm và dưới 20, 50 hoặc 100 KB. Dành cho đơn thi và đơn xin việc.",
+  "about": "Các mẫu đơn của cơ quan nhà nước và kỳ thi thường yêu cầu ảnh hoặc chữ ký có kích thước chính xác và dung lượng tệp như 20-50 KB. Nhập kích thước theo pixel, centimet, milimet hoặc inch, đặt KB tối thiểu và tối đa, công cụ sẽ tìm chất lượng JPG tốt nhất vẫn đáp ứng giới hạn. Công cụ cũng đặt được 200 hoặc 300 DPI. Mọi thứ chạy ngay trong trình duyệt, nên ảnh của bạn không bao giờ bị tải lên.",
+  "title": "Đổi cỡ ảnh và chữ ký về 20 KB, 50 KB, 100 KB | Toolz Baba",
+  "metaDesc": "Đưa ảnh hoặc chữ ký về đúng kích thước mà đơn thi hay đơn xin việc yêu cầu, tính bằng pixel hoặc cm, và dưới 20, 50 hoặc 100 KB. Đặt 200 hoặc 300 DPI. Miễn phí.",
+  "steps": [
+   "Thêm ảnh hoặc chữ ký của bạn.",
+   "Nhập kích thước mà mẫu đơn yêu cầu (pixel, cm, mm hoặc inch) cùng KB tối thiểu và tối đa.",
+   "Tải JPG về: công cụ chọn chất lượng tốt nhất vẫn nằm trong giới hạn."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao đưa ảnh về 20 KB hoặc 50 KB cho mẫu đơn?",
+    "a": "Thêm ảnh, đặt KB tối đa (và nếu cần, KB tối thiểu) mà mẫu đơn cho phép, nhập kích thước yêu cầu rồi tải về. Công cụ tìm chất lượng JPG tốt nhất vẫn nằm trong giới hạn."
+   },
+   {
+    "q": "Tôi có thể đổi cỡ cả chữ ký không?",
+    "a": "Có. Thêm ảnh chụp hoặc bản quét chữ ký của bạn rồi nhập kích thước chữ ký và giới hạn KB theo mẫu đơn."
+   },
+   {
+    "q": "Tôi có thể đặt 200 hoặc 300 DPI không?",
+    "a": "Có, công cụ có thể đặt 200 hoặc 300 DPI trong tệp cho các mẫu đơn yêu cầu điều đó."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Mọi thứ chạy trong trình duyệt của bạn, nên ảnh không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "passport-size-photo-maker": {
+  "name": "Tạo ảnh hộ chiếu",
+  "desc": "Biến ảnh selfie thành ảnh hộ chiếu hoặc ảnh thẻ: nền trơn, đúng kích thước, kèm trang in nhiều bản.",
+  "about": "Tải lên một ảnh chụp chính diện. Công cụ xóa nền bằng AI, đặt người trong ảnh lên nền trơn màu trắng, xanh, xám hoặc đỏ, cắt đầu đúng kích thước và vị trí cho các cỡ phổ biến như 35x45 mm và 51x51 mm (2x2 inch), và có thể xếp thành trang 4x6 inch, 5x7 inch hoặc A4 với đường cắt để bạn in nhiều bản cùng lúc. Hãy luôn kiểm tra quy định chính xác của nước bạn về kích thước, biểu cảm và màu nền.",
+  "title": "Tạo ảnh hộ chiếu trực tuyến miễn phí: cỡ 35x45 mm | Toolz Baba",
+  "metaDesc": "Biến ảnh selfie thành ảnh hộ chiếu hoặc ảnh visa: AI xóa nền, cắt đúng cỡ 35x45 mm hoặc 2x2 inch và tạo trang in. Miễn phí.",
+  "tabAll": "Ảnh hộ chiếu",
+  "steps": [
+   "Thêm một ảnh chụp chính diện hoặc ảnh selfie.",
+   "Chọn kích thước (ví dụ 35x45 mm hoặc 2x2 inch) và màu nền.",
+   "Tải ảnh về, hoặc tải trang in 4x6 inch, 5x7 inch hay A4 với nhiều bản."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao tự làm ảnh hộ chiếu ở nhà?",
+    "a": "Chụp một ảnh chính diện trước bất kỳ bức tường nào, thêm vào đây, chọn kích thước và nền trắng rồi tải về. AI sẽ xóa nền và cắt đầu đúng kích thước."
+   },
+   {
+    "q": "Ảnh hộ chiếu Ấn Độ có kích thước bao nhiêu?",
+    "a": "Hộ chiếu Ấn Độ dùng cỡ 35x45 mm (visa Ấn Độ dùng 51x51 mm, tức 2x2 inch). Cả hai cỡ đều có sẵn, nhưng hãy luôn kiểm tra quy định mới nhất cho hồ sơ của bạn."
+   },
+   {
+    "q": "Tôi có thể in nhiều bản trên một trang không?",
+    "a": "Có. Hãy xếp chúng trên trang 4x6 inch, 5x7 inch hoặc A4 với đường cắt."
+   }
+  ]
+ },
+ "image-to-text": {
+  "name": "Ảnh sang văn bản (OCR)",
+  "desc": "Trích xuất chữ từ ảnh chụp, ảnh màn hình hoặc PDF scan. Hỗ trợ tiếng Anh và tiếng Hindi. Chạy trong trình duyệt của bạn.",
+  "about": "Đọc chữ trong ảnh chụp, ảnh màn hình hoặc PDF scan rồi sao chép hoặc lưu thành tệp .txt. Hỗ trợ tiếng Anh và tiếng Hindi (hoặc cả hai cùng lúc). Công cụ OCR chạy hoàn toàn bên trong trình duyệt của bạn, nên tài liệu luôn ở trên thiết bị của bạn. Để có kết quả tốt nhất, hãy dùng ảnh sắc nét, thẳng và đủ sáng.",
+  "title": "Chuyển ảnh sang văn bản (OCR) miễn phí: tiếng Anh và Hindi | Toolz Baba",
+  "metaDesc": "Sao chép chữ từ ảnh chụp, ảnh màn hình hoặc PDF scan bằng tiếng Anh hoặc Hindi. Lưu thành tệp .txt. Miễn phí, ảnh không rời khỏi thiết bị của bạn.",
+  "tabAll": "Ảnh sang văn bản",
+  "steps": [
+   "Thêm một ảnh chụp, ảnh màn hình hoặc PDF scan.",
+   "Chọn tiếng Anh, tiếng Hindi hoặc cả hai.",
+   "Sao chép chữ hoặc lưu thành tệp .txt."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao sao chép chữ từ một bức ảnh?",
+    "a": "Thêm ảnh, chọn ngôn ngữ rồi bắt đầu. Khi chữ hiện ra, hãy sao chép hoặc lưu thành tệp .txt."
+   },
+   {
+    "q": "Công cụ có đọc được tiếng Hindi không?",
+    "a": "Có. Hãy chọn tiếng Hindi, hoặc tiếng Anh và tiếng Hindi cùng lúc."
+   },
+   {
+    "q": "Làm sao để có kết quả tốt nhất?",
+    "a": "Dùng ảnh sắc nét, thẳng và đủ sáng. Ảnh bị mờ, bị nghiêng hoặc chữ viết tay sẽ dễ sai hơn."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. OCR chạy hoàn toàn trong trình duyệt của bạn, nên tài liệu luôn ở trên thiết bị của bạn."
+   }
+  ]
+ },
+ "remove-background": {
+  "name": "Xóa nền ảnh",
+  "desc": "Tách chủ thể và nhận ảnh PNG nền trong suốt.",
+  "about": "Xóa nền ảnh bằng AI và nhận ảnh PNG hoặc WebP nền trong suốt. Chọn mô hình cho ảnh thông thường, người, hoặc anime và tranh minh họa. Dùng được cho sản phẩm, chân dung, thú cưng và đồ vật.",
+  "title": "Xóa nền ảnh miễn phí: PNG nền trong suốt | Toolz Baba",
+  "metaDesc": "Xóa nền ảnh bằng AI và tải về PNG hoặc WebP nền trong suốt. Dùng được cho người, sản phẩm, thú cưng và hình vẽ. Không có watermark.",
+  "steps": [
+   "Thêm ảnh của một người, sản phẩm, thú cưng hoặc đồ vật.",
+   "Chọn mô hình: ảnh thông thường, người, hoặc anime và tranh minh họa.",
+   "Tải về ảnh đã tách nền dưới dạng PNG hoặc WebP nền trong suốt."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao xóa nền ảnh miễn phí?",
+    "a": "Thêm ảnh vào đây và AI sẽ tách chủ thể. Tải về dưới dạng PNG hoặc WebP nền trong suốt. Không cần đăng ký và không có watermark."
+   },
+   {
+    "q": "Tôi nên chọn mô hình nào?",
+    "a": "Dùng mô hình người cho ảnh chân dung, mô hình anime cho hình vẽ và tranh minh họa, và mô hình thông thường cho sản phẩm, thú cưng và mọi thứ còn lại."
+   },
+   {
+    "q": "Tôi có thể đặt nền mới phía sau chủ thể không?",
+    "a": "Có, hãy dùng Thay nền ảnh để đặt một màu hoặc một bức ảnh khác phía sau ảnh đã tách."
+   }
+  ]
+ },
+ "replace-background": {
+  "name": "Thay nền ảnh",
+  "desc": "Đổi nền ảnh sang một màu, chuyển màu, làm mờ hoặc một ảnh khác.",
+  "about": "Thay nền của ảnh bằng một màu đơn sắc, một dải chuyển màu, một bản sao làm mờ của ảnh gốc, một ảnh khác, hoặc không có nền. Chủ thể được tách tự động bằng AI.",
+  "title": "Đổi nền ảnh trực tuyến miễn phí: màu hoặc ảnh khác | Toolz Baba",
+  "metaDesc": "Thay nền ảnh bằng một màu, chuyển màu, làm mờ hoặc một ảnh khác. AI tự tách chủ thể cho bạn. Miễn phí, không watermark.",
+  "steps": [
+   "Thêm một ảnh.",
+   "Chọn nền mới: một màu, chuyển màu, bản sao làm mờ, ảnh khác hoặc không có nền.",
+   "Tải kết quả về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao đổi nền của một bức ảnh?",
+    "a": "Thêm ảnh; AI sẽ tách chủ thể. Sau đó chọn một màu, chuyển màu, làm mờ hoặc một ảnh khác làm nền mới."
+   },
+   {
+    "q": "Tôi có thể có nền trắng cho ảnh sản phẩm không?",
+    "a": "Có. Chọn màu đơn sắc và đặt thành màu trắng."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "upscale-image": {
+  "name": "Phóng to ảnh AI",
+  "desc": "Phóng to 2×–4× bằng AI mà vẫn giữ chi tiết sắc nét.",
+  "about": "Phóng to ảnh nhỏ hoặc bị mờ 2x, 3x hoặc 4x bằng công cụ AI giữ chi tiết sắc nét, hoặc dùng chế độ nhanh cho ảnh rất lớn. Phù hợp nhất với ảnh đến khoảng 2,5 megapixel.",
+  "title": "Phóng to ảnh bằng AI miễn phí: tăng 2x, 3x, 4x nét HD | Toolz Baba",
+  "metaDesc": "Phóng to ảnh nhỏ hoặc bị mờ 2x, 3x hay 4x bằng AI giữ chi tiết sắc nét. Miễn phí, không cần đăng ký, chạy ngay trong trình duyệt.",
+  "steps": [
+   "Thêm một ảnh nhỏ hoặc bị mờ.",
+   "Chọn 2x, 3x hoặc 4x, và chế độ AI hoặc chế độ nhanh.",
+   "Tải về bức ảnh lớn hơn, sắc nét hơn."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao tăng độ phân giải của ảnh?",
+    "a": "Thêm ảnh và chọn 2x, 3x hoặc 4x. AI sẽ bổ sung chi tiết để kết quả vẫn sắc nét thay vì bị mờ."
+   },
+   {
+    "q": "Loại ảnh nào cho kết quả tốt nhất?",
+    "a": "Ảnh đến khoảng 2,5 megapixel. Dùng chế độ nhanh cho ảnh rất lớn."
+   }
+  ]
+ },
+ "face-blur": {
+  "name": "Làm mờ khuôn mặt",
+  "desc": "Tự động phát hiện khuôn mặt rồi làm mờ, pixelate hoặc che đi.",
+  "about": "Tự động phát hiện khuôn mặt rồi làm mờ, pixelate hoặc che bằng một hình màu đen. Chỉnh độ mạnh, vùng quanh mỗi khuôn mặt và độ nhạy khi phát hiện. Hữu ích trước khi chia sẻ ảnh có người khác.",
+  "title": "Làm mờ khuôn mặt trong ảnh trực tuyến miễn phí: tự động | Toolz Baba",
+  "metaDesc": "Tự động tìm mọi khuôn mặt trong ảnh rồi làm mờ, pixelate hoặc che đi trước khi chia sẻ. Chỉnh độ mạnh và vùng che. Miễn phí và riêng tư.",
+  "steps": [
+   "Thêm một ảnh.",
+   "Chọn làm mờ, pixelate hoặc che bằng màu đen, và chỉnh độ mạnh cùng vùng che.",
+   "Tải về bức ảnh đã che khuôn mặt."
+  ],
+  "faq": [
+   {
+    "q": "Công cụ có tự tìm khuôn mặt không?",
+    "a": "Có. Khuôn mặt được phát hiện tự động; hãy chỉnh độ nhạy phát hiện nếu bỏ sót một khuôn mặt."
+   },
+   {
+    "q": "Làm mờ hay pixelate: cách nào an toàn hơn?",
+    "a": "Cả hai đều che khuôn mặt tốt ở độ mạnh cao. Che bằng màu đen sẽ che hoàn toàn."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "anime-style": {
+  "name": "Chuyển ảnh sang phong cách anime",
+  "desc": "Biến ảnh thành tranh phong cách anime (kiểu Hayao hoặc Shinkai).",
+  "about": "Biến ảnh thành tranh phong cách anime bằng mô hình chuyển phong cách AI. Chọn kiểu Hayao mềm mại như tranh vẽ hoặc kiểu Shinkai rực rỡ, như điện ảnh.",
+  "title": "Chuyển ảnh thành anime miễn phí: bộ lọc anime AI | Toolz Baba",
+  "metaDesc": "Biến ảnh thành tranh phong cách anime bằng AI: kiểu Hayao mềm mại hoặc kiểu Shinkai rực rỡ. Miễn phí, không cần đăng ký, ảnh luôn ở trên thiết bị của bạn.",
+  "steps": [
+   "Thêm một ảnh.",
+   "Chọn kiểu Hayao (mềm mại như tranh vẽ) hoặc Shinkai (rực rỡ, như điện ảnh).",
+   "Tải về bức ảnh phong cách anime của bạn."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao biến ảnh thành anime?",
+    "a": "Thêm ảnh, chọn một phong cách và để AI vẽ lại ảnh theo kiểu anime đó."
+   },
+   {
+    "q": "Hai phong cách khác nhau thế nào?",
+    "a": "Hayao mềm mại như tranh vẽ; Shinkai rực rỡ như điện ảnh, với bầu trời tươi sáng và ánh sáng mạnh."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "image-to-pdf": {
+  "name": "Ảnh sang PDF",
+  "desc": "Gộp các ảnh thành một PDF. Chọn khổ giấy và thứ tự.",
+  "about": "Gộp các ảnh thành một tệp PDF duy nhất. Chọn A4, US Letter, A5 hoặc đúng kích thước của ảnh, đặt hướng giấy và lề, và sắp xếp lại thứ tự các trang. Hỗ trợ HEIC, PNG, JPG, WebP và nhiều loại khác.",
+  "title": "Chuyển ảnh sang PDF miễn phí: JPG, PNG, HEIC sang PDF | Toolz Baba",
+  "metaDesc": "Gộp ảnh JPG, PNG, HEIC và WebP thành một PDF. Chọn A4 hoặc Letter, hướng giấy, lề và thứ tự. Miễn phí, không tải tệp lên.",
+  "tabAll": "Mọi loại ảnh",
+  "steps": [
+   "Thêm ảnh của bạn: JPG, PNG, HEIC, WebP và nhiều loại khác.",
+   "Sắp xếp thứ tự và chọn khổ giấy, hướng giấy và lề.",
+   "Bấm Tạo PDF rồi tải về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển nhiều ảnh thành một PDF?",
+    "a": "Thêm tất cả ảnh, sắp xếp thứ tự bằng các mũi tên, chọn A4 hoặc khổ giấy khác rồi bấm Tạo PDF."
+   },
+   {
+    "q": "Tôi có thể dùng ảnh HEIC từ iPhone không?",
+    "a": "Có, HEIC dùng được như JPG, PNG và WebP."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "pdf-to-image": {
+  "name": "PDF sang ảnh",
+  "desc": "Chuyển các trang PDF thành ảnh PNG, JPG hoặc WebP.",
+  "about": "Chuyển các trang PDF thành ảnh PNG, JPG hoặc WebP. Chọn độ phân giải từ 72 đến 300 DPI và chọn tất cả các trang hoặc một khoảng như 1-3,5. Nhiều trang sẽ được trả về trong một tệp ZIP.",
+  "title": "Chuyển PDF sang ảnh miễn phí: PDF sang JPG, PNG, WebP | Toolz Baba",
+  "metaDesc": "Chuyển các trang PDF thành ảnh JPG, PNG hoặc WebP ở 72 đến 300 DPI. Chuyển tất cả hoặc chỉ vài trang; nhiều trang nằm trong một tệp ZIP. Miễn phí, riêng tư.",
+  "tabAll": "Tất cả định dạng",
+  "steps": [
+   "Thêm một PDF.",
+   "Chọn PNG, JPG hoặc WebP, chất lượng (DPI) và các trang.",
+   "Bấm Chuyển thành ảnh rồi tải về (nhiều trang nằm trong một tệp ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "Tôi nên dùng DPI nào?",
+    "a": "150 DPI cho ảnh sắc nét trên màn hình, 300 DPI để in, 72 DPI cho tệp nhỏ nhất."
+   },
+   {
+    "q": "Tôi có thể chỉ chuyển một vài trang không?",
+    "a": "Có. Nhập các trang và khoảng trang như 1-3,5."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "merge-pdf": {
+  "name": "Gộp PDF",
+  "desc": "Ghép nhiều PDF thành một, theo thứ tự bạn chọn.",
+  "about": "Ghép nhiều tệp PDF thành một tài liệu theo thứ tự bạn chọn. Sắp xếp lại các tệp trước khi gộp. Các PDF có mật khẩu cần được gỡ mật khẩu trước.",
+  "title": "Gộp PDF trực tuyến miễn phí: ghép nhiều tệp PDF thành một | Toolz Baba",
+  "metaDesc": "Ghép tối đa 50 tệp PDF thành một tài liệu theo thứ tự bạn chọn. Miễn phí, không cần đăng ký, không watermark. PDF không bao giờ rời khỏi thiết bị của bạn.",
+  "steps": [
+   "Thêm hai hoặc nhiều tệp PDF.",
+   "Sắp xếp đúng thứ tự bằng các mũi tên.",
+   "Bấm Gộp rồi tải về một PDF đã ghép."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao ghép các tệp PDF thành một?",
+    "a": "Thêm các PDF, đặt thứ tự bằng các mũi tên rồi bấm Gộp. Bạn sẽ có một PDF duy nhất chứa tất cả các trang."
+   },
+   {
+    "q": "Tôi có thể gộp PDF có mật khẩu không?",
+    "a": "Hãy gỡ mật khẩu trước bằng Mở khóa PDF (bạn cần biết mật khẩu), rồi mới gộp."
+   },
+   {
+    "q": "Tôi có thể gộp bao nhiêu PDF?",
+    "a": "Tối đa 50 tệp cùng lúc."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "split-pdf": {
+  "name": "Tách PDF",
+  "desc": "Tách theo khoảng trang, mỗi N trang, hoặc trích xuất các trang đã chọn.",
+  "about": "Tách PDF thành từng trang riêng, thành các nhóm N trang, thành các khoảng trang tùy chỉnh, hoặc trích xuất các trang đã chọn vào một PDF mới. Kết quả được trả về dưới dạng ZIP khi có nhiều tệp.",
+  "title": "Tách PDF trực tuyến miễn phí: tách hoặc trích xuất trang | Toolz Baba",
+  "metaDesc": "Tách PDF thành từng trang, mỗi N trang hoặc khoảng tùy chỉnh, hoặc trích xuất trang đã chọn thành PDF mới. Miễn phí, chạy trong trình duyệt.",
+  "tabAll": "Tách",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn cách tách: từng trang, mỗi N trang, khoảng tùy chỉnh, hoặc trích xuất các trang đã chọn.",
+   "Bấm Tách PDF rồi tải các tệp về (nhiều tệp sẽ nằm trong ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao tách PDF thành các trang riêng?",
+    "a": "Thêm PDF, chọn Mỗi trang thành một PDF riêng rồi bấm Tách PDF. Bạn sẽ có một tệp ZIP với mỗi trang là một PDF."
+   },
+   {
+    "q": "Làm sao chỉ lấy ra một vài trang?",
+    "a": "Chọn Trích xuất các trang đã chọn và nhập các trang, ví dụ 1-3,5. Chúng được lưu thành một PDF mới."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "compress-pdf": {
+  "name": "Nén PDF",
+  "desc": "Giảm dung lượng PDF bằng cách nén lại các ảnh bên trong.",
+  "about": "Giảm dung lượng PDF bằng cách nén lại các ảnh bên trong và dọn dẹp cấu trúc tệp. Chọn mức nén nhẹ, cân bằng hoặc mạnh. Hiệu quả nhất với PDF có ảnh chụp hoặc các trang scan.",
+  "title": "Nén PDF trực tuyến miễn phí: giảm dung lượng PDF xuống KB | Toolz Baba",
+  "metaDesc": "Giảm dung lượng PDF để gửi email và tải lên biểu mẫu, hoặc xuống dưới 100, 200 hay 500 KB. Nén nhẹ, cân bằng hoặc mạnh. Miễn phí và riêng tư.",
+  "steps": [
+   "Thêm PDF của bạn, hoặc chọn một mức dung lượng như dưới 100 KB hay 500 KB.",
+   "Chọn mức nén nhẹ, cân bằng hoặc mạnh.",
+   "Bấm Nén PDF rồi tải về tệp đã nhỏ hơn."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao giảm dung lượng PDF?",
+    "a": "Thêm PDF, chọn mức nén cân bằng rồi bấm Nén PDF. Với giới hạn cứng như 200 KB, hãy dùng các nút dung lượng phía trên ô tải lên."
+   },
+   {
+    "q": "Sao PDF của tôi gần như không nhỏ đi?",
+    "a": "Việc nén chủ yếu làm nhỏ các hình ảnh bên trong PDF. PDF chủ yếu là chữ vốn đã nhỏ và không thể giảm nhiều."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "word-to-pdf": {
+  "name": "Word sang PDF",
+  "desc": "Chuyển Word (DOCX), Excel (XLSX, XLS, CSV, ODS) và tệp văn bản sang PDF. Chạy trong trình duyệt của bạn.",
+  "about": "Chuyển tài liệu Word (DOCX), bảng tính (XLSX, XLS, CSV, ODS) và tệp văn bản thuần sang PDF ngay trong trình duyệt, nên tệp không bị tải lên. Tiêu đề, đoạn văn, danh sách, bảng và hình ảnh được giữ nguyên; bố cục phức tạp như cột và hộp văn bản sẽ đơn giản hơn so với trong Word. Hỗ trợ tiếng Hindi và các chữ viết Ấn Độ khác. Tệp .doc cũ, RTF, ODT và PowerPoint không thể chuyển đổi trong trình duyệt: hãy mở chúng trong Word, Google Docs hoặc LibreOffice và lưu thành DOCX (hoặc xuất ra PDF) trước.",
+  "title": "Chuyển Word sang PDF trực tuyến miễn phí: DOCX sang PDF | Toolz Baba",
+  "metaDesc": "Chuyển Word (DOCX), Excel (XLSX, XLS, CSV) và tệp văn bản sang PDF ngay trong trình duyệt. Hỗ trợ tiếng Hindi. Miễn phí, không cần đăng ký, không tải tệp lên.",
+  "tabAll": "Word & Office",
+  "steps": [
+   "Thêm một tệp Word (DOCX), Excel (XLSX, XLS, CSV, ODS) hoặc tệp văn bản.",
+   "Bấm Chuyển sang PDF.",
+   "Tải PDF về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển Word sang PDF miễn phí?",
+    "a": "Thêm tệp DOCX, bấm Chuyển sang PDF rồi tải về. Không cần đăng ký."
+   },
+   {
+    "q": "Tôi có thể chuyển tệp .doc cũ hoặc tệp PowerPoint không?",
+    "a": "Ở đây thì không. Hãy mở tệp trong Word, Google Docs hoặc LibreOffice rồi lưu thành DOCX, hoặc xuất ra PDF ngay tại đó."
+   },
+   {
+    "q": "Công cụ có hỗ trợ tiếng Hindi không?",
+    "a": "Có. Tiếng Hindi và các chữ viết Ấn Độ khác hiển thị đúng trong PDF."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "pdf-to-word": {
+  "name": "PDF sang Word",
+  "desc": "Chuyển PDF thành tài liệu Word có thể chỉnh sửa.",
+  "about": "Chuyển PDF thành tài liệu Word có thể chỉnh sửa. Hiệu quả nhất với PDF có chữ thật. PDF scan chỉ là ảnh chụp của các trang và không thể chuyển thành chữ chỉnh sửa được nếu không có OCR.",
+  "title": "Chuyển PDF sang Word trực tuyến miễn phí: DOCX chỉnh sửa được | Toolz Baba",
+  "metaDesc": "Chuyển PDF thành tài liệu Word chỉnh sửa được, giữ nguyên phông chữ, cỡ chữ, chữ đậm và hình ảnh. Miễn phí, không cần đăng ký, PDF luôn ở trên thiết bị của bạn.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chuyển đổi.",
+   "Tải về tệp Word (DOCX) có thể chỉnh sửa."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển PDF sang tệp Word chỉnh sửa được?",
+    "a": "Thêm PDF vào đây rồi tải về tài liệu Word. Chữ, phông chữ, cỡ chữ, chữ đậm, chữ nghiêng và hình ảnh được giữ nguyên theo thứ tự đọc."
+   },
+   {
+    "q": "Sao tôi không chỉnh sửa được chữ từ PDF scan?",
+    "a": "PDF scan chỉ là ảnh chụp của các trang. Hãy dùng Ảnh sang văn bản (OCR) để đọc chữ trước."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "pdf-to-excel": {
+  "name": "PDF sang Excel",
+  "desc": "Chuyển các bảng trong PDF thành bảng tính Excel (XLSX) để bạn sắp xếp, tính tổng và chỉnh sửa.",
+  "about": "Lấy các bảng từ PDF sang Excel mà không phải gõ lại. Mỗi trang trở thành một sheet riêng (hoặc tất cả các trang nằm chung một sheet), hàng và cột được dựng lại theo vị trí của chữ trên trang, và các con số trở thành số thật để bạn cộng được. Hiệu quả nhất với PDF tạo ra trên máy tính, như sao kê ngân hàng, hóa đơn, bảng giá và báo cáo. Trang scan chỉ là ảnh: hãy chạy OCR PDF trên chúng trước.",
+  "title": "Chuyển PDF sang Excel trực tuyến miễn phí: bảng sang XLSX | Toolz Baba",
+  "metaDesc": "Chuyển bảng trong PDF sang Excel (XLSX) trong trình duyệt: giữ hàng, cột và số thật, mỗi trang một sheet. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn mỗi trang một sheet hoặc tất cả các trang trên một sheet.",
+   "Tải về tệp Excel (XLSX)."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển bảng trong PDF sang Excel?",
+    "a": "Thêm PDF, bấm Chuyển sang Excel rồi mở tệp XLSX trong Excel, Google Sheets hoặc LibreOffice. Mỗi trang là một sheet với bảng được dựng lại thành hàng và cột."
+   },
+   {
+    "q": "Các con số có dùng được trong công thức không?",
+    "a": "Có. Các số như 1,234.50 hoặc (200) được lưu thành số thật, nên SUM và các công thức khác hoạt động. Bỏ chọn tùy chọn này nếu bạn muốn giữ mọi thứ dưới dạng chữ."
+   },
+   {
+    "q": "Công cụ có chuyển được PDF scan không?",
+    "a": "Bản scan chỉ là ảnh chụp của trang. Hãy dùng OCR PDF trước để chuyển nó thành chữ, rồi chuyển đổi tại đây."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "pdf-to-powerpoint": {
+  "name": "PDF sang PowerPoint",
+  "desc": "Biến mỗi trang PDF thành một slide PowerPoint (PPTX).",
+  "about": "Trình chiếu PDF trong PowerPoint, Google Slides hoặc Keynote: mỗi trang trở thành một slide trông giống hệt trang gốc, cùng kích thước và hình dạng. Thêm tiêu đề, ghi chú và hiệu ứng của riêng bạn lên trên. Tiện khi cần trình bày một báo cáo, tờ rơi hay ghi chú bài giảng trong cuộc họp. Mọi thứ được thực hiện trên thiết bị của bạn, nên không có gì bị tải lên.",
+  "title": "Chuyển PDF sang PowerPoint trực tuyến miễn phí: PDF sang PPTX | Toolz Baba",
+  "metaDesc": "Chuyển PDF sang PowerPoint (PPTX): mỗi trang thành một slide trông giống hệt PDF. Miễn phí, không cần đăng ký, tệp luôn ở trên thiết bị của bạn.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn chất lượng hình ảnh.",
+   "Tải về tệp PowerPoint (PPTX)."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao biến PDF thành PowerPoint?",
+    "a": "Thêm PDF vào đây rồi bấm Chuyển sang PowerPoint. Mỗi trang trở thành một slide trong tệp PPTX mở được bằng PowerPoint, Google Slides và Keynote."
+   },
+   {
+    "q": "Tôi có thể chỉnh sửa chữ trên các slide không?",
+    "a": "Mỗi slide hiển thị trang dưới dạng ảnh nên trông giống hệt PDF. Bạn có thể thêm hộp văn bản, ghi chú và hình khối mới lên trên. Để sửa chữ gốc, hãy dùng PDF sang Word."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "powerpoint-to-pdf": {
+  "name": "PowerPoint sang PDF",
+  "desc": "Chuyển bài thuyết trình PowerPoint (PPTX) sang PDF, mỗi slide một trang.",
+  "about": "Gửi bài thuyết trình dưới dạng PDF mở giống nhau trên mọi điện thoại và máy tính, không cần PowerPoint. Hình ảnh, hình khối, hộp văn bản, bảng cùng màu sắc và phông chữ của giao diện được vẽ lên các trang PDF theo đúng kích thước slide. Biểu đồ, SmartArt, video và hiệu ứng sẽ bị bỏ qua, nên hãy kiểm tra kết quả ở những slide có dùng chúng. Có thể chuyển nhiều bài thuyết trình cùng lúc, ngay trên thiết bị của bạn.",
+  "title": "Chuyển PowerPoint sang PDF trực tuyến miễn phí: PPTX sang PDF | Toolz Baba",
+  "metaDesc": "Chuyển PowerPoint (PPTX) sang PDF trong trình duyệt: giữ ảnh, hình khối, chữ và bảng, mỗi slide một trang. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm các tệp PPTX của bạn.",
+   "Bấm Chuyển sang PDF.",
+   "Tải PDF về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển PowerPoint sang PDF?",
+    "a": "Thêm tệp PPTX rồi bấm Chuyển sang PDF. Mỗi slide trở thành một trang của PDF."
+   },
+   {
+    "q": "Công cụ có dùng được với tệp .ppt cũ không?",
+    "a": "Không trực tiếp. Hãy mở tệp .ppt trong PowerPoint, Google Slides hoặc LibreOffice và lưu thành PPTX trước."
+   },
+   {
+    "q": "Biểu đồ và hiệu ứng có được giữ lại không?",
+    "a": "Hiệu ứng không thể nằm trong PDF. Biểu đồ và SmartArt chưa được vẽ; còn hình ảnh, hình khối, chữ và bảng thì có."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "markdown-converter": {
+  "name": "Chuyển đổi Markdown",
+  "desc": "Markdown sang PDF, HTML hoặc Word, và HTML, Word hoặc PDF ngược lại sang Markdown.",
+  "about": "Một nơi cho mọi chuyển đổi Markdown: biến Markdown thành PDF, trang web hoặc tệp Word, hoặc biến trang HTML, tài liệu Word hay PDF ngược lại thành Markdown gọn gàng. Gõ hoặc dán văn bản và xem bản xem trước, hoặc thêm một tệp. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi ngay trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển đổi Markdown: MD sang PDF, Word, HTML và ngược lại | Toolz Baba",
+  "metaDesc": "Chuyển Markdown sang PDF, HTML hoặc Word, và HTML, Word hay PDF ngược lại sang Markdown, có xem trước trực tiếp. Miễn phí và riêng tư: chạy trong trình duyệt.",
+  "tabAll": "Tất cả công cụ chuyển đổi",
+  "steps": [
+   "Gõ hoặc dán văn bản của bạn, hoặc thêm một tệp.",
+   "Chọn kiểu chuyển đổi, ví dụ Markdown sang PDF hoặc Word sang Markdown.",
+   "Kiểm tra bản xem trước rồi tải về."
+  ],
+  "faq": [
+   {
+    "q": "Có những kiểu chuyển đổi nào?",
+    "a": "Markdown sang PDF, HTML hoặc Word, và HTML, Word hoặc PDF ngược lại sang Markdown."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi trong trình duyệt của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "organize-pdf": {
+  "name": "Sắp xếp trang PDF",
+  "desc": "Sắp xếp lại, xóa và xoay trang PDF bằng hình ảnh: kéo ảnh thu nhỏ, rồi lưu thành PDF mới.",
+  "about": "Xem mọi trang của PDF dưới dạng ảnh thu nhỏ. Kéo các trang để sắp xếp lại, bấm để xoay hoặc xóa chúng, rồi lưu thành PDF mới. Mọi thứ diễn ra ngay trong trình duyệt của bạn, nên PDF không bao giờ bị tải lên.",
+  "title": "Sắp xếp trang PDF trực tuyến miễn phí: đổi thứ tự và xoay trang | Toolz Baba",
+  "metaDesc": "Sắp xếp lại, xoay và xóa trang PDF bằng cách kéo ảnh thu nhỏ, rồi lưu thành PDF mới. Miễn phí, không cần đăng ký, PDF không bao giờ bị tải lên.",
+  "tabAll": "Sắp xếp",
+  "steps": [
+   "Thêm một PDF để xem mọi trang dưới dạng ảnh thu nhỏ.",
+   "Kéo các trang để sắp xếp lại, và xoay hoặc xóa những trang bạn cần.",
+   "Lưu và tải PDF mới về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao đổi thứ tự các trang PDF?",
+    "a": "Thêm PDF và kéo các ảnh thu nhỏ của trang vào thứ tự bạn muốn, rồi lưu."
+   },
+   {
+    "q": "Tôi có thể xoay hoặc xóa trang không?",
+    "a": "Có, mỗi trang đều có nút để xoay hoặc xóa."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Mọi thứ diễn ra trong trình duyệt của bạn, nên PDF không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "esign-pdf": {
+  "name": "Ký PDF",
+  "desc": "Vẽ, gõ hoặc tải lên chữ ký của bạn rồi đặt lên bất kỳ trang nào của PDF.",
+  "about": "Tạo chữ ký bằng cách vẽ, gõ tên theo kiểu chữ viết tay, hoặc tải ảnh lên, rồi kéo đến đúng vị trí trên bất kỳ trang nào và đổi kích thước. Bạn có thể ký nhiều trang cùng lúc. Công cụ này thêm một ảnh chữ ký trực quan; đây không phải chữ ký số dựa trên chứng chỉ.",
+  "title": "Ký PDF trực tuyến miễn phí: thêm chữ ký vào PDF | Toolz Baba",
+  "metaDesc": "Ký PDF bằng cách vẽ, gõ hoặc tải lên chữ ký của bạn, rồi đặt lên bất kỳ trang nào. Ký nhiều trang cùng lúc. Miễn phí và riêng tư, không cần đăng ký.",
+  "steps": [
+   "Thêm PDF bạn cần ký.",
+   "Vẽ, gõ hoặc tải lên chữ ký của bạn.",
+   "Kéo đến đúng vị trí trên bất kỳ trang nào, đổi kích thước rồi tải PDF đã ký về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao ký PDF trực tuyến miễn phí?",
+    "a": "Thêm PDF, tạo chữ ký bằng cách vẽ, gõ hoặc tải ảnh lên, đặt lên trang rồi tải về."
+   },
+   {
+    "q": "Đây có phải chữ ký số hợp pháp không?",
+    "a": "Công cụ thêm một ảnh chữ ký của bạn, giống như ký trên giấy. Đây không phải chữ ký số dựa trên chứng chỉ mà một số tài liệu của cơ quan nhà nước và pháp lý yêu cầu."
+   },
+   {
+    "q": "Tôi có thể ký nhiều trang không?",
+    "a": "Có, bạn có thể đặt chữ ký lên nhiều trang cùng lúc."
+   }
+  ]
+ },
+ "add-page-numbers-to-pdf": {
+  "name": "Thêm số trang vào PDF",
+  "desc": "Thêm số trang vào PDF: chọn vị trí, định dạng, số bắt đầu và trang bắt đầu đánh số.",
+  "about": "Thêm số trang vào mọi trang của PDF. Chọn vị trí (trên hoặc dưới, trái, giữa hoặc phải), định dạng (1, Trang 1, Trang 1 / 10), số đầu tiên, cỡ chữ và màu, và bỏ qua trang bìa nếu cần. Các trang bị xoay vẫn được xử lý đúng.",
+  "title": "Thêm số trang vào PDF trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Đánh số trang PDF ở đầu hoặc cuối trang theo định dạng 1, Trang 1 hoặc Trang 1 / 10. Chọn số bắt đầu và bỏ qua trang bìa. Miễn phí và riêng tư.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn vị trí, định dạng (1, Trang 1 hoặc Trang 1 / 10), số đầu tiên, cỡ chữ và màu.",
+   "Thêm số trang rồi tải PDF về."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể bỏ qua trang bìa không?",
+    "a": "Có. Chọn trang bắt đầu đánh số, để trang bìa không có số."
+   },
+   {
+    "q": "Số trang có thể có những định dạng nào?",
+    "a": "1, Trang 1, hoặc Trang 1 / 10, ở đầu hoặc cuối trang, bên trái, giữa hoặc bên phải."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "protect-pdf": {
+  "name": "Đặt mật khẩu cho PDF",
+  "desc": "Khóa PDF bằng mật khẩu với mã hóa AES-256. Có thể chặn in hoặc sao chép.",
+  "about": "Thêm mật khẩu để chỉ người biết mật khẩu mới mở được PDF của bạn. Tệp được mã hóa bằng AES-256. Bạn cũng có thể chọn cho phép hay không việc in, sao chép chữ và chỉnh sửa. Hãy giữ mật khẩu cẩn thận: mật khẩu không thể khôi phục.",
+  "title": "Đặt mật khẩu cho PDF trực tuyến miễn phí: AES-256 | Toolz Baba",
+  "metaDesc": "Khóa PDF bằng mật khẩu với mã hóa AES-256, và chọn cho phép hay không việc in, sao chép và chỉnh sửa. Miễn phí, không cần đăng ký.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Nhập mật khẩu và chọn cho phép hay không việc in, sao chép và chỉnh sửa.",
+   "Tải PDF đã khóa về."
+  ],
+  "faq": [
+   {
+    "q": "Mức bảo vệ này an toàn đến đâu?",
+    "a": "PDF được mã hóa bằng AES-256, nên không thể mở nếu không có mật khẩu."
+   },
+   {
+    "q": "Nếu tôi quên mật khẩu thì sao?",
+    "a": "Mật khẩu không thể khôi phục, nên hãy cất ở nơi an toàn."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "unlock-pdf": {
+  "name": "Mở khóa PDF (gỡ mật khẩu)",
+  "desc": "Gỡ mật khẩu mở khỏi PDF khi bạn biết mật khẩu.",
+  "about": "Nếu bạn biết mật khẩu của một PDF và ngại phải gõ lại mỗi lần, công cụ này lưu một bản sao mở được mà không cần mật khẩu. Công cụ chỉ hoạt động khi bạn nhập đúng mật khẩu: nó không bẻ khóa hay vượt qua lớp bảo vệ.",
+  "title": "Mở khóa PDF: gỡ mật khẩu PDF trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Gỡ mật khẩu khỏi PDF mà bạn biết mật khẩu và lưu một bản sao mở được mà không cần mật khẩu. Miễn phí, riêng tư, không cần đăng ký. Không bẻ khóa PDF.",
+  "steps": [
+   "Thêm PDF có mật khẩu.",
+   "Nhập mật khẩu của nó.",
+   "Tải về một bản sao mở được mà không cần mật khẩu."
+  ],
+  "faq": [
+   {
+    "q": "Công cụ có mở được PDF nếu tôi không biết mật khẩu không?",
+    "a": "Không. Công cụ chỉ hoạt động với mật khẩu đúng; nó không bẻ khóa hay vượt qua lớp bảo vệ."
+   },
+   {
+    "q": "Sao phải mở khóa một PDF mà tôi đã mở được rồi?",
+    "a": "Để bạn không phải gõ mật khẩu mỗi lần, hoặc để có thể gộp hay chỉnh sửa nó bằng các công cụ khác."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "video-converter": {
+  "name": "Chuyển đổi video",
+  "desc": "Chuyển sang MP4, WebM, MKV, MOV, AVI, hoặc tách âm thanh thành MP3, M4A, WAV.",
+  "about": "Chuyển video sang MP4, WebM, MKV, MOV hoặc AVI, hoặc tách âm thanh thành MP3, M4A, WAV, OGG hoặc FLAC. Chọn chất lượng và giảm độ phân giải nếu cần. Hỗ trợ tệp đến 2 GB.",
+  "title": "Chuyển đổi video trực tuyến miễn phí: MP4, MOV, MKV, MP3 | Toolz Baba",
+  "metaDesc": "Chuyển video sang MP4, WebM, MKV, MOV hoặc AVI, hoặc tách âm thanh thành MP3, M4A hay WAV. Tệp đến 2 GB. Miễn phí và riêng tư: chạy trong trình duyệt.",
+  "steps": [
+   "Thêm video của bạn (tối đa 2 GB).",
+   "Chọn MP4, WebM, MKV, MOV hoặc AVI, hoặc một định dạng âm thanh như MP3.",
+   "Chuyển đổi rồi tải về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển video sang MP4?",
+    "a": "Thêm video, chọn MP4, đặt chất lượng rồi chuyển đổi."
+   },
+   {
+    "q": "Tôi có thể lấy âm thanh dưới dạng MP3 không?",
+    "a": "Có. Chọn MP3, M4A, WAV, OGG hoặc FLAC để chỉ tách phần âm thanh."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "audio-converter": {
+  "name": "Chuyển đổi âm thanh",
+  "desc": "Chuyển âm thanh sang MP3, M4A, WAV, FLAC hoặc OGG: bài hát, bản ghi âm, tin nhắn thoại và âm thanh của video.",
+  "about": "Chuyển tệp WAV, M4A, AAC, FLAC, OGG, OPUS, WMA và AMR (cả tin nhắn thoại WhatsApp và bản ghi âm điện thoại) sang MP3, M4A, WAV, FLAC hoặc OGG. Chọn chất lượng, chuyển đổi tối đa 20 tệp cùng lúc và tải về tất cả cùng nhau. Công cụ cũng tách âm thanh ra khỏi video. Mọi thứ chạy trên thiết bị của bạn: âm thanh không bao giờ bị tải lên.",
+  "title": "Chuyển đổi âm thanh trực tuyến miễn phí: MP3, WAV, M4A, FLAC, OGG | Toolz Baba",
+  "metaDesc": "Chuyển tệp âm thanh sang MP3, M4A, WAV, FLAC hoặc OGG ngay trong trình duyệt, tối đa 20 tệp cùng lúc, với chất lượng bạn chọn. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm các tệp âm thanh của bạn.",
+   "Chọn định dạng và chất lượng.",
+   "Tải về các tệp đã chuyển đổi."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển âm thanh sang MP3?",
+    "a": "Thêm tệp, giữ nguyên MP3 (192 kbps là mức mặc định tốt) rồi bấm Chuyển đổi. Tải các tệp MP3 về khi chúng sẵn sàng."
+   },
+   {
+    "q": "Tôi nên chọn định dạng nào?",
+    "a": "MP3 phát được ở mọi nơi. M4A nhỏ gọn và rất hợp với iPhone. WAV và FLAC giữ nguyên chất lượng đầy đủ; FLAC có dung lượng khoảng một nửa WAV."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "video-to-gif": {
+  "name": "Video sang GIF",
+  "desc": "Biến bất kỳ đoạn clip nào thành ảnh GIF động chất lượng cao.",
+  "about": "Biến một phần của bất kỳ video nào thành ảnh GIF động. Đặt thời điểm bắt đầu, độ dài, số khung hình mỗi giây và chiều rộng. Mỗi GIF được tạo bảng màu riêng để màu sắc luôn sạch đẹp.",
+  "title": "Chuyển video sang GIF miễn phí: MP4 sang GIF nét HD | Toolz Baba",
+  "metaDesc": "Biến bất kỳ đoạn video nào thành GIF động chất lượng cao. Đặt điểm bắt đầu, độ dài, chiều rộng và khung hình. Miễn phí, không watermark.",
+  "steps": [
+   "Thêm một video (MP4, MOV, WebM và nhiều loại khác).",
+   "Đặt thời điểm bắt đầu, độ dài, số khung hình mỗi giây và chiều rộng.",
+   "Tạo GIF rồi tải về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao chuyển MP4 sang GIF?",
+    "a": "Thêm tệp MP4, chọn đoạn bạn muốn bằng thời điểm bắt đầu và độ dài, đặt chiều rộng và số khung hình mỗi giây, rồi tạo GIF."
+   },
+   {
+    "q": "Làm sao để GIF nhỏ hơn?",
+    "a": "Dùng đoạn video ngắn hơn, chiều rộng nhỏ hơn và ít khung hình mỗi giây hơn. Nén GIF có thể làm nhỏ thêm nữa."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "gif-to-video": {
+  "name": "GIF sang video",
+  "desc": "Chuyển GIF thành video MP4 hoặc WebM nhỏ gọn.",
+  "about": "Chuyển ảnh động GIF thành video MP4 hoặc WebM nhỏ hơn nhiều, và lặp lại ảnh động nếu bạn muốn clip dài hơn. Video tải nhanh hơn và phát mượt trên điện thoại.",
+  "title": "Chuyển GIF sang MP4 trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển ảnh động GIF thành video MP4 hoặc WebM nhỏ hơn nhiều, tải nhanh và phát mượt trên điện thoại. Lặp lại để có clip dài hơn. Miễn phí.",
+  "steps": [
+   "Thêm một GIF.",
+   "Chọn MP4 hoặc WebM, và số lần lặp lại.",
+   "Chuyển đổi rồi tải video về."
+  ],
+  "faq": [
+   {
+    "q": "Tại sao nên chuyển GIF sang MP4?",
+    "a": "Video thường nhỏ hơn nhiều, tải nhanh hơn và phát mượt trên điện thoại."
+   },
+   {
+    "q": "Tôi có thể làm video dài hơn không?",
+    "a": "Có. Hãy lặp lại ảnh động để có clip dài hơn."
+   }
+  ]
+ },
+ "video-trimmer": {
+  "name": "Cắt video",
+  "desc": "Cắt một đoạn ra khỏi video. Xem trước và chọn điểm đầu, điểm cuối.",
+  "about": "Cắt một đoạn ra khỏi tệp video hoặc âm thanh. Xem trước, đánh dấu điểm đầu và điểm cuối, rồi chọn cắt chính xác hoặc cắt nhanh không giảm chất lượng, bám vào khung hình chính gần nhất.",
+  "title": "Cắt video trực tuyến miễn phí: cắt đầu và cuối | Toolz Baba",
+  "metaDesc": "Cắt đoạn bạn muốn khỏi video hoặc âm thanh. Xem trước, đánh dấu đầu và cuối, cắt chính xác hoặc cắt nhanh không giảm chất lượng. Miễn phí.",
+  "steps": [
+   "Thêm một tệp video hoặc âm thanh.",
+   "Phát và đánh dấu điểm đầu và điểm cuối.",
+   "Chọn cắt chính xác hoặc cắt nhanh không giảm chất lượng, rồi tải về."
+  ],
+  "faq": [
+   {
+    "q": "Cắt chính xác và cắt nhanh khác nhau thế nào?",
+    "a": "Cắt chính xác bắt đầu đúng chỗ bạn đánh dấu. Cắt nhanh không giảm chất lượng và nhanh hơn nhưng bám vào khung hình chính gần nhất, nên có thể bắt đầu sớm hơn một chút."
+   },
+   {
+    "q": "Tôi có thể cắt cả âm thanh không?",
+    "a": "Có, tệp âm thanh hoạt động theo cách tương tự."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "compress-video": {
+  "name": "Nén video",
+  "desc": "Làm video nhỏ hơn theo mức chất lượng hoặc dung lượng tệp mong muốn.",
+  "about": "Làm video nhỏ hơn bằng cách chọn mức chất lượng hoặc dung lượng tệp mong muốn tính bằng MB, ví dụ để vừa giới hạn tải lên của email hoặc ứng dụng nhắn tin. Bạn cũng có thể giảm độ phân giải.",
+  "title": "Nén video trực tuyến miễn phí: giảm dung lượng MP4 xuống MB | Toolz Baba",
+  "metaDesc": "Làm video nhỏ hơn theo chất lượng hoặc dung lượng MB mong muốn, cho WhatsApp, email hay giới hạn tải lên. Giảm cả độ phân giải. Miễn phí.",
+  "tabAll": "Nén video",
+  "steps": [
+   "Thêm video của bạn.",
+   "Chọn mức chất lượng hoặc dung lượng mong muốn tính bằng MB, và giảm độ phân giải nếu bạn muốn.",
+   "Nén rồi tải video nhỏ hơn về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao làm video đủ nhỏ để gửi qua WhatsApp hoặc email?",
+    "a": "Chọn dung lượng mong muốn và nhập giới hạn tính bằng MB; công cụ sẽ chọn thiết lập để vừa giới hạn đó."
+   },
+   {
+    "q": "Nén video có làm giảm chất lượng không?",
+    "a": "Một chút. Giảm độ phân giải, ví dụ xuống 720p, thường tiết kiệm được nhiều nhất mà ít thay đổi nhìn thấy nhất."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "video-merger": {
+  "name": "Ghép video",
+  "desc": "Nối nhiều đoạn video thành một MP4, theo thứ tự bạn chọn. Khác kích thước hay định dạng cũng không sao.",
+  "about": "Ghép hai hoặc nhiều đoạn clip thành một MP4 duy nhất. Các clip có độ phân giải, tốc độ khung hình hoặc định dạng khác nhau được tự động làm cho khớp, và các clip không có tiếng cũng được xử lý. Sắp xếp lại thứ tự các clip trước khi ghép.",
+  "title": "Ghép video trực tuyến miễn phí: nối clip thành một MP4 | Toolz Baba",
+  "metaDesc": "Nối hai hoặc nhiều đoạn video thành một MP4 theo thứ tự bạn chọn. Khác kích thước và định dạng được tự động làm cho khớp. Miễn phí, không watermark.",
+  "steps": [
+   "Thêm hai hoặc nhiều đoạn clip.",
+   "Sắp xếp theo thứ tự bạn muốn.",
+   "Ghép rồi tải về một MP4."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể nối video khác kích thước hoặc định dạng không?",
+    "a": "Có. Độ phân giải, tốc độ khung hình và định dạng khác nhau được tự động làm cho khớp."
+   },
+   {
+    "q": "Nếu một clip không có tiếng thì sao?",
+    "a": "Cũng được xử lý: video đã ghép phát bình thường."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "change-video-speed": {
+  "name": "Đổi tốc độ video",
+  "desc": "Tăng tốc video (timelapse) hoặc làm chậm lại, từ 0.25x đến 8x. Giọng âm thanh vẫn tự nhiên.",
+  "about": "Làm video nhanh hơn để tạo timelapse hoặc chậm hơn để tạo hiệu ứng slow motion, trong khoảng từ 0.25x đến 8x. Âm thanh được tăng hoặc giảm tốc mà vẫn giữ nguyên cao độ, hoặc bạn có thể tắt tiếng.",
+  "title": "Đổi tốc độ video trực tuyến miễn phí: 0.25x đến 8x | Toolz Baba",
+  "metaDesc": "Tăng tốc video để làm timelapse hoặc làm chậm để có slow motion, từ 0.25x đến 8x, với âm thanh tự nhiên. Miễn phí và riêng tư, không cần đăng ký.",
+  "steps": [
+   "Thêm một video.",
+   "Chọn tốc độ từ 0.25x (slow motion) đến 8x (timelapse), và giữ hoặc tắt tiếng.",
+   "Tải video mới về."
+  ],
+  "faq": [
+   {
+    "q": "Giọng nói có bị the thé như sóc chuột khi tăng tốc không?",
+    "a": "Không. Cao độ được giữ tự nhiên khi tốc độ thay đổi. Bạn cũng có thể tắt tiếng."
+   },
+   {
+    "q": "Làm sao tạo video slow motion?",
+    "a": "Chọn tốc độ dưới 1x, như 0.5x hoặc 0.25x."
+   },
+   {
+    "q": "Video của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "json-formatter": {
+  "name": "Định dạng & kiểm tra JSON",
+  "desc": "Làm đẹp, rút gọn và kiểm tra JSON. Chỉ ra chính xác dòng và cột của mọi lỗi.",
+  "about": "Dán JSON để làm cho dễ đọc với 2 hoặc 4 dấu cách hoặc tab, rút gọn, sắp xếp các khóa, hoặc kiểm tra xem JSON có hợp lệ không. Nếu có lỗi, công cụ chỉ ra dòng và cột. Mọi thứ diễn ra ngay trong trình duyệt của bạn.",
+  "title": "Định dạng và kiểm tra JSON trực tuyến: làm đẹp JSON | Toolz Baba",
+  "metaDesc": "Định dạng, rút gọn và kiểm tra JSON, sắp xếp khóa, và xem chính xác dòng và cột của mọi lỗi. Miễn phí, dữ liệu của bạn không bao giờ rời khỏi trình duyệt.",
+  "steps": [
+   "Dán JSON của bạn.",
+   "Định dạng với 2 hoặc 4 dấu cách hoặc tab, rút gọn, hoặc sắp xếp các khóa.",
+   "Sao chép kết quả."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao tìm lỗi trong JSON của tôi?",
+    "a": "Dán vào đây: nếu JSON không hợp lệ, công cụ sẽ chỉ ra chính xác dòng và cột của lỗi."
+   },
+   {
+    "q": "JSON của tôi có bị gửi đến máy chủ không?",
+    "a": "Không. Mọi thứ diễn ra ngay trong trình duyệt của bạn."
+   }
+  ]
+ },
+ "word-counter": {
+  "name": "Đếm từ & ký tự",
+  "desc": "Đếm từ, ký tự, câu và đoạn văn, kèm thời gian đọc và các từ khóa nổi bật.",
+  "about": "Dán hoặc gõ văn bản để xem số từ, ký tự (có và không có dấu cách), câu và đoạn văn, cùng thời gian đọc, thời gian nói ước tính và các từ được dùng nhiều nhất. Hoạt động với văn bản tiếng Anh và tiếng Hindi.",
+  "title": "Đếm từ và đếm ký tự trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Đếm từ, ký tự (có và không có dấu cách), câu và đoạn văn, xem thời gian đọc và các từ khóa nổi bật. Tiếng Anh và tiếng Hindi.",
+  "steps": [
+   "Dán hoặc gõ văn bản của bạn.",
+   "Xem ngay số từ, ký tự, câu, đoạn văn và thời gian đọc.",
+   "Xem các từ được dùng nhiều nhất."
+  ],
+  "faq": [
+   {
+    "q": "Công cụ có đếm ký tự có và không có dấu cách không?",
+    "a": "Có, cả hai đều được hiển thị."
+   },
+   {
+    "q": "Công cụ có dùng được với tiếng Hindi không?",
+    "a": "Có, công cụ đếm được văn bản tiếng Anh và tiếng Hindi."
+   },
+   {
+    "q": "Văn bản của tôi có được lưu ở đâu không?",
+    "a": "Không. Công cụ chạy trong trình duyệt của bạn, nên những gì bạn gõ không bao giờ bị gửi đi đâu cả."
+   }
+  ]
+ },
+ "text-case-converter": {
+  "name": "Đổi kiểu chữ hoa thường",
+  "desc": "Đổi văn bản sang CHỮ HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, camelCase, snake_case và nhiều kiểu khác.",
+  "about": "Chuyển văn bản giữa CHỮ HOA, chữ thường, Viết Hoa Mỗi Từ, Viết hoa đầu câu, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE và nhiều kiểu khác chỉ với một cú nhấp, rồi sao chép kết quả.",
+  "title": "Đổi kiểu chữ hoa thường: chữ hoa, chữ thường, Title Case | Toolz Baba",
+  "metaDesc": "Đổi văn bản sang CHỮ HOA, chữ thường, Title Case, Sentence case, camelCase, snake_case, kebab-case và nhiều kiểu khác chỉ với một cú nhấp. Miễn phí và tức thì.",
+  "steps": [
+   "Dán văn bản của bạn.",
+   "Bấm kiểu chữ bạn cần: CHỮ HOA, chữ thường, Title Case, camelCase và nhiều kiểu khác.",
+   "Sao chép kết quả."
+  ],
+  "faq": [
+   {
+    "q": "Hỗ trợ những kiểu chữ nào?",
+    "a": "CHỮ HOA, chữ thường, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE và nhiều kiểu khác."
+   },
+   {
+    "q": "Văn bản của tôi có bị gửi đi đâu không?",
+    "a": "Không. Công cụ chạy trong trình duyệt của bạn, nên những gì bạn gõ không bao giờ bị gửi đi đâu cả."
+   }
+  ]
+ },
+ "password-generator": {
+  "name": "Tạo mật khẩu",
+  "desc": "Tạo mật khẩu ngẫu nhiên mạnh. Chọn độ dài và ký tự, và xem mật khẩu mạnh đến đâu.",
+  "about": "Tạo mật khẩu ngẫu nhiên mạnh bằng bộ tạo số ngẫu nhiên an toàn của trình duyệt. Chọn độ dài và các loại ký tự muốn có, bỏ qua các ký tự dễ nhầm, tạo nhiều mật khẩu cùng lúc và xem ước tính độ mạnh. Mật khẩu không bao giờ bị gửi đi đâu.",
+  "title": "Tạo mật khẩu mạnh: ngẫu nhiên và an toàn | Toolz Baba",
+  "metaDesc": "Tạo mật khẩu ngẫu nhiên mạnh bằng bộ tạo an toàn của trình duyệt. Chọn độ dài và ký tự rồi xem độ mạnh. Không bao giờ bị gửi đi đâu.",
+  "steps": [
+   "Chọn độ dài và các loại ký tự muốn có.",
+   "Tạo một hoặc nhiều mật khẩu và kiểm tra độ mạnh.",
+   "Sao chép mật khẩu bạn muốn."
+  ],
+  "faq": [
+   {
+    "q": "Mật khẩu có thực sự ngẫu nhiên không?",
+    "a": "Có. Chúng được tạo từ bộ tạo số ngẫu nhiên an toàn của trình duyệt."
+   },
+   {
+    "q": "Mật khẩu nên dài bao nhiêu?",
+    "a": "Ít nhất 12 đến 16 ký tự với nhiều loại ký tự khác nhau; càng dài càng mạnh."
+   },
+   {
+    "q": "Mật khẩu có bị gửi đi hoặc lưu ở đâu không?",
+    "a": "Không. Chúng được tạo trong trình duyệt của bạn và không bao giờ bị gửi đi đâu."
+   }
+  ]
+ },
+ "hash-uuid-generator": {
+  "name": "Tạo hash & UUID",
+  "desc": "Tạo UUID và hash MD5, SHA-1, SHA-256, SHA-384 hoặc SHA-512 của văn bản và tệp.",
+  "about": "Tạo UUID ngẫu nhiên (phiên bản 4 và phiên bản 7 sắp xếp theo thời gian), và tính checksum MD5, SHA-1, SHA-256, SHA-384 và SHA-512 của văn bản hoặc của một tệp để kiểm tra bản tải về. Tệp được đọc trong trình duyệt của bạn và không bao giờ bị tải lên.",
+  "title": "Tạo hash và UUID: SHA-256, MD5 | Toolz Baba",
+  "metaDesc": "Tạo UUID v4 và v7, cùng hash MD5, SHA-1, SHA-256, SHA-384 hoặc SHA-512 của văn bản hay tệp để kiểm tra bản tải về. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Chọn UUID, hoặc một loại hash như SHA-256.",
+   "Gõ văn bản hoặc thêm một tệp.",
+   "Sao chép kết quả, hoặc so sánh với checksum bạn được cung cấp."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao kiểm tra bản tải về không bị lỗi?",
+    "a": "Thêm tệp đã tải về, chọn loại hash mà trang web liệt kê (thường là SHA-256) rồi so sánh hai giá trị."
+   },
+   {
+    "q": "UUID v4 và v7 khác nhau thế nào?",
+    "a": "v4 hoàn toàn ngẫu nhiên; v7 bắt đầu bằng thời gian, nên các ID mới được sắp xếp theo thứ tự tạo."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được đọc trong trình duyệt của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "url-encoder": {
+  "name": "Mã hóa & giải mã URL",
+  "desc": "Mã hóa hoặc giải mã URL và văn bản, và tách URL thành máy chủ, đường dẫn và các tham số truy vấn.",
+  "about": "Mã hóa văn bản để dùng an toàn trong URL, giải mã văn bản mã hóa phần trăm, và tách một URL đầy đủ thành các phần (giao thức, máy chủ, đường dẫn và tham số truy vấn) để đọc hoặc chỉnh sửa.",
+  "title": "Mã hóa và giải mã URL trực tuyến: mã hóa phần trăm | Toolz Baba",
+  "metaDesc": "Mã hóa văn bản cho URL, giải mã văn bản mã hóa phần trăm, và tách URL thành máy chủ, đường dẫn và tham số truy vấn để đọc hoặc chỉnh sửa. Miễn phí và tức thì.",
+  "steps": [
+   "Dán văn bản hoặc một URL.",
+   "Mã hóa, giải mã, hoặc tách URL thành các phần.",
+   "Sao chép kết quả."
+  ],
+  "faq": [
+   {
+    "q": "Mã hóa URL là gì?",
+    "a": "Các ký tự như dấu cách và & được thay bằng mã như %20 để văn bản dùng an toàn trong địa chỉ web."
+   },
+   {
+    "q": "Tôi có thể chỉnh sửa các tham số truy vấn của URL không?",
+    "a": "Có. Hãy tách URL để xem giao thức, máy chủ, đường dẫn và từng tham số, rồi chỉnh sửa chúng."
+   }
+  ]
+ },
+ "image-color-palette-extractor": {
+  "name": "Lấy bảng màu từ ảnh",
+  "desc": "Lấy các màu chính từ bất kỳ ảnh nào. Sao chép HEX, RGB, CSS.",
+  "about": "Trích xuất các màu chủ đạo từ bất kỳ ảnh nào. Sao chép giá trị HEX, RGB và HSL, xuất biến CSS hoặc JSON, tải bảng màu về dưới dạng ảnh, và bấm vào ảnh để chọn đúng một màu. Công cụ chạy trong trình duyệt của bạn.",
+  "title": "Bảng màu từ ảnh: lấy mã HEX và RGB | Toolz Baba",
+  "metaDesc": "Lấy các màu chính từ bất kỳ ảnh nào và sao chép giá trị HEX, RGB hoặc HSL, biến CSS hay JSON. Bấm để chọn đúng một màu. Miễn phí.",
+  "tabAll": "Từ ảnh",
+  "steps": [
+   "Thêm một ảnh.",
+   "Xem các màu chính của ảnh, hoặc bấm vào ảnh để chọn đúng một màu.",
+   "Sao chép HEX, RGB hoặc HSL, hoặc xuất CSS, JSON hay ảnh bảng màu."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao lấy mã HEX của một màu trong ảnh?",
+    "a": "Thêm ảnh và bấm vào vị trí bạn muốn; màu chính xác được hiển thị dưới dạng HEX, RGB và HSL."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "qr-code-generator": {
+  "name": "Tạo mã QR",
+  "desc": "URL, văn bản, Wi-Fi, email, số điện thoại hoặc danh thiếp. PNG hoặc SVG, có màu sắc và logo.",
+  "about": "Tạo mã QR cho liên kết, văn bản, mạng Wi-Fi, cuộc trò chuyện WhatsApp, email, số điện thoại, SMS và danh thiếp. Chọn màu sắc và kiểu chấm, thêm logo vào giữa, rồi tải về dưới dạng PNG hoặc SVG.",
+  "title": "Tạo mã QR miễn phí: liên kết, Wi-Fi, WhatsApp, logo | Toolz Baba",
+  "metaDesc": "Tạo mã QR cho liên kết, Wi-Fi, WhatsApp, email, số điện thoại, SMS và danh thiếp. Thêm màu sắc và logo, tải PNG hoặc SVG. Miễn phí, không bao giờ hết hạn.",
+  "steps": [
+   "Chọn nội dung mã chứa: liên kết, văn bản, Wi-Fi, WhatsApp, email, số điện thoại, SMS hoặc danh thiếp.",
+   "Chọn màu sắc và kiểu chấm, và thêm logo nếu bạn muốn.",
+   "Tải về dưới dạng PNG hoặc SVG."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao tạo mã QR cho một liên kết?",
+    "a": "Chọn loại liên kết, dán địa chỉ rồi tải mã QR về dưới dạng PNG hoặc SVG."
+   },
+   {
+    "q": "Tôi có thể tạo mã QR cho Wi-Fi không?",
+    "a": "Có. Nhập tên mạng và mật khẩu; mọi người quét mã để vào mạng mà không cần gõ."
+   },
+   {
+    "q": "Mã QR có hết hạn không?",
+    "a": "Không. Địa chỉ hoặc văn bản được lưu ngay trong mã, nên mã vẫn dùng được chừng nào liên kết mà nó trỏ tới còn dùng được."
+   },
+   {
+    "q": "PNG hay SVG?",
+    "a": "PNG cho điện thoại, tài liệu và WhatsApp; SVG để in khổ lớn, vì luôn sắc nét ở mọi kích thước."
+   }
+  ]
+ },
+ "base64": {
+  "name": "Chuyển đổi Base64",
+  "desc": "Mã hóa hoặc giải mã văn bản và tệp. Lấy data URI cho ảnh.",
+  "about": "Mã hóa và giải mã Base64 cho văn bản (hỗ trợ đầy đủ Unicode) và tệp. Lấy data URI cho ảnh, hoặc biến chuỗi Base64 trở lại thành tệp có thể tải về. Công cụ chạy trong trình duyệt của bạn.",
+  "title": "Mã hóa và giải mã Base64 trực tuyến: văn bản và tệp | Toolz Baba",
+  "metaDesc": "Mã hóa hoặc giải mã Base64 cho văn bản và tệp, tạo data URI cho ảnh, hoặc biến Base64 trở lại thành tệp. Miễn phí, chạy trong trình duyệt của bạn.",
+  "steps": [
+   "Dán văn bản hoặc thêm một tệp.",
+   "Mã hóa hoặc giải mã.",
+   "Sao chép kết quả, hoặc tải tệp đã giải mã về."
+  ],
+  "faq": [
+   {
+    "q": "Data URI là gì?",
+    "a": "Là một bức ảnh được viết thành văn bản Base64, bạn có thể đặt thẳng vào HTML hoặc CSS thay cho liên kết tệp."
+   },
+   {
+    "q": "Công cụ có xử lý được văn bản tiếng Hindi và emoji không?",
+    "a": "Có, mã hóa văn bản hỗ trợ đầy đủ Unicode."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Công cụ chạy ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "image-cdn": {
+  "name": "Ảnh sang liên kết CDN",
+  "desc": "Tải ảnh lên và nhận liên kết trực tiếp ở mọi định dạng (JPG, PNG, WebP, AVIF...) kèm tùy chọn đổi kích thước.",
+  "about": "Tải ảnh lên và nhận liên kết trực tiếp đến ảnh ở các định dạng JPG, PNG, WebP, AVIF, GIF, BMP, TIFF và ICO. Thêm ?w=800 vào bất kỳ liên kết nào để đổi kích thước. Các phiên bản đã chuyển đổi được lưu đệm để tải nhanh.",
+  "tabAll": "Liên kết ảnh"
+ },
+ "split-audio": {
+  "name": "Cắt & tách âm thanh",
+  "desc": "Cắt ra phần bạn muốn của tệp âm thanh, hoặc tách thành các phần có độ dài cố định hoặc các phần bằng nhau.",
+  "about": "Cắt một đoạn từ bài hát, bản ghi âm hoặc tin nhắn thoại: phát, đánh dấu chỗ đoạn bắt đầu và kết thúc, thêm hiệu ứng mờ dần vào hoặc ra, rồi lưu thành MP3, M4A, WAV, OGG hoặc FLAC. Hoặc tách một tệp dài thành các bản nhạc ngắn hơn, cứ vài phút một đoạn hoặc thành một số phần bằng nhau, và nhận chúng trong một tệp ZIP. Bạn cũng có thể tách âm thanh từ tệp video. Mọi thứ chạy trong trình duyệt của bạn.",
+  "title": "Cắt âm thanh trực tuyến miễn phí: cắt và tách MP3 | Toolz Baba",
+  "metaDesc": "Cắt một đoạn từ bài hát hoặc bản ghi âm kèm hiệu ứng mờ dần, hoặc tách tệp dài thành các phần bằng nhau. Lưu thành MP3, WAV và hơn thế. Miễn phí.",
+  "tabAll": "Tách âm thanh",
+  "steps": [
+   "Thêm một tệp âm thanh (hoặc một video để lấy âm thanh của nó).",
+   "Đánh dấu phần cần giữ và thêm hiệu ứng mờ dần, hoặc chọn tách cứ vài phút một đoạn hay thành các phần bằng nhau.",
+   "Lưu thành MP3, M4A, WAV, OGG hoặc FLAC."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao cắt một đoạn của bài hát?",
+    "a": "Thêm bài hát, phát, đánh dấu chỗ đoạn của bạn bắt đầu và kết thúc, thêm hiệu ứng mờ dần nếu muốn rồi lưu lại."
+   },
+   {
+    "q": "Tôi có thể tách một bản ghi âm dài thành nhiều phần không?",
+    "a": "Có, cứ vài phút một đoạn hoặc thành một số phần bằng nhau, trả về trong một tệp ZIP."
+   },
+   {
+    "q": "Âm thanh của tôi có bị tải lên không?",
+    "a": "Không. Mọi thứ chạy trong trình duyệt của bạn."
+   }
+  ]
+ },
+ "font-library": {
+  "name": "Thư viện phông chữ",
+  "desc": "Duyệt và xem trước 50 phông chữ miễn phí, gồm cả chữ Hindi và các chữ viết Ấn Độ khác, rồi tải về.",
+  "about": "Thư viện 50 phông chữ miễn phí mà bạn có thể tìm kiếm, xem trước bằng chính văn bản của mình và tải về: các họ phông sans-serif, serif, trang trí, chữ viết tay và monospace, cùng phông Hindi (Devanagari), Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada và Malayalam. Mỗi thẻ cho biết các hệ chữ mà phông có thể hiển thị và giấy phép của nó (hầu hết theo SIL Open Font License, nên dùng miễn phí cả cho công việc thương mại). Tải bất kỳ phông nào về dưới dạng ZIP kèm ghi chú giấy phép, sao chép CSS có sẵn, hoặc dùng trực tiếp trong Trình chỉnh sửa PDF.",
+  "title": "Tải phông chữ miễn phí: 50 phông gồm phông chữ Hindi | Toolz Baba",
+  "metaDesc": "Xem trước và tải 50 phông chữ miễn phí bằng văn bản của bạn, gồm Hindi, Tamil, Telugu, Bengali, Gujarati, hầu hết miễn phí cho mục đích thương mại.",
+  "steps": [
+   "Tìm kiếm hoặc duyệt 50 phông chữ.",
+   "Gõ văn bản của riêng bạn để xem trước.",
+   "Tải phông về dưới dạng ZIP, sao chép CSS của nó, hoặc dùng trong Trình chỉnh sửa PDF."
+  ],
+  "faq": [
+   {
+    "q": "Các phông chữ này có miễn phí cho mục đích thương mại không?",
+    "a": "Hầu hết theo SIL Open Font License, cho phép sử dụng thương mại. Mỗi thẻ phông đều ghi giấy phép của nó."
+   },
+   {
+    "q": "Có phông chữ Hindi không?",
+    "a": "Có. Có phông Hindi (Devanagari), cùng Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada và Malayalam."
+   }
+  ]
+ },
+ "pdf-editor": {
+  "name": "Trình chỉnh sửa PDF",
+  "desc": "Chỉnh sửa PDF ngay trong trình duyệt: sửa chữ, thêm chữ với 50 phông, hình ảnh, hình khối và đánh dấu, rồi tải về dạng PDF, Word, ảnh hoặc văn bản.",
+  "about": "Mở một PDF và chỉnh sửa ngay trên trang. Bấm vào bất kỳ dòng chữ nào để sửa, thêm chữ mới với 50 phông miễn phí tùy chọn (gồm cả chữ Hindi và các chữ viết Ấn Độ khác), chèn hình ảnh, vẽ hình chữ nhật, hình tròn, đường thẳng và mũi tên, đánh dấu, vẽ tay, tô trắng những phần bạn muốn xóa, xoay hoặc xóa trang và thêm trang trống. Khi xong, tải kết quả về dưới dạng PDF, tệp Word, ảnh các trang hoặc văn bản thuần. Mọi thứ được thực hiện trong trình duyệt của bạn, nên PDF không bao giờ bị tải lên.",
+  "title": "Chỉnh sửa PDF trực tuyến miễn phí: sửa chữ trong PDF | Toolz Baba",
+  "metaDesc": "Sửa chữ PDF, thêm chữ với 50 phông gồm cả Hindi, hình ảnh, hình khối và đánh dấu, rồi lưu thành PDF hoặc Word. Miễn phí, PDF không bao giờ bị tải lên.",
+  "steps": [
+   "Mở PDF của bạn.",
+   "Bấm vào chữ để sửa, hoặc thêm chữ, hình ảnh, hình khối, đánh dấu và nét vẽ.",
+   "Tải về dạng PDF, Word, ảnh các trang hoặc văn bản."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao sửa chữ trong PDF?",
+    "a": "Mở PDF và bấm vào dòng chữ bạn muốn sửa, rồi gõ. Bạn cũng có thể thêm chữ mới với 50 phông miễn phí."
+   },
+   {
+    "q": "Tôi có thể gõ tiếng Hindi không?",
+    "a": "Có. Các phông bao gồm Hindi và các chữ viết Ấn Độ khác."
+   },
+   {
+    "q": "PDF của tôi có bị tải lên không?",
+    "a": "Không. Mọi thứ được thực hiện trong trình duyệt của bạn, nên PDF không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "crop-pdf": {
+  "name": "Cắt PDF",
+  "desc": "Tự động cắt bỏ lề trắng của các trang PDF, hoặc cắt theo lề bạn chọn.",
+  "about": "Cắt các trang PDF để nội dung lấp đầy màn hình: tuyệt vời khi đọc bài báo và sách scan trên điện thoại hoặc máy đọc sách, hoặc để cắt dấu cắt khỏi tệp in. Chế độ tự động tìm nội dung trên mỗi trang và bỏ viền trống; chế độ thủ công cắt các lề bạn nhập bằng milimet. Chọn tất cả các trang hoặc một khoảng.",
+  "title": "Cắt PDF trực tuyến miễn phí: bỏ lề trắng | Toolz Baba",
+  "metaDesc": "Cắt trang PDF trực tuyến: cắt bỏ lề trắng tự động hoặc theo milimet, cho tất cả các trang hoặc một khoảng. Miễn phí, không cần đăng ký, không tải tệp lên.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn tự động hoặc lề của riêng bạn.",
+   "Tải PDF đã cắt về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao cắt lề của PDF?",
+    "a": "Thêm PDF, giữ nguyên Tự động và bấm Cắt PDF. Lề trắng của mọi trang được cắt bỏ, giữ lại một chút khoảng trống quanh nội dung."
+   },
+   {
+    "q": "Phần bị cắt có bị xóa không?",
+    "a": "Nó được ẩn đi (vùng hiển thị của trang được thay đổi), nên dung lượng tệp gần như không đổi và không có gì trên trang bị ghi lại."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "flatten-pdf": {
+  "name": "Làm phẳng PDF",
+  "desc": "Khóa các trường biểu mẫu, chú thích và chữ ký vào trang để không thể thay đổi.",
+  "about": "Làm phẳng PDF trước khi gửi để biểu mẫu đã điền, chữ ký, chú thích và phần đánh dấu trở thành một phần của trang và không thể chỉnh sửa, di chuyển hay xóa nữa. Chữ vẫn sắc nét và tìm kiếm được. Cần hơn nữa? Biến mọi trang thành ảnh, để không thể chỉnh sửa hay sao chép bất cứ thứ gì trong tệp.",
+  "title": "Làm phẳng PDF trực tuyến miễn phí: khóa biểu mẫu và chú thích | Toolz Baba",
+  "metaDesc": "Làm phẳng PDF trực tuyến: khóa biểu mẫu đã điền, chữ ký và chú thích vào trang, hoặc biến các trang thành ảnh. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn biểu mẫu và chú thích, hoặc biến mọi thứ thành ảnh.",
+   "Tải PDF đã làm phẳng về."
+  ],
+  "faq": [
+   {
+    "q": "Làm phẳng PDF để làm gì?",
+    "a": "Nó gộp các trường biểu mẫu, chú thích, con dấu và chữ ký vào nội dung trang, nên chúng hiển thị giống nhau ở mọi nơi và không thể thay đổi nữa."
+   },
+   {
+    "q": "Mọi người vẫn sao chép được chữ chứ?",
+    "a": "Với biểu mẫu và chú thích thì có: chữ vẫn tìm kiếm được. Hãy chọn Mọi thứ thành ảnh nếu không được phép sao chép."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "compare-pdf": {
+  "name": "So sánh PDF",
+  "desc": "Tìm mọi khác biệt về chữ giữa hai phiên bản PDF, kèm báo cáo rõ ràng.",
+  "about": "Kiểm tra điều gì đã thay đổi giữa hai phiên bản của một hợp đồng, một luận văn hay một đề nghị. Thêm PDF cũ và PDF mới: mọi từ bị xóa hoặc được thêm đều được liệt kê cùng phần chữ xung quanh và trang chứa nó, trong một báo cáo PDF mà bạn có thể giữ hoặc chia sẻ. Chỉ chữ được so sánh, không phải hình ảnh hay bố cục.",
+  "title": "So sánh PDF trực tuyến miễn phí: tìm khác biệt giữa hai PDF | Toolz Baba",
+  "metaDesc": "So sánh hai PDF và xem mọi từ được thêm và bị xóa, kèm số trang, trong một báo cáo rõ ràng. Miễn phí, không cần đăng ký, tệp luôn ở trên thiết bị của bạn.",
+  "steps": [
+   "Thêm PDF cũ, rồi PDF mới.",
+   "Bấm So sánh PDF.",
+   "Mở hoặc tải báo cáo về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao so sánh hai tệp PDF?",
+    "a": "Thêm phiên bản cũ trước và phiên bản mới sau, rồi bấm So sánh PDF. Báo cáo hiển thị chữ bị xóa màu đỏ và chữ được thêm màu xanh lá, kèm số trang."
+   },
+   {
+    "q": "Công cụ có so sánh hình ảnh và bố cục không?",
+    "a": "Không, công cụ so sánh các từ. Di chuyển một đoạn văn sẽ hiện là bị xóa ở một nơi và được thêm ở nơi khác."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "repair-pdf": {
+  "name": "Sửa PDF",
+  "desc": "Sửa PDF bị hỏng không mở được hoặc báo lỗi, và lưu một bản sao sạch.",
+  "about": "PDF có thể bị hỏng do tải về bị gián đoạn, đầy ổ đĩa hoặc chương trình lỗi, khi đó nó không mở được, báo lỗi hoặc thiếu trang. Sửa PDF dựng lại cấu trúc bên trong của tệp, khôi phục mọi trang đọc được và lưu một bản sao sạch. Nó cũng giúp với những PDF bị các trang tải lên từ chối.",
+  "title": "Sửa PDF trực tuyến miễn phí: khắc phục tệp PDF hỏng | Toolz Baba",
+  "metaDesc": "Sửa PDF bị hỏng ngay trong trình duyệt: cấu trúc được dựng lại và các trang đọc được khôi phục thành một bản sao sạch. Miễn phí, không tải tệp lên.",
+  "steps": [
+   "Thêm PDF bị hỏng.",
+   "Bấm Sửa PDF.",
+   "Tải bản sao đã sửa về."
+  ],
+  "faq": [
+   {
+    "q": "PDF hỏng nào cũng sửa được không?",
+    "a": "Hầu hết các tệp có cấu trúc bị hỏng đều có thể được dựng lại. Nếu một phần của tệp bị mất hoặc bị ghi đè, các trang vẫn còn đọc được sẽ được khôi phục."
+   },
+   {
+    "q": "Sao trang tải lên từ chối PDF của tôi?",
+    "a": "Thường là do tệp có các lỗi cấu trúc nhỏ. Một bản sao đã sửa và lưu sạch thường được chấp nhận."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "pdf-to-text": {
+  "name": "PDF sang văn bản",
+  "desc": "Lấy toàn bộ chữ từ PDF thành tệp văn bản thuần (TXT).",
+  "about": "Sao chép chữ từ PDF từng trang một thì chậm và mất ngắt dòng. PDF sang văn bản lấy ra toàn bộ chữ cùng lúc và lưu thành tệp TXT mà bạn mở được ở bất cứ đâu, dán vào email hoặc dùng trong chương trình khác. Hoạt động với mọi ngôn ngữ, và bạn có thể đánh dấu chỗ mỗi trang bắt đầu. Với bản scan, hãy dùng OCR PDF.",
+  "title": "Chuyển PDF sang văn bản trực tuyến miễn phí: trích xuất chữ ra TXT | Toolz Baba",
+  "metaDesc": "Trích xuất toàn bộ chữ từ PDF thành tệp TXT thuần, mọi ngôn ngữ, kèm đánh dấu trang nếu bạn muốn. Miễn phí, không cần đăng ký, không tải tệp lên.",
+  "steps": [
+   "Thêm PDF của bạn.",
+   "Chọn các trang.",
+   "Tải tệp văn bản về."
+  ],
+  "faq": [
+   {
+    "q": "Làm sao trích xuất chữ từ PDF?",
+    "a": "Thêm PDF và bấm Lấy chữ. Một tệp TXT chứa toàn bộ chữ sẽ được tải về."
+   },
+   {
+    "q": "Sao không tìm thấy chữ nào?",
+    "a": "PDF có lẽ là bản scan, tức là ảnh chụp của trang. Hãy dùng OCR PDF để đọc chữ từ các hình ảnh."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi ngay trong trình duyệt của bạn, nên tệp luôn nằm trên thiết bị của bạn và không bao giờ bị tải lên."
+   }
+  ]
+ },
+ "compress-png": {
+  "name": "Nén PNG",
+  "desc": "Làm tệp PNG nhỏ hơn mà vẫn giữ độ trong suốt. Giảm số màu, đổi kích thước và nén nhiều PNG cùng lúc. Chạy trong trình duyệt của bạn.",
+  "about": "PNG là định dạng không mất dữ liệu, nên tệp PNG thường lớn hơn nhiều so với mức cần thiết, đặc biệt là ảnh chụp màn hình, logo và đồ họa có màu phẳng. Công cụ này làm chúng nhỏ hơn bằng cách giảm ảnh xuống một bảng màu tối ưu tối đa 256 màu, với phần lớn đồ họa nhìn vẫn như cũ nhưng có thể giảm dung lượng một nửa hoặc hơn. Vùng trong suốt vẫn trong suốt. Bạn cũng có thể giới hạn chiều rộng để thu nhỏ các PNG rất lớn, hoặc chuyển sang WebP để có tệp nhỏ hơn nữa. Nén tối đa 40 PNG cùng lúc; kết quả cho biết chính xác mỗi tệp đã nhỏ đi bao nhiêu. Nếu một PNG đã nhỏ hết mức có thể, bạn sẽ nhận lại bản gốc thay vì một tệp lớn hơn. Với ảnh chụp, JPG hoặc WebP luôn nhỏ hơn PNG. Tệp PNG của bạn không bao giờ rời khỏi thiết bị.",
+  "title": "Nén PNG trực tuyến miễn phí: giảm dung lượng ảnh PNG | Toolz Baba",
+  "tab": "PNG"
+ },
+ "compress-jpeg": {
+  "name": "Nén JPEG",
+  "desc": "Giảm dung lượng ảnh JPEG bằng thanh trượt chất lượng và dung lượng trước/sau trực tiếp. Nén nhiều JPEG cùng lúc. Chạy trong trình duyệt của bạn.",
+  "about": "Nén JPEG là sự đánh đổi giữa dung lượng tệp và chất lượng. Công cụ này cho bạn tự chọn chất lượng: khoảng 70 đến 80 phần trăm thường không thể phân biệt với bản gốc và thường làm ảnh nhỏ đi nhiều lần. Bạn cũng có thể đặt chiều rộng tối đa để thu nhỏ các ảnh rất lớn, hoặc chuyển sang WebP hay AVIF nếu muốn tệp nhỏ nhất có thể. Thêm tối đa 40 tệp JPEG cùng lúc và tải về tất cả trong một tệp ZIP. Nếu một JPEG đã được nén tốt, công cụ trả lại bản gốc thay vì một tệp lớn hơn. Mọi thứ chạy trong trình duyệt của bạn, nên ảnh không bao giờ bị tải lên.",
+  "title": "Nén JPEG trực tuyến miễn phí: giảm dung lượng JPEG | Toolz Baba",
+  "tab": "JPEG"
+ },
+ "compress-jpg": {
+  "name": "Nén JPG",
+  "desc": "Làm ảnh JPG nhỏ hơn để gửi email, WhatsApp và điền biểu mẫu. Chọn chất lượng, giới hạn chiều rộng, nén nhiều tệp JPG cùng lúc.",
+  "about": "Ảnh chụp thẳng từ điện thoại hoặc máy ảnh thường nặng 3 đến 10 MB, quá lớn cho email, WhatsApp, cổng tuyển dụng hay biểu mẫu trực tuyến. Thả các tệp JPG của bạn vào đây, chọn chất lượng (75 phần trăm là điểm khởi đầu tốt) và tùy chọn chiều rộng tối đa, để nhận các tệp nhỏ hơn nhiều mà vẫn sắc nét trên màn hình. JPG và JPEG là cùng một định dạng với đuôi tệp khác nhau, và cả hai đều được xử lý ở đây. Nếu bạn cần dung lượng chính xác như dưới 50 KB cho một mẫu đơn, hãy dùng công cụ Đổi cỡ ảnh & chữ ký về KB, công cụ này tìm chất lượng tốt nhất cho giới hạn của bạn. Ảnh được xử lý ngay trên thiết bị của bạn và không bị tải lên.",
+  "title": "Nén JPG trực tuyến miễn phí: làm ảnh JPG nhỏ hơn | Toolz Baba",
+  "tab": "JPG / JPEG"
+ },
+ "compress-gif": {
+  "name": "Nén GIF",
+  "desc": "Giảm dung lượng ảnh GIF động bằng cách dùng ít màu hơn, chiều rộng nhỏ hơn hoặc tốc độ khung hình thấp hơn. Chạy trong trình duyệt của bạn.",
+  "about": "Ảnh GIF động rất nhanh chóng trở nên nặng. Công cụ này làm chúng nhỏ hơn mà vẫn giữ ảnh động, bằng ba cách: ít màu hơn (GIF cho phép 256, nhưng 64 hoặc 128 thường nhìn vẫn ổn), chiều rộng nhỏ hơn và tốc độ khung hình thấp hơn. Hãy thử giảm màu trước, vì thường nó ít làm thay đổi diện mạo nhất. GIF được mã hóa lại với bảng màu tối ưu cho cả ảnh động, và bạn thấy dung lượng trước và sau. Nếu GIF đã được nén tốt, bạn nhận lại bản gốc thay vì một tệp lớn hơn. Để tiết kiệm nhiều nhất, hãy cân nhắc chuyển GIF thành video bằng công cụ GIF sang video, thường nhỏ hơn nhiều lần. GIF của bạn được xử lý trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Nén GIF trực tuyến miễn phí: giảm dung lượng GIF động | Toolz Baba",
+  "tab": "GIF"
+ },
+ "compress-jpg-under-10kb": {
+  "name": "Nén JPG dưới 10 KB",
+  "desc": "Nén ảnh hoặc chữ ký JPG xuống dưới 10 KB. Nhập dung lượng, xem kết quả trước khi tải về. Chạy trong trình duyệt của bạn.",
+  "about": "10 KB rất nhỏ, chỉ cỡ một tệp văn bản ngắn, và là giới hạn mà một số biểu mẫu trực tuyến đặt ra cho chữ ký hoặc ảnh rất nhỏ. Một bản scan chữ ký hoặc ảnh khuôn mặt cắt nhỏ vừa dễ dàng; còn ảnh máy ảnh nguyên bản phải được thu nhỏ rất nhiều, nên trang này tự giảm kích thước điểm ảnh khi chỉ hạ chất lượng là chưa đủ. Để có kết quả tốt nhất ở mức 10 KB, hãy cắt ảnh trước để chỉ còn những gì biểu mẫu yêu cầu: ít điểm ảnh hơn nghĩa là mỗi điểm giữ được nhiều chất lượng hơn.",
+  "title": "Nén JPG xuống dưới 10 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Làm sao làm JPG nhỏ hơn 10 KB?",
+    "a": "Thêm ảnh, để nguyên dung lượng 10 KB và xem bản xem trước. Trang sẽ hạ chất lượng và, nếu cần, cả chiều rộng và chiều cao cho đến khi tệp dưới 10 KB, rồi bạn bấm Tải về."
+   },
+   {
+    "q": "Ảnh có còn đọc được ở mức 10 KB không?",
+    "a": "Chữ ký, con dấu hoặc ảnh cắt nhỏ kiểu ảnh hộ chiếu thường còn đọc được. Ảnh lớn nhiều chi tiết sẽ trở nên rất nhỏ và mờ ở 10 KB, nên với ảnh hãy thử 20 KB hoặc 50 KB."
+   },
+   {
+    "q": "Tôi có dùng được cho chữ ký không?",
+    "a": "Có. Hãy scan hoặc chụp chữ ký trên giấy trắng, cắt sát quanh chữ ký rồi thêm vào đây. Ảnh nhỏ nét đen trên nền trắng nén rất tốt."
+   }
+  ]
+ },
+ "compress-jpg-under-20kb": {
+  "name": "Nén JPG dưới 20 KB",
+  "desc": "Nén JPG xuống dưới 20 KB cho đơn thi, đơn xin việc và đơn học bổng. Chọn dung lượng và xem trước kết quả.",
+  "about": "20 KB là mức giới hạn phổ biến trên các cổng yêu cầu ảnh hoặc chữ ký kèm một mẫu đơn dài. Ở mức này, ảnh khuôn mặt rộng vài trăm điểm ảnh vẫn trông sạch đẹp, nhưng ảnh máy ảnh lớn phải thu nhỏ trước. Trang này thử chất lượng tốt trước, rồi hạ chất lượng và chỉ khi bắt buộc mới giảm kích thước điểm ảnh, và dừng ở bức ảnh đẹp nhất vẫn nằm dưới 20 KB. Bản xem trước hiển thị chính xác những gì bạn sẽ tải về, để bạn đánh giá khuôn mặt hoặc chữ ký trước khi lưu.",
+  "title": "Nén JPG xuống dưới 20 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPG xuống 20 KB?",
+    "a": "Thêm ảnh và giữ nguyên dung lượng 20 KB. Công cụ tìm chất lượng cao nhất vẫn vừa giới hạn và hiển thị dung lượng tệp mới bên dưới bản xem trước."
+   },
+   {
+    "q": "Ảnh của tôi nặng 3 MB. Có thật sự xuống được 20 KB không?",
+    "a": "Thường là được, vì phần lớn dung lượng ảnh điện thoại đến từ những điểm ảnh bạn không cần trên một mẫu đơn. Ảnh được thu nhỏ còn rộng vài trăm điểm ảnh, thừa đủ cho một ô ảnh nhỏ."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên đâu không?",
+    "a": "Không. Ảnh được xử lý bởi trình duyệt của bạn và không bao giờ rời khỏi thiết bị."
+   }
+  ]
+ },
+ "compress-jpg-under-50kb": {
+  "name": "Nén JPG dưới 50 KB",
+  "desc": "Giảm JPG xuống dưới 50 KB mà không bị xấu thấy rõ. Đặt dung lượng, xem trước kết quả, tải về. Miễn phí và riêng tư.",
+  "about": "50 KB là dung lượng nhiều trang web cho phép với ảnh đại diện, ảnh thẻ hoặc bản scan giấy tờ. Mức này đủ rộng để một ảnh chân dung rộng khoảng 500 điểm ảnh vẫn giữ được khuôn mặt rõ và các cạnh sắc nét. Thêm JPG của bạn, giữ dung lượng ở 50 KB và trang sẽ tìm chất lượng tốt nhất vừa giới hạn. Ảnh lớn cũng được thu nhỏ đôi chút, vì ảnh rộng 4000 điểm ảnh không thể nằm trong 50 KB ở bất kỳ chất lượng nào. Nếu kết quả trông quá mềm, hãy nâng giới hạn lên hoặc cắt bỏ những phần bạn không cần.",
+  "title": "Nén JPG xuống dưới 50 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPG xuống dưới 50 KB?",
+    "a": "Thêm tệp, để nguyên mục tiêu 50 KB và tải về khi bản xem trước đã ổn. Công cụ tự chọn chất lượng cho bạn."
+   },
+   {
+    "q": "Ảnh 50 KB trông thế nào?",
+    "a": "Ảnh chân dung rộng khoảng 400 đến 600 điểm ảnh trông sạch đẹp trên màn hình. Nó không dành để in khổ lớn."
+   },
+   {
+    "q": "Tôi có thể nén nhiều ảnh xuống 50 KB cùng lúc không?",
+    "a": "Có. Thêm tất cả ảnh và dùng Tải tất cả để nhận một tệp ZIP trong đó mọi ảnh đều dưới 50 KB."
+   }
+  ]
+ },
+ "compress-jpg-under-100kb": {
+  "name": "Nén JPG dưới 100 KB",
+  "desc": "Nén JPG xuống dưới 100 KB, giới hạn mà hầu hết đơn xin việc, KYC và đơn nhập học yêu cầu. Chọn dung lượng và xem trước.",
+  "about": "100 KB là giới hạn tải lên bạn sẽ gặp nhiều nhất: cổng tuyển dụng, biểu mẫu KYC và ngân hàng, tuyển sinh đại học, học bổng và các trang của cơ quan nhà nước. Ảnh điện thoại thông thường lớn gấp 20 đến 50 lần, nên cần nén thật sự, nhưng 100 KB vẫn đủ chỗ cho một ảnh chân dung hoặc ảnh giấy tờ dễ đọc. Trang này tìm chất lượng tốt nhất vẫn dưới 100 KB và hiển thị kết quả cạnh bản gốc của bạn, để bạn kiểm tra chữ và khuôn mặt vẫn rõ trước khi tải về.",
+  "title": "Nén JPG xuống dưới 100 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm JPG xuống 100 KB?",
+    "a": "Thêm ảnh, giữ nguyên mục tiêu 100 KB và xem bản xem trước. Dung lượng hiển thị bên dưới là dung lượng thật của tệp bạn sẽ tải về."
+   },
+   {
+    "q": "Giấy tờ có còn đọc được ở mức 100 KB không?",
+    "a": "Ảnh chụp trang in thường vẫn đọc được nếu chữ đủ lớn. Nếu chữ nhỏ bị mờ, hãy thử 150 KB hoặc 200 KB."
+   },
+   {
+    "q": "Sao tệp của tôi hơi dưới 100 KB chứ không đúng 100?",
+    "a": "Công cụ chọn chất lượng cao nhất không vượt giới hạn, nên kết quả chỉ nằm dưới giới hạn một chút."
+   }
+  ]
+ },
+ "compress-jpg-under-150kb": {
+  "name": "Nén JPG dưới 150 KB",
+  "desc": "Làm JPG nhỏ hơn 150 KB với dung lượng bạn chọn. Xem kết quả trước khi tải về. Hoạt động trong trình duyệt của bạn.",
+  "about": "150 KB nằm giữa giới hạn rất chặt 100 KB và giới hạn thoải mái hơn 200 KB, và một số mẫu đơn cũng như sàn thương mại dùng mức này. Thêm 50 KB so với mục tiêu 100 KB có thể nhận thấy rõ trên khuôn mặt hoặc chữ chụp trong ảnh. Thêm JPG của bạn và trang sẽ hạ chất lượng cho đến khi tệp vừa dưới 150 KB, chỉ giảm kích thước điểm ảnh nếu thế vẫn chưa đủ. Nếu ảnh của bạn đã dưới 150 KB, nó được giữ nguyên thay vì bị nén lại và xấu đi.",
+  "title": "Nén JPG xuống dưới 150 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPG xuống 150 KB?",
+    "a": "Thêm tệp, đặt dung lượng thành 150 KB (hoặc bấm nút 150 KB) rồi tải về sau khi kiểm tra bản xem trước."
+   },
+   {
+    "q": "Nếu ảnh của tôi đã dưới 150 KB thì sao?",
+    "a": "Khi đó nó được giữ nguyên. Nén lại một JPG nhỏ chỉ làm mất chất lượng."
+   },
+   {
+    "q": "150 KB có đủ cho một bức ảnh rõ nét không?",
+    "a": "Với ảnh chân dung hoặc giấy tờ xem trên màn hình thì có. Ảnh phong cảnh lớn sẽ trông mềm hơn, vì phải chứa ít điểm ảnh hơn."
+   }
+  ]
+ },
+ "compress-jpg-under-200kb": {
+  "name": "Nén JPG dưới 200 KB",
+  "desc": "Nén JPG xuống dưới 200 KB cho biểu mẫu, email và tải lên. Đặt dung lượng, xem trước kết quả, tải về miễn phí.",
+  "about": "200 KB là giới hạn thoải mái cho ảnh thẻ, chứng chỉ và tệp đính kèm, và nhiều cổng của cơ quan nhà nước và trường đại học dùng mức này. Ở mức này, ảnh chân dung vẫn sạch đẹp và trang chụp vẫn đọc được. Trang này tìm chất lượng cao nhất vừa dưới 200 KB, để bạn giữ được nhiều chi tiết nhất mà giới hạn cho phép. Bạn thấy bản gốc và kết quả cạnh nhau cùng dung lượng của chúng, và nếu đổi ý về giới hạn, bạn kéo thanh trượt là bản xem trước cập nhật ngay.",
+  "title": "Nén JPG xuống dưới 200 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm JPG xuống 200 KB?",
+    "a": "Thêm ảnh, giữ nguyên mục tiêu 200 KB, kiểm tra bản xem trước rồi bấm Tải về."
+   },
+   {
+    "q": "200 KB có làm ảnh xấu đi không?",
+    "a": "Không, nếu dùng trên màn hình. Ảnh thông thường rộng 1000 điểm ảnh trông đẹp ở 200 KB. Ảnh rất lớn được thu nhỏ để vừa."
+   },
+   {
+    "q": "Tôi có thể đổi dung lượng mà không phải làm lại từ đầu không?",
+    "a": "Có. Nhập dung lượng mới hoặc kéo thanh trượt và bản xem trước cập nhật ngay lập tức."
+   }
+  ]
+ },
+ "compress-jpg-under-300kb": {
+  "name": "Nén JPG dưới 300 KB",
+  "desc": "Giảm JPG xuống dưới 300 KB mà vẫn sắc nét. Chọn dung lượng, so sánh với bản gốc, tải về.",
+  "about": "300 KB là dung lượng tốt cho những ảnh cần giữ rõ nét: ảnh đại diện nhiều chi tiết, chứng chỉ đã scan, ảnh sản phẩm cho một tin đăng hoặc ảnh bạn muốn gửi email cùng nhiều ảnh khác. Hầu hết ảnh điện thoại lớn gấp 10 đến 30 lần, và sự khác biệt khó thấy trên màn hình. Công cụ giữ chất lượng cao nhất vẫn dưới 300 KB và chỉ giảm kích thước khi riêng chất lượng không đủ. Hãy dùng bản xem trước để so sánh với bản gốc trước khi tải về.",
+  "title": "Nén JPG xuống dưới 300 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPG xuống 300 KB?",
+    "a": "Thêm ảnh, chọn 300 KB và tải về khi bản xem trước đã ổn."
+   },
+   {
+    "q": "JPG 300 KB có tốt cho trang web không?",
+    "a": "Ổn cho ảnh nội dung trên hầu hết các trang. Với banner lớn ở đầu trang, giới hạn cao hơn một chút như 500 KB giữ được nhiều chi tiết hơn."
+   },
+   {
+    "q": "Tôi có thể nén cả một thư mục ảnh không?",
+    "a": "Thêm nhiều tệp cùng lúc và dùng Tải tất cả (ZIP). Mỗi ảnh được nén riêng để vừa dưới 300 KB."
+   }
+  ]
+ },
+ "compress-jpg-under-500kb": {
+  "name": "Nén JPG dưới 500 KB",
+  "desc": "Nén JPG xuống dưới 500 KB cho email, WhatsApp và tải lên. Đặt dung lượng, xem trước và tải về. Riêng tư và miễn phí.",
+  "about": "500 KB là nửa megabyte: đủ nhỏ cho WhatsApp và email, đủ lớn để một bức ảnh toàn màn hình vẫn đẹp. Đây là giới hạn của nhiều hệ thống rao vặt, CMS và vé hỗ trợ. Ở mức 500 KB, hầu hết ảnh chỉ cần nén nhẹ và giữ gần như toàn bộ chi tiết. Trang này tìm chất lượng tốt nhất vừa giới hạn, hiển thị cả hai phiên bản cạnh nhau, và giữ nguyên những tệp đã dưới giới hạn.",
+  "title": "Nén JPG xuống dưới 500 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPG xuống dưới 500 KB?",
+    "a": "Thêm ảnh, bấm nút 500 KB hoặc nhập 500, kiểm tra bản xem trước rồi tải về."
+   },
+   {
+    "q": "Tôi có nhận ra sự khác biệt so với bản gốc không?",
+    "a": "Thường là không trên màn hình điện thoại hay laptop. Hãy phóng to bản xem trước để so sánh chi tiết nhỏ."
+   },
+   {
+    "q": "Tôi có thể gửi kết quả qua WhatsApp không?",
+    "a": "Có, JPG 500 KB gửi rất nhanh kể cả khi mạng chậm."
+   }
+  ]
+ },
+ "compress-jpg-under-1mb": {
+  "name": "Nén JPG dưới 1 MB",
+  "desc": "Giảm JPG xuống dưới 1 MB mà gần như không mất chất lượng nhìn thấy được. Chọn dung lượng, xem trước kết quả và tải về.",
+  "about": "1 MB là mức trần của nhiều biểu mẫu web, hệ thống vé hỗ trợ, sàn thương mại và cổng email. Ảnh điện thoại thường nặng 3 đến 8 MB, nên để xuống dưới 1 MB chỉ cần nén vừa phải, hiếm khi lộ ra. Trang này thử chất lượng cao trước và chỉ hạ thấp khi bắt buộc, để bạn có bức ảnh đẹp nhất vừa giới hạn. Nếu tệp của bạn đã dưới 1 MB, nó được giữ nguyên, nên không mất gì một cách vô ích.",
+  "title": "Nén JPG xuống dưới 1 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPG xuống dưới 1 MB?",
+    "a": "Thêm ảnh, chọn 1 MB và so sánh bản xem trước với bản gốc. Dung lượng dưới bản xem trước là dung lượng thật khi tải về."
+   },
+   {
+    "q": "JPG 1 MB có trông giống nhau không?",
+    "a": "Với hầu hết ảnh, trên màn hình trông giống nhau. Chỉ những ảnh rất lớn hoặc rất nhiều chi tiết mới mất chi tiết nhìn thấy được."
+   },
+   {
+    "q": "Tôi có thể nhập 1.5 MB hoặc 0.8 MB không?",
+    "a": "Có. Nhập bất kỳ số nào và chuyển giữa KB và MB. Bản xem trước cập nhật khi bạn gõ."
+   }
+  ]
+ },
+ "compress-jpg-under-2mb": {
+  "name": "Nén JPG dưới 2 MB",
+  "desc": "Nén JPG xuống dưới 2 MB cho email và tải lên, giữ gần như đầy đủ chất lượng. Đặt dung lượng, xem trước, tải về.",
+  "about": "Nhiều trang web và dịch vụ email không nhận ảnh trên 2 MB, mà ảnh điện thoại đời mới thường nặng 4 đến 10 MB. Để xuống dưới 2 MB chỉ cần nén nhẹ, nên ảnh thường trông gần như giống bản gốc. Trang này giữ chất lượng cao nhất vừa giới hạn và hiển thị dung lượng trước và sau. Nếu ảnh của bạn đã dưới 2 MB, nó được giữ nguyên, và nếu cần nhỏ hơn nữa, bạn có thể hạ giới hạn bằng thanh trượt.",
+  "title": "Nén JPG xuống dưới 2 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Làm sao giảm ảnh xuống dưới 2 MB?",
+    "a": "Thêm ảnh, giữ nguyên mục tiêu 2 MB và tải về sau khi xem bản xem trước."
+   },
+   {
+    "q": "Ảnh có bị mất chất lượng không?",
+    "a": "Chỉ một chút. Nén nhẹ là đủ để đi từ vài megabyte xuống dưới 2 MB."
+   },
+   {
+    "q": "Nếu ảnh của tôi nặng 20 MB thì sao?",
+    "a": "Vẫn được. Công cụ hạ chất lượng và, nếu cần, cả kích thước điểm ảnh cho đến khi tệp vừa giới hạn."
+   }
+  ]
+ },
+ "compress-pdf-under-100kb": {
+  "name": "Nén PDF dưới 100 KB",
+  "desc": "Nén PDF xuống dưới 100 KB cho biểu mẫu và email. Công cụ thử các mức mạnh dần cho đến khi tệp vừa giới hạn. Chạy trong trình duyệt của bạn.",
+  "about": "100 KB là giới hạn chặt, và một số biểu mẫu và cổng trực tuyến đặt mức này cho tệp tài liệu tải lên. PDF chủ yếu là chữ có thể đã nhỏ sẵn, còn bản scan hay PDF có ảnh thường nặng nhiều megabyte vì hình ảnh bên trong. Trang này thu nhỏ các hình ảnh trong PDF, thử các thiết lập mạnh dần cho đến khi tệp dưới 100 KB, rồi hiển thị trang đầu tiên để bạn kiểm tra vẫn đọc được. Bản scan nhiều trang có thể quá lớn để xuống được 100 KB: hãy tách thành các phần trước.",
+  "title": "Nén PDF xuống dưới 100 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén PDF xuống dưới 100 KB?",
+    "a": "Thêm PDF, giữ nguyên dung lượng 100 KB và bấm Nén. Công cụ hạ chất lượng ảnh từng bước cho đến khi tệp vừa giới hạn."
+   },
+   {
+    "q": "Sao PDF của tôi không xuống được dưới 100 KB?",
+    "a": "Chữ, phông chữ và cấu trúc trang không thể nhỏ đi nhiều. PDF dài với nhiều trang scan quá lớn cho 100 KB, nên hãy tách ra và nén từng phần."
+   },
+   {
+    "q": "PDF của tôi có rời khỏi máy tính không?",
+    "a": "Không. Việc nén chạy trong trình duyệt của bạn, nên tệp không bao giờ rời khỏi thiết bị."
+   }
+  ]
+ },
+ "compress-pdf-under-200kb": {
+  "name": "Nén PDF dưới 200 KB",
+  "desc": "Giảm PDF xuống dưới 200 KB để tải lên xin việc, nhập học và KYC. Trang thử các mức mạnh dần cho đến khi vừa giới hạn.",
+  "about": "200 KB là giới hạn tải lên phổ biến cho hồ sơ xin việc, chứng chỉ hoặc bản scan giấy tờ tùy thân. Phần lớn dung lượng của một PDF như vậy là các hình ảnh trong đó, như trang scan hoặc ảnh chụp. Trang này hạ độ phân giải và chất lượng của các hình ảnh đó theo từng bước cho đến khi tệp dưới 200 KB, và hiển thị trang đầu tiên của kết quả để bạn kiểm tra chữ vẫn đọc được. Nếu PDF đã dưới 200 KB, nó được giữ nguyên.",
+  "title": "Nén PDF xuống dưới 200 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa PDF xuống dưới 200 KB?",
+    "a": "Thêm PDF, giữ 200 KB làm dung lượng và bấm Nén xuống dưới 200 KB."
+   },
+   {
+    "q": "Chữ trong PDF có giữ được sắc nét không?",
+    "a": "Chữ thật vẫn sắc nét vì chỉ có hình ảnh được nén lại. Các trang scan là hình ảnh, nên sẽ mềm đi một chút."
+   },
+   {
+    "q": "Tôi có thể nén nhiều PDF cùng lúc không?",
+    "a": "Có, tối đa 10. Kết quả được tải về trong một tệp ZIP."
+   }
+  ]
+ },
+ "compress-pdf-under-300kb": {
+  "name": "Nén PDF dưới 300 KB",
+  "desc": "Nén PDF xuống dưới 300 KB với dung lượng bạn chọn. Bản xem trước trang đầu hiển thị kết quả. Miễn phí, trong trình duyệt của bạn.",
+  "about": "300 KB đủ cho một tài liệu ngắn có vài hình ảnh hoặc vài trang scan. Trang này nén lại các hình ảnh trong PDF của bạn theo từng bước, từ mức nhẹ đến mức mạnh, và dừng ở mức đầu tiên đưa tệp xuống dưới 300 KB, nên PDF giữ được nhiều chất lượng nhất mà giới hạn cho phép. Phông chữ, liên kết và chữ thật được giữ nguyên. Khi không thể đạt giới hạn, bạn sẽ được cho biết đã gần đến mức nào.",
+  "title": "Nén PDF xuống dưới 300 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm PDF xuống 300 KB?",
+    "a": "Thêm tệp, đặt dung lượng thành 300 KB và bấm Nén. Bạn nhận được dung lượng mới và bản xem trước trang đầu."
+   },
+   {
+    "q": "Nếu kết quả vẫn trên 300 KB thì sao?",
+    "a": "Khi đó PDF có rất ít thứ có thể thu nhỏ, như phông chữ và chữ. Trang sẽ hiển thị dung lượng nhỏ nhất đã đạt được."
+   },
+   {
+    "q": "Có an toàn cho tài liệu riêng tư không?",
+    "a": "Có. Tệp được xử lý trên thiết bị của bạn và không bị tải lên."
+   }
+  ]
+ },
+ "compress-pdf-under-500kb": {
+  "name": "Nén PDF dưới 500 KB",
+  "desc": "Làm PDF nhỏ hơn 500 KB cho email và biểu mẫu web. Đặt dung lượng, nén và kiểm tra trang đầu.",
+  "about": "Nửa megabyte là giới hạn phổ biến của biểu mẫu web, hồ sơ đăng ký và cổng email. PDF tạo từ ảnh chụp hoặc bản scan thường nặng 5 đến 20 MB, nên các hình ảnh phải được nén lại. Trang này làm điều đó theo từng bước, từ nhẹ đến mạnh, và dừng ngay khi PDF dưới 500 KB, nên bạn giữ được chất lượng tốt nhất vừa giới hạn. Với tài liệu đã dưới 500 KB thì không có gì thay đổi.",
+  "title": "Nén PDF xuống dưới 500 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén PDF xuống 500 KB?",
+    "a": "Thêm PDF và bấm Nén xuống dưới 500 KB. Kiểm tra trang đầu trong kết quả trước khi tải về."
+   },
+   {
+    "q": "PDF có thể nhỏ đi bao nhiêu?",
+    "a": "PDF tạo từ bản scan hoặc ảnh chụp thường nhỏ đi 80 phần trăm hoặc hơn. PDF chỉ có chữ thuần hầu như không nhỏ đi vì vốn đã nhỏ."
+   },
+   {
+    "q": "Tôi có thể đưa kết quả vào email không?",
+    "a": "Có, 500 KB nằm xa dưới giới hạn của mọi dịch vụ email."
+   }
+  ]
+ },
+ "compress-pdf-under-1mb": {
+  "name": "Nén PDF dưới 1 MB",
+  "desc": "Nén PDF xuống dưới 1 MB với ít thay đổi nhìn thấy được. Chọn dung lượng, nén, kiểm tra trang đầu.",
+  "about": "1 MB là mức trần điển hình của hồ sơ đăng ký, vé hỗ trợ và cổng email, mà một PDF scan nhiều trang dễ dàng nặng 10 MB hoặc hơn. Để đạt 1 MB, các hình ảnh trong PDF được nén lại, và mức nhẹ nhất đầu tiên đưa tệp xuống dưới 1 MB sẽ được dùng, nên các trang vẫn rõ nhất có thể. Nếu PDF của bạn đã dưới 1 MB, nó được giữ nguyên.",
+  "title": "Nén PDF xuống dưới 1 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Làm sao đưa PDF xuống dưới 1 MB?",
+    "a": "Thêm PDF, giữ nguyên dung lượng 1 MB và bấm Nén. Kết quả hiển thị dung lượng mới và trang đầu tiên."
+   },
+   {
+    "q": "Các trang có còn đẹp không?",
+    "a": "Ở mức 1 MB, hầu hết tài liệu trông gần như giống nhau trên màn hình. PDF có nhiều ảnh chụp toàn trang sẽ mềm hơn."
+   },
+   {
+    "q": "Tôi có thể gộp PDF rồi nén chúng không?",
+    "a": "Có. Hãy gộp chúng trước bằng công cụ Gộp PDF, rồi đưa tệp đã gộp vào đây."
+   }
+  ]
+ },
+ "compress-pdf-under-2mb": {
+  "name": "Nén PDF dưới 2 MB",
+  "desc": "Giảm PDF xuống dưới 2 MB để tải lên và gửi email. Đặt dung lượng, nén và kiểm tra kết quả. Riêng tư và miễn phí.",
+  "about": "Các trang web và dịch vụ email thường dừng ở 2 MB, trong khi PDF scan có thể nặng 10 đến 50 MB. Xuống dưới 2 MB thường chỉ cần nén nhẹ các hình ảnh, nên các trang trông gần như không đổi. Công cụ thử mức nhẹ nhất trước và chỉ tăng mạnh hơn nếu bắt buộc. Nếu PDF đã nhỏ hơn 2 MB, nó được giữ nguyên, và bạn có thể hạ giới hạn nếu cần nhỏ hơn nữa.",
+  "title": "Nén PDF xuống dưới 2 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Làm sao nén PDF xuống 2 MB?",
+    "a": "Thêm PDF, giữ nguyên dung lượng 2 MB và bấm Nén xuống dưới 2 MB."
+   },
+   {
+    "q": "Chất lượng có giảm nhiều không?",
+    "a": "Không nhiều. Nén nhẹ thường là đủ cho 2 MB, và bạn có thể so sánh trang đầu trước khi tải về."
+   },
+   {
+    "q": "Công cụ có chạy được trên điện thoại không?",
+    "a": "Có, trên mọi trình duyệt hiện đại. PDF rất lớn sẽ chậm hơn trên điện thoại."
+   }
+  ]
+ },
+ "compress-png-under-10kb": {
+  "name": "Nén PNG dưới 10 KB",
+  "desc": "Nén PNG xuống dưới 10 KB: biểu tượng, logo nhỏ và chữ ký trên nền trong suốt. Chọn dung lượng, xem trước, tải về.",
+  "about": "10 KB là rất nhỏ đối với PNG, vì PNG lưu mọi điểm ảnh mà không mất dữ liệu. Mức này phù hợp với biểu tượng, logo đơn giản, con dấu và chữ ký trên nền trong suốt, nhưng không phù hợp với ảnh chụp. Trang này trước tiên giảm số màu (từ 256 xuống 32), điều gần như không ảnh hưởng gì đến đồ họa phẳng, rồi mới thu nhỏ kích thước điểm ảnh. Vùng trong suốt vẫn trong suốt. Nếu bạn cần ảnh chụp dưới 10 KB, JPG sẽ đẹp hơn nhiều.",
+  "title": "Nén PNG xuống dưới 10 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa PNG xuống dưới 10 KB?",
+    "a": "Thêm PNG và giữ nguyên dung lượng 10 KB. Trang giảm số màu và, nếu cần, cả chiều rộng và chiều cao cho đến khi tệp vừa giới hạn, và hiển thị kết quả trước khi bạn tải về."
+   },
+   {
+    "q": "Nền trong suốt có được giữ lại không?",
+    "a": "Có. Kết quả vẫn là PNG và giữ nguyên độ trong suốt."
+   },
+   {
+    "q": "Sao ảnh chụp màn hình của tôi vẫn quá lớn?",
+    "a": "Ảnh chụp màn hình và ảnh chụp có nhiều màu và chi tiết. Hãy thử 50 KB trở lên, hoặc lưu ảnh thành JPG bằng trang JPG."
+   }
+  ]
+ },
+ "compress-png-under-20kb": {
+  "name": "Nén PNG dưới 20 KB",
+  "desc": "Giảm PNG xuống dưới 20 KB và giữ độ trong suốt. Đặt dung lượng, so sánh với bản gốc, tải về. Miễn phí, trong trình duyệt của bạn.",
+  "about": "PNG dưới 20 KB là mức khả thi cho logo, nút bấm, huy hiệu, hình minh họa nhỏ hoặc bản scan chữ ký. Dung lượng của PNG phụ thuộc vào số màu mà ảnh dùng, nên công cụ cắt bảng màu trước, điều gần như không nhìn thấy trên đồ họa phẳng, và chỉ thu nhỏ kích thước nếu riêng bảng màu không đạt được 20 KB. Bản xem trước hiển thị cả các vùng trong suốt, để bạn thấy chính xác những gì sẽ lưu.",
+  "title": "Nén PNG xuống dưới 20 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén PNG xuống 20 KB?",
+    "a": "Thêm tệp, để nguyên dung lượng 20 KB, kiểm tra bản xem trước rồi bấm Tải về."
+   },
+   {
+    "q": "Giảm màu có làm ảnh xấu đi không?",
+    "a": "Với logo và đồ họa phẳng thì hầu như không thấy. Ảnh chụp sẽ có vẻ bị chia mảng màu, nên hãy dùng JPG cho ảnh chụp."
+   },
+   {
+    "q": "PNG có bị tải lên máy chủ không?",
+    "a": "Không. Nó được nén trong trình duyệt của bạn và luôn ở trên thiết bị của bạn."
+   }
+  ]
+ },
+ "compress-png-under-50kb": {
+  "name": "Nén PNG dưới 50 KB",
+  "desc": "Làm PNG nhỏ hơn 50 KB cho trang web và biểu mẫu, giữ độ trong suốt. Chọn dung lượng và xem trước kết quả.",
+  "about": "50 KB là dung lượng tiện lợi cho logo trang web, biểu tượng giao diện, favicon và hình minh họa nhỏ. Ở mức này, hầu hết đồ họa phẳng giữ được cạnh sạch và độ trong suốt, dùng bảng màu 64 đến 256 màu. Trang thử bảng màu tốt nhất trước và chỉ thu nhỏ kích thước điểm ảnh nếu tệp vẫn quá lớn. Ảnh chụp màn hình chứa chữ có thể vượt 50 KB khá nhiều, nên nếu kết quả bị nhỏ và mờ, hãy nâng giới hạn lên.",
+  "title": "Nén PNG xuống dưới 50 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa PNG xuống dưới 50 KB?",
+    "a": "Thêm PNG và giữ nguyên mục tiêu 50 KB. Các thiết lập tốt nhất vừa giới hạn sẽ được chọn cho bạn."
+   },
+   {
+    "q": "Tôi có giữ được logo nền trong suốt ở 50 KB không?",
+    "a": "Có. Độ trong suốt được giữ lại, và hầu hết logo vừa dễ dàng."
+   },
+   {
+    "q": "Nếu ảnh bị mờ thì sao?",
+    "a": "Khi đó 50 KB là quá ít so với kích thước của nó. Hãy dùng giới hạn cao hơn như 100 KB, hoặc tự giảm chiều rộng tối đa."
+   }
+  ]
+ },
+ "compress-png-under-100kb": {
+  "name": "Nén PNG dưới 100 KB",
+  "desc": "Nén PNG xuống dưới 100 KB mà không mất độ trong suốt. Chọn dung lượng, kiểm tra bản xem trước, tải về miễn phí.",
+  "about": "100 KB là giới hạn tải lên phổ biến cho logo, chữ ký, ảnh giấy tờ và đồ họa trên biểu mẫu và hệ thống nội dung. Một ảnh chụp màn hình PNG thông thường lớn gấp 5 đến 20 lần. Để xuống dưới 100 KB, công cụ trước tiên giảm số màu, giúp đồ họa vẫn sắc nét, rồi nếu bắt buộc mới giảm kích thước ảnh. Mọi thứ được hiển thị trong bản xem trước trước và sau với dung lượng tệp thật, và các vùng trong suốt được giữ nguyên.",
+  "title": "Nén PNG xuống dưới 100 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm PNG xuống 100 KB?",
+    "a": "Thêm PNG, giữ 100 KB làm mục tiêu và tải về khi bản xem trước đã ổn."
+   },
+   {
+    "q": "Sao PNG dễ trở nên nặng như vậy?",
+    "a": "PNG giữ chính xác mọi điểm ảnh, nên ảnh chụp và ảnh chụp màn hình nhiều màu rất nặng. Giảm số màu là cách làm chúng nhỏ đi."
+   },
+   {
+    "q": "Ảnh của tôi có an toàn không?",
+    "a": "Có. Không có gì bị tải lên; mọi việc diễn ra trong trình duyệt của bạn."
+   }
+  ]
+ },
+ "compress-png-under-150kb": {
+  "name": "Nén PNG dưới 150 KB",
+  "desc": "Giảm PNG xuống dưới 150 KB. Số màu được giảm trước, nên đồ họa vẫn sắc nét. Đặt dung lượng và xem trước kết quả.",
+  "about": "Ở mức 150 KB, đồ họa PNG có thể giữ được nhiều chi tiết: ảnh sản phẩm tách nền trong suốt, sơ đồ, biểu đồ và bản thiết kế giao diện. Công cụ hạ số màu từng bước và chỉ giảm kích thước điểm ảnh khi thế chưa đủ. Nếu tệp của bạn đã dưới 150 KB, nó được trả lại nguyên vẹn, nên bạn không bao giờ mất chất lượng một cách vô ích.",
+  "title": "Nén PNG xuống dưới 150 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén PNG xuống 150 KB?",
+    "a": "Thêm tệp, đặt 150 KB (hoặc bấm nút 150 KB) và tải về sau khi xem bản xem trước."
+   },
+   {
+    "q": "Nếu PNG của tôi đã nhỏ hơn thì sao?",
+    "a": "Khi đó nó được giữ nguyên."
+   },
+   {
+    "q": "Công cụ có dùng được cho ảnh sản phẩm có nền trong suốt không?",
+    "a": "Có, nền trong suốt vẫn trong suốt."
+   }
+  ]
+ },
+ "compress-png-under-200kb": {
+  "name": "Nén PNG dưới 200 KB",
+  "desc": "Nén PNG xuống dưới 200 KB cho trang web, email và biểu mẫu. Chọn dung lượng, so sánh kết quả, tải về.",
+  "about": "200 KB đủ chỗ cho một logo chi tiết, một sơ đồ hoặc ảnh sản phẩm tách nền với nền trong suốt. Ảnh chụp toàn màn hình dạng PNG thường nặng 1 đến 3 MB, nên cần bảng màu nhỏ hơn và đôi khi kích thước nhỏ hơn để xuống 200 KB. Trang này chọn các thiết lập cho kết quả đẹp nhất dưới giới hạn và cho phép bạn so sánh với bản gốc trước khi lưu.",
+  "title": "Nén PNG xuống dưới 200 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm PNG xuống 200 KB?",
+    "a": "Thêm ảnh và giữ nguyên dung lượng 200 KB. So sánh bản xem trước rồi tải về."
+   },
+   {
+    "q": "Ảnh chụp màn hình có còn đọc được không?",
+    "a": "Thường là có, miễn là chữ không quá nhỏ. Nếu bị mờ, hãy thử 300 KB hoặc 500 KB."
+   },
+   {
+    "q": "Tôi có thể xử lý nhiều PNG cùng lúc không?",
+    "a": "Có. Thêm tất cả và dùng Tải tất cả để nhận tệp ZIP."
+   }
+  ]
+ },
+ "compress-png-under-300kb": {
+  "name": "Nén PNG dưới 300 KB",
+  "desc": "Giảm PNG xuống dưới 300 KB mà vẫn sắc nét. Đặt dung lượng, so sánh, tải về. Độ trong suốt được giữ lại.",
+  "about": "300 KB là dung lượng tốt cho đồ họa web cần trông sắc nét: banner có chữ, biểu đồ, ảnh chụp màn hình và hình minh họa. Công cụ thử bảng màu phong phú trước và chỉ hạ thấp khi bắt buộc, nên bạn giữ được nhiều màu nhất mà giới hạn cho phép. Nếu thế chưa đủ, ảnh được thu nhỏ một chút. Bạn thấy bản gốc và kết quả cạnh nhau, cùng dung lượng của chúng.",
+  "title": "Nén PNG xuống dưới 300 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa PNG xuống 300 KB hoặc nhỏ hơn?",
+    "a": "Thêm ảnh, chọn 300 KB và tải về sau khi kiểm tra bản xem trước."
+   },
+   {
+    "q": "Tôi có thấy sự khác biệt không?",
+    "a": "Với đồ họa phẳng thì hầu như không. Với ảnh chụp dạng PNG, bạn có thể thấy hiện tượng chia dải màu nhẹ, và JPG là lựa chọn tốt hơn ở đó."
+   },
+   {
+    "q": "Có giới hạn số lượng tệp không?",
+    "a": "Bạn có thể thêm tối đa 40 tệp cùng lúc."
+   }
+  ]
+ },
+ "compress-png-under-500kb": {
+  "name": "Nén PNG dưới 500 KB",
+  "desc": "Nén PNG xuống dưới 500 KB cho email và tải lên. Chọn dung lượng, xem trước kết quả, tải về miễn phí.",
+  "about": "Nửa megabyte là giới hạn phổ biến cho tải lên trong biểu mẫu web và hệ thống nội dung, mà ảnh chụp màn hình hoặc đồ họa xuất ra PNG thông thường nặng 1 đến 5 MB. Ở mức 500 KB, hầu hết đồ họa chỉ cần giảm màu nhẹ và giữ được cạnh sắc nét cùng vùng trong suốt. Trang chọn các thiết lập tốt nhất dưới giới hạn và hiển thị dung lượng thật của tệp bạn sẽ nhận.",
+  "title": "Nén PNG xuống dưới 500 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa PNG xuống dưới 500 KB?",
+    "a": "Thêm tệp, bấm nút 500 KB và tải về sau khi xem bản xem trước."
+   },
+   {
+    "q": "Tôi có mất độ trong suốt không?",
+    "a": "Không. Vùng trong suốt vẫn trong suốt."
+   },
+   {
+    "q": "Còn ảnh chụp lưu dạng PNG thì sao?",
+    "a": "Ảnh chụp dạng PNG rất nặng. Hãy nén chúng thành JPG để có tệp nhỏ hơn nhiều mà trông vẫn như vậy."
+   }
+  ]
+ },
+ "compress-png-under-1mb": {
+  "name": "Nén PNG dưới 1 MB",
+  "desc": "Giảm PNG xuống dưới 1 MB với ít thay đổi nhìn thấy được. Đặt dung lượng, so sánh với bản gốc, tải về.",
+  "about": "1 MB là mức trần điển hình của biểu mẫu, hệ thống vé hỗ trợ và cổng email. Ảnh chụp màn hình lớn hoặc đồ họa độ phân giải cao dạng PNG có thể nặng 3 đến 10 MB, nhưng thường xuống dưới 1 MB nhờ giảm màu nhẹ mà bạn không nhìn thấy. Công cụ dùng bảng màu phong phú nhất vừa giới hạn và chỉ thu nhỏ kích thước như biện pháp cuối cùng. Nếu PNG của bạn đã dưới 1 MB, nó không bị đụng đến.",
+  "title": "Nén PNG xuống dưới 1 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Làm sao nén PNG xuống 1 MB?",
+    "a": "Thêm ảnh, chọn 1 MB và tải về khi bản xem trước đã ổn."
+   },
+   {
+    "q": "Nó có trông giống nhau không?",
+    "a": "Với hầu hết đồ họa thì có. Bản xem trước cho phép bạn kiểm tra trước khi lưu."
+   },
+   {
+    "q": "Tôi có thể nhập dung lượng như 1.5 MB không?",
+    "a": "Có. Nhập bất kỳ giá trị nào và chuyển đơn vị giữa KB và MB."
+   }
+  ]
+ },
+ "compress-png-under-2mb": {
+  "name": "Nén PNG dưới 2 MB",
+  "desc": "Nén PNG xuống dưới 2 MB cho trang web và tải lên, gần như không có thay đổi nhìn thấy được. Miễn phí và riêng tư.",
+  "about": "Nhiều trang web và dịch vụ email từ chối tệp trên 2 MB, mà ảnh chụp màn hình retina hoặc đồ họa lớn xuất ra thường nặng 5 đến 15 MB dạng PNG. Xuống dưới 2 MB thường chỉ cần giảm bảng màu nhẹ, nên ảnh trông gần như không đổi và vẫn trong suốt ở những chỗ vốn trong suốt. Nếu tệp đã dưới 2 MB, nó được trả lại nguyên vẹn.",
+  "title": "Nén PNG xuống dưới 2 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Làm sao giảm PNG xuống dưới 2 MB?",
+    "a": "Thêm ảnh, giữ nguyên dung lượng 2 MB và tải về sau khi xem bản xem trước."
+   },
+   {
+    "q": "Mất bao nhiêu chất lượng?",
+    "a": "Rất ít. Số màu chỉ bị giảm đến mức cần thiết."
+   },
+   {
+    "q": "Công cụ có chạy được trên điện thoại không?",
+    "a": "Có, trên mọi trình duyệt hiện đại. Ảnh rất lớn sẽ mất nhiều thời gian hơn trên điện thoại."
+   }
+  ]
+ },
+ "compress-jpeg-under-10kb": {
+  "name": "Nén JPEG dưới 10 KB",
+  "desc": "Nén JPEG xuống dưới 10 KB cho các tệp tải lên rất nhỏ như chữ ký. Xem kết quả trước khi tải về. Chạy trong trình duyệt của bạn.",
+  "about": "Một số biểu mẫu yêu cầu JPEG không quá 10 KB, thường dành cho chữ ký hoặc con dấu nhỏ. Tệp .jpeg hoàn toàn cùng định dạng với tệp .jpg, nên trang này dùng được cho cả hai. Để đạt 10 KB, công cụ hạ chất lượng và, vì ảnh lớn không thể nằm trong 10 KB ở bất kỳ chất lượng nào, làm ảnh nhỏ lại. Hãy cắt sát quanh chữ ký trước khi thêm vào: ít điểm ảnh hơn nghĩa là kết quả rõ hơn.",
+  "title": "Nén JPEG xuống dưới 10 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "10 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm JPEG xuống 10 KB?",
+    "a": "Thêm tệp .jpeg của bạn và giữ nguyên dung lượng 10 KB. Bản xem trước hiển thị kết quả và dung lượng chính xác."
+   },
+   {
+    "q": ".jpeg có khác .jpg không?",
+    "a": "Không. Chúng là cùng một định dạng; chỉ khác phần đuôi tệp."
+   },
+   {
+    "q": "Ảnh khuôn mặt có vừa trong 10 KB không?",
+    "a": "Một ảnh rất nhỏ thì được, nhưng sẽ bị mềm. Với ảnh chụp, 20 KB đến 50 KB cho kết quả tốt hơn."
+   }
+  ]
+ },
+ "compress-jpeg-under-20kb": {
+  "name": "Nén JPEG dưới 20 KB",
+  "desc": "Làm JPEG nhỏ hơn 20 KB cho đơn thi và đơn đăng ký. Chọn dung lượng, xem trước, tải về.",
+  "about": "20 KB là giới hạn phổ biến cho ảnh nhỏ hoặc chữ ký trên các mẫu đơn đăng ký. Trang này mã hóa JPEG ở chất lượng tốt trước rồi hạ dần, sau đó giảm kích thước điểm ảnh, cho đến khi tệp vừa dưới 20 KB. Với ảnh khuôn mặt, rộng vài trăm điểm ảnh là đủ cho một ô như vậy. Thêm nhiều JPEG và tải tất cả trong một tệp ZIP, mỗi ảnh được điều chỉnh vừa giới hạn.",
+  "title": "Nén JPEG xuống dưới 20 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "20 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPEG xuống 20 KB?",
+    "a": "Thêm ảnh, để nguyên dung lượng 20 KB, kiểm tra bản xem trước rồi tải về."
+   },
+   {
+    "q": "Kết quả có còn là JPEG không?",
+    "a": "Có, kết quả là tệp JPEG chuẩn mà mọi biểu mẫu đều chấp nhận."
+   },
+   {
+    "q": "Tôi có thể làm nhiều tệp cùng lúc không?",
+    "a": "Có. Thêm tối đa 40 tệp và dùng Tải tất cả."
+   }
+  ]
+ },
+ "compress-jpeg-under-50kb": {
+  "name": "Nén JPEG dưới 50 KB",
+  "desc": "Giảm JPEG xuống dưới 50 KB cho ảnh đại diện và tải lên giấy tờ. Chọn dung lượng và kiểm tra bản xem trước trước.",
+  "about": "JPEG 50 KB là dung lượng phổ biến cho ảnh đại diện, ảnh thẻ và bản scan giấy tờ trên các cổng web. Công cụ tìm chất lượng cao nhất vẫn dưới 50 KB và thu nhỏ ảnh lớn, vì ảnh máy ảnh nhiều megapixel không thể nén vào 50 KB chỉ bằng chất lượng. Kết quả được hiển thị cạnh bản gốc, để bạn kiểm tra khuôn mặt hoặc chữ.",
+  "title": "Nén JPEG xuống dưới 50 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "50 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPEG xuống dưới 50 KB?",
+    "a": "Thêm ảnh và giữ nguyên mục tiêu 50 KB. Chất lượng tốt nhất vừa giới hạn sẽ được chọn cho bạn."
+   },
+   {
+    "q": "Công cụ có giữ nguyên tỷ lệ của ảnh không?",
+    "a": "Có. Khi ảnh được thu nhỏ, chiều rộng và chiều cao cùng giảm theo."
+   },
+   {
+    "q": "Sao kết quả không đúng 50 KB?",
+    "a": "Nó chỉ nằm dưới giới hạn một chút, vì chất lượng cao nhất vừa giới hạn được chọn."
+   }
+  ]
+ },
+ "compress-jpeg-under-100kb": {
+  "name": "Nén JPEG dưới 100 KB",
+  "desc": "Nén JPEG xuống dưới 100 KB cho đơn xin việc, KYC và đơn nhập học. Đặt dung lượng, xem trước, tải về miễn phí.",
+  "about": "100 KB là giới hạn mà nhiều cổng tuyển dụng, ngân hàng và trường đại học đặt cho ảnh hoặc tệp giấy tờ tải lên. Ảnh điện thoại nặng 3 đến 8 MB, nên phải nén mạnh, và trang này làm điều đó bằng cách dò chất lượng để giữ nhiều chi tiết nhất mà giới hạn cho phép. Nếu ảnh vẫn quá lớn dù ở chất lượng thấp, nó cũng được thu nhỏ lại. Bản gốc của bạn được hiển thị cạnh kết quả cùng dung lượng thật.",
+  "title": "Nén JPEG xuống dưới 100 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "100 KB",
+  "faq": [
+   {
+    "q": "Làm sao giảm JPEG xuống 100 KB?",
+    "a": "Thêm tệp .jpeg, giữ nguyên 100 KB và tải về khi bản xem trước đã ổn."
+   },
+   {
+    "q": "Giấy tờ chụp ảnh có còn đọc được không?",
+    "a": "Thường là có, nếu chữ lớn. Nếu không, hãy thử 150 KB hoặc 200 KB."
+   },
+   {
+    "q": "Công cụ có miễn phí và riêng tư không?",
+    "a": "Có. Công cụ chạy trong trình duyệt của bạn và tệp không bị tải lên."
+   }
+  ]
+ },
+ "compress-jpeg-under-150kb": {
+  "name": "Nén JPEG dưới 150 KB",
+  "desc": "Làm JPEG nhỏ hơn 150 KB mà vẫn giữ khuôn mặt và chữ rõ ràng. Chọn dung lượng, so sánh, tải về.",
+  "about": "JPEG 150 KB phù hợp với quy định của nhiều mẫu đơn đăng ký và sàn thương mại, và giữ được nhiều chi tiết hơn rõ rệt so với mức 100 KB. Công cụ chỉ hạ chất lượng đến mức cần thiết và giữ nguyên các tệp đã dưới 150 KB. Hãy dùng thanh trượt nếu bạn muốn xem ảnh thay đổi thế nào ở giới hạn cao hơn hoặc thấp hơn.",
+  "title": "Nén JPEG xuống dưới 150 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "150 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPEG về 150 KB?",
+    "a": "Thêm ảnh, bấm 150 KB và kiểm tra bản xem trước."
+   },
+   {
+    "q": "Nếu JPEG của tôi đã nhỏ hơn 150 KB thì sao?",
+    "a": "Nó được giữ nguyên."
+   },
+   {
+    "q": "Tôi có thể đổi giới hạn sau không?",
+    "a": "Có. Kéo thanh trượt hoặc nhập dung lượng mới và bản xem trước cập nhật."
+   }
+  ]
+ },
+ "compress-jpeg-under-200kb": {
+  "name": "Nén JPEG dưới 200 KB",
+  "desc": "Giảm JPEG xuống dưới 200 KB cho biểu mẫu, email và tải lên. Đặt dung lượng, xem trước kết quả, miễn phí.",
+  "about": "200 KB là giới hạn thoải mái cho ảnh chân dung, chứng chỉ và trang scan, và nhiều cổng dùng mức này. Ở mức này, JPEG vẫn sạch đẹp khi nhìn trên màn hình. Trang tìm chất lượng tốt nhất dưới 200 KB và cho bạn biết dung lượng kết quả chính xác; nếu ảnh quá lớn, nó cũng được thu nhỏ một chút. Chế độ xem trước và sau giúp bạn đánh giá kết quả.",
+  "title": "Nén JPEG xuống dưới 200 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "200 KB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPEG xuống 200 KB?",
+    "a": "Thêm ảnh, giữ 200 KB làm dung lượng và tải về sau khi xem bản xem trước."
+   },
+   {
+    "q": "200 KB có trông đẹp không?",
+    "a": "Với việc dùng trên màn hình thì có. Nó không dành cho in khổ lớn."
+   },
+   {
+    "q": "Tôi có thể nén hàng loạt không?",
+    "a": "Có, và tải tất cả cùng nhau trong một tệp ZIP."
+   }
+  ]
+ },
+ "compress-jpeg-under-300kb": {
+  "name": "Nén JPEG dưới 300 KB",
+  "desc": "Nén JPEG xuống dưới 300 KB với rất ít mất mát nhìn thấy được. Chọn dung lượng, so sánh với bản gốc.",
+  "about": "300 KB giữ được chi tiết tốt cho ảnh chân dung, ảnh sản phẩm hoặc chứng chỉ đã scan. Một tệp .jpeg từ điện thoại thường lớn gấp 10 đến 30 lần, và sự khác biệt khó thấy trên màn hình. Trang này dò chất lượng cao nhất vừa dưới 300 KB và chỉ giảm kích thước khi riêng chất lượng không đủ.",
+  "title": "Nén JPEG xuống dưới 300 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "300 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPEG xuống dưới 300 KB?",
+    "a": "Thêm ảnh, chọn 300 KB và tải về."
+   },
+   {
+    "q": "Có đủ tốt cho trang web không?",
+    "a": "Có, ổn cho ảnh nội dung. Banner lớn ở đầu trang có thể cần 500 KB."
+   },
+   {
+    "q": "Tệp của tôi có rời khỏi thiết bị không?",
+    "a": "Không. Mọi thứ chạy trong trình duyệt của bạn."
+   }
+  ]
+ },
+ "compress-jpeg-under-500kb": {
+  "name": "Nén JPEG dưới 500 KB",
+  "desc": "Giảm JPEG xuống dưới 500 KB cho WhatsApp và email. Đặt dung lượng, xem trước kết quả, tải về.",
+  "about": "JPEG 500 KB đủ nhỏ cho WhatsApp, email và hầu hết biểu mẫu tải lên, và đủ lớn để ảnh toàn màn hình vẫn đẹp. Hầu hết ảnh chỉ cần nén nhẹ để đạt mức này. Công cụ hiển thị cả hai phiên bản cùng dung lượng, và giữ nguyên các tệp đã dưới 500 KB.",
+  "title": "Nén JPEG xuống dưới 500 KB trực tuyến miễn phí | Toolz Baba",
+  "chip": "500 KB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPEG xuống dưới 500 KB?",
+    "a": "Thêm ảnh, bấm nút 500 KB và tải về."
+   },
+   {
+    "q": "Nó có trông khác không?",
+    "a": "Thường là không trên màn hình điện thoại hay laptop."
+   },
+   {
+    "q": "Tôi có thể gửi qua WhatsApp không?",
+    "a": "Có, ảnh 500 KB gửi nhanh kể cả khi kết nối yếu."
+   }
+  ]
+ },
+ "compress-jpeg-under-1mb": {
+  "name": "Nén JPEG dưới 1 MB",
+  "desc": "Nén JPEG xuống dưới 1 MB với gần như không mất chất lượng nhìn thấy được. Chọn dung lượng, xem trước, tải về miễn phí.",
+  "about": "1 MB là mức trần của nhiều biểu mẫu web và hệ thống hỗ trợ. Ảnh điện thoại đời mới dạng .jpeg nặng 3 đến 8 MB, nên cần nén vừa phải, và hiếm khi lộ ra. Trang chọn chất lượng cao nhất vừa dưới 1 MB và giữ nguyên các tệp nhỏ hơn, nên không có gì bị nén lại một cách vô ích.",
+  "title": "Nén JPEG xuống dưới 1 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "1 MB",
+  "faq": [
+   {
+    "q": "Làm sao nén JPEG xuống 1 MB?",
+    "a": "Thêm ảnh, chọn 1 MB và so sánh bản xem trước."
+   },
+   {
+    "q": "Ảnh có trông giống nhau không?",
+    "a": "Với hầu hết ảnh thì có."
+   },
+   {
+    "q": "Tôi có thể nhập 0.8 MB không?",
+    "a": "Có. Nhập bất kỳ số nào và chọn KB hoặc MB."
+   }
+  ]
+ },
+ "compress-jpeg-under-2mb": {
+  "name": "Nén JPEG dưới 2 MB",
+  "desc": "Giảm JPEG xuống dưới 2 MB cho email và tải lên, giữ gần như đầy đủ chất lượng. Đặt dung lượng, xem trước, tải về.",
+  "about": "Các trang web và dịch vụ email thường dừng ở 2 MB, trong khi ảnh điện thoại có thể nặng 5 đến 10 MB. Nén nhẹ là đủ để đưa tệp .jpeg xuống dưới 2 MB mà gần như không thay đổi nhìn thấy được. Trang này giữ chất lượng cao nhất vừa giới hạn, và ảnh đã dưới 2 MB được giữ nguyên.",
+  "title": "Nén JPEG xuống dưới 2 MB trực tuyến miễn phí | Toolz Baba",
+  "chip": "2 MB",
+  "faq": [
+   {
+    "q": "Làm sao đưa JPEG xuống dưới 2 MB?",
+    "a": "Thêm ảnh, giữ mục tiêu 2 MB và tải về."
+   },
+   {
+    "q": "Có mất chất lượng không?",
+    "a": "Chỉ một chút; nén nhẹ là đủ."
+   },
+   {
+    "q": "Nếu ảnh của tôi nặng 20 MB thì sao?",
+    "a": "Cũng được: chất lượng và, nếu cần, kích thước điểm ảnh được hạ cho đến khi vừa giới hạn."
+   }
+  ]
+ },
+ "add-watermark-to-pdf": {
+  "name": "Thêm watermark vào PDF",
+  "desc": "Đóng dấu chữ hoặc logo lên mọi trang PDF: bạn tự đặt độ nghiêng, kích thước, độ mờ và vị trí.",
+  "about": "Đánh dấu PDF là CONFIDENTIAL, DRAFT hoặc bằng logo công ty của bạn. Chọn chữ hoặc hình ảnh, độ lớn và độ nghiêng, độ trong suốt, và vị trí đặt: giữa trang, một góc, hoặc lặp lại khắp trang. Bạn có thể giới hạn ở một số trang. Chữ hoạt động với mọi ngôn ngữ mà trình duyệt của bạn hiển thị được, và PDF không bao giờ rời khỏi thiết bị.",
+  "title": "Thêm watermark vào PDF trực tuyến miễn phí | Toolz Baba",
+  "tab": "PDF"
+ },
+ "add-watermark-to-video": {
+  "name": "Thêm watermark vào video",
+  "desc": "Đặt tên, chữ hoặc logo của bạn lên video: chọn vị trí, kích thước và độ mờ.",
+  "about": "Bảo vệ video của bạn bằng cách thêm watermark chữ hoặc logo. Chọn vị trí đặt (bất kỳ góc nào, phía trên, phía dưới hoặc giữa), độ lớn và độ trong suốt. Tải lên logo PNG nền trong suốt để có kết quả gọn đẹp nhất. Video được mã hóa lại trong trình duyệt của bạn, nên không có gì bị tải lên.",
+  "title": "Thêm watermark vào video trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Thêm watermark chữ hoặc logo vào video: đặt vị trí, kích thước và độ mờ rồi tải về. Miễn phí, không cần đăng ký, video luôn ở trên thiết bị của bạn.",
+  "tab": "Video"
+ },
+ "blur-redact-pdf": {
+  "name": "Làm mờ & che thông tin PDF",
+  "desc": "Che tên, số và khuôn mặt trong PDF: vẽ khung trên trang rồi tô đen hoặc làm mờ vĩnh viễn.",
+  "about": "Vẽ khung lên bất cứ thứ gì riêng tư, như số điện thoại, giấy tờ tùy thân, số tài khoản hoặc chữ ký, và che bằng khung đen, khung trắng, làm mờ hoặc pixelate. Chữ và hình ảnh bên dưới các khung được xóa khỏi chính tệp, nên không thể sao chép hay khôi phục sau này. PDF của bạn được xử lý trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Làm mờ & che thông tin PDF trực tuyến miễn phí | Toolz Baba",
+  "tab": "Làm mờ & che PDF"
+ },
+ "linkedin-carousel-maker": {
+  "name": "Tạo carousel LinkedIn",
+  "desc": "Viết các slide dưới dạng văn bản và nhận carousel LinkedIn sẵn sàng đăng dưới dạng PDF, kèm các slide PNG.",
+  "about": "Gõ hoặc dán các slide của bạn, ngăn cách bằng một dòng ba dấu gạch ngang. Dòng đầu tiên của mỗi slide là tiêu đề và phần còn lại là nội dung; bắt đầu một dòng bằng dấu gạch ngang để tạo gạch đầu dòng. Chọn một bảng màu, phông chữ và kích thước slide, thêm tên và ảnh của bạn, rồi tải về một PDF để đăng lên LinkedIn dưới dạng tài liệu, hoặc các slide dưới dạng ảnh PNG. Mọi thứ được tạo trong trình duyệt của bạn.",
+  "title": "Tạo carousel LinkedIn trực tuyến miễn phí | Toolz Baba",
+  "tab": "Carousel LinkedIn"
+ },
+ "instagram-image-carousel-splitter": {
+  "name": "Cắt ảnh carousel Instagram",
+  "desc": "Cắt một ảnh rộng thành các slide carousel Instagram liền mạch (2 đến 10), sẵn sàng đăng theo thứ tự.",
+  "about": "Biến ảnh toàn cảnh, banner hoặc ảnh chụp màn hình dài thành carousel Instagram vuốt được, trong đó hình ảnh chạy liền từ slide này sang slide kế tiếp. Chọn số slide (công cụ gợi ý con số tốt nhất), hình dạng slide (dọc 4:5, vuông hoặc ngang) và chọn lấp đầy slide hay hiển thị cả ảnh trên nền mờ. Bạn nhận các slide dưới dạng tệp được đánh số trong một tệp ZIP, hoặc từng cái một.",
+  "title": "Cắt ảnh carousel Instagram trực tuyến miễn phí | Toolz Baba",
+  "tab": "Carousel Instagram"
+ },
+ "ai-headshot-generator": {
+  "name": "Tạo ảnh chân dung chuyên nghiệp bằng AI",
+  "desc": "Biến ảnh thường thành ảnh chân dung chuyên nghiệp gọn gàng: AI tìm khuôn mặt, đổi nền và căn khung từ đầu đến vai.",
+  "about": "Tải lên ảnh selfie hoặc bất kỳ ảnh nào của bạn và nhận một ảnh đại diện chỉn chu cho LinkedIn, CV hoặc trang công ty. AI tìm khuôn mặt, tách bạn ra, đặt bạn lên nền studio (xám, be, xanh, tối, trắng, mờ hoặc màu riêng của bạn) và căn khung từ đầu đến vai theo hình vuông hoặc 4:5, kèm tùy chọn chỉnh sửa nhẹ. Công cụ dùng chính ảnh của bạn, không tạo ra khuôn mặt mới, và mọi thứ chạy trên thiết bị của bạn nên ảnh không bao giờ bị tải lên.",
+  "title": "Tạo ảnh chân dung chuyên nghiệp bằng AI trực tuyến miễn phí | Toolz Baba",
+  "tab": "Ảnh chân dung AI"
+ },
+ "video-to-text": {
+  "name": "Video sang văn bản (chép lời)",
+  "desc": "Biến lời nói trong video hoặc tệp âm thanh thành văn bản, kèm phụ đề (SRT, VTT). AI chạy trong trình duyệt của bạn.",
+  "about": "Nhận bản chép lời của video, bài giảng, cuộc phỏng vấn, bản ghi cuộc họp hoặc tin nhắn thoại. AI nhận dạng giọng nói Whisper chạy trên thiết bị của bạn, nên tệp không bao giờ bị tải lên. Công cụ hiểu nhiều ngôn ngữ, gồm tiếng Anh và tiếng Hindi, tự nhận diện ngôn ngữ, có thể dịch sang tiếng Anh, và cho bạn văn bản thuần cùng tệp phụ đề SRT và VTT có mốc thời gian. Lần đầu sử dụng sẽ tải mô hình một lần (40 hoặc 80 MB).",
+  "title": "Video sang văn bản (chép lời) trực tuyến miễn phí | Toolz Baba",
+  "tab": "Video sang văn bản"
+ },
+ "text-to-audio": {
+  "name": "Văn bản sang âm thanh (đọc văn bản)",
+  "desc": "Biến văn bản thành giọng đọc bằng tiếng Anh hoặc tiếng Hindi và lưu thành WAV hoặc MP3. Chạy trong trình duyệt của bạn.",
+  "about": "Dán hoặc gõ văn bản của bạn và để giọng AI đọc to lên, rồi tải âm thanh về dưới dạng tệp WAV hoặc MP3. Có giọng tiếng Anh và tiếng Hindi. Giọng được tải về trình duyệt của bạn lần đầu tiên (khoảng 38 MB) và mọi thứ chạy trên thiết bị của bạn, nên văn bản không bao giờ bị gửi đi đâu. Giọng đọc rõ nhưng hơi giống robot, phù hợp cho thuyết minh, ghi chú và hỗ trợ tiếp cận.",
+  "title": "Văn bản sang âm thanh (đọc văn bản) trực tuyến miễn phí | Toolz Baba",
+  "tab": "Văn bản sang âm thanh"
+ },
+ "video-to-audio": {
+  "name": "Chuyển video sang âm thanh",
+  "desc": "Tách âm thanh khỏi video và lưu thành MP3, M4A, WAV, OGG hoặc FLAC. Chạy trong trình duyệt của bạn.",
+  "about": "Tách rãnh âm thanh khỏi bất kỳ video nào, như tệp MP4, MOV, MKV hoặc WebM, và lưu thành MP3, M4A, WAV, OGG hoặc FLAC. Bạn có thể chọn chất lượng cho MP3, M4A và OGG, và chuyển nhiều video cùng lúc. Video được xử lý ngay trên thiết bị của bạn và không bao giờ bị tải lên.",
+  "title": "Chuyển video sang âm thanh trực tuyến miễn phí | Toolz Baba",
+  "tab": "Video sang âm thanh"
+ },
+ "mp4-to-mp3": {
+  "name": "Chuyển MP4 sang MP3",
+  "desc": "Chuyển video MP4 sang âm thanh MP3 ngay trong trình duyệt. Chọn chất lượng; không có gì bị tải lên.",
+  "about": "Biến video MP4 thành tệp MP3 chỉ với vài cú nhấp: thêm video, chọn chất lượng (192 kbps là mức mặc định tốt, 320 kbps là tốt nhất) rồi tải MP3 về. Video ca nhạc, bài giảng, phỏng vấn và bản ghi âm đều dùng được, và có thể chuyển nhiều tệp cùng lúc. Việc chuyển đổi chạy ngay trên thiết bị của bạn, không tải lên và không có giới hạn dung lượng tệp từ chúng tôi.",
+  "title": "Chuyển MP4 sang MP3 trực tuyến miễn phí: tách âm thanh | Toolz Baba",
+  "metaDesc": "Chuyển video MP4 sang âm thanh MP3 ngay trong trình duyệt. Chọn chất lượng đến 320 kbps và chuyển nhiều tệp cùng lúc. Miễn phí, không tải tệp lên.",
+  "tab": "MP4 sang MP3"
+ },
+ "ocr-pdf": {
+  "name": "OCR PDF: PDF scan sang văn bản",
+  "desc": "Đọc chữ trong PDF scan rồi sao chép hoặc lưu thành tệp .txt. Tiếng Anh và tiếng Hindi. Chạy trong trình duyệt của bạn.",
+  "about": "PDF scan chỉ là ảnh chụp của các trang, nên bạn không thể chọn hay tìm kiếm chữ trong đó. OCR (nhận dạng ký tự quang học) đọc những hình ảnh đó và biến chúng trở lại thành chữ mà bạn có thể sao chép, chỉnh sửa hoặc lưu. Thêm PDF scan, chọn tiếng Anh, tiếng Hindi hoặc cả hai, rồi sao chép kết quả hoặc lưu thành tệp .txt. OCR chạy trong trình duyệt của bạn, nên tài liệu không bị tải lên.",
+  "title": "OCR PDF trực tuyến miễn phí: PDF scan sang văn bản, tiếng Hindi | Toolz Baba",
+  "tab": "OCR PDF",
+  "faq": [
+   {
+    "q": "Làm sao sao chép chữ từ PDF scan?",
+    "a": "Thêm PDF vào đây, chọn ngôn ngữ và bắt đầu OCR. Khi xong, hãy sao chép chữ hoặc lưu thành tệp .txt."
+   },
+   {
+    "q": "Công cụ có đọc được tiếng Hindi không?",
+    "a": "Có. Chọn tiếng Hindi, hoặc tiếng Anh và tiếng Hindi cùng lúc cho tài liệu có lẫn cả hai."
+   },
+   {
+    "q": "Độ chính xác thế nào?",
+    "a": "Bản scan sạch, thẳng của chữ in cho kết quả rất tốt. Chữ viết tay, ảnh bị mờ và trang bị nghiêng sẽ dễ sai hơn."
+   },
+   {
+    "q": "Công cụ đọc được bao nhiêu trang?",
+    "a": "Công cụ đọc 30 trang đầu của mỗi PDF. Với tài liệu dài hơn, hãy tách thành các phần bằng Tách PDF trước."
+   }
+  ]
+ },
+ "split-video": {
+  "name": "Tách video",
+  "desc": "Cắt video thành các phần bằng nhau hoặc các phần có độ dài cố định. Bạn nhận các phần trong một tệp ZIP.",
+  "about": "Tách video dài thành các clip ngắn hơn, ví dụ các phần 30 giây cho trạng thái WhatsApp hoặc story Instagram, hoặc thành 2 đến 100 phần bằng nhau. Chế độ nhanh cắt mà không mã hóa lại, nên hoàn tất nhanh và giữ nguyên chất lượng gốc; chế độ chính xác mã hóa lại để có điểm cắt chính xác. Mọi thứ chạy trong trình duyệt của bạn.",
+  "title": "Tách video trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Tách video dài thành các phần bằng nhau hoặc độ dài cố định, như 30 giây cho trạng thái WhatsApp, nhận trong một tệp ZIP. Miễn phí và riêng tư.",
+  "tab": "Tách video"
+ },
+ "merge-audio": {
+  "name": "Ghép tệp âm thanh",
+  "desc": "Nối nhiều tệp âm thanh thành một, theo thứ tự bạn chọn, có thể thêm khoảng lặng giữa các tệp.",
+  "about": "Ghép các tệp MP3, WAV, M4A, FLAC hoặc OGG thành một bản nhạc duy nhất. Sắp xếp thứ tự bằng các mũi tên, thêm một khoảng lặng ngắn giữa chúng nếu muốn, rồi lưu kết quả thành MP3, M4A, WAV, OGG hoặc FLAC. Các tệp có tần số lấy mẫu khác nhau được tự động làm cho khớp. Âm thanh của bạn không bao giờ rời khỏi thiết bị.",
+  "title": "Ghép tệp âm thanh trực tuyến miễn phí | Toolz Baba",
+  "tab": "Ghép âm thanh"
+ },
+ "color-palette-generator": {
+  "name": "Tạo bảng màu",
+  "desc": "Chọn một màu và nhận bảng màu phù hợp: bổ sung, tương đồng, bộ ba và hơn thế, kèm thang sắc độ.",
+  "about": "Bắt đầu từ bất kỳ màu nào và dựng một bảng màu hài hòa theo các quy tắc lý thuyết màu sắc: bổ sung, tương đồng, bộ ba, bộ tứ, bổ sung chia đôi hoặc đơn sắc một tông. Xem giá trị HEX, RGB và HSL của từng màu cùng độ dễ đọc của chữ đen hoặc trắng trên màu đó, nhận thang sắc độ từ 50 đến 900, và sao chép bảng màu dưới dạng HEX, biến CSS, JSON hoặc màu Tailwind, hoặc lưu thành ảnh.",
+  "title": "Tạo bảng màu trực tuyến miễn phí | Toolz Baba",
+  "tab": "Tạo bảng màu"
+ },
+ "website-color-palette-extractor": {
+  "name": "Lấy bảng màu từ trang web",
+  "desc": "Nhập địa chỉ trang web và nhận các màu mà thiết kế của nó thực sự dùng, kèm mã HEX để sao chép.",
+  "about": "Tìm màu thương hiệu của bất kỳ trang web công khai nào: nhập địa chỉ, công cụ đọc trang và các bảng định kiểu của nó, đếm mọi màu, ưu tiên những màu dùng cho nền, chữ và thiết lập giao diện, rồi hiển thị các màu chính với giá trị HEX và RGB. Ẩn màu trắng, đen và xám để thấy các màu nhấn, rồi sao chép dưới dạng danh sách, biến CSS hoặc JSON. Các trang vẽ toàn bộ giao diện bằng JavaScript có thể hiển thị ít màu hơn.",
+  "title": "Lấy bảng màu từ trang web trực tuyến miễn phí | Toolz Baba",
+  "tab": "Từ trang web",
+  "privacy": "Máy chủ của chúng tôi lấy trang công khai mà bạn nhập và chỉ gửi lại danh sách màu của nó. Không có gì được lưu.",
+  "privacyTitle": "Chỉ trang công khai",
+  "badge": "Đọc trang công khai",
+  "how": [
+   "<b>Nhập</b> địa chỉ trang web",
+   "<b>Xem</b> các màu mà thiết kế của nó dùng",
+   "<b>Sao chép</b> những màu bạn muốn"
+  ]
+ },
+ "temporary-file-upload-direct-link-share": {
+  "name": "Chia sẻ tệp tạm thời (liên kết trực tiếp)",
+  "desc": "Tải tệp lên và nhận liên kết tải trực tiếp tự hết hạn sau một giờ, một ngày, một tuần hoặc một tháng.",
+  "about": "Chia sẻ tệp mà không cần tệp đính kèm email hay tài khoản: tải lên tối đa 5 tệp (mỗi tệp 20 MB), chọn liên kết có hiệu lực trong bao lâu và gửi liên kết trực tiếp. Bất kỳ ai có liên kết đều tải được tệp cho đến khi hết hạn, và bạn có thể xóa sớm hơn. Chương trình, tập lệnh và trang web không được phép, tệp luôn được tải xuống và không bao giờ mở bên trong trang, và không có gì được giữ lại sau thời gian bạn đã chọn.",
+  "title": "Chia sẻ tệp tạm thời (liên kết trực tiếp) trực tuyến miễn phí | Toolz Baba",
+  "tab": "Chia sẻ tệp tạm thời",
+  "privacy": "Tệp được lưu trên Cloudflare cho đến khi liên kết hết hạn. Bất kỳ ai có liên kết đều tải được tệp, nên đừng tải lên bất cứ thứ gì riêng tư.",
+  "privacyTitle": "Chia sẻ qua liên kết",
+  "badge": "Tệp tự động hết hạn",
+  "how": [
+   "<b>Thêm tệp của bạn</b> (tối đa 5, mỗi tệp 20 MB)",
+   "<b>Chọn</b> liên kết có hiệu lực trong bao lâu",
+   "<b>Sao chép</b> liên kết trực tiếp và chia sẻ"
+  ]
+ },
+ "markdown-to-pdf": {
+  "name": "Markdown sang PDF",
+  "desc": "Biến Markdown thành PDF gọn đẹp. Gõ hoặc dán, xem trước, chọn khổ giấy và tải về.",
+  "about": "Viết hoặc dán Markdown (tiêu đề, danh sách, bảng, mã, trích dẫn và liên kết) và nhận một PDF gọn gàng. Chọn A4 hoặc US Letter, kiểu chữ (hiện đại hoặc như sách), cỡ chữ và lề. Chữ Hindi và các chữ viết Ấn Độ khác cũng dùng được. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển Markdown sang PDF trực tuyến miễn phí | Toolz Baba",
+  "tab": "Markdown sang PDF",
+  "faq": [
+   {
+    "q": "Làm sao chuyển tệp Markdown sang PDF?",
+    "a": "Tải tệp .md lên hoặc dán nội dung, kiểm tra bản xem trước, chọn khổ giấy và bấm Tạo PDF. PDF được tạo ngay trên thiết bị của bạn."
+   },
+   {
+    "q": "Bảng và khối mã có được giữ lại không?",
+    "a": "Có. Bảng, khối mã, trích dẫn, danh sách, liên kết và tiêu đề đều có trong PDF. Hình ảnh lấy từ web không được thêm vào; hình ảnh viết dưới dạng địa chỉ dữ liệu thì có."
+   }
+  ]
+ },
+ "markdown-to-html": {
+  "name": "Markdown sang HTML",
+  "desc": "Biến Markdown thành một trang web hoàn chỉnh để mở, chia sẻ hoặc tải lên. Xem trước trực tiếp, không cần đăng ký.",
+  "about": "Dán hoặc tải Markdown lên và nhận một trang HTML hoàn chỉnh với kiểu dáng gọn đẹp riêng, sẵn sàng mở trong trình duyệt hoặc đưa lên trang web. Bạn cũng có thể sao chép HTML. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển Markdown sang HTML trực tuyến miễn phí | Toolz Baba",
+  "tab": "Markdown sang HTML",
+  "faq": [
+   {
+    "q": "Tôi có thể sao chép HTML thay vì tải về không?",
+    "a": "Có. Sau khi chuyển đổi, HTML hiển thị dưới kết quả cùng nút Sao chép."
+   },
+   {
+    "q": "Trang có cần thêm gì khác để hiển thị đúng không?",
+    "a": "Không. Kiểu dáng nằm ngay trong trang, nên trông giống nhau ở mọi nơi."
+   }
+  ]
+ },
+ "markdown-to-word": {
+  "name": "Markdown sang Word",
+  "desc": "Biến Markdown thành tài liệu Word (.docx) với tiêu đề, danh sách, liên kết và bảng thật.",
+  "about": "Chuyển Markdown thành tệp Word mở được trong Word, Google Docs và LibreOffice. Tiêu đề trở thành tiêu đề Word thật (nên ngăn điều hướng hoạt động), và danh sách, chữ đậm, chữ nghiêng, liên kết, trích dẫn, mã và bảng đều được giữ lại. Hình ảnh hiển thị dưới dạng phần mô tả. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển Markdown sang Word (DOCX) trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển Markdown thành tệp Word (DOCX) với tiêu đề, danh sách, bảng và liên kết thật, mở được trong Word và Google Docs. Miễn phí và riêng tư.",
+  "tab": "Markdown sang Word",
+  "faq": [
+   {
+    "q": "Tiêu đề có hoạt động trong ngăn điều hướng của Word không?",
+    "a": "Có. Chúng là các kiểu Heading 1 đến Heading 6 thật."
+   },
+   {
+    "q": "Hình ảnh có được đưa vào không?",
+    "a": "Chưa: hình ảnh hiển thị dưới dạng phần mô tả trong dấu ngoặc vuông."
+   }
+  ]
+ },
+ "html-to-markdown": {
+  "name": "HTML sang Markdown",
+  "desc": "Biến HTML thành Markdown gọn gàng: tiêu đề, danh sách, liên kết, mã và bảng. Dán vào hoặc tải tệp lên.",
+  "about": "Dán HTML hoặc tải tệp .html lên và nhận Markdown dễ đọc: tiêu đề, chữ đậm và nghiêng, danh sách, liên kết, khối mã và bảng. Tập lệnh và kiểu dáng bị bỏ qua. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển HTML sang Markdown trực tuyến miễn phí | Toolz Baba",
+  "tab": "HTML sang Markdown",
+  "faq": [
+   {
+    "q": "Bảng có được chuyển đổi không?",
+    "a": "Có, thành bảng Markdown (kiểu GitHub). Hàng đầu tiên trở thành tiêu đề cột."
+   },
+   {
+    "q": "Tập lệnh và CSS sẽ ra sao?",
+    "a": "Chúng bị loại bỏ, chỉ nội dung được chuyển đổi."
+   }
+  ]
+ },
+ "docx-to-markdown": {
+  "name": "Word (DOCX) sang Markdown",
+  "desc": "Biến tài liệu Word thành Markdown. Tiêu đề, danh sách, chữ đậm, liên kết và bảng được giữ lại; hình ảnh được lưu thành tệp.",
+  "about": "Thêm tệp .docx và nhận Markdown với tiêu đề, danh sách, chữ đậm và nghiêng, liên kết và bảng. Hình ảnh được lưu trong thư mục images (một tệp ZIP), nhúng vào Markdown, hoặc bỏ qua, tùy bạn chọn. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển Word (DOCX) sang Markdown trực tuyến miễn phí | Toolz Baba",
+  "tab": "Word sang Markdown",
+  "faq": [
+   {
+    "q": "Công cụ có dùng được với tệp .doc cũ không?",
+    "a": "Không, chỉ .docx. Hãy mở tệp cũ trong Word hoặc Google Docs và lưu thành .docx trước."
+   },
+   {
+    "q": "Hình ảnh sẽ ra sao?",
+    "a": "Mặc định chúng được lưu thành tệp trong thư mục images cạnh tệp .md, tất cả trong một tệp ZIP. Bạn cũng có thể nhúng chúng hoặc bỏ qua."
+   }
+  ]
+ },
+ "pdf-to-markdown": {
+  "name": "PDF sang Markdown",
+  "desc": "Biến PDF thành Markdown: tiêu đề từ các chữ lớn, danh sách và đoạn văn từ bố cục.",
+  "about": "Thêm PDF có chữ thật và nhận Markdown: chữ lớn hơn trở thành tiêu đề, danh sách gạch đầu dòng và đánh số được giữ lại, và các dòng được nối thành đoạn văn. Bảng và cột không được dựng lại, nên hãy kiểm tra kết quả. Bản scan không có chữ: hãy dùng Ảnh sang văn bản (OCR) trước. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển PDF sang Markdown trực tuyến miễn phí | Toolz Baba",
+  "tab": "PDF sang Markdown",
+  "faq": [
+   {
+    "q": "Sao PDF của tôi trống rỗng sau khi chuyển đổi?",
+    "a": "Có lẽ đó là bản scan (ảnh chụp của một trang). Hãy cho nó qua Ảnh sang văn bản (OCR) trước."
+   },
+   {
+    "q": "Bảng có được giữ lại không?",
+    "a": "Không dưới dạng bảng: chữ của chúng hiện ra thành các dòng. Hãy kiểm tra và chỉnh lại bảng bằng tay."
+   }
+  ]
+ },
+ "html-to-pdf": {
+  "name": "HTML sang PDF",
+  "desc": "Biến HTML thành PDF: dán mã hoặc tải tệp .html, xem trước và tải về.",
+  "about": "Dán HTML hoặc tải tệp .html lên và nhận một PDF. Hỗ trợ CSS cơ bản, bảng, danh sách và hình ảnh (dưới dạng địa chỉ dữ liệu). Tập lệnh không chạy, và hình ảnh hay bảng định kiểu từ web không được tải: hãy đặt CSS trong thẻ style. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển HTML sang PDF trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Biến HTML thành PDF: dán mã hoặc tải tệp .html, kiểm tra bản xem trước và tải về. Bảng, danh sách và CSS cơ bản đều dùng được. Miễn phí và riêng tư.",
+  "tab": "HTML sang PDF",
+  "faq": [
+   {
+    "q": "Sao một số hình ảnh bị thiếu?",
+    "a": "PDF được tạo trên thiết bị của bạn và không tải thứ gì từ web. Hãy dùng hình ảnh dưới dạng địa chỉ dữ liệu (base64) hoặc thêm chúng trong Trình chỉnh sửa PDF sau đó."
+   },
+   {
+    "q": "Tập lệnh có chạy không?",
+    "a": "Không. Chỉ trang như được viết mới được chuyển thành PDF."
+   }
+  ]
+ },
+ "excel-to-pdf": {
+  "name": "Excel sang PDF",
+  "desc": "Chuyển bảng tính Excel (XLSX, XLS, CSV, ODS) thành bảng PDF để chia sẻ và in. Chạy trong trình duyệt của bạn.",
+  "about": "Gửi bảng tính dưới dạng PDF khi mọi người chỉ cần đọc hoặc in: không ai vô tình sửa được các con số và nó mở được trên mọi điện thoại. Thêm tệp XLSX, XLS, CSV hoặc ODS rồi chuyển đổi. Mỗi sheet trở thành một bảng trên các trang ngang, với tên sheet làm tiêu đề khi có nhiều sheet. Các giá trị được giữ lại, nhưng màu sắc, kiểu ô và biểu đồ thì không, nên hãy kiểm tra PDF trước khi gửi. Tệp được chuyển đổi trong trình duyệt của bạn và không bị tải lên.",
+  "title": "Chuyển Excel sang PDF trực tuyến miễn phí | Toolz Baba",
+  "tab": "Excel sang PDF",
+  "faq": [
+   {
+    "q": "Làm sao chuyển Excel sang PDF?",
+    "a": "Thêm tệp XLSX, XLS, CSV hoặc ODS và bấm nút chuyển đổi, rồi tải PDF về."
+   },
+   {
+    "q": "Màu sắc và biểu đồ có được giữ lại không?",
+    "a": "Không. PDF hiển thị giá trị của mọi sheet dưới dạng bảng thuần. Để có bản sao chính xác với màu sắc và biểu đồ, hãy dùng Lưu dưới dạng PDF trong Excel hoặc Google Sheets."
+   },
+   {
+    "q": "Công cụ có dùng được với chữ Hindi không?",
+    "a": "Có. Chữ Hindi và các chữ viết Ấn Độ khác trong các ô hiển thị đúng trong PDF."
+   }
+  ]
+ },
+ "jpg-to-pdf": {
+  "name": "JPG sang PDF",
+  "desc": "Biến ảnh JPG thành một PDF. Chọn khổ giấy và thứ tự. Chạy trong trình duyệt của bạn.",
+  "about": "Ghép một hoặc nhiều ảnh JPG (JPEG) thành một PDF duy nhất. Chọn A4, US Letter, A5 hoặc kích thước của ảnh, đặt hướng giấy và lề, và sắp xếp lại thứ tự các trang. Dữ liệu JPG được đưa vào PDF mà không mất chất lượng. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển JPG sang PDF trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Biến một hoặc nhiều ảnh JPG thành một PDF duy nhất. Chọn A4, Letter hoặc kích thước ảnh, đặt thứ tự và lề. Miễn phí, không cần đăng ký, không tải tệp lên.",
+  "tab": "JPG sang PDF",
+  "faq": [
+   {
+    "q": "Làm sao chuyển JPG sang PDF?",
+    "a": "Thêm các ảnh JPG, sắp xếp thứ tự, chọn khổ giấy và bấm Tạo PDF."
+   },
+   {
+    "q": "Tôi có thể tạo một PDF từ nhiều ảnh JPG không?",
+    "a": "Có. Thêm tất cả và dùng các mũi tên để đặt thứ tự."
+   }
+  ]
+ },
+ "png-to-pdf": {
+  "name": "PNG sang PDF",
+  "desc": "Biến ảnh PNG thành một PDF. Giữ độ trong suốt. Chọn khổ giấy và thứ tự.",
+  "about": "Ghép một hoặc nhiều ảnh PNG thành một PDF duy nhất. Phần trong suốt vẫn trong suốt. Chọn A4, US Letter, A5 hoặc kích thước của ảnh, đặt hướng giấy và lề, và sắp xếp lại thứ tự các trang. Tệp của bạn luôn ở trên thiết bị: được chuyển đổi trong trình duyệt và không bao giờ bị tải lên.",
+  "title": "Chuyển PNG sang PDF trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Biến ảnh PNG thành một PDF và giữ độ trong suốt. Chọn khổ giấy, thứ tự và lề. Miễn phí, không cần đăng ký, chạy trong trình duyệt.",
+  "tab": "PNG sang PDF",
+  "faq": [
+   {
+    "q": "PNG sang PDF có giữ độ trong suốt không?",
+    "a": "Có. Vùng trong suốt vẫn trong suốt trong PDF."
+   },
+   {
+    "q": "Tôi có thể đưa nhiều PNG vào một PDF không?",
+    "a": "Có. Thêm tất cả và dùng các mũi tên để đặt thứ tự."
+   }
+  ]
+ },
+ "png-to-jpg": {
+  "name": "PNG sang JPG",
+  "desc": "Chuyển ảnh PNG sang JPG ngay trong trình duyệt. Chọn chất lượng và màu nền cho phần trong suốt.",
+  "about": "Tệp JPG thường nhỏ hơn nhiều so với tệp PNG, nên phù hợp hơn cho email, WhatsApp và biểu mẫu tải lên. Thêm ảnh PNG của bạn, chọn chất lượng (90 phần trăm nhìn giống bản gốc) và chuyển đổi. JPG không thể trong suốt, nên vùng trong suốt được tô bằng màu bạn chọn; mặc định là màu trắng. Bạn có thể chuyển tối đa 40 ảnh cùng lúc, và chúng được chuyển đổi trên thiết bị của bạn, nên không có gì bị tải lên.",
+  "title": "Chuyển PNG sang JPG trực tuyến miễn phí | Toolz Baba",
+  "tab": "PNG sang JPG",
+  "faq": [
+   {
+    "q": "Làm sao chuyển PNG sang JPG?",
+    "a": "Thêm các tệp PNG, kiểm tra JPG đã được chọn ở mục Chuyển sang, đặt chất lượng và bấm Chuyển đổi. Sau đó tải các tệp JPG về."
+   },
+   {
+    "q": "Nền trong suốt sẽ ra sao?",
+    "a": "JPG không hỗ trợ độ trong suốt, nên vùng trong suốt được tô bằng màu nền bạn chọn. Mặc định là màu trắng."
+   },
+   {
+    "q": "JPG có nhỏ hơn PNG không?",
+    "a": "Thường là có, thường nhỏ hơn nhiều lần với ảnh chụp và ảnh chụp màn hình nhiều màu."
+   }
+  ]
+ },
+ "jpg-to-png": {
+  "name": "JPG sang PNG",
+  "desc": "Chuyển ảnh JPG sang PNG ngay trong trình duyệt. Đầu ra không mất dữ liệu, tối đa 40 ảnh cùng lúc.",
+  "about": "PNG là định dạng không mất dữ liệu: khi ảnh của bạn đã là PNG, nó không mất thêm chất lượng khi bạn chỉnh sửa và lưu lại. Điều đó khiến PNG là lựa chọn tốt cho ảnh chụp màn hình, logo và những ảnh bạn muốn tiếp tục chỉnh sửa. Thêm các tệp JPG của bạn, kiểm tra PNG đã được chọn và chuyển đổi. Lưu ý rằng PNG tạo từ ảnh chụp thường lớn hơn JPG. Mọi thứ diễn ra trong trình duyệt của bạn, nên ảnh không bị tải lên.",
+  "title": "Chuyển JPG sang PNG trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển ảnh JPG sang PNG không mất dữ liệu trong trình duyệt, tối đa 40 ảnh cùng lúc. Miễn phí, không cần đăng ký, không tải tệp lên.",
+  "tab": "JPG sang PNG",
+  "faq": [
+   {
+    "q": "Làm sao đổi JPG thành PNG?",
+    "a": "Thêm các tệp JPG, đảm bảo PNG đã được chọn ở mục Chuyển sang và bấm Chuyển đổi. Tải các tệp PNG về khi chúng sẵn sàng."
+   },
+   {
+    "q": "Chuyển JPG sang PNG có cải thiện chất lượng không?",
+    "a": "Không. Nó giữ nguyên chất lượng mà JPG đã có, nhưng ngăn việc mất thêm chất lượng khi bạn chỉnh sửa và lưu lại ảnh."
+   },
+   {
+    "q": "Sao PNG của tôi lớn hơn JPG?",
+    "a": "PNG lưu chính xác mọi điểm ảnh, trong khi JPG bỏ đi những chi tiết bạn khó nhận ra. Với ảnh chụp, điều đó khiến PNG lớn hơn."
+   }
+  ]
+ },
+ "webp-to-jpg": {
+  "name": "WebP sang JPG",
+  "desc": "Chuyển ảnh WebP sang JPG để mở được ở mọi nơi. Chọn chất lượng. Chạy trong trình duyệt của bạn.",
+  "about": "Nhiều trang web hiện cung cấp ảnh dưới dạng WebP, mà một số ứng dụng, điện thoại đời cũ và biểu mẫu tải lên vẫn không chấp nhận. Hãy chuyển chúng sang JPG, mở được ở mọi nơi. Thêm các tệp WebP của bạn, chọn chất lượng và chuyển tối đa 40 tệp cùng lúc. Phần trong suốt của WebP được tô bằng màu nền bạn chọn, vì JPG không thể trong suốt. Ảnh của bạn không bao giờ rời khỏi thiết bị.",
+  "title": "Chuyển WebP sang JPG trực tuyến miễn phí | Toolz Baba",
+  "tab": "WebP sang JPG",
+  "faq": [
+   {
+    "q": "Làm sao chuyển WebP sang JPG?",
+    "a": "Thêm các tệp WebP, giữ nguyên JPG ở mục Chuyển sang, chọn chất lượng và bấm Chuyển đổi."
+   },
+   {
+    "q": "Sao tôi không mở được tệp WebP?",
+    "a": "Một số chương trình và trang web cũ chưa hỗ trợ WebP. Bản sao JPG mở được trong hầu như mọi ứng dụng."
+   }
+  ]
+ },
+ "heic-to-jpg": {
+  "name": "HEIC sang JPG",
+  "desc": "Chuyển ảnh HEIC từ iPhone sang JPG ngay trong trình duyệt. Không cần ứng dụng, không tải lên, tối đa 40 ảnh cùng lúc.",
+  "about": "iPhone lưu ảnh dưới dạng HEIC, mà Windows, nhiều trang web và biểu mẫu của cơ quan nhà nước không chấp nhận. Hãy chuyển chúng sang JPG tại đây: thêm ảnh HEIC của bạn, giữ nguyên JPG và bấm Chuyển đổi. Bạn có thể chọn chất lượng và chuyển tối đa 40 ảnh cùng lúc. Ảnh được chuyển đổi ngay trên điện thoại hoặc máy tính của bạn, nên không bao giờ bị tải lên máy chủ.",
+  "title": "Chuyển HEIC sang JPG trực tuyến miễn phí: ảnh iPhone | Toolz Baba",
+  "tab": "HEIC sang JPG",
+  "faq": [
+   {
+    "q": "Làm sao chuyển HEIC sang JPG trên Windows?",
+    "a": "Mở trang này, thêm các tệp HEIC, giữ nguyên JPG và bấm Chuyển đổi. Không cần ứng dụng hay tiện ích mở rộng."
+   },
+   {
+    "q": "Công cụ có chạy trên iPhone không?",
+    "a": "Có. Mở trang trong Safari, chạm Chọn tệp, chọn ảnh và chuyển đổi."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Việc chuyển đổi chạy trong trình duyệt của bạn và ảnh luôn ở trên thiết bị của bạn."
+   }
+  ]
+ },
+ "jpg-to-webp": {
+  "name": "JPG sang WebP",
+  "desc": "Chuyển ảnh JPG và PNG sang WebP để trang web nhanh hơn. Chọn chất lượng, chuyển nhiều ảnh cùng lúc.",
+  "about": "Ảnh WebP thường nhỏ hơn JPG 25 đến 35 phần trăm ở cùng chất lượng nhìn thấy được, nên trang tải nhanh hơn và dùng ít dữ liệu hơn. Thêm các tệp JPG hoặc PNG của bạn, giữ nguyên WebP, chọn chất lượng (80 đến 90 phần trăm là khoảng tốt) và chuyển tối đa 40 tệp cùng lúc. WebP giữ được độ trong suốt, nên cũng thay thế được PNG cho logo và đồ họa. Mọi thứ chạy trong trình duyệt của bạn.",
+  "title": "Chuyển JPG sang WebP trực tuyến miễn phí | Toolz Baba",
+  "tab": "JPG sang WebP",
+  "faq": [
+   {
+    "q": "WebP có tốt hơn JPG không?",
+    "a": "Với trang web thì thường là có: tệp nhỏ hơn ở cùng chất lượng, lại còn có độ trong suốt. Để chia sẻ với người dùng ứng dụng cũ, JPG an toàn hơn."
+   },
+   {
+    "q": "Tôi có thể chuyển PNG sang WebP ở đây không?",
+    "a": "Có. Thêm các tệp PNG theo cách tương tự; vùng trong suốt vẫn trong suốt trong WebP."
+   }
+  ]
+ },
+ "pdf-to-jpg": {
+  "name": "PDF sang JPG",
+  "desc": "Biến mọi trang PDF thành ảnh JPG. Chọn chất lượng (DPI) và các trang. Chạy trong trình duyệt của bạn.",
+  "about": "Chuyển các trang PDF thành ảnh JPG để chia sẻ trên WhatsApp, đăng trực tuyến hoặc đưa vào bài thuyết trình. Thêm PDF, giữ nguyên JPG, chọn chất lượng từ 72 DPI (tệp nhỏ) đến 300 DPI (chất lượng in) và chuyển tất cả các trang hoặc chỉ những trang bạn cần, như 1-3,5. Nhiều trang được trả về cùng nhau trong một tệp ZIP. PDF được xử lý trên thiết bị của bạn và không bị tải lên.",
+  "title": "Chuyển PDF sang JPG trực tuyến miễn phí: chất lượng cao | Toolz Baba",
+  "tab": "PDF sang JPG",
+  "faq": [
+   {
+    "q": "Làm sao chuyển PDF sang JPG?",
+    "a": "Thêm PDF, giữ nguyên JPG, chọn DPI và các trang rồi bấm Chuyển thành ảnh."
+   },
+   {
+    "q": "Tôi có thể chỉ chuyển một trang không?",
+    "a": "Có. Nhập số trang vào ô Trang, ví dụ 3, hoặc một khoảng như 2-4."
+   },
+   {
+    "q": "Tôi nên chọn DPI nào?",
+    "a": "150 DPI sắc nét trên màn hình. Dùng 300 DPI để in, và 72 DPI cho tệp nhỏ nhất."
+   }
+  ]
+ },
+ "pdf-to-png": {
+  "name": "PDF sang PNG",
+  "desc": "Biến các trang PDF thành ảnh PNG sắc nét, không mất dữ liệu. Chọn DPI và các trang. Chạy trong trình duyệt của bạn.",
+  "about": "PNG giữ chữ và đường nét sắc nét hoàn hảo, nên là lựa chọn tốt nhất cho các trang có sơ đồ, bảng hoặc chữ nhỏ. Thêm PDF, giữ nguyên PNG, chọn độ phân giải và các trang rồi chuyển đổi. Nhiều trang đi cùng nhau trong một tệp ZIP. Việc chuyển đổi chạy trong trình duyệt của bạn, nên tài liệu luôn riêng tư.",
+  "title": "Chuyển PDF sang PNG trực tuyến miễn phí | Toolz Baba",
+  "tab": "PDF sang PNG",
+  "faq": [
+   {
+    "q": "PNG hay JPG cho các trang PDF?",
+    "a": "PNG cho các trang chủ yếu là chữ và hình vẽ (sắc nét hơn, không bị nhòe quanh chữ), JPG cho các trang chủ yếu là ảnh chụp (tệp nhỏ hơn)."
+   },
+   {
+    "q": "Tôi có thể chọn các trang cần chuyển không?",
+    "a": "Có. Nhập all, hoặc số trang và khoảng như 1-3,5."
+   }
+  ]
+ },
+ "rotate-pdf": {
+  "name": "Xoay PDF",
+  "desc": "Xoay một trang hoặc mọi trang của PDF rồi lưu lại. Xem ảnh thu nhỏ, bấm để xoay. Chạy trong trình duyệt của bạn.",
+  "about": "Sửa các trang scan bị ngược hoặc nằm ngang. Thêm PDF và bạn thấy mọi trang dưới dạng ảnh thu nhỏ: bấm nút xoay của một trang để xoay 90 độ, bao nhiêu lần tùy ý, rồi lưu. Phép xoay được lưu trong PDF mới, nên nó mở đúng chiều ở mọi nơi. Bạn cũng có thể xóa hoặc sắp xếp lại các trang ngay trên cùng màn hình. PDF của bạn không bao giờ rời khỏi thiết bị.",
+  "title": "Xoay trang PDF trực tuyến miễn phí: lưu vĩnh viễn | Toolz Baba",
+  "tab": "Xoay PDF",
+  "faq": [
+   {
+    "q": "Làm sao xoay PDF và lưu lại?",
+    "a": "Thêm PDF, bấm nút xoay trên các trang bạn muốn xoay, rồi bấm lưu để tải PDF mới về."
+   },
+   {
+    "q": "Tôi có thể chỉ xoay một trang không?",
+    "a": "Có. Mỗi trang có nút xoay riêng, nên bạn chỉ xoay những trang cần xoay."
+   },
+   {
+    "q": "Phép xoay có vĩnh viễn không?",
+    "a": "Có. Nó được lưu trong tệp PDF mới, chứ không chỉ trong trình xem."
+   }
+  ]
+ },
+ "delete-pdf-pages": {
+  "name": "Xóa trang PDF",
+  "desc": "Xóa trang khỏi PDF: xem ảnh thu nhỏ, bấm các trang cần xóa, lưu. Chạy trong trình duyệt của bạn.",
+  "about": "Xóa các trang trống, quảng cáo hoặc những trang bạn không muốn chia sẻ. Thêm PDF để xem mọi trang dưới dạng ảnh thu nhỏ, bấm xóa trên các trang cần bỏ, và lưu một PDF mới chỉ có những trang bạn giữ lại. Bạn cũng có thể xoay và sắp xếp lại các trang trước khi lưu. Không có gì bị tải lên: PDF được chỉnh sửa trong trình duyệt của bạn.",
+  "title": "Xóa trang khỏi PDF trực tuyến miễn phí | Toolz Baba",
+  "tab": "Xóa trang",
+  "faq": [
+   {
+    "q": "Làm sao xóa một trang khỏi PDF?",
+    "a": "Thêm PDF, bấm nút xóa trên trang bạn muốn bỏ và lưu PDF mới."
+   },
+   {
+    "q": "Tệp gốc có bị thay đổi không?",
+    "a": "Không. Bạn tải về một PDF mới; tệp gốc vẫn như cũ."
+   }
+  ]
+ },
+ "extract-pdf-pages": {
+  "name": "Trích xuất trang PDF",
+  "desc": "Sao chép các trang đã chọn của PDF vào một PDF mới, ví dụ 1-3,5. Chạy trong trình duyệt của bạn.",
+  "about": "Chỉ cần vài trang từ một PDF dài, như một chương hoặc các trang đã ký của hợp đồng? Thêm PDF, nhập các trang bạn muốn (ví dụ 1-3,5,8-10) và nhận một PDF mới chỉ có những trang đó, theo đúng thứ tự đó. Tệp gốc không bị đụng đến, và tệp được xử lý trên thiết bị của bạn.",
+  "title": "Trích xuất trang từ PDF trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Sao chép các trang đã chọn của PDF, như 1-3,5, vào một PDF mới theo đúng thứ tự. Tệp gốc không bị đụng đến. Miễn phí, chạy trong trình duyệt.",
+  "tab": "Trích xuất trang",
+  "faq": [
+   {
+    "q": "Làm sao trích xuất trang từ PDF?",
+    "a": "Thêm PDF, nhập số trang hoặc khoảng trang vào ô Trang, ví dụ 2-4,7, rồi bấm Tách PDF."
+   },
+   {
+    "q": "Tôi có thể đặt các trang vào các tệp riêng không?",
+    "a": "Có. Đổi Cách tách thành Khoảng tùy chỉnh, và mỗi khoảng trở thành một PDF riêng."
+   }
+  ]
+ },
+ "wav-to-mp3": {
+  "name": "Chuyển WAV sang MP3",
+  "desc": "Chuyển âm thanh WAV sang MP3 ngay trong trình duyệt. Tệp MP3 nhỏ hơn WAV khoảng mười lần.",
+  "about": "Biến tệp WAV thành MP3: thêm một tệp hoặc tối đa 20 tệp, chọn chất lượng và tải các tệp MP3 về. Tệp MP3 nhỏ hơn WAV khoảng mười lần. Việc chuyển đổi chạy ngay trên thiết bị của bạn, nên âm thanh không bao giờ bị tải lên và không cần đăng ký.",
+  "title": "Chuyển WAV sang MP3 trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển WAV sang MP3 trong trình duyệt, tối đa 20 tệp cùng lúc. MP3 nhỏ hơn WAV khoảng mười lần. Miễn phí, không tải tệp lên.",
+  "tab": "WAV sang MP3",
+  "dropLabel": "Thả các tệp WAV của bạn vào đây"
+ },
+ "m4a-to-mp3": {
+  "name": "Chuyển M4A sang MP3",
+  "desc": "Chuyển âm thanh M4A sang MP3 ngay trong trình duyệt. Rất hợp cho bản ghi âm iPhone và ghi chú thoại.",
+  "about": "Biến tệp M4A thành MP3: thêm một tệp hoặc tối đa 20 tệp, chọn chất lượng và tải các tệp MP3 về. Rất hợp cho bản ghi âm iPhone và ghi chú thoại. Việc chuyển đổi chạy ngay trên thiết bị của bạn, nên âm thanh không bao giờ bị tải lên và không cần đăng ký.",
+  "title": "Chuyển M4A sang MP3 trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển M4A sang MP3 trong trình duyệt, tối đa 20 tệp cùng lúc. Hợp cho bản ghi âm iPhone, ghi chú thoại. Miễn phí, không tải tệp lên.",
+  "tab": "M4A sang MP3",
+  "dropLabel": "Thả các tệp M4A của bạn vào đây"
+ },
+ "mp3-to-wav": {
+  "name": "Chuyển MP3 sang WAV",
+  "desc": "Chuyển âm thanh MP3 sang WAV ngay trong trình duyệt. WAV mở được trong mọi trình chỉnh sửa âm thanh.",
+  "about": "Biến tệp MP3 thành WAV: thêm một tệp hoặc tối đa 20 tệp, chọn chất lượng và tải các tệp WAV về. WAV mở được trong mọi trình chỉnh sửa âm thanh. Việc chuyển đổi chạy ngay trên thiết bị của bạn, nên âm thanh không bao giờ bị tải lên và không cần đăng ký.",
+  "title": "Chuyển MP3 sang WAV trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển MP3 sang WAV trong trình duyệt, tối đa 20 tệp cùng lúc. WAV mở được trong mọi trình chỉnh sửa âm thanh. Miễn phí, không tải tệp lên.",
+  "tab": "MP3 sang WAV",
+  "dropLabel": "Thả các tệp MP3 của bạn vào đây"
+ },
+ "flac-to-mp3": {
+  "name": "Chuyển FLAC sang MP3",
+  "desc": "Chuyển âm thanh FLAC sang MP3 ngay trong trình duyệt. Nghe nhạc không mất dữ liệu của bạn trên mọi thiết bị.",
+  "about": "Biến tệp FLAC thành MP3: thêm một tệp hoặc tối đa 20 tệp, chọn chất lượng và tải các tệp MP3 về. Nghe nhạc không mất dữ liệu của bạn trên mọi thiết bị. Việc chuyển đổi chạy ngay trên thiết bị của bạn, nên âm thanh không bao giờ bị tải lên và không cần đăng ký.",
+  "title": "Chuyển FLAC sang MP3 trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển FLAC sang MP3 trong trình duyệt, tối đa 20 tệp cùng lúc. Nghe nhạc FLAC trên mọi thiết bị. Miễn phí, không tải tệp lên.",
+  "tab": "FLAC sang MP3",
+  "dropLabel": "Thả các tệp FLAC của bạn vào đây"
+ },
+ "ogg-to-mp3": {
+  "name": "Chuyển OGG sang MP3",
+  "desc": "Chuyển âm thanh OGG sang MP3 ngay trong trình duyệt. Dùng được cả với tin nhắn thoại WhatsApp (OPUS).",
+  "about": "Biến tệp OGG thành MP3: thêm một tệp hoặc tối đa 20 tệp, chọn chất lượng và tải các tệp MP3 về. Dùng được cả với tin nhắn thoại WhatsApp (OPUS). Việc chuyển đổi chạy ngay trên thiết bị của bạn, nên âm thanh không bao giờ bị tải lên và không cần đăng ký.",
+  "title": "Chuyển OGG sang MP3 trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển OGG sang MP3 trong trình duyệt, tối đa 20 tệp cùng lúc. Dùng được cả với tin nhắn thoại WhatsApp. Miễn phí, không tải tệp lên.",
+  "tab": "OGG sang MP3",
+  "dropLabel": "Thả các tệp OGG của bạn vào đây"
+ },
+ "aac-to-mp3": {
+  "name": "Chuyển AAC sang MP3",
+  "desc": "Chuyển âm thanh AAC sang MP3 ngay trong trình duyệt. Phát được trên mọi điện thoại, xe hơi và loa.",
+  "about": "Biến tệp AAC thành MP3: thêm một tệp hoặc tối đa 20 tệp, chọn chất lượng và tải các tệp MP3 về. Phát được trên mọi điện thoại, xe hơi và loa. Việc chuyển đổi chạy ngay trên thiết bị của bạn, nên âm thanh không bao giờ bị tải lên và không cần đăng ký.",
+  "title": "Chuyển AAC sang MP3 trực tuyến miễn phí | Toolz Baba",
+  "metaDesc": "Chuyển AAC sang MP3 trong trình duyệt, tối đa 20 tệp cùng lúc. Phát được trên mọi điện thoại, xe hơi và loa. Miễn phí, không tải tệp lên.",
+  "tab": "AAC sang MP3",
+  "dropLabel": "Thả các tệp AAC của bạn vào đây"
+ }
+}

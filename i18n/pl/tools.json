@@ -1,0 +1,3036 @@
+{
+ "_categories": {
+  "image": "Obrazy",
+  "ai": "AI i poprawa jakości",
+  "pdf": "PDF i dokumenty",
+  "video": "Wideo i audio",
+  "dev": "Tekst i programowanie",
+  "util": "Narzędzia"
+ },
+ "compress-image": {
+  "name": "Kompresja obrazów",
+  "desc": "Zmniejsz pliki JPG, PNG i WebP prawie bez widocznej straty jakości.",
+  "about": "Zmniejsz rozmiar obrazów JPG, PNG, WebP, GIF, AVIF i HEIC. Wybierz jakość i format wyjściowy, ogranicz szerokość i kompresuj do 40 obrazów naraz. Pliki PNG można zmniejszyć jeszcze bardziej, ograniczając liczbę kolorów, a wynik pokazuje dokładnie, o ile zmalał każdy plik.",
+  "title": "Kompresuj zdjęcia online za darmo: zmniejsz rozmiar w KB | Toolz Baba",
+  "metaDesc": "Kompresuj zdjęcia JPG, PNG, WebP i HEIC bez widocznej straty jakości. Do 40 naraz lub do dokładnego rozmiaru, np. 50 KB. Za darmo, bez rejestracji.",
+  "steps": [
+   "Dodaj obrazy: JPG, PNG, WebP, GIF, AVIF lub HEIC, do 40 naraz.",
+   "Ustaw jakość (70–80 procent zwykle wygląda tak samo) oraz, jeśli chcesz, format wyjściowy i maksymalną szerokość.",
+   "Kliknij „Kompresuj” i pobierz mniejsze pliki."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmniejszyć rozmiar zdjęcia bez utraty jakości?",
+    "a": "Ustaw jakość na 70–80 procent: różnica jest zwykle niewidoczna, a plik często jest kilka razy mniejszy. Ustawienie maksymalnej szerokości, np. 1920 px, jeszcze bardziej zmniejszy bardzo duże zdjęcia."
+   },
+   {
+    "q": "Jak skompresować obraz do dokładnego rozmiaru, np. 50 KB?",
+    "a": "Użyj przycisków rozmiaru na karcie JPG / JPEG (od 10 KB do 2 MB) albo narzędzia „Rozmiar zdjęcia i podpisu w KB” do formularzy egzaminacyjnych i rekrutacyjnych, które wymagają też dokładnych wymiarów w pikselach."
+   },
+   {
+    "q": "Czy mogę skompresować wiele obrazów naraz?",
+    "a": "Tak, do 40 obrazów jednocześnie."
+   },
+   {
+    "q": "Czy moje obrazy są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "resize-image": {
+  "name": "Zmiana rozmiaru obrazu",
+  "desc": "Zmieniaj rozmiar w pikselach, procentach lub dopasuj do ramki. Obsługa wielu plików.",
+  "about": "Zmień rozmiar jednego lub wielu obrazów według szerokości, wysokości, procentów albo dopasowania do ramki. Zmniejszanie odbywa się etapami, dzięki czemu tekst i cienkie linie pozostają ostre. Wszystko dzieje się w Twojej przeglądarce, a wynik możesz zapisać jako PNG, JPG lub WebP.",
+  "title": "Zmień rozmiar zdjęcia online za darmo: wymiary w pikselach | Toolz Baba",
+  "metaDesc": "Zmień rozmiar zdjęć w pikselach, procentach lub do ramki, jedno lub wiele naraz, i zapisz jako JPG, PNG lub WebP. Ostry wynik, w przeglądarce.",
+  "steps": [
+   "Dodaj jeden lub wiele obrazów.",
+   "Wybierz nowy rozmiar według szerokości, wysokości, procentów lub ramki, do której obraz ma się zmieścić.",
+   "Zapisz jako PNG, JPG lub WebP."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmienić rozmiar obrazu bez utraty jakości?",
+    "a": "Zmniejszony obraz pozostaje ostry: narzędzie skaluje go etapami, więc tekst i cienkie linie są wyraźne. Duże powiększenie powoduje rozmycie, do tego użyj narzędzia Powiększanie obrazów."
+   },
+   {
+    "q": "Czy mogę zmienić rozmiar wielu obrazów naraz?",
+    "a": "Tak, dodaj kilka obrazów, a wszystkie zostaną zmienione z tymi samymi ustawieniami."
+   },
+   {
+    "q": "Jak zmienić rozmiar do wielkości pliku w KB?",
+    "a": "Użyj narzędzia Rozmiar zdjęcia i podpisu w KB, które ustawia też dokładne wymiary w pikselach lub cm, o które pytają formularze."
+   }
+  ]
+ },
+ "crop-image": {
+  "name": "Przycinanie obrazu",
+  "desc": "Przeciągnij, aby przyciąć, z gotowymi proporcjami (1:1, 16:9, 4:5...).",
+  "about": "Przytnij obraz, przeciągając ramkę, lub wpisz dokładne wartości w pikselach. Zablokuj kształt na 1:1, 4:3, 3:2, 16:9, 9:16, 4:5 lub 3:4, a potem zapisz jako PNG, JPG lub WebP. Przycinanie odbywa się w przeglądarce w pełnej rozdzielczości.",
+  "title": "Przytnij zdjęcie online za darmo: 1:1, 16:9, 4:5 i własne | Toolz Baba",
+  "metaDesc": "Przycinaj zdjęcia, przeciągając ramkę lub wpisując piksele, z proporcjami 1:1, 4:3, 16:9, 9:16 i 4:5. Pełna rozdzielczość, za darmo, bez przesyłania.",
+  "steps": [
+   "Dodaj obraz.",
+   "Przeciągnij ramkę lub wpisz dokładne wartości w pikselach i, jeśli trzeba, zablokuj proporcje, np. 1:1 lub 16:9.",
+   "Zapisz jako PNG, JPG lub WebP."
+  ],
+  "faq": [
+   {
+    "q": "Jak przyciąć zdjęcie do kwadratu?",
+    "a": "Dodaj zdjęcie, wybierz proporcje 1:1 i przeciągnij ramkę nad fragment, który chcesz zachować."
+   },
+   {
+    "q": "Czy przycinanie pogarsza jakość?",
+    "a": "Nie. Przycinanie odbywa się w pełnej rozdzielczości; usuwane są tylko fragmenty poza ramką."
+   }
+  ]
+ },
+ "convert-image": {
+  "name": "Konwerter formatów obrazów",
+  "desc": "Konwertuj między JPG, PNG, WebP, AVIF, GIF, BMP, TIFF i ICO. Otwiera też HEIC.",
+  "about": "Konwertuj obrazy między formatami JPG, PNG, WebP, AVIF, GIF, BMP, TIFF i ICO. Zdjęcia HEIC z iPhone’a są obsługiwane jako plik wejściowy. Wybierz jakość i kolor tła dla formatów, które nie obsługują przezroczystości. Konwertuj do 40 plików naraz.",
+  "title": "Konwerter obrazów online za darmo: JPG, PNG, WebP, HEIC | Toolz Baba",
+  "metaDesc": "Konwertuj obrazy między JPG, PNG, WebP, AVIF, GIF, BMP, TIFF i ICO, także zdjęcia HEIC z iPhone’a. Do 40 naraz, za darmo i prywatnie.",
+  "steps": [
+   "Dodaj obrazy: JPG, PNG, WebP, HEIC i inne, do 40 naraz.",
+   "Wybierz format w polu „Konwertuj na” oraz jakość.",
+   "Kliknij „Konwertuj” i pobierz nowe pliki."
+  ],
+  "faq": [
+   {
+    "q": "Na jakie formaty mogę konwertować?",
+    "a": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF i ICO."
+   },
+   {
+    "q": "Czy mogę konwertować zdjęcia HEIC z iPhone’a?",
+    "a": "Tak. Zdjęcia HEIC możesz tu dodać i przekonwertować na JPG lub dowolny inny format."
+   },
+   {
+    "q": "Co dzieje się z przezroczystością przy konwersji na JPG?",
+    "a": "JPG i BMP nie obsługują przezroczystości, więc przezroczyste obszary są wypełniane wybranym kolorem tła."
+   },
+   {
+    "q": "Czy moje obrazy są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Wszystkie formaty"
+ },
+ "rotate-flip": {
+  "name": "Obracanie i odbijanie",
+  "desc": "Obracaj o 90° lub dowolny kąt oraz odbijaj w poziomie lub w pionie.",
+  "about": "Obróć obraz o 90, 180 lub 270 stopni, wyprostuj go o kilka stopni, aby wyrównać horyzont, i odbij w poziomie lub w pionie. Podgląd aktualizuje się na żywo, a praca odbywa się w Twojej przeglądarce.",
+  "title": "Obróć zdjęcie online za darmo: odbij i wyprostuj | Toolz Baba",
+  "metaDesc": "Obracaj zdjęcia o 90, 180 lub 270 stopni, wyprostuj krzywy horyzont o kilka stopni albo odbij je. Podgląd na żywo, za darmo, działa w przeglądarce.",
+  "steps": [
+   "Dodaj obraz.",
+   "Obróć go o 90, 180 lub 270 stopni, wyprostuj o kilka stopni lub odbij.",
+   "Pobierz wynik."
+  ],
+  "faq": [
+   {
+    "q": "Jak wyprostować krzywe zdjęcie?",
+    "a": "Użyj ustawienia dokładnego kąta, aby obrócić je o kilka stopni, aż horyzont będzie równy; podgląd aktualizuje się na żywo."
+   },
+   {
+    "q": "Czy mogę odbić selfie, które wygląda jak lustrzane?",
+    "a": "Tak. Odbij je w poziomie, aby zamienić lewą i prawą stronę."
+   },
+   {
+    "q": "Czy moje zdjęcia są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "social-media-image-resizer": {
+  "name": "Rozmiar obrazów do social mediów",
+  "desc": "Jeden obraz → właściwy rozmiar dla Instagrama, Facebooka, X, LinkedIna, YouTube i Pinteresta.",
+  "about": "Zamień jeden obraz na właściwy rozmiar do postów, relacji, okładek i zdjęć profilowych na Instagramie, Facebooku, X (Twitter), LinkedInie, YouTube, Pintereście, TikToku i WhatsAppie. Wybierz przycięcie z wypełnieniem lub dopasowanie całego obrazu z rozmytym tłem, a potem pobierz wszystkie rozmiary w jednym pliku ZIP.",
+  "title": "Rozmiar zdjęć do social mediów: Instagram, YouTube, WhatsApp | Toolz Baba",
+  "metaDesc": "Zmień rozmiar obrazu dla postów, relacji i okładek na Instagramie, Facebooku, X, LinkedInie, YouTube, TikToku i WhatsAppie. Wszystko w jednym ZIP.",
+  "steps": [
+   "Dodaj jeden obraz.",
+   "Wybierz potrzebne platformy i rozmiary oraz tryb: przycięcie z wypełnieniem lub dopasowanie z rozmytym tłem.",
+   "Pobierz wszystkie rozmiary razem w jednym pliku ZIP."
+  ],
+  "faq": [
+   {
+    "q": "Jakie platformy są uwzględnione?",
+    "a": "Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok i WhatsApp: posty, relacje, okładki i zdjęcia profilowe."
+   },
+   {
+    "q": "Co zrobić, jeśli mój obraz ma niewłaściwy kształt?",
+    "a": "Wybierz przycięcie z wypełnieniem rozmiaru albo dopasowanie, aby zachować cały obraz z jego rozmytą kopią w tle."
+   },
+   {
+    "q": "Czy moje obrazy są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "thumbnail-generator": {
+  "name": "Generator miniatur",
+  "desc": "Stwórz miniaturę z obrazu lub dowolnej klatki wideo, opcjonalnie z tytułem.",
+  "about": "Stwórz miniaturę z obrazu lub z dowolnej klatki wideo. Wybierz rozmiar, np. 1280x720, dodaj nagłówek z obrysem, podkręć kolory i zmieść plik w limicie rozmiaru, np. 2 MB w YouTube. Działa w przeglądarce, więc Twoje wideo nigdy nie opuszcza urządzenia.",
+  "title": "Kreator miniatur YouTube online za darmo (1280x720) | Toolz Baba",
+  "metaDesc": "Stwórz miniaturę 1280x720 z obrazu lub dowolnej klatki wideo, dodaj wyrazisty nagłówek, podkręć kolory i zmieść się w limicie 2 MB YouTube. Za darmo.",
+  "steps": [
+   "Dodaj obraz albo wideo i wybierz potrzebną klatkę.",
+   "Wybierz rozmiar, np. 1280x720, i dodaj nagłówek.",
+   "Pobierz miniaturę zmieszczoną w limicie rozmiaru, np. 2 MB w YouTube."
+  ],
+  "faq": [
+   {
+    "q": "Jaki rozmiar ma miniatura YouTube?",
+    "a": "1280x720 pikseli (16:9), a plik musi ważyć poniżej 2 MB. Oba ustawienia są tu wybrane za Ciebie."
+   },
+   {
+    "q": "Czy mogę wziąć klatkę z mojego wideo?",
+    "a": "Tak. Dodaj wideo i wybierz moment, który ma być miniaturą."
+   },
+   {
+    "q": "Czy moje wideo jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc Twoje wideo nigdy nie opuszcza urządzenia."
+   }
+  ]
+ },
+ "exif-remover": {
+  "name": "Usuwanie danych EXIF",
+  "desc": "Usuń lokalizację GPS oraz dane o aparacie i dacie ze zdjęć przed udostępnieniem.",
+  "about": "Zdjęcia często zawierają ukryte informacje, takie jak lokalizacja GPS, model aparatu i czas wykonania. To narzędzie usuwa te metadane. Pliki JPEG są czyszczone bez ponownego kodowania, więc jakość obrazu się nie zmienia, a Ty widzisz, co znaleziono w każdym pliku.",
+  "title": "Usuń dane EXIF i lokalizację GPS ze zdjęć za darmo | Toolz Baba",
+  "metaDesc": "Usuń lokalizację GPS, model aparatu i datę ze zdjęć przed udostępnieniem. JPEG zachowują pełną jakość. Zobacz, co było ukryte. Za darmo, bez przesyłania.",
+  "steps": [
+   "Dodaj zdjęcia.",
+   "Zobacz ukryte informacje znalezione w każdym z nich, np. lokalizację GPS i aparat.",
+   "Usuń metadane i pobierz czyste kopie."
+  ],
+  "faq": [
+   {
+    "q": "Czym są dane EXIF?",
+    "a": "To ukryte informacje zapisane w zdjęciu: często dokładna lokalizacja GPS, model aparatu lub telefonu oraz data i godzina wykonania."
+   },
+   {
+    "q": "Czy usunięcie EXIF pogarsza jakość zdjęcia?",
+    "a": "Nie. Pliki JPEG są czyszczone bez ponownego kodowania, więc sam obraz pozostaje nietknięty."
+   },
+   {
+    "q": "Czy moje zdjęcia są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "add-watermark-to-image": {
+  "name": "Dodawanie znaku wodnego",
+  "desc": "Dodaj znak wodny z tekstu lub logo. Ustaw położenie, powtarzanie i przezroczystość. Obsługa wielu plików.",
+  "about": "Dodaj do obrazów znak wodny z tekstu lub logo. Wybierz położenie albo powtórz go na całym obrazie, ustaw przezroczystość, rozmiar i obrót oraz przetwarzaj wiele obrazów naraz. Wszystko działa w Twojej przeglądarce.",
+  "title": "Dodaj znak wodny do zdjęć online za darmo: tekst lub logo | Toolz Baba",
+  "metaDesc": "Dodaj znak wodny z tekstu lub logo do wielu zdjęć naraz. Ustaw położenie, rozmiar, przezroczystość i kąt albo powtórz go. Za darmo, bez rejestracji.",
+  "steps": [
+   "Dodaj jeden lub wiele obrazów.",
+   "Wpisz tekst lub dodaj logo, a potem ustaw położenie lub powtarzanie, przezroczystość, rozmiar i obrót.",
+   "Pobierz obrazy ze znakiem wodnym."
+  ],
+  "faq": [
+   {
+    "q": "Czy mogę dodać swoje logo jako znak wodny?",
+    "a": "Tak. Użyj obrazu z logo (najlepiej wygląda PNG z przezroczystym tłem) zamiast tekstu."
+   },
+   {
+    "q": "Czy mogę dodać znak wodny do wielu zdjęć naraz?",
+    "a": "Tak. Dodaj je wszystkie, a ten sam znak wodny zostanie nałożony na każde."
+   },
+   {
+    "q": "Czy moje zdjęcia są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Obrazy"
+ },
+ "pixelate-image": {
+  "name": "Pikselizacja obrazu",
+  "desc": "Spikselizuj cały obraz lub tylko zaznaczony obszar (ukryj tablice, tekst, twarze).",
+  "about": "Spikselizuj cały obraz lub tylko zaznaczony obszar albo wszystko poza wybranym obszarem. Użyj tego, aby ukryć tablice rejestracyjne, tekst, dokumenty lub twarze. Działa w Twojej przeglądarce.",
+  "title": "Pikselizacja obrazu online za darmo: ukryj twarze i tekst | Toolz Baba",
+  "metaDesc": "Spikselizuj całe zdjęcie lub wybraną część, aby ukryć twarze, tablice rejestracyjne, tekst lub dokumenty. Za darmo i prywatnie, w przeglądarce.",
+  "steps": [
+   "Dodaj obraz.",
+   "Spikselizuj cały obraz, tylko zaznaczony obszar albo wszystko poza obszarem.",
+   "Pobierz wynik."
+  ],
+  "faq": [
+   {
+    "q": "Jak ukryć tablicę rejestracyjną lub tekst na zdjęciu?",
+    "a": "Zaznacz ten obszar i spikselizuj tylko jego; reszta zdjęcia pozostanie ostra."
+   },
+   {
+    "q": "Czy pikselizację można cofnąć?",
+    "a": "Nie. Ukryte szczegóły są zastępowane w zapisanym pliku, więc zachowaj oryginał, jeśli może Ci się przydać."
+   },
+   {
+    "q": "Czy moje zdjęcie jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Obrazy"
+ },
+ "meme-generator": {
+  "name": "Generator memów",
+  "desc": "Tekst na górze i na dole w klasycznym stylu memów lub pasek z podpisem.",
+  "about": "Zrób mema z dowolnego obrazu z klasycznym tekstem na górze i na dole albo dodaj pasek z podpisem nad obrazem. Dostosuj rozmiar i kolory, a potem pobierz jako JPG, PNG lub WebP. Działa w Twojej przeglądarce.",
+  "title": "Generator memów online za darmo: tekst na górze i na dole | Toolz Baba",
+  "metaDesc": "Zrób mema z dowolnego obrazu z tekstem na górze i na dole lub paskiem z podpisem. Zmień rozmiar i kolory, pobierz jako JPG, PNG lub WebP. Za darmo.",
+  "steps": [
+   "Dodaj obraz.",
+   "Wpisz tekst na górze i na dole albo użyj paska z podpisem nad obrazem.",
+   "Dostosuj rozmiar i kolory, a potem pobierz jako JPG, PNG lub WebP."
+  ],
+  "faq": [
+   {
+    "q": "Jak zrobić mema z tekstem na górze i na dole?",
+    "a": "Dodaj obraz, wpisz teksty w polach na górze i na dole i pobierz gotowy plik."
+   },
+   {
+    "q": "Czy jest znak wodny?",
+    "a": "Nie. Twój mem jest pobierany bez żadnego znaku wodnego."
+   }
+  ]
+ },
+ "photo-collage-maker": {
+  "name": "Kreator kolaży",
+  "desc": "Połącz 2–9 zdjęć w siatkę lub układ z wyróżnionym zdjęciem.",
+  "about": "Połącz od dwóch do dziewięciu zdjęć w kolaż w układzie siatki, wiersza, kolumny lub z wyróżnionym zdjęciem. Ustaw rozmiar płótna, odstępy, ramkę, zaokrąglone rogi i kolor tła, a potem pobierz kolaż. Wszystko działa w Twojej przeglądarce.",
+  "title": "Kreator kolaży ze zdjęć online za darmo: od 2 do 9 zdjęć | Toolz Baba",
+  "metaDesc": "Połącz od 2 do 9 zdjęć w kolaż: siatka, wiersz, kolumna lub z wyróżnionym zdjęciem. Ustaw odstępy, ramki, rogi i tło. Za darmo, bez znaku wodnego.",
+  "steps": [
+   "Dodaj od 2 do 9 zdjęć.",
+   "Wybierz układ: siatka, wiersz, kolumna lub z wyróżnionym zdjęciem.",
+   "Ustaw odstępy, ramkę, rogi i tło, a potem pobierz."
+  ],
+  "faq": [
+   {
+    "q": "Ile zdjęć może mieć kolaż?",
+    "a": "Od dwóch do dziewięciu."
+   },
+   {
+    "q": "Czy mogę zmienić rozmiar kolażu?",
+    "a": "Tak. Ustaw rozmiar płótna oraz odstępy, ramkę, zaokrąglone rogi i kolor tła."
+   },
+   {
+    "q": "Czy moje zdjęcia są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Kolaż ze zdjęć"
+ },
+ "screenshot-beautifier": {
+  "name": "Upiększanie zrzutów ekranu",
+  "desc": "Umieść zrzut ekranu na gradiencie z ramką okna, cieniem i zaokrąglonymi rogami.",
+  "about": "Spraw, aby zwykły zrzut ekranu wyglądał profesjonalnie. Umieść go na gradiencie lub jednolitym tle z ramką okna macOS lub przeglądarki, zaokrąglonymi rogami, cieniem i marginesem, w kształtach takich jak 16:9 lub kwadrat. Działa w Twojej przeglądarce.",
+  "title": "Upiększanie zrzutów ekranu: gradientowe tło i ramka | Toolz Baba",
+  "metaDesc": "Umieść zrzut ekranu na gradiencie lub jednolitym tle z ramką macOS lub przeglądarki, zaokrąglonymi rogami i cieniem, w 16:9 lub kwadracie. Za darmo.",
+  "steps": [
+   "Dodaj zrzut ekranu.",
+   "Wybierz tło, ramkę okna, rogi, cień i kształt, np. 16:9.",
+   "Pobierz dopracowany obraz."
+  ],
+  "faq": [
+   {
+    "q": "Co robi upiększanie zrzutów ekranu?",
+    "a": "Umieszcza Twój zrzut ekranu na gradiencie lub jednolitym tle z ramką okna macOS lub przeglądarki, zaokrąglonymi rogami, cieniem i marginesem."
+   },
+   {
+    "q": "Czy mój zrzut ekranu jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "favicon-generator": {
+  "name": "Generator favikon",
+  "desc": "Stwórz favicon.ico, ikonę Apple Touch, ikony Androida i manifest z jednego obrazu.",
+  "about": "Stwórz pełny pakiet favikon z jednego obrazu: favicon.ico, pliki PNG 16x16 i 32x32, ikonę Apple Touch, ikony Androida, manifest aplikacji internetowej oraz fragment kodu HTML do wklejenia na stronę. Działa w Twojej przeglądarce.",
+  "title": "Generator favikon: ICO, Apple Touch i ikony Androida | Toolz Baba",
+  "metaDesc": "Stwórz favicon.ico, pliki PNG 16 i 32 px, ikonę Apple Touch, ikony Androida, manifest i kod HTML z jednego obrazu. Za darmo.",
+  "steps": [
+   "Dodaj jeden kwadratowy obraz, np. swoje logo.",
+   "Utwórz pakiet favikon.",
+   "Pobierz go i wklej fragment kodu HTML do sekcji head swojej strony."
+  ],
+  "faq": [
+   {
+    "q": "Jakie pliki powstają?",
+    "a": "favicon.ico, pliki PNG 16x16 i 32x32, ikona Apple Touch, ikony Androida i manifest aplikacji internetowej oraz kod HTML do dodania ich na stronę."
+   },
+   {
+    "q": "Jaki obraz sprawdzi się najlepiej?",
+    "a": "Prosty, kwadratowy logotyp lub symbol. Drobne szczegóły giną przy rozmiarze 16x16 pikseli."
+   }
+  ]
+ },
+ "image-to-svg": {
+  "name": "Obraz na SVG",
+  "desc": "Zamień logo, ikony i rysunki na skalowalną grafikę wektorową SVG.",
+  "about": "Zamień logo, ikony i proste rysunki na skalowalną grafikę wektorową SVG. Wybierz ustawienie dla logo, zdjęć lub czarno-białych rysunków liniowych. Pliki wektorowe pozostają ostre w każdym rozmiarze.",
+  "title": "Konwerter obrazu na SVG online za darmo: wektoryzacja logo | Toolz Baba",
+  "metaDesc": "Zamień logo, ikony i rysunki liniowe PNG i JPG na skalowalne wektory SVG, które są ostre w każdym rozmiarze. Ustawienia dla logo, zdjęć i rysunków.",
+  "steps": [
+   "Dodaj logo, ikonę lub rysunek.",
+   "Wybierz ustawienie: logo, zdjęcie lub czarno-biały rysunek liniowy.",
+   "Konwertuj i pobierz plik SVG."
+  ],
+  "faq": [
+   {
+    "q": "Dlaczego warto zamienić logo na SVG?",
+    "a": "SVG to format wektorowy: pozostaje ostry w każdym rozmiarze, od ikony na stronie po duży wydruk."
+   },
+   {
+    "q": "Czy działa na zdjęciach?",
+    "a": "Może, z ustawieniem dla zdjęć, ale plik SVG będzie duży. Najlepsze efekty dają logo, ikony i płaskie rysunki."
+   }
+  ]
+ },
+ "resize-image-to-kb": {
+  "name": "Rozmiar zdjęcia i podpisu w KB",
+  "desc": "Ustaw zdjęcie lub podpis na dokładny rozmiar w pikselach/cm i poniżej 20, 50 lub 100 KB. Do formularzy egzaminacyjnych i rekrutacyjnych.",
+  "about": "Formularze urzędowe i egzaminacyjne często wymagają zdjęcia lub podpisu o dokładnych wymiarach i rozmiarze pliku, np. 20–50 KB. Wpisz rozmiar w pikselach, centymetrach, milimetrach lub calach, ustaw minimalny i maksymalny rozmiar w KB, a narzędzie znajdzie najlepszą jakość JPG, która się zmieści. Może też ustawić 200 lub 300 DPI. Wszystko działa w Twojej przeglądarce, więc zdjęcie nigdy nie jest przesyłane.",
+  "title": "Zmień rozmiar zdjęcia i podpisu do 20 KB, 50 KB, 100 KB | Toolz Baba",
+  "metaDesc": "Ustaw zdjęcie lub podpis na dokładny rozmiar wymagany w formularzu, w pikselach lub cm, i poniżej 20, 50 lub 100 KB. Ustawia 200 lub 300 DPI. Za darmo.",
+  "steps": [
+   "Dodaj swoje zdjęcie lub podpis.",
+   "Wpisz rozmiar wymagany w formularzu (piksele, cm, mm lub cale) oraz minimalny i maksymalny rozmiar w KB.",
+   "Pobierz plik JPG: narzędzie wybierze najlepszą jakość mieszczącą się w limicie."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmniejszyć zdjęcie do 20 KB lub 50 KB do formularza?",
+    "a": "Dodaj zdjęcie, ustaw maksymalny (a w razie potrzeby minimalny) rozmiar w KB dozwolony przez formularz, wpisz wymagany wymiar i pobierz. Narzędzie znajdzie najlepszą jakość JPG, która się zmieści."
+   },
+   {
+    "q": "Czy mogę zmienić rozmiar także podpisu?",
+    "a": "Tak. Dodaj zdjęcie lub skan podpisu i wpisz rozmiar podpisu oraz limit KB z formularza."
+   },
+   {
+    "q": "Czy mogę ustawić 200 lub 300 DPI?",
+    "a": "Tak, narzędzie może zapisać w pliku 200 lub 300 DPI dla formularzy, które tego wymagają."
+   },
+   {
+    "q": "Czy moje zdjęcie jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc zdjęcie nigdy nie jest przesyłane."
+   }
+  ]
+ },
+ "passport-size-photo-maker": {
+  "name": "Zdjęcie do paszportu",
+  "desc": "Zamień selfie w zdjęcie do paszportu lub dowodu: jednolite tło, właściwy rozmiar i arkusz do druku z wieloma kopiami.",
+  "about": "Prześlij zdjęcie twarzą do przodu. Narzędzie usuwa tło za pomocą AI, umieszcza osobę na jednolitym białym, niebieskim, szarym lub czerwonym tle, przycina głowę do właściwego rozmiaru i położenia dla popularnych formatów, takich jak 35x45 mm i 51x51 mm (2x2 cale), i może ułożyć arkusz 4x6 cali, 5x7 cali lub A4 z liniami cięcia, aby wydrukować kilka kopii naraz. Zawsze sprawdź dokładne wymagania swojego kraju dotyczące rozmiaru, wyrazu twarzy i tła.",
+  "title": "Zdjęcie do paszportu online za darmo: 35x45 mm | Toolz Baba",
+  "metaDesc": "Zamień selfie w zdjęcie do paszportu lub wizy: AI usuwa tło, przycina do 35x45 mm lub 2x2 cale i tworzy arkusz do druku. Za darmo.",
+  "steps": [
+   "Dodaj zdjęcie lub selfie twarzą do przodu.",
+   "Wybierz rozmiar (np. 35x45 mm lub 2x2 cale) i kolor tła.",
+   "Pobierz zdjęcie albo arkusz do druku 4x6 cali, 5x7 cali lub A4 z wieloma kopiami."
+  ],
+  "faq": [
+   {
+    "q": "Jak zrobić zdjęcie paszportowe w domu?",
+    "a": "Zrób zdjęcie twarzą do przodu na tle dowolnej ściany, dodaj je tutaj, wybierz rozmiar i białe tło, a potem pobierz. AI usuwa tło i przycina głowę do właściwego rozmiaru."
+   },
+   {
+    "q": "Jaki rozmiar ma indyjskie zdjęcie paszportowe?",
+    "a": "Indyjskie paszporty wymagają 35x45 mm (indyjskie wizy 51x51 mm, czyli 2x2 cale). Oba rozmiary są dostępne, ale zawsze sprawdź aktualne wymagania dla swojego wniosku."
+   },
+   {
+    "q": "Czy mogę wydrukować kilka kopii na jednym arkuszu?",
+    "a": "Tak. Ułóż je na arkuszu 4x6 cali, 5x7 cali lub A4 z liniami cięcia."
+   }
+  ],
+  "tabAll": "Zdjęcie paszportowe"
+ },
+ "image-to-text": {
+  "name": "Obraz na tekst (OCR)",
+  "desc": "Wyodrębnij tekst ze zdjęcia, zrzutu ekranu lub zeskanowanego PDF. Obsługuje angielski i hindi. Działa w przeglądarce.",
+  "about": "Odczytaj tekst ze zdjęcia, zrzutu ekranu lub zeskanowanego pliku PDF i skopiuj go albo zapisz jako plik .txt. Obsługiwane są angielski i hindi (lub oba naraz). Silnik OCR działa w całości w Twojej przeglądarce, więc dokumenty zostają na Twoim urządzeniu. Aby uzyskać najlepszy wynik, użyj ostrego, prostego i dobrze oświetlonego obrazu.",
+  "title": "Obraz na tekst (OCR) za darmo: angielski i hindi | Toolz Baba",
+  "metaDesc": "Skopiuj tekst ze zdjęcia, zrzutu ekranu lub zeskanowanego PDF po angielsku lub hindi. Zapisz jako plik .txt. Za darmo, obrazy nie opuszczają urządzenia.",
+  "steps": [
+   "Dodaj zdjęcie, zrzut ekranu lub zeskanowany PDF.",
+   "Wybierz angielski, hindi lub oba języki.",
+   "Skopiuj tekst lub zapisz go jako plik .txt."
+  ],
+  "faq": [
+   {
+    "q": "Jak skopiować tekst z obrazu?",
+    "a": "Dodaj obraz, wybierz język i uruchom. Gdy tekst się pojawi, skopiuj go lub zapisz jako plik .txt."
+   },
+   {
+    "q": "Czy odczytuje hindi?",
+    "a": "Tak. Wybierz hindi albo angielski i hindi razem."
+   },
+   {
+    "q": "Jak uzyskać najlepszy wynik?",
+    "a": "Użyj ostrego, prostego i dobrze oświetlonego obrazu. Rozmazane lub przekrzywione zdjęcia i pismo odręczne dają więcej błędów."
+   },
+   {
+    "q": "Czy moje obrazy są przesyłane na serwer?",
+    "a": "Nie. OCR działa w całości w Twojej przeglądarce, więc dokumenty zostają na Twoim urządzeniu."
+   }
+  ],
+  "tabAll": "Obraz na tekst"
+ },
+ "remove-background": {
+  "name": "Usuwanie tła",
+  "desc": "Wytnij obiekt i otrzymaj przezroczysty plik PNG.",
+  "about": "Usuń tło ze zdjęcia za pomocą AI i otrzymaj przezroczysty plik PNG lub WebP. Wybierz model do zwykłych zdjęć, ludzi albo anime i ilustracji. Działa na produktach, portretach, zwierzakach i przedmiotach.",
+  "title": "Usuń tło ze zdjęcia za darmo: przezroczysty PNG | Toolz Baba",
+  "metaDesc": "Usuń tło ze zdjęć za pomocą AI i pobierz przezroczysty plik PNG lub WebP. Działa na ludziach, produktach, zwierzętach i rysunkach. Bez znaku wodnego.",
+  "steps": [
+   "Dodaj zdjęcie osoby, produktu, zwierzaka lub przedmiotu.",
+   "Wybierz model: zwykłe zdjęcia, ludzie albo anime i ilustracje.",
+   "Pobierz wycięty obiekt jako przezroczysty PNG lub WebP."
+  ],
+  "faq": [
+   {
+    "q": "Jak usunąć tło ze zdjęcia za darmo?",
+    "a": "Dodaj tutaj zdjęcie, a AI wytnie obiekt. Pobierz go jako przezroczysty PNG lub WebP. Bez rejestracji i bez znaku wodnego."
+   },
+   {
+    "q": "Który model wybrać?",
+    "a": "Model dla ludzi użyj do portretów, model anime do rysunków i ilustracji, a model ogólny do produktów, zwierząt i wszystkiego innego."
+   },
+   {
+    "q": "Czy mogę umieścić nowe tło za obiektem?",
+    "a": "Tak, użyj narzędzia Zmiana tła, aby umieścić kolor lub inny obraz za wyciętym obiektem."
+   }
+  ]
+ },
+ "replace-background": {
+  "name": "Zmiana tła",
+  "desc": "Zamień tło na kolor, gradient, rozmycie lub inne zdjęcie.",
+  "about": "Zamień tło zdjęcia na jednolity kolor, gradient, rozmytą kopię oryginału, inne zdjęcie albo na brak tła. Obiekt jest wycinany automatycznie za pomocą AI.",
+  "title": "Zmień tło zdjęcia online za darmo: kolor lub zdjęcie | Toolz Baba",
+  "metaDesc": "Zamień tło zdjęcia na kolor, gradient, rozmycie lub inny obraz. AI wycina obiekt za Ciebie. Za darmo, bez znaku wodnego.",
+  "steps": [
+   "Dodaj zdjęcie.",
+   "Wybierz nowe tło: kolor, gradient, rozmytą kopię, inne zdjęcie lub brak.",
+   "Pobierz wynik."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmienić tło zdjęcia?",
+    "a": "Dodaj zdjęcie; AI wytnie obiekt. Potem wybierz kolor, gradient, rozmycie lub inny obraz jako nowe tło."
+   },
+   {
+    "q": "Czy mogę uzyskać białe tło na zdjęciu produktu?",
+    "a": "Tak. Wybierz jednolity kolor i ustaw go na biały."
+   },
+   {
+    "q": "Czy moje zdjęcie jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "upscale-image": {
+  "name": "Powiększanie obrazów",
+  "desc": "Powiększ 2×–4× za pomocą AI i zachowaj ostrość szczegółów.",
+  "about": "Powiększ małe lub rozmazane obrazy 2, 3 lub 4 razy za pomocą upscalera AI, który zachowuje ostre szczegóły, albo użyj trybu szybkiego dla bardzo dużych obrazów. Najlepiej sprawdza się dla obrazów do około 2,5 megapiksela.",
+  "title": "Powiększanie zdjęć AI za darmo: 2x, 3x, 4x w HD | Toolz Baba",
+  "metaDesc": "Powiększ małe lub rozmazane zdjęcia 2, 3 lub 4 razy za pomocą AI, które zachowuje ostre szczegóły. Za darmo, bez rejestracji, działa w przeglądarce.",
+  "steps": [
+   "Dodaj mały lub rozmazany obraz.",
+   "Wybierz 2x, 3x lub 4x oraz tryb AI albo szybki.",
+   "Pobierz większy, ostrzejszy obraz."
+  ],
+  "faq": [
+   {
+    "q": "Jak zwiększyć rozdzielczość obrazu?",
+    "a": "Dodaj obraz i wybierz 2x, 3x lub 4x. Upscaler AI dodaje szczegóły, dzięki czemu wynik jest ostry, a nie rozmyty."
+   },
+   {
+    "q": "Jakie obrazy sprawdzają się najlepiej?",
+    "a": "Obrazy do około 2,5 megapiksela. Dla bardzo dużych obrazów użyj trybu szybkiego."
+   }
+  ]
+ },
+ "face-blur": {
+  "name": "Rozmywanie twarzy",
+  "desc": "Automatycznie wykrywaj twarze i rozmywaj, pikselizuj lub zakrywaj je.",
+  "about": "Automatycznie wykrywaj twarze i rozmywaj je, pikselizuj lub zakrywaj czarnym kształtem. Dostosuj siłę efektu, obszar wokół każdej twarzy i czułość wykrywania. Przydatne przed udostępnieniem zdjęć innych osób.",
+  "title": "Rozmyj twarze na zdjęciach online za darmo: automatycznie | Toolz Baba",
+  "metaDesc": "Automatycznie znajdź każdą twarz na zdjęciu i rozmyj, spikselizuj lub zakryj ją przed udostępnieniem. Ustaw siłę i obszar. Za darmo i prywatnie.",
+  "steps": [
+   "Dodaj zdjęcie.",
+   "Wybierz rozmycie, pikselizację lub czarne zakrycie i dostosuj siłę oraz obszar.",
+   "Pobierz zdjęcie z ukrytymi twarzami."
+  ],
+  "faq": [
+   {
+    "q": "Czy twarze są znajdowane automatycznie?",
+    "a": "Tak. Twarze są wykrywane za Ciebie; jeśli któraś zostanie pominięta, zmień czułość wykrywania."
+   },
+   {
+    "q": "Rozmycie czy pikselizacja: co jest bezpieczniejsze?",
+    "a": "Oba dobrze ukrywają twarze przy dużej sile efektu. Czarne zakrycie ukrywa je całkowicie."
+   },
+   {
+    "q": "Czy moje zdjęcie jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "anime-style": {
+  "name": "Styl anime ze zdjęcia",
+  "desc": "Zamień zdjęcie w grafikę w stylu anime (look Hayao lub Shinkai).",
+  "about": "Zamień zdjęcie w grafikę w stylu anime za pomocą modelu AI do transferu stylu. Wybierz miękki, malarski styl Hayao albo żywy, filmowy styl Shinkai.",
+  "title": "Zdjęcie na anime za darmo: filtr anime AI | Toolz Baba",
+  "metaDesc": "Zamień zdjęcie w grafikę w stylu anime dzięki AI: miękki styl Hayao lub żywy Shinkai. Za darmo, bez rejestracji, zdjęcie zostaje na Twoim urządzeniu.",
+  "steps": [
+   "Dodaj zdjęcie.",
+   "Wybierz styl Hayao (miękki, malarski) lub Shinkai (żywy, filmowy).",
+   "Pobierz obraz w stylu anime."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić zdjęcie w anime?",
+    "a": "Dodaj zdjęcie, wybierz styl, a AI namaluje je na nowo w stylu anime."
+   },
+   {
+    "q": "Czym różnią się te dwa style?",
+    "a": "Hayao jest miękki i malarski; Shinkai jest żywy i filmowy, z jasnym niebem i mocnym światłem."
+   },
+   {
+    "q": "Czy moje zdjęcie jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "image-to-pdf": {
+  "name": "Obraz na PDF",
+  "desc": "Połącz obrazy w jeden PDF. Wybierz rozmiar strony i kolejność.",
+  "about": "Połącz obrazy w jeden plik PDF. Wybierz A4, US Letter, A5 lub rozmiar samego obrazu, ustaw orientację i marginesy oraz zmień kolejność stron. Obsługiwane są HEIC, PNG, JPG, WebP i inne.",
+  "title": "Obraz na PDF za darmo: konwerter JPG, PNG, HEIC na PDF | Toolz Baba",
+  "metaDesc": "Połącz zdjęcia JPG, PNG, HEIC i WebP w jeden PDF. Wybierz A4 lub Letter, orientację i marginesy oraz ustaw kolejność. Za darmo, bez przesyłania.",
+  "steps": [
+   "Dodaj obrazy: JPG, PNG, HEIC, WebP i inne.",
+   "Ułóż je w kolejności i wybierz rozmiar strony, orientację i margines.",
+   "Kliknij „Utwórz PDF” i pobierz plik."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić zdjęcia w jeden PDF?",
+    "a": "Dodaj wszystkie zdjęcia, ułóż je w kolejności strzałkami, wybierz A4 lub inny rozmiar strony i kliknij „Utwórz PDF”."
+   },
+   {
+    "q": "Czy mogę użyć zdjęć HEIC z iPhone’a?",
+    "a": "Tak, HEIC działa tak samo jak JPG, PNG i WebP."
+   },
+   {
+    "q": "Czy moje obrazy są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Dowolny obraz"
+ },
+ "pdf-to-image": {
+  "name": "PDF na obraz",
+  "desc": "Zamień strony PDF na obrazy PNG, JPG lub WebP.",
+  "about": "Konwertuj strony PDF na obrazy PNG, JPG lub WebP. Wybierz rozdzielczość od 72 do 300 DPI oraz wszystkie strony lub zakres, np. 1-3,5. Wiele stron jest dostarczanych w pliku ZIP.",
+  "title": "PDF na obraz za darmo: PDF na JPG, PNG, WebP | Toolz Baba",
+  "metaDesc": "Zamień strony PDF na obrazy JPG, PNG lub WebP w 72–300 DPI. Konwertuj wszystkie strony lub kilka; wiele stron w jednym ZIP. Za darmo i prywatnie.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz PNG, JPG lub WebP, jakość (DPI) i strony.",
+   "Kliknij „Konwertuj na obrazy” i pobierz (kilka stron trafia do jednego pliku ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "Jakiego DPI użyć?",
+    "a": "150 DPI jest ostre na ekranach, 300 DPI do druku, a 72 DPI daje najmniejsze pliki."
+   },
+   {
+    "q": "Czy mogę przekonwertować tylko niektóre strony?",
+    "a": "Tak. Wpisz strony i zakresy, np. 1-3,5."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Wszystkie formaty"
+ },
+ "merge-pdf": {
+  "name": "Łączenie PDF",
+  "desc": "Połącz kilka plików PDF w jeden, w wybranej kolejności.",
+  "about": "Połącz kilka plików PDF w jeden dokument w wybranej kolejności. Przed połączeniem zmień kolejność plików. Z plików PDF chronionych hasłem trzeba najpierw usunąć hasło.",
+  "title": "Połącz PDF online za darmo: złącz pliki PDF w jeden | Toolz Baba",
+  "metaDesc": "Połącz do 50 plików PDF w jeden dokument w wybranej kolejności. Za darmo, bez rejestracji i bez znaku wodnego. Twoje PDF nie opuszczają urządzenia.",
+  "steps": [
+   "Dodaj dwa lub więcej plików PDF.",
+   "Ułóż je we właściwej kolejności strzałkami.",
+   "Kliknij „Połącz” i pobierz jeden wspólny PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak połączyć pliki PDF w jeden?",
+    "a": "Dodaj pliki PDF, ustaw kolejność strzałkami i kliknij „Połącz”. Otrzymasz jeden PDF ze wszystkimi stronami."
+   },
+   {
+    "q": "Czy mogę połączyć PDF chronione hasłem?",
+    "a": "Najpierw usuń hasło narzędziem Odblokowanie PDF (musisz je znać), a potem połącz pliki."
+   },
+   {
+    "q": "Ile plików PDF mogę połączyć?",
+    "a": "Do 50 plików naraz."
+   },
+   {
+    "q": "Czy moje pliki PDF są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "split-pdf": {
+  "name": "Dzielenie PDF",
+  "desc": "Dziel według zakresów stron, co N stron lub wyodrębnij wybrane strony.",
+  "about": "Podziel plik PDF na pojedyncze strony, na grupy po N stron, na własne zakresy stron albo wyodrębnij wybrane strony do jednego nowego PDF. Gdy plików jest kilka, wynik jest dostarczany w pliku ZIP.",
+  "title": "Podziel PDF online za darmo: rozdziel lub wyodrębnij strony | Toolz Baba",
+  "metaDesc": "Podziel PDF na pojedyncze strony, co N stron lub własne zakresy albo wyodrębnij wybrane strony do nowego PDF. Za darmo, bez rejestracji, w przeglądarce.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz sposób podziału: każda strona, co N stron, własne zakresy lub wyodrębnienie wybranych stron.",
+   "Kliknij „Podziel PDF” i pobierz pliki (kilka plików trafia do ZIP)."
+  ],
+  "faq": [
+   {
+    "q": "Jak podzielić PDF na osobne strony?",
+    "a": "Dodaj PDF, wybierz opcję „Każda strona do osobnego PDF” i kliknij „Podziel PDF”. Otrzymasz ZIP z jednym PDF na każdą stronę."
+   },
+   {
+    "q": "Jak wyjąć tylko niektóre strony?",
+    "a": "Wybierz „Wyodrębnij wybrane strony” i wpisz strony, np. 1-3,5. Zostaną zapisane jako jeden nowy PDF."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Dzielenie"
+ },
+ "compress-pdf": {
+  "name": "Kompresja PDF",
+  "desc": "Zmniejsz rozmiar pliku PDF przez ponowną kompresję obrazów.",
+  "about": "Zmniejsz rozmiar pliku PDF przez ponowną kompresję jego obrazów i uporządkowanie struktury. Wybierz kompresję lekką, zrównoważoną lub silną. Najlepiej działa na plikach PDF ze zdjęciami lub zeskanowanymi stronami.",
+  "title": "Kompresuj PDF online za darmo: zmniejsz rozmiar PDF w KB | Toolz Baba",
+  "metaDesc": "Zmniejsz rozmiar PDF do e-maila i formularzy online lub do poniżej 100, 200 albo 500 KB. Kompresja lekka, zrównoważona lub silna. Za darmo i prywatnie.",
+  "steps": [
+   "Dodaj plik PDF lub wybierz rozmiar, np. poniżej 100 KB lub 500 KB.",
+   "Wybierz kompresję lekką, zrównoważoną lub silną.",
+   "Kliknij „Kompresuj PDF” i pobierz mniejszy plik."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmniejszyć rozmiar pliku PDF?",
+    "a": "Dodaj PDF, wybierz kompresję zrównoważoną i kliknij „Kompresuj PDF”. Aby uzyskać sztywny limit, np. 200 KB, użyj przycisków rozmiaru nad polem przesyłania."
+   },
+   {
+    "q": "Dlaczego mój PDF prawie się nie zmniejszył?",
+    "a": "Kompresja zmniejsza głównie obrazy wewnątrz PDF. PDF złożony głównie z tekstu jest już mały i nie da się go bardzo zmniejszyć."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "word-to-pdf": {
+  "name": "Word na PDF",
+  "desc": "Konwertuj pliki Word (DOCX), Excel (XLSX, XLS, CSV, ODS) i tekstowe na PDF. Działa w przeglądarce.",
+  "about": "Konwertuj dokumenty Word (DOCX), arkusze kalkulacyjne (XLSX, XLS, CSV, ODS) i zwykłe pliki tekstowe na PDF bezpośrednio w przeglądarce, więc plik nie jest przesyłany. Nagłówki, akapity, listy, tabele i obrazy zostają zachowane; złożone układy, takie jak kolumny i pola tekstowe, wychodzą prościej niż w Wordzie. Obsługiwane są hindi i inne pisma indyjskie. Starych plików .doc, RTF, ODT i PowerPoint nie można konwertować w przeglądarce: najpierw otwórz je w Wordzie, Dokumentach Google lub LibreOffice i zapisz jako DOCX (albo wyeksportuj do PDF).",
+  "title": "Word na PDF online za darmo: konwerter DOCX na PDF | Toolz Baba",
+  "metaDesc": "Konwertuj pliki Word (DOCX), Excel (XLSX, XLS, CSV) i tekstowe na PDF w przeglądarce. Obsługa hindi. Za darmo, bez rejestracji, bez przesyłania.",
+  "steps": [
+   "Dodaj plik Word (DOCX), Excel (XLSX, XLS, CSV, ODS) lub tekstowy.",
+   "Kliknij „Konwertuj na PDF”.",
+   "Pobierz plik PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak za darmo zamienić Word na PDF?",
+    "a": "Dodaj plik DOCX, kliknij „Konwertuj na PDF” i pobierz wynik. Rejestracja nie jest potrzebna."
+   },
+   {
+    "q": "Czy mogę przekonwertować stary plik .doc lub plik PowerPoint?",
+    "a": "Nie tutaj. Otwórz go w Wordzie, Dokumentach Google lub LibreOffice i zapisz jako DOCX albo wyeksportuj tam do PDF."
+   },
+   {
+    "q": "Czy obsługuje hindi?",
+    "a": "Tak. Hindi i inne pisma indyjskie są poprawnie wyświetlane w pliku PDF."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Word i Office"
+ },
+ "pdf-to-word": {
+  "name": "PDF na Word",
+  "desc": "Zamień plik PDF w edytowalny dokument Word.",
+  "about": "Zamień plik PDF w edytowalny dokument Word. Najlepiej działa na plikach PDF z prawdziwym tekstem. Zeskanowane pliki PDF to tylko obrazy stron i bez OCR nie da się ich zamienić na edytowalny tekst.",
+  "title": "PDF na Word online za darmo: edytowalny DOCX | Toolz Baba",
+  "metaDesc": "Zamień PDF w edytowalny dokument Word z czcionkami, rozmiarami, pogrubieniami i obrazami. Za darmo, bez rejestracji, PDF zostaje na Twoim urządzeniu.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Przekonwertuj go.",
+   "Pobierz edytowalny plik Word (DOCX)."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić PDF w edytowalny plik Word?",
+    "a": "Dodaj tutaj PDF i pobierz dokument Word. Tekst, czcionki, rozmiary, pogrubienie, kursywa i obrazy zostają zachowane w kolejności czytania."
+   },
+   {
+    "q": "Dlaczego nie mogę edytować tekstu ze zeskanowanego PDF?",
+    "a": "Zeskanowany PDF to tylko obrazy stron. Najpierw odczytaj tekst narzędziem Obraz na tekst (OCR)."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "pdf-to-excel": {
+  "name": "PDF na Excel",
+  "desc": "Zamień tabele z PDF w arkusz Excel (XLSX), który możesz sortować, sumować i edytować.",
+  "about": "Przenieś tabele z pliku PDF do Excela bez przepisywania. Każda strona staje się osobnym arkuszem (albo wszystkie strony trafiają na jeden arkusz), wiersze i kolumny są odtwarzane na podstawie położenia tekstu na stronie, a liczby stają się prawdziwymi liczbami, które można dodawać. Najlepiej działa na plikach PDF utworzonych na komputerze, takich jak wyciągi bankowe, faktury, cenniki i raporty. Zeskanowane strony to obrazy: najpierw uruchom na nich OCR PDF.",
+  "title": "PDF na Excel online za darmo: tabele do XLSX | Toolz Baba",
+  "metaDesc": "Zamień tabele PDF w Excel (XLSX) w przeglądarce: wiersze, kolumny i prawdziwe liczby, jeden arkusz na stronę. Za darmo, bez rejestracji i przesyłania.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz jeden arkusz na stronę albo wszystkie strony na jednym arkuszu.",
+   "Pobierz plik Excel (XLSX)."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić tabelę z PDF na Excel?",
+    "a": "Dodaj PDF, kliknij „Konwertuj na Excel” i otwórz plik XLSX w Excelu, Arkuszach Google lub LibreOffice. Każda strona to arkusz z tabelą odtworzoną w wierszach i kolumnach."
+   },
+   {
+    "q": "Czy liczby będą działać we wzorach?",
+    "a": "Tak. Liczby takie jak 1,234.50 lub (200) są zapisywane jako prawdziwe liczby, więc SUMA i inne wzory działają. Odznacz opcję, aby zachować wszystko jako tekst."
+   },
+   {
+    "q": "Czy może przekonwertować zeskanowany PDF?",
+    "a": "Skan to tylko obraz strony. Najpierw użyj OCR PDF, aby zamienić go na tekst, a potem przekonwertuj tutaj."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "pdf-to-powerpoint": {
+  "name": "PDF na PowerPoint",
+  "desc": "Zamień każdą stronę PDF w slajd PowerPoint (PPTX).",
+  "about": "Pokaż PDF w PowerPoincie, Prezentacjach Google lub Keynote: każda strona staje się slajdem, który wygląda dokładnie jak strona, w tym samym rozmiarze i kształcie. Dodaj własne tytuły, notatki i animacje. Przydatne do pokazania raportu, broszury lub notatek z wykładu na spotkaniu. Wszystko dzieje się na Twoim urządzeniu, więc nic nie jest przesyłane.",
+  "title": "PDF na PowerPoint online za darmo: PDF na PPTX | Toolz Baba",
+  "metaDesc": "Zamień PDF w PowerPoint (PPTX): każda strona staje się slajdem wyglądającym dokładnie jak PDF. Za darmo, bez rejestracji, plik zostaje na Twoim urządzeniu.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz jakość obrazu.",
+   "Pobierz plik PowerPoint (PPTX)."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić PDF w prezentację PowerPoint?",
+    "a": "Dodaj tutaj PDF i kliknij „Konwertuj na PowerPoint”. Każda strona staje się jednym slajdem w pliku PPTX, który otwiera się w PowerPoincie, Prezentacjach Google i Keynote."
+   },
+   {
+    "q": "Czy mogę edytować tekst na slajdach?",
+    "a": "Każdy slajd pokazuje stronę jako obraz, dzięki czemu wygląda dokładnie jak PDF. Możesz dodać nowe pola tekstowe, notatki i kształty. Aby edytować oryginalny tekst, użyj narzędzia PDF na Word."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "powerpoint-to-pdf": {
+  "name": "PowerPoint na PDF",
+  "desc": "Konwertuj prezentacje PowerPoint (PPTX) na PDF, jeden slajd na stronę.",
+  "about": "Wyślij prezentację jako PDF, który wygląda tak samo na każdym telefonie i komputerze, bez potrzeby posiadania PowerPointa. Obrazy, kształty, pola tekstowe, tabele oraz kolory i czcionki motywu są rysowane na stronach PDF w rozmiarze slajdu. Wykresy, SmartArt, filmy i animacje są pomijane, więc sprawdź wynik na slajdach, które ich używają. Kilka prezentacji można konwertować naraz, na Twoim urządzeniu.",
+  "title": "PowerPoint na PDF online za darmo: PPTX na PDF | Toolz Baba",
+  "metaDesc": "Konwertuj prezentacje PowerPoint (PPTX) na PDF w przeglądarce: obrazy, kształty, tekst i tabele, jeden slajd na stronę. Za darmo, bez przesyłania.",
+  "steps": [
+   "Dodaj pliki PPTX.",
+   "Kliknij „Konwertuj na PDF”.",
+   "Pobierz plik PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić PowerPoint na PDF?",
+    "a": "Dodaj plik PPTX i kliknij „Konwertuj na PDF”. Każdy slajd staje się jedną stroną PDF."
+   },
+   {
+    "q": "Czy działa ze starymi plikami .ppt?",
+    "a": "Nie bezpośrednio. Najpierw otwórz plik .ppt w PowerPoincie, Prezentacjach Google lub LibreOffice i zapisz go jako PPTX."
+   },
+   {
+    "q": "Czy wykresy i animacje zostaną zachowane?",
+    "a": "Animacje nie mogą być częścią PDF. Wykresy i SmartArt nie są jeszcze rysowane; obrazy, kształty, tekst i tabele tak."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "markdown-converter": {
+  "name": "Konwerter Markdown",
+  "desc": "Markdown na PDF, HTML lub Word oraz HTML, Word lub PDF z powrotem na Markdown.",
+  "about": "Jedno miejsce na każdą konwersję Markdown: zamień Markdown na PDF, stronę internetową lub plik Word albo zamień stronę HTML, dokument Word lub PDF z powrotem na czysty Markdown. Wpisz lub wklej tekst i oglądaj podgląd albo dodaj plik. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter Markdown: MD na PDF, Word, HTML i z powrotem | Toolz Baba",
+  "metaDesc": "Konwertuj Markdown na PDF, HTML lub Word oraz HTML, Word lub PDF z powrotem na Markdown, z podglądem na żywo. Za darmo i prywatnie: działa w przeglądarce.",
+  "steps": [
+   "Wpisz lub wklej tekst albo dodaj plik.",
+   "Wybierz konwersję, np. Markdown na PDF lub Word na Markdown.",
+   "Sprawdź podgląd i pobierz."
+  ],
+  "faq": [
+   {
+    "q": "Jakie konwersje są dostępne?",
+    "a": "Markdown na PDF, HTML lub Word oraz HTML, Word lub PDF z powrotem na Markdown."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce i plik nigdy nie jest przesyłany."
+   }
+  ],
+  "tabAll": "Wszystkie konwertery"
+ },
+ "organize-pdf": {
+  "name": "Organizowanie stron PDF",
+  "desc": "Zmieniaj kolejność, usuwaj i obracaj strony PDF wizualnie: przeciągaj miniatury, a potem zapisz nowy PDF.",
+  "about": "Zobacz każdą stronę swojego PDF jako miniaturę. Przeciągaj strony, aby zmienić ich kolejność, klikaj, aby je obrócić lub usunąć, a potem zapisz nowy PDF. Wszystko dzieje się w Twojej przeglądarce, więc PDF nigdy nie jest przesyłany.",
+  "title": "Organizuj strony PDF online za darmo: zmień kolejność i obróć | Toolz Baba",
+  "metaDesc": "Zmieniaj kolejność, obracaj i usuwaj strony PDF, przeciągając miniatury, a potem zapisz nowy PDF. Za darmo, bez rejestracji, PDF nie jest przesyłany.",
+  "steps": [
+   "Dodaj plik PDF, aby zobaczyć każdą stronę jako miniaturę.",
+   "Przeciągaj strony, aby zmienić ich kolejność, i obracaj lub usuwaj te, które trzeba.",
+   "Zapisz i pobierz nowy PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmienić kolejność stron w PDF?",
+    "a": "Dodaj PDF i przeciągnij miniatury stron w wybrane miejsca, a potem zapisz."
+   },
+   {
+    "q": "Czy mogę też obracać lub usuwać strony?",
+    "a": "Tak, każda strona ma przyciski do obracania i usuwania."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko dzieje się w Twojej przeglądarce, więc PDF nigdy nie jest przesyłany."
+   }
+  ],
+  "tabAll": "Organizowanie"
+ },
+ "esign-pdf": {
+  "name": "Podpisywanie PDF",
+  "desc": "Narysuj, wpisz lub dodaj swój podpis i umieść go na dowolnej stronie PDF.",
+  "about": "Utwórz podpis, rysując go, wpisując swoje imię i nazwisko pismem odręcznym albo dodając obraz, a potem przeciągnij go w odpowiednie miejsce na dowolnej stronie i zmień jego rozmiar. Możesz podpisać kilka stron naraz. To dodaje obraz podpisu; nie jest to podpis cyfrowy oparty na certyfikacie.",
+  "title": "Podpisz PDF online za darmo: dodaj podpis do PDF | Toolz Baba",
+  "metaDesc": "Podpisz PDF, rysując, wpisując lub dodając podpis, i umieść go na dowolnej stronie. Podpisuj kilka stron naraz. Za darmo i prywatnie, bez rejestracji.",
+  "steps": [
+   "Dodaj plik PDF, który chcesz podpisać.",
+   "Narysuj, wpisz lub dodaj swój podpis.",
+   "Przeciągnij go w odpowiednie miejsce na dowolnej stronie, zmień rozmiar i pobierz podpisany PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak podpisać PDF online za darmo?",
+    "a": "Dodaj PDF, utwórz podpis, rysując go, wpisując lub dodając obraz, umieść go na stronie i pobierz."
+   },
+   {
+    "q": "Czy to prawnie wiążący podpis cyfrowy?",
+    "a": "Dodaje obraz Twojego podpisu, jak podpis na papierze. To nie jest podpis cyfrowy oparty na certyfikacie, którego wymagają niektóre dokumenty urzędowe i prawne."
+   },
+   {
+    "q": "Czy mogę podpisać kilka stron?",
+    "a": "Tak, możesz umieścić podpis na kilku stronach naraz."
+   }
+  ]
+ },
+ "add-page-numbers-to-pdf": {
+  "name": "Numerowanie stron PDF",
+  "desc": "Dodaj numery stron do PDF: wybierz położenie, format, numer początkowy i stronę, od której zaczynasz.",
+  "about": "Dodaj numery stron do każdej strony pliku PDF. Wybierz położenie (góra lub dół, lewo, środek lub prawo), format (1, Strona 1, Strona 1 z 10), pierwszy numer, rozmiar i kolor, a w razie potrzeby pomiń stronę tytułową. Obrócone strony są obsługiwane poprawnie.",
+  "title": "Dodaj numery stron do PDF online za darmo | Toolz Baba",
+  "metaDesc": "Ponumeruj strony PDF u góry lub u dołu w formacie 1, Strona 1 lub Strona 1 z 10. Wybierz numer początkowy i pomiń stronę tytułową. Za darmo i prywatnie.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz położenie, format (1, Strona 1 lub Strona 1 z 10), pierwszy numer, rozmiar i kolor.",
+   "Dodaj numery i pobierz PDF."
+  ],
+  "faq": [
+   {
+    "q": "Czy mogę pominąć stronę tytułową?",
+    "a": "Tak. Wybierz stronę, od której zaczyna się numerowanie, a strona tytułowa zostanie bez numeru."
+   },
+   {
+    "q": "Jakie formaty mogą mieć numery?",
+    "a": "1, Strona 1 lub Strona 1 z 10, u góry lub u dołu, po lewej, na środku lub po prawej."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "protect-pdf": {
+  "name": "Zabezpieczanie PDF hasłem",
+  "desc": "Zablokuj PDF hasłem z szyfrowaniem AES-256. Opcjonalnie zablokuj drukowanie lub kopiowanie.",
+  "about": "Dodaj hasło, aby tylko osoby, które je znają, mogły otworzyć Twój PDF. Plik jest szyfrowany algorytmem AES-256. Możesz też wybrać, czy drukowanie, kopiowanie tekstu i edycja są dozwolone. Zachowaj hasło w bezpiecznym miejscu: nie można go odzyskać.",
+  "title": "Zabezpiecz PDF hasłem online za darmo: AES-256 | Toolz Baba",
+  "metaDesc": "Zablokuj PDF hasłem z szyfrowaniem AES-256 i wybierz, czy drukowanie, kopiowanie i edycja są dozwolone. Za darmo, bez rejestracji.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wpisz hasło i wybierz, czy drukowanie, kopiowanie i edycja są dozwolone.",
+   "Pobierz zablokowany PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak bezpieczna jest ta ochrona?",
+    "a": "PDF jest szyfrowany algorytmem AES-256, więc nie można go otworzyć bez hasła."
+   },
+   {
+    "q": "Co jeśli zapomnę hasła?",
+    "a": "Nie można go odzyskać, więc zachowaj je w bezpiecznym miejscu."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "unlock-pdf": {
+  "name": "Odblokowanie PDF (usuwanie hasła)",
+  "desc": "Usuń hasło otwierania z PDF, gdy znasz to hasło.",
+  "about": "Jeśli znasz hasło do PDF i nie chcesz go ciągle wpisywać, to narzędzie zapisze kopię, która otwiera się bez hasła. Działa tylko po wpisaniu poprawnego hasła: nie łamie ani nie omija zabezpieczeń.",
+  "title": "Odblokuj PDF: usuń hasło z PDF online za darmo | Toolz Baba",
+  "metaDesc": "Usuń hasło z PDF, do którego znasz hasło, i zapisz kopię otwieraną bez niego. Za darmo, prywatnie, bez rejestracji. Nie łamie zabezpieczeń PDF.",
+  "steps": [
+   "Dodaj PDF chroniony hasłem.",
+   "Wpisz jego hasło.",
+   "Pobierz kopię, która otwiera się bez hasła."
+  ],
+  "faq": [
+   {
+    "q": "Czy może otworzyć PDF, jeśli nie znam hasła?",
+    "a": "Nie. Działa tylko z poprawnym hasłem; nie łamie ani nie omija zabezpieczeń."
+   },
+   {
+    "q": "Po co odblokowywać PDF, który mogę już otworzyć?",
+    "a": "Aby nie wpisywać hasła za każdym razem albo aby móc połączyć lub edytować plik innymi narzędziami."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "video-converter": {
+  "name": "Konwerter wideo",
+  "desc": "Konwertuj na MP4, WebM, MKV, MOV, AVI lub wyodrębnij dźwięk jako MP3, M4A, WAV.",
+  "about": "Konwertuj wideo na MP4, WebM, MKV, MOV lub AVI albo wyodrębnij dźwięk jako MP3, M4A, WAV, OGG lub FLAC. Wybierz jakość i w razie potrzeby zmniejsz rozdzielczość. Obsługiwane są pliki do 2 GB.",
+  "title": "Konwerter wideo online za darmo: MP4, MOV, MKV, MP3 | Toolz Baba",
+  "metaDesc": "Konwertuj filmy na MP4, WebM, MKV, MOV lub AVI albo wyodrębnij dźwięk jako MP3, M4A lub WAV. Pliki do 2 GB. Za darmo i prywatnie: działa w przeglądarce.",
+  "steps": [
+   "Dodaj wideo (do 2 GB).",
+   "Wybierz MP4, WebM, MKV, MOV lub AVI albo format audio, np. MP3.",
+   "Konwertuj i pobierz."
+  ],
+  "faq": [
+   {
+    "q": "Jak przekonwertować wideo na MP4?",
+    "a": "Dodaj wideo, wybierz MP4, ustaw jakość i konwertuj."
+   },
+   {
+    "q": "Czy mogę uzyskać dźwięk jako MP3?",
+    "a": "Tak. Wybierz MP3, M4A, WAV, OGG lub FLAC, aby wyodrębnić tylko dźwięk."
+   },
+   {
+    "q": "Czy moje wideo jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "audio-converter": {
+  "name": "Konwerter audio",
+  "desc": "Konwertuj audio na MP3, M4A, WAV, FLAC lub OGG: piosenki, nagrania, notatki głosowe i dźwięk z wideo.",
+  "about": "Konwertuj pliki WAV, M4A, AAC, FLAC, OGG, OPUS, WMA i AMR (także wiadomości głosowe z WhatsAppa i nagrania z telefonu) na MP3, M4A, WAV, FLAC lub OGG. Wybierz jakość, konwertuj do 20 plików naraz i pobierz je razem. Wyciąga też dźwięk z wideo. Wszystko działa na Twoim urządzeniu: Twoje audio nigdy nie jest przesyłane.",
+  "title": "Konwerter audio online za darmo: MP3, WAV, M4A, FLAC, OGG | Toolz Baba",
+  "metaDesc": "Konwertuj pliki audio na MP3, M4A, WAV, FLAC lub OGG w przeglądarce, do 20 naraz, w wybranej jakości. Za darmo, nic nie jest przesyłane.",
+  "steps": [
+   "Dodaj pliki audio.",
+   "Wybierz format i jakość.",
+   "Pobierz przekonwertowane pliki."
+  ],
+  "faq": [
+   {
+    "q": "Jak przekonwertować audio na MP3?",
+    "a": "Dodaj pliki, zostaw wybrany MP3 (192 kbps to dobre ustawienie domyślne) i kliknij „Konwertuj”. Gdy pliki MP3 będą gotowe, pobierz je."
+   },
+   {
+    "q": "Jaki format wybrać?",
+    "a": "MP3 odtworzysz wszędzie. M4A jest mały i świetny na iPhone’a. WAV i FLAC zachowują pełną jakość; FLAC jest około dwa razy mniejszy niż WAV."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "video-to-gif": {
+  "name": "Wideo na GIF",
+  "desc": "Zamień dowolny fragment filmu w animowany GIF wysokiej jakości.",
+  "about": "Zamień fragment dowolnego wideo w animowany GIF. Ustaw czas rozpoczęcia, długość, liczbę klatek na sekundę i szerokość. Dla każdego GIF-a generowana jest paleta, aby kolory były czyste.",
+  "title": "Wideo na GIF za darmo: MP4 na GIF w HD | Toolz Baba",
+  "metaDesc": "Zamień dowolną część filmu w animowany GIF wysokiej jakości. Ustaw początek, długość, szerokość i liczbę klatek. Za darmo, bez znaku wodnego i przesyłania.",
+  "steps": [
+   "Dodaj wideo (MP4, MOV, WebM i inne).",
+   "Ustaw czas rozpoczęcia, długość, liczbę klatek na sekundę i szerokość.",
+   "Utwórz GIF i pobierz go."
+  ],
+  "faq": [
+   {
+    "q": "Jak zamienić MP4 na GIF?",
+    "a": "Dodaj plik MP4, wybierz fragment za pomocą czasu rozpoczęcia i długości, ustaw szerokość i liczbę klatek na sekundę, a potem utwórz GIF."
+   },
+   {
+    "q": "Jak zmniejszyć GIF?",
+    "a": "Użyj krótszego fragmentu wideo, mniejszej szerokości i mniejszej liczby klatek na sekundę. Narzędzie Kompresja GIF może zmniejszyć go jeszcze bardziej."
+   },
+   {
+    "q": "Czy moje wideo jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "gif-to-video": {
+  "name": "GIF na wideo",
+  "desc": "Konwertuj pliki GIF na małe filmy MP4 lub WebM.",
+  "about": "Zamień animacje GIF w znacznie mniejsze filmy MP4 lub WebM i powtórz animację, jeśli chcesz dłuższy klip. Wideo ładuje się szybciej i płynnie odtwarza się na telefonach.",
+  "title": "GIF na MP4 online za darmo: konwerter | Toolz Baba",
+  "metaDesc": "Zamień animacje GIF w znacznie mniejsze filmy MP4 lub WebM, które szybko się ładują i płynnie działają na telefonach. Zapętl je dla dłuższego klipu.",
+  "steps": [
+   "Dodaj plik GIF.",
+   "Wybierz MP4 lub WebM i liczbę powtórzeń.",
+   "Konwertuj i pobierz wideo."
+  ],
+  "faq": [
+   {
+    "q": "Dlaczego warto zamienić GIF na MP4?",
+    "a": "Wideo jest zwykle znacznie mniejsze, szybciej się ładuje i płynnie odtwarza się na telefonach."
+   },
+   {
+    "q": "Czy mogę wydłużyć wideo?",
+    "a": "Tak. Powtórz animację, aby uzyskać dłuższy klip."
+   }
+  ]
+ },
+ "video-trimmer": {
+  "name": "Przycinanie wideo",
+  "desc": "Wytnij fragment z filmu. Obejrzyj podgląd i wybierz początek i koniec.",
+  "about": "Wytnij fragment z pliku wideo lub audio. Obejrzyj podgląd, zaznacz początek i koniec oraz wybierz dokładne cięcie albo szybkie, bezstratne cięcie, które przyciąga do najbliższej klatki kluczowej.",
+  "title": "Przytnij wideo online za darmo: wytnij początek i koniec | Toolz Baba",
+  "metaDesc": "Wytnij potrzebny fragment z pliku wideo lub audio. Obejrzyj podgląd, zaznacz początek i koniec, wybierz cięcie dokładne lub szybkie. Za darmo i prywatnie.",
+  "steps": [
+   "Dodaj plik wideo lub audio.",
+   "Odtwórz go i zaznacz początek i koniec.",
+   "Wybierz dokładne lub szybkie bezstratne cięcie, a potem pobierz."
+  ],
+  "faq": [
+   {
+    "q": "Czym różni się dokładne cięcie od szybkiego?",
+    "a": "Dokładne cięcie zaczyna się dokładnie tam, gdzie zaznaczysz. Szybkie cięcie jest bezstratne i szybsze, ale przyciąga do najbliższej klatki kluczowej, więc może zacząć się chwilę wcześniej."
+   },
+   {
+    "q": "Czy mogę przycinać też audio?",
+    "a": "Tak, pliki audio działają tak samo."
+   },
+   {
+    "q": "Czy moje wideo jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "compress-video": {
+  "name": "Kompresja wideo",
+  "desc": "Zmniejsz film według poziomu jakości lub docelowego rozmiaru pliku.",
+  "about": "Zmniejsz film, wybierając poziom jakości lub docelowy rozmiar pliku w MB, np. aby zmieścić się w limicie e-maila lub czatu. Możesz też obniżyć rozdzielczość.",
+  "title": "Kompresuj wideo online za darmo: zmniejsz rozmiar MP4 w MB | Toolz Baba",
+  "metaDesc": "Zmniejsz film według jakości lub do rozmiaru w MB, np. na WhatsApp, do e-maila lub przesyłania. Obniż też rozdzielczość. Za darmo, bez znaku wodnego.",
+  "steps": [
+   "Dodaj wideo.",
+   "Wybierz poziom jakości lub docelowy rozmiar w MB i, jeśli chcesz, obniż rozdzielczość.",
+   "Kompresuj i pobierz mniejszy film."
+  ],
+  "faq": [
+   {
+    "q": "Jak zmniejszyć film, aby zmieścił się na WhatsAppie lub w e-mailu?",
+    "a": "Wybierz docelowy rozmiar i wpisz limit w MB; narzędzie dobierze ustawienia, aby się w nim zmieścić."
+   },
+   {
+    "q": "Czy kompresja wideo pogarsza jakość?",
+    "a": "Trochę. Obniżenie rozdzielczości, np. do 720p, często daje największą oszczędność przy najmniej widocznej zmianie."
+   },
+   {
+    "q": "Czy moje wideo jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Kompresja wideo"
+ },
+ "video-merger": {
+  "name": "Łączenie wideo",
+  "desc": "Połącz kilka klipów w jeden MP4, w wybranej kolejności. Różne rozmiary i formaty nie są problemem.",
+  "about": "Połącz dwa lub więcej klipów w jeden plik MP4. Klipy o różnych rozdzielczościach, liczbie klatek lub formatach są dopasowywane automatycznie, a klipy bez dźwięku są również obsługiwane. Przed połączeniem zmień kolejność klipów.",
+  "title": "Połącz filmy online za darmo: złącz klipy w jeden MP4 | Toolz Baba",
+  "metaDesc": "Połącz dwa lub więcej klipów wideo w jeden MP4 w wybranej kolejności. Różne rozmiary i formaty są dopasowywane za Ciebie. Za darmo, bez znaku wodnego.",
+  "steps": [
+   "Dodaj dwa lub więcej klipów.",
+   "Ułóż je w wybranej kolejności.",
+   "Połącz i pobierz jeden plik MP4."
+  ],
+  "faq": [
+   {
+    "q": "Czy mogę połączyć filmy o różnych rozmiarach lub formatach?",
+    "a": "Tak. Różne rozdzielczości, liczba klatek i formaty są dopasowywane automatycznie."
+   },
+   {
+    "q": "Co jeśli klip nie ma dźwięku?",
+    "a": "To też jest obsługiwane: połączony film odtwarza się normalnie."
+   },
+   {
+    "q": "Czy moje filmy są przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "change-video-speed": {
+  "name": "Zmiana prędkości wideo",
+  "desc": "Przyspiesz film (timelapse) lub spowolnij go, od 0,25x do 8x. Wysokość dźwięku pozostaje naturalna.",
+  "about": "Przyspiesz film do timelapse’u lub spowolnij do slow motion, w zakresie od 0,25x do 8x. Dźwięk jest przyspieszany lub spowalniany z zachowaniem wysokości tonu albo możesz go wyciszyć.",
+  "title": "Zmień prędkość wideo online za darmo: od 0,25x do 8x | Toolz Baba",
+  "metaDesc": "Przyspiesz film do timelapse’u lub spowolnij do slow motion, od 0,25x do 8x, z naturalnie brzmiącym dźwiękiem. Za darmo i prywatnie, bez rejestracji.",
+  "steps": [
+   "Dodaj wideo.",
+   "Wybierz prędkość od 0,25x (slow motion) do 8x (timelapse) i zachowaj lub wycisz dźwięk.",
+   "Pobierz nowe wideo."
+  ],
+  "faq": [
+   {
+    "q": "Czy po przyspieszeniu głosy zabrzmią jak wiewiórki?",
+    "a": "Nie. Wysokość dźwięku pozostaje naturalna przy zmianie prędkości. Możesz też wyciszyć dźwięk."
+   },
+   {
+    "q": "Jak zrobić film w zwolnionym tempie?",
+    "a": "Wybierz prędkość poniżej 1x, np. 0,5x lub 0,25x."
+   },
+   {
+    "q": "Czy moje wideo jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "json-formatter": {
+  "name": "Formatowanie i walidacja JSON",
+  "desc": "Formatuj, minifikuj i waliduj JSON. Pokazuje dokładną linię i kolumnę każdego błędu.",
+  "about": "Wklej JSON, aby uczynić go czytelnym z wcięciem 2 lub 4 spacji albo tabulatorami, zminifikować go, posortować klucze lub sprawdzić, czy jest poprawny. Jeśli jest błąd, narzędzie wskaże linię i kolumnę. Wszystko dzieje się w Twojej przeglądarce.",
+  "title": "Formatowanie i walidacja JSON online: upiększ JSON | Toolz Baba",
+  "metaDesc": "Formatuj, minifikuj i waliduj JSON, sortuj klucze i zobacz dokładną linię oraz kolumnę każdego błędu. Za darmo, a Twoje dane nie opuszczają przeglądarki.",
+  "steps": [
+   "Wklej swój JSON.",
+   "Sformatuj go z wcięciem 2 lub 4 spacji albo tabulatorami, zminifikuj lub posortuj klucze.",
+   "Skopiuj wynik."
+  ],
+  "faq": [
+   {
+    "q": "Jak znaleźć błąd w moim JSON?",
+    "a": "Wklej go tutaj: jeśli jest niepoprawny, narzędzie pokaże dokładną linię i kolumnę błędu."
+   },
+   {
+    "q": "Czy mój JSON jest wysyłany na serwer?",
+    "a": "Nie. Wszystko dzieje się w Twojej przeglądarce."
+   }
+  ]
+ },
+ "word-counter": {
+  "name": "Licznik słów i znaków",
+  "desc": "Policz słowa, znaki, zdania i akapity, z czasem czytania i najczęstszymi słowami kluczowymi.",
+  "about": "Wklej lub wpisz tekst, aby zobaczyć liczbę słów, znaków (ze spacjami i bez), zdań i akapitów, a także szacowany czas czytania i mówienia oraz najczęściej używane słowa. Działa z tekstem angielskim i hindi.",
+  "title": "Licznik słów i znaków online za darmo | Toolz Baba",
+  "metaDesc": "Policz słowa, znaki (ze spacjami i bez), zdania i akapity oraz zobacz czas czytania i najczęstsze słowa kluczowe. Angielski i hindi.",
+  "steps": [
+   "Wklej lub wpisz tekst.",
+   "Zobacz od razu liczbę słów, znaków, zdań, akapitów i czas czytania.",
+   "Sprawdź najczęściej używane słowa."
+  ],
+  "faq": [
+   {
+    "q": "Czy liczy znaki ze spacjami i bez?",
+    "a": "Tak, pokazywane są obie wartości."
+   },
+   {
+    "q": "Czy działa z hindi?",
+    "a": "Tak, liczy tekst angielski i hindi."
+   },
+   {
+    "q": "Czy mój tekst jest gdzieś zapisywany?",
+    "a": "Nie. Działa w Twojej przeglądarce, więc to, co wpisujesz, nigdzie nie jest wysyłane."
+   }
+  ]
+ },
+ "text-case-converter": {
+  "name": "Zamiana wielkości liter",
+  "desc": "Zamień tekst na WIELKIE litery, małe litery, Każde Słowo Wielką, Zdanie, camelCase, snake_case i inne.",
+  "about": "Zamień tekst między formatami: WIELKIE LITERY, małe litery, Każde Słowo Wielką Literą, Wielkość jak w zdaniu, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE i inne jednym kliknięciem, a potem skopiuj wynik.",
+  "title": "Zamiana wielkości liter online: wielkie, małe, tytuł | Toolz Baba",
+  "metaDesc": "Zamień tekst na WIELKIE litery, małe litery, Każde Słowo Wielką, camelCase, snake_case, kebab-case i inne jednym kliknięciem. Za darmo i natychmiast.",
+  "steps": [
+   "Wklej swój tekst.",
+   "Kliknij potrzebny format: WIELKIE LITERY, małe litery, Każde Słowo Wielką, camelCase i inne.",
+   "Skopiuj wynik."
+  ],
+  "faq": [
+   {
+    "q": "Jakie formaty są obsługiwane?",
+    "a": "WIELKIE LITERY, małe litery, Każde Słowo Wielką, wielkość jak w zdaniu, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE i inne."
+   },
+   {
+    "q": "Czy mój tekst jest gdzieś wysyłany?",
+    "a": "Nie. Działa w Twojej przeglądarce, więc to, co wpisujesz, nigdzie nie jest wysyłane."
+   }
+  ]
+ },
+ "password-generator": {
+  "name": "Generator haseł",
+  "desc": "Twórz silne losowe hasła. Wybierz długość i znaki oraz zobacz, jak są mocne.",
+  "about": "Generuj silne losowe hasła za pomocą bezpiecznego generatora liczb losowych w przeglądarce. Wybierz długość i rodzaje znaków, pomiń znaki łatwe do pomylenia, utwórz kilka haseł naraz i zobacz oszacowanie ich siły. Hasła nigdy nie są nigdzie wysyłane.",
+  "title": "Generator silnych haseł online: losowe i bezpieczne | Toolz Baba",
+  "metaDesc": "Twórz silne losowe hasła za pomocą bezpiecznego generatora w przeglądarce. Wybierz długość i znaki i zobacz siłę hasła. Nigdzie nie są wysyłane.",
+  "steps": [
+   "Wybierz długość i rodzaje znaków.",
+   "Wygeneruj jedno lub kilka haseł i sprawdź ich siłę.",
+   "Skopiuj to, które chcesz."
+  ],
+  "faq": [
+   {
+    "q": "Czy hasła są naprawdę losowe?",
+    "a": "Tak. Pochodzą z bezpiecznego generatora liczb losowych Twojej przeglądarki."
+   },
+   {
+    "q": "Jak długie powinno być hasło?",
+    "a": "Co najmniej 12–16 znaków z różnych rodzajów znaków; im dłuższe, tym silniejsze."
+   },
+   {
+    "q": "Czy hasła są gdzieś wysyłane lub zapisywane?",
+    "a": "Nie. Są tworzone w Twojej przeglądarce i nigdzie nie są wysyłane."
+   }
+  ]
+ },
+ "hash-uuid-generator": {
+  "name": "Generator hashy i UUID",
+  "desc": "Generuj UUID oraz hashe MD5, SHA-1, SHA-256, SHA-384 lub SHA-512 tekstu i plików.",
+  "about": "Twórz losowe UUID (wersja 4 i uporządkowana w czasie wersja 7) oraz oblicz sumy kontrolne MD5, SHA-1, SHA-256, SHA-384 i SHA-512 tekstu lub pliku, aby sprawdzić pobrany plik. Plik jest odczytywany w Twojej przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Generator hashy i UUID online: SHA-256, MD5 | Toolz Baba",
+  "metaDesc": "Generuj UUID v4 i v7 oraz hashe MD5, SHA-1, SHA-256, SHA-384 lub SHA-512 tekstu i plików, aby sprawdzać pobrane pliki. Za darmo, bez przesyłania.",
+  "steps": [
+   "Wybierz UUID albo typ hasha, np. SHA-256.",
+   "Wpisz tekst lub dodaj plik.",
+   "Skopiuj wynik albo porównaj go z otrzymaną sumą kontrolną."
+  ],
+  "faq": [
+   {
+    "q": "Jak sprawdzić, czy pobrany plik nie jest uszkodzony?",
+    "a": "Dodaj pobrany plik, wybierz hash podany na stronie (często SHA-256) i porównaj obie wartości."
+   },
+   {
+    "q": "Czym różni się UUID v4 od v7?",
+    "a": "v4 jest całkowicie losowy; v7 zaczyna się od czasu, więc nowe identyfikatory sortują się w kolejności tworzenia."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Plik jest odczytywany w Twojej przeglądarce i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "url-encoder": {
+  "name": "Kodowanie i dekodowanie URL",
+  "desc": "Koduj i dekoduj adresy URL i tekst oraz rozbierz adres URL na host, ścieżkę i parametry zapytania.",
+  "about": "Zakoduj tekst, aby można go było bezpiecznie umieścić w adresie URL, odkoduj tekst zakodowany procentowo i podziel pełny adres URL na części (protokół, host, ścieżkę i parametry zapytania), aby je odczytać lub edytować.",
+  "title": "Kodowanie i dekodowanie URL online: kodowanie procentowe | Toolz Baba",
+  "metaDesc": "Koduj tekst do adresu URL, dekoduj tekst zakodowany procentowo i dziel adres URL na host, ścieżkę i parametry, aby je edytować. Za darmo i natychmiast.",
+  "steps": [
+   "Wklej tekst lub adres URL.",
+   "Zakoduj go, odkoduj albo podziel adres URL na części.",
+   "Skopiuj wynik."
+  ],
+  "faq": [
+   {
+    "q": "Czym jest kodowanie URL?",
+    "a": "Znaki takie jak spacje i & są zastępowane kodami, np. %20, aby tekst można było bezpiecznie użyć w adresie internetowym."
+   },
+   {
+    "q": "Czy mogę edytować parametry zapytania w adresie URL?",
+    "a": "Tak. Podziel adres URL, aby zobaczyć protokół, host, ścieżkę i każdy parametr, i edytuj je."
+   }
+  ]
+ },
+ "image-color-palette-extractor": {
+  "name": "Wyodrębnianie palety kolorów",
+  "desc": "Wyciągnij główne kolory z dowolnego obrazu. Kopiuj HEX, RGB, CSS.",
+  "about": "Wyodrębnij dominujące kolory z dowolnego obrazu. Kopiuj wartości HEX, RGB i HSL, eksportuj zmienne CSS lub JSON, pobierz paletę jako obraz i kliknij obraz, aby wybrać dokładny kolor. Działa w Twojej przeglądarce.",
+  "title": "Paleta kolorów z obrazu: wyodrębnij HEX i RGB | Toolz Baba",
+  "metaDesc": "Wyciągnij główne kolory z dowolnego obrazu i kopiuj wartości HEX, RGB lub HSL, zmienne CSS albo JSON. Kliknij, aby wybrać dokładny kolor. Za darmo.",
+  "steps": [
+   "Dodaj obraz.",
+   "Zobacz jego główne kolory lub kliknij obraz, aby wybrać dokładny kolor.",
+   "Skopiuj HEX, RGB lub HSL albo wyeksportuj CSS, JSON lub obraz palety."
+  ],
+  "faq": [
+   {
+    "q": "Jak uzyskać kod HEX koloru z obrazu?",
+    "a": "Dodaj obraz i kliknij wybrane miejsce; dokładny kolor zostanie pokazany w HEX, RGB i HSL."
+   },
+   {
+    "q": "Czy mój obraz jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ],
+  "tabAll": "Z obrazu"
+ },
+ "qr-code-generator": {
+  "name": "Generator kodów QR",
+  "desc": "Adres URL, tekst, Wi-Fi, e-mail, telefon lub wizytówka. PNG lub SVG, z kolorami i logo.",
+  "about": "Twórz kody QR dla linków, tekstu, sieci Wi-Fi, czatów WhatsApp, e-maili, numerów telefonów, SMS-ów i wizytówek. Wybierz kolory i styl kropek, dodaj logo na środku i pobierz jako PNG lub SVG.",
+  "title": "Generator kodów QR za darmo: link, Wi-Fi, WhatsApp, logo | Toolz Baba",
+  "metaDesc": "Twórz kody QR dla linków, Wi-Fi, WhatsApp, e-maila, telefonu, SMS-ów i wizytówek. Dodaj kolory i logo, pobierz PNG lub SVG. Za darmo, bez terminu ważności.",
+  "steps": [
+   "Wybierz, co zawiera kod: link, tekst, Wi-Fi, WhatsApp, e-mail, telefon, SMS lub wizytówkę.",
+   "Wybierz kolory i styl kropek oraz dodaj logo, jeśli chcesz.",
+   "Pobierz jako PNG lub SVG."
+  ],
+  "faq": [
+   {
+    "q": "Jak zrobić kod QR do linku?",
+    "a": "Wybierz typ „link”, wklej adres i pobierz kod QR jako PNG lub SVG."
+   },
+   {
+    "q": "Czy mogę zrobić kod QR do Wi-Fi?",
+    "a": "Tak. Wpisz nazwę sieci i hasło; ludzie skanują kod, aby dołączyć bez wpisywania."
+   },
+   {
+    "q": "Czy kody QR wygasają?",
+    "a": "Nie. Adres lub tekst jest zapisany w samym kodzie, więc działa tak długo, jak działa link, do którego prowadzi."
+   },
+   {
+    "q": "PNG czy SVG?",
+    "a": "PNG do telefonów, dokumentów i WhatsAppa; SVG do dużych wydruków, bo pozostaje ostry w każdym rozmiarze."
+   }
+  ]
+ },
+ "base64": {
+  "name": "Konwerter Base64",
+  "desc": "Koduj i dekoduj tekst i pliki. Uzyskaj data URI dla obrazów.",
+  "about": "Koduj i dekoduj Base64 dla tekstu (z pełną obsługą Unicode) i plików. Uzyskaj data URI dla obrazów albo zamień ciąg Base64 z powrotem w plik do pobrania. Działa w Twojej przeglądarce.",
+  "title": "Base64 online: kodowanie i dekodowanie tekstu i plików | Toolz Baba",
+  "metaDesc": "Koduj i dekoduj Base64 dla tekstu i plików, twórz data URI dla obrazów albo zamień Base64 z powrotem w plik. Za darmo, działa w przeglądarce.",
+  "steps": [
+   "Wklej tekst lub dodaj plik.",
+   "Zakoduj lub odkoduj.",
+   "Skopiuj wynik albo pobierz odkodowany plik."
+  ],
+  "faq": [
+   {
+    "q": "Czym jest data URI?",
+    "a": "To obraz zapisany jako tekst Base64, który możesz wstawić bezpośrednio do HTML lub CSS zamiast linku do pliku."
+   },
+   {
+    "q": "Czy obsługuje tekst w hindi i emoji?",
+    "a": "Tak, kodowanie tekstu w pełni obsługuje Unicode."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce, więc pliki zostają na Twoim urządzeniu i nigdzie nie są przesyłane."
+   }
+  ]
+ },
+ "image-cdn": {
+  "name": "Obraz do linku CDN",
+  "desc": "Prześlij obraz i uzyskaj bezpośrednie linki w każdym formacie (JPG, PNG, WebP, AVIF...) z opcjami zmiany rozmiaru.",
+  "about": "Prześlij obraz i uzyskaj bezpośrednie linki do niego w formatach JPG, PNG, WebP, AVIF, GIF, BMP, TIFF i ICO. Dodaj ?w=800 do dowolnego linku, aby zmienić rozmiar. Przekonwertowane wersje są buforowane dla szybkiego ładowania.",
+  "tabAll": "Link do obrazu"
+ },
+ "split-audio": {
+  "name": "Dzielenie i wycinanie audio",
+  "desc": "Wytnij potrzebny fragment pliku audio albo podziel go na części o stałej długości lub na równe części.",
+  "about": "Wytnij fragment z piosenki, nagrania lub notatki głosowej: odtwórz ją, zaznacz początek i koniec fragmentu, dodaj wygaszanie lub narastanie dźwięku i zapisz jako MP3, M4A, WAV, OGG lub FLAC. Możesz też podzielić długi plik na krótsze ścieżki, co kilka minut lub na określoną liczbę równych części, i pobrać je w pliku ZIP. Możesz również wyciągnąć dźwięk z pliku wideo. Wszystko działa w Twojej przeglądarce.",
+  "title": "Wycinanie audio online za darmo: tnij i dziel MP3 | Toolz Baba",
+  "metaDesc": "Wytnij fragment piosenki lub nagrania z wyciszeniem albo podziel długi plik na równe części lub co kilka minut. Zapisz jako MP3, WAV i inne. Za darmo.",
+  "steps": [
+   "Dodaj plik audio (albo wideo, aby wyciągnąć jego dźwięk).",
+   "Zaznacz fragment do zachowania i dodaj wygaszanie albo wybierz podział co kilka minut lub na równe części.",
+   "Zapisz jako MP3, M4A, WAV, OGG lub FLAC."
+  ],
+  "faq": [
+   {
+    "q": "Jak wyciąć fragment piosenki?",
+    "a": "Dodaj piosenkę, odtwórz ją, zaznacz początek i koniec fragmentu, w razie potrzeby dodaj wygaszanie i zapisz."
+   },
+   {
+    "q": "Czy mogę podzielić długie nagranie na części?",
+    "a": "Tak, co kilka minut lub na określoną liczbę równych części, dostarczone w pliku ZIP."
+   },
+   {
+    "q": "Czy moje audio jest przesyłane na serwer?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce."
+   }
+  ],
+  "tabAll": "Dzielenie audio"
+ },
+ "font-library": {
+  "name": "Biblioteka czcionek",
+  "desc": "Przeglądaj i podglądaj 50 darmowych czcionek, w tym hindi i inne pisma indyjskie, oraz pobieraj je.",
+  "about": "Biblioteka 50 darmowych czcionek, które możesz przeszukiwać, podglądać z własnym tekstem i pobierać: rodziny bezszeryfowe, szeryfowe, ozdobne, pismo odręczne i monospace, a także czcionki hindi (dewanagari), bengalskie, tamilskie, telugu, gudźarati, pendżabskie, kannada i malajalam. Każda karta pokazuje pisma, które czcionka potrafi narysować, oraz jej licencję (większość jest na licencji SIL Open Font License, więc można ich używać także komercyjnie). Pobierz dowolną czcionkę jako ZIP z informacją o licencji, skopiuj gotowy CSS albo użyj jej bezpośrednio w Edytorze PDF.",
+  "title": "Darmowe czcionki do pobrania: 50 czcionek, także hindi | Toolz Baba",
+  "metaDesc": "Podglądaj i pobieraj 50 darmowych czcionek z własnym tekstem, w tym hindi, tamilskie, telugu, bengalskie i gudźarati, w większości do użytku komercyjnego.",
+  "steps": [
+   "Wyszukaj lub przeglądaj 50 czcionek.",
+   "Wpisz własny tekst, aby zobaczyć podgląd.",
+   "Pobierz czcionkę jako ZIP, skopiuj jej CSS lub użyj jej w Edytorze PDF."
+  ],
+  "faq": [
+   {
+    "q": "Czy te czcionki są darmowe do użytku komercyjnego?",
+    "a": "Większość jest na licencji SIL Open Font License, która pozwala na użytek komercyjny. Każda karta czcionki pokazuje jej licencję."
+   },
+   {
+    "q": "Czy są czcionki hindi?",
+    "a": "Tak. Są czcionki hindi (dewanagari) oraz bengalskie, tamilskie, telugu, gudźarati, pendżabskie, kannada i malajalam."
+   }
+  ]
+ },
+ "pdf-editor": {
+  "name": "Edytor PDF",
+  "desc": "Edytuj PDF w przeglądarce: zmieniaj tekst, dodawaj tekst w 50 czcionkach, obrazy, kształty i zakreślenia, a potem pobierz jako PDF, Word, obrazy lub tekst.",
+  "about": "Otwórz PDF i edytuj go bezpośrednio na stronie. Kliknij dowolną linię tekstu, aby ją zmienić, dodaj nowy tekst w wybranej spośród 50 darmowych czcionek (w tym hindi i innych pism indyjskich), wstaw obrazy, rysuj prostokąty, koła, linie i strzałki, zakreślaj, rysuj odręcznie, zamaluj na biało fragmenty, które mają zniknąć, obracaj lub usuwaj strony i dodawaj puste. Gdy skończysz, pobierz wynik jako PDF, plik Word, obrazy stron lub zwykły tekst. Wszystko odbywa się w Twojej przeglądarce, więc PDF nigdy nie jest przesyłany.",
+  "title": "Edytor PDF online za darmo: edytuj tekst w PDF | Toolz Baba",
+  "metaDesc": "Edytuj tekst w PDF, dodawaj tekst w 50 czcionkach (także hindi), obrazy, kształty i zakreślenia, zapisz jako PDF lub Word. Za darmo, PDF nie jest przesyłany.",
+  "steps": [
+   "Otwórz swój PDF.",
+   "Kliknij tekst, aby go zmienić, albo dodaj tekst, obrazy, kształty, zakreślenia i rysunki.",
+   "Pobierz jako PDF, Word, obrazy stron lub tekst."
+  ],
+  "faq": [
+   {
+    "q": "Jak edytować tekst w PDF?",
+    "a": "Otwórz PDF i kliknij linię tekstu, którą chcesz zmienić, a potem pisz. Możesz też dodać nowy tekst w 50 darmowych czcionkach."
+   },
+   {
+    "q": "Czy mogę pisać po hindi?",
+    "a": "Tak. Czcionki obejmują hindi i inne pisma indyjskie."
+   },
+   {
+    "q": "Czy mój PDF jest przesyłany na serwer?",
+    "a": "Nie. Wszystko odbywa się w Twojej przeglądarce, więc PDF nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "crop-pdf": {
+  "name": "Przycinanie PDF",
+  "desc": "Automatycznie usuń białe marginesy ze stron PDF lub przytnij je według wybranych marginesów.",
+  "about": "Przytnij strony PDF, aby treść wypełniała ekran: świetne do czytania artykułów i zeskanowanych książek na telefonie lub czytniku albo do usuwania znaczników cięcia z pliku do druku. Tryb automatyczny znajduje treść na każdej stronie i usuwa pustą ramkę; tryb ręczny odcina marginesy wpisane w milimetrach. Wybierz wszystkie strony lub zakres.",
+  "title": "Przytnij PDF online za darmo: usuń białe marginesy | Toolz Baba",
+  "metaDesc": "Przycinaj strony PDF online: usuń białe marginesy automatycznie lub w milimetrach, dla wszystkich stron lub zakresu. Za darmo, bez rejestracji i przesyłania.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz tryb automatyczny lub własne marginesy.",
+   "Pobierz przycięty PDF."
+  ],
+  "faq": [
+   {
+    "q": "Jak przyciąć marginesy w PDF?",
+    "a": "Dodaj PDF, zostaw wybraną opcję „Automatycznie” i kliknij „Przytnij PDF”. Białe marginesy każdej strony zostaną odcięte, z zachowaniem niewielkiego odstępu wokół treści."
+   },
+   {
+    "q": "Czy odcięta część jest usuwana?",
+    "a": "Jest ukrywana (zmienia się widoczny obszar strony), więc rozmiar pliku pozostaje podobny, a nic na stronie nie jest przepisywane."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "flatten-pdf": {
+  "name": "Spłaszczanie PDF",
+  "desc": "Zablokuj pola formularzy, komentarze i podpisy na stronie, aby nie można ich było zmienić.",
+  "about": "Spłaszcz PDF przed wysłaniem, aby wypełniony formularz, Twój podpis, komentarze i zakreślenia stały się częścią strony i nie dało się ich już edytować, przesuwać ani usuwać. Tekst pozostaje ostry i przeszukiwalny. Potrzebujesz więcej? Zamień każdą stronę w obraz, aby nic w pliku nie dało się edytować ani kopiować.",
+  "title": "Spłaszcz PDF online za darmo: zablokuj formularze i komentarze | Toolz Baba",
+  "metaDesc": "Spłaszcz PDF online: zablokuj wypełnione formularze, podpisy i komentarze na stronie albo zamień strony w obrazy. Za darmo, nic nie jest przesyłane.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz formularze i komentarze albo wszystko na obrazy.",
+   "Pobierz spłaszczony PDF."
+  ],
+  "faq": [
+   {
+    "q": "Co robi spłaszczanie PDF?",
+    "a": "Scala pola formularzy, komentarze, pieczątki i podpisy z treścią strony, dzięki czemu wyglądają tak samo wszędzie i nie można ich już zmienić."
+   },
+   {
+    "q": "Czy ludzie nadal mogą kopiować tekst?",
+    "a": "W przypadku formularzy i komentarzy tak: tekst pozostaje przeszukiwalny. Wybierz „Wszystko na obrazy”, jeśli nie może być kopiowany."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "compare-pdf": {
+  "name": "Porównywanie PDF",
+  "desc": "Znajdź każdą różnicę w tekście dwóch wersji PDF, z przejrzystym raportem.",
+  "about": "Sprawdź, co zmieniło się między dwiema wersjami umowy, pracy dyplomowej lub oferty. Dodaj stary PDF i nowy: każde usunięte lub dodane słowo jest wymienione wraz z otaczającym tekstem i numerem strony w raporcie PDF, który możesz zachować lub udostępnić. Porównywany jest tylko tekst, a nie obrazy czy układ.",
+  "title": "Porównaj PDF online za darmo: różnice między dwoma PDF | Toolz Baba",
+  "metaDesc": "Porównaj dwa pliki PDF i zobacz każde dodane i usunięte słowo, z numerami stron, w przejrzystym raporcie. Za darmo, bez rejestracji, pliki zostają u Ciebie.",
+  "steps": [
+   "Dodaj stary PDF, a potem nowy PDF.",
+   "Kliknij „Porównaj PDF”.",
+   "Otwórz lub pobierz raport."
+  ],
+  "faq": [
+   {
+    "q": "Jak porównać dwa pliki PDF?",
+    "a": "Najpierw dodaj starą wersję, potem nową i kliknij „Porównaj PDF”. Raport pokazuje usunięty tekst na czerwono, a dodany na zielono, z numerami stron."
+   },
+   {
+    "q": "Czy porównuje obrazy i układ?",
+    "a": "Nie, porównuje słowa. Przeniesiony akapit pojawi się jako usunięty w jednym miejscu i dodany w innym."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "repair-pdf": {
+  "name": "Naprawa PDF",
+  "desc": "Napraw uszkodzony PDF, który się nie otwiera lub pokazuje błędy, i zapisz czystą kopię.",
+  "about": "PDF może zostać uszkodzony przez przerwane pobieranie, pełny dysk lub wadliwy program, a wtedy nie otwiera się, pokazuje błędy lub brakuje w nim stron. Naprawa PDF odbudowuje wewnętrzną strukturę pliku, odzyskuje każdą stronę, którą da się odczytać, i zapisuje czystą kopię. Pomaga też w przypadku plików PDF odrzucanych przez strony do przesyłania.",
+  "title": "Napraw PDF online za darmo: uszkodzone lub zepsute pliki PDF | Toolz Baba",
+  "metaDesc": "Napraw uszkodzony PDF w przeglądarce: struktura jest odbudowywana, a czytelne strony odzyskiwane do czystej kopii. Za darmo, nic nie jest przesyłane.",
+  "steps": [
+   "Dodaj uszkodzony PDF.",
+   "Kliknij „Napraw PDF”.",
+   "Pobierz naprawioną kopię."
+  ],
+  "faq": [
+   {
+    "q": "Czy każdy uszkodzony PDF da się naprawić?",
+    "a": "Większość plików z uszkodzoną strukturą da się odbudować. Jeśli brakuje części pliku lub została nadpisana, odzyskiwane są strony, które nadal można odczytać."
+   },
+   {
+    "q": "Dlaczego strona do przesyłania odrzuca mój PDF?",
+    "a": "Często plik ma drobne błędy strukturalne. Naprawiona, czysto zapisana kopia jest zwykle akceptowana."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "pdf-to-text": {
+  "name": "PDF na tekst",
+  "desc": "Wyciągnij cały tekst z PDF jako zwykły plik tekstowy (TXT).",
+  "about": "Kopiowanie tekstu ze stron PDF po kolei jest wolne i gubi podziały wierszy. PDF na tekst wyciąga wszystkie słowa naraz i zapisuje je jako plik TXT, który otworzysz wszędzie, wkleisz do e-maila lub użyjesz w innym programie. Działa w każdym języku, a możesz też zaznaczyć, gdzie zaczyna się każda strona. W przypadku skanów użyj OCR PDF.",
+  "title": "PDF na tekst online za darmo: wyodrębnij tekst do TXT | Toolz Baba",
+  "metaDesc": "Wyodrębnij cały tekst z PDF do zwykłego pliku TXT, w dowolnym języku, w razie potrzeby ze znacznikami stron. Za darmo, bez rejestracji, bez przesyłania.",
+  "steps": [
+   "Dodaj plik PDF.",
+   "Wybierz strony.",
+   "Pobierz plik tekstowy."
+  ],
+  "faq": [
+   {
+    "q": "Jak wyodrębnić tekst z PDF?",
+    "a": "Dodaj PDF i kliknij „Pobierz tekst”. Zostanie pobrany plik TXT ze wszystkimi słowami."
+   },
+   {
+    "q": "Dlaczego nie znaleziono tekstu?",
+    "a": "PDF to prawdopodobnie skan, czyli obraz strony. Użyj OCR PDF, aby odczytać słowa z obrazów."
+   },
+   {
+    "q": "Czy mój plik jest przesyłany na serwer?",
+    "a": "Nie. Konwersja odbywa się w Twojej przeglądarce, więc plik zostaje na Twoim urządzeniu i nigdy nie jest przesyłany."
+   }
+  ]
+ },
+ "compress-png": {
+  "name": "Kompresja PNG",
+  "desc": "Zmniejsz pliki PNG i zachowaj przezroczystość. Ogranicz kolory, zmień rozmiar i kompresuj wiele PNG naraz. Działa w przeglądarce.",
+  "about": "PNG to format bezstratny, więc pliki PNG są często znacznie większe, niż muszą być, zwłaszcza zrzuty ekranu, logo i grafiki z jednolitymi kolorami. To narzędzie zmniejsza je, redukując obraz do zoptymalizowanej palety maksymalnie 256 kolorów, co w większości grafik wygląda tak samo, ale może zmniejszyć rozmiar o połowę lub więcej. Przezroczyste obszary pozostają przezroczyste. Możesz też ograniczyć szerokość, aby zmniejszyć bardzo duże pliki PNG, albo przekonwertować na WebP, aby uzyskać jeszcze mniejszy plik. Kompresuj do 40 plików PNG naraz; wynik pokazuje dokładnie, o ile zmalał każdy plik. Jeśli PNG jest już tak mały, jak się da, dostaniesz z powrotem oryginał zamiast większego pliku. W przypadku zdjęć JPG lub WebP zawsze będą mniejsze niż PNG. Twoje pliki PNG nigdy nie opuszczają urządzenia.",
+  "title": "Kompresuj PNG online za darmo: zmniejsz rozmiar pliku PNG | Toolz Baba",
+  "tab": "PNG"
+ },
+ "compress-jpeg": {
+  "name": "Kompresja JPEG",
+  "desc": "Zmniejsz zdjęcia JPEG suwakiem jakości z podglądem rozmiarów przed i po. Kompresuj wiele plików JPEG naraz. Działa w przeglądarce.",
+  "about": "Kompresja JPEG to kompromis między rozmiarem pliku a jakością. To narzędzie pozwala samodzielnie wybrać jakość: około 70–80 procent zwykle nie da się odróżnić od oryginału, a często zmniejsza zdjęcie kilkukrotnie. Możesz też ustawić maksymalną szerokość, aby zmniejszyć bardzo duże zdjęcia, albo przekonwertować na WebP lub AVIF, jeśli chcesz uzyskać najmniejszy możliwy plik. Dodaj do 40 plików JPEG naraz i pobierz je razem jako ZIP. Jeśli JPEG jest już dobrze skompresowany, narzędzie zwraca oryginał zamiast większego pliku. Wszystko działa w Twojej przeglądarce, więc zdjęcia nigdy nie są przesyłane.",
+  "title": "Kompresuj JPEG online za darmo: zmniejsz rozmiar JPEG | Toolz Baba",
+  "tab": "JPEG"
+ },
+ "compress-jpg": {
+  "name": "Kompresja JPG",
+  "desc": "Zmniejsz zdjęcia JPG do e-maila, WhatsAppa i formularzy. Wybierz jakość, ogranicz szerokość, kompresuj wiele plików JPG naraz.",
+  "about": "Zdjęcia prosto z telefonu lub aparatu mają często od 3 do 10 MB, co jest za dużo do e-maila, WhatsAppa, portali z ofertami pracy lub formularzy online. Wrzuć tutaj swoje pliki JPG, wybierz jakość (75 procent to dobry punkt wyjścia) i opcjonalnie maksymalną szerokość, a otrzymasz znacznie mniejsze pliki, które nadal wyglądają ostro na ekranie. JPG i JPEG to ten sam format z innym rozszerzeniem pliku i oba są tu obsługiwane. Jeśli potrzebujesz dokładnego rozmiaru, np. poniżej 50 KB do formularza, użyj narzędzia Rozmiar zdjęcia i podpisu w KB, które znajdzie najlepszą jakość dla Twojego limitu. Zdjęcia są przetwarzane na Twoim urządzeniu i nie są przesyłane.",
+  "title": "Kompresuj JPG online za darmo: zmniejsz plik JPG | Toolz Baba",
+  "tab": "JPG / JPEG"
+ },
+ "compress-gif": {
+  "name": "Kompresja GIF",
+  "desc": "Zmniejsz rozmiar animowanych plików GIF, używając mniejszej liczby kolorów, mniejszej szerokości lub niższej liczby klatek. Działa w przeglądarce.",
+  "about": "Animowane pliki GIF bardzo szybko robią się duże. To narzędzie zmniejsza je z zachowaniem animacji, używając trzech dźwigni: mniejszej liczby kolorów (GIF pozwala na 256, ale 64 lub 128 często wyglądają dobrze), mniejszej szerokości i niższej liczby klatek na sekundę. Zacznij od mniejszej liczby kolorów, bo zwykle najmniej zmienia wygląd. GIF jest kodowany ponownie ze zoptymalizowaną paletą kolorów dla całej animacji, a Ty widzisz rozmiar przed i po. Jeśli GIF jest już dobrze skompresowany, dostajesz z powrotem oryginał zamiast większego pliku. Aby uzyskać największe oszczędności, rozważ zamianę GIF-a na wideo narzędziem GIF na wideo, które jest zwykle wielokrotnie mniejsze. Twój GIF jest przetwarzany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Kompresuj GIF online za darmo: zmniejsz animowany GIF | Toolz Baba",
+  "tab": "GIF"
+ },
+ "compress-jpg-under-10kb": {
+  "name": "Kompresja JPG do 10 KB",
+  "desc": "Zmniejsz zdjęcie lub podpis JPG do poniżej 10 KB. Wpisz rozmiar i zobacz wynik przed pobraniem. Działa w przeglądarce.",
+  "about": "10 KB to bardzo mało, mniej więcej tyle co krótki plik tekstowy, i jest to limit, który niektóre formularze online ustawiają dla podpisu lub bardzo małego zdjęcia. Skan podpisu lub mały wycinek twarzy zmieści się łatwo; pełne zdjęcie z aparatu trzeba mocno zmniejszyć, dlatego ta strona sama zmniejsza wymiary obrazu w pikselach, gdy obniżenie jakości nie wystarcza. Aby uzyskać najlepszy wynik przy 10 KB, najpierw przytnij obraz tak, aby zawierał tylko to, o co prosi formularz: mniej pikseli oznacza więcej jakości na każdy z nich.",
+  "title": "Kompresja JPG do 10 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPG do poniżej 10 KB?",
+    "a": "Dodaj obraz, zostaw rozmiar 10 KB i sprawdź podgląd. Strona obniża jakość i, w razie potrzeby, szerokość i wysokość, aż plik będzie mniejszy niż 10 KB, a potem klikasz „Pobierz”."
+   },
+   {
+    "q": "Czy zdjęcie będzie czytelne przy 10 KB?",
+    "a": "Podpis, pieczątka lub mały wycinek w stylu zdjęcia paszportowego zwykle tak. Duże, szczegółowe zdjęcie staje się przy 10 KB bardzo małe i miękkie, więc w przypadku zdjęć spróbuj raczej 20 KB lub 50 KB."
+   },
+   {
+    "q": "Czy mogę użyć tego do podpisu?",
+    "a": "Tak. Zeskanuj lub sfotografuj podpis na białej kartce, przytnij ciasno wokół niego, a potem dodaj tutaj. Małe czarno-białe obrazy bardzo dobrze się kompresują."
+   }
+  ],
+  "chip": "10 KB"
+ },
+ "compress-jpg-under-20kb": {
+  "name": "Kompresja JPG do 20 KB",
+  "desc": "Skompresuj JPG do poniżej 20 KB do formularzy egzaminacyjnych, rekrutacyjnych i stypendialnych. Wybierz rozmiar i najpierw obejrzyj wynik.",
+  "about": "20 KB to częsty limit na portalach, które proszą o zdjęcie lub podpis obok długiego formularza zgłoszeniowego. Przy tym rozmiarze zdjęcie twarzy o szerokości kilkuset pikseli nadal wygląda czysto, ale duże zdjęcie z aparatu trzeba najpierw zmniejszyć. Ta strona próbuje najpierw dobrej jakości, potem obniża jakość i tylko w razie konieczności rozmiar w pikselach, i zatrzymuje się na najlepszym obrazie, który nadal mieści się w 20 KB. Podgląd pokazuje dokładnie to, co pobierzesz, więc możesz ocenić twarz lub podpis przed zapisaniem.",
+  "title": "Kompresja JPG do 20 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPG do 20 KB?",
+    "a": "Dodaj obraz i zostaw rozmiar 20 KB. Narzędzie znajduje najwyższą jakość, która się mieści, i pokazuje nowy rozmiar pliku pod podglądem."
+   },
+   {
+    "q": "Moje zdjęcie ma 3 MB. Czy naprawdę może mieć 20 KB?",
+    "a": "Zwykle tak, bo większość rozmiaru zdjęcia z telefonu pochodzi z pikseli, których nie potrzebujesz w formularzu. Obraz jest zmniejszany do kilkuset pikseli szerokości, co w zupełności wystarcza dla małego pola na zdjęcie."
+   },
+   {
+    "q": "Czy mój obraz jest gdzieś przesyłany?",
+    "a": "Nie. Obraz jest przetwarzany przez Twoją przeglądarkę i nigdy nie opuszcza urządzenia."
+   }
+  ],
+  "chip": "20 KB"
+ },
+ "compress-jpg-under-50kb": {
+  "name": "Kompresja JPG do 50 KB",
+  "desc": "Zmniejsz JPG do poniżej 50 KB bez widocznego bałaganu. Ustaw rozmiar, obejrzyj wynik, pobierz. Za darmo i prywatnie.",
+  "about": "50 KB to rozmiar, który wiele stron dopuszcza dla zdjęcia profilowego, zdjęcia do dokumentu lub skanu dokumentu. To wystarczająco dużo, aby portret o szerokości około 500 pikseli zachował wyraźne twarze i ostre krawędzie. Dodaj plik JPG, zostaw rozmiar 50 KB, a strona wyliczy najlepszą jakość, która się zmieści. Duże obrazy są też trochę zmniejszane, ponieważ zdjęcie o szerokości 4000 pikseli nie zmieści się w 50 KB przy żadnej jakości. Jeśli wynik wygląda zbyt miękko, podnieś limit lub wytnij niepotrzebne fragmenty.",
+  "title": "Kompresja JPG do 50 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać JPG poniżej 50 KB?",
+    "a": "Dodaj plik, zostaw cel 50 KB i pobierz, gdy podgląd będzie wyglądał dobrze. Narzędzie samo dobierze jakość."
+   },
+   {
+    "q": "Jak wygląda zdjęcie 50 KB?",
+    "a": "Portret o szerokości mniej więcej 400–600 pikseli wygląda czysto na ekranie. Nie jest przeznaczony do dużych wydruków."
+   },
+   {
+    "q": "Czy mogę skompresować kilka obrazów do 50 KB naraz?",
+    "a": "Tak. Dodaj je wszystkie i użyj „Pobierz wszystko”, aby dostać ZIP, w którym każdy obraz ma poniżej 50 KB."
+   }
+  ],
+  "chip": "50 KB"
+ },
+ "compress-jpg-under-100kb": {
+  "name": "Kompresja JPG do 100 KB",
+  "desc": "Skompresuj JPG do poniżej 100 KB, czyli limitu, o który prosi większość formularzy rekrutacyjnych, KYC i rekrutacji na studia. Wybierz rozmiar i obejrzyj podgląd.",
+  "about": "100 KB to limit przesyłania, który spotkasz najczęściej: portale z ofertami pracy, formularze KYC i bankowe, rekrutacja na uczelnie, strony stypendialne i urzędowe. Zwykłe zdjęcie z telefonu jest 20–50 razy większe, więc wymaga prawdziwej kompresji, ale 100 KB nadal wystarcza na portret lub zdjęcie dokumentu, które łatwo odczytać. Ta strona znajduje najlepszą jakość mieszczącą się w 100 KB i pokazuje wynik obok oryginału, abyś przed pobraniem mógł sprawdzić, czy tekst i twarze nadal są wyraźne.",
+  "title": "Kompresja JPG do 100 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPG do 100 KB?",
+    "a": "Dodaj obraz, zostaw cel 100 KB i spójrz na podgląd. Rozmiar pokazany pod nim to rzeczywisty rozmiar pliku, który pobierzesz."
+   },
+   {
+    "q": "Czy dokumenty pozostaną czytelne przy 100 KB?",
+    "a": "Zdjęcia wydrukowanych stron zwykle tak, jeśli tekst jest wystarczająco duży. Jeśli drobny druk robi się rozmyty, spróbuj 150 KB lub 200 KB."
+   },
+   {
+    "q": "Dlaczego mój plik ma trochę poniżej 100 KB, a nie dokładnie 100?",
+    "a": "Narzędzie wybiera najwyższą jakość, która nie przekracza limitu, więc wynik jest tuż pod nim."
+   }
+  ],
+  "chip": "100 KB"
+ },
+ "compress-jpg-under-150kb": {
+  "name": "Kompresja JPG do 150 KB",
+  "desc": "Zmniejsz JPG do poniżej 150 KB, wybierając rozmiar. Zobacz wynik przed pobraniem. Działa w przeglądarce.",
+  "about": "150 KB leży między bardzo ścisłym limitem 100 KB a luźniejszym 200 KB i używają go niektóre formularze zgłoszeniowe i platformy sprzedażowe. Dodatkowe 50 KB w porównaniu z celem 100 KB jest zauważalne na twarzy lub na sfotografowanym tekście. Dodaj plik JPG, a strona obniża jakość, aż plik będzie tuż poniżej 150 KB, zmniejszając rozmiar w pikselach tylko wtedy, gdy to nie wystarcza. Jeśli Twoje zdjęcie ma już mniej niż 150 KB, zostaje bez zmian zamiast być ponownie kompresowane i pogarszane.",
+  "title": "Kompresja JPG do 150 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPG do 150 KB?",
+    "a": "Dodaj plik, ustaw rozmiar na 150 KB (lub kliknij przycisk 150 KB) i pobierz po sprawdzeniu podglądu."
+   },
+   {
+    "q": "Co jeśli mój obraz ma już mniej niż 150 KB?",
+    "a": "Zostaje wtedy nietknięty. Ponowna kompresja małego JPG tylko pogarsza jakość."
+   },
+   {
+    "q": "Czy 150 KB wystarczy na wyraźne zdjęcie?",
+    "a": "W przypadku portretu lub dokumentu oglądanego na ekranie tak. Duże zdjęcie krajobrazu będzie wyglądać miękciej, bo musi zawierać mniej pikseli."
+   }
+  ],
+  "chip": "150 KB"
+ },
+ "compress-jpg-under-200kb": {
+  "name": "Kompresja JPG do 200 KB",
+  "desc": "Skompresuj JPG do poniżej 200 KB do formularzy, e-maili i przesyłania. Ustaw rozmiar, obejrzyj wynik, pobierz za darmo.",
+  "about": "200 KB to wygodny limit dla zdjęć do dokumentów, certyfikatów i załączników, którego używa wiele portali urzędowych i uczelnianych. Przy tym rozmiarze portret pozostaje czysty, a sfotografowana strona czytelna. Ta strona szuka najwyższej jakości mieszczącej się w 200 KB, więc zachowujesz tyle szczegółów, ile pozwala limit. Widzisz oryginał i wynik obok siebie wraz z rozmiarami, a jeśli zmienisz zdanie co do limitu, przesuń suwak, a podgląd zaktualizuje się od razu.",
+  "title": "Kompresja JPG do 200 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPG do 200 KB?",
+    "a": "Dodaj go, zostaw cel 200 KB, sprawdź podgląd i kliknij „Pobierz”."
+   },
+   {
+    "q": "Czy 200 KB sprawia, że zdjęcie wygląda źle?",
+    "a": "Nie na ekranie. Typowe zdjęcie o szerokości 1000 pikseli wygląda dobrze przy 200 KB. Bardzo duże zdjęcia są zmniejszane, aby się zmieściły."
+   },
+   {
+    "q": "Czy mogę zmienić rozmiar bez zaczynania od nowa?",
+    "a": "Tak. Wpisz nowy rozmiar lub przesuń suwak, a podgląd zaktualizuje się od razu."
+   }
+  ],
+  "chip": "200 KB"
+ },
+ "compress-jpg-under-300kb": {
+  "name": "Kompresja JPG do 300 KB",
+  "desc": "Zmniejsz JPG do poniżej 300 KB, zachowując ostrość. Wybierz rozmiar, porównaj z oryginałem, pobierz.",
+  "about": "300 KB to dobry rozmiar dla obrazów, które mają pozostać wyraźne: zdjęcia profilowego ze szczegółami, zeskanowanego certyfikatu, zdjęcia produktu do ogłoszenia lub obrazu, który chcesz wysłać e-mailem razem z kilkoma innymi. Większość zdjęć z telefonu jest 10–30 razy większa, a różnicę trudno zobaczyć na ekranie. Narzędzie zachowuje najwyższą jakość mieszczącą się w 300 KB i zmniejsza wymiary tylko wtedy, gdy sama jakość nie wystarcza. Skorzystaj z podglądu, aby przed pobraniem porównać z oryginałem.",
+  "title": "Kompresja JPG do 300 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPG do 300 KB?",
+    "a": "Dodaj go, wybierz 300 KB i pobierz, gdy podgląd będzie wyglądał dobrze."
+   },
+   {
+    "q": "Czy JPG 300 KB nadaje się na stronę internetową?",
+    "a": "Jest w porządku dla obrazu treści na większości stron. Dla dużych banerów nagłówkowych nieco wyższy limit, np. 500 KB, zachowa więcej szczegółów."
+   },
+   {
+    "q": "Czy mogę skompresować cały folder zdjęć?",
+    "a": "Dodaj wiele plików naraz i użyj „Pobierz wszystko (ZIP)”. Każdy obraz jest kompresowany osobno, aby zmieścić się w 300 KB."
+   }
+  ],
+  "chip": "300 KB"
+ },
+ "compress-jpg-under-500kb": {
+  "name": "Kompresja JPG do 500 KB",
+  "desc": "Skompresuj JPG do poniżej 500 KB do e-maila, WhatsAppa i przesyłania. Ustaw rozmiar, obejrzyj podgląd i pobierz. Prywatnie i za darmo.",
+  "about": "500 KB to pół megabajta: wystarczająco mało dla WhatsAppa i e-maila, a wystarczająco dużo, by obraz na pełnym ekranie nadal dobrze wyglądał. To limit w wielu serwisach z ogłoszeniami, systemach CMS i systemach zgłoszeń. Przy 500 KB większość zdjęć wymaga tylko lekkiej kompresji i zachowuje prawie wszystkie szczegóły. Ta strona znajduje najlepszą jakość, która się zmieści, pokazuje obie wersje obok siebie i zostawia bez zmian pliki, które są już poniżej limitu.",
+  "title": "Kompresja JPG do 500 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPG do poniżej 500 KB?",
+    "a": "Dodaj obraz, kliknij przycisk 500 KB lub wpisz 500, sprawdź podgląd i pobierz."
+   },
+   {
+    "q": "Czy zauważę różnicę w porównaniu z oryginałem?",
+    "a": "Zwykle nie na ekranie telefonu ani laptopa. Przybliż podgląd, aby porównać drobne szczegóły."
+   },
+   {
+    "q": "Czy mogę wysłać wynik na WhatsAppie?",
+    "a": "Tak, JPG o rozmiarze 500 KB wysyła się szybko nawet przy wolnym łączu."
+   }
+  ],
+  "chip": "500 KB"
+ },
+ "compress-jpg-under-1mb": {
+  "name": "Kompresja JPG do 1 MB",
+  "desc": "Zmniejsz JPG do poniżej 1 MB prawie bez widocznej straty. Wybierz rozmiar, obejrzyj wynik i pobierz.",
+  "about": "1 MB to limit wielu formularzy internetowych, systemów zgłoszeń do pomocy technicznej, platform sprzedażowych i bramek e-mail. Zdjęcia z telefonu mają zwykle 3–8 MB, więc zejście poniżej 1 MB wymaga umiarkowanej kompresji, która rzadko jest widoczna. Strona próbuje najpierw wysokiej jakości i obniża ją tylko tak, jak musi, więc dostajesz najlepiej wyglądający obraz, który się mieści. Jeśli Twój plik ma już mniej niż 1 MB, zostaje nietknięty, więc nic nie jest tracone bez powodu.",
+  "title": "Kompresja JPG do 1 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPG do poniżej 1 MB?",
+    "a": "Dodaj zdjęcie, wybierz 1 MB i porównaj podgląd z oryginałem. Rozmiar pod podglądem to rzeczywisty rozmiar pobieranego pliku."
+   },
+   {
+    "q": "Czy JPG 1 MB będzie wyglądał tak samo?",
+    "a": "W przypadku większości zdjęć na ekranie wygląda tak samo. Tylko bardzo duże lub bardzo szczegółowe obrazy tracą widoczne szczegóły."
+   },
+   {
+    "q": "Czy mogę wpisać 1,5 MB lub 0,8 MB?",
+    "a": "Tak. Wpisz dowolną liczbę i przełączaj między KB a MB. Podgląd aktualizuje się w trakcie pisania."
+   }
+  ],
+  "chip": "1 MB"
+ },
+ "compress-jpg-under-2mb": {
+  "name": "Kompresja JPG do 2 MB",
+  "desc": "Skompresuj JPG do poniżej 2 MB do e-maila i przesyłania, zachowując prawie pełną jakość. Ustaw rozmiar, obejrzyj podgląd, pobierz.",
+  "about": "Wiele stron i usług e-mail przestaje przyjmować obrazy powyżej 2 MB, a nowoczesne zdjęcie z telefonu ma często 4–10 MB. Zejście poniżej 2 MB wymaga tylko lekkiej kompresji, więc obraz zwykle wygląda prawie tak samo jak oryginał. Ta strona zachowuje najwyższą jakość, która się mieści, i pokazuje rozmiar przed i po. Jeśli Twoje zdjęcie ma już mniej niż 2 MB, zostaje bez zmian, a jeśli potrzebujesz go mniejszego, możesz obniżyć limit suwakiem.",
+  "title": "Kompresja JPG do 2 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć zdjęcie do poniżej 2 MB?",
+    "a": "Dodaj zdjęcie, zostaw cel 2 MB i pobierz po rzucie okiem na podgląd."
+   },
+   {
+    "q": "Czy straci na jakości?",
+    "a": "Tylko trochę. Lekka kompresja wystarczy, aby zejść z kilku megabajtów do poniżej 2 MB."
+   },
+   {
+    "q": "Co jeśli moje zdjęcie ma 20 MB?",
+    "a": "To też działa. Narzędzie obniża jakość i, w razie potrzeby, rozmiar w pikselach, aż plik się zmieści."
+   }
+  ],
+  "chip": "2 MB"
+ },
+ "compress-pdf-under-100kb": {
+  "name": "Kompresja PDF do 100 KB",
+  "desc": "Skompresuj PDF do poniżej 100 KB do formularzy i e-maili. Próbuje coraz mocniejszych ustawień, aż plik się zmieści. Działa w przeglądarce.",
+  "about": "100 KB to ścisły limit, który niektóre formularze i portale online ustawiają dla przesyłanego dokumentu. PDF składający się głównie z tekstu może być już mały, natomiast skan lub PDF ze zdjęciami ma często wiele megabajtów z powodu obrazów. Ta strona zmniejsza obrazy wewnątrz PDF, próbując coraz mocniejszych ustawień, aż plik będzie mniejszy niż 100 KB, a potem pokazuje pierwszą stronę, abyś mógł sprawdzić, czy nadal jest czytelna. Skan wielu stron może być zbyt duży, aby osiągnąć 100 KB: najpierw podziel go na części.",
+  "title": "Kompresja PDF do 100 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować PDF do poniżej 100 KB?",
+    "a": "Dodaj PDF, zostaw rozmiar 100 KB i kliknij „Kompresuj”. Narzędzie krok po kroku obniża jakość obrazów, aż plik się zmieści."
+   },
+   {
+    "q": "Dlaczego mój PDF nie schodzi poniżej 100 KB?",
+    "a": "Tekst, czcionki i struktura strony nie mogą się wiele zmniejszyć. Długi PDF z wieloma zeskanowanymi stronami jest za duży na 100 KB, więc podziel go i skompresuj każdą część."
+   },
+   {
+    "q": "Czy mój PDF opuszcza mój komputer?",
+    "a": "Nie. Kompresja działa w Twojej przeglądarce, więc plik nigdy nie opuszcza urządzenia."
+   }
+  ],
+  "chip": "100 KB"
+ },
+ "compress-pdf-under-200kb": {
+  "name": "Kompresja PDF do 200 KB",
+  "desc": "Zmniejsz PDF do poniżej 200 KB do przesyłania w rekrutacji, naborze i KYC. Strona próbuje mocniejszych ustawień, aż plik się zmieści.",
+  "about": "200 KB to częsty limit przesyłania dla CV, certyfikatu lub skanu dowodu. Większość rozmiaru takiego PDF to znajdujące się w nim obrazy, takie jak zeskanowana strona lub zdjęcie. Ta strona etapami obniża rozdzielczość i jakość tych obrazów, aż plik będzie mniejszy niż 200 KB, i pokazuje pierwszą stronę wyniku, abyś mógł sprawdzić, czy tekst nadal jest czytelny. Jeśli PDF ma już mniej niż 200 KB, pozostaje bez zmian.",
+  "title": "Kompresja PDF do 200 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać PDF poniżej 200 KB?",
+    "a": "Dodaj PDF, zostaw rozmiar 200 KB i kliknij „Kompresuj do 200 KB”."
+   },
+   {
+    "q": "Czy tekst w PDF pozostanie ostry?",
+    "a": "Prawdziwy tekst pozostaje ostry, bo ponownie kompresowane są tylko obrazy. Zeskanowane strony to obrazy, więc robią się trochę bardziej miękkie."
+   },
+   {
+    "q": "Czy mogę skompresować kilka plików PDF naraz?",
+    "a": "Tak, do 10. Wyniki są pobierane w jednym pliku ZIP."
+   }
+  ],
+  "chip": "200 KB"
+ },
+ "compress-pdf-under-300kb": {
+  "name": "Kompresja PDF do 300 KB",
+  "desc": "Skompresuj PDF do poniżej 300 KB, wybierając rozmiar. Podgląd pierwszej strony pokazuje wynik. Za darmo, w przeglądarce.",
+  "about": "300 KB wystarczy na krótki dokument z kilkoma obrazami lub kilkoma zeskanowanymi stronami. Ta strona etapami ponownie kompresuje obrazy w Twoim PDF, od lekkiego ustawienia do mocnego, i zatrzymuje się na pierwszym ustawieniu, które sprowadza plik poniżej 300 KB, więc PDF zachowuje tyle jakości, ile pozwala limit. Czcionki, linki i prawdziwy tekst pozostają nietknięte. Gdy limitu nie da się osiągnąć, dowiesz się, jak blisko udało się dojść.",
+  "title": "Kompresja PDF do 300 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PDF do 300 KB?",
+    "a": "Dodaj plik, ustaw rozmiar na 300 KB i kliknij „Kompresuj”. Otrzymasz nowy rozmiar i podgląd pierwszej strony."
+   },
+   {
+    "q": "Co jeśli wynik nadal ma ponad 300 KB?",
+    "a": "Oznacza to, że w PDF jest niewiele rzeczy, które można zmniejszyć, np. czcionki i tekst. Strona pokaże najmniejszy osiągnięty rozmiar."
+   },
+   {
+    "q": "Czy to bezpieczne dla prywatnych dokumentów?",
+    "a": "Tak. Plik jest przetwarzany na Twoim urządzeniu i nie jest przesyłany."
+   }
+  ],
+  "chip": "300 KB"
+ },
+ "compress-pdf-under-500kb": {
+  "name": "Kompresja PDF do 500 KB",
+  "desc": "Zmniejsz PDF do poniżej 500 KB do e-maila i formularzy internetowych. Ustaw rozmiar, skompresuj i sprawdź pierwszą stronę.",
+  "about": "Pół megabajta to częsty limit formularzy internetowych, wniosków i bramek e-mail. PDF utworzony ze zdjęć lub skanów ma często 5–20 MB, więc obrazy trzeba ponownie skompresować. Ta strona robi to etapami, od łagodnego do mocnego, i zatrzymuje się, gdy tylko PDF jest mniejszy niż 500 KB, więc zachowujesz najlepszą jakość, która się mieści. W dokumencie, który ma już mniej niż 500 KB, nic się nie zmienia.",
+  "title": "Kompresja PDF do 500 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować PDF do 500 KB?",
+    "a": "Dodaj PDF i kliknij „Kompresuj do 500 KB”. Przed pobraniem sprawdź pierwszą stronę wyniku."
+   },
+   {
+    "q": "O ile może się zmniejszyć PDF?",
+    "a": "PDF złożony ze skanów lub zdjęć często zmniejsza się o 80 procent lub więcej. PDF ze zwykłym tekstem prawie się nie zmniejsza, bo jest już mały."
+   },
+   {
+    "q": "Czy mogę wysłać wynik e-mailem?",
+    "a": "Tak, 500 KB to dużo poniżej limitu każdej usługi e-mail."
+   }
+  ],
+  "chip": "500 KB"
+ },
+ "compress-pdf-under-1mb": {
+  "name": "Kompresja PDF do 1 MB",
+  "desc": "Skompresuj PDF do poniżej 1 MB z niewielką widoczną zmianą. Wybierz rozmiar, skompresuj, sprawdź pierwszą stronę.",
+  "about": "1 MB to typowy limit we wnioskach, zgłoszeniach do pomocy technicznej i bramkach e-mail, a zeskanowany wielostronicowy PDF łatwo ma 10 MB lub więcej. Aby osiągnąć 1 MB, obrazy w PDF są ponownie kompresowane, a używane jest pierwsze, najlżejsze ustawienie, które sprowadza plik poniżej 1 MB, dzięki czemu strony pozostają jak najbardziej wyraźne. Jeśli Twój PDF ma już mniej niż 1 MB, pozostaje bez zmian.",
+  "title": "Kompresja PDF do 1 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PDF do poniżej 1 MB?",
+    "a": "Dodaj go, zostaw rozmiar 1 MB i kliknij „Kompresuj”. Wynik pokazuje nowy rozmiar i pierwszą stronę."
+   },
+   {
+    "q": "Czy strony nadal będą dobrze wyglądać?",
+    "a": "Przy 1 MB większość dokumentów wygląda na ekranie prawie tak samo. PDF z wieloma zdjęciami na całą stronę staje się bardziej miękki."
+   },
+   {
+    "q": "Czy mogę połączyć pliki PDF i je skompresować?",
+    "a": "Tak. Najpierw połącz je narzędziem Łączenie PDF, a potem wczytaj tutaj połączony plik."
+   }
+  ],
+  "chip": "1 MB"
+ },
+ "compress-pdf-under-2mb": {
+  "name": "Kompresja PDF do 2 MB",
+  "desc": "Zmniejsz PDF do poniżej 2 MB do przesyłania i e-maila. Ustaw rozmiar, skompresuj i sprawdź wynik. Prywatnie i za darmo.",
+  "about": "Strony internetowe i usługi e-mail często kończą na 2 MB, a zeskanowany PDF może mieć od 10 do 50 MB. Zejście poniżej 2 MB zwykle wymaga tylko lekkiej ponownej kompresji obrazów, więc strony wyglądają prawie bez zmian. Narzędzie próbuje najpierw najłagodniejszego ustawienia i przechodzi do mocniejszego tylko w razie potrzeby. Jeśli PDF jest już mniejszy niż 2 MB, pozostaje bez zmian, a jeśli potrzebujesz go jeszcze mniejszego, możesz obniżyć limit.",
+  "title": "Kompresja PDF do 2 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować PDF do 2 MB?",
+    "a": "Dodaj PDF, zostaw rozmiar 2 MB i kliknij „Kompresuj do 2 MB”."
+   },
+   {
+    "q": "Czy mocno obniży jakość?",
+    "a": "Niezbyt. Lekka kompresja zwykle wystarcza do 2 MB, a przed pobraniem możesz porównać pierwszą stronę."
+   },
+   {
+    "q": "Czy działa na telefonie?",
+    "a": "Tak, w każdej nowoczesnej przeglądarce. Bardzo duże pliki PDF są na telefonie wolniejsze."
+   }
+  ],
+  "chip": "2 MB"
+ },
+ "compress-png-under-10kb": {
+  "name": "Kompresja PNG do 10 KB",
+  "desc": "Skompresuj PNG do poniżej 10 KB: ikony, małe logo i podpisy na przezroczystym tle. Wybierz rozmiar, obejrzyj podgląd, pobierz.",
+  "about": "10 KB to bardzo mało jak na PNG, ponieważ PNG zapisuje każdy piksel bez strat. Sprawdza się dla ikon, prostych logo, pieczątek i podpisu na przezroczystym tle, a nie sprawdza się dla fotografii. Ta strona najpierw ogranicza liczbę kolorów (z 256 do 32), co płaską grafikę kosztuje prawie nic, i dopiero potem zmniejsza rozmiar w pikselach. Przezroczyste obszary pozostają przezroczyste. Jeśli potrzebujesz zdjęcia poniżej 10 KB, JPG będzie wyglądać znacznie lepiej.",
+  "title": "Kompresja PNG do 10 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PNG do poniżej 10 KB?",
+    "a": "Dodaj plik PNG i zostaw rozmiar 10 KB. Strona obniża liczbę kolorów i, w razie potrzeby, szerokość i wysokość, aż plik się zmieści, i pokazuje wynik przed pobraniem."
+   },
+   {
+    "q": "Czy przezroczyste tło zostanie zachowane?",
+    "a": "Tak. Wynik to nadal PNG i zachowuje przezroczystość."
+   },
+   {
+    "q": "Dlaczego mój zrzut ekranu nadal jest za duży?",
+    "a": "Zrzuty ekranu i zdjęcia mają wiele kolorów i szczegółów. Spróbuj 50 KB lub więcej albo zapisz obraz jako JPG na stronie JPG."
+   }
+  ],
+  "chip": "10 KB"
+ },
+ "compress-png-under-20kb": {
+  "name": "Kompresja PNG do 20 KB",
+  "desc": "Zmniejsz PNG do poniżej 20 KB i zachowaj przezroczystość. Ustaw rozmiar, porównaj z oryginałem, pobierz. Za darmo, w przeglądarce.",
+  "about": "PNG poniżej 20 KB jest realny dla logo, przycisku, odznaki, małej ilustracji lub skanu podpisu. Rozmiar pliku PNG zależy od liczby kolorów użytych w obrazie, więc narzędzie najpierw tnie paletę, co jest prawie niewidoczne na płaskiej grafice, a wymiary zmniejsza tylko wtedy, gdy sama paleta nie wystarcza, aby osiągnąć 20 KB. Podgląd pokazuje przezroczyste obszary, więc widzisz dokładnie, co zapiszesz.",
+  "title": "Kompresja PNG do 20 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować PNG do 20 KB?",
+    "a": "Dodaj plik, zostaw rozmiar 20 KB, sprawdź podgląd i kliknij „Pobierz”."
+   },
+   {
+    "q": "Czy ograniczenie kolorów szpeci obraz?",
+    "a": "W przypadku logo i płaskiej grafiki jest ledwo widoczne. Zdjęcia dostają efekt posteryzacji, więc do zdjęć użyj JPG."
+   },
+   {
+    "q": "Czy PNG jest przesyłany na serwer?",
+    "a": "Nie. Jest kompresowany w Twojej przeglądarce i zostaje na Twoim urządzeniu."
+   }
+  ],
+  "chip": "20 KB"
+ },
+ "compress-png-under-50kb": {
+  "name": "Kompresja PNG do 50 KB",
+  "desc": "Zmniejsz PNG do poniżej 50 KB do stron internetowych i formularzy, zachowując przezroczystość. Wybierz rozmiar i obejrzyj wynik.",
+  "about": "50 KB to wygodny rozmiar dla logo stron internetowych, ikon interfejsu, favikon i małych ilustracji. Przy tym rozmiarze większość płaskiej grafiki zachowuje czyste krawędzie i przezroczystość, używając palety od 64 do 256 kolorów. Strona najpierw próbuje najlepszej palety i zmniejsza rozmiar w pikselach tylko wtedy, gdy plik nadal jest za duży. Zrzut ekranu z tekstem może mieć sporo ponad 50 KB, więc jeśli wynik staje się mały i rozmyty, podnieś limit.",
+  "title": "Kompresja PNG do 50 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać PNG poniżej 50 KB?",
+    "a": "Dodaj go i zostaw cel 50 KB. Najlepsze ustawienia, które się mieszczą, są wybierane za Ciebie."
+   },
+   {
+    "q": "Czy mogę zachować przezroczyste logo przy 50 KB?",
+    "a": "Tak. Przezroczystość jest zachowana, a większość logo mieści się z łatwością."
+   },
+   {
+    "q": "Co jeśli obraz robi się rozmyty?",
+    "a": "Wtedy 50 KB to za mało jak na jego rozmiar. Użyj wyższego limitu, np. 100 KB, albo sam zmniejsz maksymalną szerokość."
+   }
+  ],
+  "chip": "50 KB"
+ },
+ "compress-png-under-100kb": {
+  "name": "Kompresja PNG do 100 KB",
+  "desc": "Skompresuj PNG do poniżej 100 KB bez utraty przezroczystości. Wybierz rozmiar, sprawdź podgląd, pobierz za darmo.",
+  "about": "100 KB to częsty limit przesyłania dla logo, podpisów, zdjęć do dokumentów i grafik w formularzach i systemach treści. Typowy zrzut ekranu PNG jest 5–20 razy większy. Aby zejść poniżej 100 KB, narzędzie najpierw ogranicza kolory, co zachowuje ostrość grafiki, a potem, jeśli musi, zmniejsza wymiary obrazu. Wszystko jest pokazane w podglądzie przed i po z prawdziwymi rozmiarami plików, a przezroczyste obszary są zachowane.",
+  "title": "Kompresja PNG do 100 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PNG do 100 KB?",
+    "a": "Dodaj PNG, zostaw cel 100 KB i pobierz, gdy podgląd będzie wyglądał dobrze."
+   },
+   {
+    "q": "Dlaczego PNG tak łatwo robi się duży?",
+    "a": "PNG zachowuje każdy piksel dokładnie, więc zdjęcia i zrzuty ekranu z wieloma kolorami są duże. Ograniczenie kolorów sprawia, że są mniejsze."
+   },
+   {
+    "q": "Czy mój obraz jest bezpieczny?",
+    "a": "Tak. Nic nie jest przesyłane; praca odbywa się w Twojej przeglądarce."
+   }
+  ],
+  "chip": "100 KB"
+ },
+ "compress-png-under-150kb": {
+  "name": "Kompresja PNG do 150 KB",
+  "desc": "Zmniejsz PNG do poniżej 150 KB. Najpierw ograniczane są kolory, więc grafika pozostaje ostra. Ustaw rozmiar i obejrzyj wynik.",
+  "about": "Przy 150 KB grafika PNG może zachować wiele szczegółów: wycięte produkty z przezroczystym tłem, diagramy, wykresy i makiety interfejsu. Narzędzie obniża liczbę kolorów krok po kroku i zmniejsza rozmiar w pikselach tylko wtedy, gdy to nie wystarcza. Jeśli Twój plik ma już mniej niż 150 KB, jest zwracany bez zmian, więc nigdy nie tracisz jakości na darmo.",
+  "title": "Kompresja PNG do 150 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować PNG do 150 KB?",
+    "a": "Dodaj go, ustaw 150 KB (lub kliknij przycisk 150 KB) i pobierz po obejrzeniu podglądu."
+   },
+   {
+    "q": "Co jeśli mój PNG jest już mniejszy?",
+    "a": "Wtedy zostaje bez zmian."
+   },
+   {
+    "q": "Czy działa dla zdjęć produktów z przezroczystością?",
+    "a": "Tak, przezroczyste tło pozostaje przezroczyste."
+   }
+  ],
+  "chip": "150 KB"
+ },
+ "compress-png-under-200kb": {
+  "name": "Kompresja PNG do 200 KB",
+  "desc": "Skompresuj PNG do poniżej 200 KB do stron internetowych, e-maili i formularzy. Wybierz rozmiar, porównaj wynik, pobierz.",
+  "about": "200 KB daje dość miejsca na szczegółowe logo, diagram lub wycięte zdjęcie produktu z przezroczystym tłem. Zrzut ekranu na cały ekran ma jako PNG często 1–3 MB, więc potrzebuje mniejszej palety, a czasem mniejszych wymiarów, aby zejść do 200 KB. Ta strona wybiera ustawienia dające najlepiej wyglądający wynik poniżej limitu i pozwala porównać go z oryginałem przed zapisaniem.",
+  "title": "Kompresja PNG do 200 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PNG do 200 KB?",
+    "a": "Dodaj obraz i zostaw rozmiar 200 KB. Porównaj podgląd i pobierz."
+   },
+   {
+    "q": "Czy zrzut ekranu pozostanie czytelny?",
+    "a": "Zwykle tak, o ile tekst nie jest malutki. Jeśli jest rozmyty, spróbuj 300 KB lub 500 KB."
+   },
+   {
+    "q": "Czy mogę przetwarzać wiele plików PNG naraz?",
+    "a": "Tak. Dodaj je wszystkie i użyj „Pobierz wszystko”, aby otrzymać ZIP."
+   }
+  ],
+  "chip": "200 KB"
+ },
+ "compress-png-under-300kb": {
+  "name": "Kompresja PNG do 300 KB",
+  "desc": "Zmniejsz PNG do poniżej 300 KB, zachowując wyrazistość. Ustaw rozmiar, porównaj, pobierz. Przezroczystość zostaje zachowana.",
+  "about": "300 KB to dobry rozmiar dla grafik internetowych, które muszą wyglądać wyraziście: banerów z tekstem, wykresów, zrzutów ekranu i ilustracji. Narzędzie próbuje najpierw bogatej palety i obniża ją tylko wtedy, gdy musi, więc zachowujesz tyle kolorów, ile pozwala limit. Jeśli to nie wystarcza, obraz jest nieco zmniejszany. Widzisz oryginał i wynik obok siebie, wraz z ich rozmiarami.",
+  "title": "Kompresja PNG do 300 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PNG do 300 KB lub mniej?",
+    "a": "Dodaj go, wybierz 300 KB i pobierz po sprawdzeniu podglądu."
+   },
+   {
+    "q": "Czy zobaczę różnicę?",
+    "a": "Na płaskiej grafice ledwo. Na zdjęciach w PNG możesz zobaczyć lekkie pasy kolorów, a tam lepszym wyborem jest JPG."
+   },
+   {
+    "q": "Czy jest limit liczby plików?",
+    "a": "Możesz dodać do 40 plików naraz."
+   }
+  ],
+  "chip": "300 KB"
+ },
+ "compress-png-under-500kb": {
+  "name": "Kompresja PNG do 500 KB",
+  "desc": "Skompresuj PNG do poniżej 500 KB do e-maila i przesyłania. Wybierz rozmiar, obejrzyj wynik, pobierz za darmo.",
+  "about": "Pół megabajta to częsty limit przesyłania w formularzach internetowych i systemach treści, a typowy zrzut ekranu lub grafika wyeksportowana jako PNG ma 1–5 MB. Przy 500 KB większość grafik wymaga tylko łagodnego ograniczenia kolorów i zachowuje ostre krawędzie oraz przezroczyste obszary. Strona wybiera najlepsze ustawienia poniżej limitu i pokazuje rzeczywisty rozmiar pliku, który otrzymasz.",
+  "title": "Kompresja PNG do 500 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać PNG poniżej 500 KB?",
+    "a": "Dodaj plik, kliknij przycisk 500 KB i pobierz po obejrzeniu podglądu."
+   },
+   {
+    "q": "Czy tracę przezroczystość?",
+    "a": "Nie. Przezroczyste obszary pozostają przezroczyste."
+   },
+   {
+    "q": "A co ze zdjęciem zapisanym jako PNG?",
+    "a": "Zdjęcia w PNG są duże. Skompresuj je jako JPG, aby uzyskać znacznie mniejszy plik o takim samym wyglądzie."
+   }
+  ],
+  "chip": "500 KB"
+ },
+ "compress-png-under-1mb": {
+  "name": "Kompresja PNG do 1 MB",
+  "desc": "Zmniejsz PNG do poniżej 1 MB z niewielką widoczną zmianą. Ustaw rozmiar, porównaj z oryginałem, pobierz.",
+  "about": "1 MB to typowy limit w formularzach, systemach zgłoszeń i bramkach e-mail. Duży zrzut ekranu lub grafika w wysokiej rozdzielczości w PNG może mieć 3–10 MB, ale zwykle schodzi poniżej 1 MB dzięki lekkiemu ograniczeniu kolorów, którego nie widać. Narzędzie używa najbogatszej palety, która się mieści, a wymiary zmniejsza tylko w ostateczności. Jeśli Twój PNG ma już mniej niż 1 MB, nie jest ruszany.",
+  "title": "Kompresja PNG do 1 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować PNG do 1 MB?",
+    "a": "Dodaj obraz, wybierz 1 MB i pobierz, gdy podgląd będzie wyglądał dobrze."
+   },
+   {
+    "q": "Czy będzie wyglądać tak samo?",
+    "a": "W przypadku większości grafik tak. Podgląd pozwala sprawdzić to przed zapisaniem."
+   },
+   {
+    "q": "Czy mogę wpisać rozmiar, np. 1,5 MB?",
+    "a": "Tak. Wpisz dowolną wartość i przełączaj jednostkę między KB a MB."
+   }
+  ],
+  "chip": "1 MB"
+ },
+ "compress-png-under-2mb": {
+  "name": "Kompresja PNG do 2 MB",
+  "desc": "Skompresuj PNG do poniżej 2 MB do stron internetowych i przesyłania, prawie bez widocznej zmiany. Za darmo i prywatnie.",
+  "about": "Wiele stron i usług e-mail odrzuca pliki powyżej 2 MB, a zrzut ekranu z ekranu retina lub duża wyeksportowana grafika ma jako PNG często 5–15 MB. Zejście poniżej 2 MB zwykle wymaga tylko lekkiego ograniczenia palety, więc obraz wygląda prawie tak samo i pozostaje przezroczysty tam, gdzie był. Jeśli plik ma już mniej niż 2 MB, jest zwracany bez zmian.",
+  "title": "Kompresja PNG do 2 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć PNG do poniżej 2 MB?",
+    "a": "Dodaj go, zostaw rozmiar 2 MB i pobierz po rzucie okiem na podgląd."
+   },
+   {
+    "q": "Ile jakości się traci?",
+    "a": "Bardzo niewiele. Liczba kolorów jest ograniczana tylko tak, jak to potrzebne."
+   },
+   {
+    "q": "Czy działa na telefonie?",
+    "a": "Tak, w każdej nowoczesnej przeglądarce. Bardzo duże obrazy trwają na telefonie dłużej."
+   }
+  ],
+  "chip": "2 MB"
+ },
+ "compress-jpeg-under-10kb": {
+  "name": "Kompresja JPEG do 10 KB",
+  "desc": "Skompresuj JPEG do poniżej 10 KB do malutkich plików, takich jak podpisy. Zobacz wynik przed pobraniem. Działa w przeglądarce.",
+  "about": "Niektóre formularze proszą o plik JPEG nie większy niż 10 KB, zwykle dla podpisu lub małej pieczątki. Plik .jpeg to dokładnie ten sam format co .jpg, więc ta strona działa z obydwoma. Aby osiągnąć 10 KB, narzędzie obniża jakość, a ponieważ duży obraz nie zmieści się w 10 KB przy żadnej jakości, zmniejsza też obraz. Przed dodaniem przytnij ciasno wokół podpisu: mniej pikseli oznacza wyraźniejszy wynik.",
+  "title": "Kompresja JPEG do 10 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPEG do 10 KB?",
+    "a": "Dodaj plik .jpeg i zostaw rozmiar 10 KB. Podgląd pokazuje wynik i jego dokładny rozmiar."
+   },
+   {
+    "q": "Czy .jpeg różni się od .jpg?",
+    "a": "Nie. To ten sam format; różni się tylko rozszerzenie."
+   },
+   {
+    "q": "Czy zdjęcie twarzy zmieści się w 10 KB?",
+    "a": "Bardzo małe tak, ale będzie miękkie. Dla zdjęć lepiej sprawdza się od 20 KB do 50 KB."
+   }
+  ],
+  "chip": "10 KB"
+ },
+ "compress-jpeg-under-20kb": {
+  "name": "Kompresja JPEG do 20 KB",
+  "desc": "Zmniejsz JPEG do poniżej 20 KB do formularzy egzaminacyjnych i zgłoszeniowych. Wybierz rozmiar, obejrzyj podgląd, pobierz.",
+  "about": "20 KB to częsty limit dla małego zdjęcia lub podpisu w formularzach zgłoszeniowych. Strona koduje JPEG najpierw w dobrej jakości, potem ją obniża, a następnie zmniejsza rozmiar w pikselach, aż plik będzie tuż poniżej 20 KB. W przypadku zdjęcia twarzy kilkaset pikseli szerokości wystarcza dla takiego pola. Dodaj kilka plików JPEG i pobierz wszystkie w pliku ZIP, każdy dopasowany do limitu.",
+  "title": "Kompresja JPEG do 20 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPEG do 20 KB?",
+    "a": "Dodaj obraz, zostaw rozmiar 20 KB, sprawdź podgląd i pobierz."
+   },
+   {
+    "q": "Czy wynik nadal będzie plikiem JPEG?",
+    "a": "Tak, wynik to standardowy plik JPEG, który przyjmie każdy formularz."
+   },
+   {
+    "q": "Czy mogę przetwarzać wiele plików naraz?",
+    "a": "Tak. Dodaj do 40 i użyj „Pobierz wszystko”."
+   }
+  ],
+  "chip": "20 KB"
+ },
+ "compress-jpeg-under-50kb": {
+  "name": "Kompresja JPEG do 50 KB",
+  "desc": "Zmniejsz JPEG do poniżej 50 KB do zdjęć profilowych i przesyłania dokumentów tożsamości. Wybierz rozmiar i najpierw sprawdź podgląd.",
+  "about": "JPEG o rozmiarze 50 KB to częsty rozmiar zdjęć profilowych, zdjęć do dokumentów i skanów dokumentów na portalach internetowych. Narzędzie szuka najwyższej jakości, która pozostaje poniżej 50 KB, i zmniejsza duże obrazy, ponieważ zdjęcia z aparatu o kilku megapikselach nie da się upchnąć w 50 KB samą jakością. Wynik jest pokazany obok oryginału, więc możesz sprawdzić twarz lub tekst.",
+  "title": "Kompresja JPEG do 50 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać JPEG poniżej 50 KB?",
+    "a": "Dodaj go i zostaw cel 50 KB. Najlepsza jakość, która się mieści, jest wybierana za Ciebie."
+   },
+   {
+    "q": "Czy zachowuje proporcje obrazu?",
+    "a": "Tak. Gdy obraz jest zmniejszany, szerokość i wysokość maleją razem."
+   },
+   {
+    "q": "Dlaczego mój wynik nie ma dokładnie 50 KB?",
+    "a": "Jest tuż poniżej limitu, ponieważ wybierana jest najwyższa jakość, która się mieści."
+   }
+  ],
+  "chip": "50 KB"
+ },
+ "compress-jpeg-under-100kb": {
+  "name": "Kompresja JPEG do 100 KB",
+  "desc": "Skompresuj JPEG do poniżej 100 KB do formularzy rekrutacyjnych, KYC i naboru na studia. Ustaw rozmiar, obejrzyj podgląd, pobierz za darmo.",
+  "about": "100 KB to limit, który wiele portali z ofertami pracy, banków i uczelni ustawia dla zdjęcia lub przesyłanego dokumentu. Zdjęcia z telefonu mają 3–8 MB, więc trzeba je mocno skompresować, a ta strona robi to, wyszukując jakość tak, aby zostawić tyle szczegółów, ile pozwala limit. Jeśli obraz jest za duży nawet przy niskiej jakości, jest też zmniejszany. Oryginał jest pokazany obok wyniku z rzeczywistymi rozmiarami.",
+  "title": "Kompresja JPEG do 100 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPEG do 100 KB?",
+    "a": "Dodaj plik .jpeg, zostaw 100 KB i pobierz, gdy podgląd będzie wyglądał dobrze."
+   },
+   {
+    "q": "Czy sfotografowany dokument pozostanie czytelny?",
+    "a": "Zwykle tak, jeśli tekst jest duży. Jeśli nie, spróbuj 150 KB lub 200 KB."
+   },
+   {
+    "q": "Czy jest darmowe i prywatne?",
+    "a": "Tak. Działa w Twojej przeglądarce, a plik nie jest przesyłany."
+   }
+  ],
+  "chip": "100 KB"
+ },
+ "compress-jpeg-under-150kb": {
+  "name": "Kompresja JPEG do 150 KB",
+  "desc": "Zmniejsz JPEG do poniżej 150 KB, zachowując wyraźne twarze i tekst. Wybierz rozmiar, porównaj, pobierz.",
+  "about": "JPEG o rozmiarze 150 KB spełnia zasady wielu formularzy zgłoszeniowych i platform sprzedażowych i zachowuje zauważalnie więcej szczegółów niż ten o rozmiarze 100 KB. Narzędzie obniża jakość tylko tak, jak trzeba, i zostawia bez zmian pliki, które mają już mniej niż 150 KB. Użyj suwaka, jeśli chcesz zobaczyć, jak zmienia się obraz przy wyższym lub niższym limicie.",
+  "title": "Kompresja JPEG do 150 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać JPEG o rozmiarze 150 KB?",
+    "a": "Dodaj go, kliknij 150 KB i sprawdź podgląd."
+   },
+   {
+    "q": "Co jeśli mój JPEG ma już mniej niż 150 KB?",
+    "a": "Zostaje bez zmian."
+   },
+   {
+    "q": "Czy mogę później zmienić limit?",
+    "a": "Tak. Przesuń suwak lub wpisz nowy rozmiar, a podgląd się zaktualizuje."
+   }
+  ],
+  "chip": "150 KB"
+ },
+ "compress-jpeg-under-200kb": {
+  "name": "Kompresja JPEG do 200 KB",
+  "desc": "Zmniejsz JPEG do poniżej 200 KB do formularzy, e-maili i przesyłania. Ustaw rozmiar, obejrzyj wynik, za darmo.",
+  "about": "200 KB to wygodny limit dla portretów, certyfikatów i zeskanowanych stron, którego używa wiele portali. Przy tym rozmiarze JPEG na ekranie pozostaje czysty dla oka. Strona znajduje najlepszą jakość poniżej 200 KB i podaje dokładny rozmiar wyniku; jeśli obraz jest ogromny, jest też trochę zmniejszany. Widok przed i po pozwala ocenić wynik.",
+  "title": "Kompresja JPEG do 200 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPEG do 200 KB?",
+    "a": "Dodaj go, zostaw rozmiar 200 KB i pobierz po obejrzeniu podglądu."
+   },
+   {
+    "q": "Czy 200 KB będzie dobrze wyglądać?",
+    "a": "Na ekranie tak. Nie jest przeznaczony do dużych wydruków."
+   },
+   {
+    "q": "Czy mogę skompresować wiele plików naraz?",
+    "a": "Tak, i pobrać je razem w pliku ZIP."
+   }
+  ],
+  "chip": "200 KB"
+ },
+ "compress-jpeg-under-300kb": {
+  "name": "Kompresja JPEG do 300 KB",
+  "desc": "Skompresuj JPEG do poniżej 300 KB z bardzo małą widoczną stratą. Wybierz rozmiar, porównaj z oryginałem.",
+  "about": "300 KB zachowuje dobre szczegóły w portrecie, zdjęciu produktu lub zeskanowanym certyfikacie. Plik .jpeg z telefonu jest zwykle 10–30 razy większy, a różnicę trudno zobaczyć na ekranie. Ta strona szuka najwyższej jakości mieszczącej się w 300 KB i zmniejsza wymiary tylko wtedy, gdy sama jakość nie wystarcza.",
+  "title": "Kompresja JPEG do 300 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać JPEG poniżej 300 KB?",
+    "a": "Dodaj go, wybierz 300 KB i pobierz."
+   },
+   {
+    "q": "Czy to wystarczy na stronę internetową?",
+    "a": "Tak, to w porządku dla obrazów treści. Duże banery nagłówkowe mogą wymagać 500 KB."
+   },
+   {
+    "q": "Czy moje pliki opuszczają urządzenie?",
+    "a": "Nie. Wszystko działa w Twojej przeglądarce."
+   }
+  ],
+  "chip": "300 KB"
+ },
+ "compress-jpeg-under-500kb": {
+  "name": "Kompresja JPEG do 500 KB",
+  "desc": "Zmniejsz JPEG do poniżej 500 KB do WhatsAppa i e-maila. Ustaw rozmiar, obejrzyj wynik, pobierz.",
+  "about": "JPEG o rozmiarze 500 KB jest wystarczająco mały dla WhatsAppa, e-maila i większości formularzy przesyłania, a wystarczająco duży, by obraz na pełnym ekranie nadal dobrze wyglądał. Większość zdjęć potrzebuje do tego tylko lekkiej kompresji. Narzędzie pokazuje obie wersje wraz z rozmiarami i zostawia bez zmian pliki, które mają już mniej niż 500 KB.",
+  "title": "Kompresja JPEG do 500 KB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zmniejszyć JPEG do poniżej 500 KB?",
+    "a": "Dodaj go, kliknij przycisk 500 KB i pobierz."
+   },
+   {
+    "q": "Czy będzie wyglądać inaczej?",
+    "a": "Zwykle nie na ekranie telefonu ani laptopa."
+   },
+   {
+    "q": "Czy mogę wysłać go przez WhatsAppa?",
+    "a": "Tak, obraz 500 KB wysyła się szybko nawet przy słabym łączu."
+   }
+  ],
+  "chip": "500 KB"
+ },
+ "compress-jpeg-under-1mb": {
+  "name": "Kompresja JPEG do 1 MB",
+  "desc": "Skompresuj JPEG do poniżej 1 MB prawie bez widocznej straty. Wybierz rozmiar, obejrzyj podgląd, pobierz za darmo.",
+  "about": "1 MB to limit wielu formularzy internetowych i systemów pomocy technicznej. Nowoczesne zdjęcie z telefonu jako .jpeg ma 3–8 MB, więc potrzebna jest umiarkowana kompresja, która rzadko jest widoczna. Strona wybiera najwyższą jakość mieszczącą się w 1 MB i zostawia mniejsze pliki bez zmian, więc nic nie jest kompresowane ponownie bez powodu.",
+  "title": "Kompresja JPEG do 1 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skompresować JPEG do 1 MB?",
+    "a": "Dodaj zdjęcie, wybierz 1 MB i porównaj podgląd."
+   },
+   {
+    "q": "Czy obraz będzie wyglądał tak samo?",
+    "a": "W przypadku większości zdjęć tak."
+   },
+   {
+    "q": "Czy mogę wpisać 0,8 MB?",
+    "a": "Tak. Wpisz dowolną liczbę i wybierz KB lub MB."
+   }
+  ],
+  "chip": "1 MB"
+ },
+ "compress-jpeg-under-2mb": {
+  "name": "Kompresja JPEG do 2 MB",
+  "desc": "Zmniejsz JPEG do poniżej 2 MB do e-maila i przesyłania, zachowując prawie pełną jakość. Ustaw rozmiar, obejrzyj podgląd, pobierz.",
+  "about": "Strony internetowe i usługi e-mail często kończą na 2 MB, a zdjęcie z telefonu może mieć 5–10 MB. Lekka kompresja sprowadza plik .jpeg poniżej 2 MB prawie bez widocznej zmiany. Ta strona zachowuje najwyższą jakość, która się mieści, a zdjęcie mające już mniej niż 2 MB zostaje bez zmian.",
+  "title": "Kompresja JPEG do 2 MB online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak uzyskać JPEG poniżej 2 MB?",
+    "a": "Dodaj go, zostaw cel 2 MB i pobierz."
+   },
+   {
+    "q": "Czy traci się jakość?",
+    "a": "Tylko trochę; lekka kompresja wystarczy."
+   },
+   {
+    "q": "Co jeśli moje zdjęcie ma 20 MB?",
+    "a": "To też działa: jakość i, w razie potrzeby, rozmiar w pikselach są obniżane, aż plik się zmieści."
+   }
+  ],
+  "chip": "2 MB"
+ },
+ "add-watermark-to-pdf": {
+  "name": "Znak wodny w PDF",
+  "desc": "Nanieś tekst lub logo na każdą stronę PDF: nachylenie, rozmiar, przezroczystość i położenie ustawiasz sam.",
+  "about": "Oznacz PDF jako POUFNE, WERSJA ROBOCZA lub swoim logo firmy. Wybierz tekst lub obraz, jak duży i jak pochylony ma być, jak przezroczysty i gdzie się znajduje: na środku, w rogu lub powtórzony na całej stronie. Możesz ograniczyć go do wybranych stron. Tekst działa w każdym języku, który potrafi wyświetlić przeglądarka, a PDF nigdy nie opuszcza Twojego urządzenia.",
+  "title": "Dodaj znak wodny do PDF online za darmo | Toolz Baba",
+  "tab": "PDF"
+ },
+ "add-watermark-to-video": {
+  "name": "Znak wodny na wideo",
+  "desc": "Umieść swoje imię, tekst lub logo na wideo: wybierz położenie, rozmiar i przezroczystość.",
+  "about": "Chroń swoje filmy, dodając znak wodny z tekstu lub logo. Wybierz, gdzie się znajduje (dowolny róg, góra, dół lub środek), jak jest duży i jak przezroczysty. Dodaj logo PNG z przezroczystym tłem, aby uzyskać najczystszy wygląd. Wideo jest kodowane ponownie w Twojej przeglądarce, więc nic nie jest przesyłane.",
+  "title": "Dodaj znak wodny do wideo online za darmo | Toolz Baba",
+  "metaDesc": "Dodaj znak wodny z tekstu lub logo do wideo: ustaw położenie, rozmiar i przezroczystość, i pobierz. Za darmo, bez rejestracji, wideo zostaje u Ciebie.",
+  "tab": "Wideo"
+ },
+ "blur-redact-pdf": {
+  "name": "Rozmycie i zaczernienie PDF",
+  "desc": "Ukryj nazwiska, numery i twarze w PDF: narysuj ramki na stronie i zaczerń je lub rozmyj na stałe.",
+  "about": "Narysuj ramki nad wszystkim, co prywatne, np. numerem telefonu, dowodem, numerem konta lub podpisem, i zakryj to czarną ramką, białą ramką, rozmyciem lub pikselizacją. Tekst i obrazy pod ramkami są usuwane z samego pliku, więc nie można ich później skopiować ani odzyskać. Twój PDF jest przetwarzany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Rozmyj i zaczerń PDF online za darmo | Toolz Baba",
+  "tab": "Rozmycie i zaczernienie PDF"
+ },
+ "linkedin-carousel-maker": {
+  "name": "Kreator karuzeli LinkedIn",
+  "desc": "Napisz slajdy jako tekst i otrzymaj gotową do publikacji karuzelę LinkedIn jako PDF oraz slajdy PNG.",
+  "about": "Wpisz lub wklej slajdy, oddzielone linią z trzech myślników. Pierwsza linia każdego slajdu to jego tytuł, a reszta to tekst; zacznij linię od myślnika, aby uzyskać punktor. Wybierz motyw kolorystyczny, czcionkę i rozmiar slajdu, dodaj swoje imię i zdjęcie, a potem pobierz PDF do wgrania na LinkedIn jako dokument albo slajdy jako obrazy PNG. Wszystko powstaje w Twojej przeglądarce.",
+  "title": "Kreator karuzeli LinkedIn online za darmo | Toolz Baba",
+  "tab": "Karuzela LinkedIn"
+ },
+ "instagram-image-carousel-splitter": {
+  "name": "Dzielenie karuzeli na Instagram",
+  "desc": "Potnij jeden szeroki obraz na płynne slajdy karuzeli Instagrama (od 2 do 10), gotowe do publikacji po kolei.",
+  "about": "Zamień panoramę, baner lub długi zrzut ekranu w przewijaną karuzelę Instagrama, w której obraz płynnie przechodzi z jednego slajdu na następny. Wybierz liczbę slajdów (narzędzie podpowiada najlepszą), kształt slajdu (pion 4:5, kwadrat lub poziom) oraz to, czy wypełnić slajdy, czy pokazać cały obraz na rozmytym tle. Slajdy dostajesz jako ponumerowane pliki w ZIP albo pojedynczo.",
+  "title": "Dzielenie karuzeli na Instagram online za darmo | Toolz Baba",
+  "tab": "Karuzela Instagram"
+ },
+ "ai-headshot-generator": {
+  "name": "Generator zdjęć profilowych AI",
+  "desc": "Zamień zwykłe zdjęcie w czyste, profesjonalne zdjęcie profilowe: AI znajduje Twoją twarz, zmienia tło i kadruje Cię od głowy do ramion.",
+  "about": "Prześlij selfie lub dowolne swoje zdjęcie i otrzymaj schludne zdjęcie profilowe na LinkedIn, do CV lub na stronę firmy. AI znajduje Twoją twarz, wycina Cię, umieszcza na tle studyjnym (szarym, beżowym, niebieskim, ciemnym, białym, rozmytym lub we własnym kolorze) i kadruje od głowy do ramion w kwadracie lub w proporcjach 4:5, z opcjonalnym lekkim retuszem. Używa Twojego własnego zdjęcia, nie wymyśla nowej twarzy, a wszystko działa na Twoim urządzeniu, więc zdjęcie nigdy nie jest przesyłane.",
+  "title": "Generator zdjęć profilowych AI online za darmo | Toolz Baba",
+  "tab": "Zdjęcie profilowe AI"
+ },
+ "video-to-text": {
+  "name": "Wideo na tekst (transkrypcja)",
+  "desc": "Zamień to, co jest powiedziane w wideo lub nagraniu audio, na tekst, z napisami (SRT, VTT). AI działa w przeglądarce.",
+  "about": "Uzyskaj transkrypcję filmu, wykładu, wywiadu, nagrania ze spotkania lub notatki głosowej. Sztuczna inteligencja rozpoznawania mowy Whisper działa na Twoim urządzeniu, więc plik nigdy nie jest przesyłany. Rozumie wiele języków, w tym angielski i hindi, potrafi sama wykryć język, może tłumaczyć na angielski i daje zwykły tekst oraz pliki napisów SRT i VTT ze znacznikami czasu. Przy pierwszym użyciu model jest pobierany jednorazowo (40 lub 80 MB).",
+  "title": "Wideo na tekst (transkrypcja) online za darmo | Toolz Baba",
+  "tab": "Wideo na tekst"
+ },
+ "text-to-audio": {
+  "name": "Tekst na audio (zamiana tekstu na mowę)",
+  "desc": "Zamień tekst pisany na mowę po angielsku lub hindi i zapisz jako WAV lub MP3. Działa w przeglądarce.",
+  "about": "Wklej lub wpisz tekst i pozwól, aby przeczytał go głos AI, a potem pobierz audio jako plik WAV lub MP3. Dostępne są głosy angielskie i hindi. Głos jest pobierany do przeglądarki przy pierwszym użyciu (około 38 MB), a wszystko działa na Twoim urządzeniu, więc tekst nigdy nie jest nigdzie wysyłany. Głos jest wyraźny, ale trochę robotyczny, co sprawdza się w narracji, notatkach i dostępności.",
+  "title": "Tekst na audio (zamiana tekstu na mowę) online za darmo | Toolz Baba",
+  "tab": "Tekst na audio"
+ },
+ "video-to-audio": {
+  "name": "Konwerter wideo na audio",
+  "desc": "Wyciągnij dźwięk z wideo i zapisz jako MP3, M4A, WAV, OGG lub FLAC. Działa w przeglądarce.",
+  "about": "Wyciągnij ścieżkę dźwiękową z dowolnego wideo, np. pliku MP4, MOV, MKV lub WebM, i zapisz jako MP3, M4A, WAV, OGG lub FLAC. Możesz wybrać jakość dla MP3, M4A i OGG oraz konwertować kilka filmów naraz. Twoje wideo jest przetwarzane na Twoim urządzeniu i nigdy nie jest przesyłane.",
+  "title": "Konwerter wideo na audio online za darmo | Toolz Baba",
+  "tab": "Wideo na audio"
+ },
+ "mp4-to-mp3": {
+  "name": "Konwerter MP4 na MP3",
+  "desc": "Konwertuj wideo MP4 na audio MP3 w przeglądarce. Wybierz jakość; nic nie jest przesyłane.",
+  "about": "Zamień wideo MP4 w plik MP3 w kilku kliknięciach: dodaj wideo, wybierz jakość (192 kbps to dobre ustawienie domyślne, 320 kbps to najlepsza) i pobierz MP3. Działają teledyski, wykłady, wywiady i nagrania, a kilka plików można konwertować naraz. Konwersja odbywa się na Twoim urządzeniu, bez przesyłania i bez limitu rozmiaru pliku z naszej strony.",
+  "title": "MP4 na MP3 online za darmo: wyodrębnij dźwięk | Toolz Baba",
+  "metaDesc": "Konwertuj wideo MP4 na audio MP3 w przeglądarce. Wybierz jakość do 320 kbps i konwertuj kilka plików naraz. Za darmo, nic nie jest przesyłane.",
+  "tab": "MP4 na MP3"
+ },
+ "ocr-pdf": {
+  "name": "OCR PDF: zeskanowany PDF na tekst",
+  "desc": "Odczytaj tekst z zeskanowanego PDF i skopiuj go lub zapisz jako plik .txt. Angielski i hindi. Działa w przeglądarce.",
+  "about": "Zeskanowany PDF to tylko obrazy stron, więc nie możesz zaznaczać ani przeszukiwać jego tekstu. OCR (optyczne rozpoznawanie znaków) odczytuje te obrazy i zamienia je z powrotem w tekst, który możesz kopiować, edytować lub zapisać. Dodaj zeskanowany PDF, wybierz angielski, hindi lub oba języki i skopiuj wynik albo zapisz go jako plik .txt. OCR działa w Twojej przeglądarce, więc dokument nie jest przesyłany.",
+  "title": "OCR PDF online za darmo: zeskanowany PDF na tekst, hindi | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak skopiować tekst z zeskanowanego PDF?",
+    "a": "Dodaj tutaj PDF, wybierz język i uruchom OCR. Gdy skończy, skopiuj tekst lub zapisz go jako plik .txt."
+   },
+   {
+    "q": "Czy odczytuje hindi?",
+    "a": "Tak. Wybierz hindi albo angielski i hindi razem dla dokumentów, które łączą oba języki."
+   },
+   {
+    "q": "Jak dokładny jest?",
+    "a": "Czyste, proste skany tekstu drukowanego wychodzą bardzo dobrze. Pismo odręczne, rozmazane zdjęcia i przekrzywione strony dają więcej błędów."
+   },
+   {
+    "q": "Ile stron może odczytać?",
+    "a": "Odczytuje pierwsze 30 stron każdego PDF. W przypadku dłuższego dokumentu najpierw podziel go na części narzędziem Dzielenie PDF."
+   }
+  ],
+  "tab": "OCR PDF"
+ },
+ "split-video": {
+  "name": "Dzielenie wideo",
+  "desc": "Potnij wideo na równe części lub części o stałej długości. Części dostajesz w pliku ZIP.",
+  "about": "Podziel długi film na krótsze klipy, np. 30-sekundowe części do statusu WhatsApp lub relacji na Instagramie, albo na od 2 do 100 równych części. Tryb szybki tnie bez ponownego kodowania, więc kończy się szybko i zachowuje oryginalną jakość; tryb dokładny koduje ponownie, aby uzyskać precyzyjne punkty cięcia. Wszystko działa w Twojej przeglądarce.",
+  "title": "Podziel wideo online za darmo | Toolz Baba",
+  "metaDesc": "Podziel długi film na równe części lub części o stałej długości, np. 30 sekund do statusu WhatsApp, i pobierz je w pliku ZIP. Za darmo i prywatnie.",
+  "tab": "Dzielenie wideo"
+ },
+ "merge-audio": {
+  "name": "Łączenie plików audio",
+  "desc": "Połącz kilka plików audio w jeden, w wybranej kolejności, z opcjonalną przerwą między nimi.",
+  "about": "Połącz pliki MP3, WAV, M4A, FLAC lub OGG w jedną ścieżkę. Ułóż je w kolejności strzałkami, w razie potrzeby dodaj krótką ciszę między nimi i zapisz wynik jako MP3, M4A, WAV, OGG lub FLAC. Pliki o różnych częstotliwościach próbkowania są dopasowywane automatycznie. Twoje audio nigdy nie opuszcza urządzenia.",
+  "title": "Połącz pliki audio online za darmo | Toolz Baba",
+  "tab": "Łączenie audio"
+ },
+ "color-palette-generator": {
+  "name": "Generator palet kolorów",
+  "desc": "Wybierz jeden kolor i uzyskaj pasującą paletę: komplementarną, analogiczną, triadyczną i inne, ze skalą odcieni.",
+  "about": "Zacznij od dowolnego koloru i zbuduj paletę, w której kolory ze sobą współgrają, według zasad teorii kolorów: komplementarną, analogiczną, triadyczną, tetradyczną, split-komplementarną lub monochromatyczną w jednym odcieniu. Zobacz wartości HEX, RGB i HSL każdego koloru oraz to, jak czytelny jest na nim czarny lub biały tekst, uzyskaj skalę odcieni od 50 do 900 i skopiuj paletę jako HEX, zmienne CSS, JSON lub kolory Tailwind albo zapisz ją jako obraz.",
+  "title": "Generator palet kolorów online za darmo | Toolz Baba",
+  "tab": "Generator palet"
+ },
+ "website-color-palette-extractor": {
+  "name": "Wyodrębnianie palety kolorów ze strony",
+  "desc": "Wpisz adres strony internetowej i uzyskaj kolory, których naprawdę używa jej projekt, z kodami HEX do skopiowania.",
+  "about": "Znajdź kolory marki dowolnej publicznej strony: wpisz jej adres, a narzędzie odczyta stronę i jej arkusze stylów, policzy każdy kolor, przypisze większą wagę tym używanym na tłach, w tekście i w ustawieniach motywu oraz pokaże główne kolory z wartościami HEX i RGB. Ukryj biel, czerń i szarości, aby zobaczyć kolory akcentowe, a potem skopiuj je jako listę, zmienne CSS lub JSON. Strony, które cały swój wygląd rysują za pomocą JavaScriptu, mogą pokazać mniej kolorów.",
+  "title": "Paleta kolorów ze strony internetowej online za darmo | Toolz Baba",
+  "tab": "Ze strony internetowej",
+  "privacy": "Nasz serwer pobiera publiczną stronę, którą podasz, i odsyła tylko listę jej kolorów. Nic nie jest przechowywane.",
+  "privacyTitle": "Tylko strony publiczne",
+  "badge": "Odczytuje strony publiczne",
+  "how": [
+   "<b>Wpisz</b> adres strony internetowej",
+   "<b>Zobacz</b> kolory użyte w jej projekcie",
+   "<b>Skopiuj</b> te, które chcesz"
+  ]
+ },
+ "temporary-file-upload-direct-link-share": {
+  "name": "Tymczasowe udostępnianie plików (link bezpośredni)",
+  "desc": "Prześlij plik i uzyskaj bezpośredni link do pobrania, który sam wygaśnie po godzinie, dniu, tygodniu lub miesiącu.",
+  "about": "Udostępniaj plik bez załączników e-mail i kont: prześlij do 5 plików (po 20 MB każdy), wybierz, jak długo ma działać link, i wyślij link bezpośredni. Każdy, kto ma link, może pobrać plik do czasu jego wygaśnięcia, a Ty możesz usunąć go wcześniej. Programy, skrypty i strony internetowe są niedozwolone, pliki są zawsze pobierane i nigdy nie otwierane w obrębie serwisu, a po wybranym czasie nic nie jest przechowywane.",
+  "title": "Tymczasowe udostępnianie plików (link) online za darmo | Toolz Baba",
+  "tab": "Tymczasowe udostępnianie plików",
+  "privacy": "Pliki są przechowywane w Cloudflare do wygaśnięcia linku. Każdy, kto ma link, może pobrać plik, więc nie przesyłaj niczego prywatnego.",
+  "privacyTitle": "Udostępnione linkiem",
+  "badge": "Pliki wygasają automatycznie",
+  "how": [
+   "<b>Dodaj pliki</b> (do 5, po 20 MB każdy)",
+   "<b>Wybierz</b>, jak długo ma działać link",
+   "<b>Skopiuj</b> link bezpośredni i udostępnij go"
+  ]
+ },
+ "markdown-to-pdf": {
+  "name": "Markdown na PDF",
+  "desc": "Zamień Markdown w czysty PDF. Wpisz lub wklej, zobacz podgląd, wybierz rozmiar strony i pobierz.",
+  "about": "Napisz lub wklej Markdown (nagłówki, listy, tabele, kod, cytaty i linki) i otrzymaj schludny PDF. Wybierz A4 lub US Letter, kroje pisma (nowoczesne lub książkowe), rozmiar tekstu i marginesy. Hindi i inne pisma indyjskie również działają. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter Markdown na PDF online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak przekonwertować plik Markdown na PDF?",
+    "a": "Wczytaj plik .md lub wklej jego tekst, sprawdź podgląd, wybierz rozmiar strony i kliknij „Utwórz PDF”. PDF powstaje na Twoim urządzeniu."
+   },
+   {
+    "q": "Czy tabele i bloki kodu są zachowane?",
+    "a": "Tak. Tabele, bloki kodu, cytaty, listy, linki i nagłówki trafiają do PDF. Obrazy pochodzące z internetu nie są dodawane; obrazy zapisane jako adresy danych są."
+   }
+  ],
+  "tab": "Markdown na PDF"
+ },
+ "markdown-to-html": {
+  "name": "Markdown na HTML",
+  "desc": "Zamień Markdown w kompletną stronę internetową, którą możesz otworzyć, udostępnić lub przesłać. Podgląd na żywo, bez rejestracji.",
+  "about": "Wklej lub wczytaj Markdown i uzyskaj kompletną stronę HTML z własnym, czystym stylem, gotową do otwarcia w przeglądarce lub umieszczenia na stronie internetowej. Możesz też skopiować kod HTML. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter Markdown na HTML online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Czy mogę skopiować kod HTML zamiast go pobierać?",
+    "a": "Tak. Po konwersji kod HTML jest pokazany pod wynikiem z przyciskiem „Kopiuj”."
+   },
+   {
+    "q": "Czy strona potrzebuje czegoś jeszcze, aby dobrze wyglądać?",
+    "a": "Nie. Styl jest wewnątrz strony, więc wygląda tak samo wszędzie."
+   }
+  ],
+  "tab": "Markdown na HTML"
+ },
+ "markdown-to-word": {
+  "name": "Markdown na Word",
+  "desc": "Zamień Markdown w dokument Word (.docx) z prawdziwymi nagłówkami, listami, linkami i tabelami.",
+  "about": "Konwertuj Markdown na plik Word, który otwiera się w Wordzie, Dokumentach Google i LibreOffice. Nagłówki stają się prawdziwymi nagłówkami Worda (więc działa panel nawigacji), a listy, pogrubienie i kursywa, linki, cytaty, kod i tabele są zachowane. Obrazy są pokazywane jako ich opis. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter Markdown na Word (DOCX) online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj Markdown na plik Word (DOCX) z prawdziwymi nagłówkami, listami, tabelami i linkami, otwierany w Wordzie i Dokumentach Google. Za darmo, prywatnie.",
+  "faq": [
+   {
+    "q": "Czy nagłówki będą działać w panelu nawigacji Worda?",
+    "a": "Tak. To prawdziwe style Nagłówek 1 do Nagłówek 6."
+   },
+   {
+    "q": "Czy obrazy są uwzględnione?",
+    "a": "Jeszcze nie: obraz jest pokazywany jako jego opis w nawiasach kwadratowych."
+   }
+  ],
+  "tab": "Markdown na Word"
+ },
+ "html-to-markdown": {
+  "name": "HTML na Markdown",
+  "desc": "Zamień HTML w czysty Markdown: nagłówki, listy, linki, kod i tabele. Wklej go lub wczytaj plik.",
+  "about": "Wklej HTML lub wczytaj plik .html i uzyskaj czytelny Markdown: nagłówki, pogrubienie i kursywę, listy, linki, bloki kodu i tabele. Skrypty i style są pomijane. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter HTML na Markdown online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Czy tabele są konwertowane?",
+    "a": "Tak, na tabele Markdown (w stylu GitHub). Pierwszy wiersz staje się nagłówkiem."
+   },
+   {
+    "q": "Co dzieje się ze skryptami i CSS?",
+    "a": "Są usuwane, konwertowana jest tylko treść."
+   }
+  ],
+  "tab": "HTML na Markdown"
+ },
+ "docx-to-markdown": {
+  "name": "Word (DOCX) na Markdown",
+  "desc": "Zamień dokument Word w Markdown. Nagłówki, listy, pogrubienie, linki i tabele są zachowane; obrazy trafiają jako pliki.",
+  "about": "Dodaj plik .docx i uzyskaj Markdown z nagłówkami, listami, pogrubieniem i kursywą, linkami i tabelami. Obrazy są zapisywane w folderze images (jeden ZIP), umieszczane wewnątrz Markdown lub pomijane, według Twojego wyboru. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter Word (DOCX) na Markdown online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Czy działa ze starymi plikami .doc?",
+    "a": "Nie, tylko z .docx. Najpierw otwórz stary plik w Wordzie lub Dokumentach Google i zapisz go jako .docx."
+   },
+   {
+    "q": "Co dzieje się z obrazami?",
+    "a": "Domyślnie są zapisywane jako pliki w folderze images obok pliku .md, wszystko w jednym ZIP. Możesz też je osadzić lub pominąć."
+   }
+  ],
+  "tab": "Word na Markdown"
+ },
+ "pdf-to-markdown": {
+  "name": "PDF na Markdown",
+  "desc": "Zamień PDF w Markdown: nagłówki z dużych liter, listy i akapity z układu strony.",
+  "about": "Dodaj PDF z prawdziwym tekstem i uzyskaj Markdown: większe litery stają się nagłówkami, listy punktowane i numerowane są zachowane, a wiersze są łączone w akapity. Tabele i kolumny nie są odtwarzane, więc sprawdź wynik. Skan nie ma tekstu: najpierw użyj narzędzia Obraz na tekst (OCR). Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter PDF na Markdown online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Dlaczego mój PDF jest pusty po konwersji?",
+    "a": "To prawdopodobnie skan (obraz strony). Najpierw przepuść go przez narzędzie Obraz na tekst (OCR)."
+   },
+   {
+    "q": "Czy tabele są zachowane?",
+    "a": "Nie jako tabele: ich tekst wychodzi jako wiersze. Sprawdź i uporządkuj tabele ręcznie."
+   }
+  ],
+  "tab": "PDF na Markdown"
+ },
+ "html-to-pdf": {
+  "name": "HTML na PDF",
+  "desc": "Zamień HTML w PDF: wklej kod lub wczytaj plik .html, zobacz podgląd i pobierz.",
+  "about": "Wklej HTML lub wczytaj plik .html i uzyskaj PDF. Obsługiwane są podstawowy CSS, tabele, listy i obrazy (jako adresy danych). Skrypty nie są uruchamiane, a obrazy i arkusze stylów z internetu nie są wczytywane: umieść CSS w znaczniku style. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter HTML na PDF online za darmo | Toolz Baba",
+  "metaDesc": "Zamień HTML w PDF: wklej kod lub wczytaj plik .html, sprawdź podgląd i pobierz. Tabele, listy i podstawowy CSS działają. Za darmo i prywatnie.",
+  "faq": [
+   {
+    "q": "Dlaczego brakuje niektórych obrazów?",
+    "a": "PDF powstaje na Twoim urządzeniu i nie pobiera rzeczy z internetu. Użyj obrazów jako adresów danych (base64) lub dodaj je potem w Edytorze PDF."
+   },
+   {
+    "q": "Czy skrypty są uruchamiane?",
+    "a": "Nie. Na PDF zamieniana jest tylko strona taka, jak jest napisana."
+   }
+  ],
+  "tab": "HTML na PDF"
+ },
+ "excel-to-pdf": {
+  "name": "Excel na PDF",
+  "desc": "Konwertuj arkusze Excel (XLSX, XLS, CSV, ODS) na tabele PDF, które możesz udostępniać i drukować. Działa w przeglądarce.",
+  "about": "Wyślij arkusz kalkulacyjny jako PDF, gdy ludzie potrzebują go tylko przeczytać lub wydrukować: nikt nie zmieni przypadkowo liczb, a plik otworzy się na każdym telefonie. Dodaj plik XLSX, XLS, CSV lub ODS i przekonwertuj. Każdy arkusz staje się tabelą na stronach poziomych, a gdy arkuszy jest kilka, nazwa arkusza jest nagłówkiem. Wartości są zachowane, ale kolory, style komórek i wykresy nie, więc sprawdź PDF przed wysłaniem. Plik jest konwertowany w przeglądarce i nie jest przesyłany.",
+  "title": "Konwerter Excel na PDF online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zamienić Excel na PDF?",
+    "a": "Dodaj plik XLSX, XLS, CSV lub ODS, kliknij przycisk konwersji, a potem pobierz PDF."
+   },
+   {
+    "q": "Czy kolory i wykresy są zachowane?",
+    "a": "Nie. PDF pokazuje wartości każdego arkusza jako zwykłą tabelę. Aby uzyskać dokładną kopię z kolorami i wykresami, użyj opcji „Zapisz jako PDF” w Excelu lub Arkuszach Google."
+   },
+   {
+    "q": "Czy działa z tekstem w hindi?",
+    "a": "Tak. Hindi i inne pisma indyjskie w komórkach są poprawnie wyświetlane w PDF."
+   }
+  ],
+  "tab": "Excel na PDF"
+ },
+ "jpg-to-pdf": {
+  "name": "JPG na PDF",
+  "desc": "Zamień zdjęcia JPG w jeden PDF. Wybierz rozmiar strony i kolejność. Działa w przeglądarce.",
+  "about": "Połącz jeden lub wiele obrazów JPG (JPEG) w jeden PDF. Wybierz A4, US Letter, A5 lub rozmiar obrazu, ustaw orientację i margines oraz zmień kolejność stron. Dane JPG są umieszczane w PDF bez utraty jakości. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter JPG na PDF online za darmo | Toolz Baba",
+  "metaDesc": "Zamień jedno lub wiele zdjęć JPG w jeden PDF. Wybierz A4, Letter lub rozmiar zdjęcia, ustaw kolejność i marginesy. Za darmo, bez rejestracji i przesyłania.",
+  "faq": [
+   {
+    "q": "Jak zamienić JPG na PDF?",
+    "a": "Dodaj obrazy JPG, ułóż je w kolejności, wybierz rozmiar strony i kliknij „Utwórz PDF”."
+   },
+   {
+    "q": "Czy mogę zrobić jeden PDF z kilku plików JPG?",
+    "a": "Tak. Dodaj je wszystkie i ustaw kolejność strzałkami."
+   }
+  ],
+  "tab": "JPG na PDF"
+ },
+ "png-to-pdf": {
+  "name": "PNG na PDF",
+  "desc": "Zamień obrazy PNG w jeden PDF. Zachowuje przezroczystość. Wybierz rozmiar strony i kolejność.",
+  "about": "Połącz jeden lub wiele obrazów PNG w jeden PDF. Przezroczyste części pozostają przezroczyste. Wybierz A4, US Letter, A5 lub rozmiar obrazu, ustaw orientację i margines oraz zmień kolejność stron. Twój plik zostaje na urządzeniu: jest konwertowany w przeglądarce i nigdy nie jest przesyłany.",
+  "title": "Konwerter PNG na PDF online za darmo | Toolz Baba",
+  "metaDesc": "Zamień obrazy PNG w jeden PDF z zachowaniem przezroczystości. Wybierz rozmiar strony, kolejność i marginesy. Za darmo, bez rejestracji, w przeglądarce.",
+  "faq": [
+   {
+    "q": "Czy PNG na PDF zachowuje przezroczystość?",
+    "a": "Tak. Przezroczyste obszary pozostają przezroczyste w PDF."
+   },
+   {
+    "q": "Czy mogę umieścić kilka plików PNG w jednym PDF?",
+    "a": "Tak. Dodaj je wszystkie i ustaw kolejność strzałkami."
+   }
+  ],
+  "tab": "PNG na PDF"
+ },
+ "png-to-jpg": {
+  "name": "PNG na JPG",
+  "desc": "Konwertuj obrazy PNG na JPG w przeglądarce. Wybierz jakość i kolor tła dla przezroczystych części.",
+  "about": "Pliki JPG są zwykle znacznie mniejsze niż PNG, co czyni je lepszymi do e-maila, WhatsAppa i formularzy przesyłania. Dodaj obrazy PNG, wybierz jakość (90 procent wygląda tak samo jak oryginał) i konwertuj. JPG nie obsługuje przezroczystości, więc przezroczyste obszary są wypełniane wybranym kolorem; domyślnie jest to biel. Możesz konwertować do 40 obrazów naraz, a konwersja odbywa się na Twoim urządzeniu, więc nic nie jest przesyłane.",
+  "title": "Konwerter PNG na JPG online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zamienić PNG na JPG?",
+    "a": "Dodaj pliki PNG, sprawdź, czy w polu „Konwertuj na” wybrany jest JPG, ustaw jakość i kliknij „Konwertuj”. Potem pobierz pliki JPG."
+   },
+   {
+    "q": "Co dzieje się z przezroczystym tłem?",
+    "a": "JPG nie obsługuje przezroczystości, więc przezroczyste obszary są wypełniane wybranym kolorem tła. Domyślnie jest to biel."
+   },
+   {
+    "q": "Czy JPG będzie mniejszy niż PNG?",
+    "a": "Zwykle tak, często kilka razy mniejszy w przypadku zdjęć i zrzutów ekranu z wieloma kolorami."
+   }
+  ],
+  "tab": "PNG na JPG"
+ },
+ "jpg-to-png": {
+  "name": "JPG na PNG",
+  "desc": "Konwertuj zdjęcia JPG na PNG w przeglądarce. Wynik bezstratny, do 40 obrazów naraz.",
+  "about": "PNG to format bezstratny: gdy Twój obraz jest już plikiem PNG, nie traci więcej jakości przy ponownej edycji i zapisie. To dobry wybór dla zrzutów ekranu, logo i obrazów, które chcesz dalej edytować. Dodaj pliki JPG, sprawdź, czy wybrany jest PNG, i konwertuj. Pamiętaj, że PNG utworzony ze zdjęcia jest zwykle większy niż JPG. Wszystko dzieje się w Twojej przeglądarce, więc zdjęcia nie są przesyłane.",
+  "title": "Konwerter JPG na PNG online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj zdjęcia JPG na bezstratne PNG w przeglądarce, do 40 naraz. Koniec z utratą jakości przy edycji. Za darmo, bez rejestracji, bez przesyłania.",
+  "faq": [
+   {
+    "q": "Jak zamienić JPG na PNG?",
+    "a": "Dodaj pliki JPG, upewnij się, że w polu „Konwertuj na” wybrany jest PNG, i kliknij „Konwertuj”. Gdy pliki PNG będą gotowe, pobierz je."
+   },
+   {
+    "q": "Czy konwersja JPG na PNG poprawia jakość?",
+    "a": "Nie. Zachowuje jakość, którą JPG już ma, ale zatrzymuje dalsze straty przy ponownej edycji i zapisie obrazu."
+   },
+   {
+    "q": "Dlaczego mój PNG jest większy niż JPG?",
+    "a": "PNG zapisuje każdy piksel dokładnie, a JPG odrzuca szczegóły, których prawie nie widać. W przypadku zdjęć sprawia to, że PNG jest większy."
+   }
+  ],
+  "tab": "JPG na PNG"
+ },
+ "webp-to-jpg": {
+  "name": "WebP na JPG",
+  "desc": "Konwertuj obrazy WebP na JPG, aby otwierały się wszędzie. Wybierz jakość. Działa w przeglądarce.",
+  "about": "Wiele stron internetowych podaje teraz obrazy jako WebP, czego niektóre aplikacje, starsze telefony i formularze przesyłania nadal nie akceptują. Zamień je na JPG, który otwiera się wszędzie. Dodaj pliki WebP, wybierz jakość i konwertuj do 40 naraz. Przezroczyste części pliku WebP są wypełniane wybranym kolorem tła, ponieważ JPG nie obsługuje przezroczystości. Twoje obrazy nigdy nie opuszczają urządzenia.",
+  "title": "Konwerter WebP na JPG online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zamienić WebP na JPG?",
+    "a": "Dodaj pliki WebP, zostaw wybrany JPG w polu „Konwertuj na”, wybierz jakość i kliknij „Konwertuj”."
+   },
+   {
+    "q": "Dlaczego nie mogę otworzyć pliku WebP?",
+    "a": "Niektóre starsze programy i strony nie obsługują jeszcze WebP. Kopia JPG otworzy się praktycznie w każdej aplikacji."
+   }
+  ],
+  "tab": "WebP na JPG"
+ },
+ "heic-to-jpg": {
+  "name": "HEIC na JPG",
+  "desc": "Konwertuj zdjęcia HEIC z iPhone’a na JPG w przeglądarce. Bez aplikacji, bez przesyłania, do 40 zdjęć naraz.",
+  "about": "iPhone’y zapisują zdjęcia jako HEIC, czego Windows, wiele stron internetowych i formularzy urzędowych nie akceptuje. Zamień je tutaj na JPG: dodaj zdjęcia HEIC, zostaw wybrany JPG i kliknij „Konwertuj”. Możesz wybrać jakość i konwertować do 40 zdjęć naraz. Zdjęcia są konwertowane na Twoim telefonie lub komputerze, więc nigdy nie są przesyłane na serwer.",
+  "title": "Konwerter HEIC na JPG online za darmo: zdjęcia z iPhone’a | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zamienić HEIC na JPG w Windows?",
+    "a": "Otwórz tę stronę, dodaj pliki HEIC, zostaw wybrany JPG i kliknij „Konwertuj”. Nie potrzeba aplikacji ani rozszerzenia."
+   },
+   {
+    "q": "Czy działa na iPhonie?",
+    "a": "Tak. Otwórz stronę w Safari, stuknij „Wybierz pliki”, wybierz zdjęcia i przekonwertuj je."
+   },
+   {
+    "q": "Czy moje zdjęcia są przesyłane na serwer?",
+    "a": "Nie. Konwersja działa w Twojej przeglądarce, a zdjęcia zostają na Twoim urządzeniu."
+   }
+  ],
+  "tab": "HEIC na JPG"
+ },
+ "jpg-to-webp": {
+  "name": "JPG na WebP",
+  "desc": "Konwertuj obrazy JPG i PNG na WebP dla szybszej strony. Wybierz jakość, konwertuj wiele naraz.",
+  "about": "Obrazy WebP są często o 25–35 procent mniejsze niż JPG przy tej samej widocznej jakości, więc strony ładują się szybciej i zużywają mniej danych. Dodaj pliki JPG lub PNG, zostaw wybrany WebP, wybierz jakość (dobry zakres to 80–90 procent) i konwertuj do 40 naraz. WebP zachowuje przezroczystość, więc zastępuje też PNG w logo i grafikach. Wszystko działa w Twojej przeglądarce.",
+  "title": "Konwerter JPG na WebP online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Czy WebP jest lepszy od JPG?",
+    "a": "Dla stron internetowych zwykle tak: mniejsze pliki przy tej samej jakości plus przezroczystość. Do udostępniania osobom ze starszymi aplikacjami bezpieczniejszy jest JPG."
+   },
+   {
+    "q": "Czy mogę tu też konwertować PNG na WebP?",
+    "a": "Tak. Dodaj pliki PNG w ten sam sposób; przezroczyste obszary pozostają przezroczyste w WebP."
+   }
+  ],
+  "tab": "JPG na WebP"
+ },
+ "pdf-to-jpg": {
+  "name": "PDF na JPG",
+  "desc": "Zamień każdą stronę PDF w obraz JPG. Wybierz jakość (DPI) i strony. Działa w przeglądarce.",
+  "about": "Konwertuj strony PDF na obrazy JPG, które możesz udostępnić na WhatsAppie, opublikować w internecie lub wstawić do prezentacji. Dodaj PDF, zostaw wybrany JPG, wybierz jakość od 72 DPI (małe pliki) do 300 DPI (jakość do druku) i konwertuj wszystkie strony lub tylko potrzebne, np. 1-3,5. Kilka stron jest dostarczanych razem w jednym pliku ZIP. PDF jest przetwarzany na Twoim urządzeniu i nie jest przesyłany.",
+  "title": "Konwerter PDF na JPG online za darmo: wysoka jakość | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak zamienić PDF na JPG?",
+    "a": "Dodaj PDF, zostaw wybrany JPG, wybierz DPI i strony, a potem kliknij „Konwertuj na obrazy”."
+   },
+   {
+    "q": "Czy mogę przekonwertować tylko jedną stronę?",
+    "a": "Tak. Wpisz numer strony w polu „Strony”, np. 3, lub zakres, np. 2-4."
+   },
+   {
+    "q": "Jakie DPI wybrać?",
+    "a": "150 DPI jest ostre na ekranach. Użyj 300 DPI do druku, a 72 DPI dla najmniejszych plików."
+   }
+  ],
+  "tab": "PDF na JPG"
+ },
+ "pdf-to-png": {
+  "name": "PDF na PNG",
+  "desc": "Zamień strony PDF w ostre, bezstratne obrazy PNG. Wybierz DPI i strony. Działa w przeglądarce.",
+  "about": "PNG zachowuje tekst i linie idealnie ostre, co czyni go najlepszym wyborem dla stron z diagramami, tabelami lub drobnym drukiem. Dodaj PDF, zostaw wybrany PNG, wybierz rozdzielczość i strony, a potem konwertuj. Kilka stron trafia razem do jednego pliku ZIP. Konwersja działa w Twojej przeglądarce, więc dokument pozostaje prywatny.",
+  "title": "Konwerter PDF na PNG online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "PNG czy JPG dla stron PDF?",
+    "a": "PNG dla stron, na których jest głównie tekst i rysunki (ostrzej, bez rozmycia wokół liter), JPG dla stron, na których są głównie zdjęcia (mniejsze pliki)."
+   },
+   {
+    "q": "Czy mogę wybrać, które strony konwertować?",
+    "a": "Tak. Wpisz „all” albo numery stron i zakresy, np. 1-3,5."
+   }
+  ],
+  "tab": "PDF na PNG"
+ },
+ "rotate-pdf": {
+  "name": "Obracanie PDF",
+  "desc": "Obróć jedną stronę lub wszystkie strony PDF i zapisz. Zobacz miniatury, kliknij, aby obrócić. Działa w przeglądarce.",
+  "about": "Napraw zeskanowane strony, które są do góry nogami lub bokiem. Dodaj PDF, a zobaczysz każdą stronę jako miniaturę: kliknij przycisk obrotu strony, aby obrócić ją o 90 stopni, tyle razy, ile trzeba, a potem zapisz. Obrót jest zapisywany w nowym PDF, więc wszędzie otwiera się we właściwej orientacji. Na tym samym ekranie możesz też usuwać i zmieniać kolejność stron. Twój PDF nigdy nie opuszcza urządzenia.",
+  "title": "Obróć strony PDF online za darmo: zapisz na stałe | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak obrócić PDF i go zapisać?",
+    "a": "Dodaj PDF, kliknij przycisk obrotu na stronach, które chcesz obrócić, a potem kliknij „Zapisz”, aby pobrać nowy PDF."
+   },
+   {
+    "q": "Czy mogę obrócić tylko jedną stronę?",
+    "a": "Tak. Każda strona ma własny przycisk obrotu, więc możesz obrócić tylko te, które tego wymagają."
+   },
+   {
+    "q": "Czy obrót jest trwały?",
+    "a": "Tak. Jest zapisany w nowym pliku PDF, a nie tylko w przeglądarce."
+   }
+  ],
+  "tab": "Obracanie PDF"
+ },
+ "delete-pdf-pages": {
+  "name": "Usuwanie stron z PDF",
+  "desc": "Usuń strony z PDF: zobacz miniatury, kliknij strony do usunięcia, zapisz. Działa w przeglądarce.",
+  "about": "Usuń puste strony, reklamy lub strony, których nie chcesz udostępniać. Dodaj PDF, aby zobaczyć każdą stronę jako miniaturę, kliknij „Usuń” na stronach do usunięcia i zapisz nowy PDF tylko z zachowanymi stronami. Przed zapisaniem możesz też obracać i zmieniać kolejność stron. Nic nie jest przesyłane: PDF jest edytowany w Twojej przeglądarce.",
+  "title": "Usuń strony z PDF online za darmo | Toolz Baba",
+  "faq": [
+   {
+    "q": "Jak usunąć stronę z PDF?",
+    "a": "Dodaj PDF, kliknij przycisk usuwania na stronie, którą chcesz usunąć, i zapisz nowy PDF."
+   },
+   {
+    "q": "Czy oryginalny plik jest zmieniany?",
+    "a": "Nie. Pobierasz nowy PDF; Twój oryginał pozostaje taki, jaki był."
+   }
+  ],
+  "tab": "Usuwanie stron"
+ },
+ "extract-pdf-pages": {
+  "name": "Wyodrębnianie stron z PDF",
+  "desc": "Skopiuj wybrane strony PDF do nowego PDF, np. 1-3,5. Działa w przeglądarce.",
+  "about": "Potrzebujesz tylko kilku stron z długiego PDF, np. jednego rozdziału lub podpisanych stron umowy? Dodaj PDF, wpisz strony, które chcesz (np. 1-3,5,8-10), i uzyskaj jeden nowy PDF tylko z tymi stronami, w tej kolejności. Oryginał pozostaje nietknięty, a plik jest przetwarzany na Twoim urządzeniu.",
+  "title": "Wyodrębnij strony z PDF online za darmo | Toolz Baba",
+  "metaDesc": "Skopiuj wybrane strony PDF, np. 1-3,5, do jednego nowego PDF w tej kolejności. Oryginał pozostaje nietknięty. Za darmo, bez rejestracji, w przeglądarce.",
+  "faq": [
+   {
+    "q": "Jak wyodrębnić strony z PDF?",
+    "a": "Dodaj PDF, wpisz numery stron lub zakresy w polu „Strony”, np. 2-4,7, i kliknij „Podziel PDF”."
+   },
+   {
+    "q": "Czy mogę umieścić strony w osobnych plikach?",
+    "a": "Tak. Zmień „Sposób podziału” na „Własne zakresy”, a każdy zakres stanie się osobnym PDF."
+   }
+  ],
+  "tab": "Wyodrębnianie stron"
+ },
+ "wav-to-mp3": {
+  "name": "Konwerter WAV na MP3",
+  "desc": "Konwertuj audio WAV na MP3 w przeglądarce. Pliki MP3 są około dziesięć razy mniejsze niż WAV.",
+  "about": "Zamień pliki WAV w MP3: dodaj jeden plik lub do 20, wybierz jakość i pobierz pliki MP3. Pliki MP3 są około dziesięć razy mniejsze niż WAV. Konwersja odbywa się na Twoim urządzeniu, więc audio nigdy nie jest przesyłane i nie trzeba się rejestrować.",
+  "title": "Konwerter WAV na MP3 online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj WAV na MP3 online w przeglądarce, do 20 plików naraz. Pliki MP3 są ok. dziesięć razy mniejsze niż WAV. Za darmo, bez rejestracji i przesyłania.",
+  "tab": "WAV na MP3",
+  "dropLabel": "Upuść tutaj pliki WAV"
+ },
+ "m4a-to-mp3": {
+  "name": "Konwerter M4A na MP3",
+  "desc": "Konwertuj audio M4A na MP3 w przeglądarce. Świetne do nagrań z iPhone’a i notatek głosowych.",
+  "about": "Zamień pliki M4A w MP3: dodaj jeden plik lub do 20, wybierz jakość i pobierz pliki MP3. Świetne do nagrań z iPhone’a i notatek głosowych. Konwersja odbywa się na Twoim urządzeniu, więc audio nigdy nie jest przesyłane i nie trzeba się rejestrować.",
+  "title": "Konwerter M4A na MP3 online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj M4A na MP3 online w przeglądarce, do 20 plików naraz. Świetne do nagrań z iPhone’a i notatek głosowych. Za darmo, bez rejestracji i przesyłania.",
+  "tab": "M4A na MP3",
+  "dropLabel": "Upuść tutaj pliki M4A"
+ },
+ "mp3-to-wav": {
+  "name": "Konwerter MP3 na WAV",
+  "desc": "Konwertuj audio MP3 na WAV w przeglądarce. WAV otwiera się w każdym edytorze audio.",
+  "about": "Zamień pliki MP3 w WAV: dodaj jeden plik lub do 20, wybierz jakość i pobierz pliki WAV. WAV otwiera się w każdym edytorze audio. Konwersja odbywa się na Twoim urządzeniu, więc audio nigdy nie jest przesyłane i nie trzeba się rejestrować.",
+  "title": "Konwerter MP3 na WAV online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj MP3 na WAV online w przeglądarce, do 20 plików naraz. WAV otwiera się w każdym edytorze audio. Za darmo, bez rejestracji, bez przesyłania.",
+  "tab": "MP3 na WAV",
+  "dropLabel": "Upuść tutaj pliki MP3"
+ },
+ "flac-to-mp3": {
+  "name": "Konwerter FLAC na MP3",
+  "desc": "Konwertuj audio FLAC na MP3 w przeglądarce. Odtwarzaj swoją muzykę bezstratną na każdym urządzeniu.",
+  "about": "Zamień pliki FLAC w MP3: dodaj jeden plik lub do 20, wybierz jakość i pobierz pliki MP3. Odtwarzaj swoją muzykę bezstratną na każdym urządzeniu. Konwersja odbywa się na Twoim urządzeniu, więc audio nigdy nie jest przesyłane i nie trzeba się rejestrować.",
+  "title": "Konwerter FLAC na MP3 online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj FLAC na MP3 online w przeglądarce, do 20 plików naraz. Słuchaj muzyki bezstratnej na każdym urządzeniu. Za darmo, bez rejestracji i przesyłania.",
+  "tab": "FLAC na MP3",
+  "dropLabel": "Upuść tutaj pliki FLAC"
+ },
+ "ogg-to-mp3": {
+  "name": "Konwerter OGG na MP3",
+  "desc": "Konwertuj audio OGG na MP3 w przeglądarce. Działa też z wiadomościami głosowymi z WhatsAppa (OPUS).",
+  "about": "Zamień pliki OGG w MP3: dodaj jeden plik lub do 20, wybierz jakość i pobierz pliki MP3. Działa też z wiadomościami głosowymi z WhatsAppa (OPUS). Konwersja odbywa się na Twoim urządzeniu, więc audio nigdy nie jest przesyłane i nie trzeba się rejestrować.",
+  "title": "Konwerter OGG na MP3 online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj OGG na MP3 online w przeglądarce, do 20 plików naraz. Działa też z notatkami głosowymi WhatsApp (OPUS). Za darmo, bez rejestracji i przesyłania.",
+  "tab": "OGG na MP3",
+  "dropLabel": "Upuść tutaj pliki OGG"
+ },
+ "aac-to-mp3": {
+  "name": "Konwerter AAC na MP3",
+  "desc": "Konwertuj audio AAC na MP3 w przeglądarce. Pliki MP3 odtworzysz na każdym telefonie, w samochodzie i na głośniku.",
+  "about": "Zamień pliki AAC w MP3: dodaj jeden plik lub do 20, wybierz jakość i pobierz pliki MP3. Pliki MP3 odtworzysz na każdym telefonie, w samochodzie i na głośniku. Konwersja odbywa się na Twoim urządzeniu, więc audio nigdy nie jest przesyłane i nie trzeba się rejestrować.",
+  "title": "Konwerter AAC na MP3 online za darmo | Toolz Baba",
+  "metaDesc": "Konwertuj AAC na MP3 online w przeglądarce, do 20 plików naraz. MP3 odtworzysz na każdym telefonie i głośniku. Za darmo, bez rejestracji i przesyłania.",
+  "tab": "AAC na MP3",
+  "dropLabel": "Upuść tutaj pliki AAC"
+ }
+}

@@ -44,7 +44,7 @@ const targetImage = kind => (root, meta) => {
   const fmtOf = f => (PNG ? 'png' : !ANY ? 'jpg' : outFmt !== 'keep' ? outFmt : ({ jpg: 'jpg', png: 'png', webp: 'webp', gif: 'gif' })[srcFmt(f)] || 'jpg');
   const bitmaps = new Map(), size = sizeControl(meta.target_kb || 200, () => update());
   const list = HT.fileList({ onChange: files => { for (const k of bitmaps.keys()) if (!files.includes(k)) bitmaps.delete(k); if (sel >= files.length) sel = 0; draw(); update(); } });
-  const dz = HT.dropzone({ accept: ACCEPT, multiple: true, hint: (ANY ? 'JPG, PNG, WebP, GIF, AVIF, HEIC...' : PNG ? 'PNG pictures (transparency is kept)' : 'JPG / JPEG pictures') + ', up to 40 at once. Runs in your browser: nothing is uploaded.', onFiles: fs => list.add(fs, true) });
+  const dz = HT.dropzone({ accept: ACCEPT, multiple: true, hint: HT.t('{0}, up to 40 at once. Runs in your browser: nothing is uploaded.', HT.t(ANY ? 'JPG, PNG, WebP, GIF, AVIF, HEIC...' : PNG ? 'PNG pictures (transparency is kept)' : 'JPG / JPEG pictures')), onFiles: fs => list.add(fs, true) });
 
   // ---- settings card
   const modeBtn = (m, t) => $e('button', { type: 'button', class: 'tab' + (m === mode ? ' on' : ''), 'data-m': m, text: t, onclick: () => { mode = m; draw(); update(); } });

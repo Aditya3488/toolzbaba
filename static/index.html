@@ -45,7 +45,7 @@
   const el = HT.el;
   const bs = document.getElementById('bigsearch'); bs.prepend(HT.svg(HT.ICON.search));
   document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
-  const data = await HT.loadTools();
+  const data = await HT.loadTools(); await HT.i18n;
   const tools = data.tools;
   const href = t => t.href || HT.href(t.slug);
 
@@ -74,7 +74,7 @@
   const sections = [];
   for (const c of data.categories) {
     const items = byCat[c.id] || []; if (!items.length) continue;
-    const sec = el('section', { 'data-cat': c.id, id: c.id, class: 'cat-' + c.id }, el('div', { class: 'sec-h' }, el('h2', { text: c.name }), el('span', { text: items.length + (items.length === 1 ? ' tool' : ' tools') })), el('div', { class: 'grid' }, items.map(t => { const a = HT.cardFor(t); a.dataset.q = (t.name + ' ' + t.desc + ' ' + t.slug.replace(/-/g, ' ') + ' ' + (t.isTab ? '' : (data.variants || []).filter(v => v.base === t.slug && v.group !== 'size').map(v => v.name + ' ' + v.slug.replace(/-/g, ' ')).join(' '))).toLowerCase(); return a; })));
+    const sec = el('section', { 'data-cat': c.id, id: c.id, class: 'cat-' + c.id }, el('div', { class: 'sec-h' }, el('h2', { text: c.name }), el('span', { text: HT.t(items.length === 1 ? '{0} tool' : '{0} tools', items.length) })), el('div', { class: 'grid' }, items.map(t => { const a = HT.cardFor(t); a.dataset.q = (t.name + ' ' + t.desc + ' ' + t.slug.replace(/-/g, ' ') + ' ' + (t.isTab ? '' : (data.variants || []).filter(v => v.base === t.slug && v.group !== 'size').map(v => v.name + ' ' + v.slug.replace(/-/g, ' ')).join(' '))).toLowerCase(); return a; })));
     sections.push({ c, sec, n: items.length }); list.append(sec);
   }
 
