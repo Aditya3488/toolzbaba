@@ -861,10 +861,15 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .ab-bar { height:6px; border-radius:99px; background:var(--bg2); overflow:hidden; } .ab-bar i { display:block; height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,#3b82f6,#a855f7); transition:width .6s ease; }
 .ab-end { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:14px; } .ab-end .btn { animation:abin .45s ease both; } .ab-miss { margin:0; color:var(--muted); width:100%; }
 @media (max-width:700px) { .ask-stage { height:440px; } .ab-card { width:min(300px,80%); } .ab-text { font-size:.88rem; } .ab-ghosts i:nth-child(n+15) { display:none; } .ab-floor { background-size:48px 48px; } }
+.ab-body { display:grid; gap:10px; }
+.ab-say { margin:0; line-height:1.55; color:var(--text); animation:abin .45s ease both; }
+a.ab-tool { color:inherit; text-decoration:none; transition:border-color .2s ease, transform .2s ease; } a.ab-tool:hover { border-color:#8b5cf6; transform:translateY(-1px); }
+.ab-tool em { display:block; font-style:normal; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#8b5cf6; margin-bottom:1px; }
+.ab-list { display:grid; gap:8px; } .ab-body .ab-steps { margin:2px 0 0; } .ab-body + .ab-bar { margin-top:14px; }
 /* it moves even when the device asks for less motion (like the star): the boxes only fade and grow a little */
 @media (prefers-reduced-motion:reduce) {
   .ab-card { transition:transform .55s cubic-bezier(.2,.8,.25,1), opacity .45s ease, filter .45s ease, background .45s ease, box-shadow .45s ease, color .45s ease !important; }
   .ab-card::before { transition:opacity .6s ease !important; } .ab-text { transition:opacity .3s ease !important; } .ab-bar i { transition:width .6s ease !important; }
   .ab-card.typing .ab-text::after { animation:abcaret .8s steps(1) infinite !important; } .ab-dots i { animation:abdot 1s ease-in-out infinite !important; }
-  .ab-steps li, .ab-tool, .ab-end .btn { animation:abin .45s ease both !important; } .ab-field, .ab-ghosts, .ab-ask { transition:opacity .4s, filter .4s !important; }
+  .ab-steps li, .ab-tool, .ab-say, .ab-end .btn { animation:abin .45s ease both !important; } .ab-field, .ab-ghosts, .ab-ask { transition:opacity .4s, filter .4s !important; }
 }
