@@ -285,10 +285,25 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .notfound { text-align:center; } .notfound img { width:min(360px,80%); height:auto; margin:10px auto 0; display:block; }
 
 @media (max-width:900px) {
-  .hero { text-align:center; padding-top:30px; } .hero-in { grid-template-columns:1fr; gap:14px; }
+  .hero { text-align:center; padding-top:30px; } .hero-in { grid-template-columns:minmax(0,1fr); gap:14px; }
   .hero-art { order:-1; max-width:300px; } .hero p.lead { margin:0 auto 24px; } .bigsearch { margin:0 auto; }
   .chips,.trust { justify-content:center; }
 }
+/* phones: a smaller Baba and a tighter hero, so the search and the popular tools fit on the first screen */
+@media (max-width:560px) {
+  .hero { padding:14px 0 12px; } .hero-in { gap:6px; }
+  .hero-art { max-width:150px; } .hero-art img { animation:none; }
+  .hero h1 { margin:10px 0 8px; } .hero p.lead { font-size:.98rem; margin:0 auto 14px; }
+  .hero .trust { display:none; }   /* the same three promises are in the "why" cards further down */
+  /* one row you swipe sideways, so it stays a single line however many tools it holds */
+  .hero .chips { margin:12px -20px 0; padding:0 20px 4px; gap:6px; flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
+  .hero .chips::-webkit-scrollbar { display:none; } .hero .chips > * { flex:none; } .hero .chips > span { align-self:center; }
+}
+
+/* three short promises under the upload box, until a file is added */
+.ticks { display:flex; flex-wrap:wrap; justify-content:center; gap:6px 22px; margin:12px 0 0; padding:0; list-style:none; color:var(--muted); font-size:.88rem; }
+.ticks li { display:inline-flex; align-items:center; gap:7px; } .ticks svg { width:17px; height:17px; flex:none; color:var(--ok); }
+.work.has-file .ticks { display:none; }
 
 /* ============================================================ tool icons in the logo's style */
 .ticon { display:grid; place-items:center; width:100%; height:100%; color:#fff; border-radius:28%; position:relative; overflow:hidden;

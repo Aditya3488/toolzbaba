@@ -894,13 +894,14 @@
     const group = (data.variants || []).filter(v => v.base === baseSlug && v.group !== 'size');  // format tabs
     const sizes = (data.variants || []).filter(v => v.group === 'size' && v.base === baseSlug);  // "compress to under X" pages
     const medias = [...new Set(sizes.map(v => v.media))];  // e.g. 'jpg', 'png', 'jpeg': each format has its own row of chips, shown only on its own pages
-    const homeOf = m => (m.group === 'size' ? (m.parent || baseSlug) : m.slug);  // the tab that stays lit on a size page
+    // the tab that stays lit: a size page lights its parent's tab; a page that shares a tab (JPEG with "JPG / JPEG", "tabOf") lights that one
+    const homeOf = m => { const h = m.group === 'size' ? (m.parent || baseSlug) : m.slug; return (group.find(v => v.slug === h) || {}).tabOf || h; };
     let slugNow = slug, current = null;  // current = what the tool screen returned, so added files survive a tab change
     const tabs = [], chips = [], navs = {};
     if (group.length) {
       // Format tabs (PNG / JPEG / JPG / GIF): real links, so search engines and "open in new tab" work, but a plain click
       // switches the tool in place without reloading the page; only the address, text and settings change.
-      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...group.map(v => ({ slug: v.slug, label: v.tab || v.name }))], lit = homeOf(meta);
+      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...group.filter(v => !v.tabOf).map(v => ({ slug: v.slug, label: v.tab || v.name }))], lit = homeOf(meta);
       work.append(el('nav', { class: 'vtabs', role: 'tablist', 'aria-label': 'Choose a version of this tool' }, items.map(t => {
         const a = el('a', { class: 'vtab' + (t.slug === lit ? ' on' : ''), href: pathOf(t.slug), role: 'tab', 'aria-selected': t.slug === lit ? 'true' : 'false', 'data-slug': t.slug, text: t.label });
         a.addEventListener('click', e => { if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); switchTo(t.slug, true); });
@@ -917,6 +918,8 @@
       })));
     }
     work.append(app);
+    if (client) work.append(el('ul', { class: 'ticks', 'aria-label': 'Why this tool' }, [['lock', 'Files never leave your device'], ['check', 'Free, no sign-up, no watermark'], ['bolt', 'Works on phone and computer']]
+      .map(([i, t]) => el('li', {}, HT.svg(ICON[i]).cloneNode(true), t))));
 
     async function mountTool(s, keepFiles) {
       const m = metaFor(s), files = keepFiles && current && current.list ? current.list.files.slice() : [];

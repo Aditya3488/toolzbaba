@@ -728,6 +728,7 @@
    "desc": "Reduce the size of JPEG photos with a quality slider and live before/after sizes. Compress many JPEGs at once. Runs in your browser.",
    "about": "JPEG compression is a trade-off between file size and quality. This tool lets you pick the quality yourself: around 70 to 80 percent is usually impossible to tell apart from the original and often makes a photo several times smaller. You can also set a maximum width to scale down very large photos, or convert to WebP or AVIF if you want the smallest possible file. Add up to 40 JPEG files at once and download them together as a ZIP. If a JPEG is already well compressed, the tool returns the original rather than a bigger file. Everything runs in your browser, so your photos are never uploaded.",
    "tab": "JPEG",
+   "tabOf": "compress-jpg",
    "ui": "target-jpg",
    "js": "compress-target",
    "media": "jpeg"
@@ -739,7 +740,7 @@
    "title": "Compress JPG Online Free: Make JPG Smaller | Toolz Baba",
    "desc": "Make JPG photos smaller for email, WhatsApp and forms. Choose the quality, limit the width, compress many JPG files at once.",
    "about": "Photos straight from a phone or camera are often 3 to 10 MB, which is too big for email, WhatsApp, job portals or online forms. Drop your JPG files here, choose a quality (75 percent is a good starting point) and optionally a maximum width, and get much smaller files that still look sharp on screen. JPG and JPEG are the same format with a different file extension, and both are handled here. If you need an exact size such as under 50 KB for a form, use the Resize Photo & Signature to KB tool, which finds the best quality for your limit. Your photos are processed on your own device and are not uploaded.",
-   "tab": "JPG",
+   "tab": "JPG / JPEG",
    "ui": "target-jpg",
    "js": "compress-target",
    "media": "jpg"
