@@ -1,0 +1,42 @@
+# Publishes toolzbaba.com (Cloudflare Pages project "toolzbaba", Direct Upload) on every push to master.
+# Actions tab > "Deploy to Cloudflare Pages" > "Run workflow" redeploys on demand.
+#
+# Repository secrets (Settings > Secrets and variables > Actions):
+#   CLOUDFLARE_API_TOKEN   custom token with Account > Cloudflare Pages > Edit
+#   CLOUDFLARE_ACCOUNT_ID  the Cloudflare account that owns the project
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Build the static site
+        run: python build.py
+
+      # "legandory" is the project's production branch, so this replaces what toolzbaba.com serves.
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy dist --project-name toolzbaba --branch legandory
+            --commit-hash ${{ github.sha }} --commit-dirty=true

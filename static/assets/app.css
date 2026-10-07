@@ -1,8 +1,8 @@
 /* ============================================================ design tokens */
 :root {
-  --bg:#f6f7fb; --bg2:#eef0f8; --card:#ffffff; --card2:#f9fafd; --text:#12152b; --muted:#5d647d; --faint:#8b91a8;
+  --bg:#f6f7fb; --bg2:#eef0f8; --card:#ffffff; --card2:#f9fafd; --text:#12152b; --muted:#5d647d; --faint:#686f88;
   --accent:#0a4ff5; --accent-h:#0838d6; --accent2:#f26a10; --accent-soft:#e8f0ff; --accent-ring:rgba(10,79,245,.26); --brand-orange:#ec5801;
-  --border:#e3e6f1; --border2:#d3d8e8; --err:#d92d20; --ok:#0f9b6c; --ok-soft:#e5f8f0;
+  --border:#e3e6f1; --border2:#d3d8e8; --err:#d92d20; --ok:#0b7a55; --ok-soft:#e5f8f0;
   --grad:linear-gradient(135deg,#2f7bff 0%,#0a4ff5 55%,#0836d0 100%); --grad-warm:linear-gradient(135deg,#ff9a2e 0%,#f26a10 50%,#e04d00 100%);
   --shadow-sm:0 1px 2px rgba(18,21,43,.05); --shadow:0 1px 2px rgba(18,21,43,.04),0 8px 24px rgba(18,21,43,.06);
   --shadow-lg:0 2px 4px rgba(18,21,43,.05),0 18px 44px rgba(18,21,43,.12);
@@ -285,10 +285,25 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .notfound { text-align:center; } .notfound img { width:min(360px,80%); height:auto; margin:10px auto 0; display:block; }
 
 @media (max-width:900px) {
-  .hero { text-align:center; padding-top:30px; } .hero-in { grid-template-columns:1fr; gap:14px; }
+  .hero { text-align:center; padding-top:30px; } .hero-in { grid-template-columns:minmax(0,1fr); gap:14px; }
   .hero-art { order:-1; max-width:300px; } .hero p.lead { margin:0 auto 24px; } .bigsearch { margin:0 auto; }
   .chips,.trust { justify-content:center; }
 }
+/* phones: a smaller Baba and a tighter hero, so the search and the popular tools fit on the first screen */
+@media (max-width:560px) {
+  .hero { padding:14px 0 12px; } .hero-in { gap:6px; }
+  .hero-art { max-width:150px; } .hero-art img { animation:none; }
+  .hero h1 { margin:10px 0 8px; } .hero p.lead { font-size:.98rem; margin:0 auto 14px; }
+  .hero .trust { display:none; }   /* the same three promises are in the "why" cards further down */
+  /* one row you swipe sideways, so it stays a single line however many tools it holds */
+  .hero .chips { margin:12px -20px 0; padding:0 20px 4px; gap:6px; flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
+  .hero .chips::-webkit-scrollbar { display:none; } .hero .chips > * { flex:none; } .hero .chips > span { align-self:center; }
+}
+
+/* three short promises under the upload box, until a file is added */
+.ticks { display:flex; flex-wrap:wrap; justify-content:center; gap:6px 22px; margin:12px 0 0; padding:0; list-style:none; color:var(--muted); font-size:.88rem; }
+.ticks li { display:inline-flex; align-items:center; gap:7px; } .ticks svg { width:17px; height:17px; flex:none; color:var(--ok); }
+.work.has-file .ticks { display:none; }
 
 /* ============================================================ tool icons in the logo's style */
 .ticon { display:grid; place-items:center; width:100%; height:100%; color:#fff; border-radius:28%; position:relative; overflow:hidden;
@@ -419,6 +434,9 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* ---------------- phones: the preview first, tabs as wrapping pills, tighter spacing */
 @media (max-width:900px) {
   .tbench.on.pf > :nth-child(2) { order:-1; }   /* the picture / result above the settings; the file you added is just below it */
+  /* ...but a tool you type into (QR code, colour palette, carousel text) starts with its input: a ready-made example result
+     above it (a QR code for example.com with a Download button) is easy to take for your own */
+  .tbench.on.pf:not(:has(.drop)) > :nth-child(2) { order:0; }
   .tview .pv img { max-height:52vh; }
 }
 @media (max-width:700px) {
@@ -624,3 +642,61 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .post-cta span { color:var(--muted); font-size:.92rem; flex:1; min-width:220px; }
 .blog-more { margin:44px 0 0; } .blog-more h2 { font-size:1.3rem; margin:0 0 14px; }
 @media (max-width:600px) { .blog { padding:20px 16px 30px; } .blog-hero h1 { font-size:1.7rem; } .post h1 { font-size:1.65rem; } .post-body { font-size:1rem; } }
+
+/* ============================================================ UI fixes (Oct 2026 audit) */
+/* header search: the results list is wider than the (narrow) search box, so tool names stay on one line */
+.hres { left:auto; right:0; width:max(100%, 380px); max-width:calc(100vw - 24px); }
+.hres a { white-space:nowrap; }
+.hres small { flex:none; max-width:45%; overflow:hidden; text-overflow:ellipsis; font-size:.8rem; }
+/* file list: a long file name shrinks with "…" instead of pushing the size and the remove button off the screen */
+.files { grid-template-columns:minmax(0,1fr); }
+.file { min-width:0; }
+/* the "which file" picker above a result never gets wider than its card */
+.pickrow { min-width:0; max-width:100%; } .pickrow select { max-width:100%; min-width:0; }
+/* phone menu: a search box on top, and a proper arrow instead of the browser's triangle */
+.nv-msearch { position:relative; margin:10px 0 6px; }
+.nv-msearch input { width:100%; padding:11px 14px 11px 40px; border:1px solid var(--border2); border-radius:12px; background:var(--bg); color:var(--text); font:inherit; font-size:1rem; }
+.nv-msearch > svg { position:absolute; left:13px; top:23px; transform:translateY(-50%); width:17px; height:17px; color:var(--faint); pointer-events:none; }
+.nv-msearch .hres { position:static; width:auto; max-width:100%; min-width:0; margin-top:8px; box-shadow:none; }
+.nv-msearch .hres a { white-space:normal; min-width:0; } .nv-msearch .hres small { max-width:40%; white-space:nowrap; }
+.nv-md summary { list-style:none; display:flex; align-items:center; justify-content:space-between; }
+.nv-md summary::-webkit-details-marker { display:none; }
+.nv-md summary::after { content:""; width:8px; height:8px; border-right:2px solid var(--faint); border-bottom:2px solid var(--faint); transform:rotate(45deg); margin:0 6px 4px 0; transition:transform .15s; }
+.nv-md[open] summary::after { transform:rotate(-135deg); margin-bottom:-2px; }
+/* the blog before its first post: point people to the tools instead of an empty page */
+.blog-empty { text-align:center; } .blog-empty .chips { justify-content:center; margin-top:14px; }
+/* wide screens: the header bar uses the full width (logo at the left edge, buttons at the right, like other tool sites),
+   and every content section shares one width so they line up (they were 1120, 1200 and 1360px) */
+@media (min-width:1141px) {
+  .top-in { max-width:1920px; padding-left:28px; padding-right:28px; }
+  .hero-in,.catbar-in,.wrap,.why,.seo,.foot-in,.page,.page.wide { max-width:1360px; }
+}
+.hres { scrollbar-width:thin; scrollbar-color:var(--border2) transparent; }
+.hres::-webkit-scrollbar { width:8px; } .hres::-webkit-scrollbar-thumb { background:var(--border2); border-radius:8px; } .hres::-webkit-scrollbar-button { display:none; height:0; }
+/* a tool page fills the screen height; without this the spare height was shared out as empty gaps between the tool and the cards below it */
+.shell { align-content:start; }
+/* the "All tools / Image / Crop Image" trail is hidden: the header menus do that job. Google still reads the
+   page's place in the site from the BreadcrumbList data in the page head, which is unchanged */
+.crumb { display:none; }
+
+/* ============================================================ "Never miss free tools" popup (after a download, and from the footer) */
+.bmmodal { position:fixed; inset:0; z-index:1300; display:grid; place-items:center; padding:16px; background:rgba(8,10,22,.55); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); animation:bmfade .2s ease; }
+.bmcard { position:relative; width:min(420px,100%); background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:22px; padding:30px 26px 24px; text-align:center; box-shadow:0 30px 80px rgba(8,10,22,.35); animation:bmpop .25s cubic-bezier(.2,.9,.3,1.2); }
+.bmcard h2 { margin:14px 0 6px; font-size:1.45rem; letter-spacing:-.02em; }
+.bmsub { margin:0 auto 18px; color:var(--muted); font-size:.98rem; line-height:1.5; max-width:34ch; }
+.bmicon { width:64px; height:64px; margin:0 auto; border-radius:20px; display:grid; place-items:center; background:linear-gradient(145deg,#ffd166,#f59e0b); box-shadow:0 12px 26px -8px rgba(245,158,11,.6); }
+.bmicon svg { width:32px; height:32px; color:#fff; fill:#fff; }
+.bmx { position:absolute; top:10px; right:12px; width:34px; height:34px; border:0; border-radius:10px; background:transparent; color:var(--faint); font-size:1.5rem; line-height:1; cursor:pointer; }
+.bmx:hover { background:var(--bg2); color:var(--text); }
+.bmhide { display:inline-flex; align-items:center; gap:9px; margin:0 0 18px; color:var(--muted); font-size:.9rem; cursor:pointer; user-select:none; }
+.bmhide[hidden] { display:none; }
+.bmhide input { width:18px; height:18px; margin:0; accent-color:var(--accent); cursor:pointer; }
+.bmcard .bmact { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.bmcard .bmact .btn { min-width:140px; justify-content:center; }
+.bmcard .bmact .btn svg { width:17px; height:17px; fill:currentColor; }
+.bmhow { margin:0 0 14px; color:var(--text); font-weight:600; }
+.bmcard .bmkeys { display:flex; align-items:center; justify-content:center; gap:10px; margin:0 0 20px; color:var(--muted); font-weight:700; }
+.bmcard .bmkeys kbd { min-width:58px; padding:12px 14px; border:1px solid var(--border2); border-bottom-width:3px; border-radius:12px; background:var(--bg2); color:var(--text); font:700 1.2rem ui-monospace,Consolas,monospace; }
+@keyframes bmfade { from { opacity:0; } } @keyframes bmpop { from { opacity:0; transform:translateY(14px) scale(.96); } }
+@media (prefers-reduced-motion:reduce) { .bmmodal,.bmcard { animation:none; } }
+@media (max-width:420px) { .bmcard { padding:26px 18px 20px; } .bmcard .bmact .btn { flex:1; min-width:0; } }

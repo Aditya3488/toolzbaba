@@ -330,8 +330,10 @@
   HT.serverTool = (root, cfg) => {
     const multiple = cfg.max > 1 || cfg.multiple;
     const list = HT.fileList({ reorder: cfg.reorder, onChange: sync });
-    const dz = HT.dropzone({ accept: cfg.accept, multiple, label: cfg.dropLabel, hint: cfg.hint, onFiles: fs => list.add(fs, multiple) });
-    const form = HT.form(cfg.fields || [], () => toggleExtra());
+    // a tab page can start the tool with some settings already chosen: "preset" in tools.json, e.g. /png-to-jpg -> { "format": "jpg" }
+    const pre = (HT.pageMeta && HT.pageMeta.preset) || {};
+    const dz = HT.dropzone({ accept: cfg.accept, multiple, label: (HT.pageMeta && HT.pageMeta.dropLabel) || cfg.dropLabel, hint: cfg.hint, onFiles: fs => list.add(fs, multiple) });
+    const form = HT.form((cfg.fields || []).map(f => f.name in pre ? { ...f, value: pre[f.name] } : f), () => toggleExtra());
     const prog = HT.progress(), resultBox = el('div');
     let extra = null; const extraList = cfg.extraFile ? HT.fileList({ onChange: () => { } }) : null;
     const extraEl = cfg.extraFile && el('div', { class: 'field', style: { marginTop: '14px' } }, el('label', { class: 'lbl', text: cfg.extraFile.label }),
@@ -612,30 +614,54 @@
     if (android) return { key: null, steps: 'Tap the ⋮ menu in your browser, then the star ☆ ("Add to bookmarks"). You can also pick "Install app" or "Add to Home screen".' };
     return { key: mac ? ['⌘', 'D'] : ['Ctrl', 'D'], steps: 'Press these keys on your keyboard while you are on this page:' };
   };
-  HT.bookmark = (anchor, { nudge = false } = {}) => {
-    document.querySelectorAll('.bmpanel').forEach(x => x.remove());
-    const k = keysFor(), close = () => { panel.remove(); document.removeEventListener('click', away, true); document.removeEventListener('keydown', esc); };
-    const away = e => { if (!panel.contains(e.target) && !(anchor && anchor.contains(e.target))) close(); }, esc = e => { if (e.key === 'Escape') close(); };
-    const panel = el('div', { class: 'bmpanel' + (nudge ? ' nudge' : ''), role: 'dialog', 'aria-label': 'Bookmark this site' },
-      el('div', { class: 'bmhead' }, HT.svg(ICON.star), el('b', { text: nudge ? 'Bookmark this website, so you do not have to search for it again' : 'Bookmark Toolz Baba' })),
-      el('p', { text: k.steps }),
-      k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), '+', el('kbd', { text: k.key[1] })) : null,
+  // A centred popup: "Never miss free tools". Opened after a download, and from the footer's "Bookmark this site".
+  // "Bookmark" offers "Install app" where the browser supports it, otherwise it shows the keys / taps for this device.
+  const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze';
+  const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return Infinity; } };
+  const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Date.now() + ms)); } catch { } };
+  HT.bookmark = ({ fromDownload = false } = {}) => {
+    if (document.querySelector('.bmmodal')) return;
+    const k = keysFor(), before = document.activeElement;
+    const hide = el('input', { type: 'checkbox' });
+    const close = () => { if (fromDownload && hide.checked) snooze(HOUR); wrap.remove(); document.removeEventListener('keydown', esc); if (before && before.focus) before.focus(); };
+    const esc = e => { if (e.key === 'Escape') close(); };
+    const keys = () => k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), el('span', { text: '+' }), el('kbd', { text: k.key[1] })) : null;
+    const body = el('div', { class: 'bmbody' });
+    const howTo = () => {   // the browser cannot be asked to add a bookmark, so say exactly how
+      body.textContent = '';
+      body.append(el('p', { class: 'bmhow', text: k.key ? 'Press these keys now to bookmark this page:' : k.steps }), keys(),
+        el('div', { class: 'bmact' }, el('button', { class: 'btn', type: 'button', text: 'Done', onclick: close })));
+      body.querySelector('button').focus();
+    };
+    const bookmark = async () => {
+      snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
+      if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') return close(); } catch { installEvt = null; } }
+      howTo();
+    };
+    body.append(
+      el('label', { class: 'bmhide', hidden: fromDownload ? null : 'hidden' }, hide, el('span', { text: "Don't show this again for 1 hour" })),
       el('div', { class: 'bmact' },
-        installEvt ? el('button', { class: 'btn sm', type: 'button', text: 'Install app', onclick: async () => { try { installEvt.prompt(); await installEvt.userChoice; } catch { } installEvt = null; close(); } }) : null,
-        el('button', { class: 'btn sec sm', type: 'button', text: 'Copy link', onclick: () => HT.copy(location.origin + '/', 'Link copied') }),
-        el('button', { class: 'btn ghost sm', type: 'button', text: nudge ? 'Not now' : 'Done', onclick: close })));
-    document.body.append(panel);
-    if (!nudge && anchor) { const r = anchor.getBoundingClientRect(); panel.style.top = Math.round(r.bottom + 8) + 'px'; panel.style.right = Math.max(8, Math.round(innerWidth - r.right)) + 'px'; }
-    setTimeout(() => { document.addEventListener('click', away, true); document.addEventListener('keydown', esc); }, 0);
-    return panel;
+        el('button', { class: 'btn', type: 'button', onclick: bookmark }, HT.svg(ICON.star), installEvt ? 'Install app' : 'Bookmark'),
+        el('button', { class: 'btn sec', type: 'button', text: 'Not now', onclick: close })));
+    const card = el('div', { class: 'bmcard', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'bm-title' },
+      el('button', { class: 'bmx', type: 'button', 'aria-label': 'Close', text: '×', onclick: close }),
+      el('div', { class: 'bmicon' }, HT.svg(ICON.star)),
+      el('h2', { id: 'bm-title', text: 'Never miss free tools' }),
+      el('p', { class: 'bmsub', text: 'Just bookmark this site. Every tool is free, with no sign-up, whenever you need it again.' }),
+      body);
+    const wrap = el('div', { class: 'bmmodal', onclick: e => { if (e.target === wrap) close(); } }, card);
+    document.body.append(wrap); document.addEventListener('keydown', esc);
+    card.querySelector('.bmact .btn').focus();
   };
-  // after the first finished download, one gentle reminder (never again once it was shown)
+  // after a finished download: the popup, unless it was snoozed, or already shown in the last 2 minutes (one popup for a batch of downloads)
+  let lastNudge = 0;
   const bookmarkNudge = () => {
-    let seen = false; try { seen = !!localStorage.getItem('tz_bm_nudge'); localStorage.setItem('tz_bm_nudge', String(Date.now())); } catch { seen = true; }
-    if (seen || document.querySelector('.bmpanel')) return;
-    setTimeout(() => HT.bookmark(null, { nudge: true }), 1400);
+    if (Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmmodal')) return;
+    lastNudge = Date.now();
+    setTimeout(() => HT.bookmark({ fromDownload: true }), 1200);
   };
-  const bookmarkButton = () => { const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, HT.svg(ICON.star), el('span', { text: 'Bookmark' })); b.onclick = () => HT.bookmark(b); return b; };
+  // download links a tool shows ("Download merged.pdf") count too, not only HT.download()
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#tool a[download]'); if (a) bookmarkNudge(); }, true);
 
   applyTheme(themeNow());
   const themeButton = () => {
@@ -657,7 +683,15 @@
     song: ['audio'], music: ['audio'], sound: ['audio'], voice: ['audio', 'speech'], mp3: ['audio'], speech: ['audio', 'voice'], ocr: ['text', 'scan'], scan: ['ocr', 'text'], shrink: ['compress'], reduce: ['compress'], smaller: ['compress', 'resize'], bigger: ['upscale', 'resize'],
     enlarge: ['upscale', 'resize'], hd: ['upscale'], password: ['protect', 'lock', 'unlock'], lock: ['protect', 'password'], unlock: ['password', 'remove'], sign: ['esign', 'signature'], signature: ['sign', 'esign'], join: ['merge'], combine: ['merge', 'collage'], cut: ['split', 'trim', 'crop'],
     trim: ['cut'], crop: ['cut'], rotate: ['flip'], flip: ['rotate'], qr: ['qrcode'], barcode: ['qr'], link: ['url', 'cdn'], upload: ['share', 'cdn'], share: ['link', 'upload'], font: ['fonts', 'typeface'], fonts: ['font'], edit: ['editor'], editor: ['edit'], web: ['website', 'html'], webpage: ['html', 'website'],
-    tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'] };
+    tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'],
+    bg: ['background'], remover: ['remove'], eraser: ['remove'], mp4: ['video'], mov: ['video'], avi: ['video'], mkv: ['video'], webm: ['video'], wav: ['audio'], m4a: ['audio'], aac: ['audio'],
+    powerpoint: ['ppt', 'office'], excel: ['xls', 'office'], kb: ['kb', 'size'], heic: ['iphone', 'image'], signatures: ['signature'] };
+  // a file type and the kind of tool that takes it, for "X to Y" searches: "pdf to jpg" must find PDF to Image and never JPG to PDF
+  const KIND = { jpg: 'image', jpeg: 'image', png: 'image', webp: 'image', heic: 'image', avif: 'image', gif: 'image', bmp: 'image', tiff: 'image', photo: 'image', picture: 'image', img: 'image',
+    doc: 'word', docx: 'word', mp4: 'video', mov: 'video', avi: 'video', mkv: 'video', webm: 'video', mp3: 'audio', wav: 'audio', md: 'markdown', xls: 'excel', xlsx: 'excel', ppt: 'powerpoint', pptx: 'powerpoint' };
+  const sideHas = (side, term) => side.includes(term) || (SYN[term] || []).some(a => side.includes(a)) || (KIND[term] && side.includes(KIND[term]));
+  // which way a tool converts, from the words around "to" in its address or name: { from: [...], to: [...] }, or null
+  const direction = it => { for (const w of [words(it.slug), words(it.name)]) { const i = w.indexOf('to'); if (i > 0 && i < w.length - 1) return { from: w.slice(0, i), to: w.slice(i + 1) }; } return null; };
   const CAT_WORDS = { image: 'image photo picture', ai: 'ai artificial intelligence enhance', pdf: 'pdf document documents', video: 'video audio movie sound', dev: 'text developer code', util: 'utility utilities' };
   HT.searchItems = data => [
     ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: '/' + t.slug, isTab: false, hay: '' })),
@@ -667,7 +701,12 @@
   const near = (a, b) => { if (Math.abs(a.length - b.length) > 1 || a.length < 4) return false; for (let k = 0; k < a.length - 1; k++) if (a[k] !== b[k]) { if (a.length === b.length && a[k] === b[k + 1] && a[k + 1] === b[k] && a.slice(k + 2) === b.slice(k + 2)) return true; break; } let i = 0, j = 0, miss = 0; while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; } else { if (++miss > 1) return false; if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; } } } return miss + (a.length - i) + (b.length - j) <= 1; };
   HT.searchTools = (data, query) => {
     const STOP = new Set(['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'free', 'online', 'tool', 'tools', 'converter', 'convert', 'make', 'maker', 'create', 'file', 'files', 'how', 'can', 'i', 'with']);
-    const toks = words(query).filter(w => !STOP.has(w)); if (!toks.length) return { hits: [], related: [] };
+    const raw = words(query).flatMap(w => /^\d+(kb|mb)$/.test(w) ? [w.replace(/^\d+/, '')] : /^\d+$/.test(w) ? [] : [w]);   // "20kb" -> "kb": Resize to KB
+    let toks = raw.filter(w => !STOP.has(w));
+    if (!toks.length) toks = raw.filter(w => !['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'i', 'with', 'how', 'can'].includes(w));   // "convert" alone still searches
+    if (!toks.length) return { hits: [], related: [] };
+    // "A to B": the word just before and just after "to" / "into" / "2"
+    const ti = raw.findIndex((w, i) => ['to', 'into', '2'].includes(w) && i > 0 && i < raw.length - 1), from = ti > 0 ? raw[ti - 1] : null, to = ti > 0 ? raw[ti + 1] : null;
     const items = HT.searchItems(data); const hits = [];
     for (const it of items) {
       const nameW = words(it.name + ' ' + (it.tab || '')), slugW = words(it.slug), text = words(it.desc + ' ' + (it.keywords || '') + ' ' + CAT_WORDS[it.cat]);
@@ -682,11 +721,17 @@
       }
       if (!all) continue;
       // phrases in the order typed ("docx to markdown") beat the same words in another order; the tool itself beats its tab page
-      const joined = toks.join('-'); if (it.slug.includes(joined)) score += 8; if (!it.isTab) score += 1;
-      hits.push({ it, score: score - (it.isTab ? 0 : -0) });
+      // (a one-word search has no phrase: "ocr" should not prefer /ocr-pdf over Image to Text just because of its address)
+      const joined = toks.join('-'); if ((toks.length > 1 && it.slug.includes(joined)) || (from && it.slug.includes(from + '-to-' + to))) score += 8; if (!it.isTab) score += 1;
+      // the right way round wins, the wrong way round ("jpg to pdf" for "pdf to jpg") drops below the other answers
+      const dir = from && direction(it);
+      if (dir) { if (sideHas(dir.from, from) && sideHas(dir.to, to)) score += 15; else if (sideHas(dir.from, to) && sideHas(dir.to, from)) score -= 15; }
+      hits.push({ it, score });
     }
     hits.sort((a, b) => b.score - a.score || (a.it.popular || 50) - (b.it.popular || 50));
-    const top = hits.slice(0, 8).map(h => h.it), seen = new Set(top.map(t => t.slug)); let related = [];
+    // keep the answers that match about as well as the best one; weak matches on one stray word ("sign" in "design") are left out
+    const best = hits.length ? hits[0].score : 0;
+    const top = hits.filter(h => h.score >= best * 0.45).slice(0, 8).map(h => h.it), seen = new Set(top.map(t => t.slug)); let related = [];
     if (top.length) {   // related: same family first, then the same kind of work, the busiest first
       const fam = new Set(top.slice(0, 3).map(t => t.base)), cats = new Set(top.slice(0, 3).map(t => t.cat));
       related = items.filter(t => !seen.has(t.slug) && !t.isTab && (fam.has(t.base) || cats.has(t.cat))).sort((a, b) => (fam.has(b.base) - fam.has(a.base)) || ((a.popular || 50) - (b.popular || 50))).slice(0, 4);
@@ -733,14 +778,14 @@
   const NAV_MENUS = [
     ['Image', 'image', [
       ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
-      ['Convert', ['convert-image', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
+      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
       ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
     ]],
     ['PDF', 'pdf', [
-      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'compress-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
-      ['Convert from PDF', ['pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'image-to-text']],
+      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
       ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf']],
       ['PDF security', ['protect-pdf', 'unlock-pdf']],
       ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
@@ -755,10 +800,10 @@
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
     ['Convert', 'convert', [
-      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
-      ['Convert from PDF', ['pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'image-to-text']],
+      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
       ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
-      ['Images', ['convert-image', 'image-to-svg', 'resize-image', 'compress-image']],
+      ['Images', ['png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'jpg-to-webp', 'convert-image', 'image-to-svg']],
       ['Video and audio', ['video-converter', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
     ]],
     ['All tools', 'all', null],
@@ -803,7 +848,9 @@
     const closeM = () => { mobile.hidden = true; burger.setAttribute('aria-expanded', 'false'); };
     burger.addEventListener('click', async () => {
       if (!mobile.hidden) return closeM();
-      if (!mFilled) { const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
+      // on a phone the header has no search box, so the menu starts with one (the same search as the header's)
+      if (!mFilled) { const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search 55+ tools...'; mobile.append(s);
+        const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
     });
     return { nav, burger, mobile };
@@ -815,7 +862,7 @@
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), themeButton(), navbar.burger), navbar.mobile);
     HT.config().then(c => setName(c.siteName));
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
@@ -830,7 +877,7 @@
       popular,
       col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
-    const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(bm); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
+    const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     document.body.append(f);
     HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
     HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))); });
@@ -894,13 +941,14 @@
     const group = (data.variants || []).filter(v => v.base === baseSlug && v.group !== 'size');  // format tabs
     const sizes = (data.variants || []).filter(v => v.group === 'size' && v.base === baseSlug);  // "compress to under X" pages
     const medias = [...new Set(sizes.map(v => v.media))];  // e.g. 'jpg', 'png', 'jpeg': each format has its own row of chips, shown only on its own pages
-    const homeOf = m => (m.group === 'size' ? (m.parent || baseSlug) : m.slug);  // the tab that stays lit on a size page
+    // the tab that stays lit: a size page lights its parent's tab; a page that shares a tab (JPEG with "JPG / JPEG", "tabOf") lights that one
+    const homeOf = m => { const h = m.group === 'size' ? (m.parent || baseSlug) : m.slug; return (group.find(v => v.slug === h) || {}).tabOf || h; };
     let slugNow = slug, current = null;  // current = what the tool screen returned, so added files survive a tab change
     const tabs = [], chips = [], navs = {};
     if (group.length) {
       // Format tabs (PNG / JPEG / JPG / GIF): real links, so search engines and "open in new tab" work, but a plain click
       // switches the tool in place without reloading the page; only the address, text and settings change.
-      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...group.map(v => ({ slug: v.slug, label: v.tab || v.name }))], lit = homeOf(meta);
+      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...group.filter(v => !v.tabOf).map(v => ({ slug: v.slug, label: v.tab || v.name }))], lit = homeOf(meta);
       work.append(el('nav', { class: 'vtabs', role: 'tablist', 'aria-label': 'Choose a version of this tool' }, items.map(t => {
         const a = el('a', { class: 'vtab' + (t.slug === lit ? ' on' : ''), href: pathOf(t.slug), role: 'tab', 'aria-selected': t.slug === lit ? 'true' : 'false', 'data-slug': t.slug, text: t.label });
         a.addEventListener('click', e => { if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); switchTo(t.slug, true); });
@@ -917,6 +965,8 @@
       })));
     }
     work.append(app);
+    if (client) work.append(el('ul', { class: 'ticks', 'aria-label': 'Why this tool' }, [['lock', 'Files never leave your device'], ['check', 'Free, no sign-up, no watermark'], ['bolt', 'Works on phone and computer']]
+      .map(([i, t]) => el('li', {}, HT.svg(ICON[i]).cloneNode(true), t))));
 
     async function mountTool(s, keepFiles) {
       const m = metaFor(s), files = keepFiles && current && current.list ? current.list.files.slice() : [];
@@ -925,6 +975,7 @@
       app.textContent = '';
       try {
         await HT.loadScript(`/assets/tools/${m.js}.js`);
+        HT.pageMeta = m;   // read by HT.serverTool for a tab page's preset settings
         current = (HT.tools[m.ui] || HT.tools[s] || HT.tools[baseSlug])(app, m) || null;
         if (files.length && current && current.list) {
           const ok = files.filter(f => HT.matches(f, current.accept));

@@ -18,6 +18,7 @@
       <input id="q" type="search" placeholder="Search tools: compress, pdf, gif..." autocomplete="off" aria-label="Search tools">
       <kbd>/</kbd>
     </div>
+    <div class="chips" id="popular" aria-label="Popular tools"></div>
     <div class="trust" id="trust"></div>
     </div>
     <div class="hero-art"><img src="/assets/brand/hero-art-540.webp" srcset="/assets/brand/hero-art-330.webp 330w, /assets/brand/hero-art-540.webp 540w, /assets/brand/hero-art.webp 780w" sizes="(max-width: 960px) 300px, 540px" alt="Toolz Baba, a friendly sage in sunglasses working on a laptop surrounded by tool icons" width="780" height="452" fetchpriority="high"></div>
@@ -47,6 +48,10 @@
   const data = await HT.loadTools();
   const tools = data.tools;
   const href = t => t.href || '/' + t.slug;
+
+  // popular tools, one click from the first screen (on a phone the tool grid starts below it)
+  const pop = document.getElementById('popular'); pop.append(el('span', { text: 'Popular:' }));
+  tools.filter(t => t.popular && !t.href).sort((a, b) => a.popular - b.popular).slice(0, 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
 
   // trust row
   const trust = document.getElementById('trust');
