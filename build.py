@@ -218,8 +218,9 @@ def build():
         ]
         if tool.get("faq"):
             ld.append(faq_ld(tool["faq"]))
-        write(f"{slug}.html", render("tool.html", title=f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
-                                    desc=f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
+        # "title" and "metaDesc" in tools.json are written for Google; "desc" is the short line under the tool's name on the page
+        write(f"{slug}.html", render("tool.html", title=tool.get("title") or f'{tool["name"]} – Free Online Tool | {SITE_NAME}',
+                                    desc=tool.get("metaDesc") or f'{tool["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld, noindex=bool(tool.get("archived")),
                                     extra={"SEO": seo_block(tool, tools, data.get("variants", [])), "TOOL_NAME": tool["name"]}))
 
     # format pages (e.g. /compress-png): the same tool as its base, on its own address at the site root
@@ -247,7 +248,7 @@ def build():
         if v.get("faq"):
             ld.append(faq_ld(v["faq"]))
         write(f"{slug}.html", render("tool.html", title=v.get("title") or f'{v["name"]} – Free Online Tool | {SITE_NAME}',
-                                    desc=f'{v["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld,
+                                    desc=v.get("metaDesc") or f'{v["desc"]} Free, no sign-up.', path=f"/{slug}", jsonld=ld,
                                     extra={"SEO": seo_block(merged, tools, data["variants"]), "TOOL_NAME": v["name"]}))
 
     for key, (file, title, desc) in LEGAL.items():

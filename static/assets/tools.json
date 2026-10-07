@@ -60,7 +60,9 @@
      "q": "Are my images uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "Compress Image Online Free: Reduce Photo Size in KB | Toolz Baba",
+   "metaDesc": "Compress JPG, PNG, WebP and HEIC photos without visible quality loss. Up to 40 at once, or to an exact size like 50 KB. Free, private, no sign-up."
   },
   {
    "slug": "resize-image",
@@ -89,7 +91,9 @@
      "q": "How do I resize to a file size in KB?",
      "a": "Use Resize Photo & Signature to KB, which also sets the exact pixel or cm size forms ask for."
     }
-   ]
+   ],
+   "title": "Resize Image Online Free: Change Photo Size in Pixels | Toolz Baba",
+   "metaDesc": "Resize images by pixels, percentage or to fit a box, one or many at once, and save as JPG, PNG or WebP. Sharp results, runs in your browser."
   },
   {
    "slug": "crop-image",
@@ -114,7 +118,9 @@
      "q": "Does cropping reduce the quality?",
      "a": "No. The crop is done at full resolution; only the parts outside the box are removed."
     }
-   ]
+   ],
+   "title": "Crop Image Online Free: 1:1, 16:9, 4:5 and Custom | Toolz Baba",
+   "metaDesc": "Crop photos by dragging a box or typing exact pixels, with 1:1, 4:3, 16:9, 9:16 and 4:5 shapes. Full resolution, free, nothing uploaded."
   },
   {
    "slug": "convert-image",
@@ -126,7 +132,32 @@
    "engine": "image",
    "js": "server-image",
    "about": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO. iPhone HEIC photos are supported as input. Choose the quality, and pick a background colour for formats that cannot be transparent. Convert up to 40 files at once.",
-   "tabAll": "All formats"
+   "tabAll": "All formats",
+   "title": "Image Converter Online Free: JPG, PNG, WebP, HEIC | Toolz Baba",
+   "metaDesc": "Convert images between JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO, including iPhone HEIC photos. Up to 40 at once, free and private.",
+   "steps": [
+    "Add your images: JPG, PNG, WebP, HEIC and more, up to 40 at once.",
+    "Choose the format under Convert to, and the quality.",
+    "Click Convert and download the new files."
+   ],
+   "faq": [
+    {
+     "q": "Which formats can I convert to?",
+     "a": "JPG, PNG, WebP, AVIF, GIF, BMP, TIFF and ICO."
+    },
+    {
+     "q": "Can I convert iPhone HEIC photos?",
+     "a": "Yes. HEIC photos can be added and converted to JPG or any other format here."
+    },
+    {
+     "q": "What happens to transparency when I convert to JPG?",
+     "a": "JPG and BMP cannot be transparent, so transparent areas are filled with the background colour you pick."
+    },
+    {
+     "q": "Are my images uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "rotate-flip",
@@ -136,7 +167,28 @@
    "desc": "Rotate by 90° or any angle, and flip horizontally or vertically.",
    "kind": "client",
    "js": "image-basic",
-   "about": "Rotate an image by 90, 180 or 270 degrees, straighten it by a few degrees to level a horizon, and flip it horizontally or vertically. The preview updates live and the work is done in your browser."
+   "about": "Rotate an image by 90, 180 or 270 degrees, straighten it by a few degrees to level a horizon, and flip it horizontally or vertically. The preview updates live and the work is done in your browser.",
+   "title": "Rotate Image Online Free: Flip and Straighten Photos | Toolz Baba",
+   "metaDesc": "Rotate photos by 90, 180 or 270 degrees, straighten a tilted horizon by a few degrees, or flip them. Live preview, free, runs in your browser.",
+   "steps": [
+    "Add your image.",
+    "Rotate it by 90, 180 or 270 degrees, straighten it by a few degrees, or flip it.",
+    "Download the result."
+   ],
+   "faq": [
+    {
+     "q": "How do I straighten a tilted photo?",
+     "a": "Use the fine angle setting to turn it by a few degrees until the horizon is level; the preview updates live."
+    },
+    {
+     "q": "Can I flip a selfie that looks mirrored?",
+     "a": "Yes. Flip it horizontally to swap left and right."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "social-media-image-resizer",
@@ -149,6 +201,27 @@
    "about": "Turn one image into the right size for Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok and WhatsApp posts, stories, covers and profile pictures. Choose to crop to fill or to fit the whole image with a blurred background, then download all sizes in one ZIP.",
    "aliases": [
     "social-resizer"
+   ],
+   "title": "Social Media Image Resizer: Instagram, YouTube, WhatsApp | Toolz Baba",
+   "metaDesc": "Resize one image for Instagram, Facebook, X, LinkedIn, YouTube, Pinterest, TikTok and WhatsApp posts, stories and covers. All sizes in one ZIP.",
+   "steps": [
+    "Add one image.",
+    "Pick the platforms and sizes you need, and choose crop to fill or fit with a blurred background.",
+    "Download every size together in one ZIP."
+   ],
+   "faq": [
+    {
+     "q": "Which platforms are included?",
+     "a": "Instagram, Facebook, X (Twitter), LinkedIn, YouTube, Pinterest, TikTok and WhatsApp: posts, stories, covers and profile pictures."
+    },
+    {
+     "q": "What if my picture has the wrong shape?",
+     "a": "Choose crop to fill the size, or fit to keep the whole picture with a blurred copy of it behind."
+    },
+    {
+     "q": "Are my images uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
    ]
   },
   {
@@ -159,7 +232,28 @@
    "desc": "Make a thumbnail from an image or any frame of a video, with optional title text.",
    "kind": "client",
    "js": "image-social",
-   "about": "Create a thumbnail from an image or from any frame of a video. Pick a size such as 1280x720, add a headline with an outline, boost colours, and keep the file under a size limit such as YouTube's 2 MB. It runs in your browser, so your video never leaves your device."
+   "about": "Create a thumbnail from an image or from any frame of a video. Pick a size such as 1280x720, add a headline with an outline, boost colours, and keep the file under a size limit such as YouTube's 2 MB. It runs in your browser, so your video never leaves your device.",
+   "title": "YouTube Thumbnail Maker Online Free (1280x720) | Toolz Baba",
+   "metaDesc": "Make a 1280x720 thumbnail from an image or any video frame, add a bold headline, boost colours and stay under YouTube's 2 MB limit. Free.",
+   "steps": [
+    "Add an image, or a video and pick the frame you want.",
+    "Choose the size, such as 1280x720, and add a headline.",
+    "Download the thumbnail, kept under a size limit such as YouTube's 2 MB."
+   ],
+   "faq": [
+    {
+     "q": "What size is a YouTube thumbnail?",
+     "a": "1280x720 pixels (16:9), and the file must be under 2 MB. Both are set for you here."
+    },
+    {
+     "q": "Can I take a frame from my video?",
+     "a": "Yes. Add the video and choose the moment you want as the thumbnail."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It runs in your browser, so your video never leaves your device."
+    }
+   ]
   },
   {
    "slug": "exif-remover",
@@ -170,7 +264,28 @@
    "kind": "client",
    "engine": "image",
    "js": "server-image",
-   "about": "Photos often carry hidden details such as GPS location, camera model and the time they were taken. This tool removes that metadata. JPEG files are cleaned without re-encoding, so picture quality is not affected, and you see what was found in each file."
+   "about": "Photos often carry hidden details such as GPS location, camera model and the time they were taken. This tool removes that metadata. JPEG files are cleaned without re-encoding, so picture quality is not affected, and you see what was found in each file.",
+   "title": "Remove EXIF Data and GPS Location from Photos Free | Toolz Baba",
+   "metaDesc": "Strip GPS location, camera model and date from photos before you share them. JPEGs keep full quality. See what was hidden. Free, nothing uploaded.",
+   "steps": [
+    "Add your photos.",
+    "See the hidden details found in each one, such as GPS location and camera.",
+    "Remove the metadata and download clean copies."
+   ],
+   "faq": [
+    {
+     "q": "What is EXIF data?",
+     "a": "Hidden details stored in a photo: often the exact GPS location, the camera or phone model, and the date and time it was taken."
+    },
+    {
+     "q": "Does removing EXIF reduce photo quality?",
+     "a": "No. JPEG files are cleaned without re-encoding, so the picture itself is untouched."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "add-watermark-to-image",
@@ -184,7 +299,28 @@
    "aliases": [
     "watermark"
    ],
-   "tabAll": "Image"
+   "tabAll": "Image",
+   "title": "Add Watermark to Photos Online Free: Text or Logo | Toolz Baba",
+   "metaDesc": "Add a text or logo watermark to many photos at once. Set the position, size, opacity and angle, or tile it. Free, no sign-up, runs in your browser.",
+   "steps": [
+    "Add one or many images.",
+    "Type your text or add your logo, then set the position or tile it, the opacity, size and rotation.",
+    "Download the watermarked images."
+   ],
+   "faq": [
+    {
+     "q": "Can I add my logo as a watermark?",
+     "a": "Yes. Use a logo picture (a PNG with a transparent background looks best) instead of text."
+    },
+    {
+     "q": "Can I watermark many photos at once?",
+     "a": "Yes. Add them all and the same watermark is applied to each."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "pixelate-image",
@@ -198,7 +334,28 @@
    "aliases": [
     "pixelate"
    ],
-   "tabAll": "Image"
+   "tabAll": "Image",
+   "title": "Pixelate Image Online Free: Hide Faces, Text, Plates | Toolz Baba",
+   "metaDesc": "Pixelate a whole photo or just the part you select to hide faces, licence plates, text or documents. Free and private: it runs in your browser.",
+   "steps": [
+    "Add your image.",
+    "Pixelate the whole picture, only an area you select, or everything except an area.",
+    "Download the result."
+   ],
+   "faq": [
+    {
+     "q": "How do I hide a licence plate or text in a photo?",
+     "a": "Select that area and pixelate only it; the rest of the photo stays sharp."
+    },
+    {
+     "q": "Can pixelation be undone?",
+     "a": "No. The hidden detail is replaced in the saved file, so keep your original if you may need it."
+    },
+    {
+     "q": "Is my photo uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "meme-generator",
@@ -208,7 +365,24 @@
    "desc": "Top and bottom text in classic meme style, or a caption bar.",
    "kind": "client",
    "js": "image-design",
-   "about": "Make a meme from any picture with classic top and bottom text, or put a caption bar above the image. Adjust the size and colours and download as JPG, PNG or WebP. It runs in your browser."
+   "about": "Make a meme from any picture with classic top and bottom text, or put a caption bar above the image. Adjust the size and colours and download as JPG, PNG or WebP. It runs in your browser.",
+   "title": "Meme Generator Online Free: Top and Bottom Text | Toolz Baba",
+   "metaDesc": "Make a meme from any picture with classic top and bottom text or a caption bar. Change size and colours, download as JPG, PNG or WebP. Free.",
+   "steps": [
+    "Add a picture.",
+    "Type the top and bottom text, or use a caption bar above the picture.",
+    "Adjust size and colours and download as JPG, PNG or WebP."
+   ],
+   "faq": [
+    {
+     "q": "How do I make a meme with top and bottom text?",
+     "a": "Add the picture, type your lines in the top and bottom text boxes and download."
+    },
+    {
+     "q": "Is there a watermark?",
+     "a": "No. Your meme is downloaded without any watermark."
+    }
+   ]
   },
   {
    "slug": "photo-collage-maker",
@@ -222,7 +396,28 @@
    "aliases": [
     "collage-maker"
    ],
-   "tabAll": "Photo collage"
+   "tabAll": "Photo collage",
+   "title": "Photo Collage Maker Online Free: 2 to 9 Photos | Toolz Baba",
+   "metaDesc": "Combine 2 to 9 photos into a grid, row, column or featured collage. Set spacing, borders, rounded corners and background. Free, no watermark.",
+   "steps": [
+    "Add 2 to 9 photos.",
+    "Pick a grid, row, column or featured layout.",
+    "Set spacing, border, corners and background, then download."
+   ],
+   "faq": [
+    {
+     "q": "How many photos can a collage have?",
+     "a": "From two to nine."
+    },
+    {
+     "q": "Can I change the size of the collage?",
+     "a": "Yes. Set the canvas size, and the spacing, border, rounded corners and background colour."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "screenshot-beautifier",
@@ -232,7 +427,24 @@
    "desc": "Put a screenshot on a gradient with a window frame, shadow and rounded corners.",
    "kind": "client",
    "js": "image-design",
-   "about": "Make a plain screenshot look polished. Place it on a gradient or solid background with a macOS or browser window frame, rounded corners, shadow and padding, in shapes such as 16:9 or square. It runs in your browser."
+   "about": "Make a plain screenshot look polished. Place it on a gradient or solid background with a macOS or browser window frame, rounded corners, shadow and padding, in shapes such as 16:9 or square. It runs in your browser.",
+   "title": "Screenshot Beautifier: Gradient Background and Frame | Toolz Baba",
+   "metaDesc": "Put a screenshot on a gradient or solid background with a macOS or browser frame, rounded corners and shadow, in 16:9 or square. Free.",
+   "steps": [
+    "Add a screenshot.",
+    "Choose the background, window frame, corners, shadow and shape such as 16:9.",
+    "Download the polished image."
+   ],
+   "faq": [
+    {
+     "q": "What does the screenshot beautifier do?",
+     "a": "It places your screenshot on a gradient or solid background with a macOS or browser window frame, rounded corners, a shadow and padding."
+    },
+    {
+     "q": "Is my screenshot uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "favicon-generator",
@@ -242,7 +454,24 @@
    "desc": "Create favicon.ico, Apple touch icon, Android icons and manifest from one image.",
    "kind": "client",
    "js": "utils",
-   "about": "Create a full favicon package from one image: favicon.ico, 16x16 and 32x32 PNGs, an Apple touch icon, Android icons, a web manifest and the HTML snippet to paste into your site. It runs in your browser."
+   "about": "Create a full favicon package from one image: favicon.ico, 16x16 and 32x32 PNGs, an Apple touch icon, Android icons, a web manifest and the HTML snippet to paste into your site. It runs in your browser.",
+   "title": "Favicon Generator: ICO, Apple Touch and Android Icons | Toolz Baba",
+   "metaDesc": "Create favicon.ico, 16 and 32 px PNGs, an Apple touch icon, Android icons, a web manifest and the HTML snippet from one image. Free.",
+   "steps": [
+    "Add one square image, such as your logo.",
+    "Create the favicon package.",
+    "Download it and paste the HTML snippet into your site's head."
+   ],
+   "faq": [
+    {
+     "q": "Which files does it create?",
+     "a": "favicon.ico, 16x16 and 32x32 PNGs, an Apple touch icon, Android icons and a web manifest, plus the HTML to add them to your site."
+    },
+    {
+     "q": "What image works best?",
+     "a": "A simple, square logo or symbol. Fine detail is lost at 16x16 pixels."
+    }
+   ]
   },
   {
    "slug": "image-to-svg",
@@ -253,7 +482,24 @@
    "kind": "client",
    "engine": "image",
    "js": "server-image",
-   "about": "Trace logos, icons and simple drawings into scalable SVG vector graphics. Choose a preset for logos, photos or black and white line art. Vector files stay sharp at any size."
+   "about": "Trace logos, icons and simple drawings into scalable SVG vector graphics. Choose a preset for logos, photos or black and white line art. Vector files stay sharp at any size.",
+   "title": "Image to SVG Converter Online Free: Vectorize Logos | Toolz Baba",
+   "metaDesc": "Trace PNG and JPG logos, icons and line drawings into scalable SVG vectors that stay sharp at any size. Presets for logos, photos and line art.",
+   "steps": [
+    "Add a logo, icon or drawing.",
+    "Choose the preset: logo, photo or black and white line art.",
+    "Convert and download the SVG."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a logo to SVG?",
+     "a": "SVG is a vector format: it stays sharp at any size, from a website icon to a large print."
+    },
+    {
+     "q": "Does it work on photos?",
+     "a": "It can, with the photo preset, but the SVG gets large. Logos, icons and flat drawings give the best results."
+    }
+   ]
   },
   {
    "slug": "resize-image-to-kb",
@@ -287,7 +533,9 @@
      "q": "Is my photo uploaded?",
      "a": "No. Everything runs in your browser, so your photo is never uploaded."
     }
-   ]
+   ],
+   "title": "Resize Photo and Signature to 20 KB, 50 KB, 100 KB | Toolz Baba",
+   "metaDesc": "Make a photo or signature the exact size an exam or job form wants, in pixels or cm, and under 20, 50 or 100 KB. Sets 200 or 300 DPI. Free."
   },
   {
    "slug": "passport-size-photo-maker",
@@ -322,7 +570,9 @@
      "q": "Can I print several copies on one sheet?",
      "a": "Yes. Lay them out on a 4x6 inch, 5x7 inch or A4 sheet with cutting guides."
     }
-   ]
+   ],
+   "title": "Passport Size Photo Maker Online Free: 35x45 mm | Toolz Baba",
+   "metaDesc": "Turn a selfie into a passport or visa photo: AI removes the background, crops to 35x45 mm or 2x2 inch, and makes a print sheet. Free."
   },
   {
    "slug": "image-to-text",
@@ -334,7 +584,32 @@
    "desc": "Extract text from a photo, screenshot or scanned PDF. Works with English and Hindi. Runs in your browser.",
    "about": "Read the text in a photo, a screenshot or a scanned PDF and copy it or save it as a .txt file. It supports English and Hindi (or both at once). The OCR engine runs entirely inside your browser, so your documents stay on your device. For best results use a sharp, straight, well-lit image.",
    "popular": 3,
-   "tabAll": "Image to text"
+   "tabAll": "Image to text",
+   "title": "Image to Text Converter (OCR) Free: English and Hindi | Toolz Baba",
+   "metaDesc": "Copy the text from a photo, screenshot or scanned PDF in English or Hindi. Save it as a .txt file. Free, and your images never leave your device.",
+   "steps": [
+    "Add a photo, screenshot or scanned PDF.",
+    "Choose English, Hindi or both.",
+    "Copy the text or save it as a .txt file."
+   ],
+   "faq": [
+    {
+     "q": "How do I copy text from an image?",
+     "a": "Add the image, choose the language and start. When the text appears, copy it or save it as a .txt file."
+    },
+    {
+     "q": "Does it read Hindi?",
+     "a": "Yes. Choose Hindi, or English and Hindi together."
+    },
+    {
+     "q": "How do I get the best result?",
+     "a": "Use a sharp, straight, well-lit image. Blurry or tilted photos and handwriting give more mistakes."
+    },
+    {
+     "q": "Are my images uploaded?",
+     "a": "No. The OCR runs entirely in your browser, so your documents stay on your device."
+    }
+   ]
   },
   {
    "slug": "remove-background",
@@ -369,7 +644,9 @@
      "q": "Can I put a new background behind the subject?",
      "a": "Yes, use Replace Background to put a colour or another picture behind the cut-out."
     }
-   ]
+   ],
+   "title": "Remove Background from Image Free: Transparent PNG | Toolz Baba",
+   "metaDesc": "Remove the background from photos with AI and download a transparent PNG or WebP. Works on people, products, pets and drawings. No watermark."
   },
   {
    "slug": "replace-background",
@@ -380,7 +657,28 @@
    "kind": "client",
    "engine": "ai",
    "js": "server-ai",
-   "about": "Replace the background of a photo with a solid colour, a gradient, a blurred copy of the original, another photo, or nothing at all. The subject is cut out automatically with AI."
+   "about": "Replace the background of a photo with a solid colour, a gradient, a blurred copy of the original, another photo, or nothing at all. The subject is cut out automatically with AI.",
+   "title": "Change Photo Background Online Free: Colour or Photo | Toolz Baba",
+   "metaDesc": "Replace a photo's background with a colour, gradient, blur or another picture. The AI cuts out the subject for you. Free, no watermark.",
+   "steps": [
+    "Add a photo.",
+    "Choose the new background: a colour, gradient, blurred copy, another photo or none.",
+    "Download the result."
+   ],
+   "faq": [
+    {
+     "q": "How do I change the background of a photo?",
+     "a": "Add the photo; the AI cuts out the subject. Then pick a colour, gradient, blur or another picture as the new background."
+    },
+    {
+     "q": "Can I get a white background for a product photo?",
+     "a": "Yes. Choose a solid colour and set it to white."
+    },
+    {
+     "q": "Is my photo uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "upscale-image",
@@ -407,7 +705,9 @@
      "q": "Which images work best?",
      "a": "Pictures up to about 2.5 megapixels. Use the fast mode for very large images."
     }
-   ]
+   ],
+   "title": "AI Image Upscaler Free: Enlarge 2x, 3x, 4x in HD | Toolz Baba",
+   "metaDesc": "Enlarge small or blurry pictures 2x, 3x or 4x with an AI upscaler that keeps details sharp. Free, no sign-up, works in your browser."
   },
   {
    "slug": "face-blur",
@@ -421,6 +721,27 @@
    "about": "Detect faces automatically and blur, pixelate or cover them with a black shape. Adjust the strength, the area around each face and the detection sensitivity. Useful before sharing photos of other people.",
    "aliases": [
     "blur-face"
+   ],
+   "title": "Blur Faces in Photos Online Free: Automatic | Toolz Baba",
+   "metaDesc": "Find every face in a photo automatically and blur, pixelate or cover it before you share. Adjust strength and area. Free and private.",
+   "steps": [
+    "Add a photo.",
+    "Choose blur, pixelate or a black cover, and adjust the strength and area.",
+    "Download the photo with the faces hidden."
+   ],
+   "faq": [
+    {
+     "q": "Does it find faces automatically?",
+     "a": "Yes. Faces are detected for you; adjust the detection sensitivity if one is missed."
+    },
+    {
+     "q": "Blur or pixelate: which is safer?",
+     "a": "Both hide faces well at a high strength. A black cover hides them completely."
+    },
+    {
+     "q": "Is my photo uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
    ]
   },
   {
@@ -432,7 +753,28 @@
    "kind": "client",
    "engine": "ai",
    "js": "server-ai",
-   "about": "Turn a photo into anime-style artwork using an AI style-transfer model. Choose the soft, painterly Hayao look or the vivid, cinematic Shinkai look."
+   "about": "Turn a photo into anime-style artwork using an AI style-transfer model. Choose the soft, painterly Hayao look or the vivid, cinematic Shinkai look.",
+   "title": "Photo to Anime Converter Free: AI Anime Filter | Toolz Baba",
+   "metaDesc": "Turn a photo into anime-style art with AI: the soft Hayao look or the vivid Shinkai look. Free, no sign-up, and your photo stays on your device.",
+   "steps": [
+    "Add a photo.",
+    "Choose the Hayao (soft, painterly) or Shinkai (vivid, cinematic) look.",
+    "Download your anime-style picture."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a photo into anime?",
+     "a": "Add the photo, pick a style and let the AI repaint it in that anime look."
+    },
+    {
+     "q": "What is the difference between the two styles?",
+     "a": "Hayao is soft and painterly; Shinkai is vivid and cinematic, with bright skies and strong light."
+    },
+    {
+     "q": "Is my photo uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "image-to-pdf",
@@ -465,7 +807,9 @@
      "q": "Are my images uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "Image to PDF Converter Free: JPG, PNG, HEIC to PDF | Toolz Baba",
+   "metaDesc": "Combine JPG, PNG, HEIC and WebP pictures into one PDF. Choose A4 or Letter, orientation and margins, and set the order. Free, nothing uploaded."
   },
   {
    "slug": "pdf-to-image",
@@ -477,7 +821,28 @@
    "engine": "pdf",
    "js": "server-pdf",
    "about": "Convert PDF pages to PNG, JPG or WebP images. Pick the resolution from 72 to 300 DPI and choose all pages or a range such as 1-3,5. Multiple pages are delivered as a ZIP.",
-   "tabAll": "All formats"
+   "tabAll": "All formats",
+   "title": "PDF to Image Converter Free: PDF to JPG, PNG, WebP | Toolz Baba",
+   "metaDesc": "Turn PDF pages into JPG, PNG or WebP images at 72 to 300 DPI. Convert all pages or just a few; several pages come in one ZIP. Free and private.",
+   "steps": [
+    "Add a PDF.",
+    "Choose PNG, JPG or WebP, the quality (DPI) and the pages.",
+    "Click Convert to images and download (several pages come in one ZIP)."
+   ],
+   "faq": [
+    {
+     "q": "Which DPI should I use?",
+     "a": "150 DPI is sharp on screens, 300 DPI for printing, 72 DPI for the smallest files."
+    },
+    {
+     "q": "Can I convert only some pages?",
+     "a": "Yes. Type pages and ranges such as 1-3,5."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "merge-pdf",
@@ -515,7 +880,9 @@
      "q": "Are my PDFs uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "Merge PDF Online Free: Combine PDF Files into One | Toolz Baba",
+   "metaDesc": "Combine up to 50 PDF files into one document in the order you choose. Free, no sign-up and no watermark. Your PDFs never leave your device."
   },
   {
    "slug": "split-pdf",
@@ -549,7 +916,9 @@
      "q": "Is my PDF uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "Split PDF Online Free: Separate or Extract Pages | Toolz Baba",
+   "metaDesc": "Split a PDF into single pages, every N pages or custom ranges, or extract chosen pages into a new PDF. Free, no sign-up, runs in your browser."
   },
   {
    "slug": "compress-pdf",
@@ -583,7 +952,9 @@
      "q": "Is my PDF uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "Compress PDF Online Free: Reduce PDF Size to KB | Toolz Baba",
+   "metaDesc": "Reduce PDF file size for email and upload forms, or to under 100, 200 or 500 KB. Light, balanced or strong compression. Free and private."
   },
   {
    "slug": "word-to-pdf",
@@ -599,7 +970,32 @@
     "docx-to-pdf"
    ],
    "tabAll": "Word & Office",
-   "keywords": "docx word excel xlsx xls csv ods spreadsheet text convert pdf"
+   "keywords": "docx word excel xlsx xls csv ods spreadsheet text convert pdf",
+   "title": "Word to PDF Converter Online Free: DOCX to PDF | Toolz Baba",
+   "metaDesc": "Convert Word (DOCX), Excel (XLSX, XLS, CSV) and text files to PDF in your browser. Hindi supported. Free, no sign-up, nothing uploaded.",
+   "steps": [
+    "Add a Word (DOCX), Excel (XLSX, XLS, CSV, ODS) or text file.",
+    "Click Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Word to PDF for free?",
+     "a": "Add the DOCX file, click Convert to PDF and download it. No sign-up is needed."
+    },
+    {
+     "q": "Can I convert an old .doc or a PowerPoint file?",
+     "a": "Not here. Open it in Word, Google Docs or LibreOffice and save it as DOCX, or export it as PDF there."
+    },
+    {
+     "q": "Does it support Hindi?",
+     "a": "Yes. Hindi and other Indian scripts are shown correctly in the PDF."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "pdf-to-word",
@@ -633,7 +1029,9 @@
      "q": "Is my PDF uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "PDF to Word Converter Online Free: Editable DOCX | Toolz Baba",
+   "metaDesc": "Convert a PDF into an editable Word document that keeps fonts, sizes, bold and pictures. Free, no sign-up, and your PDF stays on your device."
   },
   {
    "slug": "markdown-converter",
@@ -649,7 +1047,24 @@
    "pickMode": true,
    "tabAll": "All converters",
    "keywords": "md readme github docs notes text document convert",
-   "about": "One place for every Markdown conversion: turn Markdown into a PDF, a web page or a Word file, or turn an HTML page, a Word document or a PDF back into clean Markdown. Type or paste your text and watch the preview, or add a file. Your file stays on your device: it is converted in your browser and never uploaded."
+   "about": "One place for every Markdown conversion: turn Markdown into a PDF, a web page or a Word file, or turn an HTML page, a Word document or a PDF back into clean Markdown. Type or paste your text and watch the preview, or add a file. Your file stays on your device: it is converted in your browser and never uploaded.",
+   "title": "Markdown Converter: MD to PDF, Word, HTML and Back | Toolz Baba",
+   "metaDesc": "Convert Markdown to PDF, HTML or Word, and HTML, Word or PDF back to Markdown, with a live preview. Free and private: runs in your browser.",
+   "steps": [
+    "Type or paste your text, or add a file.",
+    "Choose the conversion, for example Markdown to PDF or Word to Markdown.",
+    "Check the preview and download."
+   ],
+   "faq": [
+    {
+     "q": "Which conversions are available?",
+     "a": "Markdown to PDF, HTML or Word, and HTML, Word or PDF back to Markdown."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted in your browser and never uploaded."
+    }
+   ]
   },
   {
    "slug": "organize-pdf",
@@ -661,7 +1076,28 @@
    "js": "pdf-visual",
    "desc": "Reorder, delete and rotate PDF pages visually: drag thumbnails, then save a new PDF.",
    "about": "See every page of your PDF as a thumbnail. Drag pages to reorder them, click to rotate or delete them, then save a new PDF. Everything happens in your browser, so the PDF is never uploaded.",
-   "tabAll": "Organize"
+   "tabAll": "Organize",
+   "title": "Organize PDF Pages Online Free: Reorder and Rotate | Toolz Baba",
+   "metaDesc": "Reorder, rotate and delete PDF pages by dragging thumbnails, then save a new PDF. Free, no sign-up, and the PDF is never uploaded.",
+   "steps": [
+    "Add a PDF to see every page as a thumbnail.",
+    "Drag pages to reorder them, and rotate or delete the ones you need.",
+    "Save and download the new PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I change the order of PDF pages?",
+     "a": "Add the PDF and drag the page thumbnails into the order you want, then save."
+    },
+    {
+     "q": "Can I rotate or delete pages too?",
+     "a": "Yes, each page has buttons to rotate or delete it."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. Everything happens in your browser, so the PDF is never uploaded."
+    }
+   ]
   },
   {
    "slug": "esign-pdf",
@@ -694,7 +1130,9 @@
      "q": "Can I sign several pages?",
      "a": "Yes, you can place your signature on several pages in one go."
     }
-   ]
+   ],
+   "title": "Sign PDF Online Free: Add Signature to PDF | Toolz Baba",
+   "metaDesc": "Sign a PDF by drawing, typing or uploading your signature, then place it on any page. Sign several pages at once. Free and private, no sign-up."
   },
   {
    "slug": "add-page-numbers-to-pdf",
@@ -708,6 +1146,27 @@
    "about": "Add page numbers to every page of a PDF. Choose the position (top or bottom, left, centre or right), the format (1, Page 1, Page 1 of 10), the first number, the size and colour, and skip a cover page if you need to. Rotated pages are handled correctly.",
    "aliases": [
     "pdf-page-numbers"
+   ],
+   "title": "Add Page Numbers to PDF Online Free | Toolz Baba",
+   "metaDesc": "Number PDF pages at the top or bottom in the format 1, Page 1 or Page 1 of 10. Pick the start number and skip a cover page. Free and private.",
+   "steps": [
+    "Add your PDF.",
+    "Choose the position, format (1, Page 1 or Page 1 of 10), first number, size and colour.",
+    "Add the numbers and download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "Can I skip the cover page?",
+     "a": "Yes. Choose the page to start numbering on, so a cover page stays without a number."
+    },
+    {
+     "q": "Which formats can the numbers have?",
+     "a": "1, Page 1, or Page 1 of 10, at the top or bottom, left, centre or right."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
    ]
   },
   {
@@ -719,7 +1178,28 @@
    "engine": "pdf",
    "js": "server-pdf",
    "desc": "Lock a PDF with a password using AES-256 encryption. Optionally block printing or copying.",
-   "about": "Add a password so that only people who know it can open your PDF. The file is encrypted with AES-256. You can also choose whether printing, copying text and editing are allowed. Keep the password safe: it cannot be recovered."
+   "about": "Add a password so that only people who know it can open your PDF. The file is encrypted with AES-256. You can also choose whether printing, copying text and editing are allowed. Keep the password safe: it cannot be recovered.",
+   "title": "Password Protect PDF Online Free: AES-256 | Toolz Baba",
+   "metaDesc": "Lock a PDF with a password using AES-256 encryption, and choose whether printing, copying and editing are allowed. Free, no sign-up.",
+   "steps": [
+    "Add your PDF.",
+    "Type a password and choose whether printing, copying and editing are allowed.",
+    "Download the locked PDF."
+   ],
+   "faq": [
+    {
+     "q": "How secure is the protection?",
+     "a": "The PDF is encrypted with AES-256, so it cannot be opened without the password."
+    },
+    {
+     "q": "What if I forget the password?",
+     "a": "It cannot be recovered, so keep it somewhere safe."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "unlock-pdf",
@@ -730,7 +1210,28 @@
    "engine": "pdf",
    "js": "server-pdf",
    "desc": "Remove the open-password from a PDF when you know the password.",
-   "about": "If you know a PDF's password and are tired of typing it, this saves a copy that opens without one. It only works when you enter the correct password: it does not crack or bypass protection."
+   "about": "If you know a PDF's password and are tired of typing it, this saves a copy that opens without one. It only works when you enter the correct password: it does not crack or bypass protection.",
+   "title": "Unlock PDF: Remove PDF Password Online Free | Toolz Baba",
+   "metaDesc": "Remove the password from a PDF you know the password of and save a copy that opens without it. Free, private, no sign-up. Does not crack PDFs.",
+   "steps": [
+    "Add the password-protected PDF.",
+    "Type its password.",
+    "Download a copy that opens without a password."
+   ],
+   "faq": [
+    {
+     "q": "Can it open a PDF if I don't know the password?",
+     "a": "No. It only works with the correct password; it does not crack or bypass protection."
+    },
+    {
+     "q": "Why unlock a PDF I can already open?",
+     "a": "So you don't have to type the password every time, or so you can merge or edit it with other tools."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "video-converter",
@@ -741,7 +1242,28 @@
    "kind": "client",
    "engine": "video",
    "js": "server-video",
-   "about": "Convert video to MP4, WebM, MKV, MOV or AVI, or extract the audio as MP3, M4A, WAV, OGG or FLAC. Choose the quality and scale the resolution down if needed. Files up to 2 GB are supported."
+   "about": "Convert video to MP4, WebM, MKV, MOV or AVI, or extract the audio as MP3, M4A, WAV, OGG or FLAC. Choose the quality and scale the resolution down if needed. Files up to 2 GB are supported.",
+   "title": "Video Converter Online Free: MP4, MOV, MKV, MP3 | Toolz Baba",
+   "metaDesc": "Convert videos to MP4, WebM, MKV, MOV or AVI, or extract the audio as MP3, M4A or WAV. Files up to 2 GB. Free and private: runs in your browser.",
+   "steps": [
+    "Add your video (up to 2 GB).",
+    "Choose MP4, WebM, MKV, MOV or AVI, or an audio format such as MP3.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert a video to MP4?",
+     "a": "Add the video, choose MP4, set the quality and convert."
+    },
+    {
+     "q": "Can I get the audio as MP3?",
+     "a": "Yes. Choose MP3, M4A, WAV, OGG or FLAC to extract the sound only."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "video-to-gif",
@@ -775,7 +1297,9 @@
      "q": "Is my video uploaded?",
      "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
     }
-   ]
+   ],
+   "title": "Video to GIF Converter Free: MP4 to GIF in HD | Toolz Baba",
+   "metaDesc": "Turn any part of a video into a high-quality animated GIF. Set the start, length, width and frame rate. Free, no watermark, nothing uploaded."
   },
   {
    "slug": "gif-to-video",
@@ -786,7 +1310,24 @@
    "kind": "client",
    "engine": "video",
    "js": "server-video",
-   "about": "Convert GIF animations into much smaller MP4 or WebM videos, and repeat the animation if you want a longer clip. Videos load faster and play smoothly on phones."
+   "about": "Convert GIF animations into much smaller MP4 or WebM videos, and repeat the animation if you want a longer clip. Videos load faster and play smoothly on phones.",
+   "title": "GIF to MP4 Converter Online Free | Toolz Baba",
+   "metaDesc": "Convert GIF animations into much smaller MP4 or WebM videos that load fast and play smoothly on phones. Loop them for a longer clip. Free.",
+   "steps": [
+    "Add a GIF.",
+    "Choose MP4 or WebM, and how many times to repeat it.",
+    "Convert and download the video."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a GIF to MP4?",
+     "a": "The video is usually much smaller, loads faster and plays smoothly on phones."
+    },
+    {
+     "q": "Can I make the video longer?",
+     "a": "Yes. Repeat the animation to make a longer clip."
+    }
+   ]
   },
   {
    "slug": "video-trimmer",
@@ -797,7 +1338,28 @@
    "kind": "client",
    "engine": "video",
    "js": "server-video",
-   "about": "Cut a section out of a video or audio file. Preview it, mark the start and end, and choose an exact cut or a fast, lossless cut that snaps to the nearest keyframe."
+   "about": "Cut a section out of a video or audio file. Preview it, mark the start and end, and choose an exact cut or a fast, lossless cut that snaps to the nearest keyframe.",
+   "title": "Trim Video Online Free: Cut Start and End | Toolz Baba",
+   "metaDesc": "Cut the part you want out of a video or audio file. Preview it, mark start and end, and choose an exact or a fast lossless cut. Free and private.",
+   "steps": [
+    "Add a video or audio file.",
+    "Play it and mark the start and end.",
+    "Choose an exact cut or a fast lossless cut, then download."
+   ],
+   "faq": [
+    {
+     "q": "What is the difference between an exact and a fast cut?",
+     "a": "The exact cut starts precisely where you marked. The fast cut is lossless and quicker but snaps to the nearest keyframe, so it can start a moment earlier."
+    },
+    {
+     "q": "Can I trim audio too?",
+     "a": "Yes, audio files work the same way."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "compress-video",
@@ -812,7 +1374,28 @@
    "aliases": [
     "video-compressor"
    ],
-   "tabAll": "Compress video"
+   "tabAll": "Compress video",
+   "title": "Compress Video Online Free: Reduce MP4 Size in MB | Toolz Baba",
+   "metaDesc": "Make a video smaller by quality or to a target size in MB, for WhatsApp, email or upload limits. Lower the resolution too. Free, no watermark.",
+   "steps": [
+    "Add your video.",
+    "Choose a quality level or a target size in MB, and lower the resolution if you like.",
+    "Compress and download the smaller video."
+   ],
+   "faq": [
+    {
+     "q": "How do I make a video small enough for WhatsApp or email?",
+     "a": "Choose target size and type the limit in MB; the tool picks the settings to fit it."
+    },
+    {
+     "q": "Does compressing a video reduce the quality?",
+     "a": "A little. Lowering the resolution, for example to 720p, often saves the most with the least visible change."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "video-merger",
@@ -823,7 +1406,28 @@
    "engine": "video",
    "js": "server-video",
    "desc": "Join several video clips into one MP4, in the order you choose. Different sizes and formats are fine.",
-   "about": "Combine two or more clips into a single MP4. Clips with different resolutions, frame rates or formats are matched automatically, and clips without sound are handled too. Reorder the clips before you merge."
+   "about": "Combine two or more clips into a single MP4. Clips with different resolutions, frame rates or formats are matched automatically, and clips without sound are handled too. Reorder the clips before you merge.",
+   "title": "Merge Videos Online Free: Join Clips into One MP4 | Toolz Baba",
+   "metaDesc": "Join two or more video clips into one MP4 in the order you choose. Different sizes and formats are matched for you. Free, no watermark.",
+   "steps": [
+    "Add two or more clips.",
+    "Put them in the order you want.",
+    "Merge and download one MP4."
+   ],
+   "faq": [
+    {
+     "q": "Can I join videos of different sizes or formats?",
+     "a": "Yes. Different resolutions, frame rates and formats are matched automatically."
+    },
+    {
+     "q": "What if a clip has no sound?",
+     "a": "That is handled too: the merged video plays normally."
+    },
+    {
+     "q": "Are my videos uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "change-video-speed",
@@ -837,6 +1441,27 @@
    "about": "Make a video faster for a timelapse or slower for slow motion, anywhere from 0.25x to 8x. The sound is sped up or slowed down with its pitch preserved, or you can mute it.",
    "aliases": [
     "video-speed"
+   ],
+   "title": "Change Video Speed Online Free: 0.25x to 8x | Toolz Baba",
+   "metaDesc": "Speed up a video for a timelapse or slow it down for slow motion, from 0.25x to 8x, with natural-sounding audio. Free and private, no sign-up.",
+   "steps": [
+    "Add a video.",
+    "Choose a speed from 0.25x (slow motion) to 8x (timelapse), and keep or mute the sound.",
+    "Download the new video."
+   ],
+   "faq": [
+    {
+     "q": "Will voices sound like chipmunks when sped up?",
+     "a": "No. The pitch is kept natural when the speed changes. You can also mute the sound."
+    },
+    {
+     "q": "How do I make a slow-motion video?",
+     "a": "Choose a speed below 1x, such as 0.5x or 0.25x."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
    ]
   },
   {
@@ -847,7 +1472,24 @@
    "kind": "client",
    "js": "text-tools",
    "desc": "Pretty-print, minify and validate JSON. Shows the exact line and column of any error.",
-   "about": "Paste JSON to make it readable with 2 or 4 spaces or tabs, minify it, sort the keys, or check whether it is valid. If there is a mistake, the tool points to the line and column. Everything happens in your browser."
+   "about": "Paste JSON to make it readable with 2 or 4 spaces or tabs, minify it, sort the keys, or check whether it is valid. If there is a mistake, the tool points to the line and column. Everything happens in your browser.",
+   "title": "JSON Formatter and Validator Online: Beautify JSON | Toolz Baba",
+   "metaDesc": "Format, minify and validate JSON, sort the keys, and see the exact line and column of any error. Free, and your data never leaves your browser.",
+   "steps": [
+    "Paste your JSON.",
+    "Format it with 2 or 4 spaces or tabs, minify it, or sort the keys.",
+    "Copy the result."
+   ],
+   "faq": [
+    {
+     "q": "How do I find an error in my JSON?",
+     "a": "Paste it here: if it is invalid, the tool shows the exact line and column of the mistake."
+    },
+    {
+     "q": "Is my JSON sent to a server?",
+     "a": "No. Everything happens in your browser."
+    }
+   ]
   },
   {
    "slug": "word-counter",
@@ -857,7 +1499,28 @@
    "kind": "client",
    "js": "text-tools",
    "desc": "Count words, characters, sentences and paragraphs, with reading time and top keywords.",
-   "about": "Paste or type text to see the number of words, characters (with and without spaces), sentences and paragraphs, plus estimated reading and speaking time and the most used words. It works with English and Hindi text."
+   "about": "Paste or type text to see the number of words, characters (with and without spaces), sentences and paragraphs, plus estimated reading and speaking time and the most used words. It works with English and Hindi text.",
+   "title": "Word Counter and Character Counter Online Free | Toolz Baba",
+   "metaDesc": "Count words, characters (with and without spaces), sentences and paragraphs, and see reading time and top keywords. English and Hindi.",
+   "steps": [
+    "Paste or type your text.",
+    "See words, characters, sentences, paragraphs and reading time instantly.",
+    "Check the most used words."
+   ],
+   "faq": [
+    {
+     "q": "Does it count characters with and without spaces?",
+     "a": "Yes, both are shown."
+    },
+    {
+     "q": "Does it work with Hindi?",
+     "a": "Yes, it counts English and Hindi text."
+    },
+    {
+     "q": "Is my text saved anywhere?",
+     "a": "No. It runs in your browser, so what you type is never sent anywhere."
+    }
+   ]
   },
   {
    "slug": "text-case-converter",
@@ -870,6 +1533,23 @@
    "about": "Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE and more with one click, then copy the result.",
    "aliases": [
     "case-converter"
+   ],
+   "title": "Case Converter: Uppercase, Lowercase, Title Case | Toolz Baba",
+   "metaDesc": "Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, kebab-case and more with one click. Free and instant.",
+   "steps": [
+    "Paste your text.",
+    "Click the case you need: UPPERCASE, lowercase, Title Case, camelCase and more.",
+    "Copy the result."
+   ],
+   "faq": [
+    {
+     "q": "Which cases are supported?",
+     "a": "UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE and more."
+    },
+    {
+     "q": "Is my text sent anywhere?",
+     "a": "No. It runs in your browser, so what you type is never sent anywhere."
+    }
    ]
   },
   {
@@ -880,7 +1560,28 @@
    "kind": "client",
    "js": "text-tools",
    "desc": "Create strong random passwords. Choose length and characters, and see how strong they are.",
-   "about": "Generate strong random passwords using your browser's secure random number generator. Choose the length and which characters to include, skip look-alike characters, create several at once, and see an estimate of the strength. Passwords are never sent anywhere."
+   "about": "Generate strong random passwords using your browser's secure random number generator. Choose the length and which characters to include, skip look-alike characters, create several at once, and see an estimate of the strength. Passwords are never sent anywhere.",
+   "title": "Strong Password Generator: Random and Secure | Toolz Baba",
+   "metaDesc": "Create strong random passwords with your browser's secure generator. Pick the length and characters and see the strength. Never sent anywhere.",
+   "steps": [
+    "Choose the length and which characters to include.",
+    "Generate one or several passwords and check the strength.",
+    "Copy the one you want."
+   ],
+   "faq": [
+    {
+     "q": "Are the passwords really random?",
+     "a": "Yes. They come from your browser's secure random number generator."
+    },
+    {
+     "q": "How long should a password be?",
+     "a": "At least 12 to 16 characters with mixed character types; longer is stronger."
+    },
+    {
+     "q": "Are the passwords sent or stored anywhere?",
+     "a": "No. They are created in your browser and never sent anywhere."
+    }
+   ]
   },
   {
    "slug": "hash-uuid-generator",
@@ -890,7 +1591,28 @@
    "kind": "client",
    "js": "text-tools",
    "desc": "Generate UUIDs and MD5, SHA-1, SHA-256, SHA-384 or SHA-512 hashes of text and files.",
-   "about": "Create random UUIDs (version 4 and time-ordered version 7), and calculate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 checksums of text or of a file to check a download. The file is read in your browser and never uploaded."
+   "about": "Create random UUIDs (version 4 and time-ordered version 7), and calculate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 checksums of text or of a file to check a download. The file is read in your browser and never uploaded.",
+   "title": "Hash Generator and UUID Generator: SHA-256, MD5 | Toolz Baba",
+   "metaDesc": "Generate UUID v4 and v7, and MD5, SHA-1, SHA-256, SHA-384 or SHA-512 hashes of text or files to check downloads. Free, nothing uploaded.",
+   "steps": [
+    "Choose UUID, or a hash type such as SHA-256.",
+    "Type text or add a file.",
+    "Copy the result, or compare it with the checksum you were given."
+   ],
+   "faq": [
+    {
+     "q": "How do I check that a download is not corrupted?",
+     "a": "Add the downloaded file, choose the hash the website lists (often SHA-256) and compare the two values."
+    },
+    {
+     "q": "What is the difference between UUID v4 and v7?",
+     "a": "v4 is completely random; v7 starts with the time, so new IDs sort in creation order."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The file is read in your browser and never uploaded."
+    }
+   ]
   },
   {
    "slug": "url-encoder",
@@ -900,7 +1622,24 @@
    "kind": "client",
    "js": "text-tools",
    "desc": "Encode or decode URLs and text, and take a URL apart into its host, path and query parameters.",
-   "about": "Encode text so it is safe to put in a URL, decode percent-encoded text, and split a full URL into its parts (protocol, host, path and query parameters) to read or edit them."
+   "about": "Encode text so it is safe to put in a URL, decode percent-encoded text, and split a full URL into its parts (protocol, host, path and query parameters) to read or edit them.",
+   "title": "URL Encoder and Decoder Online: Percent Encoding | Toolz Baba",
+   "metaDesc": "Encode text for a URL, decode percent-encoded text, and split a URL into host, path and query parameters to read or edit them. Free and instant.",
+   "steps": [
+    "Paste text or a URL.",
+    "Encode it, decode it, or split the URL into its parts.",
+    "Copy the result."
+   ],
+   "faq": [
+    {
+     "q": "What is URL encoding?",
+     "a": "Characters such as spaces and & are replaced by codes like %20 so the text can be used safely inside a web address."
+    },
+    {
+     "q": "Can I edit the query parameters of a URL?",
+     "a": "Yes. Split the URL to see the protocol, host, path and each parameter, and edit them."
+    }
+   ]
   },
   {
    "slug": "image-color-palette-extractor",
@@ -914,7 +1653,24 @@
    "aliases": [
     "color-palette"
    ],
-   "tabAll": "From an image"
+   "tabAll": "From an image",
+   "title": "Color Palette from Image: Extract HEX and RGB | Toolz Baba",
+   "metaDesc": "Pull the main colours out of any image and copy HEX, RGB or HSL values, CSS variables or JSON. Click to pick an exact colour. Free.",
+   "steps": [
+    "Add an image.",
+    "See its main colours, or click the picture to pick an exact colour.",
+    "Copy HEX, RGB or HSL, or export CSS, JSON or the palette image."
+   ],
+   "faq": [
+    {
+     "q": "How do I get the HEX code of a colour in an image?",
+     "a": "Add the image and click the spot you want; the exact colour is shown in HEX, RGB and HSL."
+    },
+    {
+     "q": "Is my image uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "qr-code-generator",
@@ -951,7 +1707,9 @@
      "q": "PNG or SVG?",
      "a": "PNG for phones, documents and WhatsApp; SVG for printing large, because it stays sharp at any size."
     }
-   ]
+   ],
+   "title": "QR Code Generator Free: Link, Wi-Fi, WhatsApp, Logo | Toolz Baba",
+   "metaDesc": "Make QR codes for links, Wi-Fi, WhatsApp, email, phone, SMS and contact cards. Add colours and a logo, download PNG or SVG. Free, never expires."
   },
   {
    "slug": "base64",
@@ -961,7 +1719,28 @@
    "desc": "Encode or decode text and files. Get data URIs for images.",
    "kind": "client",
    "js": "utils",
-   "about": "Encode and decode Base64 for text (with full Unicode support) and files. Get data URIs for images, or turn a Base64 string back into a downloadable file. It runs in your browser."
+   "about": "Encode and decode Base64 for text (with full Unicode support) and files. Get data URIs for images, or turn a Base64 string back into a downloadable file. It runs in your browser.",
+   "title": "Base64 Encode and Decode Online: Text and Files | Toolz Baba",
+   "metaDesc": "Encode or decode Base64 for text and files, make data URIs for images, or turn Base64 back into a file. Free, and it runs in your browser.",
+   "steps": [
+    "Paste text or add a file.",
+    "Encode or decode.",
+    "Copy the result, or download the decoded file."
+   ],
+   "faq": [
+    {
+     "q": "What is a data URI?",
+     "a": "An image written out as Base64 text, which you can put straight into HTML or CSS instead of a file link."
+    },
+    {
+     "q": "Does it handle Hindi and emoji text?",
+     "a": "Yes, text encoding has full Unicode support."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It runs in your browser, so your files stay on your device and are never uploaded."
+    }
+   ]
   },
   {
    "slug": "image-cdn",
@@ -987,7 +1766,28 @@
    "aliases": [
     "audio-cutter"
    ],
-   "tabAll": "Split audio"
+   "tabAll": "Split audio",
+   "title": "Audio Cutter Online Free: Cut and Split MP3 | Toolz Baba",
+   "metaDesc": "Cut a clip from a song or recording with fades, or split a long file into equal parts or every few minutes. Save as MP3, WAV and more. Free.",
+   "steps": [
+    "Add an audio file (or a video to take its sound).",
+    "Mark the part to keep and add a fade, or choose to split every few minutes or into equal parts.",
+    "Save as MP3, M4A, WAV, OGG or FLAC."
+   ],
+   "faq": [
+    {
+     "q": "How do I cut a part of a song?",
+     "a": "Add the song, play it, mark where your part starts and ends, add a fade if you like, and save it."
+    },
+    {
+     "q": "Can I split a long recording into parts?",
+     "a": "Yes, every few minutes or into a number of equal parts, delivered in a ZIP."
+    },
+    {
+     "q": "Is my audio uploaded?",
+     "a": "No. Everything runs in your browser."
+    }
+   ]
   },
   {
    "slug": "font-library",
@@ -997,7 +1797,24 @@
    "kind": "client",
    "js": "font-library",
    "desc": "Browse and preview 50 free fonts, including Hindi and other Indian scripts, and download them.",
-   "about": "A library of 50 free fonts that you can search, preview with your own text and download: sans-serif, serif, display, handwriting and monospace families, plus Hindi (Devanagari), Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada and Malayalam fonts. Each card shows the scripts the font can draw and its licence (most are under the SIL Open Font License, so they are free to use in commercial work too). Download any font as a ZIP with its licence note, copy ready-made CSS, or use it directly in the PDF Editor."
+   "about": "A library of 50 free fonts that you can search, preview with your own text and download: sans-serif, serif, display, handwriting and monospace families, plus Hindi (Devanagari), Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada and Malayalam fonts. Each card shows the scripts the font can draw and its licence (most are under the SIL Open Font License, so they are free to use in commercial work too). Download any font as a ZIP with its licence note, copy ready-made CSS, or use it directly in the PDF Editor.",
+   "title": "Free Fonts Download: 50 Fonts incl. Hindi Fonts | Toolz Baba",
+   "metaDesc": "Preview and download 50 free fonts with your own text, including Hindi, Tamil, Telugu, Bengali and Gujarati fonts, mostly free for commercial use.",
+   "steps": [
+    "Search or browse the 50 fonts.",
+    "Type your own text to preview it.",
+    "Download a font as a ZIP, copy its CSS, or use it in the PDF Editor."
+   ],
+   "faq": [
+    {
+     "q": "Are these fonts free for commercial use?",
+     "a": "Most are under the SIL Open Font License, which allows commercial use. Each font card shows its licence."
+    },
+    {
+     "q": "Are there Hindi fonts?",
+     "a": "Yes. There are Hindi (Devanagari) fonts, plus Bengali, Tamil, Telugu, Gujarati, Punjabi, Kannada and Malayalam."
+    }
+   ]
   },
   {
    "slug": "pdf-editor",
@@ -1030,7 +1847,9 @@
      "q": "Is my PDF uploaded?",
      "a": "No. Everything is done in your browser, so your PDF is never uploaded."
     }
-   ]
+   ],
+   "title": "PDF Editor Online Free: Edit Text in PDF | Toolz Baba",
+   "metaDesc": "Edit PDF text, add text in 50 fonts including Hindi, pictures, shapes and highlights, and save as PDF or Word. Free, and the PDF is never uploaded."
   }
  ],
  "variants": [
@@ -2150,7 +2969,8 @@
    "js": "server-video",
    "aliases": [
     "add-watermark-to-video"
-   ]
+   ],
+   "metaDesc": "Add a text or logo watermark to a video: set the position, size and opacity, then download it. Free, no sign-up, and your video stays on your device."
   },
   {
    "slug": "blur-redact-pdf",
@@ -2267,7 +3087,8 @@
    "title": "MP4 to MP3 Converter Online Free: Extract Audio | Toolz Baba",
    "desc": "Convert MP4 video to MP3 audio in your browser. Choose the quality; nothing is uploaded.",
    "about": "Turn an MP4 video into an MP3 file in a few clicks: add the video, pick a quality (192 kbps is a good default, 320 kbps is the best) and download the MP3. Music videos, lectures, interviews and recordings all work, and several files can be converted at once. The conversion runs on your own device with no upload and no file-size limit from us.",
-   "js": "server-video"
+   "js": "server-video",
+   "metaDesc": "Convert MP4 video to MP3 audio in your browser. Pick the quality, up to 320 kbps, and convert several files at once. Free, and nothing is uploaded."
   },
   {
    "slug": "ocr-pdf",
@@ -2277,7 +3098,7 @@
    "aliases": [
     "pdf-ocr"
    ],
-   "title": "OCR PDF Online Free: Scanned PDF to Text (English & Hindi) | Toolz Baba",
+   "title": "OCR PDF Online Free: Scanned PDF to Text, Hindi | Toolz Baba",
    "desc": "Read the text in a scanned PDF and copy it or save it as a .txt file. English and Hindi. Runs in your browser.",
    "about": "A scanned PDF is just pictures of pages, so you cannot select or search its text. OCR (optical character recognition) reads those pictures and turns them back into text you can copy, edit or save. Add a scanned PDF, choose English, Hindi or both, and copy the result or save it as a .txt file. The OCR runs in your browser, so the document is not uploaded.",
    "faq": [
@@ -2312,7 +3133,8 @@
    "js": "server-video",
    "aliases": [
     "split-video"
-   ]
+   ],
+   "metaDesc": "Split a long video into equal parts or parts of a set length, such as 30 seconds for WhatsApp status, and get them in a ZIP. Free and private."
   },
   {
    "slug": "merge-audio",
@@ -2452,7 +3274,8 @@
      "q": "Are pictures included?",
      "a": "Not yet: a picture shows as its description in square brackets."
     }
-   ]
+   ],
+   "metaDesc": "Convert Markdown to a Word (DOCX) file with real headings, lists, tables and links that opens in Word and Google Docs. Free and private."
   },
   {
    "slug": "html-to-markdown",
@@ -2545,7 +3368,8 @@
      "a": "No. Only the page as it is written is turned into a PDF."
     }
    ],
-   "cat": "pdf"
+   "cat": "pdf",
+   "metaDesc": "Turn HTML into a PDF: paste the code or load an .html file, check the preview and download. Tables, lists and basic CSS work. Free and private."
   },
   {
    "slug": "excel-to-pdf",
@@ -2594,7 +3418,8 @@
      "q": "Can I make one PDF from several JPGs?",
      "a": "Yes. Add them all and use the arrows to set the order."
     }
-   ]
+   ],
+   "metaDesc": "Turn one or many JPG photos into a single PDF. Choose A4, Letter or the photo size, set the order and margins. Free, no sign-up, nothing uploaded."
   },
   {
    "slug": "png-to-pdf",
@@ -2615,7 +3440,8 @@
      "q": "Can I put several PNGs in one PDF?",
      "a": "Yes. Add them all and use the arrows to set the order."
     }
-   ]
+   ],
+   "metaDesc": "Turn PNG pictures into one PDF and keep their transparency. Choose the page size, order and margins. Free, no sign-up, runs in your browser."
   },
   {
    "slug": "png-to-jpg",
@@ -2675,7 +3501,8 @@
      "a": "PNG stores every pixel exactly, while JPG throws away detail you hardly see. For photos that makes the PNG larger."
     }
    ],
-   "cat": "image"
+   "cat": "image",
+   "metaDesc": "Convert JPG photos to lossless PNG in your browser, up to 40 at once. No more quality loss when you edit again. Free, no sign-up, nothing uploaded."
   },
   {
    "slug": "webp-to-jpg",
@@ -2881,7 +3708,8 @@
      "a": "Yes. Change How to split to Custom ranges, and each range becomes its own PDF."
     }
    ],
-   "cat": "pdf"
+   "cat": "pdf",
+   "metaDesc": "Copy chosen pages of a PDF, such as 1-3,5, into one new PDF in that order. The original stays untouched. Free, no sign-up, runs in your browser."
   }
  ]
 }
