@@ -1,35 +1,35 @@
 {
  "/": {
   "date": "2026-10-07",
-  "hash": "5e10cfb2d8834c2d"
+  "hash": "8d31979424d37f0a"
  },
  "/add-page-numbers-to-pdf": {
   "date": "2026-10-07",
-  "hash": "279705325674211b"
+  "hash": "12684e373920d6f2"
  },
  "/add-watermark-to-image": {
   "date": "2026-10-07",
-  "hash": "caef28ae8d42cf80"
+  "hash": "6f0baba1f4cce13d"
  },
  "/add-watermark-to-pdf": {
   "date": "2026-10-07",
-  "hash": "1255fb9120bd9606"
+  "hash": "da27ce1d15ea954e"
  },
  "/add-watermark-to-video": {
   "date": "2026-10-07",
-  "hash": "c3e93eda43a74200"
+  "hash": "7079626a4533b418"
  },
  "/ai-headshot-generator": {
   "date": "2026-10-07",
-  "hash": "b95ec438c6bfd82d"
+  "hash": "8e2156409312b782"
  },
  "/anime-style": {
   "date": "2026-10-07",
-  "hash": "86a3ee4c88674d87"
+  "hash": "d26c2e94d6eabdb3"
  },
  "/base64": {
   "date": "2026-10-07",
-  "hash": "03bcf9e8b072ac45"
+  "hash": "06d71eb98257e164"
  },
  "/blog": {
   "date": "2026-10-06",
@@ -37,187 +37,187 @@
  },
  "/blur-redact-pdf": {
   "date": "2026-10-07",
-  "hash": "015356aab6ad7909"
+  "hash": "edd3800d4b0783a5"
  },
  "/change-video-speed": {
   "date": "2026-10-07",
-  "hash": "ccba1181bd22de47"
+  "hash": "4b78c811c20feb8e"
  },
  "/color-palette-generator": {
   "date": "2026-10-07",
-  "hash": "2584ce248ff9360b"
+  "hash": "221f2fc1177f3042"
  },
  "/compress-gif": {
   "date": "2026-10-07",
-  "hash": "f038cbd2cfb17327"
+  "hash": "b0daf6f2e1934dbd"
  },
  "/compress-image": {
   "date": "2026-10-07",
-  "hash": "24f8dd3fd0141272"
+  "hash": "ff8bf04993cbcda3"
  },
  "/compress-jpeg": {
   "date": "2026-10-07",
-  "hash": "7452315d8c1a4f50"
+  "hash": "83796e89dcd5ae14"
  },
  "/compress-jpeg-under-100kb": {
-  "date": "2026-10-06",
-  "hash": "6b4bb66ad58330e4"
+  "date": "2026-10-07",
+  "hash": "9fdb058a91791b51"
  },
  "/compress-jpeg-under-10kb": {
-  "date": "2026-10-06",
-  "hash": "a3887505e54a18dc"
+  "date": "2026-10-07",
+  "hash": "4fda33603cba6fd7"
  },
  "/compress-jpeg-under-150kb": {
-  "date": "2026-10-06",
-  "hash": "3186e23868bb84e8"
+  "date": "2026-10-07",
+  "hash": "7a726a950cbac16c"
  },
  "/compress-jpeg-under-1mb": {
-  "date": "2026-10-06",
-  "hash": "07aaac1ff0e52821"
+  "date": "2026-10-07",
+  "hash": "e5cc4d69300e4b8f"
  },
  "/compress-jpeg-under-200kb": {
-  "date": "2026-10-06",
-  "hash": "90f899c6d0e0ffc9"
+  "date": "2026-10-07",
+  "hash": "2c73bee952ae8071"
  },
  "/compress-jpeg-under-20kb": {
-  "date": "2026-10-06",
-  "hash": "fa65dbca4523e7bc"
+  "date": "2026-10-07",
+  "hash": "c2e60bb494587c91"
  },
  "/compress-jpeg-under-2mb": {
-  "date": "2026-10-06",
-  "hash": "74dce75a46f2287e"
+  "date": "2026-10-07",
+  "hash": "fcd4e8ad5ca91611"
  },
  "/compress-jpeg-under-300kb": {
-  "date": "2026-10-06",
-  "hash": "95523c1d69515933"
+  "date": "2026-10-07",
+  "hash": "fff6fb6210ebe096"
  },
  "/compress-jpeg-under-500kb": {
-  "date": "2026-10-06",
-  "hash": "6c948f8842a01e22"
+  "date": "2026-10-07",
+  "hash": "e93cdc556b5d2d9f"
  },
  "/compress-jpeg-under-50kb": {
-  "date": "2026-10-06",
-  "hash": "6c2889e6425255f3"
+  "date": "2026-10-07",
+  "hash": "75bca5c302bd8bf9"
  },
  "/compress-jpg": {
   "date": "2026-10-07",
-  "hash": "06d09fe7f76ba9d8"
+  "hash": "2024b488358d0ac1"
  },
  "/compress-jpg-under-100kb": {
-  "date": "2026-10-06",
-  "hash": "1dc7bf7182dd1e51"
+  "date": "2026-10-07",
+  "hash": "a7dc502288e650a2"
  },
  "/compress-jpg-under-10kb": {
-  "date": "2026-10-06",
-  "hash": "a7932b4bf93f431e"
+  "date": "2026-10-07",
+  "hash": "6529ac7b6769b519"
  },
  "/compress-jpg-under-150kb": {
-  "date": "2026-10-06",
-  "hash": "50084c130e82ae3c"
+  "date": "2026-10-07",
+  "hash": "3315de55b17fa32c"
  },
  "/compress-jpg-under-1mb": {
-  "date": "2026-10-06",
-  "hash": "6e184722596a69e8"
+  "date": "2026-10-07",
+  "hash": "7c4bc03ac4de16b8"
  },
  "/compress-jpg-under-200kb": {
-  "date": "2026-10-06",
-  "hash": "f71ebaf526063adc"
+  "date": "2026-10-07",
+  "hash": "57621ef3adea28d5"
  },
  "/compress-jpg-under-20kb": {
-  "date": "2026-10-06",
-  "hash": "7513b991957b2257"
+  "date": "2026-10-07",
+  "hash": "f946e194ea40ecb0"
  },
  "/compress-jpg-under-2mb": {
-  "date": "2026-10-06",
-  "hash": "282cb7a172c50e1e"
+  "date": "2026-10-07",
+  "hash": "90a05cbf35f11eed"
  },
  "/compress-jpg-under-300kb": {
-  "date": "2026-10-06",
-  "hash": "b4779e1cdeb38da1"
+  "date": "2026-10-07",
+  "hash": "fc8b490346382d65"
  },
  "/compress-jpg-under-500kb": {
-  "date": "2026-10-06",
-  "hash": "7c6f47984f805df7"
+  "date": "2026-10-07",
+  "hash": "622eca5c876f7052"
  },
  "/compress-jpg-under-50kb": {
-  "date": "2026-10-06",
-  "hash": "81352f0ac97d031b"
+  "date": "2026-10-07",
+  "hash": "f37e976c02d51236"
  },
  "/compress-pdf": {
   "date": "2026-10-07",
-  "hash": "1d10d751f15b3fc1"
+  "hash": "c7422f74afcb0edf"
  },
  "/compress-pdf-under-100kb": {
   "date": "2026-10-07",
-  "hash": "6d0976651d663652"
+  "hash": "4d83d58853adeb1f"
  },
  "/compress-pdf-under-1mb": {
   "date": "2026-10-07",
-  "hash": "a5135fa9544b8dbf"
+  "hash": "9ae67479de151b50"
  },
  "/compress-pdf-under-200kb": {
   "date": "2026-10-07",
-  "hash": "1431c1ebabf5f07d"
+  "hash": "8eee8e69d72f67fa"
  },
  "/compress-pdf-under-2mb": {
   "date": "2026-10-07",
-  "hash": "d96a9e07625d2a24"
+  "hash": "12fd7bfbb209079d"
  },
  "/compress-pdf-under-300kb": {
   "date": "2026-10-07",
-  "hash": "65d89858359ba093"
+  "hash": "2ae10e39df3b968b"
  },
  "/compress-pdf-under-500kb": {
   "date": "2026-10-07",
-  "hash": "c5a280b6efee2e68"
+  "hash": "95032716091472d0"
  },
  "/compress-png": {
   "date": "2026-10-07",
-  "hash": "47c0f865935eca8e"
+  "hash": "f6fbb6eca9ada193"
  },
  "/compress-png-under-100kb": {
-  "date": "2026-10-06",
-  "hash": "fc5c97081cca7494"
+  "date": "2026-10-07",
+  "hash": "8965b54e5e140021"
  },
  "/compress-png-under-10kb": {
-  "date": "2026-10-06",
-  "hash": "d9ce20fc91a441dc"
+  "date": "2026-10-07",
+  "hash": "13fcb5511488b6da"
  },
  "/compress-png-under-150kb": {
-  "date": "2026-10-06",
-  "hash": "0eb194915ddf1a90"
+  "date": "2026-10-07",
+  "hash": "591c2a1076de013e"
  },
  "/compress-png-under-1mb": {
-  "date": "2026-10-06",
-  "hash": "8dbb8eb806864ecf"
+  "date": "2026-10-07",
+  "hash": "9b7ef615863dbe30"
  },
  "/compress-png-under-200kb": {
-  "date": "2026-10-06",
-  "hash": "361183c1c6a696af"
+  "date": "2026-10-07",
+  "hash": "796163de2af0319b"
  },
  "/compress-png-under-20kb": {
-  "date": "2026-10-06",
-  "hash": "5bd337c959c0c7a3"
+  "date": "2026-10-07",
+  "hash": "e9c5ad3b12486a71"
  },
  "/compress-png-under-2mb": {
-  "date": "2026-10-06",
-  "hash": "69e086a98be308dd"
+  "date": "2026-10-07",
+  "hash": "3f6f5cd0200a9c60"
  },
  "/compress-png-under-300kb": {
-  "date": "2026-10-06",
-  "hash": "b0e79e6fa4cc7b79"
+  "date": "2026-10-07",
+  "hash": "2d5d4d8087f974f0"
  },
  "/compress-png-under-500kb": {
-  "date": "2026-10-06",
-  "hash": "19079cfce5b77bec"
+  "date": "2026-10-07",
+  "hash": "8b153462a83cb4de"
  },
  "/compress-png-under-50kb": {
-  "date": "2026-10-06",
-  "hash": "e9242e84b70ad108"
+  "date": "2026-10-07",
+  "hash": "ff3153bbf1b80165"
  },
  "/compress-video": {
   "date": "2026-10-07",
-  "hash": "93e14dce514308e7"
+  "hash": "d3f2db75dc643c80"
  },
  "/contact": {
   "date": "2026-10-06",
@@ -225,326 +225,326 @@
  },
  "/convert-image": {
   "date": "2026-10-07",
-  "hash": "5b8abf8ce7534637"
+  "hash": "44acdadaabac3602"
  },
  "/crop-image": {
   "date": "2026-10-07",
-  "hash": "5e1e092b574a6882"
+  "hash": "73499508f7ec5e44"
  },
  "/delete-pdf-pages": {
   "date": "2026-10-07",
-  "hash": "082e2c8a8eb58b3c"
+  "hash": "dad67b2478dc1439"
  },
  "/docx-to-markdown": {
   "date": "2026-10-07",
-  "hash": "dc77a9d293f0a815"
+  "hash": "0947d526466a48b1"
  },
  "/esign-pdf": {
   "date": "2026-10-07",
-  "hash": "5a526cb39bb0d8f4"
+  "hash": "3b91d86d73b2e476"
  },
  "/excel-to-pdf": {
   "date": "2026-10-07",
-  "hash": "cc03022c7d2696c3"
+  "hash": "d7203c37cb7dd570"
  },
  "/exif-remover": {
   "date": "2026-10-07",
-  "hash": "3c9f5d595108bcdf"
+  "hash": "5da3b5679f8b2efa"
  },
  "/extract-pdf-pages": {
   "date": "2026-10-07",
-  "hash": "32689dd55cfe2003"
+  "hash": "4babee2383711de3"
  },
  "/face-blur": {
   "date": "2026-10-07",
-  "hash": "1955bfe896871a94"
+  "hash": "71cc08c19b5aa889"
  },
  "/favicon-generator": {
   "date": "2026-10-07",
-  "hash": "2e77e53da2d9e27d"
+  "hash": "0be3b3db216db5fa"
  },
  "/font-library": {
   "date": "2026-10-07",
-  "hash": "e8ffb891960f6c60"
+  "hash": "e56f13688e7b7ed7"
  },
  "/gif-to-video": {
   "date": "2026-10-07",
-  "hash": "f17ae479d8c6a356"
+  "hash": "5d6ab12d2ddf1cd3"
  },
  "/hash-uuid-generator": {
   "date": "2026-10-07",
-  "hash": "ebc1493b3a6506b1"
+  "hash": "e04a4e4c638821db"
  },
  "/heic-to-jpg": {
   "date": "2026-10-07",
-  "hash": "7e77981617cd924e"
+  "hash": "b338cf6e5f2541cb"
  },
  "/html-to-markdown": {
   "date": "2026-10-07",
-  "hash": "f90c096ea0e63e16"
+  "hash": "fa8e4c9dab66e257"
  },
  "/html-to-pdf": {
   "date": "2026-10-07",
-  "hash": "df7a1b913b7b4030"
+  "hash": "3e6e15f3b8a6a621"
  },
  "/image-cdn": {
-  "date": "2026-10-06",
-  "hash": "a0e754cfd3475512"
+  "date": "2026-10-07",
+  "hash": "3f93f8ae4b4e4608"
  },
  "/image-color-palette-extractor": {
   "date": "2026-10-07",
-  "hash": "fca91746dcc21f68"
+  "hash": "754d4a66cb855d02"
  },
  "/image-to-pdf": {
   "date": "2026-10-07",
-  "hash": "fd66ad2f116c025b"
+  "hash": "c7240ca0af9a112e"
  },
  "/image-to-svg": {
   "date": "2026-10-07",
-  "hash": "c2eb341f6d16aa1e"
+  "hash": "c861f478cca1014f"
  },
  "/image-to-text": {
   "date": "2026-10-07",
-  "hash": "553228e5d0fd2ec2"
+  "hash": "76de5d9731b799a4"
  },
  "/instagram-image-carousel-splitter": {
   "date": "2026-10-07",
-  "hash": "8c426b136b98be3c"
+  "hash": "3dd35f29d2e746f0"
  },
  "/jpg-to-pdf": {
   "date": "2026-10-07",
-  "hash": "133ee1afc864bfa6"
+  "hash": "c62161203f45b7d0"
  },
  "/jpg-to-png": {
   "date": "2026-10-07",
-  "hash": "f21b5133aef58c97"
+  "hash": "39871a6ad564900c"
  },
  "/jpg-to-webp": {
   "date": "2026-10-07",
-  "hash": "7337770323a800a7"
+  "hash": "301a11bcd30b25af"
  },
  "/json-formatter": {
   "date": "2026-10-07",
-  "hash": "c33dfc6b9ac67ead"
+  "hash": "64821f2234128675"
  },
  "/linkedin-carousel-maker": {
   "date": "2026-10-07",
-  "hash": "6176a09e2cbca09e"
+  "hash": "53b5d48467a21b65"
  },
  "/markdown-converter": {
   "date": "2026-10-07",
-  "hash": "65cdd715e708b5fa"
+  "hash": "e0c45c388a476434"
  },
  "/markdown-to-html": {
   "date": "2026-10-07",
-  "hash": "d0c9af4a9a67c9dc"
+  "hash": "5ca0aadb155c0010"
  },
  "/markdown-to-pdf": {
   "date": "2026-10-07",
-  "hash": "5e92e404eb59a3d7"
+  "hash": "86f8507b600a5afa"
  },
  "/markdown-to-word": {
   "date": "2026-10-07",
-  "hash": "5ca924c1d62d142a"
+  "hash": "b8183c196454edc3"
  },
  "/meme-generator": {
   "date": "2026-10-07",
-  "hash": "9c448293c4d85dce"
+  "hash": "3b2eda0698d7d856"
  },
  "/merge-audio": {
   "date": "2026-10-07",
-  "hash": "9c64f739b5362435"
+  "hash": "191b345a8ba69d4a"
  },
  "/merge-pdf": {
   "date": "2026-10-07",
-  "hash": "6fda6fc85234284c"
+  "hash": "18b6006f224c47eb"
  },
  "/mp4-to-mp3": {
   "date": "2026-10-07",
-  "hash": "b307e381d75c74f0"
+  "hash": "e86462edf531e78c"
  },
  "/ocr-pdf": {
   "date": "2026-10-07",
-  "hash": "2f6baf8e5c9fc1d6"
+  "hash": "3b60876f6a3236ee"
  },
  "/organize-pdf": {
   "date": "2026-10-07",
-  "hash": "fa7286670d177478"
+  "hash": "fc1b15edcd3cfcce"
  },
  "/passport-size-photo-maker": {
   "date": "2026-10-07",
-  "hash": "ccbf7bdd44ed0474"
+  "hash": "afccd98efb53c65c"
  },
  "/password-generator": {
   "date": "2026-10-07",
-  "hash": "181e0bb4a2215e9d"
+  "hash": "3535a6f410b15789"
  },
  "/pdf-editor": {
   "date": "2026-10-07",
-  "hash": "028cc8a2f1b96f85"
+  "hash": "d0f52fac2c0e257f"
  },
  "/pdf-to-image": {
   "date": "2026-10-07",
-  "hash": "915e2105d0de64bf"
+  "hash": "4c6931e9fe79c905"
  },
  "/pdf-to-jpg": {
   "date": "2026-10-07",
-  "hash": "262dd2578842c597"
+  "hash": "c9b3f656977b4653"
  },
  "/pdf-to-markdown": {
   "date": "2026-10-07",
-  "hash": "cd96c1a172fe3e74"
+  "hash": "f32ecadc5cde9226"
  },
  "/pdf-to-png": {
   "date": "2026-10-07",
-  "hash": "6828ed8e6f3e411d"
+  "hash": "4ae438b06fe39e2d"
  },
  "/pdf-to-word": {
   "date": "2026-10-07",
-  "hash": "09365f985453e3d8"
+  "hash": "dd4269ea0850de66"
  },
  "/photo-collage-maker": {
   "date": "2026-10-07",
-  "hash": "6c6e244484183b0c"
+  "hash": "2ea552d141f6fcdc"
  },
  "/pixelate-image": {
   "date": "2026-10-07",
-  "hash": "340f86e4a72e1064"
+  "hash": "310e8707665a2a08"
  },
  "/png-to-jpg": {
   "date": "2026-10-07",
-  "hash": "2f4d72cc67959230"
+  "hash": "1a8a479183366495"
  },
  "/png-to-pdf": {
   "date": "2026-10-07",
-  "hash": "407f1c6d36e114fe"
+  "hash": "1215744f22e8503a"
  },
  "/privacy": {
   "date": "2026-10-07",
-  "hash": "699190ebf9a9f445"
+  "hash": "284986578fbb2db5"
  },
  "/protect-pdf": {
   "date": "2026-10-07",
-  "hash": "385461f3efb6d716"
+  "hash": "b56b1373f5b0fcf8"
  },
  "/qr-code-generator": {
   "date": "2026-10-07",
-  "hash": "4e56e137dc89e8a4"
+  "hash": "2518b9798bc63519"
  },
  "/remove-background": {
   "date": "2026-10-07",
-  "hash": "a241f8e9dbea0910"
+  "hash": "33da855861f686c7"
  },
  "/replace-background": {
   "date": "2026-10-07",
-  "hash": "d88da636b53a94e7"
+  "hash": "a849e8b57075d567"
  },
  "/resize-image": {
   "date": "2026-10-07",
-  "hash": "cbcfa15f0dcd10a2"
+  "hash": "6cda266b8f851073"
  },
  "/resize-image-to-kb": {
   "date": "2026-10-07",
-  "hash": "50e9a7990ca79916"
+  "hash": "ef5355c7f6ef110c"
  },
  "/rotate-flip": {
   "date": "2026-10-07",
-  "hash": "201a88c40425146c"
+  "hash": "8672388a47ac313b"
  },
  "/rotate-pdf": {
   "date": "2026-10-07",
-  "hash": "3901daade527b53c"
+  "hash": "2a8ac3266b0b22cc"
  },
  "/screenshot-beautifier": {
   "date": "2026-10-07",
-  "hash": "a56893df7b875138"
+  "hash": "fb4d3148b09e956c"
  },
  "/social-media-image-resizer": {
   "date": "2026-10-07",
-  "hash": "c7bc7e9df8235d43"
+  "hash": "45c170751c746ba4"
  },
  "/split-audio": {
   "date": "2026-10-07",
-  "hash": "18dff3c6d63f1bfa"
+  "hash": "4c6df19c84d66351"
  },
  "/split-pdf": {
   "date": "2026-10-07",
-  "hash": "73b1927939cb23a6"
+  "hash": "4636cc8cbd700e4a"
  },
  "/split-video": {
   "date": "2026-10-07",
-  "hash": "2ca939e51843d867"
+  "hash": "dfca564a57a16f42"
  },
  "/temporary-file-upload-direct-link-share": {
-  "date": "2026-10-06",
-  "hash": "026424d6e5b45154"
+  "date": "2026-10-07",
+  "hash": "145622be2f941197"
  },
  "/terms": {
   "date": "2026-10-07",
-  "hash": "7b5d839700bef25f"
+  "hash": "1b937c911aa2ce48"
  },
  "/text-case-converter": {
   "date": "2026-10-07",
-  "hash": "9648cccc8a91b9ad"
+  "hash": "10c4356825ec397f"
  },
  "/text-to-audio": {
   "date": "2026-10-07",
-  "hash": "ea3b054f006cb0d0"
+  "hash": "d03295128a3710e8"
  },
  "/thumbnail-generator": {
   "date": "2026-10-07",
-  "hash": "12504a3ac07f54b3"
+  "hash": "21d30eb0e589416f"
  },
  "/unlock-pdf": {
   "date": "2026-10-07",
-  "hash": "9f7b5acf9609735f"
+  "hash": "3969a1384d1229e0"
  },
  "/upscale-image": {
   "date": "2026-10-07",
-  "hash": "410efd95a64c0397"
+  "hash": "2d595a406b81435f"
  },
  "/url-encoder": {
   "date": "2026-10-07",
-  "hash": "66f48f2d7adcd5f2"
+  "hash": "6101a54bfd418853"
  },
  "/video-converter": {
   "date": "2026-10-07",
-  "hash": "16e28e5b543bec84"
+  "hash": "c089a6004e34551d"
  },
  "/video-merger": {
   "date": "2026-10-07",
-  "hash": "7998fff2ad9f490a"
+  "hash": "d41377bc2c1bfd4b"
  },
  "/video-to-audio": {
   "date": "2026-10-07",
-  "hash": "238618b904f7e7d8"
+  "hash": "9fd4d3bd1d83d1e4"
  },
  "/video-to-gif": {
   "date": "2026-10-07",
-  "hash": "b7e74543fb95533e"
+  "hash": "b67b22d3d33e6dcf"
  },
  "/video-to-text": {
   "date": "2026-10-07",
-  "hash": "b1b929fcceb947ff"
+  "hash": "f7d49bfa9936bfbf"
  },
  "/video-trimmer": {
   "date": "2026-10-07",
-  "hash": "f173594ed3b462f3"
+  "hash": "c02bdd302dcc1a37"
  },
  "/webp-to-jpg": {
   "date": "2026-10-07",
-  "hash": "ce0d883f7552bae1"
+  "hash": "1315de8b7c64215d"
  },
  "/website-color-palette-extractor": {
   "date": "2026-10-07",
-  "hash": "66a1e8fd1c74a56f"
+  "hash": "a5220b98f4cc2e73"
  },
  "/word-counter": {
   "date": "2026-10-07",
-  "hash": "90cc5d9b134a173d"
+  "hash": "4279ac988bd04a14"
  },
  "/word-to-pdf": {
   "date": "2026-10-07",
-  "hash": "8ffcc70253819f2c"
+  "hash": "2944b6709c24f383"
  }
 }
