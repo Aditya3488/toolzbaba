@@ -1,0 +1,53 @@
+# Builds the site and puts it on Cloudflare Pages as a PREVIEW (a test address like https://preview-legandory.toolzbaba.pages.dev).
+# It never touches toolzbaba.com: the live site is the Pages project's production branch (set in the Cloudflare dashboard), and this
+# deploys to a different branch name. To go live, deploy the production branch (see README, "Hosting on Cloudflare Pages").
+#
+# Needs two secrets in GitHub (Settings -> Secrets and variables -> Actions -> Repository secrets):
+#   CLOUDFLARE_API_TOKEN    a token with "Cloudflare Pages: Edit"
+#   CLOUDFLARE_ACCOUNT_ID   the account id (Cloudflare dashboard, right side of the Workers & Pages page)
+name: Deploy preview
+
+on:
+  push:
+    branches: [legandory]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-preview
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check the secrets are there
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          [ -n "$TOKEN" ] || { echo "::error::The secret CLOUDFLARE_API_TOKEN is missing (Settings -> Secrets and variables -> Actions)."; exit 1; }
+          [ -n "$ACCOUNT" ] || { echo "::error::The secret CLOUDFLARE_ACCOUNT_ID is missing (Settings -> Secrets and variables -> Actions)."; exit 1; }
+
+      - name: Build the site
+        run: python build.py
+
+      - name: Unit tests of the Cloudflare Functions
+        run: node tests/functions_test.mjs
+
+      - name: Deploy the preview
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages deploy dist --project-name=toolzbaba --branch=preview-legandory --commit-hash="$GITHUB_SHA" --commit-message="legandory ${GITHUB_SHA::7}" --commit-dirty=true
