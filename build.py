@@ -191,6 +191,8 @@ def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: 
         f'<meta name="twitter:title" content="{esc(title)}">',
         f'<meta name="twitter:description" content="{esc(clip(desc))}">',
         f'<meta name="twitter:image" content="{esc(img)}">',
+        '<link rel="preload" href="/assets/fonts/ui/inter-latin.woff2" as="font" type="font/woff2" crossorigin>',
+        '<link rel="preload" href="/assets/fonts/ui/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>',
         f'<link rel="stylesheet" href="/assets/app.css?v={VERSION}">',
     ]
     # the same page in the other languages (Google shows each person their own), English as the default
