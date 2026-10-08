@@ -1738,5 +1738,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ Il minimo possibile è {0}: non è stato possibile scendere sotto {1}. Prova una dimensione maggiore.",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ Già sotto {0}: questo file viene mantenuto così com'è ({1})",
 "✓ Valid JSON": "✓ JSON valido",
-"🎲 Random colour": "🎲 Colore casuale"
+"🎲 Random colour": "🎲 Colore casuale",
+"Convert {0} image{1}": "Converti immagini ({0})",
+"Compress {0} image{1}": "Comprimi immagini ({0})",
+"Convert {0} file{1}": "Converti file ({0})",
+"Compress {0} PNG": "Comprimi PNG ({0})",
+"Compress {0} PNGs": "Comprimi PNG ({0})",
+"Compress {0} GIF": "Comprimi GIF ({0})",
+"Compress {0} GIFs": "Comprimi GIF ({0})",
+"Merge {0} PDFs": "Unisci PDF ({0})",
+"Merge {0} videos": "Unisci video ({0})",
+"Get the audio from {0} file{1}": "Estrai l'audio ({0})",
+"Convert {0} MP4 to MP3": "Converti MP4 in MP3 ({0})",
+"Convert {0} MP4s to MP3": "Converti MP4 in MP3 ({0})",
+"Merge {0} audio file{1}": "Unisci file audio ({0})",
+"Convert {0} presentations": "Converti presentazioni ({0})",
+"a lower quality": "una qualità più bassa"
 }

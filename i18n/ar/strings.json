@@ -1778,5 +1778,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ أصغر حجم ممكن هو {0}: تعذّر النزول إلى أقل من {1}. جرّب حجمًا أكبر.",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ أقل من {0} بالفعل: يبقى هذا الملف كما هو ({1})",
 "✓ Valid JSON": "✓ JSON صالح",
-"🎲 Random colour": "🎲 لون عشوائي"
+"🎲 Random colour": "🎲 لون عشوائي",
+"Convert {0} image{1}": "تحويل الصور ({0})",
+"Compress {0} image{1}": "ضغط الصور ({0})",
+"Convert {0} file{1}": "تحويل الملفات ({0})",
+"Compress {0} PNG": "ضغط PNG ({0})",
+"Compress {0} PNGs": "ضغط PNG ({0})",
+"Compress {0} GIF": "ضغط GIF ({0})",
+"Compress {0} GIFs": "ضغط GIF ({0})",
+"Merge {0} PDFs": "دمج ملفات PDF ({0})",
+"Merge {0} videos": "دمج الفيديوهات ({0})",
+"Get the audio from {0} file{1}": "استخراج الصوت ({0})",
+"Convert {0} MP4 to MP3": "تحويل MP4 إلى MP3 ({0})",
+"Convert {0} MP4s to MP3": "تحويل MP4 إلى MP3 ({0})",
+"Merge {0} audio file{1}": "دمج الملفات الصوتية ({0})",
+"Convert {0} presentations": "تحويل العروض التقديمية ({0})",
+"a lower quality": "جودة أقل"
 }

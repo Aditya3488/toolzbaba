@@ -1765,5 +1765,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ Nhỏ nhất có thể là {0}: không thể xuống dưới {1}. Hãy thử kích thước lớn hơn.",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ Đã dưới {0}: tệp này được giữ nguyên ({1})",
 "✓ Valid JSON": "✓ JSON hợp lệ",
-"🎲 Random colour": "🎲 Màu ngẫu nhiên"
+"🎲 Random colour": "🎲 Màu ngẫu nhiên",
+"Convert {0} image{1}": "Chuyển đổi ảnh ({0})",
+"Compress {0} image{1}": "Nén ảnh ({0})",
+"Convert {0} file{1}": "Chuyển đổi tệp ({0})",
+"Compress {0} PNG": "Nén PNG ({0})",
+"Compress {0} PNGs": "Nén PNG ({0})",
+"Compress {0} GIF": "Nén GIF ({0})",
+"Compress {0} GIFs": "Nén GIF ({0})",
+"Merge {0} PDFs": "Gộp PDF ({0})",
+"Merge {0} videos": "Gộp video ({0})",
+"Get the audio from {0} file{1}": "Tách âm thanh ({0})",
+"Convert {0} MP4 to MP3": "Chuyển MP4 sang MP3 ({0})",
+"Convert {0} MP4s to MP3": "Chuyển MP4 sang MP3 ({0})",
+"Merge {0} audio file{1}": "Gộp tệp âm thanh ({0})",
+"Convert {0} presentations": "Chuyển đổi bài thuyết trình ({0})",
+"a lower quality": "chất lượng thấp hơn"
 }

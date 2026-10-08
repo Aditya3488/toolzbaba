@@ -1792,5 +1792,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ 最小でも {0} です: {1} 未満にできませんでした。もっと大きいサイズをお試しください。",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ すでに {0} 未満です: このファイルはそのまま保持しました（{1}）",
 "✓ Valid JSON": "✓ 有効な JSON",
-"🎲 Random colour": "🎲 ランダムな色"
+"🎲 Random colour": "🎲 ランダムな色",
+"Convert {0} image{1}": "画像を変換 ({0})",
+"Compress {0} image{1}": "画像を圧縮 ({0})",
+"Convert {0} file{1}": "ファイルを変換 ({0})",
+"Compress {0} PNG": "PNG を圧縮 ({0})",
+"Compress {0} PNGs": "PNG を圧縮 ({0})",
+"Compress {0} GIF": "GIF を圧縮 ({0})",
+"Compress {0} GIFs": "GIF を圧縮 ({0})",
+"Merge {0} PDFs": "PDF を結合 ({0})",
+"Merge {0} videos": "動画を結合 ({0})",
+"Get the audio from {0} file{1}": "音声を取り出す ({0})",
+"Convert {0} MP4 to MP3": "MP4 を MP3 に変換 ({0})",
+"Convert {0} MP4s to MP3": "MP4 を MP3 に変換 ({0})",
+"Merge {0} audio file{1}": "音声ファイルを結合 ({0})",
+"Convert {0} presentations": "プレゼンテーションを変換 ({0})",
+"a lower quality": "低い画質"
 }

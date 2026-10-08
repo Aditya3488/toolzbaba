@@ -877,3 +877,11 @@ a.ab-tool { color:inherit; text-decoration:none; transition:border-color .2s eas
 .top.nv-tight .nv { display:none; } .top.nv-tight .nv-burger { display:grid; }
 /* a dropdown never gets wider than its box: long option names in some languages (German URL Encoder: 443px on a 360px phone) widened the page */
 #tool select { max-width:100%; min-width:0; text-overflow:ellipsis; }
+/* the smallest phones (320-360px): the logo, search, language, Bookmark and menu buttons need 352px; tighter gaps and
+   34px buttons make them fit, so the menu button is never pushed off the screen */
+@media (max-width:360px) {
+  .top-in { gap:6px; padding-left:10px; padding-right:10px; }
+  .top-in > .iconbtn, .top-in .langbtn, .top-in > .bmbtn, .top-in > .nv-burger { width:34px; height:34px; min-width:34px; padding:0; justify-content:center; }
+  .top-in .langbtn .langcode { display:none; }
+  .brand span { font-size:.95rem; } .brand img { width:32px; height:32px; }
+}

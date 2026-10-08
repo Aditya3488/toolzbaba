@@ -175,7 +175,10 @@ const targetImage = kind => (root, meta) => {
         verdict.className = 'verdict ' + (r.reached ? 'ok' : 'warn');
         verdict.textContent = r.kept ? `✓ Already under ${fmtSize(limit)}: this file is kept as it is (${fmtSize(f.size)})`
           : r.reached ? `✓ ${fmtSize(r.blob.size)}: under ${fmtSize(limit)}` : `⚠ Smallest possible is ${fmtSize(r.blob.size)}: could not get under ${fmtSize(limit)}. Try a bigger size.`;
-      } else { verdict.className = 'verdict ' + (pct > 0 ? 'ok' : 'warn'); verdict.textContent = `${fmtSize(f.size)} → ${fmtSize(r.blob.size)} (${pct > 0 ? pct + '% smaller' : 'not smaller: try ' + (fmtOf(f) === 'png' ? 'fewer colours' : 'a lower quality')})`; }
+      } else {   // in pieces, so the page translator finds "% smaller", "not smaller: try" and the advice in its list (one glued sentence never matched)
+        verdict.className = 'verdict ' + (pct > 0 ? 'ok' : 'warn'); verdict.textContent = '';
+        verdict.append(`${fmtSize(f.size)} → ${fmtSize(r.blob.size)} (`, ...(pct > 0 ? [String(pct), '% smaller'] : ['not smaller: try', ' ', fmtOf(f) === 'png' ? 'fewer colours' : 'a lower quality']), ')');
+      }
       detail.textContent = `${r.w} × ${r.h} px` + (r.q ? ` · quality ${Math.round(r.q * 100)}%` : '') + (r.colors ? ` · ${r.colors} colours` : '') + (r.scaled ? ` · made smaller to fit (was ${r.w0} × ${r.h0} px)` : '') + (pct > 0 && mode === 'target' ? ` · ${pct}% smaller than the original` : '');
       dlOne.disabled = false; prog.clear();
     } catch (e) { if (my === token) { verdict.className = 'verdict warn'; verdict.textContent = ''; prog.error(e.message); } }

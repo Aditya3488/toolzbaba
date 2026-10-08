@@ -152,9 +152,20 @@ def clip(s: str, n: int = 158) -> str:
     return s if len(s) <= n else s[: n - 1].rsplit(" ", 1)[0] + "…"
 
 
+def fit_title(title: str) -> str:
+    """Google shows about 60-70 characters of a title. A translation often runs longer than its English original, and then
+    the end gets cut. When the title is too long and ends with " | Toolz Baba", that ending goes (Google shows the site
+    name next to the result anyway), so the tool name and keywords stay visible. Wide letters (Japanese) count double."""
+    import unicodedata
+    width = sum(2 if unicodedata.east_asian_width(ch) in "WF" else 1 for ch in title)
+    tail = " | " + SITE_NAME
+    return title[: -len(tail)] if width > 70 and title.endswith(tail) else title
+
+
 def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False, trackers: bool = True,
          alts: list | None = None, lang: str = "en") -> str:
     url = SITE_URL + path
+    title = fit_title(title)
     img = SITE_URL + "/assets/og.png"
     tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID and trackers else []
     tags += [
