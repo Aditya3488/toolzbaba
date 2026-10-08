@@ -39,7 +39,7 @@
   // A word: "word" must be the whole word, "word*" is the start of a word, words with a space or in Japanese are found
   // anywhere. "xx:word" is used only on the xx pages (a word that means something else in other languages).
   const LEX = {
-    compress: 'compress*|shrink*|too big|too large|too heavy|heavy|reduce*|smaller|small|lighter|lightweight|decrease*|kam|kum|chota|chhota|choti|chhoti|chote|ghatao|ghata|कम|छोटा|छोटी|छोटे|घटा*|कंप्रेस*|ছোট|কমা*|কম|কম্প্রেস*|comprim*|reduc*|reduz*|diminu*|pequeñ*|más ligera|menos peso|ligera|ligeira|mais leve|leve|allég*|réduire|réduis*|rédui*|compresse*|kleiner|verklein*|verringer*|reduzier*|komprim*|сжат*|сжим*|сожм*|уменьш*|меньше|圧縮|小さく|軽く|軽量|縮小|sıkıştır*|küçült*|azalt*|nén|giảm|nhỏ|rido*|riduci*|riduzi*|allegger*|più piccol*|ضغط|اضغط|صغر|تصغير|قلل|تقليل|kompres*|kecil*|perkecil|kurangi|skompresuj|kompresuj*|kompresj*|zmniejsz*|mniejsz*|pomniejsz*',
+    compress: 'compress*|shrink*|too big|too large|too heavy|heavy|less|lesser|lower|minimi*|cut down|bring down|optimi*|reduce*|smaller|small|lighter|lightweight|decrease*|kam|kum|chota|chhota|choti|chhoti|chote|ghatao|ghata|कम|छोटा|छोटी|छोटे|घटा*|कंप्रेस*|ছোট|কমা*|কম|কম্প্রেস*|comprim*|reduc*|reduz*|diminu*|pequeñ*|más ligera|menos peso|ligera|ligeira|mais leve|leve|allég*|réduire|réduis*|rédui*|compresse*|kleiner|verklein*|verringer*|reduzier*|komprim*|сжат*|сжим*|сожм*|уменьш*|меньше|圧縮|小さく|軽く|軽量|縮小|sıkıştır*|küçült*|azalt*|nén|giảm|nhỏ|rido*|riduci*|riduzi*|allegger*|più piccol*|ضغط|اضغط|صغر|تصغير|قلل|تقليل|kompres*|kecil*|perkecil|kurangi|skompresuj|kompresuj*|kompresj*|zmniejsz*|mniejsz*|pomniejsz*',
     resize: 'resize*|dimension*|width|height|pixel*|px|rescale|scale|size|redimension*|tamaño|tamanho|taille|größe|grösse|размер*|サイズ|boyut*|kích thước|kích cỡ|ridimension*|dimensioni|الحجم|حجم|المقاس|ukuran|rozmiar*|साइज|आकार|সাইজ|আকার',
     convert: 'convert*|conver*|turn|transform*|save as|export*|badlo|badal*|बदल*|कन्वर्ट*|রূপান্তর*|কনভার্ট*|বদল*|convierte|convertir|pasar|converta|transforme|transformar|convertis*|umwandeln|umwandl*|wandle*|konvertier*|конверт*|преобраз*|переве*|変換|dönüştür*|çevir*|chuyển*|đổi|converti*|trasforma*|تحويل|حول|ubah|konversi|jadikan|zamień|konwert*|przekonwert*',
     merge: 'merge*|combin*|join*|together|one file|single file|one pdf|single pdf|jodo|jod|jodna|milao|जोड*|मिला*|एक में|एक करो|एक कर|ek karo|একত্র*|জুড়*|জোড়া*|যুক্ত কর*|unir|unifica*|es:une|juntar|junte|junta*|combinar|fusionn*|fusion*|regroup*|zusammen*|verbind*|füge*|объедин*|склеи*|соедин*|結合|まとめ|ひとつ|一つ|1つ|birleştir*|gộp|ghép|nối|unisci|unire|combina*|دمج|ادمج|اجمع|gabung*|satukan|połącz*|scal*|jeden plik|tr:tek',
@@ -49,7 +49,7 @@
     transparent: 'transparent*|transparen*|trasparen*|прозрачн*|透過|透明|şeffaf|trong suốt|شفاف*|przezroczyst*|ট্রান্সপারেন্ট|पारदर्शी',
     replace: 'replace*|change|swap|new|white|black|blue|red|green|सफेद|সাদা|blanco|branco|blanc|weiß|weiss|бел*|白|beyaz|trắng|bianco|أبيض|putih|biał*|बदल*|cambiar|cambia*|trocar|troque|changer|change*|ändern|ersetz*|замен*|поменя*|変更|置き換え|değiştir*|thay*|sostitu*|استبدال|غير|تغيير|ganti|zmień|wymień|বদল*|পরিবর্তন*',
     image: 'image*|photo*|pic|pics|screenshot*|picture*|img|selfie*|tasveer|tasvir|फोटो|तस्वीर*|चित्र|इमेज|पिक|ছবি*|ফটো*|ইমেজ|imagen*|imágen*|imagem*|imagens|immagin*|foto*|bild|bilder|bildes|изображ*|фото*|картин*|снимок|写真|画像|イメージ|resim*|fotoğraf*|görsel*|ảnh|hình*|صورة|صورتي|صور|gambar*|zdjęci*|obraz*|fotka*|jpg|jpeg|png|webp|heic|avif|bmp|tiff|जेपीजी|পিএনজি|জেপিজি|पीएनजी',
-    jpg: 'jpg|jpeg|jpe|जेपीजी|জেপিজি|джпг', png: 'png|पीएनजी|পিএনজি', webp: 'webp', heic: 'heic|heif|iphone photo*', gif: 'gif|gifs', svg: 'svg|vector*|vektor*|вектор*|ベクター',
+    jpg: 'jpg|jpeg|jpe|जेपीजी|জেপিজি|джпг', png: 'png|पीएनजी|পিএনজি', webp: 'webp', heic: 'heic|heif|iphone photo*|iphone pic*|iphone image*|iphone picture*|apple photo*', gif: 'gif|gifs', svg: 'svg|vector*|vektor*|вектор*|ベクター',
     pdf: 'pdf*|पीडीएफ|পিডিএফ|пдф',
     doc: 'document*|documento*|dokument*|документ*|文書|書類|belge*|tài liệu|مستند*|وثيقة|dokumen*|दस्तावेज*|डॉक्यूमेंट|ডকুমেন্ট*|নথি',
     word: 'word|docx|doc|ms word|वर्ड|ওয়ার্ড|ворд|ワード|وورد|ورد',
@@ -59,12 +59,12 @@
     text: 'text*|words|writing|written|letters|typed|टेक्स्ट|लिखा*|शब्द|লেখা*|টেক্সট|অক্ষর|texto*|texte*|testo|текст*|テキスト|文字|metin*|yazı*|chữ|văn bản|نص|النص|الكتابة|teks|tulisan|tekst*',
     video: 'video*|vid|vedio*|vidio*|viedo*|vidoe*|movie*|film*|clip*|reel*|mp4|mov|mkv|avi|webm|वीडियो|विडियो|ভিডিও|vídeo*|vidéo*|видео|ролик*|動画|ビデオ|phim|فيديو|الفيديو|wideo|filmik*',
     mp4: 'mp4',
-    audio: 'audio*|song*|एमपी3|music*|sound*|track|mp3|wav|m4a|aac|flac|ogg|gana|gaana|गाना|गाने|गीत|संगीत|ऑडियो|आवाज*|গান|অডিও|সঙ্গীত|canción|cancion*|música|musica|áudio|fr:son|chanson*|musique|de:lied|musik|de:ton|песн*|музык*|аудио|звук*|曲|音楽|音声|オーディオ|şarkı*|müzik*|tr:ses|bài hát|nhạc|âm thanh|canzon*|أغنية|الأغنية|موسيقى|الصوت|lagu|suara|piosenk*|muzyk*|dźwięk*',
+    audio: 'audio*|song*|music*|sound*|track|mp3|wav|m4a|aac|flac|ogg|gana|gaana|गाना|गाने|गीत|संगीत|ऑडियो|आवाज*|গান|অডিও|সঙ্গীত|canción|cancion*|música|musica|áudio|fr:son|chanson*|musique|de:lied|musik|de:ton|песн*|музык*|аудио|звук*|曲|音楽|音声|オーディオ|şarkı*|müzik*|tr:ses|bài hát|nhạc|âm thanh|canzon*|أغنية|الأغنية|موسيقى|الصوت|lagu|suara|piosenk*|muzyk*|dźwięk*|एमपी3',
     mp3: 'mp3', wav: 'wav', m4a: 'm4a', flac: 'flac', ogg: 'ogg', aac: 'aac',
     speech: 'speech|voice|voiceover|aloud|read out|narrat*|tts|बोलकर|आवाज़ में|voz|voix|stimme|голос*|読み上げ|seslendir*|giọng|đọc|voce|نطق|głos*|কণ্ঠ|বলে',
     sign: 'sign|signs|signing|signature*|esign*|e-sign|autograph|हस्ताक्षर|साइन|দস্তখত|স্বাক্ষর|সই|firma*|firme|assin*|signe*|signer|signatur*|unterschr*|подпис*|署名|サイン|imza*|ký|chữ ký|توقيع|وقع|tanda tangan|ttd|podpis*',
     protect: 'protect*|lock|encrypt*|लॉक|লক|proteg*|bloque*|protég*|verrouill*|chiffr*|schütz*|verschlüssel*|sperr*|защит*|запарол*|保護|ロック|暗号|koru*|şifrele*|kilitle*|bảo vệ|khóa|protegg*|blocca*|حماية|احم|قفل|kunci|lindungi|zabezpiecz*|chroń|zablokuj|zaszyfruj',
-    unlock: 'unlock*|decrypt*|open password|forgot|forgotten|lost|अनलॉक|আনলক|desbloque*|débloqu*|déverrouill*|entsperr*|freischalt*|разблок*|снять пароль|ロック解除|解除|kilidini aç*|kilit aç*|mở khóa|sblocca*|فك القفل|فتح القفل|buka kunci|odblokuj*',
+    unlock: 'unlock*|decrypt*|locked|open locked|open password|forgot|forgotten|lost|अनलॉक|আনলক|desbloque*|débloqu*|déverrouill*|entsperr*|freischalt*|разблок*|снять пароль|ロック解除|解除|kilidini aç*|kilit aç*|mở khóa|sblocca*|فك القفل|فتح القفل|buka kunci|odblokuj*',
     password: 'password*|पासवर्ड|পাসওয়ার্ড|contraseña*|senha*|mot de passe|passwort*|kennwort|пароль*|パスワード|şifre*|mật khẩu|parola|كلمة المرور|كلمة السر|kata sandi|sandi|hasło|hasła|hasl*',
     rotate: 'rotat*|sideways|upside down|flip*|mirror*|ghumao|ghuma|घुमा*|उल्टा|ঘোরা*|girar|gira*|rodar|tourn*|pivot*|dreh*|spiegel*|поверн*|переверн*|разверн*|回転|反転|döndür*|xoay|lật|ruota*|capovolg*|تدوير|دور|اقلب|putar*|balik*|obróć|obroc*|odwróć',
     crop: 'crop*|cut out|क्रॉप|ক্রপ|recort*|recadr*|rogner|zuschneid*|beschneid*|обрез*|кадрир*|トリミング|切り抜|kırp*|ritaglia*|اقتصاص|krop*|przytnij|kadruj*',
@@ -76,7 +76,7 @@
     watermark: 'watermark*|stamp|logo|वॉटरमार्क|ওয়াটারমার্ক|marca de agua|marca d\'água|filigrane|wasserzeichen|водян*|透かし|ウォーターマーク|filigran*|hình mờ|filigrana|علامة مائية|العلامة المائية|tanda air|znak wodny|znakiem wodnym',
     passport: 'passport*|visa photo|id photo|id card photo|3x4|35x45|2x2|पासपोर्ट|পাসপোর্ট|pasaporte|carnet|fotocarnet*|passaporte|3x4|identité|passbild*|passfoto*|biometrisch*|паспорт*|証明写真|パスポート|vesikalık|biyometrik|pasaport|hộ chiếu|ảnh thẻ|fototessera|passaporto|جواز|paspor|pas foto|pasfoto|paszport*|legitymacj*',
     kb: 'kb|kbs|kilobyte*|केबी|কেবি|кб|килобайт*|mb|мб',
-    form: 'exam*|form|forms|application|pan card|aadhaar|aadhar|id card|voter|upsc|ssc|neet|jee|govt|government|sarkari|परीक्षा|फॉर्म|आवेदन|পরীক্ষা|ফর্ম|আবেদন|formulario|formulário|formulaire|formular|анкет*|заявлени*|申込|申請|フォーム|form|biểu mẫu|hồ sơ|modulo|استمارة|نموذج|formulir|formularz*',
+    form: 'exam*|form|forms|application|for document|for documents|for upload|to upload|upload*|portal|online form|job form|admit card|pan card|aadhaar|aadhar|id card|voter|upsc|ssc|neet|jee|govt|government|sarkari|परीक्षा|फॉर्म|आवेदन|পরীক্ষা|ফর্ম|আবেদন|formulario|formulário|formulaire|formular|анкет*|заявлени*|申込|申請|フォーム|form|biểu mẫu|hồ sơ|modulo|استمارة|نموذج|formulir|formularz*',
     page: 'page|pages|पेज|पन्न*|পৃষ্ঠা*|পেজ|página*|pagina*|seite*|страниц*|ページ|sayfa*|trang|صفحة|صفحات|الصفحات|halaman|stron*|strona',
     number: 'number*|numbering|paginat*|नंबर|সংখ্যা|নম্বর|numer*|número*|numéro*|nummer*|нумер*|номер*|番号|numara*|đánh số|numera*|ترقيم|أرقام|nomor*|numeruj*',
     extract: 'extract*|get|take|take out|pull out|copy|grab|nikalo|निकाल*|कॉपी|কপি|বের কর*|extra*|sacar|saca|copiar|copia*|tirar|tire|extrai*|extraire|extrais|copier|copie|extrahier*|kopier*|hol|извлеч*|вытащ*|достан*|скопир*|копир*|取り出|抽出|コピー|çıkar*|kopyala*|lấy|sao chép|estrai*|استخرج|استخراج|انسخ|نسخ|ambil|salin|ekstrak|wyciągnij|wyodrębnij|skopiuj|kopiuj',
@@ -96,7 +96,7 @@
     meme: 'meme*|मीम|মিম|мем*|ミーム|ميم', favicon: 'favicon*|site icon', thumbnail: 'thumbnail*|thumb|youtube cover|थंबनेल|থাম্বনেইল|miniatura*|vignette*|миниатюр*|превью|サムネ*|küçük resim|ảnh bìa|copertina|صورة مصغرة',
     screenshot: 'screenshot*|screen shot|स्क्रीनशॉट|স্ক্রিনশট|captura de pantalla|captura de tela|capture d\'écran|bildschirmfoto|скриншот*|スクショ|スクリーンショット|ekran görüntüsü|ảnh chụp màn hình|لقطة شاشة|tangkapan layar|zrzut ekranu',
     anime: 'anime|cartoon*|ghibli|toon*|कार्टून|এনিমে|কার্টুন|caricatura|dessin animé|мульт*|аниме|アニメ|çizgi film|hoạt hình|cartone|كرتون|انمي|kartun|kreskówk*',
-    headshot: 'headshot*|profile photo|profile picture|linkedin photo|professional photo', exif: 'exif|metadata|meta data|location|gps|geotag*|camera info',
+    headshot: 'headshot*|profile|profile photo|profile picture|linkedin photo|professional photo', exif: 'exif|metadata|meta data|location|gps|geotag*|camera info',
     carousel: 'carousel*|carrusel|carrossel|carrousel|karussell|карусел*|カルーセル|karusel*|caroselo|كاروسيل',
     scan: 'scan|scans|scanned|scanner|ocr|स्कैन|স্ক্যান|escane*|escaneado|digitaliz*|numérisé*|gescannt*|скан*|スキャン|taranmış|quét|scansionat*|ممسوح|pindai*|zeskanow*',
     social: 'instagram|insta|whatsapp|facebook|fb|twitter|tiktok|youtube|linkedin|story|stories|dp|status|line|zalo|telegram|pinterest|snapchat',
@@ -115,14 +115,14 @@
   // how much a word says about the tool: a rare, precise word (passport, watermark) beats a common one (photo)
   const WT = { passport: 8, background: 5, transparent: 5, watermark: 5, sign: 5, exif: 5, meme: 5, favicon: 5, thumbnail: 5, screenshot: 4, heic: 3, anime: 5, headshot: 5, collage: 5,
     carousel: 5, qr: 5, json: 5, case: 5, hash: 5, base64: 5, urlenc: 5, flatten: 5, pixelate: 5, unlock: 5, font: 4, speed: 4, count: 4, repair: 4, compare: 4, organize: 4,
-    blur: 4, upscale: 4, scan: 4, number: 3, password: 3, protect: 3, speech: 3, color: 3, link: 3, form: 3, face: 3, rotate: 3, crop: 3, compress: 2.5, merge: 2.5, split: 2.5,
+    blur: 4, upscale: 4, scan: 2.5, number: 3, password: 3, protect: 3, speech: 3, color: 3, link: 3, form: 3, face: 3, rotate: 3, crop: 3, compress: 2.5, merge: 2.5, split: 2.5,
     edit: 2.5, resize: 2, remove: 2, replace: 2, cut: 2, site: 2, word: 2, convert: 1, social: 1, extract: 1, generate: 1, doc: 1 };
   const wt = c => WT[c] || 1.5;
   // the jobs: a tool and the ideas it needs (all of them). Popular tools first: on a tie the earlier one wins.
   const RULES = [
     ['', 'remove watermark'], ['', 'rotate video'],
     ['passport-size-photo-maker', 'passport'], ['remove-background', 'remove background'], ['remove-background', 'transparent'], ['replace-background', 'replace background'],
-    ['remove-background', 'background'], ['resize-image-to-kb', 'resize sign'], ['resize-image-to-kb', 'compress sign'], ['resize-image-to-kb', 'form sign'], ['resize-image-to-kb', 'form image'], ['esign-pdf', 'sign'],
+    ['remove-background', 'background'], ['resize-image-to-kb', 'resize sign'], ['resize-image-to-kb', 'compress sign'], ['resize-image-to-kb', 'form sign'], ['resize-image-to-kb', 'compress image form'], ['resize-image-to-kb', 'compress image doc'], ['resize-image-to-kb', 'form image'], ['esign-pdf', 'sign'],
     ['compress-pdf', 'compress pdf'], ['compress-image', 'compress image'], ['compress-video', 'compress video'], ['merge-pdf', 'merge pdf'], ['photo-collage-maker', 'collage'],
     ['video-merger', 'merge video'], ['merge-audio', 'merge audio'], ['photo-collage-maker', 'merge image'], ['split-pdf', 'split pdf'], ['split-video', 'split video'], ['split-audio', 'split audio'],
     ['unlock-pdf', 'unlock'], ['unlock-pdf', 'remove password'], ['protect-pdf', 'protect pdf'], ['protect-pdf', 'password pdf'], ['password-generator', 'generate password'], ['password-generator', 'password'],
@@ -160,7 +160,7 @@
     mp3: ['mp3', 'audio'], audio: ['audio', 'mp3'], wav: ['wav', 'audio'], m4a: ['m4a', 'audio'], flac: ['flac', 'audio'], ogg: ['ogg', 'audio'], aac: ['aac', 'audio'], speech: ['audio'] };
   // "the text FROM this picture": the source comes after these words, so the order flips
   const FROM = new Set(['from', 'of', 'out', 'desde', 'de', 'del', 'da', 'do', 'das', 'dos', 'desta', 'deste', 'dessa', 'desse', 'dal', 'dalla', 'dallo', 'dai', 'aus', 'von', 'из', 'с', 'со', 'من', 'từ', 'z', 'ze', 'dari']);
-  const TO_WORDS = new Set(['to', 'into', 'as', '2']);
+  const TO_WORDS = new Set(['to', 'too', 'into', 'as', '2']);
   const OBJ = new Set([...Object.keys(FAM), 'doc', 'page']);
   const VERB = new Set(['compress', 'resize', 'convert', 'merge', 'split', 'remove', 'rotate', 'crop', 'cut', 'edit', 'protect', 'unlock', 'upscale', 'watermark', 'number', 'organize', 'extract', 'sign', 'blur', 'replace']);
   // words that join two jobs; the short ones only in their own language ("i" is "and" in Polish but "the" in Italian)
@@ -181,10 +181,41 @@
     const mode = SPACED.test(x) ? (pre ? 'pre' : 'eq') : 'sub', f = fold(x);
     return f === x ? [{ c, lang, e: x, mode }] : [{ c, lang, e: x, mode }, { c, lang, e: f, mode, folded: true }];
   }).flat());
+  // the English (and Hinglish) words of each idea come first in its list, before the first word in another script:
+  // on English pages only these are used to correct typos ("resume" must not become the Turkish "resim", picture)
+  Object.entries(LEX).forEach(([c, str]) => { const lead = new Set(); for (const w of str.split('|')) { if (/[^\x00-\x7f]/.test(w)) break; lead.add(clean(w).replace(/\*$/, '')); } ENTRIES.forEach(x => { if (x.c === c && lead.has(x.e)) x.en = true; }); });
+  // words that only take part in phrases ("my files", "black out"), known for spelling only
+  ['files', 'file', 'black', 'watermark', 'watermarks', 'without', 'internet', 'account', 'signup'].forEach(e => ENTRIES.push({ c: null, e, mode: 'sub', vocab: true, en: true }));
   const AR_PRE = ['وال', 'بال', 'لل', 'ال', 'و', 'ب', 'ل', 'ف'];
+  // edit distance with swaps (Damerau), giving up early once it passes max
+  const dist = (a, b, max) => {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]); for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) {
+      let low = Infinity;
+      for (let j = 1; j <= b.length; j++) {
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+        low = Math.min(low, d[i][j]);
+      }
+      if (low > max) return max + 1;
+    }
+    return d[a.length][b.length];
+  };
+  const swapped = (a, b) => a.length === b.length && [...a].filter((c, i) => c !== b[i]).length === 2 && [...a].sort().join('') === [...b].sort().join('');
+  // everyday words that sit one letter away from a tool word (from/form, while/white, there/three...): never "corrected"
+  const COMMON = new Set(('from have want need with this that these those there their they them then than what when where which while white whole about after again also because '
+    + 'before below between both could does doing done each every first from into just know like made make many more most much only other over same should some such take '
+    + 'than thank thanks their through under until using very well were will with without would your yours mine please help hello want wants wanted need needs needed '
+    + 'side sides time times part parts back home work works world life hand high long last next best good great large little older newer right left '
+    + 'front start open close show tell give keep kept send sent find found took come came going gone look looking used user users people person '
+    + 'place point friend friends family school college office phone email mails message number name names line lines post posts paste past '
+    + 'note notes plan plans sure okay fine nice cool easy hard quick quickly fast slow free cost help working showing doing making taking '
+    + 'getting asking trying sending send able unable small smaller bigger better same different another anything something nothing everything '
+    + 'karna karo kaise kaisa hai hain mein mera meri mujhe chahiye wala wali krna krdo kardo karde batao bata sakte sakta').split(' '));
 
   // the ideas in a piece of text, each with where it first appears
-  const analyse = (text, lang) => {
+  const analyse = (text, lang, fixed = false) => {
     const n = clean(text).replace(/sign[\s-]?(up|in)\b/g, 'signup').replace(/\b(no|without|free of|zero) watermarks?/g, 'nowatermark')
       .replace(/([\p{Script=Latin}\d])(?=[^\p{Script=Latin}\d\s'-])/gu, '$1 ').replace(/([^\p{Script=Latin}\d\s'-])(?=[\p{Script=Latin}\d])/gu, '$1 ');
     const toks = [];
@@ -196,19 +227,45 @@
     const hits = new Map(), hit = (c, i) => { if (!hits.has(c) || hits.get(c) > i) hits.set(c, i); };
     const nf = lang === 'vi' ? n : fold(n);
     for (const x of ENTRIES) {
-      if ((x.lang && x.lang !== lang) || (x.folded && lang === 'vi')) continue;
+      if ((x.lang && x.lang !== lang) || (x.folded && lang === 'vi') || x.vocab) continue;
       if (x.mode === 'sub') {
         const edge = /^[\p{Script=Latin}\p{Script=Cyrillic}\p{Script=Devanagari}\p{Script=Bengali}\p{Script=Arabic}]/u.test(x.e), s = x.folded ? nf : n;
         for (let k = s.indexOf(x.e); k >= 0; k = s.indexOf(x.e, k + 1)) if (!edge || !/[\p{L}\p{M}]/u.test(s[k - 1] || ' ')) { hit(x.c, k); break; }
       } else for (const t of toks) if (x.mode === 'pre' ? t.t.startsWith(x.e) : (t.t === x.e || t.t === x.e + 's')) { hit(x.c, t.i); break; }
     }
+    // typos ("decreaase", "pasport", "mrege", "wrod"): a Latin word that matched nothing is compared with the vocabulary,
+    // allowing one wrong, missing, extra or swapped letter (two in long words)
+    const fixes = [];
+    for (const t of fixed ? [] : toks) {
+      const w = t.t; if (w.length < 4 || !/^\p{Script=Latin}+$/u.test(w) || COMMON.has(w) || ENTRIES.some(x => x.mode !== 'sub' && (x.mode === 'pre' ? w.startsWith(x.e) : w === x.e || w === x.e + 's'))) continue;
+      let best = null, found = [];
+      for (const x of ENTRIES) {
+        // typos almost never change the first letter, so a candidate must start with the same one
+        if ((x.mode === 'sub' && !x.vocab) || (x.lang && x.lang !== lang) || (lang === 'en' && !x.en) || x.e.length < 4 || !/^[a-z]+$/.test(x.e) || x.e[0] !== w[0]) continue;
+        const max = x.e.length >= 8 ? 2 : 1;
+        // a stem ("compress*") is compared with the start of the word; a dropped letter ("comine" for combine) makes that
+        // start one letter shorter, which counts a little less; an exact word is compared with the whole word
+        const d = x.mode === 'pre' ? Math.min(dist(w.slice(0, x.e.length), x.e, max), dist(w.slice(0, x.e.length + 1), x.e, max), dist(w.slice(0, x.e.length - 1), x.e, max) + .5)
+          : Math.min(dist(w, x.e, max), dist(w.replace(/s$/, ''), x.e, max));
+        if (Math.floor(d) > max || (x.e.length < 5 && d > 0 && !swapped(w.replace(/s$/, ''), x.e))) continue;   // 4-letter words: only a swap (wrod -> word); the .5 only ranks
+        found.push({ c: x.c, e: x.e, d });
+        // closest first; on a tie the longer (more specific) word, then the more telling idea (passport over password)
+        if (!best || d < best.d || (d === best.d && (x.e.length > best.e.length || (x.e.length === best.e.length && wt(x.c) > wt(best.c))))) best = { c: x.c, e: x.e, d };
+      }
+      // the word gets every idea its corrected form has ("screenshot" is a picture and the screenshot tool)
+      if (best) { found.filter(f => f.e === best.e && f.d === best.d && f.c).forEach(f => hit(f.c, t.i)); if (best.e !== w) fixes.push({ i: t.i, len: w.length, to: best.e }); }
+    }
+    // with the words corrected, read the sentence once more, so phrases match too ("blaack out", "no watemark", "my filles")
+    if (fixes.length) { let s2 = n; fixes.sort((a, b) => b.i - a.i).forEach(f => { s2 = s2.slice(0, f.i) + f.to + s2.slice(f.i + f.len); }); return analyse(s2, lang, true); }
     const sm = [...n.matchAll(/(\d+(?:[.,]\d+)?)\s*(kb|k|kbs|kilobytes?|кб|केबी|কেবি|mb|мб|एमबी|এমবি)(?![\p{L}])/gu)].pop();
     const size = sm ? { n: sm[1].replace(',', '.'), u: /^(mb|мб|एमबी|এমবি)$/.test(sm[2]) ? 'mb' : 'kb' } : null;
     if (size) hit('kb', sm.index);
-    const dm = /\d+\s*[x×]\s*\d+/.exec(n); if (dm && !hits.has('passport')) hit('resize', dm.index);
+    // the usual ID photo sizes, in cm or inches, are the passport tool (3.5 x 4.5 cm, 2 x 2 in)
+    const pm = /\b(3[.,]5|35)\s*[x×*]\s*(4[.,]5|45)\b|\b2\s*[x×*]\s*2\s*(in|inch|")/.exec(text.toLowerCase()); if (pm) hit('passport', 0);   // on the text as typed: the steps above split "3.5"
+    const dm = /\d+(?:[.,]\d+)?\s*[x×]\s*\d+/.exec(n); if (dm && !hits.has('passport')) hit('resize', dm.index);
     return { n, toks, hits, size };
   };
-  const has = (A, c) => A.hits.has(c) || (c === 'pdf' && A.hits.has('doc'));
+  const has = (A, c) => A.hits.has(c) || (c === 'pdf' && A.hits.has('doc') && !A.hits.has('image'));
 
   // "A to B" (pdf to jpg, photo into pdf, the song from this video as mp3)
   const conversion = (A, all) => {
@@ -259,7 +316,8 @@
     if (!slug) {
       const conv = conversion(A, all), rule = bestRule(A);
       if (rule && rule.slug === '') return { none: true };
-      if (conv && !(rule && rule.strong && rule.score >= 5)) { slug = conv.slug; out = conv.out; }
+      if (conv && conv.slug === 'pdf-to-text' && A.hits.has('scan')) { slug = 'ocr-pdf'; out = 'pdf'; }   // text out of a scan needs OCR
+      else if (conv && !(rule && rule.strong && rule.score >= 5 && !(rule.slug === 'ocr-pdf'))) { slug = conv.slug; out = conv.out; }
       else if (rule && !(rule.score < 3 && faqsOf(A).some(f => NOTE_FAQ.has(f)))) slug = rule.slug;   // "max file size" is a question, not a resize
     }
     const faqs = faqsOf(A);
@@ -322,6 +380,7 @@
     return res('none', SLUGS.slice(0, 4));
   };
   HT.askBabaMatch = (data, text) => match(data, text);
+  HT.askBabaWords = text => [...analyse(text, HT.lang).hits.keys()];   // which ideas Baba sees in a text (for testing)
 
   HT.askBaba = async (stage, { compact = false } = {}) => {
     if (!stage || stage.dataset.ready) return; stage.dataset.ready = '1';
