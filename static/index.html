@@ -12,14 +12,8 @@
 <section class="hero">
   <div class="hero-in">
     <div class="hero-copy">
-    <span class="eyebrow"><i></i><span id="count">36</span> free tools &middot; no sign-up</span>
     <h1>Every file tool you need, <span class="grad">in one place</span></h1>
     <p class="lead">Compress and edit images, work with PDFs, convert video, remove backgrounds with AI and more. Every tool runs right in your browser, so your files never leave your device.</p>
-    <div class="bigsearch" id="bigsearch">
-      <input id="q" type="search" placeholder="Search tools: compress, pdf, gif..." autocomplete="off" aria-label="Search tools">
-      <kbd>/</kbd>
-    </div>
-    <div class="chips" id="popular" aria-label="Popular tools"></div>
     <div class="trust" id="trust"></div>
     </div>
     <div class="hero-art"><img src="/assets/brand/hero-art-540.webp" srcset="/assets/brand/hero-art-330.webp 330w, /assets/brand/hero-art-540.webp 540w, /assets/brand/hero-art.webp 780w" sizes="(max-width: 960px) 300px, 540px" alt="Toolz Baba, a friendly sage in sunglasses working on a laptop surrounded by tool icons" width="780" height="452" fetchpriority="high"></div>
@@ -54,19 +48,9 @@
   new IntersectionObserver((es, o) => { if (es.some(e => e.isIntersecting)) { o.disconnect(); HT.loadScript('/assets/ask-baba.js').then(() => HT.askBaba(askStage)); } }, { rootMargin: '400px' }).observe(askStage);
 
   const el = HT.el;
-  const bs = document.getElementById('bigsearch'); bs.prepend(HT.svg(HT.ICON.search));
   document.querySelectorAll('.why i[data-i]').forEach(i => i.append(HT.toolIcon(i.dataset.i)));
   const data = await HT.loadTools(); await HT.i18n;
   const tools = data.tools;
-  const href = t => t.href || HT.href(t.slug);
-
-  // popular tools, one click from the first screen (on a phone the tool grid starts below it)
-  const pop = document.getElementById('popular');
-  // a returning visitor: the tools they used last come first
-  const bySlug = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(s => bySlug.get(s)).filter(Boolean).slice(0, 3);
-  if (recent.length) { pop.append(el('span', { text: 'Your tools:' })); recent.forEach(t => pop.append(el('a', { class: 'chip mine', href: t.href }, HT.toolIcon(t.isTab ? t.base : t.slug, 'xs'), t.name))); }
-  pop.append(el('span', { text: 'Popular:' }));
-  tools.filter(t => t.popular && !t.href && !recent.some(r => r.slug === t.slug)).sort((a, b) => a.popular - b.popular).slice(0, recent.length ? 5 : 7).forEach(t => pop.append(el('a', { class: 'chip', href: href(t) }, HT.toolIcon(t.slug, 'xs'), t.name)));
 
   // trust row
   const trust = document.getElementById('trust');
@@ -81,7 +65,6 @@
     // a tool with tabs is ONE card: its tab pages (Blur & Redact PDF under Pixelate Image ...) are opened with the tabs on the tool's own page, or found with the search
   }
   const cardCount = Object.values(byCat).reduce((a, l) => a + l.length, 0);
-  document.getElementById('count').textContent = cardCount;
   const sections = [];
   for (const c of data.categories) {
     const items = byCat[c.id] || []; if (!items.length) continue;
@@ -102,10 +85,9 @@
     filter();
   }
 
-  // search
-  const q = document.getElementById('q');
+  // category filter (searching is the header's search box)
   function filter() {
-    const term = q.value.trim().toLowerCase(); let any = false;
+    const term = ''; let any = false;
     // the same ranking as the header search: a tab page (Blur & Redact PDF) shows the card of its tool; related tools are marked
     const found = term ? HT.searchTools(data, term) : null, pickSlugs = found ? new Set(found.hits.map(t => t.base)) : null, relSlugs = found ? new Set(found.related.map(t => t.base).filter(b => !pickSlugs.has(b))) : null;
     sections.forEach(s => {
@@ -117,8 +99,6 @@
     });
     document.getElementById('empty').hidden = any;
   }
-  q.addEventListener('input', filter);
-  q.addEventListener('keydown', e => { if (e.key === 'Enter') { const a = document.querySelector('#list .tcard:not(.hidden)'); if (a) location.href = a.href; } });
   const hash = location.hash.slice(1); if (hash && sections.some(s => s.c.id === hash)) setCat(hash, false);
   addEventListener('hashchange', () => { const h = location.hash.slice(1); if (sections.some(s => s.c.id === h)) setCat(h, true); else if (!h) setCat('all', false); });
   // shadow under the sticky tab bar once it sticks
