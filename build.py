@@ -31,6 +31,9 @@ CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "hello@toolzbaba.com")
 TAGLINE = os.environ.get("SITE_TAGLINE", "Free online image, PDF, video and file tools")
 HEAD_EXTRA = os.environ.get("HEAD_EXTRA", "")
 GTM_ID = os.environ.get("GTM_ID", "GTM-T3R5TWTD").strip()
+# IndexNow (Bing, Yandex, Seznam, Naver...; DuckDuckGo and Yahoo use Bing): the key is public by design, it only proves the
+# site is ours. dist/<key>.txt holds it; deploy/indexnow.py sends the pages changed in a deploy (see deploy.yml).
+INDEXNOW_KEY = "4e110bff3a94fab1afdfc96bce4ab6b2"
 # "open from Google Drive / Dropbox" under every drop box: public browser keys, restricted to this site's address (see README).
 # Leave them empty and the buttons don't show.
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "").strip()
@@ -330,8 +333,12 @@ def build():
         out = lambda rel: (code + "/" + rel) if code != "en" else rel
 
         # home
-        site = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": SITE_URL + P + "/", "inLanguage": code}
-        write(out("index.html"), page("index.html", "/", title=f"{SITE_NAME} – {tr(TAGLINE)}", jsonld=[site],
+        # who runs the site (Google uses it for the brand name and logo in results)
+        org = {"@context": "https://schema.org", "@type": "Organization", "@id": SITE_URL + "/#org", "name": SITE_NAME, "alternateName": SITE_NAME.replace(" ", ""),
+               "url": SITE_URL + "/", "logo": {"@type": "ImageObject", "url": SITE_URL + "/assets/brand/icon-512.png", "width": 512, "height": 512}}
+        site = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "alternateName": SITE_NAME.replace(" ", ""), "url": SITE_URL + P + "/", "inLanguage": code,
+                "publisher": {"@id": SITE_URL + "/#org"}}
+        write(out("index.html"), page("index.html", "/", title=f"{SITE_NAME} – {tr(TAGLINE)}", jsonld=[org, site],
                                       desc=tr("Compress and resize images, edit PDFs, convert video, remove backgrounds with AI and more. {0} free online tools, no sign-up. They run right in your browser, so your files stay private.", len(tools))))
 
         # one page per tool, at the site root: /<slug> (old /tool/<slug> links get a permanent redirect, see the end)
@@ -347,7 +354,7 @@ def build():
                  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
                 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": SITE_URL + P + "/"},
-                    {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + P + "/"},
+                    {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + P + "/#" + cat["id"]},   # the category's section on the home page
                     {"@type": "ListItem", "position": 3, "name": tool["name"], "item": url}]},
             ]
             if tool.get("faq"):
@@ -371,7 +378,7 @@ def build():
                  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}},
                 {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": SITE_URL + P + "/"},
-                    {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + P + "/"},
+                    {"@type": "ListItem", "position": 2, "name": cat["name"], "item": SITE_URL + P + "/#" + cat["id"]},   # the category's section on the home page
                     {"@type": "ListItem", "position": 3, "name": lby[v["base"]]["name"], "item": f"{SITE_URL}{P}/{v['base']}"},
                     *([{"@type": "ListItem", "position": 4, "name": parent["name"], "item": f"{SITE_URL}{P}/{parent['slug']}"}] if parent else []),
                     {"@type": "ListItem", "position": 5 if parent else 4, "name": v["name"], "item": url}]},
@@ -391,6 +398,7 @@ def build():
     write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
 
     # robots, sitemap, icons, manifest
+    write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\n")  # blog posts are added to it by functions/sitemap.xml.js
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}

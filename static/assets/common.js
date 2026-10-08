@@ -1150,8 +1150,8 @@
 
   HT.footer = () => {
     if (document.querySelector('footer.foot')) return;
-    const col = (title, links) => el('div', {}, el('h4', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
-    const popular = el('div', {}, el('h4', { text: 'Popular' }), el('ul', {}));
+    const col = (title, links) => el('div', {}, el('h2', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
+    const popular = el('div', {}, el('h2', { text: 'Popular' }), el('ul', {}));
     const f = el('footer', { class: 'foot' }, el('div', { class: 'foot-in' },
       el('div', { class: 'foot-brand' }, el('a', { href: HT.L + '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
       col('Tools', [['Image tools', '#image'], ['AI tools', '#ai'], ['PDF & documents', '#pdf'], ['Video & audio', '#video'], ['Text & developer', '#dev'], ['Utilities', '#util']].map(([t, h]) => [t, HT.L + '/' + h])),
@@ -1168,7 +1168,7 @@
     HT.config().then(c => { const sp = f.querySelector('.foot-bottom span'); sp.textContent = ''; sp.append('\u00a9 ' + new Date().getFullYear() + ' ', c.siteName, '. All rights reserved.'); });
     HT.loadTools().then(d => {
       const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: HT.href(t.slug), text: t.name }))));
-      for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h4', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: HT.href(t.slug), text: t.name })))))); }
+      for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h2', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: HT.href(t.slug), text: t.name })))))); }
     });
   };
 
@@ -1223,7 +1223,7 @@
   };
   const rateNote = (s, voted) => (voted ? HT.t('Thanks for rating!') + ' ' : '') + (s && s.count >= MIN_SHOWN ? HT.t('{0} out of 5 from {1}.', s.avg.toFixed(1), fmtVotes(s.count)) : voted ? '' : HT.t('Tell us how it worked for you.'));
   HT.rateCard = slug => {
-    const note = el('p', { class: 'rnote' }), card = el('div', { class: 'sidecard ratecard', id: 'rate' }, el('h3', { text: 'Rate this tool' }), starRow(slug, s => { note.textContent = rateNote(s, true); showRating(s); }), note);
+    const note = el('p', { class: 'rnote' }), card = el('div', { class: 'sidecard ratecard', id: 'rate' }, el('h2', { text: 'Rate this tool' }), starRow(slug, s => { note.textContent = rateNote(s, true); showRating(s); }), note);
     HT.rating.get(slug).then(s => { note.textContent = rateNote(s, false); showRating(s); });
     return card;
   };
@@ -1362,12 +1362,12 @@
     const side = document.getElementById('side');
     await HT.i18n;   // the steps hold <b> parts: translated whole, before they are split into pieces on the page
     const stepsUl = el('ol', { class: 'steps' }); how.forEach(h => { const li = el('li'), sp = el('span'); sp.innerHTML = HT.t(h); li.append(sp); stepsUl.append(li); });
-    side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'How it works' }), stepsUl),
+    side.append(el('div', { class: 'sidecard' }, el('h2', { text: 'How it works' }), stepsUl),
       el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: meta.privacyTitle || (client ? 'Private by design' : 'Shared by link') }),
         meta.privacy || (client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.'))));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== baseSlug && !t.href).slice(0, 6);
     side.append(HT.rateCard(baseSlug));
-    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: HT.t('More {0} tools', cat.name) }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: HT.href(t.slug) }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
+    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h2', { text: HT.t('More {0} tools', cat.name) }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: HT.href(t.slug) }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 
     HT.footer();
     const later = window.requestIdleCallback || (f => setTimeout(f, 1500));
