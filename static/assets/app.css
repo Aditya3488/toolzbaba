@@ -878,3 +878,15 @@ a.ab-tool:hover, a.ab-tool:focus-visible { outline:none; transform:translateY(-1
   .ab-card.typing .ab-text::after { animation:abcaret .8s steps(1) infinite !important; } .ab-dots i { animation:abdot 1s ease-in-out infinite !important; }
   .ab-steps li, .ab-tool, .ab-say, .ab-end .btn { animation:abin .45s ease both !important; } .ab-field, .ab-ghosts, .ab-ask { transition:opacity .4s, filter .4s !important; }
 }
+/* the full menu does not fit this language's words at this width (set by HT.header): hamburger instead */
+.top.nv-tight .nv { display:none; } .top.nv-tight .nv-burger { display:grid; }
+/* a dropdown never gets wider than its box: long option names in some languages (German URL Encoder: 443px on a 360px phone) widened the page */
+#tool select { max-width:100%; min-width:0; text-overflow:ellipsis; }
+/* the smallest phones (320-360px): the logo, search, language, Bookmark and menu buttons need 352px; tighter gaps and
+   34px buttons make them fit, so the menu button is never pushed off the screen */
+@media (max-width:360px) {
+  .top-in { gap:6px; padding-left:10px; padding-right:10px; }
+  .top-in > .iconbtn, .top-in .langbtn, .top-in > .bmbtn, .top-in > .nv-burger { width:34px; height:34px; min-width:34px; padding:0; justify-content:center; }
+  .top-in .langbtn .langcode { display:none; }
+  .brand span { font-size:.95rem; } .brand img { width:32px; height:32px; }
+}

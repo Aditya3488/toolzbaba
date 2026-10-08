@@ -1781,5 +1781,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ Минимально возможный размер — {0}: не удалось уложиться в {1}. Попробуйте больший размер.",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ Уже меньше {0}: файл оставлен как есть ({1})",
 "✓ Valid JSON": "✓ Корректный JSON",
-"🎲 Random colour": "🎲 Случайный цвет"
+"🎲 Random colour": "🎲 Случайный цвет",
+"Convert {0} image{1}": "Конвертировать изображения ({0})",
+"Compress {0} image{1}": "Сжать изображения ({0})",
+"Convert {0} file{1}": "Конвертировать файлы ({0})",
+"Compress {0} PNG": "Сжать PNG ({0})",
+"Compress {0} PNGs": "Сжать PNG ({0})",
+"Compress {0} GIF": "Сжать GIF ({0})",
+"Compress {0} GIFs": "Сжать GIF ({0})",
+"Merge {0} PDFs": "Объединить PDF ({0})",
+"Merge {0} videos": "Объединить видео ({0})",
+"Get the audio from {0} file{1}": "Извлечь звук ({0})",
+"Convert {0} MP4 to MP3": "Конвертировать MP4 в MP3 ({0})",
+"Convert {0} MP4s to MP3": "Конвертировать MP4 в MP3 ({0})",
+"Merge {0} audio file{1}": "Объединить аудиофайлы ({0})",
+"Convert {0} presentations": "Конвертировать презентации ({0})",
+"a lower quality": "более низкое качество"
 }

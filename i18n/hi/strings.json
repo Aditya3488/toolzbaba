@@ -1781,5 +1781,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ सबसे छोटा संभव {0} है: {1} से कम नहीं हो सका। बड़ा साइज़ आज़माएँ।",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ पहले से {0} से कम: यह फ़ाइल जैसी है वैसी रखी गई ({1})",
 "✓ Valid JSON": "✓ सही JSON",
-"🎲 Random colour": "🎲 कोई भी रंग"
+"🎲 Random colour": "🎲 कोई भी रंग",
+"Convert {0} image{1}": "इमेज कन्वर्ट करें ({0})",
+"Compress {0} image{1}": "इमेज कंप्रेस करें ({0})",
+"Convert {0} file{1}": "फ़ाइलें कन्वर्ट करें ({0})",
+"Compress {0} PNG": "PNG कंप्रेस करें ({0})",
+"Compress {0} PNGs": "PNG कंप्रेस करें ({0})",
+"Compress {0} GIF": "GIF कंप्रेस करें ({0})",
+"Compress {0} GIFs": "GIF कंप्रेस करें ({0})",
+"Merge {0} PDFs": "PDF मर्ज करें ({0})",
+"Merge {0} videos": "वीडियो मर्ज करें ({0})",
+"Get the audio from {0} file{1}": "ऑडियो निकालें ({0})",
+"Convert {0} MP4 to MP3": "MP4 को MP3 में बदलें ({0})",
+"Convert {0} MP4s to MP3": "MP4 को MP3 में बदलें ({0})",
+"Merge {0} audio file{1}": "ऑडियो फ़ाइलें मर्ज करें ({0})",
+"Convert {0} presentations": "प्रेज़ेंटेशन कन्वर्ट करें ({0})",
+"a lower quality": "कम क्वालिटी"
 }

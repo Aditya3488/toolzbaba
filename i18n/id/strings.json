@@ -1710,5 +1710,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ Terkecil yang mungkin adalah {0}: tidak bisa mencapai di bawah {1}. Coba ukuran yang lebih besar.",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ Sudah di bawah {0}: file ini dipertahankan apa adanya ({1})",
 "✓ Valid JSON": "✓ JSON valid",
-"🎲 Random colour": "🎲 Warna acak"
+"🎲 Random colour": "🎲 Warna acak",
+"Convert {0} image{1}": "Konversi gambar ({0})",
+"Compress {0} image{1}": "Kompres gambar ({0})",
+"Convert {0} file{1}": "Konversi file ({0})",
+"Compress {0} PNG": "Kompres PNG ({0})",
+"Compress {0} PNGs": "Kompres PNG ({0})",
+"Compress {0} GIF": "Kompres GIF ({0})",
+"Compress {0} GIFs": "Kompres GIF ({0})",
+"Merge {0} PDFs": "Gabung PDF ({0})",
+"Merge {0} videos": "Gabung video ({0})",
+"Get the audio from {0} file{1}": "Ambil audionya ({0})",
+"Convert {0} MP4 to MP3": "Ubah MP4 ke MP3 ({0})",
+"Convert {0} MP4s to MP3": "Ubah MP4 ke MP3 ({0})",
+"Merge {0} audio file{1}": "Gabung file audio ({0})",
+"Convert {0} presentations": "Konversi presentasi ({0})",
+"a lower quality": "kualitas lebih rendah"
 }

@@ -1784,5 +1784,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ সবচেয়ে ছোট সম্ভব {0}: {1}-এর নিচে আনা যায়নি। বড় সাইজ চেষ্টা করুন।",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ আগে থেকেই {0}-এর নিচে: এই ফাইল যেমন আছে তেমনই রাখা হয়েছে ({1})",
 "✓ Valid JSON": "✓ সঠিক JSON",
-"🎲 Random colour": "🎲 যেকোনো রঙ"
+"🎲 Random colour": "🎲 যেকোনো রঙ",
+"Convert {0} image{1}": "ছবি কনভার্ট করুন ({0})",
+"Compress {0} image{1}": "ছবি কমপ্রেস করুন ({0})",
+"Convert {0} file{1}": "ফাইল কনভার্ট করুন ({0})",
+"Compress {0} PNG": "PNG কমপ্রেস করুন ({0})",
+"Compress {0} PNGs": "PNG কমপ্রেস করুন ({0})",
+"Compress {0} GIF": "GIF কমপ্রেস করুন ({0})",
+"Compress {0} GIFs": "GIF কমপ্রেস করুন ({0})",
+"Merge {0} PDFs": "PDF মার্জ করুন ({0})",
+"Merge {0} videos": "ভিডিও মার্জ করুন ({0})",
+"Get the audio from {0} file{1}": "অডিও বের করুন ({0})",
+"Convert {0} MP4 to MP3": "MP4 থেকে MP3 করুন ({0})",
+"Convert {0} MP4s to MP3": "MP4 থেকে MP3 করুন ({0})",
+"Merge {0} audio file{1}": "অডিও ফাইল মার্জ করুন ({0})",
+"Convert {0} presentations": "প্রেজেন্টেশন কনভার্ট করুন ({0})",
+"a lower quality": "কম কোয়ালিটি"
 }

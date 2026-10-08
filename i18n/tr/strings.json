@@ -1762,5 +1762,20 @@
 "⚠ Smallest possible is {0}: could not get under {1}. Try a bigger size.": "⚠ Mümkün olan en küçük boyut {0}: {1} altına inilemedi. Daha büyük bir boyut deneyin.",
 "✓ Already under {0}: this file is kept as it is ({1})": "✓ Zaten {0} altında: bu dosya olduğu gibi korundu ({1})",
 "✓ Valid JSON": "✓ Geçerli JSON",
-"🎲 Random colour": "🎲 Rastgele renk"
+"🎲 Random colour": "🎲 Rastgele renk",
+"Convert {0} image{1}": "Görselleri dönüştür ({0})",
+"Compress {0} image{1}": "Görselleri sıkıştır ({0})",
+"Convert {0} file{1}": "Dosyaları dönüştür ({0})",
+"Compress {0} PNG": "PNG sıkıştır ({0})",
+"Compress {0} PNGs": "PNG sıkıştır ({0})",
+"Compress {0} GIF": "GIF sıkıştır ({0})",
+"Compress {0} GIFs": "GIF sıkıştır ({0})",
+"Merge {0} PDFs": "PDF'leri birleştir ({0})",
+"Merge {0} videos": "Videoları birleştir ({0})",
+"Get the audio from {0} file{1}": "Sesi çıkar ({0})",
+"Convert {0} MP4 to MP3": "MP4'ü MP3'e dönüştür ({0})",
+"Convert {0} MP4s to MP3": "MP4'ü MP3'e dönüştür ({0})",
+"Merge {0} audio file{1}": "Ses dosyalarını birleştir ({0})",
+"Convert {0} presentations": "Sunumları dönüştür ({0})",
+"a lower quality": "daha düşük kalite"
 }
