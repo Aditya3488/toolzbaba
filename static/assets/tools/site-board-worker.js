@@ -69,9 +69,28 @@ self.sbFetch = async (url, max, stopH1, accept, retries) => {
 };
 self.sbProgress = (msg, f) => postMessage({ type: 'progress', msg, f });
 
+// the engine's big files, read once with a progress message so a slow connection doesn't look stuck; Pyodide then finds
+// them in the browser cache (/assets/vendor/* is cached for a week)
+const ENGINE = [['pyodide.asm.wasm', 9598218], ['python_stdlib.zip', 2545637], ['pyodide.asm.mjs', 1250344], ['pyodide-lock.json', 119077]];
+async function warm() {
+  const total = ENGINE.reduce((a, f) => a + f[1], 0); let got = 0, shown = 0;
+  await Promise.all(ENGINE.map(async ([f]) => {
+    try {
+      const rd = (await fetch(PY + f)).body.getReader();
+      for (;;) {
+        const { done, value } = await rd.read();
+        if (done) break;
+        got += value.length;
+        if (Date.now() - shown > 250) { shown = Date.now(); postMessage({ type: 'progress', msg: `Downloading the sitemap engine (first time only): ${(Math.min(got, total) / 1e6).toFixed(1)} of ${(total / 1e6).toFixed(1)} MB`, f: 0.08 * Math.min(1, got / total) }); }
+      }
+    } catch { /* Pyodide reads it again below and reports a real error if there is one */ }
+  }));
+}
+
 let web;
 async function boot() {
-  postMessage({ type: 'progress', msg: 'Starting Python in your browser (first time only takes a few seconds)', f: 0.005 });
+  await warm();
+  postMessage({ type: 'progress', msg: 'Starting Python in your browser', f: 0.08 });
   const py = await loadPyodide({ indexURL: PY });
   const r = await fetch(ZIP + (V ? '?v=' + V : ''));
   if (!r.ok) throw new Error('Could not load the sitemap engine (' + r.status + ').');
