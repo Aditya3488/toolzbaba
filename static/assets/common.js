@@ -1138,7 +1138,13 @@
     setName(h.dataset.site || 'Toolz Baba');
     h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: HT.L + '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), navbar.msearch, langPicker(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
     suggestLang();
-    HT.config().then(c => setName(c.siteName));
+    // menu names differ in length per language (German, Russian ...): when the full menu does not fit the bar, show the
+    // hamburger instead, whatever the width (the CSS breakpoint at 1140px only fits English)
+    const bar = h.querySelector('.top-in');
+    const fit = () => { h.classList.remove('nv-tight'); if (bar.scrollWidth > bar.clientWidth + 1) h.classList.add('nv-tight'); };
+    fit(); addEventListener('resize', fit, { passive: true }); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    HT.i18n.then(() => { setTimeout(fit, 0); setTimeout(fit, 400); });   // again once the menu names are translated (the translator runs just after)
+    HT.config().then(c => { setName(c.siteName); fit(); });
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
 
@@ -1151,14 +1157,15 @@
       col('Tools', [['Image tools', '#image'], ['AI tools', '#ai'], ['PDF & documents', '#pdf'], ['Video & audio', '#video'], ['Text & developer', '#dev'], ['Utilities', '#util']].map(([t, h]) => [t, HT.L + '/' + h])),
       popular,
       col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
-      el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
+      el('div', { class: 'foot-bottom' }, el('span', {}, '\u00a9 ' + new Date().getFullYear() + ' ', 'Toolz Baba', '. All rights reserved.'), el('span', { text: 'Files are never sold or shared.' }))));
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     const all = el('nav', { class: 'foot-all', 'aria-label': 'All tools' }); f.querySelector('.foot-bottom').before(all);
     // every language the site has, by its own name (people and search engines find the other versions from any page)
     langsP().then(list => { if (list.length > 1) f.querySelector('.foot-bottom').before(el('nav', { class: 'foot-langs', 'aria-label': 'Language', 'data-notr': '' },
       list.map(l => el('a', { href: HT.pathIn(l.code), hreflang: l.code, lang: l.code, class: l.code === HT.lang ? 'on' : null, text: l.name })))); });
     document.body.append(f);
-    HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
+    // three pieces, so ". All rights reserved." is found in the translations (the glued "\u00a9 2026 Toolz Baba. All rights reserved." never was)
+    HT.config().then(c => { const sp = f.querySelector('.foot-bottom span'); sp.textContent = ''; sp.append('\u00a9 ' + new Date().getFullYear() + ' ', c.siteName, '. All rights reserved.'); });
     HT.loadTools().then(d => {
       const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: HT.href(t.slug), text: t.name }))));
       for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h4', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: HT.href(t.slug), text: t.name })))))); }
