@@ -811,21 +811,22 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* far-away boxes: small, soft, and they fade out towards the edges of the page */
 .ab-ghosts { position:absolute; inset:0; pointer-events:none;
   -webkit-mask-image:radial-gradient(62% 60% at 50% 50%,#000 50%,transparent 100%); mask-image:radial-gradient(62% 60% at 50% 50%,#000 50%,transparent 100%); }
-.ab-ghosts i { position:absolute; border-radius:8px; background:color-mix(in srgb,var(--card) 82%,transparent); border:1px solid color-mix(in srgb,var(--border) 70%,transparent);
-  box-shadow:0 6px 16px -10px rgba(30,30,80,.25); filter:blur(calc(2.6px - var(--d) * 4px));
+.ab-ghosts i { position:absolute; border-radius:8px; background:color-mix(in srgb,var(--card) 82%,transparent);
+  box-shadow:0 1px 2px rgba(20,24,60,.05), 0 8px 18px -10px rgba(30,30,80,.25); filter:blur(calc(2.6px - var(--d) * 4px));
   transform:translate(-50%,-50%) translate(calc(var(--mx,0) * var(--d) * -60px), calc(var(--my,0) * var(--d) * -40px)); }
 .ab-ghosts i::before { content:""; position:absolute; left:9%; top:24%; width:58%; height:3px; border-radius:3px; background:var(--border2); opacity:.7; }
 .ab-ghosts i::after { content:""; position:absolute; left:9%; bottom:18%; width:7px; height:7px; border-radius:50%; background:var(--border2); opacity:.7; }
 /* the boxes you can pick */
 .ab-card { --s:calc(.82 + var(--d) * .2); position:absolute; width:min(300px,72%); padding:12px 14px 10px; border-radius:15px; text-align:start; font:inherit; color:var(--muted); cursor:pointer;
-  background:color-mix(in srgb,var(--card) 72%,transparent); border:1px solid color-mix(in srgb,var(--border) 65%,transparent);
-  box-shadow:0 14px 30px -20px rgba(30,30,80,.3); opacity:calc(.5 + var(--d) * .32); filter:blur(calc((1 - var(--d)) * 1.7px));
+  background:color-mix(in srgb,var(--card) 72%,transparent); border:0;
+  box-shadow:0 1px 2px rgba(20,24,60,.04), 0 12px 30px -16px rgba(30,30,80,.26); opacity:calc(.5 + var(--d) * .32); filter:blur(calc((1 - var(--d)) * 1.7px));
   transform:translate(-50%,-50%) translate(calc(var(--mx,0) * var(--d) * -70px), calc(var(--my,0) * var(--d) * -50px)) scale(var(--s));
   transition:transform .55s cubic-bezier(.2,.8,.25,1), opacity .45s ease, filter .45s ease, background .45s ease, box-shadow .45s ease, color .45s ease; }
 .ab-card[hidden] { display:none; }
 .ab-card::before { content:""; position:absolute; inset:-18px -14px -28px; border-radius:28px; z-index:-1; pointer-events:none; opacity:0; transition:opacity .6s ease;
   background:radial-gradient(55% 65% at 50% 62%, rgba(168,85,247,.42), rgba(59,130,246,.22) 48%, transparent 72%); filter:blur(14px); }
-.ab-card.on { --s:1.06; opacity:1; filter:none; color:var(--text); background:var(--card); border-color:var(--border2); box-shadow:0 26px 50px -20px rgba(76,49,180,.38); z-index:30 !important; }
+.ab-card.on { --s:1.06; opacity:1; filter:none; color:var(--text); background:var(--card); box-shadow:0 2px 6px rgba(20,24,60,.05), 0 28px 56px -22px rgba(76,49,180,.42); z-index:30 !important; }
+.ab-card:focus, .ab-card:focus-visible { outline:none; }   /* a box with the keyboard on it is already the awake one: white, raised and glowing */
 .ab-card.on::before { opacity:1; }
 .ab-text { display:block; min-height:2.8em; font-size:.92rem; line-height:1.4; opacity:.75; transition:opacity .3s ease; }
 .ab-card.on .ab-text { opacity:1; } .ab-card.swap .ab-text { opacity:0; }
@@ -837,15 +838,18 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .ab-send svg, .ab-go svg { width:15px; height:15px; }
 .ab-card.on .ab-send, .ab-go { background:linear-gradient(135deg,#7c3aed,#a855f7); }
 .ab-ask { position:absolute; left:50%; bottom:18px; transform:translateX(-50%); width:min(560px,calc(100% - 32px)); z-index:40; display:flex; align-items:center; gap:10px;
-  padding:8px 8px 8px 10px; background:var(--card); border:1px solid var(--border2); border-radius:16px; box-shadow:0 18px 40px -16px rgba(20,24,60,.32); transition:opacity .3s; }
-.ab-ask:focus-within { border-color:#8b5cf6; box-shadow:0 0 0 4px rgba(139,92,246,.18), 0 18px 40px -16px rgba(20,24,60,.32); }
-.ab-input { flex:1; min-width:0; border:0; background:transparent; color:var(--text); font:inherit; font-size:1rem; padding:6px 2px; outline:none; }
+  padding:8px 8px 8px 12px; background:var(--card); border:0; border-radius:18px; box-shadow:0 1px 3px rgba(20,24,60,.06), 0 20px 44px -16px rgba(20,24,60,.28); transition:opacity .3s, box-shadow .3s ease; }
+.ab-ask:focus-within { box-shadow:0 1px 3px rgba(20,24,60,.06), 0 22px 50px -16px rgba(76,49,180,.4), 0 0 30px -8px rgba(139,92,246,.45); }
+/* no box inside the box: the site-wide text field look (border, focus ring) is switched off here */
+.ab-ask .ab-input, .ab-ask .ab-input:hover, .ab-ask .ab-input:focus { flex:1; min-width:0; border:0; border-radius:0; background:transparent; box-shadow:none; outline:none; color:var(--text); font:inherit; font-size:1rem; padding:8px 2px; }
+.ab-ask .ab-go:focus-visible { outline:none; box-shadow:0 0 0 4px rgba(139,92,246,.3); }
+.ab-panel .btn:focus-visible, .ab-panel .ab-x:focus-visible { outline:none; box-shadow:0 0 0 4px rgba(139,92,246,.22), 0 10px 24px -10px rgba(76,49,180,.45); }
 .ab-go { width:38px; height:38px; border:0; cursor:pointer; } .ab-go:hover { transform:scale(1.06); }
 /* Baba at work */
 .ask-stage.open .ab-field, .ask-stage.open .ab-ghosts { opacity:.35; filter:blur(2px); } .ask-stage.open .ab-ask { opacity:0; pointer-events:none; }
 .ab-ghosts { transition:opacity .4s, filter .4s; }
 .ab-panel { position:absolute; left:0; right:0; top:5%; margin:0 auto; width:min(560px,calc(100% - 32px)); max-height:90%; overflow:auto; z-index:50; transform-origin:0 0;
-  background:var(--card); border:1px solid var(--border2); border-radius:20px; padding:16px 18px 18px; box-shadow:0 30px 70px -20px rgba(40,30,120,.45); }
+  background:var(--card); border:0; border-radius:20px; padding:16px 18px 18px; box-shadow:0 2px 8px rgba(20,24,60,.06), 0 30px 70px -20px rgba(40,30,120,.45); }
 .ab-top { display:flex; align-items:flex-start; gap:10px; }
 .ab-q { margin-inline-start:auto; max-width:82%; background:var(--accent-soft); color:var(--text); padding:9px 13px; border-radius:15px 15px 4px 15px; font-size:.95rem; line-height:1.4; }
 .ab-x { order:-1; border:0; background:none; font-size:1.4rem; line-height:1; color:var(--muted); cursor:pointer; padding:2px 6px; border-radius:8px; } .ab-x:hover { background:var(--bg2); color:var(--text); }
@@ -854,7 +858,7 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .ab-dots i:nth-child(2) { animation-delay:.15s; } .ab-dots i:nth-child(3) { animation-delay:.3s; }
 @keyframes abdot { 0%,80%,100% { transform:translateY(0); opacity:.5; } 40% { transform:translateY(-4px); opacity:1; } }
 .ab-chip.done { background:color-mix(in srgb,var(--ok) 14%,var(--card)); color:var(--ok); } .ab-chip.done .ab-dots { display:none; }
-.ab-tool { display:flex; gap:12px; align-items:center; padding:12px; border:1px solid var(--border); border-radius:14px; background:var(--bg); animation:abin .45s ease both; }
+.ab-tool { display:flex; gap:12px; align-items:center; padding:12px; border:0; border-radius:14px; background:var(--bg); box-shadow:0 1px 2px rgba(20,24,60,.05), 0 6px 16px -10px rgba(20,24,60,.22); animation:abin .45s ease both; }
 .ab-tool i { flex:none; width:42px; height:42px; } .ab-tool b { display:block; } .ab-tool small { color:var(--muted); font-size:.82rem; line-height:1.35; display:block; }
 .ab-steps { margin:12px 0 10px; padding-inline-start:22px; } .ab-steps li { margin:6px 0; color:var(--muted); animation:abin .45s ease both; } .ab-steps li b { color:var(--text); }
 @keyframes abin { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
@@ -863,7 +867,8 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 @media (max-width:700px) { .ask-stage { height:440px; } .ab-card { width:min(300px,80%); } .ab-text { font-size:.88rem; } .ab-ghosts i:nth-child(n+15) { display:none; } .ab-floor { background-size:48px 48px; } }
 .ab-body { display:grid; gap:10px; }
 .ab-say { margin:0; line-height:1.55; color:var(--text); animation:abin .45s ease both; }
-a.ab-tool { color:inherit; text-decoration:none; transition:border-color .2s ease, transform .2s ease; } a.ab-tool:hover { border-color:#8b5cf6; transform:translateY(-1px); }
+a.ab-tool { color:inherit; text-decoration:none; transition:box-shadow .2s ease, transform .2s ease; }
+a.ab-tool:hover, a.ab-tool:focus-visible { outline:none; transform:translateY(-1px); box-shadow:0 2px 4px rgba(20,24,60,.05), 0 14px 28px -12px rgba(76,49,180,.4); }
 .ab-tool em { display:block; font-style:normal; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#8b5cf6; margin-bottom:1px; }
 .ab-list { display:grid; gap:8px; } .ab-body .ab-steps { margin:2px 0 0; } .ab-body + .ab-bar { margin-top:14px; }
 /* it moves even when the device asks for less motion (like the star): the boxes only fade and grow a little */
