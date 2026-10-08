@@ -624,6 +624,7 @@
     'video-trimmer': '<circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8.2l12 9.3M8 15.8L20 6.5"/>',
     'compress-video': '<path d="M13.2 2.8L5 13.6h6.2L10 21.2l8.2-10.8H12z"/>',
     'image-color-palette-extractor': '<path d="M12 3a9 9 0 1 0 0 18c1.6 0 2.2-1.1 1.6-2.4-.6-1.4.3-2.9 1.9-2.9H18a3 3 0 0 0 3-3C21 7 17 3 12 3z"/><path d="M7.6 11.2h.01M10.2 7.6h.01M14.6 7.6h.01" stroke-width="2.6"/>',
+    'visual-sitemap-generator': '<rect x="9" y="2.5" width="6" height="5" rx="1.4"/><rect x="2.5" y="16.5" width="6" height="5" rx="1.4"/><rect x="15.5" y="16.5" width="6" height="5" rx="1.4"/><path d="M12 7.5V12M5.5 16.5V12h13v4.5"/>',
     'qr-code-generator': '<rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/><path d="M14 14h2.6v2.6M20.5 14v.01M14 20.5v.01M17.6 20.5h2.9v-2.9"/>',
     base64: '<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.6 5l-3.2 14"/>',
     'image-cdn': '<path d="M7 18.5a4.5 4.5 0 0 1-.6-8.9 6 6 0 0 1 11.7.9A4 4 0 0 1 17.5 18.5z"/><path d="M12 15.5v-5m0 0-2.2 2.2M12 10.5l2.2 2.2"/>',
@@ -664,7 +665,7 @@
     base64: 'teal', 'image-cdn': 'blue', lock: 'green', bolt: 'amber', toolbox: 'purple', grid: 'blue',
   };
   Object.assign(TOOL_COLOR, {
-    'resize-image-to-kb': 'green', 'passport-size-photo-maker': 'blue', 'image-to-text': 'purple', 'organize-pdf': 'orange', 'esign-pdf': 'indigo',
+    'visual-sitemap-generator': 'teal', 'resize-image-to-kb': 'green', 'passport-size-photo-maker': 'blue', 'image-to-text': 'purple', 'organize-pdf': 'orange', 'esign-pdf': 'indigo',
     'add-page-numbers-to-pdf': 'amber', 'protect-pdf': 'red', 'unlock-pdf': 'green', 'audio-cutter': 'pink', 'video-merger': 'blue', 'change-video-speed': 'teal',
     'json-formatter': 'indigo', 'word-counter': 'blue', 'text-case-converter': 'amber', 'password-generator': 'red', 'hash-uuid-generator': 'purple', 'url-encoder': 'teal',
   });

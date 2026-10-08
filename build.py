@@ -19,6 +19,7 @@ import os
 import re
 import shutil
 import time
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -52,7 +53,30 @@ def _assets_version() -> str:
         rel = f.relative_to(STATIC / "assets").as_posix()
         if f.is_file() and not rel.startswith(("vendor/", "models/")):
             h.update(rel.encode() + b"/" + f.read_bytes())
+    for f in site_board_files():  # the Python engine the Visual Sitemap Generator runs in the browser
+        h.update(f.relative_to(ROOT).as_posix().encode() + b"/" + f.read_bytes())
     return h.hexdigest()[:10]
+
+
+# Visual Sitemap Generator: the site_board package (pure Python) goes to /assets/site-board/site_board.zip, and the
+# visitor's browser runs it with Pyodide (static/assets/tools/site-board-worker.js). Server-only modules stay out.
+SITE_BOARD_SKIP = {"api.py", "server.py", "jobs.py", "ui.py", "shots.py", "__main__.py"}
+
+
+def site_board_files():
+    pkg = ROOT / "site_board"
+    return [f for f in sorted(pkg.rglob("*")) if f.is_file() and "__pycache__" not in f.parts and f.name not in SITE_BOARD_SKIP
+            and (f.suffix == ".py" or f.parent.name == "assets")]
+
+
+def write_site_board_zip():
+    out = DIST / "assets" / "site-board" / "site_board.zip"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in site_board_files():
+            info = zipfile.ZipInfo(f.relative_to(ROOT).as_posix(), date_time=(2020, 1, 1, 0, 0, 0))  # same bytes on every build
+            info.compress_type = zipfile.ZIP_DEFLATED
+            z.writestr(info, f.read_bytes())
 
 
 VERSION = _assets_version()
@@ -296,6 +320,7 @@ def build():
     if DIST.exists():
         shutil.rmtree(DIST)
     shutil.copytree(STATIC / "assets", DIST / "assets")
+    write_site_board_zip()
 
     data = json.loads((STATIC / "assets" / "tools.json").read_text("utf-8"))
     (DIST / "assets" / "tools.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")

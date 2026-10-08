@@ -23,6 +23,7 @@ The static site (Cloudflare Pages) ships these libraries and AI models in `stati
 | [imagetracerjs](https://github.com/jankovicsandras/imagetracerjs) | 1.2.6 | Image to SVG | Unlicense (public domain) |
 | [Noto Sans](https://notofonts.github.io/) Devanagari, Bengali, Gujarati, Gurmukhi, Tamil, Telugu, Kannada, Malayalam, Oriya | – | Indian scripts in Word to PDF | SIL Open Font License 1.1 |
 | [Transformers.js](https://github.com/huggingface/transformers.js) (includes onnxruntime-web) | 3.8.1 | Runs the speech models in the browser (video to text, text to audio) | Apache-2.0 (onnxruntime: MIT) |
+| [Pyodide](https://pyodide.org/) (CPython 3.14 compiled to WebAssembly, with its standard library) | 314.0.7 | Runs the Visual Sitemap Generator's Python engine (`site_board/`) in the browser | MPL-2.0 (CPython: PSF License) |
 | pdf.js, Tesseract.js, JSZip, QRCode.js | (already in the project) | PDF preview, OCR, ZIP, QR codes | Apache-2.0, Apache-2.0, MIT, MIT |
 
 MuPDF (AGPL) and the ffmpeg core (GPL) are copyleft. Because the site sends them to visitors, its source code has to

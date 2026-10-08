@@ -86,6 +86,8 @@ def bucket_for(request: Request) -> str | None:
         return "tool_heavy" if p.rsplit("/", 1)[-1] in HEAVY_TOOLS else "tool_light"
     if m == "POST" and p == "/api/cdn":
         return "cdn_upload"
+    if m == "POST" and p == "/api/site-board/start":  # each board crawls hundreds of pages
+        return "tool_heavy"
     if m == "DELETE" and p.startswith("/api/cdn/"):
         return "admin"
     return None

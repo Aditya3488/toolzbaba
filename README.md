@@ -150,6 +150,7 @@ toolzbaba/
 │     ├─ tools/*.js      one file per tool group (browser tools and server-tool forms)
 │     ├─ brand/          logo, favicons, hero art (generated, see brand-source/)
 │     └─ vendor/         jszip, qrcode, pdf.js (PDF previews), tesseract.js + English/Hindi data (OCR): vendored, no CDN
+├─ site_board/           Site Map Board: crawl any website into a Miro-style board + a free offline Q&A bot (standard library only)
 ├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, limits ...), browser_tools.js (UI flows)
 ├─ brand-source/         original logo/favicon + script that regenerates everything in assets/brand
 ├─ deploy/, docker-compose*.yml, Dockerfile, .env.example, DEPLOY.md     production setup
@@ -359,6 +360,37 @@ The file goes from Google or Dropbox straight into the browser; nothing passes t
 ### Keeping the site fast
 
 Rules that keep the numbers in the admin panel green: tool code and models load only when a tool is used; public pages never load admin code; the tool page reserves the room its script-built parts will need (`.thead`, `.shell`, the home page chips and list in `app.css`, "Layout stability"), and the side cards are added after the tool is in place, so nothing jumps (CLS was 0.5 to 1.4 before, now about 0.05); images are served in the size shown (`hero-art-330/540.webp`, `logo-315.webp`). The remaining weight on every page is ads/analytics from Google Tag Manager (about 200 KB): loading it after the page has settled would be the next big win.
+
+### Site Map Board (`site_board/`)
+
+Paste a website address and get one self-contained HTML board in the style of a Miro sitemap: every page from the menu, footer
+and sitemaps grouped into sections, a visit-to-purchase (shops) or visit-to-lead funnel, the ad pixels and tracking tags it uses
+(read from the page and its Google Tag Manager container), SEO health for every page, and for Shopify / WooCommerce shops the whole
+catalogue with prices, discounts, stock and ratings. The board has an **Ask about this site** bot that answers from the crawl
+(SEO, broken links, tracking, ads, funnel, contacts, products and prices, comparisons, advice; some Hinglish too). The bot is plain
+Python rules plus search: no AI service and no API key. Only the Python standard library is used (Pillow, if present, makes screenshots smaller).
+
+```bash
+python -m site_board https://example.com                      # writes example.com-sitemap-board.html
+python -m site_board https://shop.com --max-pages 1500 --json shop.json
+python -m site_board ask shop.json "Which products are under 1000?"
+python -m site_board serve                                     # paste-a-URL page at http://127.0.0.1:8765 (bot works there)
+python tests/smoke_site_board.py                               # offline test
+```
+
+With the FastAPI server the same page is at `/site-board` (routes in `site_board/api.py`, included in `main.py`;
+`/api/site-board/start` uses the `tool_heavy` rate limit). Screenshots need a local Chrome or Edge (`SITE_BOARD_CHROME` to point at one).
+Crawls follow `site-colors.js`'s address rules (public http(s) only, every redirect re-checked, private IPs refused), stop reading a
+page after its first H1, and slow down by themselves when a site answers 429. Reports are kept in `~/.site_board` (`SITE_BOARD_DIR`).
+The template is `site_board/assets/board_template.html`.
+
+**On the static site** it is the *Visual Sitemap Generator* (`/visual-sitemap-generator`). The same Python runs in the visitor's
+browser with Pyodide (`static/assets/vendor/pyodide-314.0.7/`): `build.py` zips the package (minus the server-only modules) to
+`/assets/site-board/site_board.zip`, `static/assets/tools/site-board-worker.js` loads it in a Web Worker, and `site-board.js` is the page.
+The crawl is written as steps (`site_board/driver.py`): on a PC `driver.run()` does them with threads, in the browser `site_board/web.py`
+does them as parallel `fetch()` calls through `functions/api/site-fetch.js`, which passes public pages on (same address rules as
+`site-colors`, shared in `lib/public-url.js`; this site's own pages only; text only; 12 MB and 30 s limits; served as an inert download).
+The chat in the board calls the worker, so it works with no server. Downloaded boards keep the map; their chat points back to the tool.
 
 ## Testing
 

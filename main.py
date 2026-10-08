@@ -12,6 +12,7 @@ import pages
 import security
 import toolkit
 import tools  # noqa: F401 - importing registers every tool
+from site_board import api as site_board_api
 from tools import cdn
 
 mimetypes.add_type("text/javascript", ".mjs")  # pdf.js ships as ES modules; Windows can map these wrongly
@@ -37,6 +38,7 @@ app.include_router(pages.router)
 app.include_router(core.router)
 app.include_router(toolkit.router)
 app.include_router(cdn.router)
+app.include_router(site_board_api.router)  # Site Map Board: /site-board and /api/site-board/* (site_board/)
 
 
 @app.exception_handler(StarletteHTTPException)

@@ -2,6 +2,7 @@
 // (upload limits, blocked types, download headers, deleting), the admin sign-in and the blog. Run:  node tests/functions_test.mjs
 import assert from 'node:assert/strict';
 import { onRequestGet as siteColors } from '../functions/api/site-colors.js';
+import { onRequestGet as siteFetch } from '../functions/api/site-fetch.js';
 import { onRequestPost as upload } from '../functions/api/files/index.js';
 import { onRequestDelete as remove } from '../functions/api/files/[id].js';
 import { onRequestGet as download } from '../functions/f/[id]/[name].js';
@@ -206,6 +207,41 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
   const g = await (await rateGet({ request: req('/api/rating?tool=compress-pdf'), env: E, waitUntil: () => { } })).json();
   assert.equal(g.count, 2);
   ok('ratings: one changeable vote per visitor, real tools only, IPs never stored');
+}
+
+// ---- site-fetch (Visual Sitemap Generator): public pages only, every redirect checked, text only, size cap
+{
+  for (const bad of ['', 'http://localhost/', 'http://10.0.0.5/', 'https://example.com:8443/', 'file:///etc/passwd', 'https://toolzbaba.com/']) {
+    const r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent(bad)), env: {} });
+    assert.equal(r.status, 400, `${bad} should be refused (got ${r.status})`);
+  }
+  const cross = await siteFetch({ request: req('/api/site-fetch?url=https://example.com/', { headers: { 'Sec-Fetch-Site': 'cross-site' } }), env: {} });
+  assert.equal(cross.status, 403, 'other sites may not use it');
+  const realFetch = globalThis.fetch, seen = [];
+  globalThis.fetch = async (u, init) => {
+    seen.push(u);
+    if (u === 'https://example.com/old') return new Response(null, { status: 301, headers: { Location: '/new' } });
+    if (u === 'https://example.com/sneaky') return new Response(null, { status: 302, headers: { Location: 'http://127.0.0.1/admin' } });
+    if (u === 'https://example.com/logo.png') return new Response(new Uint8Array(50), { headers: { 'Content-Type': 'image/png' } });
+    if (u === 'https://example.com/busy') return new Response('slow down', { status: 429, headers: { 'Retry-After': '7' } });
+    return new Response('x'.repeat(50_000), { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+  };
+  try {
+    let r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/old'), { headers: { 'Sec-Fetch-Site': 'same-origin' } }), env: {} });
+    assert.equal(r.status, 200); assert.equal(r.headers.get('X-Upstream-Status'), '200'); assert.equal(r.headers.get('X-Final-Url'), 'https://example.com/new');
+    assert.equal(r.headers.get('X-Redirected'), '1'); assert.equal(r.headers.get('Content-Type'), 'application/octet-stream'); assert.match(r.headers.get('Content-Security-Policy'), /sandbox/);
+    assert.equal((await r.text()).length, 50_000);
+    r = await siteFetch({ request: req('/api/site-fetch?max=20000&url=' + encodeURIComponent('https://example.com/big')), env: {} });
+    assert.equal((await r.arrayBuffer()).byteLength, 20_000, 'cut at max');
+    r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/sneaky')), env: {} });
+    assert.equal(r.status, 422, 'a redirect to a private address is refused');
+    assert.ok(!seen.some(u => u.includes('127.0.0.1')), 'the private address was never fetched');
+    r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/logo.png')), env: {} });
+    assert.equal(r.headers.get('X-Skipped'), '1'); assert.equal((await r.arrayBuffer()).byteLength, 0, 'pictures are not passed on');
+    r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/busy')), env: {} });
+    assert.equal(r.headers.get('X-Upstream-Status'), '429'); assert.equal(r.headers.get('X-Retry-After'), '7');
+  } finally { globalThis.fetch = realFetch; }
+  ok('site-fetch: public pages only, redirects checked, text only, size cap');
 }
 
 console.log(`\n${pass}/${pass} passed`);

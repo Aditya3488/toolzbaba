@@ -97,6 +97,7 @@
     screenshot: 'screenshot*|screen shot|स्क्रीनशॉट|স্ক্রিনশট|captura de pantalla|captura de tela|capture d\'écran|bildschirmfoto|скриншот*|スクショ|スクリーンショット|ekran görüntüsü|ảnh chụp màn hình|لقطة شاشة|tangkapan layar|zrzut ekranu',
     anime: 'anime|cartoon*|ghibli|toon*|कार्टून|এনিমে|কার্টুন|caricatura|dessin animé|мульт*|аниме|アニメ|çizgi film|hoạt hình|cartone|كرتون|انمي|kartun|kreskówk*',
     headshot: 'headshot*|profile|profile photo|profile picture|linkedin photo|professional photo', exif: 'exif|metadata|meta data|location|gps|geotag*|camera info',
+    sitemap: 'sitemap*|site map*|site structure|website structure|seo audit|site audit|website audit|crawl*|broken link*|साइटमैप|साइट मैप',
     carousel: 'carousel*|carrusel|carrossel|carrousel|karussell|карусел*|カルーセル|karusel*|caroselo|كاروسيل',
     scan: 'scan|scans|scanned|scanner|ocr|स्कैन|স্ক্যান|escane*|escaneado|digitaliz*|numérisé*|gescannt*|скан*|スキャン|taranmış|quét|scansionat*|ممسوح|pindai*|zeskanow*',
     social: 'instagram|insta|whatsapp|facebook|fb|twitter|tiktok|youtube|linkedin|story|stories|dp|status|line|zalo|telegram|pinterest|snapchat',
@@ -114,7 +115,7 @@
   };
   // how much a word says about the tool: a rare, precise word (passport, watermark) beats a common one (photo)
   const WT = { passport: 8, background: 5, transparent: 5, watermark: 5, sign: 5, exif: 5, meme: 5, favicon: 5, thumbnail: 5, screenshot: 4, heic: 3, anime: 5, headshot: 5, collage: 5,
-    carousel: 5, qr: 5, json: 5, case: 5, hash: 5, base64: 5, urlenc: 5, flatten: 5, pixelate: 5, unlock: 5, font: 4, speed: 4, count: 4, repair: 4, compare: 4, organize: 4,
+    sitemap: 6, carousel: 5, qr: 5, json: 5, case: 5, hash: 5, base64: 5, urlenc: 5, flatten: 5, pixelate: 5, unlock: 5, font: 4, speed: 4, count: 4, repair: 4, compare: 4, organize: 4,
     blur: 4, upscale: 4, scan: 2.5, number: 3, password: 3, protect: 3, speech: 3, color: 3, link: 3, form: 3, face: 3, rotate: 3, crop: 3, compress: 2.5, merge: 2.5, split: 2.5,
     edit: 2.5, resize: 2, remove: 2, replace: 2, cut: 2, site: 2, word: 2, convert: 1, social: 1, extract: 1, generate: 1, doc: 1 };
   const wt = c => WT[c] || 1.5;
@@ -133,7 +134,7 @@
     ['exif-remover', 'exif'], ['meme-generator', 'meme'], ['favicon-generator', 'favicon'], ['thumbnail-generator', 'thumbnail'], ['screenshot-beautifier', 'screenshot'], ['anime-style', 'anime'],
     ['ai-headshot-generator', 'headshot'], ['linkedin-carousel-maker', 'carousel'], ['social-media-image-resizer', 'resize image social'], ['social-media-image-resizer', 'resize social'], ['resize-image', 'resize image'], ['resize-image', 'resize'],
     ['pdf-editor', 'edit pdf'], ['compare-pdf', 'compare'], ['repair-pdf', 'repair'], ['flatten-pdf', 'flatten'], ['change-video-speed', 'speed'], ['text-to-audio', 'speech'], ['qr-code-generator', 'qr'],
-    ['json-formatter', 'json'], ['word-counter', 'count'], ['text-case-converter', 'case'], ['hash-uuid-generator', 'hash'], ['url-encoder', 'urlenc'], ['base64', 'base64'], ['font-library', 'font'],
+    ['visual-sitemap-generator', 'sitemap'], ['json-formatter', 'json'], ['word-counter', 'count'], ['text-case-converter', 'case'], ['hash-uuid-generator', 'hash'], ['url-encoder', 'urlenc'], ['base64', 'base64'], ['font-library', 'font'],
     ['website-color-palette-extractor', 'color site'], ['image-color-palette-extractor', 'color image'], ['color-palette-generator', 'color'], ['image-cdn', 'link image'],
     ['temporary-file-upload-direct-link-share', 'link'], ['heic-to-jpg', 'heic'], ['image-to-svg', 'svg'], ['markdown-converter', 'markdown'], ['video-to-audio', 'extract audio'],
     ['convert-image', 'convert image'], ['video-converter', 'convert video'], ['audio-converter', 'convert audio'], ['compress-pdf', 'compress doc'], ['merge-pdf', 'merge doc'], ['esign-pdf', 'sign doc'],

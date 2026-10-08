@@ -1798,6 +1798,45 @@
    ]
   },
   {
+   "slug": "visual-sitemap-generator",
+   "cat": "dev",
+   "icon": "🗺️",
+   "name": "Visual Sitemap Generator",
+   "kind": "server",
+   "badge": "Reads public pages",
+   "js": "site-board",
+   "desc": "Type a website address and get a visual sitemap board: menus, pages, SEO health, tracking tags and the sales funnel, with a chat that answers questions about the site.",
+   "about": "Map any public website on one zoomable board, like a Miro sitemap: the main menu and mega-menu groups, footer links, every page from the sitemap, and for online shops the collections and products with prices, discounts, stock and ratings. Each page card shows its title, description and H1 with an SEO score, and broken links, missing descriptions, duplicate titles and redirects are flagged. The board also lists the analytics and ad tags the site uses (Google Tag Manager, GA4, Google Ads, Meta Pixel and more) and draws its sales funnel from first visit to purchase or enquiry. Then ask the built-in chat things like \"which pages are broken?\", \"cheapest earbuds\" or \"do they run Facebook ads?\". It also understands Hinglish. Download the board as one HTML file, or the full report as JSON.",
+   "title": "Visual Sitemap Generator: Website Structure, SEO and Funnel Map | Toolz Baba",
+   "metaDesc": "Turn any website into a visual sitemap board with menus, pages, SEO checks, tracking tags, products and the sales funnel, then ask a chat about it. Free.",
+   "steps": [
+    "Type the website address and choose how many pages to check.",
+    "Wait while your browser reads the site and draws the board (one to three minutes for a big site).",
+    "Explore the board, ask the chat about the site, and download the board or the report."
+   ],
+   "faq": [
+    {
+     "q": "What does the visual sitemap show?",
+     "a": "The site's menu and sections, footer links, pages from its sitemap, each page's title, description and H1 with an SEO score, broken links and redirects, the tracking and ad tags it uses, and its sales funnel. For Shopify and WooCommerce shops it also shows collections and products with prices, discounts, stock and ratings."
+    },
+    {
+     "q": "Can I ask questions about the site?",
+     "a": "Yes. The chat answers questions such as which pages are broken, which titles are too long, what tracking tools the site uses, or which products are cheapest or best rated. It runs in your browser and needs no account or AI service."
+    },
+    {
+     "q": "Is anything stored?",
+     "a": "No. Your browser reads the public pages through our server, which only passes them on, and the board is drawn on your device. Close the page and it is gone, unless you download it."
+    },
+    {
+     "q": "Why were some pages not checked?",
+     "a": "Some sites limit how fast they can be read. The tool slows down when asked and marks the pages it could not check, so they are not counted as broken. Try again later or check fewer pages."
+    }
+   ],
+   "privacy": "Your browser reads the public pages of the site through our server, which only passes them on. The board is made on your device and nothing is stored.",
+   "privacyTitle": "Public pages only",
+   "keywords": "sitemap site map website structure seo audit broken links crawl tracking tags gtm pixel sales funnel competitor shopify"
+  },
+  {
    "slug": "image-color-palette-extractor",
    "cat": "util",
    "icon": "🎨",
