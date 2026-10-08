@@ -806,9 +806,12 @@
   // Answering: a tap on the toast = "yes, bookmark" (Install app where the browser offers it, otherwise the keys / taps
   // for this device, since no browser lets a page add a bookmark by itself); x or Esc = "not now" (no reminder for 1 hour).
   // Shown after a download, by the header's Bookmark button and by the footer link.
-  const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze';
-  const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return Infinity; } };
-  const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Date.now() + ms)); } catch { } };
+  // How long it stays away: 30 days once we know it worked (Ctrl/Cmd+D pressed, or the app installed), 1 day after a tap
+  // that only showed how to bookmark (we cannot tell whether they did it), 1 hour after "not now". Browsers that block
+  // storage just see it after each download (at most once every 2 minutes); the installed app never sees it.
+  const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze2';   // "2": the old key could hold 30 days from a tap that never bookmarked
+  const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return 0; } };
+  const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Math.max(Date.now() + ms, snoozedUntil()))); } catch { } };   // the longer pause wins
   HT.bookmark = ({ fromDownload = false } = {}) => {
     const old = document.querySelector('.bmtoast'); if (old) old.remove();
     const k = keysFor();
@@ -825,8 +828,8 @@
     const sub = el('p', { class: 'bmsub', text: installEvt ? 'Install the free app: one tap from your home screen.' : 'Just bookmark this site.' });
     const yes = async () => {
       if (toast.classList.contains('how')) return;
-      snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
-      if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') return close(); } catch { installEvt = null; } }
+      snooze(24 * HOUR);   // they said yes, but may not finish: ask again tomorrow, not after every download
+      if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') { snooze(30 * 24 * HOUR); return close(); } } catch { installEvt = null; } }
       toast.classList.add('how'); sub.textContent = '';
       if (k.key) sub.append('Press ', el('kbd', { text: k.key[0] }), ' + ', el('kbd', { text: k.key[1] }), ' now');
       else sub.textContent = k.steps;
@@ -842,8 +845,9 @@
   };
   // after a finished download: the toast, unless it was snoozed, or already shown in the last 2 minutes (one toast for a batch of downloads)
   let lastNudge = 0;
+  const installed = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch { return false; } };
   const bookmarkNudge = () => {
-    if (Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmtoast')) return;
+    if (installed() || Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmtoast')) return;
     lastNudge = Date.now();
     setTimeout(() => HT.bookmark({ fromDownload: true }), 1200);
   };
