@@ -1386,6 +1386,39 @@
    }
   ]
  },
+ "visual-sitemap-generator": {
+  "name": "Görsel Site Haritası Oluşturucu",
+  "desc": "Bir web sitesi adresi yazın ve görsel site haritası panosu alın: menüler, sayfalar, SEO sağlığı, izleme etiketleri ve satış hunisi, site hakkında yanıt veren sohbetle birlikte.",
+  "about": "Herhangi bir herkese açık web sitesini yakınlaştırılabilir tek bir panoda haritalayın, Miro'daki site haritası gibi: ana menü ve mega menü grupları, alt bilgi bağlantıları, site haritasındaki her sayfa ve çevrim içi mağazalar için koleksiyonlar ile ürünler; fiyat, indirim, stok ve puanlarıyla. Her sayfa kartı başlığını, açıklamasını ve H1'ini SEO puanıyla gösterir; kırık bağlantılar, eksik açıklamalar, yinelenen başlıklar ve yönlendirmeler işaretlenir. Pano ayrıca sitenin kullandığı analiz ve reklam etiketlerini listeler (Google Tag Manager, GA4, Google Ads, Meta Pixel ve daha fazlası) ve ilk ziyaretten satın almaya veya talebe uzanan satış hunisini çizer. Sonra yerleşik sohbete \"hangi sayfalar kırık?\", \"en ucuz kulaklık\" ya da \"Facebook reklamı veriyorlar mı?\" gibi sorular sorun. Panoyu tek bir HTML dosyası, tam raporu ise JSON olarak indirin.",
+  "title": "Görsel Site Haritası Oluşturucu: Site Yapısı ve SEO",
+  "metaDesc": "Herhangi bir siteyi görsel site haritasına dönüştürün: menüler, sayfalar, SEO kontrolleri, izleme etiketleri, ürünler ve satış hunisi. Sonra sohbete sorun. Ücretsiz.",
+  "badge": "Herkese açık sayfaları okur",
+  "steps": [
+   "Web sitesi adresini yazın ve kaç sayfanın denetleneceğini seçin.",
+   "Tarayıcınız siteyi okuyup panoyu çizerken bekleyin (büyük sitelerde bir ila üç dakika).",
+   "Panoyu inceleyin, site hakkında sohbete sorun ve panoyu ya da raporu indirin."
+  ],
+  "faq": [
+   {
+    "q": "Görsel site haritası neleri gösterir?",
+    "a": "Sitenin menüsü ve bölümleri, alt bilgi bağlantıları, site haritasındaki sayfalar, her sayfanın başlığı, açıklaması ve H1'i ile SEO puanı, kırık bağlantılar ve yönlendirmeler, kullandığı izleme ve reklam etiketleri ve satış hunisi. Shopify ve WooCommerce mağazalarında koleksiyonları ve ürünleri de fiyat, indirim, stok ve puanlarıyla gösterir."
+   },
+   {
+    "q": "Site hakkında soru sorabilir miyim?",
+    "a": "Evet. Sohbet; hangi sayfaların kırık olduğu, hangi başlıkların çok uzun olduğu, sitenin hangi izleme araçlarını kullandığı ya da hangi ürünlerin en ucuz veya en yüksek puanlı olduğu gibi soruları yanıtlar. Tarayıcınızda çalışır, hesap veya yapay zekâ hizmeti gerektirmez."
+   },
+   {
+    "q": "Herhangi bir şey saklanıyor mu?",
+    "a": "Hayır. Tarayıcınız herkese açık sayfaları, yalnızca aktarım yapan sunucumuz üzerinden okur ve pano sizin cihazınızda çizilir. Sayfayı kapattığınızda, indirmediyseniz her şey kaybolur."
+   },
+   {
+    "q": "Bazı sayfalar neden denetlenmedi?",
+    "a": "Bazı siteler ne kadar hızlı okunabileceklerini sınırlar. Araç istendiğinde yavaşlar ve denetleyemediği sayfaları işaretler, böylece bunlar kırık sayılmaz. Daha sonra deneyin ya da daha az sayfa denetleyin."
+   }
+  ],
+  "privacy": "Tarayıcınız sitenin herkese açık sayfalarını, yalnızca aktarım yapan sunucumuz üzerinden okur. Pano cihazınızda oluşturulur ve hiçbir şey saklanmaz.",
+  "privacyTitle": "Yalnızca herkese açık sayfalar"
+ },
  "image-color-palette-extractor": {
   "name": "Renk Paleti Çıkarıcı",
   "desc": "Herhangi bir görselin ana renklerini çıkarın. HEX, RGB, CSS kopyalayın.",

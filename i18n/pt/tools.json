@@ -1386,6 +1386,39 @@
    }
   ]
  },
+ "visual-sitemap-generator": {
+  "name": "Gerador de mapa do site visual",
+  "desc": "Digite o endereço de um site e receba um quadro visual do site: menus, páginas, saúde de SEO, tags de rastreamento e funil de vendas, com um chat que responde sobre o site.",
+  "about": "Mapeie qualquer site público num quadro com zoom, como um mapa do site no Miro: o menu principal e os grupos do megamenu, os links do rodapé, cada página do sitemap e, para lojas online, as coleções e os produtos com preços, descontos, estoque e avaliações. Cada cartão de página mostra o título, a descrição e o H1 com uma pontuação de SEO, e os links quebrados, descrições ausentes, títulos duplicados e redirecionamentos são sinalizados. O quadro também lista as tags de analytics e de anúncios que o site usa (Google Tag Manager, GA4, Google Ads, Meta Pixel e outras) e desenha o funil de vendas desde a primeira visita até a compra ou o contato. Depois pergunte ao chat integrado coisas como \"quais páginas estão quebradas?\", \"fones mais baratos\" ou \"eles anunciam no Facebook?\". Baixe o quadro como um único arquivo HTML, ou o relatório completo em JSON.",
+  "title": "Gerador de mapa do site visual: estrutura e SEO do site",
+  "metaDesc": "Transforme qualquer site num quadro visual com menus, páginas, verificações de SEO, tags de rastreamento, produtos e funil de vendas. Depois pergunte ao chat. Grátis.",
+  "badge": "Lê páginas públicas",
+  "steps": [
+   "Digite o endereço do site e escolha quantas páginas verificar.",
+   "Aguarde enquanto o seu navegador lê o site e desenha o quadro (de um a três minutos em sites grandes).",
+   "Explore o quadro, pergunte ao chat sobre o site e baixe o quadro ou o relatório."
+  ],
+  "faq": [
+   {
+    "q": "O que o mapa do site visual mostra?",
+    "a": "O menu e as seções do site, os links do rodapé, as páginas do sitemap, o título, a descrição e o H1 de cada página com uma pontuação de SEO, os links quebrados e os redirecionamentos, as tags de rastreamento e de anúncios usadas, e o funil de vendas. Em lojas Shopify e WooCommerce também mostra coleções e produtos com preços, descontos, estoque e avaliações."
+   },
+   {
+    "q": "Posso fazer perguntas sobre o site?",
+    "a": "Sim. O chat responde a perguntas como quais páginas estão quebradas, quais títulos são longos demais, quais ferramentas de rastreamento o site usa, ou quais produtos são mais baratos ou mais bem avaliados. Ele roda no seu navegador e não precisa de conta nem de serviço de IA."
+   },
+   {
+    "q": "Algo fica salvo?",
+    "a": "Não. Seu navegador lê as páginas públicas através do nosso servidor, que apenas as repassa, e o quadro é desenhado no seu dispositivo. Ao fechar a página tudo some, a menos que você baixe."
+   },
+   {
+    "q": "Por que algumas páginas não foram verificadas?",
+    "a": "Alguns sites limitam a velocidade de leitura. A ferramenta desacelera quando pedem e marca as páginas que não conseguiu verificar, por isso elas não contam como quebradas. Tente mais tarde ou verifique menos páginas."
+   }
+  ],
+  "privacy": "Seu navegador lê as páginas públicas do site através do nosso servidor, que apenas as repassa. O quadro é criado no seu dispositivo e nada é armazenado.",
+  "privacyTitle": "Apenas páginas públicas"
+ },
  "image-color-palette-extractor": {
   "name": "Extrator de paleta de cores",
   "desc": "Tire as cores principais de qualquer imagem. Copie HEX, RGB e CSS.",

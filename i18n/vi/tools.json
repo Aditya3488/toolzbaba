@@ -1386,6 +1386,39 @@
    }
   ]
  },
+ "visual-sitemap-generator": {
+  "name": "Trình tạo sơ đồ trang web trực quan",
+  "desc": "Nhập địa chỉ một trang web và nhận bảng sơ đồ trực quan: menu, trang, sức khỏe SEO, thẻ theo dõi và phễu bán hàng, kèm trò chuyện trả lời về trang web.",
+  "about": "Lập bản đồ bất kỳ trang web công khai nào trên một bảng có thể phóng to, giống sơ đồ trang trong Miro: menu chính và các nhóm mega-menu, liên kết chân trang, mọi trang trong sitemap, và với cửa hàng trực tuyến là các bộ sưu tập cùng sản phẩm kèm giá, giảm giá, tồn kho và đánh giá. Mỗi thẻ trang hiển thị tiêu đề, mô tả và H1 cùng điểm SEO; liên kết hỏng, mô tả thiếu, tiêu đề trùng và chuyển hướng đều được đánh dấu. Bảng cũng liệt kê các thẻ phân tích và quảng cáo mà trang dùng (Google Tag Manager, GA4, Google Ads, Meta Pixel và nhiều thẻ khác) và vẽ phễu bán hàng từ lần ghé thăm đầu tiên đến khi mua hoặc liên hệ. Sau đó hỏi trò chuyện tích hợp những câu như \"trang nào bị hỏng?\", \"tai nghe rẻ nhất\" hoặc \"họ có chạy quảng cáo Facebook không?\". Tải bảng về dưới dạng một tệp HTML, hoặc toàn bộ báo cáo dạng JSON.",
+  "title": "Sơ đồ trang web trực quan: cấu trúc trang và bản đồ SEO",
+  "metaDesc": "Biến mọi trang web thành bảng sơ đồ trực quan với menu, trang, kiểm tra SEO, thẻ theo dõi, sản phẩm và phễu bán hàng. Rồi hỏi trò chuyện. Miễn phí.",
+  "badge": "Đọc trang công khai",
+  "steps": [
+   "Nhập địa chỉ trang web và chọn số trang cần kiểm tra.",
+   "Chờ trong khi trình duyệt đọc trang web và vẽ bảng (một đến ba phút với trang lớn).",
+   "Khám phá bảng, hỏi trò chuyện về trang web, rồi tải bảng hoặc báo cáo."
+  ],
+  "faq": [
+   {
+    "q": "Sơ đồ trang trực quan hiển thị những gì?",
+    "a": "Menu và các phần của trang, liên kết chân trang, các trang trong sitemap, tiêu đề, mô tả và H1 của từng trang kèm điểm SEO, liên kết hỏng và chuyển hướng, các thẻ theo dõi và quảng cáo đang dùng, cùng phễu bán hàng. Với cửa hàng Shopify và WooCommerce, nó còn hiển thị bộ sưu tập và sản phẩm kèm giá, giảm giá, tồn kho và đánh giá."
+   },
+   {
+    "q": "Tôi có thể hỏi về trang web không?",
+    "a": "Có. Trò chuyện trả lời các câu hỏi như trang nào bị hỏng, tiêu đề nào quá dài, trang dùng công cụ theo dõi nào, hoặc sản phẩm nào rẻ nhất hay được đánh giá cao nhất. Nó chạy trong trình duyệt của bạn, không cần tài khoản hay dịch vụ AI."
+   },
+   {
+    "q": "Có lưu gì không?",
+    "a": "Không. Trình duyệt của bạn đọc các trang công khai qua máy chủ của chúng tôi, nơi chỉ chuyển tiếp chúng, và bảng được vẽ trên thiết bị của bạn. Đóng trang là mọi thứ biến mất, trừ khi bạn đã tải về."
+   },
+   {
+    "q": "Vì sao một số trang không được kiểm tra?",
+    "a": "Một số trang web giới hạn tốc độ đọc. Công cụ sẽ chậm lại khi được yêu cầu và đánh dấu những trang không kiểm tra được, nên chúng không bị tính là hỏng. Hãy thử lại sau hoặc kiểm tra ít trang hơn."
+   }
+  ],
+  "privacy": "Trình duyệt của bạn đọc các trang công khai qua máy chủ của chúng tôi, nơi chỉ chuyển tiếp chúng. Bảng được tạo trên thiết bị của bạn và không có gì được lưu.",
+  "privacyTitle": "Chỉ trang công khai"
+ },
  "image-color-palette-extractor": {
   "name": "Lấy bảng màu từ ảnh",
   "desc": "Lấy các màu chính từ bất kỳ ảnh nào. Sao chép HEX, RGB, CSS.",

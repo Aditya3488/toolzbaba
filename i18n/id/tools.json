@@ -1386,6 +1386,39 @@
    }
   ]
  },
+ "visual-sitemap-generator": {
+  "name": "Generator Peta Situs Visual",
+  "desc": "Ketik alamat situs web dan dapatkan papan peta situs visual: menu, halaman, kesehatan SEO, tag pelacakan, dan corong penjualan, dengan chat yang menjawab pertanyaan tentang situs.",
+  "about": "Petakan situs web publik mana pun di satu papan yang bisa diperbesar, seperti peta situs di Miro: menu utama dan grup mega-menu, tautan footer, setiap halaman dari sitemap, dan untuk toko online, koleksi serta produk dengan harga, diskon, stok, dan rating. Setiap kartu halaman menampilkan judul, deskripsi, dan H1 dengan skor SEO, dan tautan rusak, deskripsi yang hilang, judul ganda, serta pengalihan ditandai. Papan ini juga mencantumkan tag analitik dan iklan yang dipakai situs (Google Tag Manager, GA4, Google Ads, Meta Pixel, dan lainnya) dan menggambar corong penjualannya dari kunjungan pertama hingga pembelian atau pertanyaan. Lalu tanyakan ke chat bawaan hal seperti \"halaman mana yang rusak?\", \"earbud termurah\", atau \"apakah mereka pasang iklan Facebook?\". Unduh papan sebagai satu berkas HTML, atau laporan lengkap dalam JSON.",
+  "title": "Generator Peta Situs Visual: Struktur Situs dan Peta SEO",
+  "metaDesc": "Ubah situs web apa pun menjadi papan peta situs visual dengan menu, halaman, pemeriksaan SEO, tag pelacakan, produk, dan corong penjualan. Gratis.",
+  "badge": "Membaca halaman publik",
+  "steps": [
+   "Ketik alamat situs web dan pilih berapa halaman yang diperiksa.",
+   "Tunggu sementara peramban Anda membaca situs dan menggambar papan (satu sampai tiga menit untuk situs besar).",
+   "Jelajahi papan, tanyakan ke chat tentang situs, dan unduh papan atau laporannya."
+  ],
+  "faq": [
+   {
+    "q": "Apa yang ditampilkan peta situs visual?",
+    "a": "Menu dan bagian situs, tautan footer, halaman dari sitemap, judul, deskripsi, dan H1 setiap halaman dengan skor SEO, tautan rusak dan pengalihan, tag pelacakan dan iklan yang dipakai, serta corong penjualannya. Untuk toko Shopify dan WooCommerce juga menampilkan koleksi dan produk dengan harga, diskon, stok, dan rating."
+   },
+   {
+    "q": "Bisakah saya bertanya tentang situsnya?",
+    "a": "Bisa. Chat menjawab pertanyaan seperti halaman mana yang rusak, judul mana yang terlalu panjang, alat pelacak apa yang dipakai situs, atau produk mana yang termurah atau rating terbaik. Chat berjalan di peramban Anda dan tidak perlu akun atau layanan AI."
+   },
+   {
+    "q": "Apakah ada yang disimpan?",
+    "a": "Tidak. Peramban Anda membaca halaman publik melalui server kami, yang hanya meneruskannya, dan papan digambar di perangkat Anda. Tutup halaman dan semuanya hilang, kecuali Anda mengunduhnya."
+   },
+   {
+    "q": "Mengapa beberapa halaman tidak diperiksa?",
+    "a": "Sebagian situs membatasi kecepatan pembacaan. Alat ini melambat saat diminta dan menandai halaman yang tidak bisa diperiksa, jadi halaman itu tidak dihitung rusak. Coba lagi nanti atau periksa lebih sedikit halaman."
+   }
+  ],
+  "privacy": "Peramban Anda membaca halaman publik situs melalui server kami, yang hanya meneruskannya. Papan dibuat di perangkat Anda dan tidak ada yang disimpan.",
+  "privacyTitle": "Hanya halaman publik"
+ },
  "image-color-palette-extractor": {
   "name": "Pengambil Palet Warna",
   "desc": "Ambil warna utama dari gambar apa pun. Salin HEX, RGB, CSS.",

@@ -1386,6 +1386,39 @@
    }
   ]
  },
+ "visual-sitemap-generator": {
+  "name": "Visueller Sitemap-Generator",
+  "desc": "Website-Adresse eingeben und ein visuelles Sitemap-Board erhalten: Menüs, Seiten, SEO-Zustand, Tracking-Tags und Verkaufstrichter, mit Chat, der Fragen zur Website beantwortet.",
+  "about": "Bilden Sie jede öffentliche Website auf einem zoombaren Board ab, wie eine Sitemap in Miro: das Hauptmenü und die Mega-Menü-Gruppen, die Footer-Links, jede Seite aus der Sitemap und bei Onlineshops die Kollektionen und Produkte mit Preisen, Rabatten, Lagerbestand und Bewertungen. Jede Seitenkarte zeigt Titel, Beschreibung und H1 mit einer SEO-Bewertung; defekte Links, fehlende Beschreibungen, doppelte Titel und Weiterleitungen werden markiert. Das Board listet außerdem die Analyse- und Werbe-Tags der Website auf (Google Tag Manager, GA4, Google Ads, Meta Pixel und mehr) und zeichnet ihren Verkaufstrichter vom ersten Besuch bis zum Kauf oder zur Anfrage. Fragen Sie dann den eingebauten Chat Dinge wie „Welche Seiten sind defekt?“, „günstigste Ohrhörer“ oder „Schalten die Facebook-Anzeigen?“. Laden Sie das Board als eine HTML-Datei oder den vollständigen Bericht als JSON herunter.",
+  "title": "Visueller Sitemap-Generator: Website-Struktur und SEO",
+  "metaDesc": "Machen Sie aus jeder Website ein visuelles Sitemap-Board mit Menüs, Seiten, SEO-Checks, Tracking-Tags, Produkten und Verkaufstrichter. Kostenlos.",
+  "badge": "Liest öffentliche Seiten",
+  "steps": [
+   "Website-Adresse eingeben und wählen, wie viele Seiten geprüft werden.",
+   "Warten, während Ihr Browser die Website liest und das Board zeichnet (bei großen Websites ein bis drei Minuten).",
+   "Board erkunden, den Chat zur Website befragen und Board oder Bericht herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Was zeigt die visuelle Sitemap?",
+    "a": "Menü und Abschnitte der Website, Footer-Links, Seiten aus der Sitemap, Titel, Beschreibung und H1 jeder Seite mit SEO-Bewertung, defekte Links und Weiterleitungen, die genutzten Tracking- und Werbe-Tags sowie den Verkaufstrichter. Bei Shopify- und WooCommerce-Shops auch Kollektionen und Produkte mit Preisen, Rabatten, Lagerbestand und Bewertungen."
+   },
+   {
+    "q": "Kann ich Fragen zur Website stellen?",
+    "a": "Ja. Der Chat beantwortet Fragen wie welche Seiten defekt sind, welche Titel zu lang sind, welche Tracking-Tools die Website nutzt oder welche Produkte am günstigsten oder am besten bewertet sind. Er läuft in Ihrem Browser und braucht weder Konto noch KI-Dienst."
+   },
+   {
+    "q": "Wird etwas gespeichert?",
+    "a": "Nein. Ihr Browser liest die öffentlichen Seiten über unseren Server, der sie nur weiterreicht, und das Board entsteht auf Ihrem Gerät. Seite schließen und alles ist weg, sofern Sie es nicht heruntergeladen haben."
+   },
+   {
+    "q": "Warum wurden manche Seiten nicht geprüft?",
+    "a": "Manche Websites begrenzen, wie schnell sie gelesen werden dürfen. Das Werkzeug wird dann langsamer und markiert die Seiten, die es nicht prüfen konnte, damit sie nicht als defekt gelten. Später erneut versuchen oder weniger Seiten prüfen."
+   }
+  ],
+  "privacy": "Ihr Browser liest die öffentlichen Seiten der Website über unseren Server, der sie nur weiterreicht. Das Board entsteht auf Ihrem Gerät und nichts wird gespeichert.",
+  "privacyTitle": "Nur öffentliche Seiten"
+ },
  "image-color-palette-extractor": {
   "name": "Farbpalette extrahieren",
   "desc": "Die Hauptfarben eines Bildes auslesen. HEX, RGB, CSS kopieren.",

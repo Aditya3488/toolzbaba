@@ -1386,6 +1386,39 @@
    }
   ]
  },
+ "visual-sitemap-generator": {
+  "name": "Generator wizualnej mapy strony",
+  "desc": "Wpisz adres strony i otrzymaj wizualną tablicę: menu, podstrony, kondycja SEO, tagi śledzące i lejek sprzedaży, wraz z czatem odpowiadającym na pytania o witrynę.",
+  "about": "Odwzoruj dowolną publiczną witrynę na jednej powiększalnej tablicy, jak mapa strony w Miro: menu główne i grupy mega-menu, odnośniki w stopce, każdą stronę z sitemapy, a w sklepach internetowych kolekcje i produkty z cenami, rabatami, dostępnością i ocenami. Każda karta strony pokazuje jej tytuł, opis i H1 wraz z oceną SEO, a zepsute odnośniki, brakujące opisy, powtarzające się tytuły i przekierowania są oznaczane. Tablica wymienia też tagi analityczne i reklamowe używane przez witrynę (Google Tag Manager, GA4, Google Ads, Meta Pixel i inne) oraz rysuje lejek sprzedaży od pierwszej wizyty po zakup lub zapytanie. Następnie zapytaj wbudowany czat o rzeczy w rodzaju „które strony są zepsute?”, „najtańsze słuchawki” albo „czy reklamują się na Facebooku?”. Pobierz tablicę jako jeden plik HTML albo pełny raport w formacie JSON.",
+  "title": "Generator wizualnej mapy strony: struktura witryny i SEO",
+  "metaDesc": "Zamień dowolną witrynę w wizualną mapę strony z menu, podstronami, kontrolą SEO, tagami śledzącymi, produktami i lejkiem sprzedaży. Potem zapytaj czat. Za darmo.",
+  "badge": "Czyta strony publiczne",
+  "steps": [
+   "Wpisz adres witryny i wybierz, ile podstron sprawdzić.",
+   "Poczekaj, aż przeglądarka przeczyta witrynę i narysuje tablicę (od jednej do trzech minut przy dużych witrynach).",
+   "Przejrzyj tablicę, zapytaj czat o witrynę i pobierz tablicę lub raport."
+  ],
+  "faq": [
+   {
+    "q": "Co pokazuje wizualna mapa strony?",
+    "a": "Menu i sekcje witryny, odnośniki w stopce, strony z sitemapy, tytuł, opis i H1 każdej strony wraz z oceną SEO, zepsute odnośniki i przekierowania, używane tagi śledzące i reklamowe oraz lejek sprzedaży. W sklepach Shopify i WooCommerce pokazuje także kolekcje i produkty z cenami, rabatami, dostępnością i ocenami."
+   },
+   {
+    "q": "Czy mogę zadawać pytania o witrynę?",
+    "a": "Tak. Czat odpowiada na pytania w rodzaju: które strony są zepsute, które tytuły są za długie, jakich narzędzi śledzących używa witryna albo które produkty są najtańsze lub najlepiej oceniane. Działa w przeglądarce i nie wymaga konta ani usługi AI."
+   },
+   {
+    "q": "Czy coś jest zapisywane?",
+    "a": "Nie. Przeglądarka czyta strony publiczne przez nasz serwer, który jedynie je przekazuje, a tablica powstaje na Twoim urządzeniu. Po zamknięciu strony wszystko znika, chyba że ją pobierzesz."
+   },
+   {
+    "q": "Dlaczego niektóre strony nie zostały sprawdzone?",
+    "a": "Część witryn ogranicza szybkość odczytu. Narzędzie zwalnia na żądanie i oznacza strony, których nie dało się sprawdzić, więc nie liczą się jako zepsute. Spróbuj później albo sprawdź mniej stron."
+   }
+  ],
+  "privacy": "Przeglądarka czyta publiczne strony witryny przez nasz serwer, który jedynie je przekazuje. Tablica powstaje na Twoim urządzeniu i nic nie jest zapisywane.",
+  "privacyTitle": "Tylko strony publiczne"
+ },
  "image-color-palette-extractor": {
   "name": "Wyodrębnianie palety kolorów",
   "desc": "Wyciągnij główne kolory z dowolnego obrazu. Kopiuj HEX, RGB, CSS.",
