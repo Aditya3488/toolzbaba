@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Gerador de mapa do site visual",
   "desc": "Digite o endereço de um site e receba um quadro visual do site: menus, páginas, saúde de SEO, tags de rastreamento e funil de vendas, com um chat que responde sobre o site.",
-  "about": "Mapeie qualquer site público num quadro com zoom, como um mapa do site no Miro: o menu principal e os grupos do megamenu, os links do rodapé, cada página do sitemap e, para lojas online, as coleções e os produtos com preços, descontos, estoque e avaliações. Cada cartão de página mostra o título, a descrição e o H1 com uma pontuação de SEO, e os links quebrados, descrições ausentes, títulos duplicados e redirecionamentos são sinalizados. O quadro também lista as tags de analytics e de anúncios que o site usa (Google Tag Manager, GA4, Google Ads, Meta Pixel e outras) e desenha o funil de vendas desde a primeira visita até a compra ou o contato. Depois pergunte ao chat integrado coisas como \"quais páginas estão quebradas?\", \"fones mais baratos\" ou \"eles anunciam no Facebook?\". Baixe o quadro como um único arquivo HTML, ou o relatório completo em JSON.",
+  "about": "Mapeie qualquer site público num quadro com zoom, como um mapa do site no Miro: o menu principal e os grupos do megamenu, os links do rodapé, cada página que consegue alcançar, do sitemap e seguindo os links do próprio site e, para lojas online, as coleções e os produtos com preços, descontos, estoque e avaliações. Cada cartão de página mostra o título, a descrição e o H1 com uma pontuação de SEO, e os links quebrados, descrições ausentes, títulos duplicados e redirecionamentos são sinalizados. O quadro também lista as tags de analytics e de anúncios que o site usa (Google Tag Manager, GA4, Google Ads, Meta Pixel e outras) e desenha o funil de vendas desde a primeira visita até a compra ou o contato. Depois pergunte ao chat integrado coisas como \"quais páginas estão quebradas?\", \"fones mais baratos\" ou \"eles anunciam no Facebook?\". Baixe o quadro como um único arquivo HTML, ou o relatório completo em JSON.",
   "title": "Gerador de mapa do site visual: estrutura e SEO do site",
   "metaDesc": "Transforme qualquer site num quadro visual com menus, páginas, verificações de SEO, tags de rastreamento, produtos e funil de vendas. Depois pergunte ao chat. Grátis.",
   "badge": "Lê páginas públicas",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "O que o mapa do site visual mostra?",
-    "a": "O menu e as seções do site, os links do rodapé, as páginas do sitemap, o título, a descrição e o H1 de cada página com uma pontuação de SEO, os links quebrados e os redirecionamentos, as tags de rastreamento e de anúncios usadas, e o funil de vendas. Em lojas Shopify e WooCommerce também mostra coleções e produtos com preços, descontos, estoque e avaliações."
+    "a": "O menu e as seções do site, os links do rodapé, as páginas do sitemap e os links que ele segue, o título, a descrição e o H1 de cada página com uma pontuação de SEO, os links quebrados e os redirecionamentos, as tags de rastreamento e de anúncios usadas, e o funil de vendas. Em lojas Shopify e WooCommerce também mostra coleções e produtos com preços, descontos, estoque e avaliações."
    },
    {
     "q": "Posso fazer perguntas sobre o site?",

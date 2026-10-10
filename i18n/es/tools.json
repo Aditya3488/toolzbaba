@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Generador de mapa del sitio visual",
   "desc": "Escribe la dirección de una web y obtén un tablero visual del sitio: menús, páginas, salud SEO, etiquetas de seguimiento y embudo de ventas, con un chat que responde sobre el sitio.",
-  "about": "Mapea cualquier sitio web público en un tablero con zoom, como un mapa del sitio en Miro: el menú principal y los grupos del megamenú, los enlaces del pie, cada página del sitemap y, para tiendas online, las colecciones y los productos con precios, descuentos, stock y valoraciones. Cada tarjeta de página muestra su título, su descripción y su H1 con una puntuación SEO, y se señalan los enlaces rotos, las descripciones que faltan, los títulos duplicados y las redirecciones. El tablero también enumera las etiquetas de analítica y publicidad que usa el sitio (Google Tag Manager, GA4, Google Ads, Meta Pixel y más) y dibuja su embudo de ventas desde la primera visita hasta la compra o la consulta. Después pregunta al chat integrado cosas como «¿qué páginas están rotas?», «auriculares más baratos» o «¿hacen anuncios en Facebook?». Descarga el tablero como un único archivo HTML, o el informe completo en JSON.",
+  "about": "Mapea cualquier sitio web público en un tablero con zoom, como un mapa del sitio en Miro: el menú principal y los grupos del megamenú, los enlaces del pie, cada página a la que puede llegar, del sitemap y siguiendo los enlaces del propio sitio y, para tiendas online, las colecciones y los productos con precios, descuentos, stock y valoraciones. Cada tarjeta de página muestra su título, su descripción y su H1 con una puntuación SEO, y se señalan los enlaces rotos, las descripciones que faltan, los títulos duplicados y las redirecciones. El tablero también enumera las etiquetas de analítica y publicidad que usa el sitio (Google Tag Manager, GA4, Google Ads, Meta Pixel y más) y dibuja su embudo de ventas desde la primera visita hasta la compra o la consulta. Después pregunta al chat integrado cosas como «¿qué páginas están rotas?», «auriculares más baratos» o «¿hacen anuncios en Facebook?». Descarga el tablero como un único archivo HTML, o el informe completo en JSON.",
   "title": "Generador de mapa del sitio visual: estructura web y SEO",
   "metaDesc": "Convierte cualquier web en un tablero visual del sitio con menús, páginas, análisis SEO, etiquetas de seguimiento, productos y embudo de ventas. Gratis.",
   "badge": "Lee páginas públicas",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "¿Qué muestra el mapa del sitio visual?",
-    "a": "El menú y las secciones del sitio, los enlaces del pie, las páginas del sitemap, el título, la descripción y el H1 de cada página con una puntuación SEO, los enlaces rotos y las redirecciones, las etiquetas de seguimiento y publicidad que usa, y su embudo de ventas. En tiendas Shopify y WooCommerce también muestra colecciones y productos con precios, descuentos, stock y valoraciones."
+    "a": "El menú y las secciones del sitio, los enlaces del pie, las páginas del sitemap y los enlaces que sigue, el título, la descripción y el H1 de cada página con una puntuación SEO, los enlaces rotos y las redirecciones, las etiquetas de seguimiento y publicidad que usa, y su embudo de ventas. En tiendas Shopify y WooCommerce también muestra colecciones y productos con precios, descuentos, stock y valoraciones."
    },
    {
     "q": "¿Puedo hacer preguntas sobre el sitio?",

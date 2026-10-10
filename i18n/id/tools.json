@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Generator Peta Situs Visual",
   "desc": "Ketik alamat situs web dan dapatkan papan peta situs visual: menu, halaman, kesehatan SEO, tag pelacakan, dan corong penjualan, dengan chat yang menjawab pertanyaan tentang situs.",
-  "about": "Petakan situs web publik mana pun di satu papan yang bisa diperbesar, seperti peta situs di Miro: menu utama dan grup mega-menu, tautan footer, setiap halaman dari sitemap, dan untuk toko online, koleksi serta produk dengan harga, diskon, stok, dan rating. Setiap kartu halaman menampilkan judul, deskripsi, dan H1 dengan skor SEO, dan tautan rusak, deskripsi yang hilang, judul ganda, serta pengalihan ditandai. Papan ini juga mencantumkan tag analitik dan iklan yang dipakai situs (Google Tag Manager, GA4, Google Ads, Meta Pixel, dan lainnya) dan menggambar corong penjualannya dari kunjungan pertama hingga pembelian atau pertanyaan. Lalu tanyakan ke chat bawaan hal seperti \"halaman mana yang rusak?\", \"earbud termurah\", atau \"apakah mereka pasang iklan Facebook?\". Unduh papan sebagai satu berkas HTML, atau laporan lengkap dalam JSON.",
+  "about": "Petakan situs web publik mana pun di satu papan yang bisa diperbesar, seperti peta situs di Miro: menu utama dan grup mega-menu, tautan footer, setiap halaman yang bisa dijangkau, dari sitemap dan dengan mengikuti tautan situs itu sendiri, dan untuk toko online, koleksi serta produk dengan harga, diskon, stok, dan rating. Setiap kartu halaman menampilkan judul, deskripsi, dan H1 dengan skor SEO, dan tautan rusak, deskripsi yang hilang, judul ganda, serta pengalihan ditandai. Papan ini juga mencantumkan tag analitik dan iklan yang dipakai situs (Google Tag Manager, GA4, Google Ads, Meta Pixel, dan lainnya) dan menggambar corong penjualannya dari kunjungan pertama hingga pembelian atau pertanyaan. Lalu tanyakan ke chat bawaan hal seperti \"halaman mana yang rusak?\", \"earbud termurah\", atau \"apakah mereka pasang iklan Facebook?\". Unduh papan sebagai satu berkas HTML, atau laporan lengkap dalam JSON.",
   "title": "Generator Peta Situs Visual: Struktur Situs dan Peta SEO",
   "metaDesc": "Ubah situs web apa pun menjadi papan peta situs visual dengan menu, halaman, pemeriksaan SEO, tag pelacakan, produk, dan corong penjualan. Gratis.",
   "badge": "Membaca halaman publik",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "Apa yang ditampilkan peta situs visual?",
-    "a": "Menu dan bagian situs, tautan footer, halaman dari sitemap, judul, deskripsi, dan H1 setiap halaman dengan skor SEO, tautan rusak dan pengalihan, tag pelacakan dan iklan yang dipakai, serta corong penjualannya. Untuk toko Shopify dan WooCommerce juga menampilkan koleksi dan produk dengan harga, diskon, stok, dan rating."
+    "a": "Menu dan bagian situs, tautan footer, halaman dari sitemap dan tautan yang diikutinya, judul, deskripsi, dan H1 setiap halaman dengan skor SEO, tautan rusak dan pengalihan, tag pelacakan dan iklan yang dipakai, serta corong penjualannya. Untuk toko Shopify dan WooCommerce juga menampilkan koleksi dan produk dengan harga, diskon, stok, dan rating."
    },
    {
     "q": "Bisakah saya bertanya tentang situsnya?",

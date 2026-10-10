@@ -1806,7 +1806,7 @@
    "badge": "Reads public pages",
    "js": "site-board",
    "desc": "Type a website address and get a visual sitemap board: menus, pages, SEO health, tracking tags and the sales funnel, with a chat that answers questions about the site.",
-   "about": "Map any public website on one zoomable board, like a Miro sitemap: the main menu and mega-menu groups, footer links, every page from the sitemap, and for online shops the collections and products with prices, discounts, stock and ratings. Each page card shows its title, description and H1 with an SEO score, and broken links, missing descriptions, duplicate titles and redirects are flagged. The board also lists the analytics and ad tags the site uses (Google Tag Manager, GA4, Google Ads, Meta Pixel and more) and draws its sales funnel from first visit to purchase or enquiry. Then ask the built-in chat things like \"which pages are broken?\", \"cheapest earbuds\" or \"do they run Facebook ads?\". It also understands Hinglish. Download the board as one HTML file, or the full report as JSON.",
+   "about": "Map any public website on one zoomable board, like a Miro sitemap: the main menu and mega-menu groups, footer links, every page it can reach, from the sitemap and by following the site's own links, and for online shops the collections and products with prices, discounts, stock and ratings. Each page card shows its title, description and H1 with an SEO score, and broken links, missing descriptions, duplicate titles and redirects are flagged. The board also lists the analytics and ad tags the site uses (Google Tag Manager, GA4, Google Ads, Meta Pixel and more) and draws its sales funnel from first visit to purchase or enquiry. Then ask the built-in chat things like \"which pages are broken?\", \"cheapest earbuds\" or \"do they run Facebook ads?\". It also understands Hinglish. Download the board as one HTML file, or the full report as JSON.",
    "title": "Visual Sitemap Generator: Website Structure, SEO and Funnel Map | Toolz Baba",
    "metaDesc": "Turn any website into a visual sitemap board with menus, pages, SEO checks, tracking tags, products and the sales funnel, then ask a chat about it. Free.",
    "steps": [
@@ -1817,7 +1817,7 @@
    "faq": [
     {
      "q": "What does the visual sitemap show?",
-     "a": "The site's menu and sections, footer links, pages from its sitemap, each page's title, description and H1 with an SEO score, broken links and redirects, the tracking and ad tags it uses, and its sales funnel. For Shopify and WooCommerce shops it also shows collections and products with prices, discounts, stock and ratings."
+     "a": "The site's menu and sections, footer links, pages from its sitemap and the links it follows, each page's title, description and H1 with an SEO score, broken links and redirects, the tracking and ad tags it uses, and its sales funnel. For Shopify and WooCommerce shops it also shows collections and products with prices, discounts, stock and ratings."
     },
     {
      "q": "Can I ask questions about the site?",

@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Görsel Site Haritası Oluşturucu",
   "desc": "Bir web sitesi adresi yazın ve görsel site haritası panosu alın: menüler, sayfalar, SEO sağlığı, izleme etiketleri ve satış hunisi, site hakkında yanıt veren sohbetle birlikte.",
-  "about": "Herhangi bir herkese açık web sitesini yakınlaştırılabilir tek bir panoda haritalayın, Miro'daki site haritası gibi: ana menü ve mega menü grupları, alt bilgi bağlantıları, site haritasındaki her sayfa ve çevrim içi mağazalar için koleksiyonlar ile ürünler; fiyat, indirim, stok ve puanlarıyla. Her sayfa kartı başlığını, açıklamasını ve H1'ini SEO puanıyla gösterir; kırık bağlantılar, eksik açıklamalar, yinelenen başlıklar ve yönlendirmeler işaretlenir. Pano ayrıca sitenin kullandığı analiz ve reklam etiketlerini listeler (Google Tag Manager, GA4, Google Ads, Meta Pixel ve daha fazlası) ve ilk ziyaretten satın almaya veya talebe uzanan satış hunisini çizer. Sonra yerleşik sohbete \"hangi sayfalar kırık?\", \"en ucuz kulaklık\" ya da \"Facebook reklamı veriyorlar mı?\" gibi sorular sorun. Panoyu tek bir HTML dosyası, tam raporu ise JSON olarak indirin.",
+  "about": "Herhangi bir herkese açık web sitesini yakınlaştırılabilir tek bir panoda haritalayın, Miro'daki site haritası gibi: ana menü ve mega menü grupları, alt bilgi bağlantıları, ulaşabildiği her sayfa: site haritasındakiler ve sitenin kendi bağlantıları izlenerek bulunanlar ve çevrim içi mağazalar için koleksiyonlar ile ürünler; fiyat, indirim, stok ve puanlarıyla. Her sayfa kartı başlığını, açıklamasını ve H1'ini SEO puanıyla gösterir; kırık bağlantılar, eksik açıklamalar, yinelenen başlıklar ve yönlendirmeler işaretlenir. Pano ayrıca sitenin kullandığı analiz ve reklam etiketlerini listeler (Google Tag Manager, GA4, Google Ads, Meta Pixel ve daha fazlası) ve ilk ziyaretten satın almaya veya talebe uzanan satış hunisini çizer. Sonra yerleşik sohbete \"hangi sayfalar kırık?\", \"en ucuz kulaklık\" ya da \"Facebook reklamı veriyorlar mı?\" gibi sorular sorun. Panoyu tek bir HTML dosyası, tam raporu ise JSON olarak indirin.",
   "title": "Görsel Site Haritası Oluşturucu: Site Yapısı ve SEO",
   "metaDesc": "Herhangi bir siteyi görsel site haritasına dönüştürün: menüler, sayfalar, SEO kontrolleri, izleme etiketleri, ürünler ve satış hunisi. Sonra sohbete sorun. Ücretsiz.",
   "badge": "Herkese açık sayfaları okur",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "Görsel site haritası neleri gösterir?",
-    "a": "Sitenin menüsü ve bölümleri, alt bilgi bağlantıları, site haritasındaki sayfalar, her sayfanın başlığı, açıklaması ve H1'i ile SEO puanı, kırık bağlantılar ve yönlendirmeler, kullandığı izleme ve reklam etiketleri ve satış hunisi. Shopify ve WooCommerce mağazalarında koleksiyonları ve ürünleri de fiyat, indirim, stok ve puanlarıyla gösterir."
+    "a": "Sitenin menüsü ve bölümleri, alt bilgi bağlantıları, site haritasındaki sayfalar ve izlediği bağlantılar, her sayfanın başlığı, açıklaması ve H1'i ile SEO puanı, kırık bağlantılar ve yönlendirmeler, kullandığı izleme ve reklam etiketleri ve satış hunisi. Shopify ve WooCommerce mağazalarında koleksiyonları ve ürünleri de fiyat, indirim, stok ve puanlarıyla gösterir."
    },
    {
     "q": "Site hakkında soru sorabilir miyim?",

@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Visueller Sitemap-Generator",
   "desc": "Website-Adresse eingeben und ein visuelles Sitemap-Board erhalten: Menüs, Seiten, SEO-Zustand, Tracking-Tags und Verkaufstrichter, mit Chat, der Fragen zur Website beantwortet.",
-  "about": "Bilden Sie jede öffentliche Website auf einem zoombaren Board ab, wie eine Sitemap in Miro: das Hauptmenü und die Mega-Menü-Gruppen, die Footer-Links, jede Seite aus der Sitemap und bei Onlineshops die Kollektionen und Produkte mit Preisen, Rabatten, Lagerbestand und Bewertungen. Jede Seitenkarte zeigt Titel, Beschreibung und H1 mit einer SEO-Bewertung; defekte Links, fehlende Beschreibungen, doppelte Titel und Weiterleitungen werden markiert. Das Board listet außerdem die Analyse- und Werbe-Tags der Website auf (Google Tag Manager, GA4, Google Ads, Meta Pixel und mehr) und zeichnet ihren Verkaufstrichter vom ersten Besuch bis zum Kauf oder zur Anfrage. Fragen Sie dann den eingebauten Chat Dinge wie „Welche Seiten sind defekt?“, „günstigste Ohrhörer“ oder „Schalten die Facebook-Anzeigen?“. Laden Sie das Board als eine HTML-Datei oder den vollständigen Bericht als JSON herunter.",
+  "about": "Bilden Sie jede öffentliche Website auf einem zoombaren Board ab, wie eine Sitemap in Miro: das Hauptmenü und die Mega-Menü-Gruppen, die Footer-Links, jede erreichbare Seite, aus der Sitemap und indem den Links der Website gefolgt wird und bei Onlineshops die Kollektionen und Produkte mit Preisen, Rabatten, Lagerbestand und Bewertungen. Jede Seitenkarte zeigt Titel, Beschreibung und H1 mit einer SEO-Bewertung; defekte Links, fehlende Beschreibungen, doppelte Titel und Weiterleitungen werden markiert. Das Board listet außerdem die Analyse- und Werbe-Tags der Website auf (Google Tag Manager, GA4, Google Ads, Meta Pixel und mehr) und zeichnet ihren Verkaufstrichter vom ersten Besuch bis zum Kauf oder zur Anfrage. Fragen Sie dann den eingebauten Chat Dinge wie „Welche Seiten sind defekt?“, „günstigste Ohrhörer“ oder „Schalten die Facebook-Anzeigen?“. Laden Sie das Board als eine HTML-Datei oder den vollständigen Bericht als JSON herunter.",
   "title": "Visueller Sitemap-Generator: Website-Struktur und SEO",
   "metaDesc": "Machen Sie aus jeder Website ein visuelles Sitemap-Board mit Menüs, Seiten, SEO-Checks, Tracking-Tags, Produkten und Verkaufstrichter. Kostenlos.",
   "badge": "Liest öffentliche Seiten",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "Was zeigt die visuelle Sitemap?",
-    "a": "Menü und Abschnitte der Website, Footer-Links, Seiten aus der Sitemap, Titel, Beschreibung und H1 jeder Seite mit SEO-Bewertung, defekte Links und Weiterleitungen, die genutzten Tracking- und Werbe-Tags sowie den Verkaufstrichter. Bei Shopify- und WooCommerce-Shops auch Kollektionen und Produkte mit Preisen, Rabatten, Lagerbestand und Bewertungen."
+    "a": "Menü und Abschnitte der Website, Footer-Links, Seiten aus der Sitemap und von den Links, denen gefolgt wird, Titel, Beschreibung und H1 jeder Seite mit SEO-Bewertung, defekte Links und Weiterleitungen, die genutzten Tracking- und Werbe-Tags sowie den Verkaufstrichter. Bei Shopify- und WooCommerce-Shops auch Kollektionen und Produkte mit Preisen, Rabatten, Lagerbestand und Bewertungen."
    },
    {
     "q": "Kann ich Fragen zur Website stellen?",

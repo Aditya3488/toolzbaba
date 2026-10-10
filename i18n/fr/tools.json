@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Générateur de plan de site visuel",
   "desc": "Saisissez l'adresse d'un site et obtenez un tableau visuel : menus, pages, santé SEO, balises de suivi et tunnel de vente, avec un chat qui répond sur le site.",
-  "about": "Cartographiez n'importe quel site public sur un tableau zoomable, comme un plan de site dans Miro : le menu principal et les groupes du méga-menu, les liens du pied de page, chaque page du sitemap et, pour les boutiques en ligne, les collections et les produits avec prix, remises, stock et notes. Chaque carte de page affiche son titre, sa description et son H1 avec un score SEO, et les liens cassés, les descriptions manquantes, les titres en double et les redirections sont signalés. Le tableau liste aussi les balises d'analyse et de publicité utilisées par le site (Google Tag Manager, GA4, Google Ads, Meta Pixel et d'autres) et dessine son tunnel de vente, de la première visite à l'achat ou à la demande. Posez ensuite vos questions au chat intégré : « quelles pages sont cassées ? », « écouteurs les moins chers » ou « font-ils de la publicité sur Facebook ? ». Téléchargez le tableau en un seul fichier HTML, ou le rapport complet en JSON.",
+  "about": "Cartographiez n'importe quel site public sur un tableau zoomable, comme un plan de site dans Miro : le menu principal et les groupes du méga-menu, les liens du pied de page, chaque page qu'il peut atteindre, depuis le sitemap et en suivant les liens du site et, pour les boutiques en ligne, les collections et les produits avec prix, remises, stock et notes. Chaque carte de page affiche son titre, sa description et son H1 avec un score SEO, et les liens cassés, les descriptions manquantes, les titres en double et les redirections sont signalés. Le tableau liste aussi les balises d'analyse et de publicité utilisées par le site (Google Tag Manager, GA4, Google Ads, Meta Pixel et d'autres) et dessine son tunnel de vente, de la première visite à l'achat ou à la demande. Posez ensuite vos questions au chat intégré : « quelles pages sont cassées ? », « écouteurs les moins chers » ou « font-ils de la publicité sur Facebook ? ». Téléchargez le tableau en un seul fichier HTML, ou le rapport complet en JSON.",
   "title": "Générateur de plan de site visuel : structure et SEO",
   "metaDesc": "Transformez n'importe quel site en tableau visuel avec menus, pages, contrôles SEO, balises de suivi, produits et tunnel de vente. Puis interrogez le chat. Gratuit.",
   "badge": "Lit les pages publiques",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "Que montre le plan de site visuel ?",
-    "a": "Le menu et les sections du site, les liens du pied de page, les pages du sitemap, le titre, la description et le H1 de chaque page avec un score SEO, les liens cassés et les redirections, les balises de suivi et de publicité utilisées, et son tunnel de vente. Pour les boutiques Shopify et WooCommerce, il montre aussi les collections et les produits avec prix, remises, stock et notes."
+    "a": "Le menu et les sections du site, les liens du pied de page, les pages du sitemap et les liens qu'il suit, le titre, la description et le H1 de chaque page avec un score SEO, les liens cassés et les redirections, les balises de suivi et de publicité utilisées, et son tunnel de vente. Pour les boutiques Shopify et WooCommerce, il montre aussi les collections et les produits avec prix, remises, stock et notes."
    },
    {
     "q": "Puis-je poser des questions sur le site ?",

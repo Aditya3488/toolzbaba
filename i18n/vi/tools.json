@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Trình tạo sơ đồ trang web trực quan",
   "desc": "Nhập địa chỉ một trang web và nhận bảng sơ đồ trực quan: menu, trang, sức khỏe SEO, thẻ theo dõi và phễu bán hàng, kèm trò chuyện trả lời về trang web.",
-  "about": "Lập bản đồ bất kỳ trang web công khai nào trên một bảng có thể phóng to, giống sơ đồ trang trong Miro: menu chính và các nhóm mega-menu, liên kết chân trang, mọi trang trong sitemap, và với cửa hàng trực tuyến là các bộ sưu tập cùng sản phẩm kèm giá, giảm giá, tồn kho và đánh giá. Mỗi thẻ trang hiển thị tiêu đề, mô tả và H1 cùng điểm SEO; liên kết hỏng, mô tả thiếu, tiêu đề trùng và chuyển hướng đều được đánh dấu. Bảng cũng liệt kê các thẻ phân tích và quảng cáo mà trang dùng (Google Tag Manager, GA4, Google Ads, Meta Pixel và nhiều thẻ khác) và vẽ phễu bán hàng từ lần ghé thăm đầu tiên đến khi mua hoặc liên hệ. Sau đó hỏi trò chuyện tích hợp những câu như \"trang nào bị hỏng?\", \"tai nghe rẻ nhất\" hoặc \"họ có chạy quảng cáo Facebook không?\". Tải bảng về dưới dạng một tệp HTML, hoặc toàn bộ báo cáo dạng JSON.",
+  "about": "Lập bản đồ bất kỳ trang web công khai nào trên một bảng có thể phóng to, giống sơ đồ trang trong Miro: menu chính và các nhóm mega-menu, liên kết chân trang, mọi trang có thể tới được, từ sitemap và bằng cách đi theo các liên kết của chính trang web, và với cửa hàng trực tuyến là các bộ sưu tập cùng sản phẩm kèm giá, giảm giá, tồn kho và đánh giá. Mỗi thẻ trang hiển thị tiêu đề, mô tả và H1 cùng điểm SEO; liên kết hỏng, mô tả thiếu, tiêu đề trùng và chuyển hướng đều được đánh dấu. Bảng cũng liệt kê các thẻ phân tích và quảng cáo mà trang dùng (Google Tag Manager, GA4, Google Ads, Meta Pixel và nhiều thẻ khác) và vẽ phễu bán hàng từ lần ghé thăm đầu tiên đến khi mua hoặc liên hệ. Sau đó hỏi trò chuyện tích hợp những câu như \"trang nào bị hỏng?\", \"tai nghe rẻ nhất\" hoặc \"họ có chạy quảng cáo Facebook không?\". Tải bảng về dưới dạng một tệp HTML, hoặc toàn bộ báo cáo dạng JSON.",
   "title": "Sơ đồ trang web trực quan: cấu trúc trang và bản đồ SEO",
   "metaDesc": "Biến mọi trang web thành bảng sơ đồ trực quan với menu, trang, kiểm tra SEO, thẻ theo dõi, sản phẩm và phễu bán hàng. Rồi hỏi trò chuyện. Miễn phí.",
   "badge": "Đọc trang công khai",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "Sơ đồ trang trực quan hiển thị những gì?",
-    "a": "Menu và các phần của trang, liên kết chân trang, các trang trong sitemap, tiêu đề, mô tả và H1 của từng trang kèm điểm SEO, liên kết hỏng và chuyển hướng, các thẻ theo dõi và quảng cáo đang dùng, cùng phễu bán hàng. Với cửa hàng Shopify và WooCommerce, nó còn hiển thị bộ sưu tập và sản phẩm kèm giá, giảm giá, tồn kho và đánh giá."
+    "a": "Menu và các phần của trang, liên kết chân trang, các trang trong sitemap và các liên kết mà nó đi theo, tiêu đề, mô tả và H1 của từng trang kèm điểm SEO, liên kết hỏng và chuyển hướng, các thẻ theo dõi và quảng cáo đang dùng, cùng phễu bán hàng. Với cửa hàng Shopify và WooCommerce, nó còn hiển thị bộ sưu tập và sản phẩm kèm giá, giảm giá, tồn kho và đánh giá."
    },
    {
     "q": "Tôi có thể hỏi về trang web không?",

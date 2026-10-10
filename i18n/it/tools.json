@@ -1389,7 +1389,7 @@
  "visual-sitemap-generator": {
   "name": "Generatore di mappa del sito visiva",
   "desc": "Scrivi l'indirizzo di un sito e ottieni una lavagna visiva: menu, pagine, salute SEO, tag di tracciamento e funnel di vendita, con una chat che risponde sul sito.",
-  "about": "Mappa qualsiasi sito web pubblico su una lavagna con zoom, come una mappa del sito in Miro: il menu principale e i gruppi del mega-menu, i link del piè di pagina, ogni pagina della sitemap e, per i negozi online, le collezioni e i prodotti con prezzi, sconti, disponibilità e valutazioni. Ogni scheda di pagina mostra titolo, descrizione e H1 con un punteggio SEO, e vengono segnalati link rotti, descrizioni mancanti, titoli duplicati e reindirizzamenti. La lavagna elenca anche i tag di analisi e pubblicità usati dal sito (Google Tag Manager, GA4, Google Ads, Meta Pixel e altri) e disegna il funnel di vendita dalla prima visita all'acquisto o alla richiesta. Poi chiedi alla chat integrata cose come «quali pagine sono rotte?», «auricolari più economici» o «fanno pubblicità su Facebook?». Scarica la lavagna come un unico file HTML, o il report completo in JSON.",
+  "about": "Mappa qualsiasi sito web pubblico su una lavagna con zoom, come una mappa del sito in Miro: il menu principale e i gruppi del mega-menu, i link del piè di pagina, ogni pagina raggiungibile, dalla sitemap e seguendo i link del sito stesso e, per i negozi online, le collezioni e i prodotti con prezzi, sconti, disponibilità e valutazioni. Ogni scheda di pagina mostra titolo, descrizione e H1 con un punteggio SEO, e vengono segnalati link rotti, descrizioni mancanti, titoli duplicati e reindirizzamenti. La lavagna elenca anche i tag di analisi e pubblicità usati dal sito (Google Tag Manager, GA4, Google Ads, Meta Pixel e altri) e disegna il funnel di vendita dalla prima visita all'acquisto o alla richiesta. Poi chiedi alla chat integrata cose come «quali pagine sono rotte?», «auricolari più economici» o «fanno pubblicità su Facebook?». Scarica la lavagna come un unico file HTML, o il report completo in JSON.",
   "title": "Generatore di mappa del sito visiva: struttura e SEO",
   "metaDesc": "Trasforma qualsiasi sito in una lavagna visiva con menu, pagine, controlli SEO, tag di tracciamento, prodotti e funnel di vendita. Poi chiedi alla chat. Gratis.",
   "badge": "Legge pagine pubbliche",
@@ -1401,7 +1401,7 @@
   "faq": [
    {
     "q": "Cosa mostra la mappa del sito visiva?",
-    "a": "Il menu e le sezioni del sito, i link del piè di pagina, le pagine della sitemap, titolo, descrizione e H1 di ogni pagina con un punteggio SEO, i link rotti e i reindirizzamenti, i tag di tracciamento e pubblicità usati, e il funnel di vendita. Per i negozi Shopify e WooCommerce mostra anche collezioni e prodotti con prezzi, sconti, disponibilità e valutazioni."
+    "a": "Il menu e le sezioni del sito, i link del piè di pagina, le pagine della sitemap e i link che segue, titolo, descrizione e H1 di ogni pagina con un punteggio SEO, i link rotti e i reindirizzamenti, i tag di tracciamento e pubblicità usati, e il funnel di vendita. Per i negozi Shopify e WooCommerce mostra anche collezioni e prodotti con prezzi, sconti, disponibilità e valutazioni."
    },
    {
     "q": "Posso fare domande sul sito?",
