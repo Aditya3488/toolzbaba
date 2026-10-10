@@ -75,6 +75,7 @@ def _clean_url(url: str) -> str:
 
 ALL_PAGES = 10_000     # what "all pages" means in practice, so one huge site cannot fill the browser's memory
 ALL_BUDGET = 300.0     # and how long it may spend reading them before the board is drawn with what it has
+BOARD_CARDS = 6_000    # cards the board itself draws; the downloaded JSON report always holds every page read
 
 
 async def build(url: str, max_pages: int = 200) -> str:
@@ -94,14 +95,15 @@ async def build(url: str, max_pages: int = 200) -> str:
         return json.dumps({"error": str(e)})
     say("Drawing the board", 0.96)
     _last.update(report=rep, bot=SiteBot(rep))
-    html = render(rep)
+    html = render(rep, max_cards=BOARD_CARDS)
     pages = rep["pages"]
     summary = {"brand": rep["brand"], "domain": rep["domain"], "type": rep["type"], "platform": rep["platform"], "pages": len(pages),
                "sitemap": rep["sitemapCount"], "products": len((rep.get("shop") or {}).get("products") or []), "tools": len(rep["tools"]),
                "broken": sum(1 for f in pages.values() if (f.get("s") or 0) >= 400 or f.get("s") == 0), "seconds": rep["seconds"],
                "notChecked": rep.get("notChecked", 0), "stoppedEarly": rep.get("stoppedEarly", False), "queueLeft": rep.get("queueLeft", 0),
                "images": sum(f.get("im", 0) for f in pages.values()), "noAlt": sum(f.get("ia", 0) for f in pages.values()),
-               "words": sum(f.get("w", 0) for f in pages.values())}
+               "words": sum(f.get("w", 0) for f in pages.values()),
+               "onBoard": min(len(pages), BOARD_CARDS)}
     say("Board ready", 1.0)
     return json.dumps({"html": html, "summary": summary})
 

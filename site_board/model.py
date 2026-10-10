@@ -35,7 +35,7 @@ def find_pages(rep: dict, pattern: str, limit: int = 3) -> list[str]:
 
 
 class Board:
-    def __init__(self, rep: dict, max_cards: int = 2200):
+    def __init__(self, rep: dict, max_cards: int = 6000):
         self.rep, self.max_cards = rep, max_cards
         self.used: set[str] = set()
         self.cards = 0
@@ -166,13 +166,15 @@ class Board:
             seg = p.strip("/").split("/")[0].split("?")[0] if "/" in p.strip("/") else "Top-level pages"
             folders.setdefault(seg, []).append(p)
         secs = []
-        for seg, ps in sorted(folders.items(), key=lambda kv: -len(kv[1]))[:14]:
+        # How many of these go on the board is governed by max_cards alone: a folder with a thousand pages used to
+        # stop at twelve groups (288 cards), which quietly hid most of what the crawl had read.
+        for seg, ps in sorted(folders.items(), key=lambda kv: -len(kv[1]))[:24]:
             items = [[self.label(p), self.slug(p)] for p in ps if self.take(p)]
             for p in ps:
                 self.where.setdefault(p, "Sitemap")
             groups = [[f"{humanize('/' + seg) if seg != 'Top-level pages' else seg} ({i // CHUNK + 1})" if len(items) > CHUNK else (humanize('/' + seg) if seg != "Top-level pages" else seg), None, items[i:i + CHUNK]] for i in range(0, len(items), CHUNK)]
             if groups:
-                secs.append({"name": humanize("/" + seg) if seg != "Top-level pages" else seg, "groups": groups[:12]})
+                secs.append({"name": humanize("/" + seg) if seg != "Top-level pages" else seg, "groups": groups})
         if secs:
             self.data.append({"name": "Other pages", "secs": secs})
         return self.data
@@ -358,7 +360,7 @@ def recommendations(rep: dict, seo: dict, st: dict, cat: dict | None) -> list[st
     return r[:8]
 
 
-def build(rep: dict, max_cards: int = 2200) -> dict:
+def build(rep: dict, max_cards: int = 6000) -> dict:
     """Everything render.py needs."""
     b = Board(rep, max_cards)
     data = b.build()

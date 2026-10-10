@@ -15,7 +15,7 @@ def _js(obj) -> str:
     return json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
 
 
-def render(report: dict, bot_endpoint: str = "", report_id: str = "", max_cards: int = 2200) -> str:
+def render(report: dict, bot_endpoint: str = "", report_id: str = "", max_cards: int = 6000) -> str:
     m = model.build(report, max_cards=max_cards)
     for stg in m["STG"]:
         stg["items"] = [it[:2] if len(it) > 2 and it[2] is None else it for it in stg["items"]]

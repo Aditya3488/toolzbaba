@@ -57,12 +57,16 @@ HT.register('visual-sitemap-generator', root => {
     boardName = (s.domain || 'site') + '-sitemap-board.html';
     frame.onload = () => { try { frame.contentWindow.SiteBot = ask; } catch { /* the board still works without the chat */ } };
     frame.src = boardUrl; frame.style.display = 'block';
-    const bits = [`${s.pages.toLocaleString()} pages checked`, s.sitemap ? `${s.sitemap.toLocaleString()} in the sitemap` : '', s.products ? `${s.products.toLocaleString()} products` : '',
-      s.images ? `${s.images.toLocaleString()} images${s.noAlt ? ` (${s.noAlt.toLocaleString()} without alt text)` : ''}` : '',
-      s.words ? `${s.words.toLocaleString()} words` : '', `${s.tools} tools and tags`, s.broken ? `${s.broken} broken` : 'no broken links',
-      s.notChecked ? `${s.notChecked} not checked (the site asked us to slow down)` : '',
-      s.stoppedEarly ? `stopped with ${s.queueLeft.toLocaleString()} more pages still to read` : ''].filter(Boolean);
-    info.textContent = `${s.brand || s.domain}${s.platform ? ' (' + s.platform + ')' : ''}: ${bits.join(' · ')}. Made in ${Math.round(s.seconds)} s.`;
+    // one whole phrase per piece through HT.t: the finished line is a single text node, so the page translator
+    // (which matches a text node as a whole) could never translate it after the fact
+    const T = HT.t, N = v => (v || 0).toLocaleString();
+    const bits = [T('{0} pages checked', N(s.pages)), s.sitemap ? T('{0} in the sitemap', N(s.sitemap)) : '', s.products ? T('{0} products', N(s.products)) : '',
+      s.images ? (s.noAlt ? T('{0} images ({1} without alt text)', N(s.images), N(s.noAlt)) : T('{0} images', N(s.images))) : '',
+      s.words ? T('{0} words', N(s.words)) : '', T('{0} tools and tags', N(s.tools)), s.broken ? T('{0} broken', N(s.broken)) : T('no broken links'),
+      s.notChecked ? T('{0} not checked (the site asked us to slow down)', N(s.notChecked)) : '',
+      s.stoppedEarly ? T('stopped with {0} more pages still to read', N(s.queueLeft)) : '',
+      s.onBoard < s.pages ? T('{0} drawn on the board (the downloaded report has them all)', N(s.onBoard)) : ''].filter(Boolean);
+    info.textContent = `${s.brand || s.domain}${s.platform ? ' (' + s.platform + ')' : ''}: ${bits.join(' · ')}. ` + T('Made in {0} s.', Math.round(s.seconds));
     acts.textContent = '';
     acts.append(
       b('Full screen', () => { (wrap.requestFullscreen ? wrap.requestFullscreen() : Promise.reject()).catch(() => { const w = open(boardUrl); if (w) w.addEventListener('load', () => { w.SiteBot = ask; }); }); }),
