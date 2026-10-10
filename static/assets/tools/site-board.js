@@ -7,7 +7,8 @@ HT.register('visual-sitemap-generator', root => {
   const form = HT.form([
     { name: 'url', label: 'Website address', type: 'text', value: '', placeholder: 'https://example.com' },
     { name: 'pages', label: 'Pages to check', type: 'select', value: '200',
-      options: [['100', '100 (quickest)'], ['200', '200 (recommended)'], ['300', '300'], ['500', '500 (big sites, slower)']] },
+      options: [['100', '100 (quickest)'], ['200', '200 (recommended)'], ['500', '500'], ['1000', '1,000'], ['2500', '2,500 (big sites)'],
+        ['0', 'All pages (up to 10,000)']] },
   ]);
   const prog = HT.progress(), go = el('button', { class: 'btn', type: 'button', text: 'Make the sitemap', onclick: run });
   form.ctl.url.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
@@ -56,8 +57,11 @@ HT.register('visual-sitemap-generator', root => {
     boardName = (s.domain || 'site') + '-sitemap-board.html';
     frame.onload = () => { try { frame.contentWindow.SiteBot = ask; } catch { /* the board still works without the chat */ } };
     frame.src = boardUrl; frame.style.display = 'block';
-    const bits = [`${s.pages} pages checked`, s.sitemap ? `${s.sitemap.toLocaleString()} in the sitemap` : '', s.products ? `${s.products.toLocaleString()} products` : '',
-      `${s.tools} tools and tags`, s.broken ? `${s.broken} broken` : 'no broken links', s.notChecked ? `${s.notChecked} not checked (the site asked us to slow down)` : ''].filter(Boolean);
+    const bits = [`${s.pages.toLocaleString()} pages checked`, s.sitemap ? `${s.sitemap.toLocaleString()} in the sitemap` : '', s.products ? `${s.products.toLocaleString()} products` : '',
+      s.images ? `${s.images.toLocaleString()} images${s.noAlt ? ` (${s.noAlt.toLocaleString()} without alt text)` : ''}` : '',
+      s.words ? `${s.words.toLocaleString()} words` : '', `${s.tools} tools and tags`, s.broken ? `${s.broken} broken` : 'no broken links',
+      s.notChecked ? `${s.notChecked} not checked (the site asked us to slow down)` : '',
+      s.stoppedEarly ? `stopped with ${s.queueLeft.toLocaleString()} more pages still to read` : ''].filter(Boolean);
     info.textContent = `${s.brand || s.domain}${s.platform ? ' (' + s.platform + ')' : ''}: ${bits.join(' · ')}. Made in ${Math.round(s.seconds)} s.`;
     acts.textContent = '';
     acts.append(

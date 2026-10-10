@@ -65,7 +65,7 @@ def main(argv=None):
     p.add_argument("--max-pages", type=int, default=400)
     p.add_argument("--no-shots", action="store_true", help="skip screenshots")
     p.add_argument("--json", help="also save the crawl report (use it with: ask)")
-    p.add_argument("--workers", type=int, default=6)
+    p.add_argument("--workers", type=int, default=16, help="how many pages are read at once (1-48)")
     p.add_argument("--allow-private", action="store_true", help="also read local / private addresses (testing only)")
     a = p.parse_args(argv)
     from .crawl import build_report

@@ -65,7 +65,7 @@ def _do(F: Fetcher, req: Get):
     return parse_json(r) if req.json else r
 
 
-def run(gen, F: Fetcher, workers: int = 6):
+def run(gen, F: Fetcher, workers: int = 16):
     """Drive a crawl generator on this computer and return what it returns."""
     value, error = None, None
     while True:
@@ -79,7 +79,7 @@ def run(gen, F: Fetcher, workers: int = 6):
         elif isinstance(step, Batch):
             value = [None] * len(step.reqs)
             if step.reqs:
-                with ThreadPoolExecutor(max_workers=max(1, min(workers, 10))) as ex:
+                with ThreadPoolExecutor(max_workers=max(1, min(workers, 48))) as ex:
                     futs = {ex.submit(_do, F, r): i for i, r in enumerate(step.reqs)}
                     for fut in as_completed(futs):
                         i = futs[fut]

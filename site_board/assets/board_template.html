@@ -368,6 +368,11 @@ a.btn{text-decoration:none}
 .ins .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-s);display:flex;flex-direction:column;gap:12px;min-width:0}
 .ins h4{margin:0;font:800 14px var(--f-display);letter-spacing:-.01em}
 .ins .bar{grid-template-columns:minmax(0,1fr) 120px 74px}
+.picgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.picgrid button{padding:0;border:1px solid var(--border);background:var(--card-2);border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:16/10;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.picgrid button:hover{border-color:var(--ink);transform:translateY(-1px)}
+.picgrid img{width:100%;height:100%;object-fit:cover;display:block;background:var(--card-2)}
+.panel p.muted{font-size:12.5px;color:var(--muted);margin:6px 0 0}
 .toprev{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .toprev button{display:grid;grid-template-columns:26px 1fr;gap:2px 8px;text-align:left;border:1px solid var(--border);background:var(--card-2);border-radius:14px;padding:10px 12px;cursor:pointer;transition:border-color .2s var(--ease),transform .2s var(--ease)}
 .toprev button:hover{border-color:color-mix(in srgb,var(--bc) 60%,var(--border));transform:translateY(-1px)}
@@ -655,10 +660,24 @@ let NEXT_Y=-60;
  const fx=AX,fy=NEXT_Y,pad=48;const ok=pages.filter(p=>p.r&&p.r.s===200);
  const n=k=>pages.filter(p=>p.a.h===k).length;const worst=[...pages].filter(p=>p.r).sort((a,b)=>a.a.score-b.a.score).slice(0,15);
  const noD=ok.filter(p=>!p.r.d).length,longT=ok.filter(p=>(p.r.t||"").length>60).length,noH1=ok.filter(p=>!(p.r.h1||[]).length).length,bad=pages.filter(p=>p.r&&p.r.s>=400).length;
+ /* content and media, read from every page the crawl opened */
+ const nf=v=>(v||0).toLocaleString();
+ const sum=f=>ok.reduce((a,p)=>a+(p.r[f]||0),0);
+ const words=sum("w"),imgs=sum("im"),noAlt=sum("ia");
+ const avgW=ok.length?Math.round(words/ok.length):0;
+ const thin=ok.filter(p=>(p.r.w||0)<300).length,noSchema=ok.filter(p=>!(p.r.sc||[]).length).length;
+ const noVp=ok.filter(p=>p.r.nvp).length,noCanon=ok.filter(p=>!p.r.c).length,heavy=ok.filter(p=>(p.r.b||0)>300000).length;
+ const shots=ok.filter(p=>p.r.og).slice(0,12);
+ const kinds={};ok.forEach(p=>(p.r.sc||[]).forEach(t=>{kinds[t]=(kinds[t]||0)+1}));
+ const topKinds=Object.entries(kinds).sort((a,b)=>b[1]-a[1]).slice(0,6);
  const html=`<div class="ins"><div class="kpis6"><div class="kpi"><b>${pages.filter(p=>p.r).length}</b><span>Pages checked</span></div><div class="kpi"><b style="color:var(--good)">${n("good")}</b><span>Healthy</span></div><div class="kpi"><b style="color:var(--warn)">${n("warn")}</b><span>Need work</span></div><div class="kpi"><b style="color:var(--bad)">${n("bad")}</b><span>Have problems</span></div><div class="kpi"><b>${bad}</b><span>Broken (4xx / 5xx)</span></div><div class="kpi"><b>${noD}</b><span>No meta description</span></div></div>
   <div class="cols3"><div class="panel"><h4>Most common problems</h4><div class="bars">${[["No meta description",noD],["Title over 60 characters",longT],["No H1 heading",noH1],["Broken pages",bad]].map(([k,v])=>`<div class="bar" style="--bc:var(--bad)"><span>${k}</span><span class="tr"><i style="width:${ok.length?Math.max(2,v/ok.length*100):0}%"></i></span><span class="n">${v}</span></div>`).join("")}</div></div>
-  <div class="panel" style="grid-column:span 2"><h4>Pages to fix first (lowest SEO score)</h4><div class="toprev">${worst.slice(0,10).map((p,i)=>`<button type="button" data-slug="${esc(p.slug)}" style="--bc:var(${p.color})"><em>${p.a.score}</em><b>${esc(p.label)}</b><span>${esc((p.a.out.find(o=>o[0]==="bad")||p.a.out[0]||["",""])[1])}</span></button>`).join("")}</div></div></div></div>`;
- const fh=760;
+  <div class="panel" style="grid-column:span 2"><h4>Pages to fix first (lowest SEO score)</h4><div class="toprev">${worst.slice(0,10).map((p,i)=>`<button type="button" data-slug="${esc(p.slug)}" style="--bc:var(${p.color})"><em>${p.a.score}</em><b>${esc(p.label)}</b><span>${esc((p.a.out.find(o=>o[0]==="bad")||p.a.out[0]||["",""])[1])}</span></button>`).join("")}</div></div></div>
+  <div class="kpis6" style="margin-top:18px"><div class="kpi"><b>${nf(words)}</b><span>Words in all pages</span></div><div class="kpi"><b>${nf(avgW)}</b><span>Average words a page</span></div><div class="kpi"><b>${nf(imgs)}</b><span>Images</span></div><div class="kpi"><b style="color:${noAlt?"var(--warn)":"var(--good)"}">${nf(noAlt)}</b><span>Images with no alt text</span></div><div class="kpi"><b>${nf(thin)}</b><span>Thin pages (under 300 words)</span></div><div class="kpi"><b>${nf(noSchema)}</b><span>No structured data</span></div></div>
+  <div class="cols3"><div class="panel"><h4>Content and technical checks</h4><div class="bars">${[["Thin pages (under 300 words)",thin,"--warn"],["Images with no alt text",noAlt,"--warn"],["No canonical address",noCanon,"--warn"],["No structured data",noSchema,"--warn"],["Not mobile-ready (no viewport)",noVp,"--bad"],["Heavy pages (over 300 KB)",heavy,"--warn"]].map(([k,v,c])=>`<div class="bar" style="--bc:var(${c})"><span>${k}</span><span class="tr"><i style="width:${ok.length?Math.max(2,Math.min(100,v/ok.length*100)):0}%"></i></span><span class="n">${nf(v)}</span></div>`).join("")}</div></div>
+  <div class="panel"><h4>Structured data found</h4>${topKinds.length?`<div class="bars">${topKinds.map(([k,v])=>`<div class="bar" style="--bc:var(--good)"><span>${esc(k)}</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,v/ok.length*100))}%"></i></span><span class="n">${nf(v)}</span></div>`).join("")}</div>`:`<p class="muted">No schema.org structured data was found on these pages. Adding it helps Google show rich results.</p>`}</div>
+  <div class="panel"><h4>Pictures the site shares</h4>${shots.length?`<div class="picgrid">${shots.map(p=>`<button type="button" data-slug="${esc(p.slug)}" title="${esc(p.label)}"><img loading="lazy" referrerpolicy="no-referrer" src="${esc(p.r.og)}" alt="${esc(p.label)}"></button>`).join("")}</div>`:`<p class="muted">No share pictures (og:image) were found, so links to this site show up as plain text when they are shared.</p>`}</div></div></div>`;
+ const fh=1240;
  xframe(fx,fy,AW,fh,"SEO health","Every page's title, description, heading and status, scored out of 100. Click a page to see exactly what to fix.","--c-res","health");
  nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
  NEXT_Y=fy+fh+120;

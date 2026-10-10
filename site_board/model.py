@@ -363,7 +363,9 @@ def build(rep: dict, max_cards: int = 2200) -> dict:
     b = Board(rep, max_cards)
     data = b.build()
     br = {l["name"]: PALETTE[i % len(PALETTE)] for i, l in enumerate(data)}
-    seo = {p.lower(): {k: v for k, v in f.items() if k in ("s", "f", "t", "d", "k", "h1", "c", "rv", "rc", "ni")} for p, f in rep["pages"].items()}
+    keep = ("s", "f", "t", "d", "k", "h1", "c", "rv", "rc", "ni",
+            "w", "h2", "h3", "im", "ia", "og", "sc", "lang", "nvp", "hl", "b")  # the deeper page facts the report panel shows
+    seo = {p.lower(): {k: v for k, v in f.items() if k in keep} for p, f in rep["pages"].items()}
     sc = seo_counts(rep)
     broken = [[p + (" → " + rep["pages"][p]["f"] if rep["pages"][p].get("f") else ""), {"Menu": "Linked from the menu", "Footer": "Linked from the footer", "Header": "Linked from the header"}.get(b.where.get(p, ""), "Listed in the sitemap")] for p in sc["broken"]]
     cat = catalog(rep)

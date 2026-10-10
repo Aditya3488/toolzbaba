@@ -8,7 +8,7 @@ from collections import Counter
 from urllib.parse import urljoin, urlsplit
 
 from . import detect as D
-from .dom import Node, clean, page_facts, parse
+from .dom import Node, clean, page_facts, page_links, parse
 from .driver import JSON, Batch, Get, Sleep, Stats, run
 from .fetch import FetchError, Fetcher
 
@@ -18,6 +18,9 @@ HEADINGISH = re.compile(r"title|heading|header|label|caption|menu-head|col-head"
 PLACEHOLDER = re.compile(r"^(?:sub ?)?(?:heading|title|text|section|lorem ipsum.*|your (?:heading|title).*)$", re.I)
 SCRIPT_BLOCK = re.compile(r"<script\b([^>]*)>(.*?)</script>", re.I | re.S)
 TEMPLATE_STR = re.compile(r"`([^`]{200,})`")
+
+PAGE_BYTES = 600_000   # how much of one page is read: enough for the <head>, the headings and the links on it
+WAVE = 120             # pages asked for at once; the driver decides how many of them run in parallel
 
 
 def _norm(href: str, base: str, host: str) -> str | None:
@@ -311,7 +314,9 @@ def _page_facts(path: str, r) -> dict:
     """What the board keeps about one checked page, from its Response (or the FetchError that stopped it)."""
     if isinstance(r, FetchError):
         return {"s": 0, "err": str(r)[:120], "t": "", "d": "", "k": "", "h1": []}
-    facts = page_facts(r.text) if r.status == 200 else {"t": "", "d": "", "k": "", "h1": []}
+    facts = page_facts(r.text, deep=True) if r.status == 200 else {"t": "", "d": "", "k": "", "h1": []}
+    if facts.get("og"):  # pictures are often written relative to the page, but the board shows them from anywhere
+        facts["og"] = urljoin(r.url, facts["og"])[:300]
     facts["s"] = r.status
     final = urlsplit(r.url).path.rstrip("/") or "/"
     if r.redirected and final.lower() != (path.split("?")[0].lower() or "/"):
@@ -319,8 +324,12 @@ def _page_facts(path: str, r) -> dict:
     return facts
 
 
-def report_steps(url: str, max_pages: int = 300, progress=None, stats=None):
-    """(Crawl steps) The whole report: run it with driver.run() on a PC, or web.py's driver in the browser."""
+def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budget: float | None = None):
+    """(Crawl steps) The whole report: run it with driver.run() on a PC, or web.py's driver in the browser.
+
+    budget is how many seconds the page crawl may take before it stops and draws the board with what it has; it is
+    what keeps "all pages" from running forever on a site with hundreds of thousands of them.
+    """
     t0 = time.time()
     say = progress or (lambda *_a, **_k: None)
     stats = stats if stats is not None else Stats()
@@ -398,6 +407,10 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None):
             order.append(h); labels.setdefault(h, t)
     for t, h in header_links:
         order.append(h); labels.setdefault(h, t)
+    for href in page_links(home.text):  # the rest of the homepage: many sites put their real links in the body, not a <nav>
+        p = _norm(href, home.url, host)
+        if p:
+            order.append(p)
     rank = lambda p: (3 if re.search(r"/(blogs?|news|articles?|posts?)/.+", p) else 2 if re.search(r"^/(products?|item|p)/", p) else 1 if re.search(r"^/(collections?|categor|product-category|shop)/", p) else 0)
     extra = [p for p in sm_urls if not LOCALE_PREFIX.match(p) or not platform]
     order += sorted(extra, key=rank)
@@ -421,18 +434,50 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None):
 
     pages: dict[str, dict] = {}
     done = [0]
+    want = max_pages
+    # Follow the links on the pages we read whenever the menu, footer, homepage and sitemap did not already fill the
+    # quota. Sites with no sitemap.xml used to end here with a handful of pages, however big they really were.
+    discover = len(crawl) < want
+    queue = list(crawl)
+    queued = {p.lower() for p in queue} | {"/"}
+    found: list[str] = []
 
     def page_get(path, retries=None):
-        return Get(urljoin(base, path), max_bytes=1_800_000, stop_h1=True, retries=retries)
+        return Get(urljoin(base, path), max_bytes=PAGE_BYTES, retries=retries)
 
-    def each(i, r):
-        pages[crawl[i]] = _page_facts(crawl[i], r)
-        done[0] += 1
-        if done[0] % 10 == 0 or done[0] == len(crawl):
-            say(f"Checked {done[0]} of {len(crawl)} pages" + (f" (site asked us to slow down {stats.rate_limited}×)" if stats.rate_limited else ""), 0.22 + 0.66 * done[0] / max(1, len(crawl)))
+    def harvest(path, text):
+        page_base = urljoin(base, path)
+        for href in page_links(text):
+            p = _norm(href, page_base, host)
+            if p and p.lower() not in queued:
+                queued.add(p.lower())
+                found.append(p)
 
-    say(f"Checking {len(crawl)} pages", 0.22)
-    yield Batch([page_get(p) for p in crawl], each=each)
+    say(f"Checking {len(crawl)} pages" if not discover else f"Checking pages and following links (up to {want})", 0.22)
+    while queue and len(pages) < want:
+        wave = queue[:min(WAVE, want - len(pages))]
+        queue = queue[len(wave):]
+        found = []
+
+        def each(i, r, wave=wave):
+            path = wave[i]
+            pages[path] = _page_facts(path, r)
+            if discover and not isinstance(r, FetchError) and r.status == 200 and r.text:
+                harvest(path, r.text)
+            done[0] += 1
+            if done[0] % 10 == 0:
+                total = min(want, max(done[0], len(pages) + len(queue) + len(found)))
+                say(f"Checked {done[0]} of {total} pages" + (f" (site asked us to slow down {stats.rate_limited}×)" if stats.rate_limited else ""),
+                    0.22 + 0.66 * done[0] / max(1, total))
+
+        yield Batch([page_get(p) for p in wave], each=each)
+        if discover:
+            queue += found
+        if budget and time.time() - t0 > budget:
+            break
+    crawl = list(pages)
+    stopped_early = bool(queue) and len(pages) < want
+    say(f"Checked {len(pages)} pages", 0.88)
     limited = [p for p, f in pages.items() if f.get("s") == 429]
     if limited:  # second, slower pass: one page at a time once the site has had a breather
         say(f"Re-checking {len(limited)} pages the site asked us to slow down on", 0.89)
@@ -446,7 +491,9 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None):
         for f in pages.values():
             if f.get("s") == 429:  # still limited: unknown, not broken
                 f.update(s=None, rl=1)
-    pages["/"] = {**page_facts(home.text), "s": home.status, **({"f": fu.path.rstrip('/').lower()} if home.redirected and fu.path not in ("", "/") else {})}
+    pages["/"] = {**page_facts(home.text, deep=True), "s": home.status, **({"f": fu.path.rstrip('/').lower()} if home.redirected and fu.path not in ("", "/") else {})}
+    if pages["/"].get("og"):
+        pages["/"]["og"] = urljoin(home.url, pages["/"]["og"])[:300]
 
     og_name = re.search(r'<meta[^>]+property=["\']og:site_name["\'][^>]*content=["\']([^"\']+)', home.text, re.I)
     title = pages["/"].get("t", "")
@@ -459,12 +506,13 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None):
         "pages": pages, "sitemapCount": len(sm_urls), "sitemapTypes": sm_types, "crawled": len(crawl),
         "blogCount": sum(1 for p in sm_urls if re.search(r"/(blogs?|news|articles?|posts?|insights?)/.+", p, re.I)),
         "tools": tools, "gtm": list(tag_ids), "events": evs, "contacts": cont, "shop": shop,
+        "discovered": discover, "stoppedEarly": stopped_early, "queueLeft": len(queue),
         "homeSections": home_sections(root), "requests": stats.requests, "rateLimited": stats.rate_limited,
         "notChecked": sum(1 for f in pages.values() if f.get("rl")), "seconds": round(time.time() - t0, 1),
     }
 
 
-def build_report(url: str, max_pages: int = 300, shots: bool = True, progress=None, allow_private: bool = False, workers: int = 6) -> dict:
+def build_report(url: str, max_pages: int = 300, shots: bool = True, progress=None, allow_private: bool = False, workers: int = 16) -> dict:
     """Crawl a site on this computer (threads, standard library) into a report."""
     t0 = time.time()
     say = progress or (lambda *_a, **_k: None)

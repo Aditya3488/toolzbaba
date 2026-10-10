@@ -35,7 +35,7 @@ async def _get(req: Get, stats: Stats):
     return parse_json(r) if req.json else r
 
 
-async def run_async(gen, stats: Stats, concurrency: int = 6):
+async def run_async(gen, stats: Stats, concurrency: int = 16):
     """Drive a crawl generator in the browser and return what it returns."""
     value, error = None, None
     while True:
@@ -73,13 +73,23 @@ def _clean_url(url: str) -> str:
     return url
 
 
+ALL_PAGES = 10_000     # what "all pages" means in practice, so one huge site cannot fill the browser's memory
+ALL_BUDGET = 300.0     # and how long it may spend reading them before the board is drawn with what it has
+
+
 async def build(url: str, max_pages: int = 200) -> str:
-    """Crawl a site and return JSON: {"html": board, "summary": {...}} or {"error": message}."""
+    """Crawl a site and return JSON: {"html": board, "summary": {...}} or {"error": message}.
+
+    max_pages 0 (or less) means "all pages": read until the site runs out, ALL_PAGES is reached, or ALL_BUDGET
+    seconds have passed. Anything else is taken as given, with 20 as the smallest useful crawl.
+    """
     from js import sbProgress
     stats = Stats()
     say = lambda msg, frac=None: sbProgress(str(msg), -1 if frac is None else float(frac))
+    want = int(max_pages or 0)
+    want, budget = (ALL_PAGES, ALL_BUDGET) if want <= 0 else (max(20, min(want, ALL_PAGES)), None)
     try:
-        rep = await run_async(report_steps(_clean_url(url), max(20, min(int(max_pages), 500)), progress=say, stats=stats), stats)
+        rep = await run_async(report_steps(_clean_url(url), want, progress=say, stats=stats, budget=budget), stats)
     except FetchError as e:
         return json.dumps({"error": str(e)})
     say("Drawing the board", 0.96)
@@ -89,7 +99,9 @@ async def build(url: str, max_pages: int = 200) -> str:
     summary = {"brand": rep["brand"], "domain": rep["domain"], "type": rep["type"], "platform": rep["platform"], "pages": len(pages),
                "sitemap": rep["sitemapCount"], "products": len((rep.get("shop") or {}).get("products") or []), "tools": len(rep["tools"]),
                "broken": sum(1 for f in pages.values() if (f.get("s") or 0) >= 400 or f.get("s") == 0), "seconds": rep["seconds"],
-               "notChecked": rep.get("notChecked", 0)}
+               "notChecked": rep.get("notChecked", 0), "stoppedEarly": rep.get("stoppedEarly", False), "queueLeft": rep.get("queueLeft", 0),
+               "images": sum(f.get("im", 0) for f in pages.values()), "noAlt": sum(f.get("ia", 0) for f in pages.values()),
+               "words": sum(f.get("w", 0) for f in pages.values())}
     say("Board ready", 1.0)
     return json.dumps({"html": html, "summary": summary})
 
