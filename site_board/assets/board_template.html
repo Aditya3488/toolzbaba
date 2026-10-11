@@ -368,6 +368,13 @@ a.btn{text-decoration:none}
 .ins .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-s);display:flex;flex-direction:column;gap:12px;min-width:0}
 .ins h4{margin:0;font:800 14px var(--f-display);letter-spacing:-.01em}
 .ins .bar{grid-template-columns:minmax(0,1fr) 120px 74px}
+.spark{display:flex;align-items:flex-end;gap:5px;height:120px}
+.spark .sp{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px}
+.spark .sp i{width:100%;background:var(--c-dm,#6b5cff);border-radius:4px 4px 0 0;opacity:.85;display:block}
+.spark .sp span{font:600 9.5px var(--f-body);color:var(--muted);white-space:nowrap}
+.orph{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.orph button{border:1px solid var(--border);background:var(--card-2);border-radius:99px;padding:4px 10px;font:600 11.5px var(--f-body);color:var(--muted);cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.orph button:hover{border-color:var(--warn);color:var(--ink)}
 .picgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .picgrid button{padding:0;border:1px solid var(--border);background:var(--card-2);border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:16/10;transition:border-color .2s var(--ease),transform .2s var(--ease)}
 .picgrid button:hover{border-color:var(--ink);transform:translateY(-1px)}
@@ -510,6 +517,8 @@ function prodOf(slug){return PROD[String(slug)]||null}
 function lineFor(slug,kw){const p=prodOf(slug);if(!p)return kw||"no keyword set";const r=seoOf(slug);const off=p.m>p.p?Math.round((1-p.p/p.m)*100):0;
  return (p.a?"":"Sold out · ")+inr(p.p)+(off?" · "+off+"% off":"")+(r&&r.rv?" · ★"+r.rv.toFixed(1)+(r.rc?" ("+kfmt(r.rc)+")":""):"")}
 const BROKEN=/*__BROKEN__*/[];
+const D2C=/*__D2C__*/null;        // catalogue shape for a direct-to-consumer brand (shops only)
+const LINKS=/*__LINKS__*/{};      // inbound internal links: hero pages and orphans
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -537,6 +546,16 @@ function audit(r){
 /* ================= layout ================= */
 const CW=244,CG=32,PW=224,PH=54,PG=8,FP=10,MAXC=24;
 const Y_HOME=0,Y_L1=190,Y_L2=360,Y_G=520;
+// A section's columns wrap into a block instead of one endless row: a 3,000-page crawl of a single big folder used to
+// be about 37,000 px wide and only 1,400 px tall. Sections of WRAP_MIN columns or fewer are left on one row, so small
+// and ordinary sites look exactly as they did.
+const WRAP_MIN=6,WRAP_MAX=40,ROW_GAP=64;
+const colHeight=col=>col.reduce((a,g)=>a+26+FP*2+(g[2].length+(g[1]?1:0))*(PH+PG)-PG+30,0);
+function perRowFor(cols){
+ if(cols.length<=WRAP_MIN)return cols.length;
+ const avg=cols.reduce((a,c)=>a+colHeight(c),0)/cols.length;   // aim for a roughly square block
+ return Math.max(WRAP_MIN,Math.min(WRAP_MAX,Math.round(Math.sqrt(cols.length*avg/(CW+CG)))));
+}
 const nodesHtml=[],edges=[],pages=[],frames=[],zones=[],l1s=[];
 let x=0;
 DATA.forEach((L1,li)=>{
@@ -544,12 +563,17 @@ DATA.forEach((L1,li)=>{
  L1.secs.forEach((sec,si)=>{
   const cols=[[]];let n=0;
   sec.groups.forEach(g=>{const c=g[2].length+(g[1]?1:0);if(n+c>MAXC&&cols[cols.length-1].length){cols.push([]);n=0}cols[cols.length-1].push(g);n+=c});
-  const s={sec,si,x,cols:[],total:0};
-  cols.forEach(col=>{let y=Y_G;const fr=[];
+  const s={sec,si,x,cols:[],total:0},perRow=perRowFor(cols);
+  let rowTop=Y_G,rowBottom=Y_G,cx=x;
+  cols.forEach((col,ci)=>{
+   if(ci&&ci%perRow===0){cx=s.x;rowTop=rowBottom+ROW_GAP;rowBottom=rowTop}
+   let y=rowTop;const fr=[];
    col.forEach(g=>{const items=[];if(g[1])items.push([g[0],g[1],true]);g[2].forEach(p=>items.push([p[0],p[1],false]));
-    const fy=y+26,h=FP*2+items.length*(PH+PG)-PG;fr.push({x,y:fy,w:CW,h,g,items});s.total+=items.length;y=fy+h+30;l1.maxY=Math.max(l1.maxY,fy+h)});
-   s.cols.push({x,frames:fr});x+=CW+CG});
-  s.w=s.cols.length*(CW+CG)-CG;l1.secs.push(s);x+=14});
+    const fy=y+26,h=FP*2+items.length*(PH+PG)-PG;fr.push({x:cx,y:fy,w:CW,h,g,items});s.total+=items.length;y=fy+h+30;
+    rowBottom=Math.max(rowBottom,fy+h);l1.maxY=Math.max(l1.maxY,fy+h)});
+   s.cols.push({x:cx,frames:fr,row:Math.floor(ci/perRow),top:rowTop});cx+=CW+CG});
+  s.w=Math.min(perRow,cols.length)*(CW+CG)-CG;s.rows=Math.ceil(cols.length/perRow);
+  l1.secs.push(s);x+=s.w+CG+14});
  l1.x=l1.secs[0].x;const last=l1.secs[l1.secs.length-1];l1.w=last.x+last.w-l1.x;l1.total=l1.secs.reduce((a,s)=>a+s.total,0);
  l1s.push(l1);x+=84});
 const treeW=x-84;
@@ -576,9 +600,13 @@ l1s.forEach(l1=>{
  l1.secs.forEach(s=>{
   nodesHtml.push(`<div class="node n-l2" data-act="l2" data-li="${l1.li}" data-si="${s.si}" style="--bc:var(${l1.color});left:${s.x}px;top:${Y_L2}px;width:${s.w}px;height:66px" title="Zoom to ${esc(s.sec.name)}"><b>${esc(s.sec.name)}</b><small>${s.total} pages · ${s.sec.groups.length} group${s.sec.groups.length>1?"s":""}</small></div>`);
   link([[l1.x+l1.w/2,Y_L1+76],[l1.x+l1.w/2,Y_L2-36],[s.x+s.w/2,Y_L2-36],[s.x+s.w/2,Y_L2-2]]);
-  s.cols.forEach(c=>{const sx=c.x+CW/2;
+  // a wrapped section gets a spine down its left edge, with one bus per row, instead of every column
+  // reaching back up to a single bus above the first row
+  if(s.rows>1)edges.push([path([[s.x-30,Y_L2+66],[s.x-30,Math.max(...s.cols.map(c=>c.top))-6]]),""]);
+  s.cols.forEach(c=>{const sx=c.x+CW/2,busY=c.top-6;
    c.frames.forEach(f=>{
-    link([[sx,Y_L2+66],[sx,Y_G-6],[c.x-14,Y_G-6],[c.x-14,f.y+22],[c.x-1,f.y+22]]);
+    link(c.row?[[s.x-30,busY],[c.x-14,busY],[c.x-14,f.y+22],[c.x-1,f.y+22]]
+              :[[sx,Y_L2+66],[sx,busY],[c.x-14,busY],[c.x-14,f.y+22],[c.x-1,f.y+22]]);
     frames.push({...f,color:l1.color});
     nodesHtml.push(`<div class="frame" style="left:${f.x}px;top:${f.y}px;width:${f.w}px;height:${f.h}px"><div class="frame-label">${esc(f.g[0])}<em>${f.items.length}</em></div></div>`);
     f.items.forEach((it,i)=>{
@@ -676,8 +704,11 @@ let NEXT_Y=-60;
   <div class="kpis6" style="margin-top:18px"><div class="kpi"><b>${nf(words)}</b><span>Words in all pages</span></div><div class="kpi"><b>${nf(avgW)}</b><span>Average words a page</span></div><div class="kpi"><b>${nf(imgs)}</b><span>Images</span></div><div class="kpi"><b style="color:${noAlt?"var(--warn)":"var(--good)"}">${nf(noAlt)}</b><span>Images with no alt text</span></div><div class="kpi"><b>${nf(thin)}</b><span>Thin pages (under 300 words)</span></div><div class="kpi"><b>${nf(noSchema)}</b><span>No structured data</span></div></div>
   <div class="cols3"><div class="panel"><h4>Content and technical checks</h4><div class="bars">${[["Thin pages (under 300 words)",thin,"--warn"],["Images with no alt text",noAlt,"--warn"],["No canonical address",noCanon,"--warn"],["No structured data",noSchema,"--warn"],["Not mobile-ready (no viewport)",noVp,"--bad"],["Heavy pages (over 300 KB)",heavy,"--warn"]].map(([k,v,c])=>`<div class="bar" style="--bc:var(${c})"><span>${k}</span><span class="tr"><i style="width:${ok.length?Math.max(2,Math.min(100,v/ok.length*100)):0}%"></i></span><span class="n">${nf(v)}</span></div>`).join("")}</div></div>
   <div class="panel"><h4>Structured data found</h4>${topKinds.length?`<div class="bars">${topKinds.map(([k,v])=>`<div class="bar" style="--bc:var(--good)"><span>${esc(k)}</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,v/ok.length*100))}%"></i></span><span class="n">${nf(v)}</span></div>`).join("")}</div>`:`<p class="muted">No schema.org structured data was found on these pages. Adding it helps Google show rich results.</p>`}</div>
-  <div class="panel"><h4>Pictures the site shares</h4>${shots.length?`<div class="picgrid">${shots.map(p=>`<button type="button" data-slug="${esc(p.slug)}" title="${esc(p.label)}"><img loading="lazy" referrerpolicy="no-referrer" src="${esc(p.r.og)}" alt="${esc(p.label)}"></button>`).join("")}</div>`:`<p class="muted">No share pictures (og:image) were found, so links to this site show up as plain text when they are shared.</p>`}</div></div></div>`;
- const fh=1240;
+  <div class="panel"><h4>Pictures the site shares</h4>${shots.length?`<div class="picgrid">${shots.map(p=>`<button type="button" data-slug="${esc(p.slug)}" title="${esc(p.label)}"><img loading="lazy" referrerpolicy="no-referrer" src="${esc(p.r.og)}" alt="${esc(p.label)}"></button>`).join("")}</div>`:`<p class="muted">No share pictures (og:image) were found, so links to this site show up as plain text when they are shared.</p>`}</div></div>
+  ${LINKS&&LINKS.hero?`<div class="cols3" style="margin-top:18px">
+   <div class="panel" style="grid-column:span 2"><h4>Pages the site pushes hardest</h4><p class="muted">How many other pages link to each one. This is where the site sends its own visitors and its own link equity.</p><div class="bars" style="margin-top:10px">${LINKS.hero.map(([p,n])=>`<div class="bar" style="--bc:var(--good)"><span>${esc(p)}</span><span class="tr"><i style="width:${Math.max(2,n/LINKS.hero[0][1]*100)}%"></i></span><span class="n">${nf(n)}</span></div>`).join("")}</div></div>
+   <div class="panel"><h4>Orphan pages</h4>${LINKS.orphanCount?`<p class="muted"><b>${nf(LINKS.orphanCount)}</b> of ${nf(LINKS.checked)} pages have no link pointing at them from anywhere else on the site. Visitors cannot reach them by clicking, and search engines treat them as unimportant.</p><div class="orph">${LINKS.orphans.slice(0,14).map(p=>`<button type="button" data-slug="${esc(p.slice(1))}" title="${esc(p)}">${esc(p)}</button>`).join("")}</div>`:`<p class="muted">Every page that was read is linked from somewhere else on the site. Nothing is stranded.</p>`}</div></div>`:""}</div>`;
+ const fh=LINKS&&LINKS.hero?1620:1240;
  xframe(fx,fy,AW,fh,"SEO health","Every page's title, description, heading and status, scored out of 100. Click a page to see exactly what to fix.","--c-res","health");
  nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
  NEXT_Y=fy+fh+120;
@@ -700,6 +731,31 @@ if(X.catalog&&prodPages.length){
   ${top.length?`<div class="panel"><h4>Most-reviewed products</h4><div class="toprev">${top.map((p,i)=>`<button type="button" data-slug="${esc(p.slug)}" style="--bc:var(${p.color})"><em>${i+1}</em><b>${esc(p.label)}</b><span>★${p.r.rv.toFixed(1)} · ${p.r.rc.toLocaleString()} reviews · ${inr(p.pi.p)}</span></button>`).join("")}</div></div>`:""}</div>`;
  const fh=top.length?780:560;
  xframe(fx,fy,AW,fh,"Catalogue insights","Pricing, discounts, stock and reviews across the products the board found.","--c-ai","catalog");
+ nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
+ NEXT_Y=fy+fh+120;
+}
+
+/* 4b. direct-to-consumer checks: discount depth, dead stock, review coverage, how often new products land */
+if(D2C){
+ const fx=AX,fy=NEXT_Y,pad=48,D=D2C,nf2=v=>(v||0).toLocaleString();
+ const pc=v=>Math.round(v/Math.max(1,D.total)*100);
+ const deepPc=pc(D.deep),outPc=pc(D.soldOut),revPc=D.productPages?Math.round(D.reviewed/D.productPages*100):0;
+ const dmax=Math.max(...D.discount.map(d=>d[1]));
+ const nmax=D.new?Math.max(...D.new.map(m=>m[1])):0;
+ const mLabel=m=>{const [y,mo]=m.split("-");return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+mo-1]+" "+y.slice(2)};
+ const html=`<div class="ins"><div class="kpis6">
+  <div class="kpi"><b>${inr(D.median)}</b><span>Typical price (median)</span></div>
+  <div class="kpi"><b style="color:${deepPc>25?"var(--bad)":deepPc>10?"var(--warn)":"var(--good)"}">${deepPc}%</b><span>Discounted over 40%</span></div>
+  <div class="kpi"><b style="color:${outPc>20?"var(--bad)":outPc>8?"var(--warn)":"var(--good)"}">${nf2(D.soldOut)}</b><span>Sold out but still live</span></div>
+  <div class="kpi"><b style="color:${revPc<30?"var(--warn)":"var(--good)"}">${revPc}%</b><span>Products with a review</span></div>
+  <div class="kpi"><b>${nf2(D.reviewed)}</b><span>Rated product pages</span></div>
+  <div class="kpi"><b>${D.new?mLabel(D.new[D.new.length-1][0]):"–"}</b><span>Newest products added</span></div></div>
+  <div class="cols3">
+  <div class="panel"><h4>How deep the discounting goes</h4><p class="muted">An average hides the tail. This is the whole range, product by product.</p><div class="bars" style="margin-top:10px">${D.discount.map(([n,v],i)=>`<div class="bar" style="--bc:var(${["--good","--c-ai","--warn","--bad"][i]})"><span>${n}</span><span class="tr"><i style="width:${Math.max(2,v/Math.max(1,dmax)*100)}%"></i></span><span class="n">${nf2(v)}</span></div>`).join("")}</div></div>
+  <div class="panel"><h4>Sold out, still earning clicks</h4>${D.soldOut?`<p class="muted"><b>${nf2(D.soldOut)}</b> of ${nf2(D.total)} products cannot be bought today, but their pages still take search and ad traffic.</p><div class="orph" style="margin-top:10px">${D.soldOutNames.map(([t,s])=>`<button type="button"${s?` data-slug="${esc(s.slice(1))}"`:""} title="${esc(t)}">${esc(t)}</button>`).join("")}</div>`:`<p class="muted">Every product in the feed is in stock. No sold-out page is spending ad budget.</p>`}</div>
+  <div class="panel"><h4>New products by month</h4>${D.new?`<div class="spark">${D.new.map(([m,v])=>`<div class="sp" title="${nf2(v)} added in ${mLabel(m)}"><i style="height:${Math.max(4,v/Math.max(1,nmax)*100)}%"></i><span>${mLabel(m).slice(0,3)}</span></div>`).join("")}</div><p class="muted" style="margin-top:8px">A flat tail means the range has stopped moving; buyers and Google both notice.</p>`:`<p class="muted">The product feed does not say when products were added, so freshness cannot be measured.</p>`}</div></div></div>`;
+ const fh=620;
+ xframe(fx,fy,AW,fh,"Direct-to-consumer checks","Discount depth, dead stock, review coverage and how often new products land — the things that quietly cost a D2C brand margin and trust.","--c-dm","d2c");
  nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
  NEXT_Y=fy+fh+120;
 }
