@@ -30,6 +30,7 @@ def render(report: dict, bot_endpoint: str = "", report_id: str = "", max_cards:
         "/*__DATA__*/": _js(m["DATA"]) + ";", "/*__SEO__*/null": _js(m["SEO"]), "/*__PROD__*/{}": _js(m["PROD"]),
         "/*__BROKEN__*/[]": _js(m["BROKEN"]), "/*__STG__*/[]": _js(m["STG"]), "/*__BR__*/{}": _js(m["BR"]),
         "/*__SHOTDATA__*/{}": _js(m["SHOTDATA"]), "/*__X__*/{}": _js(X),
+        "/*__D2C__*/null": _js(m["D2C"]), "/*__LINKS__*/{}": _js(m["LINKS"]),
     }
     for k, v in fills.items():
         if k not in t:

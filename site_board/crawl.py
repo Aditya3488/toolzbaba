@@ -441,16 +441,24 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
     queue = list(crawl)
     queued = {p.lower() for p in queue} | {"/"}
     found: list[str] = []
+    inbound: dict[str, int] = {}   # path -> how many other pages link to it, for hero pages and orphans
 
     def page_get(path, retries=None):
         return Get(urljoin(base, path), max_bytes=PAGE_BYTES, retries=retries)
 
     def harvest(path, text):
+        """Count who links to what, and (when discovering) queue the pages we have not seen yet."""
         page_base = urljoin(base, path)
+        here = path.lower()
         for href in page_links(text):
             p = _norm(href, page_base, host)
-            if p and p.lower() not in queued:
-                queued.add(p.lower())
+            if not p:
+                continue
+            low = p.lower()
+            if low != here:
+                inbound[low] = inbound.get(low, 0) + 1
+            if discover and low not in queued:
+                queued.add(low)
                 found.append(p)
 
     say(f"Checking {len(crawl)} pages" if not discover else f"Checking pages and following links (up to {want})", 0.22)
@@ -462,8 +470,8 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         def each(i, r, wave=wave):
             path = wave[i]
             pages[path] = _page_facts(path, r)
-            if discover and not isinstance(r, FetchError) and r.status == 200 and r.text:
-                harvest(path, r.text)
+            if not isinstance(r, FetchError) and r.status == 200 and r.text:
+                harvest(path, r.text)   # always: the link counts are wanted even when the sitemap filled the quota
             done[0] += 1
             if done[0] % 10 == 0:
                 total = min(want, max(done[0], len(pages) + len(queue) + len(found)))
@@ -507,6 +515,8 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         "blogCount": sum(1 for p in sm_urls if re.search(r"/(blogs?|news|articles?|posts?|insights?)/.+", p, re.I)),
         "tools": tools, "gtm": list(tag_ids), "events": evs, "contacts": cont, "shop": shop,
         "discovered": discover, "stoppedEarly": stopped_early, "queueLeft": len(queue),
+        # how many other pages link to each page we read: hero pages at the top, orphans at zero
+        "inbound": {p: inbound.get(p.lower(), 0) for p in pages},
         "homeSections": home_sections(root), "requests": stats.requests, "rateLimited": stats.rate_limited,
         "notChecked": sum(1 for f in pages.values() if f.get("rl")), "seconds": round(time.time() - t0, 1),
     }

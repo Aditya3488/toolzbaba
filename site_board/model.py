@@ -34,6 +34,20 @@ def find_pages(rep: dict, pattern: str, limit: int = 3) -> list[str]:
     return sorted(out, key=len)[:limit]
 
 
+PRODUCTISH = re.compile(r"^/(products?|product-page|item|p)/", re.I)
+
+
+def shelf_page(rep: dict, words: str) -> str | None:
+    """A shelf or help page whose address contains one of `words` as a whole segment, never a product page.
+
+    A loose search finds nonsense on a big catalogue: "hero" matched a book called "I Am a Hero", and
+    "find-your" matched "find-your-tribe". Matching whole path segments and skipping /products/ stops that.
+    """
+    rx = re.compile(r"(^|[-/])(%s)([-/]|$)" % words, re.I)
+    out = [p for p, f in rep["pages"].items() if p != "/" and f.get("s") == 200 and not PRODUCTISH.match(p) and rx.search(p)]
+    return sorted(out, key=len)[0] if out else None
+
+
 class Board:
     def __init__(self, rep: dict, max_cards: int = 6000):
         self.rep, self.max_cards = rep, max_cards
@@ -251,6 +265,53 @@ def catalog(rep: dict) -> dict | None:
             "cur": SYMBOL.get(cur, (cur + " ") if cur else "")}
 
 
+def links(rep: dict, top: int = 10) -> dict:
+    """Which pages the site pushes hardest, and which ones nothing links to.
+
+    Inbound counts come from the crawl: every same-site href on every page that was read. A page with no inbound
+    link is an orphan — it can sit in the sitemap for years and never be found by a visitor.
+    """
+    ib = rep.get("inbound") or {}
+    if not ib:
+        return {}
+    pages = rep["pages"]
+    live = {p: n for p, n in ib.items() if p != "/" and (pages.get(p) or {}).get("s") == 200}
+    orphans = sorted(p for p, n in live.items() if n == 0)
+    hero = sorted(live.items(), key=lambda kv: (-kv[1], kv[0]))[:top]
+    return {"hero": hero, "orphans": orphans[:60], "orphanCount": len(orphans), "checked": len(live)}
+
+
+def d2c(rep: dict, cat: dict | None) -> dict | None:
+    """The four catalogue questions a direct-to-consumer brand lives or dies on, which the Catalogue frame
+    (price bands, discount and stock per section, most-reviewed products) does not already answer:
+
+      * how deep the discounting goes across the whole range, not the average, which hides it
+      * which sold-out products are still live, collecting ad clicks and search traffic nobody can buy
+      * how much of the range has any review at all, not just which products have the most
+      * whether new products actually keep arriving
+    """
+    shop = rep.get("shop") or {}
+    ps = shop.get("products") or []
+    if not ps or not cat:
+        return None
+    prices = sorted(p["price"] for p in ps if p["price"] > 0)
+    out: dict = {"cur": cat["cur"], "total": len(ps), "median": prices[len(prices) // 2] if prices else 0}
+    disc = [(1 - p["price"] / p["mrp"]) if p["mrp"] > p["price"] > 0 else 0.0 for p in ps]
+    buckets = [("Full price", 0.0, 0.001), ("1–20% off", 0.001, 0.2), ("21–40% off", 0.2, 0.4), ("Over 40% off", 0.4, 9.0)]
+    out["discount"] = [[n, sum(1 for d in disc if a <= d < b)] for n, a, b in buckets]
+    out["deep"] = sum(1 for d in disc if d >= 0.4)
+    sold_out = [p for p in ps if not p.get("avail")]
+    out["soldOut"] = len(sold_out)
+    out["soldOutNames"] = [[p["t"][:60], ("/products/" + p["h"]).lower() if p.get("h") else ""] for p in sold_out[:10]]
+    prod_pages = {k: f for k, f in rep["pages"].items() if re.match(r"^/(products?|product-page|item|p)/", k, re.I) and f.get("s") == 200}
+    out["reviewed"] = sum(1 for f in prod_pages.values() if f.get("rv"))
+    out["productPages"] = len(prod_pages)
+    months = Counter(p["created"][:7] for p in ps if p.get("created"))
+    if len(months) > 1:
+        out["new"] = sorted(months.items())[-12:]
+    return out
+
+
 def seo_counts(rep: dict) -> dict:
     ok = {p: f for p, f in rep["pages"].items() if f.get("s") == 200}
     tc = Counter(f.get("t") for f in ok.values() if f.get("t"))
@@ -298,15 +359,26 @@ def funnel(rep: dict, cat: dict | None, st: dict, seo: dict) -> tuple[list, dict
         coll = first(r"^/(collections?|product-category|category|shop)/")
         prod = first(r"^/(products?|product)/")
         deal = first(r"sale|deal|offer|discount|clearance")
+        # the pages a direct-to-consumer brand leans on; whole path segments only, never a product page,
+        # and each one is listed only when it really exists
+        d2c_pages = lambda *rows: [[t, note, s(p)] for t, note, p in ((t, n, shelf_page(rep, w)) for t, n, w in rows) if p]
         STG = [
-            {"n": "Discover", "d": "Where shoppers first meet the brand", "c": "--c-about", "items": (ads_items or [["No ad tags found", "Paid ads are not measured on the site"]]) + [organic, social]},
+            {"n": "Discover", "d": "Where shoppers first meet the brand", "c": "--c-about", "items": (ads_items or [["No ad tags found", "Paid ads are not measured on the site"]]) + [organic, social] + d2c_pages(("Creator programme", "Affiliate or influencer page", r"affiliates?|influencers?|creators?|ambassadors?|collab\w*"))},
             {"n": "Land", "d": "First page after the click", "c": "--c-tech", "items": [["Homepage", home_note, ""]] + ([["Category pages", f"{types.get('sitemap_collections', 0) or len(rep['shop'].get('collections', {}))} collections", s(coll)]] if coll else []) + ([["Product pages", "Shopping ads usually land straight on a product", s(prod)]] if prod else []) + ([["Deal pages", "Sale and offer pages", s(deal)]] if deal else [])},
-            {"n": "Browse", "d": "Finding the right product", "c": "--c-services", "items": [["Menu", f"{len(rep['menu'])} main sections"]] + ([["Site search", ", ".join(search)]] if search else ([["Search page", "Built-in search", "search"]] if "/search" in rep["pages"] else [])) + [["Collections", f"{len(rep['shop'].get('collections', {}))} collections linked from the menu"]]},
-            {"n": "Evaluate", "d": "Convincing on the product page", "c": "--c-ai", "items": [["Price & discount", f"Average {cat['disc']}% off the listed price" if cat and cat["disc"] else "Prices on product pages"]] + ([["Ratings & reviews", ", ".join(reviews) + (f", average ★{cat['rating']}" if cat and cat['rating'] else "")]] if reviews else ([["Ratings", f"Average ★{cat['rating']} on rated products"]] if cat and cat["rating"] else [])) + [[t, "Policy page", s(p)] for t, p in [("Returns & shipping", first(r"return|refund|shipping|delivery")), ("Warranty", first(r"warrant"))] if p]},
+            {"n": "Browse", "d": "Finding the right product", "c": "--c-services", "items": [["Menu", f"{len(rep['menu'])} main sections"]] + ([["Site search", ", ".join(search)]] if search else ([["Search page", "Built-in search", "search"]] if "/search" in rep["pages"] else [])) + [["Collections", f"{len(rep['shop'].get('collections', {}))} collections linked from the menu"]] + d2c_pages(
+                ("Bestsellers", "The shelf most shoppers start from", r"best-?sell\w*|top-?rated|most-?popular"),
+                ("New arrivals", "Gives repeat buyers a reason to return", r"new-?arrivals?|new-?in|just-?launched|latest"),
+                ("Bundles & kits", "Raises order value without a discount", r"bundles?|combos?|gift-?sets?|value-?packs?"),
+                ("Product finder", "Quiz or routine builder that narrows the range", r"quiz|product-?finder|skin-?quiz|routine-?builder|consultation"),
+                ("Size or shade guide", "Removes the main reason for returns", r"size-?guide|size-?chart|fit-?guide|shade-?finder"))},
+            {"n": "Evaluate", "d": "Convincing on the product page", "c": "--c-ai", "items": [["Price & discount", f"Average {cat['disc']}% off the listed price" if cat and cat["disc"] else "Prices on product pages"]] + ([["Ratings & reviews", ", ".join(reviews) + (f", average ★{cat['rating']}" if cat and cat['rating'] else "")]] if reviews else ([["Ratings", f"Average ★{cat['rating']} on rated products"]] if cat and cat["rating"] else [])) + [[t, "Policy page", s(p)] for t, p in [("Returns & shipping", first(r"return|refund|shipping|delivery")), ("Warranty", first(r"warrant"))] if p] + d2c_pages(
+                ("Ingredients & how to use", "What the product is and how to use it", r"ingredients?|how-?to-?use|benefits?"),
+                ("FAQ", "Answers the objections before the cart", r"faqs?|frequently-?asked-?questions"))},
             {"n": "Add to cart", "d": "Committing to buy", "c": "--c-dm", "items": [["Add to cart", "Tracked as add_to_cart" if "add_to_cart" in rep["events"] else "Cart button on product pages"]] + ([["Cart page", "Order summary before checkout", "cart"]] if rep["pages"].get("/cart", {}).get("s") == 200 else [])},
             {"n": "Checkout", "d": "Contact and address", "c": "--c-contact", "items": [[c, "Checkout used by the store"] for c in checkout] + ([["Shipping info", "Tracked as add_shipping_info"]] if "add_shipping_info" in rep["events"] else [])},
             {"n": "Pay & order", "d": "Payment and confirmation", "c": "--c-x1", "items": ([[p, "Payment option found on the site"] for p in pay[:4]] or [["Payment", "Payment step of the store checkout"]]) + ([["Purchase event", "Sales are reported to analytics and ad platforms"]] if "purchase" in rep["events"] else [])},
-            {"n": "After purchase", "d": "Delivery, support, repeat", "c": "--c-res", "items": [[t, "Help page", s(p)] for t, p in [("Track your order", first(r"track|order")), ("Contact & support", first(r"contact|support|help"))] if p] + ([["Email & push", ", ".join(eng)]] if eng else []) + ([["Loyalty", ", ".join(loyal)]] if loyal else []) + ([["Referral", "Refer-a-friend page", s(first(r"refer"))]] if first(r"refer") else [])},
+            {"n": "After purchase", "d": "Delivery, support, repeat", "c": "--c-res", "items": [[t, "Help page", s(p)] for t, p in [("Track your order", first(r"track|order")), ("Contact & support", first(r"contact|support|help"))] if p] + ([["Email & push", ", ".join(eng)]] if eng else []) + ([["Loyalty", ", ".join(loyal)]] if loyal else []) + ([["Referral", "Refer-a-friend page", s(first(r"refer"))]] if first(r"refer") else []) + d2c_pages(
+                ("Subscribe & save", "Turns one order into predictable revenue", r"subscri\w*|refills?|replenish\w*|auto-?deliver\w*"))},
         ]
         title, desc = "Sales funnel: visit to purchase", f"Every step a shopper takes on {rep['domain']}, from the first ad or search to the order and after. Built from the live pages and tracking tags. Click a linked card to inspect that page."
     else:
@@ -389,4 +461,5 @@ def build(rep: dict, max_cards: int = 6000) -> dict:
                    "catalog": f"{cat['total']:,} products, {cat['disc']}% average discount, {round(cat['avail'] / max(1, cat['total']) * 100)}% in stock." if cat else "",
                    "lines": "Click a bubble to list and highlight its pages.", "gallery": "Screenshots of the main pages.", "home": "The homepage from top to bottom."},
     }
-    return {"DATA": data, "PROD": b.prod, "SEO": seo, "BROKEN": broken, "STG": stg, "BR": br, "X": X, "SHOTDATA": rep.get("shots", {}), "seo_counts": sc, "cards": b.cards}
+    return {"DATA": data, "PROD": b.prod, "SEO": seo, "BROKEN": broken, "STG": stg, "BR": br, "X": X, "SHOTDATA": rep.get("shots", {}),
+            "D2C": d2c(rep, cat), "LINKS": links(rep), "seo_counts": sc, "cards": b.cards}
