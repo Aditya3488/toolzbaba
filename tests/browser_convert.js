@@ -114,24 +114,27 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- the navigation bar
   const menu = async (page, name) => { await page.locator('.nv-btn', { hasText: name }).hover(); const sel = `.nv-item:has(> .nv-btn:text-is("${name}")) .nv-panel`; await page.waitForSelector(sel + ':not([hidden]) a', { timeout: 4000 }); return { sel, links: await page.locator(sel + ' a').allInnerTexts(), heads: await page.locator(sel + ' h4').allInnerTexts() }; };
-  await T('navbar: Image, PDF, Video & audio, AI, Convert and All tools menus', async page => {
-    await go(page, '/pdf-editor'); const btns = await page.locator('.nv-btn').allInnerTexts(); ex(btns.map(b => b.trim()).join('|') === 'Image|PDF|Video & audio|AI|Convert|All tools', btns.join('|'));
-    ex((await page.locator('.nv > a').allInnerTexts()).join('|') === 'Blog', 'next to the menus there is only the Blog link');
+  await T('navbar: Image, PDF, Video & audio, AI, Convert and Other tools menus, each with a colour tile', async page => {
+    await go(page, '/pdf-editor'); const btns = await page.locator('.nv-btn').allInnerTexts(); ex(btns.map(b => b.trim()).join('|') === 'Image|PDF|Video & audio|AI|Convert|Other tools', btns.join('|'));
+    ex(await page.locator('.nv > a').count() === 0, 'nothing but the menus in the bar (the Blog link moved to the footer)');
+    ex(await page.locator('.nv-btn > .ticon').count() === 6, 'every menu button has its colour tile');
     const want = { 'Image': ['Compress Image', 'Resize Image', 'Crop Image', 'JPG to PDF', 'EXIF Remover', 'Collage Maker', 'Background Remover'], 'PDF': ['Merge PDF', 'Split PDF', 'Compress PDF', 'PDF Editor', 'HTML to PDF', 'Markdown to PDF', 'Blur & Redact PDF', 'Add Watermark to PDF', 'PDF to Markdown', 'Protect PDF with Password'],
       'Video & audio': ['Video Converter', 'Split Video', 'Merge Audio Files', 'MP4 to MP3 Converter', 'Video to Text (Transcribe)'], 'AI': ['Background Remover', 'Image Upscaler', 'AI Headshot Generator'],
       'Convert': ['JPG to PDF', 'PNG to PDF', 'Markdown to PDF', 'Word (DOCX) to Markdown'] };
     const seen = [];
     for (const [name, items] of Object.entries(want)) { const m = await menu(page, name); for (const n of items) ex(m.links.some(t => t.includes(n)), `${name} menu misses "${n}" (has ${m.links.length}: ${m.links.slice(0, 6).join(', ')}...)`); ex(await page.locator(m.sel + ' .ticon').count() >= m.links.length, name + ': icons missing'); seen.push(`${name} ${m.links.length}`); }
-    const all = await menu(page, 'All tools'); ex(all.heads.join('|').toLowerCase() === 'Image|AI & Enhance|PDF & Documents|Video & Audio|Text & Developer|Utilities'.toLowerCase(), all.heads.join('|')); ex(all.links.length >= 56, 'only ' + all.links.length + ' tools in All tools');
-    await page.locator('.nv-panel:not([hidden]) a', { hasText: 'Font Library' }).click(); await page.waitForURL('**/font-library'); return seen.join(', ') + ', all ' + all.links.length;
+    const other = await menu(page, 'Other tools'); ex(other.heads.join('|') === 'Text and developer|Web and sharing|Colours and fonts', other.heads.join('|'));
+    for (const n of ['JSON Formatter', 'Visual Sitemap Generator', 'QR Code Generator', 'Font Library']) ex(other.links.some(t => t.includes(n)), `Other tools misses "${n}"`);
+    for (const n of ['Compress Image', 'Merge PDF', 'Video Converter', 'Background Remover']) ex(!other.links.some(t => t.includes(n)), `Other tools should not list "${n}"`);
+    await page.locator('.nv-panel:not([hidden]) a', { hasText: 'Font Library' }).click(); await page.waitForURL('**/font-library'); return seen.join(', ') + ', other ' + other.links.length;
   });
   await T('navbar: only one menu at a time; hover opens, Escape and a click elsewhere close', async page => {
     await go(page, '/'); await menu(page, 'Image'); await menu(page, 'PDF'); ex(await page.locator('.nv-panel:not([hidden])').count() === 1, 'two menus are open');
     await page.keyboard.press('Escape'); await page.waitForTimeout(150); ex(await page.locator('.nv-panel:not([hidden])').count() === 0, 'Escape');
-    await page.locator('.nv-btn', { hasText: 'All tools' }).click(); await page.waitForSelector('.nv-panel.all:not([hidden])'); await page.mouse.click(700, 700); await page.waitForTimeout(200); ex(await page.locator('.nv-panel.all').isHidden(), 'click outside');
+    await page.locator('.nv-btn', { hasText: 'Other tools' }).click(); await page.waitForSelector('.nv-panel.other:not([hidden])'); await page.mouse.click(700, 700); await page.waitForTimeout(200); ex(await page.locator('.nv-panel.other').isHidden(), 'click outside');
   });
   await T('navbar: a menu never runs past the edge of the bar', async page => {
-    await go(page, '/'); for (const n of ['Image', 'PDF', 'Video & audio', 'AI', 'Convert']) { await menu(page, n); const b = await page.locator('.nv-panel:not([hidden])').boundingBox(); ex(b.x >= 0 && b.x + b.width <= 1440, `${n} menu at ${Math.round(b.x)}..${Math.round(b.x + b.width)}`); await page.keyboard.press('Escape'); }
+    await go(page, '/'); for (const n of ['Image', 'PDF', 'Video & audio', 'AI', 'Convert', 'Other tools']) { await menu(page, n); const b = await page.locator('.nv-panel:not([hidden])').boundingBox(); ex(b.x >= 0 && b.x + b.width <= 1440, `${n} menu at ${Math.round(b.x)}..${Math.round(b.x + b.width)}`); await page.keyboard.press('Escape'); }
   });
   await T('navbar: no address on the page contains /tool/', async page => {
     await go(page, '/'); await page.locator('.nv-btn', { hasText: 'All tools' }).click(); await page.waitForSelector('.nv-panel.all a'); const hrefs = await page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')));

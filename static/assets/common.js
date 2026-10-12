@@ -1044,16 +1044,17 @@
 
   // ---------------------------------------------------------------- the navigation bar
   // Image, PDF, Video & audio and AI each open a menu with everything related to them (the tools of that kind and the converters that belong to it),
-  // "Convert" collects every converter, "All tools" lists every category. Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // "Convert" collects every converter, "Other tools" holds everything else (text, developer, web and design helpers).
+  // Each menu wears the colour tile of one of its tools (the third value). Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
   // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
   const NAV_MENUS = [
-    ['Image', 'image', [
+    ['Image', 'image', 'compress-image', [
       ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
       ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
       ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
     ]],
-    ['PDF', 'pdf', [
+    ['PDF', 'pdf', 'merge-pdf', [
       ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf', 'crop-pdf', 'compare-pdf', 'repair-pdf']],
       ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
       ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
@@ -1061,23 +1062,27 @@
       ['PDF security', ['protect-pdf', 'unlock-pdf']],
       ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
     ]],
-    ['Video & audio', 'video', [
+    ['Video & audio', 'video', 'video-converter', [
       ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
       ['Audio', ['audio-converter', 'wav-to-mp3', 'm4a-to-mp3', 'split-audio', 'merge-audio', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio']],
       ['Words from sound', ['video-to-text', 'text-to-audio']],
     ]],
-    ['AI', 'ai', [
+    ['AI', 'ai', 'remove-background', [
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style']],
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
-    ['Convert', 'convert', [
+    ['Convert', 'convert', 'convert-image', [
       ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
       ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
       ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
       ['Images', ['png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'jpg-to-webp', 'convert-image', 'image-to-svg']],
       ['Video and audio', ['video-converter', 'audio-converter', 'wav-to-mp3', 'm4a-to-mp3', 'mp3-to-wav', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
     ]],
-    ['All tools', 'all', null],
+    ['Other tools', 'other', 'toolbox', [
+      ['Text and developer', ['json-formatter', 'word-counter', 'text-case-converter', 'url-encoder', 'base64', 'hash-uuid-generator', 'password-generator']],
+      ['Web and sharing', ['visual-sitemap-generator', 'website-color-palette-extractor', 'qr-code-generator', 'image-cdn', 'temporary-file-upload-direct-link-share']],
+      ['Colours and fonts', ['image-color-palette-extractor', 'color-palette-generator', 'font-library']],
+    ]],
   ];
   const buildNav = () => {
     const here = location.pathname.replace(/\/+$/, '') || '/', chev = () => HT.svg('<svg class="nv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>');
@@ -1085,7 +1090,7 @@
     const sec = (title, items, wide) => el('div', { class: 'nv-sec' + (wide ? ' wide' : '') }, el('h4', { text: title }), el('ul', {}, items.map(t => el('li', {}, link(t)))));
     const sections = (data, key) => {
       const menu = NAV_MENUS.find(m => m[1] === key), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), box = el('div', { class: 'nv-grid ' + key });
-      if (menu[2]) { const groups = menu[2].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', Math.min(groups.length, 4)); for (const [title, items] of groups) box.append(sec(title, items)); }
+      if (menu[3]) { const groups = menu[3].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', Math.min(groups.length, 4)); for (const [title, items] of groups) box.append(sec(title, items)); }
       else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: HT.href(t.slug) })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
       return box;
     };
@@ -1093,23 +1098,22 @@
     const nav = el('nav', { class: 'nv', 'aria-label': 'Main' }); let openItem = null, timer = 0;
     const close = focus => { clearTimeout(timer); if (!openItem) return; openItem.btn.setAttribute('aria-expanded', 'false'); openItem.panel.hidden = true; openItem.wrap.classList.remove('open'); if (focus) openItem.btn.focus(); openItem = null; };
     const place = it => {   // a menu opens under its button, but never past the edge of the bar
-      if (it.key === 'all') return; const host = it.wrap.closest('.top-in'), hb = host.getBoundingClientRect(), bb = it.btn.getBoundingClientRect(), w = it.panel.offsetWidth;
+      const host = it.wrap.closest('.top-in'), hb = host.getBoundingClientRect(), bb = it.btn.getBoundingClientRect(), w = it.panel.offsetWidth;
       it.panel.style.left = Math.max(0, Math.min(bb.left - hb.left - 10, hb.width - w)) + 'px';
     };
     const open = async it => {
       clearTimeout(timer); if (openItem === it) return; close();
-      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'all') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
+      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'other') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
       openItem = it; it.panel.hidden = false; place(it); it.btn.setAttribute('aria-expanded', 'true'); it.wrap.classList.add('open');
     };
-    for (const [label, key] of NAV_MENUS) {
-      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
+    for (const [label, key, icon] of NAV_MENUS) {
+      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, HT.toolIcon(icon, 'xs'), label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
       btn.addEventListener('click', () => (openItem === it ? close() : open(it)));
       wrap.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => open(it), 90); } });
       wrap.addEventListener('mouseleave', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => close(), 220); } });
       wrap.addEventListener('focusout', e => { if (!wrap.contains(e.relatedTarget)) close(); });
       nav.append(wrap);
     }
-    nav.append(el('a', { class: 'nv-link' + (here.startsWith('/blog') ? ' on' : ''), href: '/blog', text: 'Blog' }));
     document.addEventListener('click', e => { if (openItem && !openItem.wrap.contains(e.target)) close(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(true); closeM(); } });
     addEventListener('resize', () => close());
@@ -1122,8 +1126,7 @@
       if (!mFilled) { mFilled = true; const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search all tools...'; mobile.append(s);
         const data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(x => by.get(x)).filter(Boolean).slice(0, 4);
         if (recent.length) mobile.append(el('div', { class: 'nv-mrecent' }, el('h4', { text: 'Your recent tools' }), el('ul', {}, recent.map(t => el('li', {}, link(t))))));
-        for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key)));
-        mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' }));
+        for (const [label, key, icon] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', {}, HT.toolIcon(icon, 'xs'), label), sections(data, key)));
         const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), HT.t('Theme: {0}', HT.t(themeName(t)))); };
         tb.onclick = () => { cycleTheme(); paint(); }; paint(); mobile.append(tb); }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
