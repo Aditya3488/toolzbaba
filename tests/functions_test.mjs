@@ -4,6 +4,10 @@ import assert from 'node:assert/strict';
 import { onRequestGet as siteColors } from '../functions/api/site-colors.js';
 import { onRequestGet as siteFetch } from '../functions/api/site-fetch.js';
 import { withoutArchived } from '../functions/sitemap.xml.js';
+import { onRequestPost as jsErrors } from '../functions/api/errors.js';
+import { onRequestPost as cspReport } from '../functions/api/csp-report.js';
+import { onRequestGet as adminErrors } from '../functions/api/admin/errors.js';
+import { onRequestGet as adminCsp } from '../functions/api/admin/csp.js';
 import { onRequestPost as upload } from '../functions/api/files/index.js';
 import { onRequestDelete as remove } from '../functions/api/files/[id].js';
 import { onRequestGet as download } from '../functions/f/[id]/[name].js';
@@ -254,6 +258,58 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
   assert.ok(out.includes('/anime-style-2</loc>') && out.includes('/compress-image</loc>') && out.includes('/hi/compress-image</loc>') && out.includes('/blog</loc>'), 'other pages stay');
   assert.equal(out.split('<url>').length - 1, 5);
   ok('sitemap: archived tools are left out, other pages untouched');
+}
+
+// ---- error beacons: cleaned, grouped, noise and extensions dropped, budgets kept, always 204
+{
+  const E = { CDN: new KV() };
+  const post = (body, headers = {}) => jsErrors({ request: req('/api/errors', { method: 'POST', headers: { 'Content-Type': 'text/plain', 'Sec-Fetch-Site': 'same-origin', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body) }), env: E });
+  const stored = async () => (await E.CDN.get('admin:errors', { type: 'json' })) || { groups: {} };
+  let r = await post({ s: 'compress-image', v: 'abc123', b: 'chrome', m: 1, e: [{ msg: "Couldn't read 'my passport scan.jpg' as an image, mail me@example.com, id 123456789 at https://x.test/p?token=abc", src: 'https://toolzbaba.com/assets/engine/image.js?v=abc123', line: 12, col: 3, stack: 'Error: x\n    at f (https://toolzbaba.com/assets/engine/image.js?v=abc123:12:3)\n    at chrome-extension://abcdefghijklmnop/content.js:1:1' }] });
+  assert.equal(r.status, 204);
+  let g = Object.values((await stored()).groups); assert.equal(g.length, 1);
+  assert.equal(g[0].msg, "Couldn't read '…' as an image, mail [email], id [number] at https://x.test/p", 'quoted text, e-mail, number and query removed');
+  assert.equal(g[0].src, 'toolzbaba.com/assets/engine/image.js'); assert.equal(g[0].line, 12);
+  assert.ok(!g[0].stack.includes('chrome-extension') && g[0].stack.includes('image.js'), 'extension frames dropped, ours kept');
+  assert.deepEqual(g[0].pages, { 'compress-image': 1 }); assert.deepEqual(g[0].browsers, { 'chrome-phone': 1 }); assert.deepEqual(g[0].versions, { abc123: 1 });
+  await post({ s: 'home', b: 'firefox', e: [{ msg: "Couldn't read 'other file.png' as an image, mail you@example.org, id 987654321 at https://x.test/p?q=1", src: 'https://toolzbaba.com/assets/engine/image.js', line: 12 }] });
+  g = Object.values((await stored()).groups); assert.equal(g.length, 1, 'the same error from another visitor joins the group'); assert.equal(g[0].count, 2); assert.deepEqual(g[0].pages, { 'compress-image': 1, home: 1 });
+  for (const noise of [{ msg: 'Script error.', src: '' }, { msg: 'ResizeObserver loop completed with undelivered notifications.', src: '' }, { msg: 'boom', src: 'chrome-extension://abc/x.js' }, { msg: 'boom2', src: '', stack: 'at moz-extension://abc/x.js:1:1\nat moz-extension://abc/y.js:2:2' }]) {
+    await post({ s: 'home', b: 'chrome', e: [noise] });
+  }
+  assert.equal(Object.keys((await stored()).groups).length, 1, 'noise and extension errors are not stored');
+  assert.equal((await post({ s: 'home', e: [{ msg: 'x' }] }, { 'Sec-Fetch-Site': 'cross-site' })).status, 204); assert.equal(Object.keys((await stored()).groups).length, 1, 'cross-site posts are ignored');
+  assert.equal((await post('not json')).status, 204); assert.equal((await post('x'.repeat(9000))).status, 204); assert.equal((await post({ s: 'home', e: 'nope' })).status, 204);
+  const many = { s: 'home', b: 'chrome', e: Array.from({ length: 20 }, (_, i) => ({ msg: 'e' + i, src: '' })) }; await post(many);
+  assert.equal(Object.keys((await stored()).groups).length, 1 + 5, 'at most 5 errors a beacon');
+  const agg = await stored(); agg.writes = 300; await E.CDN.put('admin:errors', JSON.stringify(agg)); await post({ s: 'home', b: 'chrome', e: [{ msg: 'over budget', src: '' }] });
+  assert.ok(!Object.values((await stored()).groups).some(x => x.msg === 'over budget'), 'the daily write budget holds');
+  const old = JSON.parse(JSON.stringify(agg)); old.writes = 0; old.groups.stale = { ...Object.values(old.groups)[0], last: Date.now() - 20 * 86400000 }; await E.CDN.put('admin:errors', JSON.stringify(old));
+  await post({ s: 'home', b: 'chrome', e: [{ msg: 'fresh', src: '' }] }); assert.ok(!(await stored()).groups.stale, 'groups older than 14 days are forgotten');
+  const a = await adminErrors({ request: req('/api/admin/errors', { headers: ADMIN_H }), env: { ...E, ADMIN_USER: 'boss-admin', ADMIN_KEY: 'secret-admin-key' } }); assert.equal(a.status, 200); assert.ok((await a.json()).errors.groups);
+  assert.ok([401, 403, 503].includes((await adminErrors({ request: req('/api/admin/errors'), env: E })).status), 'admin data needs the admin headers (503 until the admin is set up)');
+  ok('errors: scrubbed, grouped, noise and extensions dropped, budgets and retention kept, always 204');
+}
+
+// ---- CSP reports: both report shapes, extensions dropped, hosts only, grouped
+{
+  const E = { CDN: new KV() };
+  const post = (body, type = 'application/csp-report') => cspReport({ request: req('/api/csp-report', { method: 'POST', headers: { 'Content-Type': type }, body: typeof body === 'string' ? body : JSON.stringify(body) }), env: E });
+  const stored = async () => (await E.CDN.get('admin:csp', { type: 'json' })) || { groups: {} };
+  let r = await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/compress-image?utm_source=x', 'effective-directive': 'script-src', 'blocked-uri': 'https://evil.example.net/x.js?session=abc', 'source-file': 'https://toolzbaba.com/assets/common.js?v=1', 'line-number': 42 } });
+  assert.equal(r.status, 204);
+  let g = Object.values((await stored()).groups); assert.equal(g.length, 1);
+  assert.equal(g[0].directive, 'script-src'); assert.equal(g[0].blocked, 'evil.example.net', 'other sites: host only'); assert.equal(g[0].doc, '/compress-image', 'our page: path only, no query'); assert.equal(g[0].source, '/assets/common.js'); assert.equal(g[0].line, 42);
+  await post([{ type: 'csp-violation', body: { documentURL: 'https://toolzbaba.com/compress-image', effectiveDirective: 'script-src', blockedURL: 'https://evil.example.net/other.js' } }], 'application/reports+json');
+  g = Object.values((await stored()).groups); assert.equal(g.length, 1, 'the Reporting API shape joins the same group'); assert.equal(g[0].count, 2);
+  await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/', 'effective-directive': 'script-src', 'blocked-uri': 'chrome-extension://abc/x.js' } });
+  await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/', 'effective-directive': 'script-src', 'blocked-uri': 'inline', 'source-file': 'moz-extension://abc/x.js' } });
+  assert.equal(Object.keys((await stored()).groups).length, 1, 'extension reports are dropped');
+  await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/hi/merge-pdf', 'violated-directive': 'style-src-elem', 'blocked-uri': '' } });
+  g = (await stored()).groups; assert.ok(g['style-src-elem|inline|/hi/merge-pdf'], 'an empty blocked-uri means inline');
+  assert.equal((await post('garbage')).status, 204); assert.equal((await post({ x: 1 }, 'text/plain')).status, 204); assert.equal(Object.keys((await stored()).groups).length, 2);
+  assert.ok([401, 403, 503].includes((await adminCsp({ request: req('/api/admin/csp'), env: E })).status));
+  ok('csp reports: both shapes, hosts and paths only, extensions dropped, grouped, always 204');
 }
 
 console.log(`\n${pass}/${pass} passed`);

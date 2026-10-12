@@ -43,9 +43,9 @@
   async function boot() {
     $app.textContent = ''; $app.append(el('div', { class: 'adm-wrap' }, el('p', { class: 'adm-note', text: 'Loading...' })));
     try {
-      const [tools, st, rum, lab] = await Promise.all([fetch('/assets/tools.json', { cache: 'no-cache' }).then(r => r.json()), api('status'), api('rum'), api('lab')]);
+      const [tools, st, rum, lab, errs, csp] = await Promise.all([fetch('/assets/tools.json', { cache: 'no-cache' }).then(r => r.json()), api('status'), api('rum'), api('lab'), api('errors'), api('csp')]);
       S.cats = tools.categories; S.tools = tools.tools; S.variants = tools.variants || [];
-      S.status = st.status || { tools: {} }; S.log = st.log || []; S.rum = rum.rum; S.edges = rum.edges; S.maxWrites = rum.maxWrites; S.lab = lab.lab || {};
+      S.status = st.status || { tools: {} }; S.log = st.log || []; S.rum = rum.rum; S.edges = rum.edges; S.maxWrites = rum.maxWrites; S.errors = errs.errors; S.errMax = errs.maxWrites; S.errKeep = errs.keepDays; S.csp = csp.csp; S.cspMax = csp.maxWrites; S.cspKeep = csp.keepDays; S.lab = lab.lab || {};
       buildRows(); draw();
     } catch (e) { if (e.status === 401) return login(e.message === 'Please sign in.' ? '' : e.message); if (e.status === 503 || e.status === 429) return login(e.message); $app.textContent = ''; $app.append(el('div', { class: 'adm-wrap' }, el('p', { class: 'adm-note', text: 'Could not load: ' + e.message }), el('button', { class: 'btn sm', text: 'Try again', onclick: boot }))); }
   }
@@ -74,10 +74,10 @@
     const slow = S.rum && Object.entries(S.rum.tools).filter(([, t]) => t.views >= 3).map(([s, t]) => [s, pctl(t.h.lcp, 0.75)]).filter(x => x[1]).sort((a, b) => b[1] - a[1])[0];
     const card = (n, l) => el('div', { class: 'adm-card' }, el('b', { text: String(n) }), el('span', { text: l }));
     wrap.append(el('div', { class: 'adm-cards' }, card(live, 'tools live'), card(arch, 'tools archived'), card(labRows.length ? labRows.length : '–', 'tested in the lab'), card(labRows.length ? failing : '–', 'failing their last test'), card(views || '–', 'visitor page views measured'), card(slow ? slow[0] + ' (' + fmtMs(slow[1]) + ')' : '–', 'slowest to show (LCP, 75% of visits)')));
-    const tabs = [['tools', 'Tools'], ['blog', 'Blog'], ['rum', 'Real visitors'], ['lab', 'Lab tests'], ['log', 'History'], ['help', 'Help']];
+    const tabs = [['tools', 'Tools'], ['blog', 'Blog'], ['rum', 'Real visitors'], ['errors', 'Errors'], ['csp', 'CSP reports'], ['lab', 'Lab tests'], ['log', 'History'], ['help', 'Help']];
     wrap.append(el('div', { class: 'adm-tabs', role: 'tablist' }, tabs.map(([id, t]) => el('button', { class: 'adm-tab' + (S.tab === id ? ' on' : ''), type: 'button', role: 'tab', 'aria-selected': S.tab === id ? 'true' : 'false', text: t, onclick: () => { S.tab = id; draw(); } }))));
     const body = el('div', { id: 'adm-body' }); wrap.append(body);
-    ({ tools: drawTools, blog: drawBlog, rum: drawRum, lab: drawLab, log: drawLog, help: drawHelp })[S.tab](body);
+    ({ tools: drawTools, blog: drawBlog, rum: drawRum, errors: drawErrors, csp: drawCsp, lab: drawLab, log: drawLog, help: drawHelp })[S.tab](body);
   }
 
   // ---- tools: archive / go live
@@ -172,6 +172,36 @@
         el('td', { class: 'num', text: t.views ? (100 * t.errors / t.views).toFixed(0) + '' : '–', title: 'JS errors per 100 page views' }), el('td', { class: 'num', text: String(t.runs || '–') }), el('td', {}, t.runs ? pill(t.runErr / t.runs > 0.2 ? 'poor' : t.runErr / t.runs > 0.05 ? 'mid' : 'good', Math.round(100 * runOk / t.runs) + '% ok') : '–'), el('td', { class: 'num', text: fmtMs(pctl(t.h.run, 0.5)) })));
     }
     body.append(el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t', style: { minWidth: '1100px' } }, el('thead', {}, el('tr', {}, th('Page / tool', 'name'), th('Views', 'views', 'num'), el('th', { class: 'num', text: 'Phone' }), th('Server', 'ttfb'), el('th', { text: 'First paint' }), th('LCP', 'lcp'), el('th', { text: 'Tool ready' }), th('INP', 'inp'), el('th', { text: 'CLS' }), th('Errors', 'err', 'num'), el('th', { class: 'num', text: 'Runs' }), th('Run success', 'fail'), el('th', { class: 'num', text: 'Typical run' }))), tb)));
+  }
+
+  // ---- JavaScript errors visitors reported (functions/api/errors.js, lib/error-store.js)
+  const top3 = o => Object.entries(o || {}).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, n]) => `${k} (${n})`).join(', ') || '–';
+  function drawErrors(body) {
+    const r = S.errors;
+    body.append(el('p', { class: 'adm-note', text: 'JavaScript errors visitors hit, grouped by message and place. A browser sends at most 5 kinds per page view, after removing quoted text (file names), e-mails, long numbers and the query part of addresses; errors from browser extensions are left out. Kept ' + S.errKeep + ' days.' }));
+    if (!r || !Object.keys(r.groups || {}).length) { body.append(el('div', { class: 'adm-card' }, el('b', { text: 'No errors recorded' }), el('span', { text: 'Either none happened, or the site was deployed a moment ago: browsers report errors as they happen.' }))); return; }
+    const rows = Object.values(r.groups).sort((a, b) => b.last - a.last);
+    body.append(el('div', { class: 'adm-bar' }, el('span', { class: 'adm-small', text: `Since ${new Date(r.since).toLocaleString()} · ${rows.length} kind(s) · saved ${r.writes} of ${S.errMax} times today` }),
+      el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear the list', onclick: async () => { if (!(await ask('Clear the error list?', 'New errors are recorded at once.'))) return; await api('errors', 'DELETE'); S.errors = null; draw(); } })));
+    const tb = el('tbody');
+    for (const g of rows) tb.append(el('tr', {}, el('td', { class: 'l' }, el('b', { text: g.msg }), el('small', { class: 'adm-small', text: ' ' + (g.src || 'inline') + (g.line ? ':' + g.line + ':' + g.col : '') }),
+      g.stack ? el('details', {}, el('summary', { class: 'adm-small', text: 'stack' }), el('pre', { class: 'adm-small', style: { whiteSpace: 'pre-wrap' }, text: g.stack })) : null),
+      el('td', { class: 'num', text: String(g.count) }), el('td', { text: top3(g.pages) }), el('td', { text: top3(g.browsers) }), el('td', { text: top3(g.versions) }), el('td', { text: ago(g.last), title: new Date(g.last).toLocaleString() })));
+    body.append(el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t' }, el('thead', {}, el('tr', {}, el('th', { text: 'Error' }), el('th', { class: 'num', text: 'Times' }), el('th', { text: 'Pages' }), el('th', { text: 'Browsers' }), el('th', { text: 'Builds' }), el('th', { text: 'Last' }))), tb)));
+  }
+
+  // ---- Content-Security-Policy reports (the policy is report-only: deploy/pages/_headers, functions/api/csp-report.js)
+  function drawCsp(body) {
+    const r = S.csp;
+    body.append(el('p', { class: 'adm-note', text: 'What the Content-Security-Policy would have blocked if it were enforced (it only reports for now). Each row is one directive, one blocked source and one page. Entries from this site itself or "inline" need a fix before the policy can be enforced; unknown hosts are usually tags Google Tag Manager injects, or browser extensions. Kept ' + S.cspKeep + ' days.' }));
+    if (!r || !Object.keys(r.groups || {}).length) { body.append(el('div', { class: 'adm-card' }, el('b', { text: 'No reports' }), el('span', { text: 'Nothing would have been blocked, or the policy was deployed a moment ago.' }))); return; }
+    const rows = Object.values(r.groups).sort((a, b) => b.count - a.count);
+    body.append(el('div', { class: 'adm-bar' }, el('span', { class: 'adm-small', text: `Since ${new Date(r.since).toLocaleString()} · ${rows.length} kind(s) · saved ${r.writes} of ${S.cspMax} times today` }),
+      el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear the list', onclick: async () => { if (!(await ask('Clear the CSP reports?', 'New reports are recorded at once.'))) return; await api('csp', 'DELETE'); S.csp = null; draw(); } })));
+    const kind = g => (g.blocked === 'inline' || g.blocked === 'eval' || g.blocked.startsWith('/') ? pill('bad', 'ours', 'From this site: fix before enforcing') : /google|doubleclick|gstatic|clarity|hotjar|facebook/.test(g.blocked) ? pill('warn', 'tag', 'A tag or its helper') : pill('', 'other', 'Unknown host: an extension or an injected script'));
+    const tb = el('tbody');
+    for (const g of rows) tb.append(el('tr', {}, el('td', {}, kind(g)), el('td', { text: g.directive }), el('td', { class: 'l', text: g.blocked }), el('td', { text: g.doc }), el('td', { text: (g.source || '') + (g.line ? ':' + g.line : '') }), el('td', { class: 'adm-small', text: g.sample || '' }), el('td', { class: 'num', text: String(g.count) }), el('td', { text: ago(g.last) })));
+    body.append(el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t' }, el('thead', {}, el('tr', {}, el('th', { text: '' }), el('th', { text: 'Directive' }), el('th', { text: 'Blocked' }), el('th', { text: 'Page' }), el('th', { text: 'Source' }), el('th', { text: 'Sample' }), el('th', { class: 'num', text: 'Times' }), el('th', { text: 'Last' }))), tb)));
   }
 
   // ---- the lab: open every tool in a hidden frame, measure it, try it with a sample file

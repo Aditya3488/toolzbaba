@@ -89,5 +89,39 @@ let pass = 0, fail = 0;
     await page.goto(BASE + '/pixelate-image', { waitUntil: 'networkidle' }); await page.locator('.vtabs').getByRole('tab', { name: /PDF blur/ }).click(); await page.waitForURL('**/blur-redact-pdf'); await page.waitForSelector('#tool .drop');
   });
 
+  // ---- JavaScript error monitoring (HT.errors in common.js -> /api/errors): one clean beacon per kind, extension errors ignored
+  await T('errors: an unhandled error is reported once, scrubbed; extension errors are not', async page => {
+    await page.addInitScript(() => { window.__beacons = []; const real = navigator.sendBeacon.bind(navigator); navigator.sendBeacon = (u, b) => { if (String(u).endsWith('/api/errors')) new Response(b).text().then(t => window.__beacons.push(JSON.parse(t))); return real(u, b); }; });
+    page.removeAllListeners('pageerror'); page.removeAllListeners('console');   // this test throws on purpose
+    await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' });
+    await page.evaluate(() => {
+      const twice = () => { throw new Error("tz-test: could not read 'secret file.pdf' for me@example.com"); };
+      setTimeout(twice, 0); setTimeout(twice, 10); Promise.reject(new Error('tz-test rejection'));
+      const e = new Error('from an extension'); e.stack = 'Error: from an extension\n    at chrome-extension://abcd/content.js:1:1'; setTimeout(() => { throw e; }, 20);
+    });
+    await page.waitForFunction(() => window.__beacons.length > 0, null, { timeout: 8000 }); await page.waitForTimeout(400);
+    const sent = (await page.evaluate(() => window.__beacons)).flatMap(b => b.e.map(e => ({ ...e, page: b.s, browser: b.b }))), msgs = sent.map(e => e.msg);
+    ex(msgs.filter(m => m.includes('tz-test: could not read')).length === 1, 'the same error should be sent once: ' + JSON.stringify(msgs));
+    ex(msgs.some(m => m.endsWith("tz-test: could not read '…' for [email]")), 'the file name and the e-mail should be removed: ' + JSON.stringify(msgs));   // Chrome prefixes "Uncaught Error: " 
+    ex(msgs.includes('tz-test rejection'), 'rejected promises are reported');
+    ex(!msgs.includes('from an extension'), 'extension errors are not reported');
+    ex(sent[0].page === 'json-formatter' && ['chrome', 'edge', 'other'].includes(sent[0].browser), 'page and browser family: ' + sent[0].page + ' ' + sent[0].browser);
+    ex(!JSON.stringify(sent).includes('secret file') && !JSON.stringify(sent).includes('example.com'), 'nothing personal in the beacon');
+    return msgs.length + ' sent: ' + msgs.join(' | ');
+  });
+  // ---- Content-Security-Policy, report-only (deploy/pages/_headers): the policy is served, and ordinary use breaks none of it
+  await T('csp: report-only policy served; a visit, a search and a tool run would not be blocked', async page => {
+    const reports = []; page.on('request', r => { if (r.url().endsWith('/api/csp-report')) reports.push(r.postData() || '?'); });
+    const r0 = await page.goto(BASE + '/', { waitUntil: 'networkidle' }), csp = r0.headers()['content-security-policy-report-only'] || '';
+    ex(csp.includes("script-src 'self'") && csp.includes('report-uri /api/csp-report') && !/script-src[^;]*'unsafe-inline'/.test(csp), 'report-only policy missing or too loose: ' + csp.slice(0, 90));
+    ex(!(r0.headers()['content-security-policy'] || ''), 'public pages must not get an enforced policy yet');
+    await page.fill('.hsearch input', 'pdf'); await page.waitForTimeout(300);
+    await page.goto(BASE + '/exif-remover', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', SAMPLES + 'photo_exif.jpg'); await page.waitForSelector('.exv-sum', { timeout: 20000 });
+    await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' }); await page.fill('textarea', '{"a":1}'); await page.waitForTimeout(1200);
+    const ours = reports.filter(t => /"blocked-uri":"(inline|eval|wasm-eval|self|https?:\/\/127\.0\.0\.1[^"]*)"|"blockedURL":"(inline|eval|wasm-eval)/.test(t));
+    ex(!ours.length, 'the policy would block the site itself: ' + ours.slice(0, 2).join(' | ').slice(0, 400));
+    return reports.length ? reports.length + ' report(s) about other sources' : 'no violation reports';
+  });
+
   await browser.close(); console.log(`\n${pass}/${pass + fail} passed`); process.exit(fail ? 1 : 0);
 })();

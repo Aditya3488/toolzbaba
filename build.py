@@ -340,6 +340,17 @@ def write(rel: str, text: str):
         PAGE_HASH[key] = hashlib.sha1(re.sub(r"\?v=[0-9a-f]+", "", text).encode("utf-8")).hexdigest()[:16]
 
 
+def inline_script_hashes(root: Path) -> set[str]:
+    """CSP 'sha256-...' sources for every inline <script> (not JSON-LD data) in the HTML files under root."""
+    out = set()
+    for f in root.rglob("*.html"):
+        for m in re.finditer(r"<script(?![^>]*\bsrc=)((?:\s[^>]*)?)>(.*?)</script>", f.read_text("utf-8"), re.S | re.I):
+            if "ld+json" in m.group(1):
+                continue
+            out.add("'sha256-" + base64.b64encode(hashlib.sha256(m.group(2).encode("utf-8")).digest()).decode() + "'")
+    return out
+
+
 def build():
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -505,7 +516,10 @@ def build():
     # Cloudflare Pages: response headers and redirects
     # the admin page's Content-Security-Policy allows exactly one inline script, by its fingerprint
     theme_hash = "sha256-" + base64.b64encode(hashlib.sha256(THEME_SCRIPT.encode()).digest()).decode()
-    (DIST / "_headers").write_text((ROOT / "deploy" / "pages" / "_headers").read_text("utf-8").replace("{THEME_SCRIPT_HASH}", theme_hash), "utf-8")
+    # the report-only Content-Security-Policy names every inline script of the built pages by its fingerprint (the theme
+    # script, Tag Manager's loader and each page's own script); a script that changes gets a new hash on the next build
+    (DIST / "_headers").write_text((ROOT / "deploy" / "pages" / "_headers").read_text("utf-8").replace("{THEME_SCRIPT_HASH}", theme_hash)
+                                   .replace("{INLINE_SCRIPT_HASHES}", " ".join(sorted(inline_script_hashes(DIST)))), "utf-8")
     shutil.copyfile(ROOT / "deploy" / "pages" / "_redirects", DIST / "_redirects")
     # a renamed tool keeps its old URL(s): "aliases" in tools.json become permanent (301) redirects, so old links and
     # Google's index follow the tool to its new address (old names work both under /tool/ and at the root)

@@ -1414,4 +1414,36 @@
     addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') send(); }); addEventListener('pagehide', send);
     return api;
   })();
+  // ---------------------------------------------------------------- JavaScript errors (first-party: functions/api/errors.js, the admin's Errors tab)
+  // Unhandled exceptions and rejected promises, at most 5 kinds per page view, sent as one small beacon when they happen:
+  // the message (quoted text such as file names, e-mails, long numbers and the query part of addresses removed), the
+  // script and line, the top of the stack, the page, the browser family and the build. Errors from browser extensions
+  // are skipped, nothing is sent from the admin page, and "do not track" is honoured, like the speed beacon.
+  HT.version = VERSION;
+  HT.errors = (() => {
+    const p = location.pathname.replace(LANG_PREFIX, '').replace(/\/+$/, '') || '/';
+    const slug = p === '/' ? 'home' : (p.match(/^\/([a-z0-9][a-z0-9-]*)$/) || [])[1] || 'other';
+    const on = !!navigator.sendBeacon && navigator.doNotTrack !== '1' && !HT.isAdmin();
+    const EXT = /(?:chrome|moz|safari(?:-web)?|ms-browser|opera)-extension:|webkit-masked-url:|^resource:\/\//i, NOISE = /ResizeObserver loop|^Script error\.?$/i;
+    const scrub = s => String(s == null ? '' : s).replace(/https?:\/\/[^\s"')]+/g, u => u.split(/[?#]/)[0]).replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[email]')
+      .replace(/\b\d{6,}\b/g, '[number]').replace(/(^|[^A-Za-z0-9])(['"])(?:(?!\2)[^\n]){0,200}\2/g, '$1$2…$2').replace(/\s+/g, ' ').trim().slice(0, 300);
+    const browser = () => { const u = navigator.userAgent; return /Edg\//.test(u) ? 'edge' : /SamsungBrowser/.test(u) ? 'samsung' : /Firefox\//.test(u) ? 'firefox' : /Chrome\//.test(u) ? 'chrome' : /Safari\//.test(u) ? 'safari' : 'other'; };
+    const seen = new Set(), queue = []; let timer = 0;
+    const flush = () => { clearTimeout(timer); timer = 0; if (!queue.length) return; const e = queue.splice(0, 5);
+      try { navigator.sendBeacon('/api/errors', new Blob([JSON.stringify({ s: slug, v: VERSION, b: browser(), m: /Mobi|Android|iPhone/.test(navigator.userAgent) ? 1 : 0, e })], { type: 'text/plain' })); } catch { } };
+    const add = (msg, src, line, col, stack) => {
+      if (!on || seen.size >= 5) return;
+      src = String(src || '').split(/[?#]/)[0]; stack = String(stack || '');
+      const frames = stack.split('\n').filter(l => /:\/\/|@/.test(l));
+      if (EXT.test(src) || (frames.length && frames.every(l => EXT.test(l)))) return;   // an extension's problem, not ours
+      msg = scrub(msg); if (!msg || NOISE.test(msg)) return;
+      const key = msg.slice(0, 80) + '|' + src + '|' + (line | 0); if (seen.has(key)) return; seen.add(key);
+      queue.push({ msg, src: src.replace(location.origin, ''), line: line | 0, col: col | 0, stack: stack.split('\n').filter(l => l.trim() && !EXT.test(l)).slice(0, 8).map(scrub).join('\n').slice(0, 1200) });
+      if (!timer) timer = setTimeout(flush, 1500);
+    };
+    addEventListener('error', ev => { if (ev.message || ev.error) add(ev.message || ev.error.message, ev.filename, ev.lineno, ev.colno, ev.error && ev.error.stack); });
+    addEventListener('unhandledrejection', ev => { const r = ev.reason; add(r && r.message ? r.message : typeof r === 'string' ? r : 'Unhandled promise rejection', '', 0, 0, r && r.stack); });
+    addEventListener('pagehide', flush); addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+    return { add, flush, page: slug };
+  })();
 })();

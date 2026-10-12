@@ -72,6 +72,20 @@ def main():
     check("no alias (redirect) address is in the sitemap", not [a for a in aliases if f"/{a}" in pages], [a for a in aliases if f"/{a}" in pages][:5])
     check("redirects file maps every alias", all(re.search(rf"^/{re.escape(a)}\s", (DIST / "_redirects").read_text("utf-8"), re.M) for a in aliases))
 
+    # the report-only Content-Security-Policy must name every inline script of every built page, or the reports would be noise
+    import base64
+    import hashlib
+    headers = (DIST / "_headers").read_text("utf-8")
+    csp = next((l for l in headers.splitlines() if "Content-Security-Policy-Report-Only:" in l), "")
+    hashes = set()
+    for f in DIST.rglob("*.html"):
+        for m in re.finditer(r"<script(?![^>]*\bsrc=)((?:\s[^>]*)?)>(.*?)</script>", f.read_text("utf-8"), re.S | re.I):
+            if "ld+json" not in m.group(1):
+                hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(m.group(2).encode("utf-8")).digest()).decode() + "'")
+    check("CSP report-only header is set and lists every inline script", bool(csp) and "{" not in csp and all(h in csp for h in hashes) and len(hashes) > 0, (len(hashes), [h for h in hashes if h not in csp][:3]))
+    check("CSP reports go to this site's own endpoint", "report-uri /api/csp-report" in csp and 'Reporting-Endpoints: csp="/api/csp-report"' in headers)
+    check("the admin page keeps its enforced policy", "Content-Security-Policy: default-src 'self'" in headers)
+
     # robots: plain rules, the sitemap named, nothing public blocked
     robots = (DIST / "robots.txt").read_text("utf-8")
     check("robots.txt names the sitemap and blocks only private paths", "Sitemap: " in robots and "Disallow: /api/" in robots and not re.search(r"^Disallow: /\s*$", robots, re.M))
