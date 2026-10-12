@@ -24,7 +24,51 @@ WAVE = 120             # pages asked for at once; the driver decides how many of
 PRODUCT_PATH = re.compile(r"^/(products?|product-page|item|p)/", re.I)
 FORM_FIELD = re.compile(r"<(?:input|select|textarea)\b(?![^>]*\btype\s*=\s*[\"']?(?:hidden|submit|button|image)\b)", re.I)
 REQUIRED_FIELD = re.compile(r"<(?:input|select|textarea)\b[^>]*\brequired\b", re.I)
+LEGAL_PATH = re.compile(r"(about|contact|terms|privacy|legal|impressum|refund|shipping|policy|company|imprint|disclosure)", re.I)
 BLOG_PATH = re.compile(r"^/(blogs?|news|articles?|posts?|insights?|stories|journal|learn|guides?)(/|$)", re.I)
+
+
+EDGE_CAP = 80          # links kept per page for the graph maths, so one enormous menu cannot dominate it
+
+
+def link_graph(edges: dict, pages: dict, home_alias: str = "") -> tuple[dict, dict]:
+    """Clicks from the homepage, and internal PageRank, over the pages that were actually read.
+
+    Click depth is what a visitor (and a crawler) really has to do to reach a page; anything past three or four
+    clicks is effectively buried however many links point at it. PageRank is where the site's own link equity
+    pools, which is often not where the owner thinks it is.
+    """
+    live = {p.lower() for p, f in pages.items() if (f.get("s") or 0) == 200}
+    adj = {src: [d for d in dict.fromkeys(dst) if d in live and d != src] for src, dst in edges.items() if src in live}
+    if "/" not in live:
+        return {}, {}
+
+    # Many sites serve the homepage at a second address too (/index.html, /home); both are click zero.
+    roots = ["/"] + [a for a in (home_alias.lower(),) if a and a != "/" and a in live]
+    depth, frontier, step = {r: 0 for r in roots}, list(roots), 0
+    while frontier and step < 40:
+        step += 1
+        nxt = []
+        for src in frontier:
+            for dst in adj.get(src, ()):
+                if dst not in depth:
+                    depth[dst] = step
+                    nxt.append(dst)
+        frontier = nxt
+
+    n = len(live)
+    rank = {p: 1.0 / n for p in live}
+    dangling = [p for p in live if not adj.get(p)]
+    for _ in range(20):
+        spill = 0.15 / n + 0.85 * sum(rank[p] for p in dangling) / n
+        nxt = {p: spill for p in live}
+        for src, dst in adj.items():
+            share = 0.85 * rank[src] / len(dst)
+            for d in dst:
+                nxt[d] += share
+        rank = nxt
+    top = max(rank.values()) or 1.0
+    return depth, {p: round(v / top * 100, 1) for p, v in rank.items()}
 
 
 def _outside_host(href: str, base: str, host: str) -> str | None:
@@ -44,12 +88,19 @@ def _outside_host(href: str, base: str, host: str) -> str | None:
     return name
 
 
+BAD_HREF = re.compile(r"[\s\x00-\x1f\x7f{}|\\^\"'<>`]|\$\{|\{\{")
+
+
 def _norm(href: str, base: str, host: str) -> str | None:
     """Same-site path+query (lower-cased path) for a link, or None for other sites / non-pages."""
     if not href:
         return None
     href = href.strip()
     if href.startswith(("#", "javascript:", "mailto:", "tel:", "sms:", "whatsapp:", "data:")):
+        return None
+    # Templates that were never rendered leave things like href="/{a?.url || '/products/x'}" in the HTML.
+    # Following one produced a URL with spaces and quotes in it, which killed a whole crawl.
+    if BAD_HREF.search(href):
         return None
     u = urlsplit(urljoin(base, href))
     if u.scheme not in ("http", "https"):
@@ -466,6 +517,8 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
     outside: dict[str, int] = {}   # other site -> links pointing at it, which is how marketplace leaks show up
     to_product: dict[str, int] = {}   # path -> links it sends to product pages, for content that actually sells
     express: set[str] = set()
+    edges: dict[str, list[str]] = {}   # the link graph, kept only while crawling: clicks-from-home and rank come out of it
+    who: dict = {}                     # who runs the site, gathered from the pages that carry the legal details
 
     def page_get(path, retries=None):
         return Get(urljoin(base, path), max_bytes=PAGE_BYTES, retries=retries)
@@ -484,13 +537,21 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
             low = p.lower()
             if low != here:
                 inbound[low] = inbound.get(low, 0) + 1
+                out = edges.setdefault(here, [])
+                if len(out) < EDGE_CAP:
+                    out.append(low)
                 if PRODUCT_PATH.match(low):
                     to_product[path] = to_product.get(path, 0) + 1
             if discover and low not in queued:
                 queued.add(low)
                 found.append(p)
         express.update(D.express_checkout(text))
+        if LEGAL_PATH.search(here) or here == "/":   # the footer, about, contact and policy pages carry the company details
+            for k, v in D.entity(text).items():
+                who.setdefault(k, v)
 
+    harvest("/", home.text)   # the homepage is read before the loop, so its links have to be fed in by hand
+    found = []                # (its targets are already queued as seeds; this is for the graph and the link counts)
     say(f"Checking {len(crawl)} pages" if not discover else f"Checking pages and following links (up to {want})", 0.22)
     while queue and len(pages) < want:
         wave = queue[:min(WAVE, want - len(pages))]
@@ -546,6 +607,7 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
     if pages["/"].get("og"):
         pages["/"]["og"] = urljoin(home.url, pages["/"]["og"])[:300]
 
+    depth_map, rank_map = link_graph(edges, pages, pages["/"].get("f", ""))
     og_name = re.search(r'<meta[^>]+property=["\']og:site_name["\'][^>]*content=["\']([^"\']+)', home.text, re.I)
     title = pages["/"].get("t", "")
     brand = clean(og_name.group(1)) if og_name else (re.split(r"\s[|:–—-]\s", title)[0] if title else domain.split(".")[0].title())
@@ -561,6 +623,7 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         # how many other pages link to each page we read: hero pages at the top, orphans at zero
         "inbound": {p: inbound.get(p.lower(), 0) for p in pages},
         "outside": dict(sorted(outside.items(), key=lambda kv: -kv[1])[:40]),
+        "depth": depth_map, "rank": rank_map, "sitemapPaths": sm_urls[:12000], "who": who,
         "toProduct": to_product, "express": sorted(express),
         "offers": D.offers(home.text), "cartFields": cart_fields,
         "homeSections": home_sections(root), "requests": stats.requests, "rateLimited": stats.rate_limited,

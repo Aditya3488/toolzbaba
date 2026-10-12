@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import re
 from collections import Counter, OrderedDict
+from urllib.parse import urljoin, urlsplit
 
 from . import detect as DETECT
 from .detect import SYMBOL
@@ -283,6 +284,107 @@ def links(rep: dict, top: int = 10) -> dict:
     return {"hero": hero, "orphans": orphans[:60], "orphanCount": len(orphans), "checked": len(live)}
 
 
+def technical(rep: dict) -> dict:
+    """The structural problems a crawl can prove, which a list of titles and descriptions cannot show.
+
+    Click depth is how many clicks from the homepage a page really is; past three or four it is effectively
+    buried whatever its content. The sitemap gap is the disagreement between what a site tells search engines
+    exists and what it actually links to. Canonical faults quietly hand a page's ranking to another URL.
+    """
+    pages = rep["pages"]
+    live = {p: f for p, f in pages.items() if f.get("s") == 200}
+    depth = rep.get("depth") or {}
+    rank = rep.get("rank") or {}
+    out: dict = {}
+
+    by_depth: Counter = Counter()
+    buried, unreachable = [], []
+    for p in live:
+        d = depth.get(p.lower())
+        if d is None:
+            unreachable.append(p)
+        else:
+            by_depth[d] += 1
+            if d >= 4:
+                buried.append((d, p))
+    out["depth"] = sorted(by_depth.items())
+    out["buried"] = [p for _, p in sorted(buried)[:40]]
+    out["buriedCount"] = len(buried)
+    out["unreachable"] = unreachable[:40]
+    out["unreachableCount"] = len(unreachable)
+    out["deepest"] = max(by_depth) if by_depth else 0
+
+    # The sitemap gap only means anything once most of the sitemap has actually been read. On a partial crawl
+    # every unvisited sitemap URL looks "not linked", which would have reported 2,240 orphans off 91 pages.
+    sm = {p.lower() for p in (rep.get("sitemapPaths") or [])}
+    inbound = rep.get("inbound") or {}
+    crawled_live = {p.lower() for p in live}
+    if sm:
+        seen = len(sm & crawled_live)
+        coverage = seen / len(sm)
+        out["sitemapTotal"] = len(sm)
+        out["sitemapSeen"] = seen
+        out["sitemapCoverage"] = round(coverage * 100)
+        out["sitemapGapReliable"] = coverage >= 0.8
+        if out["sitemapGapReliable"]:
+            linked = {p.lower() for p, n in inbound.items() if n}
+            out["inSitemapNotLinked"] = sorted(p for p in sm if p not in linked)[:40]
+            out["inSitemapNotLinkedCount"] = sum(1 for p in sm if p not in linked)
+            out["linkedNotInSitemap"] = sorted(p for p in crawled_live if p not in sm and inbound.get(p))[:40]
+            out["linkedNotInSitemapCount"] = sum(1 for p in crawled_live if p not in sm and inbound.get(p))
+
+    # Canonical faults: a tag pointing somewhere else hands the ranking away, and one pointing at a dead or
+    # redirecting URL throws it away entirely.
+    host = rep.get("host", "")
+    elsewhere, dead, missing = [], [], []
+    for p, f in live.items():
+        c = (f.get("c") or "").strip()
+        if not c:
+            missing.append(p)
+            continue
+        cp = _canon_path(c, rep.get("base", ""), host)
+        if cp is None or cp.lower() == p.lower():
+            continue
+        tf = pages.get(cp) or next((v for k, v in pages.items() if k.lower() == cp.lower()), None)
+        (dead if tf and ((tf.get("s") or 0) >= 400 or tf.get("f")) else elsewhere).append([p, cp])
+    out["canonElsewhere"] = elsewhere[:30]
+    out["canonElsewhereCount"] = len(elsewhere)
+    out["canonDead"] = dead[:20]
+    out["canonDeadCount"] = len(dead)
+    out["noCanonical"] = len(missing)
+
+    out["redirects"] = [[p, f["f"]] for p, f in pages.items() if f.get("f")][:25]
+    out["redirectCount"] = sum(1 for f in pages.values() if f.get("f"))
+
+    # Two pages chasing the same title compete with each other in the same search result.
+    titles: dict = {}
+    for p, f in live.items():
+        t = (f.get("t") or "").strip()
+        if t:
+            titles.setdefault(t, []).append(p)
+    clashes = sorted(((t, ps) for t, ps in titles.items() if len(ps) > 1), key=lambda kv: -len(kv[1]))
+    out["titleClashes"] = [[t[:70], len(ps), ps[:4]] for t, ps in clashes[:12]]
+    out["titleClashPages"] = sum(len(ps) for _, ps in clashes)
+
+    out["topRank"] = sorted(((v, p) for p, v in rank.items()), reverse=True)[:10]
+    return out
+
+
+def _canon_path(href: str, base: str, host: str) -> str | None:
+    """A canonical tag's value as a same-site path, or None when it points at another site."""
+    try:
+        u = urlsplit(urljoin(base or "/", href))
+    except ValueError:
+        return None
+    if u.scheme and u.scheme not in ("http", "https"):
+        return None
+    h = (u.hostname or "").lower()
+    if h and host and h.replace("www.", "", 1) != host.replace("www.", "", 1):
+        return None
+    path = re.sub(r"/{2,}", "/", u.path or "/")
+    return path.rstrip("/") if len(path) > 1 else "/"
+
+
 def d2c(rep: dict, cat: dict | None) -> dict | None:
     """The four catalogue questions a direct-to-consumer brand lives or dies on, which the Catalogue frame
     (price bands, discount and stock per section, most-reviewed products) does not already answer:
@@ -488,4 +590,4 @@ def build(rep: dict, max_cards: int = 6000) -> dict:
                    "lines": "Click a bubble to list and highlight its pages.", "gallery": "Screenshots of the main pages.", "home": "The homepage from top to bottom."},
     }
     return {"DATA": data, "PROD": b.prod, "SEO": seo, "BROKEN": broken, "STG": stg, "BR": br, "X": X, "SHOTDATA": rep.get("shots", {}),
-            "D2C": d2c(rep, cat), "LINKS": links(rep), "seo_counts": sc, "cards": b.cards}
+            "D2C": d2c(rep, cat), "LINKS": links(rep), "TECH": technical(rep), "WHO": rep.get("who") or {}, "seo_counts": sc, "cards": b.cards}

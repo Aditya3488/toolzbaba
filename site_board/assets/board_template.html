@@ -368,6 +368,10 @@ a.btn{text-decoration:none}
 .ins .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-s);display:flex;flex-direction:column;gap:12px;min-width:0}
 .ins h4{margin:0;font:800 14px var(--f-display);letter-spacing:-.01em}
 .ins .bar{grid-template-columns:minmax(0,1fr) 120px 74px}
+table.kv{width:100%;border-collapse:collapse;font-size:12px}
+table.kv th{text-align:left;font-weight:600;color:var(--muted);padding:5px 10px 5px 0;vertical-align:top;white-space:nowrap;width:40%}
+table.kv td{padding:5px 0;color:var(--ink);word-break:break-word}
+table.kv tr+tr th,table.kv tr+tr td{border-top:1px solid var(--border)}
 .ochips{display:flex;flex-wrap:wrap;gap:6px}
 .ochip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:var(--card-2);border-radius:99px;padding:4px 10px;font:600 11.5px var(--f-body);color:var(--muted)}
 .ochip.on{border-color:color-mix(in srgb,var(--good) 55%,var(--border));color:var(--ink);background:color-mix(in srgb,var(--good) 9%,#fff)}
@@ -522,6 +526,8 @@ function lineFor(slug,kw){const p=prodOf(slug);if(!p)return kw||"no keyword set"
 const BROKEN=/*__BROKEN__*/[];
 const D2C=/*__D2C__*/null;        // catalogue shape for a direct-to-consumer brand (shops only)
 const LINKS=/*__LINKS__*/{};      // inbound internal links: hero pages and orphans
+const TECH=/*__TECH__*/{};        // click depth, canonical faults, sitemap gap, title clashes
+const WHO=/*__WHO__*/{};          // the company behind the site, read off its own legal pages
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -786,6 +792,35 @@ if(D2C){
   ${d2cRow2(D)}</div>`;
  const fh=1300;
  xframe(fx,fy,AW,fh,"Direct-to-consumer checks","Discount depth, dead stock, review coverage and how often new products land — the things that quietly cost a D2C brand margin and trust.","--c-dm","d2c");
+ nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
+ NEXT_Y=fy+fh+120;
+}
+
+/* 4c. who runs the site, and how its structure actually holds together */
+if(TECH&&TECH.depth){
+ const fx=AX,fy=NEXT_Y,pad=48,T=TECH,W=WHO||{},nf3=v=>(v||0).toLocaleString();
+ const dmax=Math.max(1,...T.depth.map(d=>d[1]));
+ const reg=[["Registered name",W.legalName],["Company number",W.cin||W.companyNo],["GST / VAT",W.gstin||W.vat],
+            ["Founded",W.founded],["Registered address",W.address]].filter(r=>r[1]);
+ const C=X.contacts||{};
+ const faults=[["Canonical points elsewhere",T.canonElsewhereCount,"--warn"],["Canonical points at a dead or redirecting page",T.canonDeadCount,"--bad"],["No canonical tag",T.noCanonical,"--warn"],["Pages that redirect",T.redirectCount,"--c-ai"]];
+ const html=`<div class="ins"><div class="kpis6">
+  <div class="kpi"><b style="font-size:17px;line-height:1.25">${esc(W.legalName||X.site.brand||"—")}</b><span>Registered name</span></div>
+  <div class="kpi"><b>${esc(W.cin||W.companyNo||W.vat||W.gstin||"—")}</b><span>Company / tax number</span></div>
+  <div class="kpi"><b>${esc(W.founded||"—")}</b><span>Founded</span></div>
+  <div class="kpi"><b>${nf3(T.deepest)}</b><span>Deepest page, in clicks</span></div>
+  <div class="kpi"><b style="color:${T.buriedCount?"var(--warn)":"var(--good)"}">${nf3(T.buriedCount)}</b><span>Pages 4+ clicks deep</span></div>
+  <div class="kpi"><b style="color:${T.titleClashPages?"var(--warn)":"var(--good)"}">${nf3(T.titleClashPages)}</b><span>Pages sharing a title</span></div></div>
+  <div class="cols3">
+  <div class="panel"><h4>Who runs this site</h4>${reg.length?`<table class="kv">${reg.map(([k,v])=>`<tr><th>${k}</th><td>${esc(String(v))}</td></tr>`).join("")}</table>`:`<p class="muted">No registered company name or number was found on the homepage, about, contact or policy pages.</p>`}
+   <p class="muted" style="margin-top:10px">${[C.phones&&C.phones.length?`${C.phones.length} phone number${C.phones.length>1?"s":""}`:"",C.emails&&C.emails.length?`${C.emails.length} email address${C.emails.length>1?"es":""}`:"",C.socials?`${Object.keys(C.socials).length} social profiles`:""].filter(Boolean).join(" · ")||"No contact details were found on the homepage."}</p></div>
+  <div class="panel"><h4>How deep the site is</h4><p class="muted">Clicks from the homepage to reach a page. Past three or four, a page is buried however good it is.</p><div class="bars" style="margin-top:10px">${T.depth.map(([d,n])=>`<div class="bar" style="--bc:var(${d>=4?"--bad":d>=3?"--warn":"--good"})"><span>${d===0?"Homepage":d+" click"+(d===1?"":"s")}</span><span class="tr"><i style="width:${Math.max(2,n/dmax*100)}%"></i></span><span class="n">${nf3(n)}</span></div>`).join("")}${T.unreachableCount?`<div class="bar" style="--bc:var(--bad)"><span>No link found to them</span><span class="tr"><i style="width:${Math.max(2,T.unreachableCount/dmax*100)}%"></i></span><span class="n">${nf3(T.unreachableCount)}</span></div>`:""}</div>${T.unreachableCount?`<p class="muted" style="margin-top:8px">The last row is relative to the pages that were read: nothing among them linked to those pages.</p>`:""}</div>
+  <div class="panel"><h4>Canonical and redirects</h4><p class="muted">A canonical tag pointing at another URL hands that page's ranking away.</p><div class="bars" style="margin-top:10px">${faults.map(([k,v,c])=>`<div class="bar" style="--bc:var(${c})"><span>${k}</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,v/Math.max(1,T.depth.reduce((a,d)=>a+d[1],0))*100))}%"></i></span><span class="n">${nf3(v)}</span></div>`).join("")}</div></div></div>
+  <div class="cols3">
+  <div class="panel" style="grid-column:span 2"><h4>Pages competing for the same title</h4>${T.titleClashes.length?`<p class="muted">Each of these titles is used by more than one page, so those pages compete with each other in the same search result.</p><div class="bars" style="margin-top:10px">${T.titleClashes.map(([t,n,ps])=>`<div class="bar" style="--bc:var(--warn)" title="${esc(ps.join(", "))}"><span>${esc(t)}</span><span class="tr"><i style="width:${Math.max(2,n/Math.max(...T.titleClashes.map(c=>c[1]))*100)}%"></i></span><span class="n">${nf3(n)} pages</span></div>`).join("")}</div>`:`<p class="muted">Every page that was read has a title of its own.</p>`}</div>
+  <div class="panel"><h4>Sitemap vs reality</h4>${T.sitemapTotal?(T.sitemapGapReliable?`<p class="muted">${nf3(T.sitemapSeen)} of ${nf3(T.sitemapTotal)} sitemap URLs were read (${T.sitemapCoverage}%).</p><div class="bars" style="margin-top:10px"><div class="bar" style="--bc:var(--warn)"><span>In the sitemap, nothing links to them</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,T.inSitemapNotLinkedCount/Math.max(1,T.sitemapTotal)*100))}%"></i></span><span class="n">${nf3(T.inSitemapNotLinkedCount)}</span></div><div class="bar" style="--bc:var(--c-ai)"><span>Linked but missing from the sitemap</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,T.linkedNotInSitemapCount/Math.max(1,T.sitemapTotal)*100))}%"></i></span><span class="n">${nf3(T.linkedNotInSitemapCount)}</span></div></div>`:`<p class="muted">The sitemap lists <b>${nf3(T.sitemapTotal)}</b> URLs and this crawl read ${nf3(T.sitemapSeen)} of them (${T.sitemapCoverage}%). Comparing the sitemap with the site's own links needs most of it read, so that check is skipped — run it again with a higher page limit.</p>`):`<p class="muted">No sitemap.xml was found, so there is nothing to compare the links against.</p>`}</div></div></div>`;
+ const fh=1120;
+ xframe(fx,fy,AW,fh,"Company & structure","Who the site belongs to, how many clicks deep its pages sit, and where its own signals disagree with each other.","--c-about","who");
  nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
  NEXT_Y=fy+fh+120;
 }

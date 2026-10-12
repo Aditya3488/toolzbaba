@@ -62,6 +62,8 @@ def _do(F: Fetcher, req: Get):
         r = F.get(req.url, max_bytes=req.max_bytes, stop_at=STOP_H1 if req.stop_h1 else None, accept=req.accept, retries=req.retries)
     except FetchError as e:
         return None if req.json else e
+    except Exception as e:  # a malformed address must cost one page, never the whole crawl
+        return None if req.json else FetchError(f"{type(e).__name__}: {str(e)[:90]}")
     return parse_json(r) if req.json else r
 
 

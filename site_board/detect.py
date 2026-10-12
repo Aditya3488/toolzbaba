@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 from html import unescape as _html_unescape
 
 # name, category, regex that proves it is there, optional regex that captures its ID
@@ -139,6 +140,54 @@ EXPRESS = {"Shop Pay": r"shop_?pay|shopify[-_]payment[-_]button|ShopPay", "Googl
            "Apple Pay": r"apple[-_]?pay", "PayPal express": r"paypal[-_]?(express|smart|button)", "Amazon Pay": r"amazon[-_]?pay",
            "Shopify dynamic checkout": r"dynamic[-_]checkout|shopify-payment-button__button"}
 _EXPRESS = [(n, re.compile(p, re.I)) for n, p in EXPRESS.items()]
+
+
+# Who actually runs the site. Brands trade under one name and are registered under another, and the registered
+# one (with its company number) is what you need to look a business up in a public register.
+SUFFIX = r"(?:Private\s+Limited|Pvt\.?\s*Ltd\.?|Public\s+Limited|Limited|Ltd\.?|LLP|L\.?L\.?C\.?|Inc\.?|Incorporated|Corporation|Corp\.?|GmbH|AG|B\.?V\.?|N\.?V\.?|S\.?A\.?S\.?|S\.?R\.?L\.?|S\.?L\.?|Pty\.?\s*Ltd\.?|Oy|AB|A/S|Sdn\.?\s*Bhd\.?)"
+ENTITY_RULES = [
+    ("cin", r"\b([LU]\d{5}[A-Z]{2}\d{4}[A-Z]{3}\d{6})\b"),                       # India, Companies Act
+    ("gstin", r"\b(\d{2}[A-Z]{5}\d{4}[A-Z][\dA-Z]Z[\dA-Z])\b"),                  # India, GST
+    ("companyNo", r"(?:company|registration|registered)\s*(?:no\.?|number)\s*[:\-]?\s*([A-Z]{0,2}\s?\d{6,8})"),
+    ("vat", r"\bVAT\s*(?:reg\.?\w*)?\s*(?:no\.?|number|id)?\s*[:\-]?\s*([A-Z]{2}\s?[\dA-Z]{8,12})\b"),
+    ("founded", r"(?:since|established(?:\s+in)?|founded(?:\s+in)?|est\.)\s+((?:18|19|20)\d{2})\b"),
+    ("copyright", r"(?:©|&copy;|\(c\)|copyright)\s*(?:19|20)\d{2}\s*(?:[-–—]\s*((?:19|20)\d{2}))?"),
+]
+_ENTITY = [(k, re.compile(p, re.I)) for k, p in ENTITY_RULES]
+_LEGAL_NAME = re.compile(r"([A-Z][A-Za-z0-9&.,''\-]{1,30}(?:\s+[A-Z][A-Za-z0-9&.,''\-]{1,30}){0,4}\s+" + SUFFIX + r")")
+_PIN = re.compile(r"\b(\d{6}|\d{5}(?:-\d{4})?|[A-Z]{1,2}\d[\dA-Z]?\s?\d[A-Z]{2})\b")
+_STOPWORDY = re.compile(r"\b(?:the|this|that|these|those|and|or|but|you|we|us|our|your|their|have|has|had|will|shall|may|must"
+                        r"|any|all|for|not|are|is|was|were|been|with|from|into|upon|such|which|who|whom|if|then|than|by|to|of"
+                        r"|in|on|at|as|it|its|be|do|does|did|other|more|most|some|no|nor|so|also|per)\b", re.I)
+
+
+def text_of(html: str, limit: int = 300_000) -> str:
+    t = re.sub(r"<(script|style|noscript)[^>]*>[\s\S]*?</\1>", " ", html or "", flags=re.I)
+    t = re.sub(r"<[^>]+>", " ", t)
+    return re.sub(r"\s+", " ", _html_unescape(t))[:limit]
+
+
+def entity(html: str) -> dict:
+    """Registered name, company numbers, founding year and a postal address, read off the page."""
+    text = text_of(html)
+    out: dict = {}
+    for key, rx in _ENTITY:
+        m = rx.search(text)
+        if m and (not m.groups() or m.group(1)):
+            out[key] = re.sub(r"\s+", " ", m.group(1)).strip() if m.groups() and m.group(1) else True
+    names = [re.sub(r"\s+", " ", n).strip() for n in _LEGAL_NAME.findall(text)]
+    # Terms-and-conditions prose trips the suffix rule: "...THAT YOU AND WE HAVE AG" looked like a German company.
+    names = [n for n in names if 6 <= len(n) <= 70 and not _STOPWORDY.search(n)]
+    if names:
+        out["legalName"] = Counter(names).most_common(1)[0][0]
+        out["legalNames"] = [n for n, _ in Counter(names).most_common(3)]
+    # the sentence around a postcode is almost always the registered address
+    for m in _PIN.finditer(text):
+        around = text[max(0, m.start() - 140):m.end()]   # stop at the postcode: anything after it is the next sentence
+        if re.search(r"(address|registered|office|regd|corporate)", around, re.I):
+            out["address"] = re.sub(r"^\W+", "", around.split(":")[-1]).strip()[:160]
+            break
+    return out
 
 
 def marketplaces(hosts: dict) -> dict:
