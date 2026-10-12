@@ -528,6 +528,8 @@ const D2C=/*__D2C__*/null;        // catalogue shape for a direct-to-consumer br
 const LINKS=/*__LINKS__*/{};      // inbound internal links: hero pages and orphans
 const TECH=/*__TECH__*/{};        // click depth, canonical faults, sitemap gap, title clashes
 const WHO=/*__WHO__*/{};          // the company behind the site, read off its own legal pages
+const TOPICS=/*__TOPICS__*/{};    // what the site is about, counted over its titles and headings
+const STACK=/*__STACK__*/{};      // CDN, server, runtime and security headers
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -796,6 +798,20 @@ if(D2C){
  NEXT_Y=fy+fh+120;
 }
 
+/* How the site is served, and what it is actually about. Both read off things the crawl already had:
+   the homepage response headers, and every title and heading it collected. */
+function stackAndTopics(S,TP){
+ const nf4=v=>(v||0).toLocaleString();
+ const rows=[["CDN / edge",S.cdn],["Web server",S.server],["Runtime",S.runtime],["Platform",S.cms],["Compression",S.compression],["Edge cache",S.cacheStatus]].filter(r=>r[1]);
+ const sec=S.security||[],miss=S.securityMissing||[];
+ const tmax=TP&&TP.terms&&TP.terms.length?TP.terms[0][1]:1;
+ return `<div class="cols3" style="margin-top:18px">
+  <div class="panel"><h4>How the site is served</h4>${rows.length?`<table class="kv">${rows.map(([k,v])=>`<tr><th>${k}</th><td>${esc(String(v))}</td></tr>`).join("")}</table>`:`<p class="muted">The homepage sent no headers that name a CDN, server or platform.</p>`}
+   <p class="muted" style="margin-top:10px">Security headers</p><div class="ochips" style="margin-top:6px">${sec.map(n=>`<span class="ochip on">✓ ${esc(n)}</span>`).join("")}${miss.map(n=>`<span class="ochip">— ${esc(n)}</span>`).join("")}</div>
+   ${S.cookies&&S.cookies.length?`<p class="muted" style="margin-top:10px">Cookie names set on the first visit: ${S.cookies.map(esc).join(", ")}</p>`:""}</div>
+  <div class="panel"><h4>What this site is about</h4>${TP&&TP.terms&&TP.terms.length?`<p class="muted">Words and phrases counted by how many of the ${nf4(TP.pages)} pages use them in a title, heading or description — not how often they repeat on one page.</p><div class="bars" style="margin-top:10px">${TP.terms.slice(0,10).map(([w,n])=>`<div class="bar" style="--bc:var(--c-services)"><span>${esc(w)}</span><span class="tr"><i style="width:${Math.max(2,n/tmax*100)}%"></i></span><span class="n">${nf4(n)}</span></div>`).join("")}</div>`:`<p class="muted">Too few pages were read to say what the site is about.</p>`}</div>
+  <div class="panel"><h4>Pages chasing the same phrase</h4>${TP&&TP.cannibal&&TP.cannibal.length?`<p class="muted">These phrases appear in the titles of several pages at once, so those pages compete with each other rather than with anyone else.</p><div class="bars" style="margin-top:10px">${TP.cannibal.map(([w,n,ps])=>`<div class="bar" style="--bc:var(--warn)" title="${esc(ps.join(", "))}"><span>${esc(w)}</span><span class="tr"><i style="width:${Math.max(2,n/Math.max(...TP.cannibal.map(c=>c[1]))*100)}%"></i></span><span class="n">${nf4(n)} pages</span></div>`).join("")}</div>`:`<p class="muted">No phrase is shared by enough page titles to show overlap.</p>`}</div></div>`;
+}
 /* 4c. who runs the site, and how its structure actually holds together */
 if(TECH&&TECH.depth){
  const fx=AX,fy=NEXT_Y,pad=48,T=TECH,W=WHO||{},nf3=v=>(v||0).toLocaleString();
@@ -818,9 +834,10 @@ if(TECH&&TECH.depth){
   <div class="panel"><h4>Canonical and redirects</h4><p class="muted">A canonical tag pointing at another URL hands that page's ranking away.</p><div class="bars" style="margin-top:10px">${faults.map(([k,v,c])=>`<div class="bar" style="--bc:var(${c})"><span>${k}</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,v/Math.max(1,T.depth.reduce((a,d)=>a+d[1],0))*100))}%"></i></span><span class="n">${nf3(v)}</span></div>`).join("")}</div></div></div>
   <div class="cols3">
   <div class="panel" style="grid-column:span 2"><h4>Pages competing for the same title</h4>${T.titleClashes.length?`<p class="muted">Each of these titles is used by more than one page, so those pages compete with each other in the same search result.</p><div class="bars" style="margin-top:10px">${T.titleClashes.map(([t,n,ps])=>`<div class="bar" style="--bc:var(--warn)" title="${esc(ps.join(", "))}"><span>${esc(t)}</span><span class="tr"><i style="width:${Math.max(2,n/Math.max(...T.titleClashes.map(c=>c[1]))*100)}%"></i></span><span class="n">${nf3(n)} pages</span></div>`).join("")}</div>`:`<p class="muted">Every page that was read has a title of its own.</p>`}</div>
-  <div class="panel"><h4>Sitemap vs reality</h4>${T.sitemapTotal?(T.sitemapGapReliable?`<p class="muted">${nf3(T.sitemapSeen)} of ${nf3(T.sitemapTotal)} sitemap URLs were read (${T.sitemapCoverage}%).</p><div class="bars" style="margin-top:10px"><div class="bar" style="--bc:var(--warn)"><span>In the sitemap, nothing links to them</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,T.inSitemapNotLinkedCount/Math.max(1,T.sitemapTotal)*100))}%"></i></span><span class="n">${nf3(T.inSitemapNotLinkedCount)}</span></div><div class="bar" style="--bc:var(--c-ai)"><span>Linked but missing from the sitemap</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,T.linkedNotInSitemapCount/Math.max(1,T.sitemapTotal)*100))}%"></i></span><span class="n">${nf3(T.linkedNotInSitemapCount)}</span></div></div>`:`<p class="muted">The sitemap lists <b>${nf3(T.sitemapTotal)}</b> URLs and this crawl read ${nf3(T.sitemapSeen)} of them (${T.sitemapCoverage}%). Comparing the sitemap with the site's own links needs most of it read, so that check is skipped — run it again with a higher page limit.</p>`):`<p class="muted">No sitemap.xml was found, so there is nothing to compare the links against.</p>`}</div></div></div>`;
- const fh=1120;
- xframe(fx,fy,AW,fh,"Company & structure","Who the site belongs to, how many clicks deep its pages sit, and where its own signals disagree with each other.","--c-about","who");
+  <div class="panel"><h4>Sitemap vs reality</h4>${T.sitemapTotal?(T.sitemapGapReliable?`<p class="muted">${nf3(T.sitemapSeen)} of ${nf3(T.sitemapTotal)} sitemap URLs were read (${T.sitemapCoverage}%).</p><div class="bars" style="margin-top:10px"><div class="bar" style="--bc:var(--warn)"><span>In the sitemap, nothing links to them</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,T.inSitemapNotLinkedCount/Math.max(1,T.sitemapTotal)*100))}%"></i></span><span class="n">${nf3(T.inSitemapNotLinkedCount)}</span></div><div class="bar" style="--bc:var(--c-ai)"><span>Linked but missing from the sitemap</span><span class="tr"><i style="width:${Math.max(2,Math.min(100,T.linkedNotInSitemapCount/Math.max(1,T.sitemapTotal)*100))}%"></i></span><span class="n">${nf3(T.linkedNotInSitemapCount)}</span></div></div>`:`<p class="muted">The sitemap lists <b>${nf3(T.sitemapTotal)}</b> URLs and this crawl read ${nf3(T.sitemapSeen)} of them (${T.sitemapCoverage}%). Comparing the sitemap with the site's own links needs most of it read, so that check is skipped — run it again with a higher page limit.</p>`):`<p class="muted">No sitemap.xml was found, so there is nothing to compare the links against.</p>`}</div></div>
+  ${stackAndTopics(STACK,TOPICS)}</div>`;
+ const fh=TOPICS&&TOPICS.terms?1560:1340;
+ xframe(fx,fy,AW,fh,"Company & structure","Who the site belongs to, how it is hosted and built, how many clicks deep its pages sit, what it is about, and where its own signals disagree with each other.","--c-about","who");
  nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
  NEXT_Y=fy+fh+120;
 }

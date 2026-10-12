@@ -63,7 +63,7 @@ self.sbFetch = async (url, max, stopH1, accept, retries) => {
     const buf = new Uint8Array(n); let o = 0; for (const p of parts) { buf.set(p, o); o += p.length; }
     const cs = charset(r.headers.get('X-Upstream-Type') || '', new TextDecoder('latin1').decode(buf.subarray(0, 4096)));
     let text; try { text = new TextDecoder(cs).decode(buf); } catch { text = new TextDecoder().decode(buf); }
-    return { status, url: r.headers.get('X-Final-Url') || url, text, redirected: r.headers.get('X-Redirected') === '1', truncated, tries, limited };
+    return { status, url: r.headers.get('X-Final-Url') || url, text, redirected: r.headers.get('X-Redirected') === '1', truncated, tries, limited, head: r.headers.get('X-Upstream-Headers') || '' };
   }
   return { error: 'The site kept asking us to slow down. Try again in a few minutes.', tries, limited };
 };

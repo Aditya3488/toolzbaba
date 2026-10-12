@@ -608,6 +608,7 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         pages["/"]["og"] = urljoin(home.url, pages["/"]["og"])[:300]
 
     depth_map, rank_map = link_graph(edges, pages, pages["/"].get("f", ""))
+    stack = D.stack_from_headers(home.headers)   # how the site is served, from the homepage response
     og_name = re.search(r'<meta[^>]+property=["\']og:site_name["\'][^>]*content=["\']([^"\']+)', home.text, re.I)
     title = pages["/"].get("t", "")
     brand = clean(og_name.group(1)) if og_name else (re.split(r"\s[|:–—-]\s", title)[0] if title else domain.split(".")[0].title())
@@ -623,7 +624,7 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         # how many other pages link to each page we read: hero pages at the top, orphans at zero
         "inbound": {p: inbound.get(p.lower(), 0) for p in pages},
         "outside": dict(sorted(outside.items(), key=lambda kv: -kv[1])[:40]),
-        "depth": depth_map, "rank": rank_map, "sitemapPaths": sm_urls[:12000], "who": who,
+        "depth": depth_map, "rank": rank_map, "sitemapPaths": sm_urls[:12000], "who": who, "stack": stack,
         "toProduct": to_product, "express": sorted(express),
         "offers": D.offers(home.text), "cartFields": cart_fields,
         "homeSections": home_sections(root), "requests": stats.requests, "rateLimited": stats.rate_limited,

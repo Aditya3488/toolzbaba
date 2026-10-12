@@ -15,6 +15,26 @@ const ACCEPT = {
 };
 const BINARY = /^(image|video|audio|font)\/|^application\/(pdf|zip|gzip|octet-stream|msword|vnd\.|x-(zip|rar|7z|tar|gzip|msdownload|shockwave))/i;
 
+// The headers that say how a site is built and hosted, passed on to the board as one small JSON line.
+// Only these are copied: nothing that carries a session, a cookie or a personal value ever leaves this function.
+// Cookies are reported as names and counts only, since cookie names name the stack (wp_, _shopify_, PHPSESSID).
+const TELL = ['server', 'x-powered-by', 'via', 'x-cache', 'cf-cache-status', 'cf-ray', 'x-served-by', 'x-vercel-id',
+  'x-nextjs-cache', 'x-shopify-stage', 'x-shopid', 'x-amz-cf-pop', 'x-akamai-transformed', 'x-litespeed-cache',
+  'x-drupal-cache', 'x-generator', 'x-aspnet-version', 'strict-transport-security', 'content-security-policy',
+  'x-frame-options', 'x-content-type-options', 'referrer-policy', 'permissions-policy', 'content-encoding', 'age', 'vary'];
+
+function upstreamNotes(h) {
+  const out = {};
+  for (const k of TELL) {
+    const v = h.get(k);
+    if (v) out[k] = v.slice(0, 120);
+  }
+  const cookies = h.getAll ? h.getAll('set-cookie') : (h.get('set-cookie') ? [h.get('set-cookie')] : []);
+  const names = cookies.map(c => (c.split('=')[0] || '').trim()).filter(Boolean).slice(0, 12);
+  if (names.length) out.cookieNames = names;   // names only, never the values
+  return JSON.stringify(out).slice(0, 1800);
+}
+
 // stop passing bytes on after `max` (the rest of the page is dropped and the site's connection closed)
 function cap(max) {
   let n = 0;
@@ -57,6 +77,7 @@ export async function onRequestGet({ request, env }) {
       });
       const ra = r.headers.get('retry-after');
       if (ra) h.set('X-Retry-After', ra.slice(0, 40));
+      h.set('X-Upstream-Headers', upstreamNotes(r.headers));
       if (!r.body || BINARY.test(type)) {  // pictures, videos and files are not passed on
         if (r.body) r.body.cancel();
         clearTimeout(timer);

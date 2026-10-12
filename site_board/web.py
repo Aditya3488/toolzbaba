@@ -31,7 +31,11 @@ async def _get(req: Get, stats: Stats):
     err = getattr(res, "error", None)
     if err:
         return None if req.json else FetchError(str(err))
-    r = Response(int(res.status), str(res.url), str(res.text), {}, bool(res.redirected), bool(res.truncated))
+    try:
+        head = json.loads(str(getattr(res, "head", "") or "{}"))
+    except ValueError:
+        head = {}
+    r = Response(int(res.status), str(res.url), str(res.text), head, bool(res.redirected), bool(res.truncated))
     return parse_json(r) if req.json else r
 
 

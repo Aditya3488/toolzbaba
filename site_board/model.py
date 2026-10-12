@@ -284,6 +284,75 @@ def links(rep: dict, top: int = 10) -> dict:
     return {"hero": hero, "orphans": orphans[:60], "orphanCount": len(orphans), "checked": len(live)}
 
 
+STOP = set("""a an the and or but if then than that this these those of in on at to for from by with without within into onto
+over under up down out off again further once here there when where why how all any both each few more most other some such no
+nor not only own same so too very can will just should now is are was were be been being have has had do does did doing would
+could shall may might must i you he she it we they me him her us them my your his its our their what which who whom about
+across after before between during through against above below best top new buy shop online free get make how guide tips
+vs page home india usa uk official site website com www""".split())
+WORD = re.compile(r"[a-z][a-z0-9'\-]{1,}")
+
+
+def topics(rep: dict, limit: int = 14) -> dict:
+    """What the site is actually about, counted over its own titles and headings, and where pages overlap.
+
+    Document frequency, not raw word count: a term on forty different pages matters, a term repeated forty times
+    on one page does not. Pages sharing a title term compete with each other for it, which is cannibalisation.
+    """
+    brand = {w for w in WORD.findall((rep.get("brand") or "").lower())} | \
+            {w for w in WORD.findall((rep.get("domain") or "").split(".")[0].lower())}
+    stop = STOP | brand
+    live = {p: f for p, f in rep["pages"].items() if f.get("s") == 200}
+    if len(live) < 5:
+        return {}
+
+    def terms_of(text: str) -> set:
+        ws = [w for w in WORD.findall((text or "").lower()) if w not in stop and len(w) > 2]
+        out = set(ws)
+        out.update(f"{a} {b}" for a, b in zip(ws, ws[1:]))
+        return out
+
+    title_terms = {p: terms_of(f.get("t", "") + " " + " ".join(f.get("h1") or [])) for p, f in live.items()}
+    page_terms = {p: t | terms_of(live[p].get("d", "") + " " + live[p].get("k", "")) for p, t in title_terms.items()}
+
+    df: Counter = Counter()
+    for t in page_terms.values():
+        df.update(t)
+    # a term on nearly every page is boilerplate (the nav), not a topic
+    ceiling = max(2, int(len(live) * 0.6))
+    ranked = [(t, n) for t, n in df.most_common(400) if 1 < n <= ceiling]
+    # prefer two-word phrases: they say more than a bare noun
+    ranked.sort(key=lambda tn: (-(tn[1] * (1.6 if " " in tn[0] else 1.0)), tn[0]))
+
+    chosen, seen_words, seen_pairs = [], set(), set()
+    for t, n in ranked:
+        parts = frozenset(t.split())
+        if parts in seen_pairs:          # "better things" and "things better" are the same phrase twice
+            continue
+        if parts <= seen_words:          # every word already shown on its own, so this adds nothing
+            continue
+        chosen.append([t, n])
+        seen_words |= parts
+        seen_pairs.add(parts)
+        if len(chosen) >= limit:
+            break
+
+    tdf: Counter = Counter()
+    for t in title_terms.values():
+        tdf.update(t)
+    clash, seen_clash = [], set()
+    for t, n in tdf.most_common(200):
+        parts = frozenset(t.split())
+        if n < 3 or n > ceiling or " " not in t or parts in seen_clash:
+            continue
+        seen_clash.add(parts)
+        pages_with = sorted(p for p, s in title_terms.items() if t in s)[:5]
+        clash.append([t, n, pages_with])
+        if len(clash) >= 8:
+            break
+    return {"terms": chosen, "pages": len(live), "cannibal": clash}
+
+
 def technical(rep: dict) -> dict:
     """The structural problems a crawl can prove, which a list of titles and descriptions cannot show.
 
@@ -590,4 +659,4 @@ def build(rep: dict, max_cards: int = 6000) -> dict:
                    "lines": "Click a bubble to list and highlight its pages.", "gallery": "Screenshots of the main pages.", "home": "The homepage from top to bottom."},
     }
     return {"DATA": data, "PROD": b.prod, "SEO": seo, "BROKEN": broken, "STG": stg, "BR": br, "X": X, "SHOTDATA": rep.get("shots", {}),
-            "D2C": d2c(rep, cat), "LINKS": links(rep), "TECH": technical(rep), "WHO": rep.get("who") or {}, "seo_counts": sc, "cards": b.cards}
+            "D2C": d2c(rep, cat), "LINKS": links(rep), "TECH": technical(rep), "WHO": rep.get("who") or {}, "TOPICS": topics(rep), "STACK": rep.get("stack") or {}, "seo_counts": sc, "cards": b.cards}

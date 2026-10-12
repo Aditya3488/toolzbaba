@@ -190,6 +190,64 @@ def entity(html: str) -> dict:
     return out
 
 
+# What a response header gives away about who serves the site. Header names arrive lower-cased.
+CDN_RULES = [("Cloudflare", r"cloudflare"), ("Fastly", r"fastly"), ("Akamai", r"akamai|AkamaiGHost"),
+             ("Amazon CloudFront", r"cloudfront|x-amz-cf"), ("Vercel", r"vercel"), ("Netlify", r"netlify"),
+             ("Google Cloud", r"\bgse\b|google frontend"), ("Azure CDN", r"azure|windows-azure"),
+             ("Shopify", r"shopify"), ("Sucuri", r"sucuri"), ("Imperva", r"incapsula|imperva"), ("BunnyCDN", r"bunnycdn"),
+             ("KeyCDN", r"keycdn"), ("StackPath", r"stackpath|highwinds")]
+SERVER_RULES = [("nginx", r"nginx"), ("Apache", r"apache"), ("LiteSpeed", r"litespeed"), ("IIS", r"microsoft-iis"),
+                ("Caddy", r"caddy"), ("Envoy", r"envoy"), ("OpenResty", r"openresty"), ("Cowboy", r"cowboy")]
+RUNTIME_RULES = [("PHP", r"\bphp\b"), ("ASP.NET", r"asp\.net"), ("Express", r"express"), ("Next.js", r"next\.js|x-nextjs"),
+                 ("Ruby on Rails", r"\bphusion|passenger|rails"), ("Django", r"\bdjango\b"), ("Laravel", r"laravel")]
+COOKIE_RULES = [("WordPress", r"^wordpress|^wp-"), ("Shopify", r"^_shopify|^_secure_session|^cart_"), ("PHP", r"^phpsessid"),
+                ("ASP.NET", r"^asp\.net|^\.aspxauth"), ("Java", r"^jsessionid"), ("Magento", r"^mage-|^form_key"),
+                ("WooCommerce", r"^woocommerce_|^wp_woocommerce"), ("Django", r"^csrftoken|^sessionid"),
+                ("Laravel", r"^laravel_session|^xsrf-token"), ("Adobe/Omniture", r"^s_cc|^s_sq")]
+SECURITY_HEADERS = [("HSTS", "strict-transport-security"), ("Content-Security-Policy", "content-security-policy"),
+                    ("X-Frame-Options", "x-frame-options"), ("X-Content-Type-Options", "x-content-type-options"),
+                    ("Referrer-Policy", "referrer-policy"), ("Permissions-Policy", "permissions-policy")]
+
+
+def _first(rules, *values) -> str:
+    hay = " ".join(v for v in values if v).lower()
+    return next((name for name, pat in rules if re.search(pat, hay, re.I)), "")
+
+
+def stack_from_headers(h: dict) -> dict:
+    """CDN, web server, runtime and security headers, from one page's response headers."""
+    if not h:
+        return {}
+    g = lambda k: str(h.get(k) or h.get(k.title()) or "")
+    cookies = h.get("cookieNames") or []
+    out: dict = {}
+    cdn = _first(CDN_RULES, g("server"), g("via"), g("x-cache"), g("x-served-by"), g("x-amz-cf-pop"), g("x-vercel-id"),
+                 "cloudflare" if g("cf-ray") or g("cf-cache-status") else "")
+    if cdn:
+        out["cdn"] = cdn
+    srv = _first(SERVER_RULES, g("server"))
+    if srv:
+        out["server"] = srv
+    # some headers are a signal by their name alone, whatever value they carry
+    named = " ".join(k for k in ("x-nextjs-cache", "x-aspnet-version", "x-drupal-cache", "x-litespeed-cache") if g(k))
+    run = _first(RUNTIME_RULES, g("x-powered-by"), g("x-generator"), named)
+    if run:
+        out["runtime"] = run
+    cms = _first(COOKIE_RULES, *cookies)
+    if cms:
+        out["cms"] = cms
+    present = [name for name, key in SECURITY_HEADERS if g(key)]
+    out["security"] = present
+    out["securityMissing"] = [name for name, key in SECURITY_HEADERS if not g(key)]
+    if g("content-encoding"):
+        out["compression"] = g("content-encoding")
+    if cookies:
+        out["cookies"] = cookies[:10]
+    if g("cf-cache-status") or g("x-cache"):
+        out["cacheStatus"] = (g("cf-cache-status") or g("x-cache"))[:40]
+    return out
+
+
 def marketplaces(hosts: dict) -> dict:
     """Marketplace -> how many links point at it, from the outside hosts the crawl saw."""
     out: dict[str, int] = {}
