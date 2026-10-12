@@ -776,8 +776,8 @@ if(D2C){
   <div class="kpi"><b>${inr(D.median)}</b><span>Typical price (median)</span></div>
   <div class="kpi"><b style="color:${deepPc>25?"var(--bad)":deepPc>10?"var(--warn)":"var(--good)"}">${deepPc}%</b><span>Discounted over 40%</span></div>
   <div class="kpi"><b style="color:${outPc>20?"var(--bad)":outPc>8?"var(--warn)":"var(--good)"}">${nf2(D.soldOut)}</b><span>Sold out but still live</span></div>
-  <div class="kpi"><b style="color:${revPc<30?"var(--warn)":"var(--good)"}">${revPc}%</b><span>Products with a review</span></div>
-  <div class="kpi"><b>${nf2(D.reviewed)}</b><span>Rated product pages</span></div>
+  <div class="kpi"><b style="color:${revPc<30?"var(--warn)":"var(--good)"}">${revPc}%</b><span>Reviewed, of pages read</span></div>
+  <div class="kpi"><b>${nf2(D.reviewed)} / ${nf2(D.productPages)}</b><span>Rated / product pages read</span></div>
   <div class="kpi"><b>${D.new?mLabel(D.new[D.new.length-1][0]):"–"}</b><span>Newest products added</span></div></div>
   <div class="cols3">
   <div class="panel"><h4>How deep the discounting goes</h4><p class="muted">An average hides the tail. This is the whole range, product by product.</p><div class="bars" style="margin-top:10px">${D.discount.map(([n,v],i)=>`<div class="bar" style="--bc:var(${["--good","--c-ai","--warn","--bad"][i]})"><span>${n}</span><span class="tr"><i style="width:${Math.max(2,v/Math.max(1,dmax)*100)}%"></i></span><span class="n">${nf2(v)}</span></div>`).join("")}</div></div>
