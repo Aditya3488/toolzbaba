@@ -185,6 +185,10 @@ class Fetcher:
                 with resp:
                     status = resp.status
                     headers = dict(resp.headers)
+                    # dict() keeps only the last Set-Cookie; the names of all of them say which platform this is
+                    names = [c.split("=")[0].strip() for c in resp.headers.get_all("Set-Cookie") or [] if "=" in c]
+                    if names:
+                        headers["cookieNames"] = names[:12]
                     chunks, n, truncated, tail = [], 0, False, b""
                     while True:
                         block = resp.read(65536)

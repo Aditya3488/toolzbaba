@@ -221,8 +221,15 @@ def stack_from_headers(h: dict) -> dict:
     """CDN, web server, runtime and security headers, from one page's response headers."""
     if not h:
         return {}
-    g = lambda k: str(h.get(k) or h.get(k.title()) or "")
-    cookies = h.get("cookieNames") or []
+    # header names arrive in whatever case the server used, and in different shapes from the two drivers:
+    # the proxy sends cookie names already split out, a direct fetch sends raw Set-Cookie lines
+    low = {str(k).lower(): v for k, v in h.items()}
+    g = lambda k: "" if low.get(k) is None else str(low.get(k))
+    cookies = low.get("cookienames") or []
+    if not cookies and low.get("set-cookie"):
+        raw = low["set-cookie"]
+        lines = raw if isinstance(raw, list) else str(raw).split("\n")
+        cookies = [c.split("=")[0].strip() for c in lines if "=" in c][:12]
     out: dict = {}
     cdn = _first(CDN_RULES, g("server"), g("via"), g("x-cache"), g("x-served-by"), g("x-amz-cf-pop"), g("x-vercel-id"),
                  "cloudflare" if g("cf-ray") or g("cf-cache-status") else "")

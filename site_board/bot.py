@@ -49,6 +49,15 @@ INTENTS = {
     "count_pages": ["how many pages", "number of pages", "total pages", "page count", "how big", "size of the site", "how many urls"],
     "count_products": ["how many products", "number of products", "total products", "product count", "catalogue size", "catalog size"],
     "structure": ["structure", "sections", "menu", "navigation", "categories", "main pages", "site map", "sitemap", "hierarchy", "what sections"],
+    "company": ["who owns", "who runs", "owner", "company", "legal name", "registered", "company number", "cin", "gstin", "vat",
+                "entity", "founded", "incorporated", "registered address", "whose site", "parent company", "kiska hai"],
+    "hosting": ["hosting", "hosted", "cdn", "server", "tech stack", "built with", "technology", "cloudflare", "security headers",
+                "hsts", "platform", "runs on", "infrastructure", "what is it built on"],
+    "depth": ["how deep", "click depth", "clicks from", "buried", "deep pages", "how many clicks", "orphan", "orphans",
+              "not linked", "internal links", "link equity", "pagerank"],
+    "topics": ["what is this site about", "topics", "themes", "what do they sell", "what do they talk about",
+               "cannibal", "cannibalisation", "cannibalization", "competing pages", "same phrase"],
+    "leakage": ["marketplace", "marketplaces", "amazon", "flipkart", "nykaa", "myntra", "send traffic", "traffic leak"],
     "section": ["what is in", "what's in", "inside", "pages in", "pages under", "products in", "show section"],
     "seo_overall": ["seo", "seo problems", "seo issues", "biggest problems", "what is wrong", "issues", "mistakes", "errors", "audit", "health", "score"],
     "broken": ["broken", "404", "dead link", "not found", "error pages", "broken links"],
@@ -305,6 +314,85 @@ class SiteBot:
             n = sum(len(g[2]) + (1 if g[1] else 0) for s in l["secs"] for g in s["groups"])
             lines.append(f"- **{l['name']}**: {n} pages" + (f" in {len(l['secs'])} parts ({', '.join(s['name'] for s in l['secs'][:4])}{'…' if len(l['secs']) > 4 else ''})" if len(l["secs"]) > 1 else ""))
         return self.out("\n".join(lines), follow=[f"What is in {self.m['DATA'][0]['name']}?" if self.m["DATA"] else "Give me a summary", "Which section has the most SEO problems?"])
+
+    def h_company(self, q):
+        w = self.r.get("who") or {}
+        c = self.r.get("contacts") or {}
+        rows = [("Registered name", w.get("legalName")), ("Company number", w.get("cin") or w.get("companyNo")),
+                ("GST / VAT", w.get("gstin") or w.get("vat")), ("Founded", w.get("founded")),
+                ("Registered address", w.get("address"))]
+        lines = [f"- **{k}:** {v}" for k, v in rows if v]
+        if c.get("emails"):
+            lines.append("- **Email:** " + ", ".join(c["emails"][:3]))
+        if c.get("phones"):
+            lines.append("- **Phone:** " + ", ".join(c["phones"][:3]))
+        if c.get("socials"):
+            lines.append("- **Social:** " + ", ".join(list(c["socials"])[:6]))
+        if not lines:
+            return self.out("I could not find a registered company name, number or address on the homepage, about, contact or policy pages.")
+        tail = "\n\nThis is read off the site's own pages, so it is only as right as what they publish there."
+        return self.out(f"What **{self.r['domain']}** says about who runs it:\n" + "\n".join(lines) + tail,
+                        follow=["How is the site hosted?", "Give me a summary"])
+
+    def h_hosting(self, q):
+        s = self.r.get("stack") or {}
+        rows = [("CDN / edge", s.get("cdn")), ("Web server", s.get("server")), ("Runtime", s.get("runtime")),
+                ("Platform", s.get("cms")), ("Compression", s.get("compression")), ("Edge cache", s.get("cacheStatus"))]
+        lines = [f"- **{k}:** {v}" for k, v in rows if v]
+        sec, miss = s.get("security") or [], s.get("securityMissing") or []
+        if sec or miss:
+            lines.append("- **Security headers set:** " + (", ".join(sec) if sec else "none"))
+        if miss:
+            lines.append("- **Missing:** " + ", ".join(miss))
+        plat = [n for n, i in self.r["tools"].items() if i.get("cat") == "Platform"]
+        if plat:
+            lines.append("- **Named in the page code:** " + ", ".join(plat))
+        if not lines:
+            return self.out("The homepage sent no headers that name a CDN, server or platform.")
+        return self.out(f"How **{self.r['domain']}** is served:\n" + "\n".join(lines),
+                        follow=["Who owns this company?", "Which tracking tools do they use?"])
+
+    def h_depth(self, q):
+        t = self.m.get("TECH") or {}
+        if not t.get("depth"):
+            return self.out("I could not work out how deep the pages sit: the link graph came back empty.")
+        lines = [f"- **{'Homepage' if d == 0 else str(d) + ' click' + ('' if d == 1 else 's')}:** {n} page" + ("" if n == 1 else "s")
+                 for d, n in t["depth"]]
+        extra = []
+        if t.get("buriedCount"):
+            extra.append(f"**{t['buriedCount']} pages sit 4 or more clicks from the homepage**, which buries them whatever links point at them.")
+        if t.get("unreachableCount"):
+            extra.append(f"**{t['unreachableCount']} pages had no link pointing at them** among the pages I read.")
+        L = self.m.get("LINKS") or {}
+        if L.get("hero"):
+            extra.append("Most linked: " + ", ".join(f"{p} ({n})" for p, n in L["hero"][:3]) + ".")
+        body = f"Clicks from the homepage on **{self.r['domain']}**:\n" + "\n".join(lines)
+        return self.out(body + ("\n\n" + " ".join(extra) if extra else ""),
+                        pages=list((t.get("buried") or [])[:6]),
+                        follow=["What is this site about?", "What are the biggest SEO problems?"])
+
+    def h_topics(self, q):
+        tp = self.m.get("TOPICS") or {}
+        if not tp.get("terms"):
+            return self.out("Too few pages were read to say what the site is about.")
+        terms = ", ".join(f"**{w}** ({n})" for w, n in tp["terms"][:10])
+        body = (f"Counted across the titles, headings and descriptions of {tp['pages']} pages, "
+                f"**{self.r['domain']}** is mostly about: {terms}.")
+        if tp.get("cannibal"):
+            body += ("\n\nPhrases shared by several page titles, so those pages compete with each other:\n" +
+                     "\n".join(f"- **{w}** — {n} pages" for w, n, _ in tp["cannibal"][:5]))
+        return self.out(body, follow=["Which pages have duplicate titles?", "How deep is the site?"])
+
+    def h_leakage(self, q):
+        d = self.m.get("D2C") or {}
+        mk = (d or {}).get("marketplaces") or {}
+        if not mk:
+            return self.out("I found no links to Amazon, Flipkart, Nykaa or other marketplaces. Every buying journey stays on their own site.")
+        total = sum(mk.values())
+        lines = "\n".join(f"- **{n}:** {v} link" + ("" if v == 1 else "s") for n, v in mk.items())
+        return self.out(f"**{self.r['domain']}** links out to {len(mk)} marketplace(s), {total} links in all:\n{lines}"
+                        "\n\nEach one is a buyer handed to a platform that keeps the margin and the customer.",
+                        follow=["What is this site about?", "Give me a summary"])
 
     def h_section(self, q):
         names = [(l["name"], l, None) for l in self.m["DATA"]] + [(s["name"], l, s) for l in self.m["DATA"] for s in l["secs"]]
