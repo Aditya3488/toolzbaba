@@ -200,10 +200,13 @@ SERVER_RULES = [("nginx", r"nginx"), ("Apache", r"apache"), ("LiteSpeed", r"lite
                 ("Caddy", r"caddy"), ("Envoy", r"envoy"), ("OpenResty", r"openresty"), ("Cowboy", r"cowboy")]
 RUNTIME_RULES = [("PHP", r"\bphp\b"), ("ASP.NET", r"asp\.net"), ("Express", r"express"), ("Next.js", r"next\.js|x-nextjs"),
                  ("Ruby on Rails", r"\bphusion|passenger|rails"), ("Django", r"\bdjango\b"), ("Laravel", r"laravel")]
-COOKIE_RULES = [("WordPress", r"^wordpress|^wp-"), ("Shopify", r"^_shopify|^_secure_session|^cart_"), ("PHP", r"^phpsessid"),
-                ("ASP.NET", r"^asp\.net|^\.aspxauth"), ("Java", r"^jsessionid"), ("Magento", r"^mage-|^form_key"),
-                ("WooCommerce", r"^woocommerce_|^wp_woocommerce"), ("Django", r"^csrftoken|^sessionid"),
-                ("Laravel", r"^laravel_session|^xsrf-token"), ("Adobe/Omniture", r"^s_cc|^s_sq")]
+# Most specific platform first: a WooCommerce shop also sets WordPress and PHP cookies, and naming the
+# shop is more use than naming the language it happens to run on.
+COOKIE_RULES = [("WooCommerce", r"^woocommerce_|^wp_woocommerce"), ("WordPress", r"^wordpress|^wp-"),
+                ("Shopify", r"^_shopify|^_secure_session|^cart_"), ("Magento", r"^mage-|^form_key"),
+                ("Laravel", r"^laravel_session|^xsrf-token"), ("Django", r"^csrftoken|^sessionid"),
+                ("Adobe/Omniture", r"^s_cc|^s_sq"), ("PHP", r"^phpsessid"),
+                ("ASP.NET", r"^asp\.net|^\.aspxauth"), ("Java", r"^jsessionid")]
 SECURITY_HEADERS = [("HSTS", "strict-transport-security"), ("Content-Security-Policy", "content-security-policy"),
                     ("X-Frame-Options", "x-frame-options"), ("X-Content-Type-Options", "x-content-type-options"),
                     ("Referrer-Policy", "referrer-policy"), ("Permissions-Policy", "permissions-policy")]
@@ -233,7 +236,9 @@ def stack_from_headers(h: dict) -> dict:
     run = _first(RUNTIME_RULES, g("x-powered-by"), g("x-generator"), named)
     if run:
         out["runtime"] = run
-    cms = _first(COOKIE_RULES, *cookies)
+    # each cookie name is matched on its own: the rules are anchored with ^, so joining them into one
+    # string meant only the first cookie could ever match
+    cms = next((name for name, pat in COOKIE_RULES for c in cookies if re.search(pat, str(c), re.I)), "")
     if cms:
         out["cms"] = cms
     present = [name for name, key in SECURITY_HEADERS if g(key)]
