@@ -232,7 +232,8 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
     assert.equal(r.headers.get('X-Redirected'), '1'); assert.equal(r.headers.get('Content-Type'), 'text/plain; charset=utf-8', 'compressible, never text/html'); assert.equal(r.headers.get('X-Content-Type-Options'), 'nosniff'); assert.match(r.headers.get('Content-Security-Policy'), /sandbox/);
     assert.equal((await r.text()).length, 50_000);
     r = await siteFetch({ request: req('/api/site-fetch?max=20000&url=' + encodeURIComponent('https://example.com/big')), env: {} });
-    assert.equal((await r.arrayBuffer()).byteLength, 20_000, 'cut at max');
+    assert.equal((await r.arrayBuffer()).byteLength, 50_000, 'passed on whole: the worker stops reading at max itself (a cut here cost CPU time and truncated pages)');
+    assert.equal(r.headers.get('X-Max'), '20000');
     r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/sneaky')), env: {} });
     assert.equal(r.status, 422, 'a redirect to a private address is refused');
     assert.ok(!seen.some(u => u.includes('127.0.0.1')), 'the private address was never fetched');

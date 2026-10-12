@@ -35,19 +35,10 @@ function upstreamNotes(h) {
   return JSON.stringify(out).slice(0, 1800);
 }
 
-// stop passing bytes on after `max` (the rest of the page is dropped and the site's connection closed)
-function cap(max) {
-  let n = 0;
-  return new TransformStream({
-    transform(chunk, c) {
-      const left = max - n;
-      if (left <= 0) return;
-      n += chunk.byteLength;
-      c.enqueue(chunk.byteLength > left ? chunk.slice(0, left) : chunk);
-      if (n >= max) c.terminate();
-    },
-  });
-}
+// The page body is handed to the visitor exactly as the site's stream, untouched by JavaScript: piping it through a
+// TransformStream to cut it at `max` cost CPU time per chunk, and a Function has very little (10 ms on the free plan),
+// so big pages were silently cut short at random points. The worker (site-board-worker.js) stops reading at `max`
+// and cancels, which closes the site's connection; `max` here only bounds what a caller may ask for.
 
 export async function onRequestGet({ request, env }) {
   const here = new URL(request.url), q = here.searchParams;
@@ -86,7 +77,8 @@ export async function onRequestGet({ request, env }) {
         h.set('X-Skipped', '1');
         return new Response(null, { status: 200, headers: h });
       }
-      return new Response(r.body.pipeThrough(cap(max)), { status: 200, headers: h });  // the timer keeps guarding the download
+      h.set('X-Max', String(max));
+      return new Response(r.body, { status: 200, headers: h });  // the timer keeps guarding the download
     }
     clearTimeout(timer);
     return fail(422, 'The page redirects too many times.');
