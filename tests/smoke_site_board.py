@@ -22,7 +22,7 @@ for s in (sys.stdout, sys.stderr):
         pass
 
 from site_board.bot import SiteBot  # noqa: E402
-from site_board.crawl import build_report, extract_footer, script_menus  # noqa: E402
+from site_board.crawl import build_report, extract_footer, link_graph, script_menus  # noqa: E402
 from site_board.dom import parse  # noqa: E402
 from site_board.fetch import FetchError, Fetcher, check_url  # noqa: E402
 from site_board.render import render  # noqa: E402
@@ -116,6 +116,10 @@ def main():
     finally:
         busy.shutdown()
     check("blocked site: stops asking after 8 refusals", codes == [429] * 20 and F.requests == 8, (codes, F.requests))
+
+    # the link graph: a page whose links all point at itself or at unread pages must not break the rank maths
+    depth, rank = link_graph({"/": ["/a", "/b"], "/a": ["/a", "/zzz"], "/b": ["/"]}, {"/": {"s": 200}, "/a": {"s": 200}, "/b": {"s": 200}})
+    check("link graph survives a page with no usable links", depth == {"/": 0, "/a": 1, "/b": 1} and set(rank) == {"/", "/a", "/b"}, (depth, rank))
 
     # menus some themes keep in a script, and repeated sub-headings ("Shop by Price" under each category)
     links = "".join(f'<li><a href="/collections/c{i}">Category {i}</a></li>' for i in range(8))

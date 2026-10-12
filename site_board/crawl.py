@@ -63,6 +63,8 @@ def link_graph(edges: dict, pages: dict, home_alias: str = "") -> tuple[dict, di
         spill = 0.15 / n + 0.85 * sum(rank[p] for p in dangling) / n
         nxt = {p: spill for p in live}
         for src, dst in adj.items():
+            if not dst:   # links only to itself or to pages not read: its rank was spread above, with the dangling pages
+                continue
             share = 0.85 * rank[src] / len(dst)
             for d in dst:
                 nxt[d] += share
