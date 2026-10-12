@@ -2237,7 +2237,17 @@
    "tab": "PNG",
    "ui": "target-png",
    "js": "compress-target",
-   "media": "png"
+   "media": "png",
+   "faq": [
+    {
+     "q": "Does compressing a PNG keep its transparency?",
+     "a": "Yes. The PNG stays a PNG, so transparent areas stay transparent. Reducing the number of colours is what makes it smaller."
+    },
+    {
+     "q": "Why is my PNG still large after compressing?",
+     "a": "Photos saved as PNG stay big because PNG is lossless. Convert such pictures to JPG or WebP instead; keep PNG for logos, screenshots and graphics."
+    }
+   ]
   },
   {
    "slug": "compress-jpeg",
@@ -2250,7 +2260,18 @@
    "tabOf": "compress-jpg",
    "ui": "target-jpg",
    "js": "compress-target",
-   "media": "jpeg"
+   "media": "jpeg",
+   "faq": [
+    {
+     "q": "What is the difference between JPEG and JPG?",
+     "a": "Nothing: they are the same format with two spellings of the file extension. This page and the Compress JPG page do the same thing."
+    },
+    {
+     "q": "Which quality setting should I use?",
+     "a": "70 to 80 keeps photos looking the same at a fraction of the size. Go lower only when a form or an upload limit demands it."
+    }
+   ],
+   "canonical": "compress-jpg"
   },
   {
    "slug": "compress-jpg",
@@ -2262,7 +2283,17 @@
    "tab": "JPG / JPEG",
    "ui": "target-jpg",
    "js": "compress-target",
-   "media": "jpg"
+   "media": "jpg",
+   "faq": [
+    {
+     "q": "Will compressing a JPG reduce its quality?",
+     "a": "Slightly, in a way you rarely notice at 70 to 80 percent quality. The before-and-after preview shows exactly what changes before you download."
+    },
+    {
+     "q": "How do I get a JPG under a size limit for a form?",
+     "a": "Use the matching size page (for example Compress JPG to under 100 KB), which lowers the quality and width step by step until the file fits."
+    }
+   ]
   },
   {
    "slug": "compress-gif",
@@ -2274,7 +2305,17 @@
    "about": "Animated GIFs get big very quickly. This tool makes them smaller while keeping the animation, using three levers: fewer colours (GIFs allow 256, but 64 or 128 often look fine), a smaller width, and a lower frame rate. Try fewer colours first, as it usually changes the look the least. The GIF is re-encoded with an optimised colour palette for the whole animation, and you see the size before and after. If the GIF is already well compressed, you get the original back instead of a bigger one. For the biggest savings, consider converting the GIF to a video with the GIF to Video tool, which is usually many times smaller. Your GIF is processed in your browser and never uploaded.",
    "tab": "GIF",
    "ui": "compress-gif",
-   "js": "server-image"
+   "js": "server-image",
+   "faq": [
+    {
+     "q": "Why do GIFs get so big?",
+     "a": "Every frame of an animated GIF is a picture of its own, and the format only allows 256 colours per frame. Fewer colours, a smaller width or fewer frames per second make it much smaller."
+    },
+    {
+     "q": "Will the animation still play after compressing?",
+     "a": "Yes. The result is a normal animated GIF that plays everywhere; a lower frame rate only makes the motion a little less smooth."
+    }
+   ]
   },
   {
    "slug": "compress-jpg-under-10kb",
@@ -3051,7 +3092,8 @@
      "q": "Can a face photo fit in 10 KB?",
      "a": "A very small one can, but it will be soft. For photos 20 KB to 50 KB works better."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-10kb"
   },
   {
    "slug": "compress-jpeg-under-20kb",
@@ -3080,7 +3122,8 @@
      "q": "Can I do many files at once?",
      "a": "Yes. Add up to 40 and use Download all."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-20kb"
   },
   {
    "slug": "compress-jpeg-under-50kb",
@@ -3109,7 +3152,8 @@
      "q": "Why is my result not exactly 50 KB?",
      "a": "It is just under the limit, because the highest quality that fits is chosen."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-50kb"
   },
   {
    "slug": "compress-jpeg-under-100kb",
@@ -3138,7 +3182,8 @@
      "q": "Is it free and private?",
      "a": "Yes. It runs in your browser and the file is not uploaded."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-100kb"
   },
   {
    "slug": "compress-jpeg-under-150kb",
@@ -3167,7 +3212,8 @@
      "q": "Can I change the limit later?",
      "a": "Yes. Move the slider or type a new size and the preview updates."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-150kb"
   },
   {
    "slug": "compress-jpeg-under-200kb",
@@ -3196,7 +3242,8 @@
      "q": "Can I compress a batch?",
      "a": "Yes, and download them together in a ZIP."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-200kb"
   },
   {
    "slug": "compress-jpeg-under-300kb",
@@ -3225,7 +3272,8 @@
      "q": "Do my files leave my device?",
      "a": "No. Everything runs in your browser."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-300kb"
   },
   {
    "slug": "compress-jpeg-under-500kb",
@@ -3254,7 +3302,8 @@
      "q": "Can I send it over WhatsApp?",
      "a": "Yes, a 500 KB picture sends fast even on a weak connection."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-500kb"
   },
   {
    "slug": "compress-jpeg-under-1mb",
@@ -3283,7 +3332,8 @@
      "q": "Can I type 0.8 MB?",
      "a": "Yes. Type any number and choose KB or MB."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-1mb"
   },
   {
    "slug": "compress-jpeg-under-2mb",
@@ -3312,7 +3362,8 @@
      "q": "What if my photo is 20 MB?",
      "a": "That works too: quality and, if necessary, the pixel size are lowered until it fits."
     }
-   ]
+   ],
+   "canonical": "compress-jpg-under-2mb"
   },
   {
    "slug": "add-watermark-to-pdf",
@@ -3328,6 +3379,16 @@
    "aliases": [
     "add-watermark-to-pdf",
     "watermark-pdf"
+   ],
+   "faq": [
+    {
+     "q": "Can I remove the watermark later?",
+     "a": "No. The watermark is drawn into every page, so keep a copy of the original PDF if you may need it without the mark."
+    },
+    {
+     "q": "Does the watermark go on every page?",
+     "a": "Yes, on every page, in the same position, size and opacity. Tilt it and make it faint to keep the text underneath readable."
+    }
    ]
   },
   {
@@ -3344,7 +3405,17 @@
    "aliases": [
     "add-watermark-to-video"
    ],
-   "metaDesc": "Add a text or logo watermark to a video: set the position, size and opacity, then download it. Free, no sign-up, and your video stays on your device."
+   "metaDesc": "Add a text or logo watermark to a video: set the position, size and opacity, then download it. Free, no sign-up, and your video stays on your device.",
+   "faq": [
+    {
+     "q": "Does watermarking re-encode the video?",
+     "a": "Yes. The video is rendered again in your browser with the mark drawn on every frame, so a long video takes a few minutes."
+    },
+    {
+     "q": "Where should I place the watermark?",
+     "a": "A corner, faint and small, is the usual choice: it proves the video is yours without covering what people watch."
+    }
+   ]
   },
   {
    "slug": "blur-redact-pdf",
@@ -3360,6 +3431,16 @@
    "aliases": [
     "blur-redact-pdf",
     "redact-pdf"
+   ],
+   "faq": [
+    {
+     "q": "Is blurred or blacked-out text really gone?",
+     "a": "Yes. The page is flattened to an image where you drew boxes, so the hidden text cannot be selected, copied or recovered from the file."
+    },
+    {
+     "q": "Can I redact several pages at once?",
+     "a": "Draw boxes on each page that needs them, then save once. Pages without boxes are left untouched."
+    }
    ]
   },
   {
@@ -3374,6 +3455,16 @@
    "js": "carousel",
    "aliases": [
     "linkedin-carousel-maker"
+   ],
+   "faq": [
+    {
+     "q": "What size are the carousel slides?",
+     "a": "Square slides, which is what LinkedIn shows best. You get one PDF to post as a document and the same slides as PNG files."
+    },
+    {
+     "q": "How do I post the carousel on LinkedIn?",
+     "a": "Start a post, choose Add a document and pick the PDF. LinkedIn turns each page into a slide people can swipe through."
+    }
    ]
   },
   {
@@ -3388,6 +3479,16 @@
    "aliases": [
     "instagram-image-carousel-spliter",
     "instagram-image-carousel-splitter"
+   ],
+   "faq": [
+    {
+     "q": "How many slides can I make?",
+     "a": "Between 2 and 10, which is Instagram's limit for one post. Each slide is a full-height square or portrait piece of your picture."
+    },
+    {
+     "q": "Will the picture line up across slides?",
+     "a": "Yes, as long as you post the slides in order: each one is cut exactly where the previous one ends, so the image looks continuous when swiped."
+    }
    ]
   },
   {
@@ -3403,6 +3504,16 @@
    "js": "server-ai",
    "aliases": [
     "ai-headshot-generator"
+   ],
+   "faq": [
+    {
+     "q": "Does my photo get uploaded anywhere?",
+     "a": "No. The AI model runs in your browser; the photo and the headshot never leave your device."
+    },
+    {
+     "q": "What kind of photo works best?",
+     "a": "A sharp, front-facing photo with your whole head in view and even light. The AI replaces the background, so where you took it does not matter."
+    }
    ]
   },
   {
@@ -3419,6 +3530,16 @@
    "aliases": [
     "audio-to-text",
     "video-to-text"
+   ],
+   "faq": [
+    {
+     "q": "Which languages does transcription support?",
+     "a": "English and Hindi. The speech model runs in your browser, so the first use downloads it once and later runs are faster."
+    },
+    {
+     "q": "Can I get subtitles for the video?",
+     "a": "Yes. Besides plain text you can save SRT or VTT subtitle files with timings, ready for video players and editors."
+    }
    ]
   },
   {
@@ -3435,6 +3556,16 @@
    "aliases": [
     "text-to-audio",
     "text-to-speech"
+   ],
+   "faq": [
+    {
+     "q": "Which voices and languages are available?",
+     "a": "English and Hindi voices, generated in your browser. The first use downloads the voice model once."
+    },
+    {
+     "q": "Can I use the audio commercially?",
+     "a": "The voices come from research models whose licences allow personal and non-commercial use; check the model licence before using the audio in a product or an advert."
+    }
    ]
   },
   {
@@ -3450,6 +3581,16 @@
    "js": "server-video",
    "aliases": [
     "video-to-audio"
+   ],
+   "faq": [
+    {
+     "q": "Does extracting audio lose quality?",
+     "a": "The sound is taken from the video and saved again in the format you choose. Pick WAV or FLAC to keep it lossless, or MP3 for the smallest file."
+    },
+    {
+     "q": "How long does it take?",
+     "a": "Usually a few seconds for a short clip; a long film takes longer because the whole file is processed in your browser."
+    }
    ]
   },
   {
@@ -3462,7 +3603,17 @@
    "desc": "Convert MP4 video to MP3 audio in your browser. Choose the quality; nothing is uploaded.",
    "about": "Turn an MP4 video into an MP3 file in a few clicks: add the video, pick a quality (192 kbps is a good default, 320 kbps is the best) and download the MP3. Music videos, lectures, interviews and recordings all work, and several files can be converted at once. The conversion runs on your own device with no upload and no file-size limit from us.",
    "js": "server-video",
-   "metaDesc": "Convert MP4 video to MP3 audio in your browser. Pick the quality, up to 320 kbps, and convert several files at once. Free, and nothing is uploaded."
+   "metaDesc": "Convert MP4 video to MP3 audio in your browser. Pick the quality, up to 320 kbps, and convert several files at once. Free, and nothing is uploaded.",
+   "faq": [
+    {
+     "q": "Is the MP3 the same quality as the video's sound?",
+     "a": "At 192 kbps or more you will not hear a difference for music or speech; choose a lower bitrate only to get a smaller file."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. The conversion runs in your browser, so the video never leaves your device."
+    }
+   ]
   },
   {
    "slug": "ocr-pdf",
@@ -3508,7 +3659,17 @@
    "aliases": [
     "split-video"
    ],
-   "metaDesc": "Split a long video into equal parts or parts of a set length, such as 30 seconds for WhatsApp status, and get them in a ZIP. Free and private."
+   "metaDesc": "Split a long video into equal parts or parts of a set length, such as 30 seconds for WhatsApp status, and get them in a ZIP. Free and private.",
+   "faq": [
+    {
+     "q": "Can I split a video into equal parts?",
+     "a": "Yes: choose how many parts you want, or a length for each part, and you get all pieces in one ZIP file."
+    },
+    {
+     "q": "Does splitting lower the quality?",
+     "a": "Each part is written out from the original frames, so the picture quality stays the same."
+    }
+   ]
   },
   {
    "slug": "merge-audio",
@@ -3522,6 +3683,16 @@
    "js": "server-video",
    "aliases": [
     "merge-audio"
+   ],
+   "faq": [
+    {
+     "q": "Can I merge files of different formats?",
+     "a": "Yes. MP3, WAV, M4A, OGG and other common formats can be mixed; the result is saved in the format you choose."
+    },
+    {
+     "q": "Can I add a pause between the files?",
+     "a": "Yes. Set a gap in seconds and a silent pause is placed between each pair of files."
+    }
    ]
   },
   {
@@ -3536,6 +3707,16 @@
    "aliases": [
     "color-palette-generator",
     "color-paletter-generator"
+   ],
+   "faq": [
+    {
+     "q": "What do complementary, analogous and triadic mean?",
+     "a": "They are ways of choosing colours that go together: opposite on the colour wheel (complementary), next to each other (analogous) or evenly spaced in three (triadic)."
+    },
+    {
+     "q": "Can I export the palette for CSS or Tailwind?",
+     "a": "Yes. Copy the colours as HEX, CSS variables, JSON or a Tailwind colour scale, or save the palette as an image."
+    }
    ]
   },
   {
@@ -3558,6 +3739,16 @@
    "js": "site-colors",
    "aliases": [
     "website-color-palette-extractor"
+   ],
+   "faq": [
+    {
+     "q": "Why does it show fewer colours than I see on the site?",
+     "a": "The tool reads the page's HTML and style sheets. Colours drawn by JavaScript or inside images are not in those files, so they cannot be counted."
+    },
+    {
+     "q": "Is anything stored?",
+     "a": "No. Our server fetches the public page you name, counts its colours and sends back only that list."
+    }
    ]
   },
   {
@@ -3579,6 +3770,16 @@
    "js": "file-share",
    "aliases": [
     "temporary-file-upload-direct-link-share"
+   ],
+   "faq": [
+    {
+     "q": "Who can download the file?",
+     "a": "Anyone with the link, until it expires or you delete it. Do not upload anything private."
+    },
+    {
+     "q": "What happens when the link expires?",
+     "a": "The file is deleted and the link stops working. There is no way to extend a link; upload the file again if you need a new one."
+    }
    ]
   },
   {
@@ -4097,7 +4298,17 @@
    "title": "WAV to MP3 Converter Online Free | Toolz Baba",
    "desc": "Convert WAV audio to MP3 in your browser. MP3 files are about ten times smaller than WAV.",
    "about": "Turn WAV files into MP3: add one file or up to 20, choose the quality and download the MP3 files. MP3 files are about ten times smaller than WAV. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
-   "metaDesc": "Convert WAV to MP3 online in your browser, up to 20 files at once. MP3 files are about ten times smaller than WAV. Free, no sign-up, nothing uploaded."
+   "metaDesc": "Convert WAV to MP3 online in your browser, up to 20 files at once. MP3 files are about ten times smaller than WAV. Free, no sign-up, nothing uploaded.",
+   "faq": [
+    {
+     "q": "How much smaller is MP3 than WAV?",
+     "a": "About ten times at 128 kbps. WAV stores sound uncompressed, which is why a three-minute song is 30 MB as WAV and 3 MB as MP3."
+    },
+    {
+     "q": "Which bitrate should I choose?",
+     "a": "128 kbps is fine for speech and small files; 192 or 320 kbps for music you care about."
+    }
+   ]
   },
   {
    "slug": "m4a-to-mp3",
@@ -4111,7 +4322,17 @@
    "title": "M4A to MP3 Converter Online Free | Toolz Baba",
    "desc": "Convert M4A audio to MP3 in your browser. Great for iPhone recordings and voice memos.",
    "about": "Turn M4A files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Great for iPhone recordings and voice memos. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
-   "metaDesc": "Convert M4A to MP3 online in your browser, up to 20 files at once. Great for iPhone recordings and voice memos. Free, no sign-up, nothing uploaded."
+   "metaDesc": "Convert M4A to MP3 online in your browser, up to 20 files at once. Great for iPhone recordings and voice memos. Free, no sign-up, nothing uploaded.",
+   "faq": [
+    {
+     "q": "Why convert iPhone voice memos to MP3?",
+     "a": "Voice memos are M4A files, which some players, car stereos and older apps do not open. MP3 plays everywhere."
+    },
+    {
+     "q": "Is anything uploaded?",
+     "a": "No. The conversion runs in your browser, so your recording never leaves your device."
+    }
+   ]
   },
   {
    "slug": "mp3-to-wav",
@@ -4125,7 +4346,17 @@
    "title": "MP3 to WAV Converter Online Free | Toolz Baba",
    "desc": "Convert MP3 audio to WAV in your browser. WAV opens in every audio editor.",
    "about": "Turn MP3 files into WAV: add one file or up to 20, choose the quality and download the WAV files. WAV opens in every audio editor. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
-   "metaDesc": "Convert MP3 to WAV online in your browser, up to 20 files at once. WAV opens in every audio editor. Free, no sign-up, nothing uploaded."
+   "metaDesc": "Convert MP3 to WAV online in your browser, up to 20 files at once. WAV opens in every audio editor. Free, no sign-up, nothing uploaded.",
+   "faq": [
+    {
+     "q": "Does converting MP3 to WAV improve the sound?",
+     "a": "No. WAV cannot bring back what MP3 compression removed; it only stores the same sound uncompressed, which some editors and software require."
+    },
+    {
+     "q": "Why is the WAV file so large?",
+     "a": "WAV is uncompressed: about 10 MB for every minute of CD-quality stereo sound."
+    }
+   ]
   },
   {
    "slug": "flac-to-mp3",
@@ -4139,7 +4370,17 @@
    "title": "FLAC to MP3 Converter Online Free | Toolz Baba",
    "desc": "Convert FLAC audio to MP3 in your browser. Play your lossless music on any device.",
    "about": "Turn FLAC files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Play your lossless music on any device. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
-   "metaDesc": "Convert FLAC to MP3 online in your browser, up to 20 files at once. Play your lossless music on any device. Free, no sign-up, nothing uploaded."
+   "metaDesc": "Convert FLAC to MP3 online in your browser, up to 20 files at once. Play your lossless music on any device. Free, no sign-up, nothing uploaded.",
+   "faq": [
+    {
+     "q": "Will I lose quality converting FLAC to MP3?",
+     "a": "A little, by design: FLAC is lossless and MP3 is not. At 320 kbps the difference is very hard to hear, and the file is five to six times smaller."
+    },
+    {
+     "q": "Is the album art kept?",
+     "a": "Embedded cover art and tags are kept where the MP3 format allows it."
+    }
+   ]
   },
   {
    "slug": "ogg-to-mp3",
@@ -4153,7 +4394,17 @@
    "title": "OGG to MP3 Converter Online Free | Toolz Baba",
    "desc": "Convert OGG audio to MP3 in your browser. Works with WhatsApp voice notes (OPUS) too.",
    "about": "Turn OGG files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Works with WhatsApp voice notes (OPUS) too. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
-   "metaDesc": "Convert OGG to MP3 online in your browser, up to 20 files at once. Works with WhatsApp voice notes (OPUS) too. Free, no sign-up, nothing uploaded."
+   "metaDesc": "Convert OGG to MP3 online in your browser, up to 20 files at once. Works with WhatsApp voice notes (OPUS) too. Free, no sign-up, nothing uploaded.",
+   "faq": [
+    {
+     "q": "Can it convert WhatsApp voice notes?",
+     "a": "Yes. WhatsApp voice notes are OGG files with OPUS sound; the tool turns them into MP3 files that play anywhere."
+    },
+    {
+     "q": "Is my recording uploaded?",
+     "a": "No. The conversion runs in your browser; the file never leaves your device."
+    }
+   ]
   },
   {
    "slug": "aac-to-mp3",
@@ -4167,7 +4418,17 @@
    "title": "AAC to MP3 Converter Online Free | Toolz Baba",
    "desc": "Convert AAC audio to MP3 in your browser. Plays on every phone, car and speaker.",
    "about": "Turn AAC files into MP3: add one file or up to 20, choose the quality and download the MP3 files. Plays on every phone, car and speaker. The conversion runs on your own device, so your audio is never uploaded and there is no sign-up.",
-   "metaDesc": "Convert AAC to MP3 online in your browser, up to 20 files at once. Plays on every phone, car and speaker. Free, no sign-up, nothing uploaded."
+   "metaDesc": "Convert AAC to MP3 online in your browser, up to 20 files at once. Plays on every phone, car and speaker. Free, no sign-up, nothing uploaded.",
+   "faq": [
+    {
+     "q": "Why convert AAC to MP3?",
+     "a": "AAC sounds a little better at the same size, but MP3 plays on every device, including old car stereos and MP3 players."
+    },
+    {
+     "q": "Does it keep the quality?",
+     "a": "Converting between two lossy formats loses a little; choose 192 kbps or more to keep the difference inaudible."
+    }
+   ]
   }
  ]
 }

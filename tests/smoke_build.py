@@ -65,8 +65,12 @@ def main():
     locs = re.findall(r"<loc>https?://[^/<]+(/[^<]*)</loc>", xml)
     check("sitemap addresses are unique", len(locs) == len(set(locs)), [l for l in locs if locs.count(l) > 1][:5])
     pages = {("/" if l == "/" else l.rstrip("/")) for l in locs}
-    want = {f"/{s}" for s in slugs} | {f"/{v['slug']}" for v in variants if not v.get("noindex")}
+    want = {f"/{s}" for s in slugs} | {f"/{v['slug']}" for v in variants if not v.get("canonical")}
     check("every tool and format page is in the sitemap", want <= pages, sorted(want - pages)[:8])
+    twins = [v for v in variants if v.get("canonical")]
+    check("twin pages (canonical to another page) stay out of the sitemap and point at a live page",
+          all(f"/{v['slug']}" not in pages and f"/{v['canonical']}" in pages for v in twins) and all(f'<link rel="canonical" href="https://toolzbaba.com/{v["canonical"]}"' in (DIST / f"{v['slug']}.html").read_text("utf-8") for v in twins),
+          [v["slug"] for v in twins][:5])
     nofile = [l for l in pages if not ((DIST / (l.strip("/") or "index")).with_suffix(".html").exists() or (DIST / l.strip("/") / "index.html").exists() or (DIST / l.strip("/")).with_suffix("").exists() or l == "/blog")]
     check("every sitemap address has a built page", not nofile, nofile[:8])
     check("no alias (redirect) address is in the sitemap", not [a for a in aliases if f"/{a}" in pages], [a for a in aliases if f"/{a}" in pages][:5])

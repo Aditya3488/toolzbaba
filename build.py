@@ -194,8 +194,8 @@ def fit_title(title: str) -> str:
 
 
 def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: bool = False, trackers: bool = True,
-         alts: list | None = None, lang: str = "en") -> str:
-    url = SITE_URL + path
+         alts: list | None = None, lang: str = "en", canonical: str | None = None) -> str:
+    url = SITE_URL + (canonical or path)   # a twin page (JPEG / JPG) points search engines at the one that should rank
     title = fit_title(title)
     img = SITE_URL + "/assets/og.png"
     tags = [GTM_HEAD.replace("{id}", GTM_ID)] if GTM_ID and trackers else []
@@ -240,7 +240,7 @@ def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: 
 
 # trackers=False leaves out Tag Manager and HEAD_EXTRA: the admin page runs only the site's own scripts (see _headers)
 def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=False, extra: dict | None = None,
-           trackers: bool = True, lang: str = "en", tr=None, alts: list | None = None, prefix: str = "") -> str:
+           trackers: bool = True, lang: str = "en", tr=None, alts: list | None = None, prefix: str = "", canonical: str | None = None) -> str:
     text = (STATIC / file).read_text("utf-8")
     if lang != "en":
         dir_attr = ' dir="rtl"' if lang in RTL else ""
@@ -248,7 +248,7 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
         text = tr_html(text, tr).replace('href="/"', f'href="{prefix}/"')
     subs = {"SITE_NAME": SITE_NAME, "SITE_URL": SITE_URL, "CONTACT_EMAIL": CONTACT_EMAIL,
             "UPDATED": time.strftime("%d %B %Y", time.gmtime((STATIC / file).stat().st_mtime)), **(extra or {})}
-    text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex, trackers, alts, lang))
+    text = text.replace("<!--HEAD-->", head(title, desc, path, jsonld, noindex, trackers, alts if not canonical else None, lang, canonical))
     for js in ("common", "admin"):
         text = text.replace(f'<script src="/assets/{js}.js"></script>', f'<script src="/assets/{js}.js?v={VERSION}"></script>')
     if GTM_ID and trackers:
@@ -307,7 +307,12 @@ def seo_block(tool: dict, tools: list, variants: list | None = None, tr=Tr({}), 
     if tool.get("base"):
         fmt.append((P + "/" + base, base_tool))
     sizes = [v for v in variants if v.get("group") == "size" and v.get("media") and v.get("media") == tool.get("media") and v["slug"] != tool["slug"]]
-    related = [t for t in tools if t["cat"] == tool["cat"] and t["slug"] != base and not t.get("href")][:8]
+    # the tools of this category plus its tab pages (Split Video, Blur & Redact PDF ...; not the "under X KB" size pages),
+    # in a fixed order; this page links to the 8 that follow it, so every page is linked from 8 others, not the same 8 from all
+    cat_of = {t["slug"]: t["cat"] for t in tools}
+    cat_items = [t for t in tools if t["cat"] == tool["cat"] and not t.get("href")] +         [v for v in variants if v.get("group") != "size" and (v.get("cat") or cat_of.get(v["base"])) == tool["cat"]]
+    i = next((n for n, t in enumerate(cat_items) if t["slug"] == tool["slug"]), -1)
+    related = [t for t in cat_items[i + 1:] + cat_items[:max(i, 0)] if t["slug"] not in (tool["slug"], base)][:8]
     links = "".join(f'<li><a href="{esc(u)}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for u, t in fmt)
     links += "".join(f'<li><a href="{P}/{esc(t["slug"])}">{esc(t["name"])}</a> – {esc(t["desc"])}</li>' for t in related)
     privacy = tool.get("privacy") or (tr("This tool runs in your browser, so your files never leave your device.") if tool["kind"] == "client"
@@ -447,7 +452,7 @@ def build():
             if v.get("faq"):
                 ld.append(faq_ld(v["faq"]))
             write(out(f"{slug}.html"), page("tool.html", f"/{slug}", title=v.get("title") or tr("{0} – Free Online Tool | {1}", v["name"], SITE_NAME),
-                                            desc=v.get("metaDesc") or tr("{0} Free, no sign-up.", v["desc"]), jsonld=ld,
+                                            desc=v.get("metaDesc") or tr("{0} Free, no sign-up.", v["desc"]), jsonld=ld, canonical=(P + "/" + v["canonical"]) if v.get("canonical") else None,
                                             extra={"SEO": seo_block(merged, ltools, lvariants, tr, P), "TOOL_NAME": v["name"], "THEAD": thead_html(merged, tr)}))
 
     for key, (file, title, desc) in LEGAL.items():
@@ -486,7 +491,7 @@ def build():
     for code, _ in built:
         P = "" if code == "en" else "/" + code
         urls += [(P + "/", "1.0")] + [(f"{P}/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
-        urls += [(f"{P}/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7") for v in variants]
+        urls += [(f"{P}/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7") for v in variants if not v.get("canonical")]   # twins point at their canonical page instead
     urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
     # the India SaaS pages: the index first, then its sectors, then each company
     urls += [(u, "0.7" if u.count("/") == 1 else ("0.6" if "/sector/" in u else "0.5")) for u in saas_urls]   # blog posts are added by functions/sitemap.xml.js

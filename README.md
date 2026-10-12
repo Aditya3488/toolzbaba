@@ -424,6 +424,14 @@ A small CMS built into the admin panel (the Blog tab), free on Cloudflare: no Wo
 * **Renaming** a published post keeps the old address as a 301 redirect (`blog:moved:<old>`).
 * KV keys: `blog:index` (summaries), `blog:post:<slug>`, `blog:moved:<slug>`, `blogimg:<id>.<ext>`. Code: `functions/blog/*`, `functions/api/admin/blog/*`, `functions/api/admin/blog-image.js`, `lib/blog-store.js`.
 
+### Analytics events (what the site tells Tag Manager)
+
+The pages push two events into `dataLayer` (`HT.track` in `common.js`), nothing else: `tool_run` `{tool, ok, seconds}` when a
+tool job finishes, and `tool_download` `{tool, ext}` when a result is downloaded (the file's extension only, never its name).
+GA4 only sees them once the container has a *Custom Event* trigger for each name and a GA4 event tag that forwards `tool`,
+`ok`, `seconds` and `ext` as event parameters (then register them as custom dimensions in GA4). Until then GA4 has page views
+only; tool runs are still counted on `/admin → Real visitors`.
+
 ### Ratings, next steps, recent tools
 * **Rate this tool** (`functions/api/rating.js`): votes live in the D1 database `toolzbaba-ratings` (binding `DB` in `wrangler.toml`, table `ratings`: one row per tool and visitor, the visitor being a salted hash of the IP, salt `RATING_SALT` or else `ADMIN_KEY`). A tool and its tab pages share one score. The average shows by the tool's name and as `aggregateRating` in the page data once there are 5 votes (`MIN_SHOWN` in `common.js`). Real votes only: Google penalises made-up ratings.
 * **After a download** (`nextSteps` in `common.js`): Share (the phone's share sheet), Do another file, the stars, and 4 next tools (`NEXT` per tool, `NEXT_CAT` per category).
@@ -471,6 +479,10 @@ does them as parallel `fetch()` calls through `functions/api/site-fetch.js`, whi
 The chat in the board calls the worker, so it works with no server. Downloaded boards keep the map; their chat points back to the tool.
 
 ## Testing
+
+The browser tests need `tests/samples/` (not committed): `python tests/make_pdf_samples.py` and `python tests/make_image_samples.py`
+draw them. Two tests want files that cannot be generated and skip or fail without them: a real portrait as `samples/face.jpg`
+(passport photo, AI headshot) and a real Word document as `samples/real.docx` (Word to Markdown).
 
 After `python build.py`, `python tests/smoke_build.py` checks that the built site agrees with `tools.json`: unique slugs, every
 tool on the home page's HTML in every language, every slug the header menus name, the sitemap against the built pages (no

@@ -18,12 +18,14 @@ let pass = 0, fail = 0;
   }
   const ex = (c, m) => { if (!c) throw new Error(m); };
 
-  await T('bookmark: header star opens the panel with the keys', async page => {
+  // the bookmark offer is a toast (HT.bookmark): a click on it shows the keys or taps for the device; Esc and × close it
+  await T('bookmark: header star opens the toast, a click shows the keys, Esc and × close it', async page => {
     await page.goto(BASE + '/', { waitUntil: 'networkidle' });
-    await page.locator('.bmbtn').click(); await page.waitForSelector('.bmpanel');
-    const t = await page.locator('.bmpanel').innerText(); ex(/Ctrl|⌘/.test(t) && /Bookmark Toolz Baba/.test(t), 'panel text: ' + t);
-    await page.keyboard.press('Escape'); await page.waitForTimeout(100); ex(!(await page.locator('.bmpanel').count()), 'Escape did not close it');
-    await page.locator('.bmbtn').click(); await page.getByRole('button', { name: 'Done' }).click(); ex(!(await page.locator('.bmpanel').count()), 'Done did not close it');
+    await page.locator('.bmbtn').click(); await page.waitForSelector('.bmtoast');
+    let t = await page.locator('.bmtoast').innerText(); ex(/Never miss free tools|Get the Toolz Baba app/.test(t), 'toast text: ' + t);
+    await page.locator('.bmtoast').click(); await page.waitForTimeout(300); t = await page.locator('.bmtoast').innerText(); ex(/Ctrl|⌘/.test(t), 'no keys shown: ' + t);
+    await page.keyboard.press('Escape'); await page.waitForTimeout(700); ex(!(await page.locator('.bmtoast').count()), 'Escape did not close it');
+    await page.locator('.bmbtn').click(); await page.waitForSelector('.bmtoast'); await page.locator('.bmx').click(); await page.waitForTimeout(700); ex(!(await page.locator('.bmtoast').count()), '× did not close it');
     return t.replace(/\s+/g, ' ').slice(0, 60);
   });
 
@@ -35,29 +37,31 @@ let pass = 0, fail = 0;
 
   await T('bookmark: footer link opens it', async page => {
     await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' });
-    await page.getByRole('link', { name: 'Bookmark this site' }).click(); await page.waitForSelector('.bmpanel');
+    await page.getByRole('link', { name: 'Bookmark this site' }).click(); await page.waitForSelector('.bmtoast');
   });
 
   await T('bookmark: iPhone gets share-sheet steps', async page => {
-    await page.goto(BASE + '/', { waitUntil: 'networkidle' });
-    await page.locator('.bmbtn').click(); const t = await page.locator('.bmpanel').innerText(); ex(/Share/.test(t) && !/Ctrl/.test(t), t);
+    await page.goto(BASE + '/', { waitUntil: 'domcontentloaded' }); await page.waitForSelector('.bmbtn');
+    await page.locator('.bmbtn').click(); await page.waitForSelector('.bmtoast'); await page.locator('.bmtoast').click(); await page.waitForTimeout(300);
+    const t = await page.locator('.bmtoast').innerText(); ex(/Share/.test(t) && !/Ctrl/.test(t), t);
     const w = await page.evaluate(() => [document.documentElement.scrollWidth, innerWidth]); ex(w[0] <= w[1] + 1, 'sideways scroll ' + w);
     return 'no sideways scroll at ' + w[1];
   }, { viewport: { width: 390, height: 800 }, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1', hasTouch: true, isMobile: true });
 
   await T('bookmark: Android gets menu steps', async page => {
-    await page.goto(BASE + '/', { waitUntil: 'networkidle' });
-    await page.locator('.bmbtn').click(); const t = await page.locator('.bmpanel').innerText(); ex(/menu/.test(t) && /bookmarks/.test(t), t);
+    await page.goto(BASE + '/', { waitUntil: 'domcontentloaded' }); await page.waitForSelector('.bmbtn');
+    await page.locator('.bmbtn').click(); await page.waitForSelector('.bmtoast'); await page.locator('.bmtoast').click(); await page.waitForTimeout(300);
+    const t = await page.locator('.bmtoast').innerText(); ex(/menu/.test(t) && /bookmarks/.test(t), t);
   }, { viewport: { width: 390, height: 800 }, userAgent: 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Mobile Safari/537.36', hasTouch: true, isMobile: true });
 
-  await T('bookmark: one reminder after the first download, never twice', async page => {
+  await T('bookmark: one reminder after the first download, not again for an hour', async page => {
     await page.goto(BASE + '/json-formatter', { waitUntil: 'networkidle' });
     const fire = () => page.evaluate(() => HT.download(new Blob(['x']), 'a.txt'));
-    await fire(); await page.waitForSelector('.bmpanel.nudge', { timeout: 5000 });
-    ex(/Bookmark this website/.test(await page.locator('.bmpanel').innerText()), 'nudge text');
-    await page.getByRole('button', { name: 'Not now' }).click(); ex(!(await page.locator('.bmpanel').count()), 'not closed');
-    await fire(); await page.waitForTimeout(2200); ex(!(await page.locator('.bmpanel').count()), 'the reminder came back');
-    await page.reload({ waitUntil: 'networkidle' }); await fire(); await page.waitForTimeout(2200); ex(!(await page.locator('.bmpanel').count()), 'the reminder came back after a reload');
+    await fire(); await page.waitForSelector('.bmtoast', { timeout: 5000 });
+    ex(/Never miss free tools|Get the Toolz Baba app/.test(await page.locator('.bmtoast').innerText()), 'nudge text');
+    await page.locator('.bmx').click(); await page.waitForTimeout(700); ex(!(await page.locator('.bmtoast').count()), 'not closed');
+    await fire(); await page.waitForTimeout(2200); ex(!(await page.locator('.bmtoast').count()), 'the reminder came back');
+    await page.reload({ waitUntil: 'networkidle' }); await fire(); await page.waitForTimeout(2200); ex(!(await page.locator('.bmtoast').count()), 'the reminder came back after a reload');
   });
 
   // ---------------------------------------------------------------- EXIF viewer, collage layouts, tab pages on the home page
@@ -76,17 +80,18 @@ let pass = 0, fail = 0;
     ex(/No hidden information/.test(await page.locator('.exv-sum').innerText()), await page.locator('.exv-sum').innerText());
   });
   await T('collage: layouts are drawings, and picking one changes the collage', async page => {
-    await page.goto(BASE + '/photo-collage-maker', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', [SAMPLES + 'photo.jpeg', SAMPLES + 'face.jpg', SAMPLES + 'big_photo.jpg', SAMPLES + 'photo_exif.jpg']); await page.waitForSelector('.laypick .layopt');
+    await page.goto(BASE + '/photo-collage-maker', { waitUntil: 'networkidle' }); await page.setInputFiles('input[type=file]', [SAMPLES + 'photo.jpeg', SAMPLES + 'photo_exif.jpg', SAMPLES + 'big_photo.jpg', SAMPLES + 'photo_exif.jpg']); await page.waitForSelector('.laypick .layopt');
     ex(await page.locator('.layopt').count() === 7, 'layouts ' + await page.locator('.layopt').count()); ex(await page.locator('.layopt svg rect').count() >= 20, 'the drawings are missing');
     const before = await page.locator('.pv canvas').evaluate(c => c.toDataURL().length); await page.locator('.layopt', { hasText: 'Featured left' }).click(); await page.waitForTimeout(900);
     ex(await page.locator('.layopt.on', { hasText: 'Featured left' }).count() === 1, 'not marked as chosen'); const after = await page.locator('.pv canvas').evaluate(c => c.toDataURL().length); ex(before !== after, 'the preview did not change');
   });
-  await T('home page: a tool with tabs is one card; its tab pages open through its tabs and the search', async page => {
+  await T('home page: a tool with tabs is one card; its tab pages open through its tabs and the header search', async page => {
     await page.goto(BASE + '/', { waitUntil: 'networkidle' }); await page.waitForSelector('.tcard');
-    for (const n of ['Blur & Redact PDF', 'LinkedIn Carousel Maker', 'Instagram Carousel Splitter', 'Video to Text', 'Split Video', 'Merge Audio Files', 'Add Watermark to PDF', 'AI Headshot Generator', 'Color Palette Generator']) ex(await page.locator('.tcard', { hasText: n }).count() === 0, n + ' is a tab and must not be a card of its own');
-    const icons = await page.locator('.tcard .ic').evaluateAll(es => new Set(es.map(e => e.innerHTML)).size); ex(icons >= 45, 'the cards share too few icons: ' + icons + ' different ones');   // every tool has its own icon
-    await page.fill('#q', 'redact'); await page.waitForTimeout(300); ex(await page.locator('.tcard:not(.hidden)', { hasText: 'Pixelate Image' }).count() === 1, 'the search for "redact" should find the tool that has the tab');
-    await page.goto(BASE + '/pixelate-image', { waitUntil: 'networkidle' }); await page.locator('.vtabs').getByRole('tab', { name: /PDF blur/ }).click(); await page.waitForURL('**/blur-redact-pdf'); await page.waitForSelector('#tool .drop');
+    for (const n of ['Blur & Redact PDF', 'LinkedIn Carousel Maker', 'Instagram Carousel Splitter', 'Video to Text', 'Split Video', 'Merge Audio Files', 'Add Watermark to PDF', 'AI Headshot Generator']) ex(!(await page.locator('.tcard', { hasText: n }).count()), n + ' has a card of its own');
+    const icons = await page.locator('.tcard .ic').evaluateAll(es => new Set(es.map(e => e.innerHTML)).size); ex(icons >= 45, 'the cards share too few icons: ' + icons + ' different ones');
+    await page.fill('.hsearch input', 'redact'); await page.waitForTimeout(400); const hits = await page.locator('.hres a').allInnerTexts(); ex(hits.some(t => /Blur & Redact PDF/.test(t)), 'the header search for "redact" should find the PDF tab page: ' + hits.join(' | '));
+    await page.goto(BASE + '/pixelate-image', { waitUntil: 'networkidle' }); await page.locator('.vtabs').getByRole('tab', { name: /PDF blur/ }).click(); await page.waitForURL('**/blur-redact-pdf'); ex(await page.locator('h1').innerText() === 'Blur & Redact PDF', 'tab page did not open');
+    return 'icons ' + icons + ', search hits ' + hits.length;
   });
 
   // ---- JavaScript error monitoring (HT.errors in common.js -> /api/errors): one clean beacon per kind, extension errors ignored

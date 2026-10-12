@@ -160,7 +160,10 @@
   HT.loadScript = src => (src = HT.ver(src), scripts[src] || (scripts[src] = new Promise((res, rej) => { const s = el('script', Object.assign({ src }, /\/assets\/tools\//.test(src) ? { type: 'module' } : {})); s.onload = res; s.onerror = () => rej(new Error('Could not load ' + src)); document.head.append(s); })));
 
   // ---------------------------------------------------------------- files / images / downloads
+  // one line into the data layer Tag Manager reads: GA4 sees it once a trigger for the event name exists in the container
+  HT.track = (event, data) => { try { (window.dataLayer = window.dataLayer || []).push({ event, ...data }); } catch { } };
   HT.download = (blobOrUrl, name) => {
+    HT.track('tool_download', { tool: (location.pathname.replace(LANG_PREFIX, '').match(/^\/([a-z0-9][a-z0-9-]*)$/) || [])[1] || 'home', ext: String(name || '').split('.').pop().toLowerCase().slice(0, 8) });
     const url = typeof blobOrUrl === 'string' ? blobOrUrl : URL.createObjectURL(blobOrUrl);
     const a = el('a', { href: url, download: name }); document.body.append(a); a.click(); a.remove();
     lastFile = typeof blobOrUrl === 'string' ? { url: blobOrUrl, name } : { blob: blobOrUrl, name };
@@ -407,7 +410,7 @@
       console.warn(e);   // a message for the visitor (wrong password, no face found ...) is not a crash
       Object.assign(job, { status: 'error', error: (e && e.message) || 'Processing failed.' });
     });
-    job.done.then(() => HT.rum && HT.rum.run(slug, performance.now() - t0, job.status === 'done'));
+    job.done.then(() => { HT.rum && HT.rum.run(slug, performance.now() - t0, job.status === 'done'); HT.track('tool_run', { tool: slug, ok: job.status === 'done' ? 1 : 0, seconds: Math.round((performance.now() - t0) / 100) / 10 }); });
     return { id };
   };
   HT.poll = (id, onStatus) => new Promise((res, rej) => {
