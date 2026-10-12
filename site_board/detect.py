@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from html import unescape as _html_unescape
 
 # name, category, regex that proves it is there, optional regex that captures its ID
 SIGNATURES = [
@@ -107,6 +108,66 @@ REVIEW_SITES = {"clutch.co": "Clutch", "goodfirms.co": "GoodFirms", "trustpilot.
 
 
 GOOGLE_NATIVE = {"Google Ads", "Floodlight (DV360 / CM360)", "Google AdSense", "Google Analytics 4", "Universal Analytics"}
+
+# Places a brand can send its own visitors to buy the same product, where someone else keeps the margin and the customer.
+MARKETPLACES = {
+    "amazon.": "Amazon", "amzn.": "Amazon", "flipkart.com": "Flipkart", "fkrt.": "Flipkart", "myntra.com": "Myntra",
+    "nykaa.com": "Nykaa", "ajio.com": "AJIO", "meesho.com": "Meesho", "snapdeal.com": "Snapdeal", "tatacliq.com": "Tata CLiQ",
+    "jiomart.com": "JioMart", "blinkit.com": "Blinkit", "zepto": "Zepto", "swiggy.com": "Instamart", "bigbasket.com": "BigBasket",
+    "firstcry.com": "FirstCry", "purplle.com": "Purplle", "etsy.com": "Etsy", "ebay.": "eBay", "walmart.com": "Walmart",
+    "target.com": "Target", "noon.com": "noon", "shopee.": "Shopee", "lazada.": "Lazada", "alibaba.com": "Alibaba",
+    "aliexpress.com": "AliExpress", "shop.app": "Shop app", "instagram.com/shop": "Instagram Shop",
+}
+
+# What the announcement bar promises. These are the levers that move average order value the most in direct-to-consumer.
+_NUM = r"([\d][\d,.]{1,9})"
+OFFER_RULES = [
+    ("freeShipOver", r"free\s+(?:standard\s+|express\s+)?(?:shipping|delivery)\s+(?:on\s+)?(?:all\s+)?(?:orders?\s+)?(?:over|above|from|worth|of)[^\d]{0,12}" + _NUM),
+    ("freeShipAll", r"free\s+(?:shipping|delivery)\s+(?:on\s+)?(?:all\s+orders|everything|sitewide|site-wide|nationwide|india|worldwide)"),
+    ("codFree", r"free\s+(?:cash\s+on\s+delivery|cod)\b"),
+    ("cod", r"\bcash\s+on\s+delivery\b|\bcod\s+available\b|\(\s*cod\s*\)"),
+    ("returnDays", r"(\d{1,3})[-\s]?days?\s+(?:easy\s+|free\s+|no[- ]questions[- ]asked\s+)?(?:returns?|exchanges?|replacement)"),
+    ("freeReturns", r"free\s+(?:returns?|exchanges?)"),
+    ("emi", r"\bno[-\s]?cost\s+emi\b|\beasy\s+emi\b"),
+    ("bnpl", r"\bpay\s+later\b|\bbuy\s+now,?\s+pay\s+later\b|\b3\s+interest[- ]free\b"),
+    ("firstOrder", r"(?:flat\s+)?" + _NUM + r"\s*%\s*(?:off|discount)\s+(?:on\s+)?(?:your\s+)?first\s+order"),
+]
+_OFFERS = [(k, re.compile(p, re.I)) for k, p in OFFER_RULES]
+
+# Express buttons let a shopper skip the whole checkout form, so their presence is the cheapest friction win there is.
+EXPRESS = {"Shop Pay": r"shop_?pay|shopify[-_]payment[-_]button|ShopPay", "Google Pay": r"google[-_\s]?pay|\bgpay\b",
+           "Apple Pay": r"apple[-_]?pay", "PayPal express": r"paypal[-_]?(express|smart|button)", "Amazon Pay": r"amazon[-_]?pay",
+           "Shopify dynamic checkout": r"dynamic[-_]checkout|shopify-payment-button__button"}
+_EXPRESS = [(n, re.compile(p, re.I)) for n, p in EXPRESS.items()]
+
+
+def marketplaces(hosts: dict) -> dict:
+    """Marketplace -> how many links point at it, from the outside hosts the crawl saw."""
+    out: dict[str, int] = {}
+    for host, n in (hosts or {}).items():
+        for needle, name in MARKETPLACES.items():
+            if needle in host:
+                out[name] = out.get(name, 0) + n
+                break
+    return dict(sorted(out.items(), key=lambda kv: -kv[1]))
+
+
+def offers(html: str) -> dict:
+    """Shipping, COD, returns and payment promises written on the page (usually the announcement bar)."""
+    text = re.sub(r"<(script|style)[^>]*>[\s\S]*?</\1>", " ", html or "", flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", _html_unescape(text))[:200_000]
+    out: dict = {}
+    for key, rx in _OFFERS:
+        m = rx.search(text)
+        if not m:
+            continue
+        out[key] = m.group(1) if m.groups() and m.group(1) else True
+    return out
+
+
+def express_checkout(html: str) -> list[str]:
+    return [n for n, rx in _EXPRESS if rx.search(html or "")]
 
 
 def split_gtm(code: str) -> tuple[str, str]:

@@ -21,6 +21,27 @@ TEMPLATE_STR = re.compile(r"`([^`]{200,})`")
 
 PAGE_BYTES = 600_000   # how much of one page is read: enough for the <head>, the headings and the links on it
 WAVE = 120             # pages asked for at once; the driver decides how many of them run in parallel
+PRODUCT_PATH = re.compile(r"^/(products?|product-page|item|p)/", re.I)
+FORM_FIELD = re.compile(r"<(?:input|select|textarea)\b(?![^>]*\btype\s*=\s*[\"']?(?:hidden|submit|button|image)\b)", re.I)
+REQUIRED_FIELD = re.compile(r"<(?:input|select|textarea)\b[^>]*\brequired\b", re.I)
+BLOG_PATH = re.compile(r"^/(blogs?|news|articles?|posts?|insights?|stories|journal|learn|guides?)(/|$)", re.I)
+
+
+def _outside_host(href: str, base: str, host: str) -> str | None:
+    """The host a link points at, when it leaves this site (so marketplace links can be counted)."""
+    h = (href or "").strip()
+    if not h or h.startswith(("#", "javascript:", "mailto:", "tel:", "sms:", "data:")):
+        return None
+    try:
+        u = urlsplit(urljoin(base, h))
+    except ValueError:
+        return None
+    if u.scheme not in ("http", "https"):
+        return None
+    name = (u.hostname or "").lower()
+    if not name or name.replace("www.", "", 1) == host.replace("www.", "", 1):
+        return None
+    return name
 
 
 def _norm(href: str, base: str, host: str) -> str | None:
@@ -442,24 +463,33 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
     queued = {p.lower() for p in queue} | {"/"}
     found: list[str] = []
     inbound: dict[str, int] = {}   # path -> how many other pages link to it, for hero pages and orphans
+    outside: dict[str, int] = {}   # other site -> links pointing at it, which is how marketplace leaks show up
+    to_product: dict[str, int] = {}   # path -> links it sends to product pages, for content that actually sells
+    express: set[str] = set()
 
     def page_get(path, retries=None):
         return Get(urljoin(base, path), max_bytes=PAGE_BYTES, retries=retries)
 
     def harvest(path, text):
-        """Count who links to what, and (when discovering) queue the pages we have not seen yet."""
+        """Count who links to what, who links away, and (when discovering) queue the pages we have not seen yet."""
         page_base = urljoin(base, path)
         here = path.lower()
         for href in page_links(text):
             p = _norm(href, page_base, host)
             if not p:
+                h = _outside_host(href, page_base, host)
+                if h:
+                    outside[h] = outside.get(h, 0) + 1
                 continue
             low = p.lower()
             if low != here:
                 inbound[low] = inbound.get(low, 0) + 1
+                if PRODUCT_PATH.match(low):
+                    to_product[path] = to_product.get(path, 0) + 1
             if discover and low not in queued:
                 queued.add(low)
                 found.append(p)
+        express.update(D.express_checkout(text))
 
     say(f"Checking {len(crawl)} pages" if not discover else f"Checking pages and following links (up to {want})", 0.22)
     while queue and len(pages) < want:
@@ -500,6 +530,19 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
             if f.get("s") == 429:  # still limited: unknown, not broken
                 f.update(s=None, rl=1)
     pages["/"] = {**page_facts(home.text, deep=True), "s": home.status, **({"f": fu.path.rstrip('/').lower()} if home.redirected and fu.path not in ("", "/") else {})}
+
+    # What can honestly be seen of the checkout without placing an order: the real form lives behind a filled cart,
+    # so we read the cart page itself and count the fields and express buttons a shopper meets there.
+    cart_fields = None
+    if shop and shop.get("products"):
+        try:
+            c = yield Get(urljoin(base, "/cart"), max_bytes=PAGE_BYTES, retries=1)
+        except FetchError:
+            c = None
+        if c is not None and c.status == 200:
+            cart_fields = {"inputs": len(FORM_FIELD.findall(c.text)), "required": len(REQUIRED_FIELD.findall(c.text)),
+                           "express": D.express_checkout(c.text), "offers": D.offers(c.text)}
+            express.update(cart_fields["express"])
     if pages["/"].get("og"):
         pages["/"]["og"] = urljoin(home.url, pages["/"]["og"])[:300]
 
@@ -517,6 +560,9 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         "discovered": discover, "stoppedEarly": stopped_early, "queueLeft": len(queue),
         # how many other pages link to each page we read: hero pages at the top, orphans at zero
         "inbound": {p: inbound.get(p.lower(), 0) for p in pages},
+        "outside": dict(sorted(outside.items(), key=lambda kv: -kv[1])[:40]),
+        "toProduct": to_product, "express": sorted(express),
+        "offers": D.offers(home.text), "cartFields": cart_fields,
         "homeSections": home_sections(root), "requests": stats.requests, "rateLimited": stats.rate_limited,
         "notChecked": sum(1 for f in pages.values() if f.get("rl")), "seconds": round(time.time() - t0, 1),
     }

@@ -368,6 +368,9 @@ a.btn{text-decoration:none}
 .ins .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-s);display:flex;flex-direction:column;gap:12px;min-width:0}
 .ins h4{margin:0;font:800 14px var(--f-display);letter-spacing:-.01em}
 .ins .bar{grid-template-columns:minmax(0,1fr) 120px 74px}
+.ochips{display:flex;flex-wrap:wrap;gap:6px}
+.ochip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:var(--card-2);border-radius:99px;padding:4px 10px;font:600 11.5px var(--f-body);color:var(--muted)}
+.ochip.on{border-color:color-mix(in srgb,var(--good) 55%,var(--border));color:var(--ink);background:color-mix(in srgb,var(--good) 9%,#fff)}
 .spark{display:flex;align-items:flex-end;gap:5px;height:120px}
 .spark .sp{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px}
 .spark .sp i{width:100%;background:var(--c-dm,#6b5cff);border-radius:4px 4px 0 0;opacity:.85;display:block}
@@ -735,6 +738,32 @@ if(X.catalog&&prodPages.length){
  NEXT_Y=fy+fh+120;
 }
 
+/* The second half of the D2C frame: where traffic leaks out, whether the content sells, what the bar promises,
+   whether pricing is a deliberate ladder, and how much form stands between a shopper and paying. */
+function d2cRow2(D){
+ const nf2=v=>(v||0).toLocaleString();
+ const mk=Object.entries(D.marketplaces||{}),mkTotal=mk.reduce((a,[,n])=>a+n,0),mkMax=mk.length?mk[0][1]:0;
+ const b=D.blog||{total:0,selling:0},blogGap=b.total-b.selling;
+ const O=D.offers||{},cur=D.cur||"";
+ const chip=(on,label)=>`<span class="ochip${on?" on":""}">${on?"✓":"—"} ${label}</span>`;
+ const pp=D.pricePoints||[],ppMax=pp.length?pp[0][1]:0;
+ const ex=D.express||[],cart=D.cart;
+ return `<div class="kpis6" style="margin-top:18px">
+  <div class="kpi"><b style="color:${mkTotal>20?"var(--warn)":"var(--good)"}">${nf2(mkTotal)}</b><span>Links out to marketplaces</span></div>
+  <div class="kpi"><b style="color:${b.total&&b.selling/b.total<0.5?"var(--warn)":"var(--good)"}">${b.total?Math.round(b.selling/b.total*100):0}%</b><span>Posts linking to a product</span></div>
+  <div class="kpi"><b>${O.freeShipOver?cur+O.freeShipOver:O.freeShipAll?"All orders":"—"}</b><span>Free shipping over</span></div>
+  <div class="kpi"><b>${nf2(D.distinctPrices)}</b><span>Different prices in the range</span></div>
+  <div class="kpi"><b style="color:${ex.length?"var(--good)":"var(--warn)"}">${ex.length}</b><span>Express pay buttons</span></div>
+  <div class="kpi"><b>${cart?nf2(cart.required)+" / "+nf2(cart.inputs):"—"}</b><span>Required fields on the cart</span></div></div>
+ <div class="cols3">
+  <div class="panel"><h4>Traffic sent to marketplaces</h4>${mk.length?`<p class="muted">The brand links its own visitors to places that keep the margin and the customer.</p><div class="bars" style="margin-top:10px">${mk.map(([n,v])=>`<div class="bar" style="--bc:var(--warn)"><span>${esc(n)}</span><span class="tr"><i style="width:${Math.max(2,v/Math.max(1,mkMax)*100)}%"></i></span><span class="n">${nf2(v)}</span></div>`).join("")}</div>`:`<p class="muted">No links to Amazon, Flipkart, Nykaa or other marketplaces were found. Every buying journey stays on the brand's own site.</p>`}</div>
+  <div class="panel"><h4>Does the content sell?</h4>${b.total?`<p class="muted"><b>${nf2(b.selling)}</b> of ${nf2(b.total)} posts link to a product page.${blogGap>0?` The other ${nf2(blogGap)} bring readers in and let them leave.`:" Every post has a way to buy."}</p><div class="bars" style="margin-top:10px"><div class="bar" style="--bc:var(--good)"><span>Links to a product</span><span class="tr"><i style="width:${b.total?Math.max(2,b.selling/b.total*100):0}%"></i></span><span class="n">${nf2(b.selling)}</span></div><div class="bar" style="--bc:var(--warn)"><span>No product link</span><span class="tr"><i style="width:${b.total?Math.max(2,blogGap/b.total*100):0}%"></i></span><span class="n">${nf2(blogGap)}</span></div></div>`:`<p class="muted">No blog or guide pages were found, so there is no content funnel to measure.</p>`}</div>
+  <div class="panel"><h4>What the page promises</h4><p class="muted">The announcement bar and cart, read as written.</p><div class="ochips">${chip(O.freeShipOver||O.freeShipAll,O.freeShipOver?`Free shipping over ${cur}${O.freeShipOver}`:"Free shipping, all orders")}${chip(O.cod||O.codFree,O.codFree?"Free cash on delivery":"Cash on delivery")}${chip(O.returnDays||O.freeReturns,O.returnDays?`${O.returnDays}-day returns`:"Free returns")}${chip(O.emi,"No-cost EMI")}${chip(O.bnpl,"Pay later")}${chip(O.firstOrder,O.firstOrder?`${O.firstOrder}% off first order`:"First-order offer")}</div></div></div>
+ <div class="cols3">
+  <div class="panel" style="grid-column:span 2"><h4>Price points</h4>${pp.length?`<p class="muted">The prices that repeat most. A few shared price points is a deliberate ladder; ${nf2(D.distinctPrices)} different prices across ${nf2(D.total)} products usually means nobody owns pricing.</p><div class="bars" style="margin-top:10px">${pp.map(([v,n])=>`<div class="bar" style="--bc:var(--c-ai)"><span>${inr(v)}</span><span class="tr"><i style="width:${Math.max(2,n/Math.max(1,ppMax)*100)}%"></i></span><span class="n">${nf2(n)} product${n===1?"":"s"}</span></div>`).join("")}</div>`:`<p class="muted">No prices were found in the product feed.</p>`}</div>
+  <div class="panel"><h4>Checkout friction</h4><p class="muted">What is visible without placing an order — the real checkout sits behind a filled cart.</p><div class="ochips" style="margin-top:10px">${ex.length?ex.map(n=>chip(true,n)).join(""):chip(false,"No express pay button")}${D.checkoutApp?chip(true,D.checkoutApp):""}</div>${cart?`<p class="muted" style="margin-top:10px">The cart page asks for <b>${nf2(cart.required)}</b> required field${cart.required===1?"":"s"} of ${nf2(cart.inputs)}. Every express button above lets a shopper skip them.</p>`:`<p class="muted" style="margin-top:10px">The cart page could not be read, so its fields were not counted.</p>`}</div></div>`;
+}
+
 /* 4b. direct-to-consumer checks: discount depth, dead stock, review coverage, how often new products land */
 if(D2C){
  const fx=AX,fy=NEXT_Y,pad=48,D=D2C,nf2=v=>(v||0).toLocaleString();
@@ -753,8 +782,9 @@ if(D2C){
   <div class="cols3">
   <div class="panel"><h4>How deep the discounting goes</h4><p class="muted">An average hides the tail. This is the whole range, product by product.</p><div class="bars" style="margin-top:10px">${D.discount.map(([n,v],i)=>`<div class="bar" style="--bc:var(${["--good","--c-ai","--warn","--bad"][i]})"><span>${n}</span><span class="tr"><i style="width:${Math.max(2,v/Math.max(1,dmax)*100)}%"></i></span><span class="n">${nf2(v)}</span></div>`).join("")}</div></div>
   <div class="panel"><h4>Sold out, still earning clicks</h4>${D.soldOut?`<p class="muted"><b>${nf2(D.soldOut)}</b> of ${nf2(D.total)} products cannot be bought today, but their pages still take search and ad traffic.</p><div class="orph" style="margin-top:10px">${D.soldOutNames.map(([t,s])=>`<button type="button"${s?` data-slug="${esc(s.slice(1))}"`:""} title="${esc(t)}">${esc(t)}</button>`).join("")}</div>`:`<p class="muted">Every product in the feed is in stock. No sold-out page is spending ad budget.</p>`}</div>
-  <div class="panel"><h4>New products by month</h4>${D.new?`<div class="spark">${D.new.map(([m,v])=>`<div class="sp" title="${nf2(v)} added in ${mLabel(m)}"><i style="height:${Math.max(4,v/Math.max(1,nmax)*100)}%"></i><span>${mLabel(m).slice(0,3)}</span></div>`).join("")}</div><p class="muted" style="margin-top:8px">A flat tail means the range has stopped moving; buyers and Google both notice.</p>`:`<p class="muted">The product feed does not say when products were added, so freshness cannot be measured.</p>`}</div></div></div>`;
- const fh=620;
+  <div class="panel"><h4>New products by month</h4>${D.new?`<div class="spark">${D.new.map(([m,v])=>`<div class="sp" title="${nf2(v)} added in ${mLabel(m)}"><i style="height:${Math.max(4,v/Math.max(1,nmax)*100)}%"></i><span>${mLabel(m).slice(0,3)}</span></div>`).join("")}</div><p class="muted" style="margin-top:8px">A flat tail means the range has stopped moving; buyers and Google both notice.</p>`:`<p class="muted">The product feed does not say when products were added, so freshness cannot be measured.</p>`}</div></div>
+  ${d2cRow2(D)}</div>`;
+ const fh=1300;
  xframe(fx,fy,AW,fh,"Direct-to-consumer checks","Discount depth, dead stock, review coverage and how often new products land — the things that quietly cost a D2C brand margin and trust.","--c-dm","d2c");
  nodesHtml.push(`<div class="node insnode" style="left:${fx+pad}px;top:${fy+140}px;width:${AW-pad*2}px;height:${fh-180}px">${html}</div>`);
  NEXT_Y=fy+fh+120;

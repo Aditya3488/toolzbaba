@@ -4,6 +4,7 @@ from __future__ import annotations
 import re
 from collections import Counter, OrderedDict
 
+from . import detect as DETECT
 from .detect import SYMBOL
 
 PALETTE = ["--c-about", "--c-services", "--c-tech", "--c-dm", "--c-ai", "--c-res", "--c-contact", "--c-x1", "--c-x2", "--c-x3"]
@@ -35,6 +36,7 @@ def find_pages(rep: dict, pattern: str, limit: int = 3) -> list[str]:
 
 
 PRODUCTISH = re.compile(r"^/(products?|product-page|item|p)/", re.I)
+BLOG_RX = re.compile(r"^/(blogs?|news|articles?|posts?|insights?|stories|journal|learn|guides?)(/|$)", re.I)
 
 
 def shelf_page(rep: dict, words: str) -> str | None:
@@ -309,6 +311,30 @@ def d2c(rep: dict, cat: dict | None) -> dict | None:
     months = Counter(p["created"][:7] for p in ps if p.get("created"))
     if len(months) > 1:
         out["new"] = sorted(months.items())[-12:]
+
+    # Where the brand sends its own visitors to buy from someone else.
+    out["marketplaces"] = DETECT.marketplaces(rep.get("outside") or {})
+
+    # Does the content actually sell? A blog that never links to a product is a cost centre.
+    blog = [p for p, f in rep["pages"].items() if BLOG_RX.match(p) and f.get("s") == 200]
+    to_prod = rep.get("toProduct") or {}
+    out["blog"] = {"total": len(blog), "selling": sum(1 for p in blog if to_prod.get(p))}
+
+    # The two promises that move average order value most, as written on the page.
+    off = dict(rep.get("offers") or {})
+    off.update((rep.get("cartFields") or {}).get("offers") or {})
+    out["offers"] = off
+
+    # How many different prices the range really has: a handful of repeated price points is a deliberate ladder,
+    # hundreds of one-off prices usually means nobody owns pricing.
+    pc = Counter(p["price"] for p in ps if p["price"] > 0)
+    out["pricePoints"] = pc.most_common(6)
+    out["distinctPrices"] = len(pc)
+
+    # Checkout friction, limited to what can be seen without placing an order.
+    out["express"] = rep.get("express") or []
+    out["cart"] = {k: v for k, v in (rep.get("cartFields") or {}).items() if k in ("inputs", "required")} or None
+    out["checkoutApp"] = next((n for n in ("GoKwik checkout", "Shopflo checkout", "Razorpay Magic") if n in rep["tools"]), "")
     return out
 
 
