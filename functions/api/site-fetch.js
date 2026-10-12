@@ -46,7 +46,7 @@ export async function onRequestGet({ request, env }) {
   if (from && from !== 'same-origin') return fail(403, 'This only works from the Visual Sitemap Generator on toolzbaba.com.');
   let cur = checkUrl(q.get('url') || '', env);
   if (!cur || cur.hostname === here.hostname) return fail(400, 'Enter a full public web address, like https://example.com');
-  const max = Math.min(MAX, Math.max(10_000, Number(q.get('max')) || 2_000_000));
+  const max = Math.min(MAX, Math.max(10_000, Number(q.get('max')) || 2_000_000));  // a caller may not ask for more than MAX
   const accept = ACCEPT[q.get('accept')] || ACCEPT.html;
   const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), TIMEOUT);
   let redirected = false;

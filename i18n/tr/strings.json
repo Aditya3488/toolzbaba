@@ -541,6 +541,7 @@
 "Every page into its own PDF": "Her sayfa kendi PDF'sine",
 "Every so many seconds": "Her birkaç saniyede bir",
 "Every tool runs inside your browser, so your files never leave your device. Nothing is uploaded.": "Her araç tarayıcınızın içinde çalışır, böylece dosyalarınız cihazınızdan hiç çıkmaz. Hiçbir şey yüklenmez.",
+"Every file tool runs inside your browser, so your files never leave your device. Only the Temporary File Share tool uploads, and its page says so.": "Her dosya aracı tarayıcınızda çalışır, bu yüzden dosyalarınız cihazınızdan asla ayrılmaz. Yalnızca Geçici Dosya Paylaşımı aracı yükleme yapar ve sayfasında bu belirtilir.",
 "Everything except my area": "Alanım dışındaki her şey",
 "Everything in one place": "Her şey tek bir yerde",
 "Everything into pictures (nothing can be edited or copied)": "Her şey resim olarak (hiçbir şey düzenlenemez veya kopyalanamaz)",

@@ -141,6 +141,7 @@ a.chip:hover { border-color:var(--accent); color:var(--accent); text-decoration:
 .tcard:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:color-mix(in srgb,var(--cc,var(--accent)) 45%,var(--border)); text-decoration:none; }
 .tcard .ic { flex:none; width:46px; height:46px; display:grid; place-items:center; font-size:1.45rem; line-height:1; border-radius:13px;
   background:color-mix(in srgb,var(--cc,var(--accent)) 13%,transparent); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cc,var(--accent)) 22%,transparent); }
+.tcard .ic:empty { background:var(--accent-soft); }
 .tcard b { display:block; font-size:1rem; letter-spacing:-.01em; margin-bottom:3px; }
 .tcard span.d { color:var(--muted); font-size:.85rem; line-height:1.4; display:block; }
 .tcard .go { position:absolute; right:14px; top:14px; color:var(--faint); opacity:0; transform:translateX(-4px); transition:.16s; font-size:1rem; }

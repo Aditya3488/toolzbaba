@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import { onRequestGet as siteColors } from '../functions/api/site-colors.js';
 import { onRequestGet as siteFetch } from '../functions/api/site-fetch.js';
+import { withoutArchived } from '../functions/sitemap.xml.js';
 import { onRequestPost as upload } from '../functions/api/files/index.js';
 import { onRequestDelete as remove } from '../functions/api/files/[id].js';
 import { onRequestGet as download } from '../functions/f/[id]/[name].js';
@@ -243,6 +244,16 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
     assert.equal(r.headers.get('X-Upstream-Status'), '429'); assert.equal(r.headers.get('X-Retry-After'), '7');
   } finally { globalThis.fetch = realFetch; }
   ok('site-fetch: public pages only, redirects checked, text only, size cap');
+}
+
+// ---- sitemap: a tool the admin switched off leaves the sitemap in every language, nothing else moves
+{
+  const xml = ['/', '/compress-image', '/hi/compress-image', '/anime-style', '/de/anime-style', '/anime-style-2', '/blog'].map(p => `<url><loc>https://toolzbaba.com${p}</loc><lastmod>2026-10-01</lastmod></url>`).join('\n') + '\n</urlset>';
+  const out = withoutArchived(xml, ['anime-style']);
+  assert.ok(!out.includes('/anime-style</loc>') && !out.includes('/de/anime-style</loc>'), 'the archived tool is gone in every language');
+  assert.ok(out.includes('/anime-style-2</loc>') && out.includes('/compress-image</loc>') && out.includes('/hi/compress-image</loc>') && out.includes('/blog</loc>'), 'other pages stay');
+  assert.equal(out.split('<url>').length - 1, 5);
+  ok('sitemap: archived tools are left out, other pages untouched');
 }
 
 console.log(`\n${pass}/${pass} passed`);

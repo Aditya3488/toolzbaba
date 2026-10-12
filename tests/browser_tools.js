@@ -122,7 +122,7 @@ let pass = 0, fail = 0;
 
   // ------------------------------------------------------------------ audio / video
   await T('audio-cutter (UI)', async page => {
-    await go(page, 'audio-cutter'); await feed(page, 'tone.mp3'); await page.waitForFunction(() => document.querySelector('video') && document.querySelector('video').duration > 1, null, { timeout: 15000 });
+    await go(page, 'split-audio'); await feed(page, 'tone.mp3'); await page.waitForFunction(() => document.querySelector('video') && document.querySelector('video').duration > 1, null, { timeout: 15000 });
     const vals = await page.evaluate(() => [...document.querySelectorAll('input[type=text]')].map(i => i.value)); if (vals[1] !== '0:05.0') throw new Error('end not auto-filled: ' + vals);
     await page.locator('input[type=text]').nth(0).fill('1'); await page.locator('input[type=text]').nth(1).fill('3'); await btn(page, /^Split audio/).click(); const t = await resultText(page);
     if (!(await page.evaluate(() => !!document.querySelector('.result audio')))) throw new Error('no audio player in result'); return t;

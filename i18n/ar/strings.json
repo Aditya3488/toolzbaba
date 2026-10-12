@@ -541,6 +541,7 @@
 "Every page into its own PDF": "كل صفحة في ملف PDF مستقل",
 "Every so many seconds": "كل عدد من الثواني",
 "Every tool runs inside your browser, so your files never leave your device. Nothing is uploaded.": "تعمل كل أداة داخل متصفحك، فلا تغادر ملفاتك جهازك. لا يتم رفع أي شيء.",
+"Every file tool runs inside your browser, so your files never leave your device. Only the Temporary File Share tool uploads, and its page says so.": "كل أداة ملفات تعمل داخل متصفحك، لذا لا تغادر ملفاتك جهازك أبدًا. أداة المشاركة المؤقتة للملفات وحدها ترفع الملفات، وصفحتها تذكر ذلك.",
 "Everything except my area": "كل شيء ما عدا منطقتي",
 "Everything in one place": "كل شيء في مكان واحد",
 "Everything into pictures (nothing can be edited or copied)": "كل شيء إلى صور (لا يمكن تحرير أي شيء أو نسخه)",

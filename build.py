@@ -258,12 +258,32 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
     return text
 
 
-RAW_SUBS = ("SEO", "THEAD", "BODY")   # these hold HTML made here; every other value is escaped
+RAW_SUBS = ("SEO", "THEAD", "BODY", "TOOLS")   # these hold HTML made here; every other value is escaped
 LOCK_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
             '<rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>')
 
 
 # the tool's name, short line and badges, in the page itself: they show at once and need no reserved room (common.js adds the icon)
+def tools_html(d: dict, tr=Tr({}), P: str = "") -> str:
+    """The home page's tool list as plain HTML, so crawlers and visitors without JavaScript get every tool link.
+    The page's script redraws the same list (icons, counts, the category tabs) once the tool data has loaded."""
+    out = []
+    for c in d["categories"]:
+        items = [t for t in d["tools"] if t.get("cat") == c["id"]]
+        if not items:
+            continue
+        cards = []
+        for t in items:
+            tags = "".join(f'<span class="tag {k}">{esc(tr(v))}</span>' for k, v in (("local", "In your browser"), ("ai", "AI"))
+                           if (k == "local" and t.get("kind") == "client") or (k == "ai" and t.get("cat") == "ai"))
+            cards.append(f'<a class="tcard cat-{esc(t["cat"])}" href="{esc(t.get("href") or P + "/" + t["slug"])}"><div class="ic"></div>'
+                         f'<div><b>{esc(t["name"])}</b><span class="d">{esc(t.get("desc", ""))}</span><div>{tags}</div></div><span class="go">→</span></a>')
+        n = len(items)
+        out.append(f'<section data-cat="{esc(c["id"])}" id="{esc(c["id"])}" class="cat-{esc(c["id"])}"><div class="sec-h"><h2>{esc(c["name"])}</h2>'
+                   f'<span>{esc(tr("{0} tool" if n == 1 else "{0} tools", n))}</span></div><div class="grid">{"".join(cards)}</div></section>')
+    return "\n".join(out)
+
+
 def thead_html(t: dict, tr=Tr({})) -> str:
     client = t.get("kind") == "client"
     badges = [f'<span class="badge ok">{LOCK_SVG}{esc(tr("Runs in your browser"))}</span>' if client else f'<span class="badge ok">{esc(t.get("badge") or tr("Links last 90 days"))}</span>']
@@ -368,8 +388,8 @@ def build():
                "url": SITE_URL + "/", "logo": {"@type": "ImageObject", "url": SITE_URL + "/assets/brand/icon-512.png", "width": 512, "height": 512}}
         site = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "alternateName": SITE_NAME.replace(" ", ""), "url": SITE_URL + P + "/", "inLanguage": code,
                 "publisher": {"@id": SITE_URL + "/#org"}}
-        write(out("index.html"), page("index.html", "/", title=f"{SITE_NAME} – {tr(TAGLINE)}", jsonld=[org, site],
-                                      desc=tr("Compress and resize images, edit PDFs, convert video, remove backgrounds with AI and more. {0} free online tools, no sign-up. They run right in your browser, so your files stay private.", len(tools))))
+        write(out("index.html"), page("index.html", "/", title=f"{SITE_NAME} – {tr(TAGLINE)}", jsonld=[org, site], extra={"TOOLS": tools_html(d, tr, P)},
+                                      desc=tr("Compress and resize images, edit PDFs, convert video, remove backgrounds with AI and more. {0} free online tools, no sign-up. They run right in your browser, so your files stay private.", f"{len(ltools) // 5 * 5}+")))
 
         # one page per tool, at the site root: /<slug> (old /tool/<slug> links get a permanent redirect, see the end)
         for tool in ltools:

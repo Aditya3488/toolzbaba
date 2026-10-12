@@ -537,6 +537,7 @@
 "Every page into its own PDF": "Mỗi trang thành một PDF riêng",
 "Every so many seconds": "Cứ mỗi vài giây",
 "Every tool runs inside your browser, so your files never leave your device. Nothing is uploaded.": "Mọi công cụ đều chạy ngay trong trình duyệt của bạn, nên tệp không bao giờ rời khỏi thiết bị. Không có gì được tải lên.",
+"Every file tool runs inside your browser, so your files never leave your device. Only the Temporary File Share tool uploads, and its page says so.": "Mọi công cụ tệp đều chạy trong trình duyệt của bạn, nên tệp của bạn không bao giờ rời khỏi thiết bị. Chỉ công cụ Chia sẻ tệp tạm thời mới tải lên, và trang của nó có ghi rõ.",
 "Everything except my area": "Mọi thứ trừ vùng của tôi",
 "Everything in one place": "Mọi thứ ở một nơi",
 "Everything into pictures (nothing can be edited or copied)": "Tất cả thành hình ảnh (không thể sửa hoặc sao chép)",

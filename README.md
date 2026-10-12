@@ -470,6 +470,10 @@ The chat in the board calls the worker, so it works with no server. Downloaded b
 
 ## Testing
 
+After `python build.py`, `python tests/smoke_build.py` checks that the built site agrees with `tools.json`: unique slugs, every
+tool on the home page's HTML in every language, every slug the header menus name, the sitemap against the built pages (no
+alias in it, every alias redirected), the tool count in the page text, and robots.txt. Run it before every deploy.
+
 Start the app (`start.bat`), then in another terminal:
 
 ```bash

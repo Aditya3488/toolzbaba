@@ -542,6 +542,7 @@
 "Every page into its own PDF": "各ページを個別の PDF に",
 "Every so many seconds": "数秒ごと",
 "Every tool runs inside your browser, so your files never leave your device. Nothing is uploaded.": "すべてのツールがブラウザ内で動作するので、ファイルがお使いの端末から出ることはありません。アップロードは一切されません。",
+"Every file tool runs inside your browser, so your files never leave your device. Only the Temporary File Share tool uploads, and its page says so.": "すべてのファイルツールはブラウザ内で動作するため、ファイルが端末の外に出ることはありません。アップロードするのは「一時ファイル共有」ツールだけで、そのページにその旨が書かれています。",
 "Everything except my area": "自分の選択範囲以外すべて",
 "Everything in one place": "すべてをひとつの場所に",
 "Everything into pictures (nothing can be edited or copied)": "すべてを画像に（編集やコピーは不可）",

@@ -542,6 +542,7 @@
 "Every page into its own PDF": "Каждая страница в отдельный PDF",
 "Every so many seconds": "Каждые несколько секунд",
 "Every tool runs inside your browser, so your files never leave your device. Nothing is uploaded.": "Каждый инструмент работает прямо в вашем браузере, поэтому ваши файлы не покидают устройство. Ничего не загружается на сервер.",
+"Every file tool runs inside your browser, so your files never leave your device. Only the Temporary File Share tool uploads, and its page says so.": "Каждый инструмент для файлов работает в вашем браузере, поэтому ваши файлы никогда не покидают устройство. Загружает файлы только инструмент «Временный обмен файлами», и его страница об этом сообщает.",
 "Everything except my area": "Всё, кроме моей области",
 "Everything in one place": "Всё в одном месте",
 "Everything into pictures (nothing can be edited or copied)": "Всё в картинки (ничего нельзя будет редактировать или копировать)",

@@ -533,6 +533,7 @@
 "Every page into its own PDF": "Chaque page dans son propre PDF",
 "Every so many seconds": "Toutes les X secondes",
 "Every tool runs inside your browser, so your files never leave your device. Nothing is uploaded.": "Chaque outil fonctionne dans votre navigateur : vos fichiers ne quittent jamais votre appareil. Rien n'est envoyé.",
+"Every file tool runs inside your browser, so your files never leave your device. Only the Temporary File Share tool uploads, and its page says so.": "Chaque outil de fichiers fonctionne dans votre navigateur, vos fichiers ne quittent donc jamais votre appareil. Seul l'outil Partage temporaire de fichiers envoie des fichiers, et sa page le précise.",
 "Everything except my area": "Tout sauf ma zone",
 "Everything in one place": "Tout au même endroit",
 "Everything into pictures (nothing can be edited or copied)": "Tout en images (rien ne peut être modifié ni copié)",
