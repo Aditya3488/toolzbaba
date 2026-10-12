@@ -293,12 +293,13 @@ def sitemap_urls(base: str, host: str, progress=None, cap: int = 20000):
     except FetchError:
         pass
     starts += [urljoin(base, "/sitemap.xml"), urljoin(base, "/sitemap_index.xml")]
-    todo, done, urls, types, seen_urls = list(dict.fromkeys(starts)), set(), [], {}, set()
+    todo, done, urls, types, seen_urls, read = list(dict.fromkeys(starts)), set(), [], {}, set(), 0
     skip = re.compile(r"/[a-z]{2}-[a-z]{2}/sitemap|metaobject|image|video|news-sitemap|sitemap_agentic", re.I)
-    while todo and len(done) < 40 and len(urls) < cap:  # one level of sitemap files at a time, read together
-        level = [sm for sm in dict.fromkeys(todo) if sm not in done and not skip.search(sm)][:40 - len(done)]
+    while todo and read < 40 and len(urls) < cap:  # one level of sitemap files at a time, read together
+        level = [sm for sm in dict.fromkeys(todo) if sm not in done and not skip.search(sm)][:40 - read]
         done.update(todo)
         todo = []
+        read += len(level)
         answers = yield Batch([Get(sm, max_bytes=12_000_000, accept="application/xml,text/xml,*/*") for sm in level])
         for sm, r in zip(level, answers):
             if isinstance(r, FetchError) or r.status != 200 or "<" not in r.text[:500]:
@@ -315,7 +316,7 @@ def sitemap_urls(base: str, host: str, progress=None, cap: int = 20000):
                     urls.append(p)
                     types[kind] = types.get(kind, 0) + 1
         if progress:
-            progress(f"Read {len(done)} sitemap file(s), {len(urls)} URLs")
+            progress(f"Read {read} sitemap file(s), {len(urls)} URLs")
     return urls[:cap], types
 
 
