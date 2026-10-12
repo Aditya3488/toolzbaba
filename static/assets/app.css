@@ -930,3 +930,39 @@ h1, h2 { font-weight:700; } h3 { font-weight:700; }
 .hsearch input[type=search], .bigsearch input[type=search], .nv-msearch input { font-weight:500; }
 /* links inside running text are underlined, so they do not rely on colour alone (WCAG 1.4.1) */
 #seo p a, #seo li a, .prose p a, .prose li a, .post-body a { text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px; }
+
+/* ======================================================= India SaaS database
+   The company directory pages (/india-saas-startups). Wider than .prose so the
+   tables fit, and every table scrolls on its own on a phone. */
+.prose.db { max-width:1060px; }
+.db .lede { font-size:1.06rem; color:var(--muted); }
+.db .stats { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 6px; }
+.db .stat { flex:1 1 150px; background:var(--card); border:1px solid var(--border); border-radius:var(--r-sm); padding:12px 14px; }
+.db .stat b { display:block; font-size:1.5rem; color:var(--text); font-family:var(--font-display,inherit); line-height:1.2; }
+.db .stat span { font-size:.8rem; color:var(--faint); }
+.db .scroll { overflow-x:auto; margin:14px 0; border:1px solid var(--border); border-radius:var(--r-sm); background:var(--card); }
+.db table { border-collapse:collapse; width:100%; font-size:.9rem; }
+.db th,.db td { padding:9px 12px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }
+.db th { background:var(--card2); color:var(--faint); font-size:.76rem; text-transform:uppercase; letter-spacing:.04em; font-weight:700; position:sticky; top:0; }
+.db tr:last-child td { border-bottom:0; }
+.db td.wrap { white-space:normal; min-width:260px; color:var(--muted); }
+.db td b { color:var(--text); }
+.db .num { text-align:right; font-variant-numeric:tabular-nums; }
+.db .sectors { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; margin:16px 0; }
+.db .sec { display:block; background:var(--card); border:1px solid var(--border); border-radius:var(--r-sm); padding:14px; text-decoration:none; }
+.db .sec:hover { border-color:var(--accent); }
+.db .sec b { display:block; color:var(--text); margin-bottom:3px; }
+.db .sec span { font-size:.84rem; color:var(--muted); }
+.db .sec em { font-style:normal; display:block; margin-top:7px; font-size:.78rem; color:var(--faint); font-weight:600; }
+/* the score, and the bar that shows how each part of it was earned */
+.db .big { display:flex; align-items:baseline; gap:10px; margin:2px 0 14px; }
+.db .big b { font-size:2.6rem; line-height:1; color:var(--text); }
+.db .big i { font-style:normal; color:var(--faint); font-size:.9rem; }
+.db .bar { position:relative; height:7px; border-radius:99px; background:var(--bg2); overflow:hidden; min-width:90px; }
+.db .bar i { position:absolute; inset:0 auto 0 0; background:var(--accent); border-radius:99px; }
+.db td.barcell { width:120px; }
+.db .note { font-size:.86rem; color:var(--faint); background:var(--card2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:var(--r-sm); padding:12px 14px; margin:16px 0; }
+.db .note b { color:var(--text); }
+.db .chips { display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 0; padding:0; list-style:none; }
+.db .chips li { font-size:.78rem; padding:3px 9px; border-radius:99px; background:var(--card2); border:1px solid var(--border); color:var(--muted); }
+@media (max-width:640px) { .db .big b { font-size:2.1rem; } .db th,.db td { padding:8px 10px; } }

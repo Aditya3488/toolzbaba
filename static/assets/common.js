@@ -1161,7 +1161,7 @@
       el('div', { class: 'foot-brand' }, el('a', { href: HT.L + '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
       col('Tools', [['Image tools', '#image'], ['AI tools', '#ai'], ['PDF & documents', '#pdf'], ['Video & audio', '#video'], ['Text & developer', '#dev'], ['Utilities', '#util']].map(([t, h]) => [t, HT.L + '/' + h])),
       popular,
-      col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
+      col('Company', [['Blog', '/blog'], ['India SaaS Database', '/india-saas-startups'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
       el('div', { class: 'foot-bottom' }, el('span', {}, '\u00a9 ' + new Date().getFullYear() + ' ', 'Toolz Baba', '. All rights reserved.'), el('span', { text: 'Files are never sold or shared.' }))));
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
     const all = el('nav', { class: 'foot-all', 'aria-label': 'All tools' }); f.querySelector('.foot-bottom').before(all);

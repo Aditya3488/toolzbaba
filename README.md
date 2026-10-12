@@ -151,6 +151,14 @@ toolzbaba/
 │     ├─ brand/          logo, favicons, hero art (generated, see brand-source/)
 │     └─ vendor/         jszip, qrcode, pdf.js (PDF previews), tesseract.js + English/Hindi data (OCR): vendored, no CDN
 ├─ site_board/           Site Map Board: crawl any website into a Miro-style board + a free offline Q&A bot (standard library only)
+├─ india_saas/           India SaaS Startups database: free open-source company data -> /india-saas-startups (standard library only)
+│  ├─ pipeline.py        the run: collect -> resolve -> enrich -> classify -> score -> companies.json
+│  ├─ sources/           one module per free source (YC, Wikidata, Wikipedia, homepage probe, archive/HN/GitHub)
+│  ├─ resolve.py         entity resolution: many lists -> one company per domain
+│  ├─ verify.py          the checks that stop a plausible wrong answer being published
+│  ├─ taxonomy.py        the sector tree and the rules that place a company in it
+│  ├─ score.py           the Baba Score (0-100), published with its own arithmetic
+│  └─ pages.py           the index, sector and company page bodies (build.py wraps them)
 ├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, limits ...), browser_tools.js (UI flows)
 ├─ brand-source/         original logo/favicon + script that regenerates everything in assets/brand
 ├─ deploy/, docker-compose*.yml, Dockerfile, .env.example, DEPLOY.md     production setup
@@ -164,6 +172,64 @@ toolzbaba/
 3. **Server tools** send files to `POST /api/tools/<slug>`. `toolkit.py` saves them, runs your Python function in a
    worker thread and returns a job id; the page polls `/api/jobs/<id>` and downloads `/api/jobs/<id>/file`.
    Results are deleted automatically after 30 minutes.
+
+---
+
+## India SaaS Startups database
+
+A free directory of Indian SaaS and software companies at `/india-saas-startups`, with a page per
+sector and a page per company. It is the same shape as a paid private-market database (Tracxn,
+CB Insights) built only from sources that cost nothing and need no account.
+
+**It costs nothing to run.** Standard library only, no new dependency, no API key, no paid data.
+Every request is cached on disk, and the output is static HTML served by Cloudflare Pages.
+
+### Where the data comes from
+
+| Layer | Source | What it gives |
+|---|---|---|
+| Seed list | Y Combinator company API (`regions=India`) | funded Indian startups: batch, team size, status, tags |
+| Seed list | Wikidata SPARQL | Indian software/internet companies: inception, website, HQ |
+| Seed list | Wikipedia category tree | editor-curated lists of Indian software companies |
+| Product signals | each company's own homepage, one request | pricing/docs/login pages, tech stack, social links |
+| Age | Wayback Machine CDX | the year the domain first appeared |
+| Mindshare | Hacker News (Algolia index) | how often the company is discussed |
+| Public code | GitHub REST API | repos and stars, when the homepage links to an organisation |
+
+Deliberately **not** included: funding raised and valuation. Neither can be had for free and
+reliably, and a number nobody can check is worse than no number. (For reference, the way paid
+platforms get Indian cap tables is MCA `PAS-3` and `MGT-7` filings, which are public but charged
+per document.)
+
+### Running it
+
+```bash
+python -m india_saas.pipeline              # full run, ~20 minutes the first time
+python -m india_saas.pipeline --limit 40   # a quick slice while developing
+python -m india_saas.pipeline --fresh      # ignore the cache and refetch everything
+python build.py                            # render the pages into dist/
+```
+
+The run is resumable: every HTTP response is cached under `india_saas/data/cache` for a fortnight,
+so a second run costs almost no requests and an interrupted run picks up where it stopped. The
+cache is ignored by git; `india_saas/data/companies.json` is committed, so a deploy needs no network.
+
+### The score
+
+`score.py` gives each company 0-100 across six parts, and each company page prints the parts with
+the evidence behind them — product evidence (30), product vs services wording (15), years operating
+(15), public code (15), discussion (15), third-party validation (10). A paid database shows you a
+score and not its arithmetic; this one shows both, because a score built from free signals has no
+business pretending to be a valuation.
+
+### Why `verify.py` exists
+
+Free signals are noisy in specific, repeatable ways, and each check in `verify.py` was added because
+the first run got something visibly wrong: a homepage linking to someone else's GitHub gave a
+two-person startup 87,000 stars; a recycled domain the archive first saw in 1996 made a young
+company look twenty years old; a YC company with a San Francisco office was labelled an Indian city;
+and telecom operators appeared as SaaS because they have a login page. Read it before loosening a
+filter.
 
 ---
 

@@ -22,6 +22,8 @@ import time
 import zipfile
 from pathlib import Path
 
+from india_saas import pages as saas_pages
+
 ROOT = Path(__file__).parent
 STATIC = ROOT / "static"
 DIST = Path(os.environ.get("DIST_DIR", ROOT / "dist"))
@@ -254,7 +256,7 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
     return text
 
 
-RAW_SUBS = ("SEO", "THEAD")   # these hold HTML made here; every other value is escaped
+RAW_SUBS = ("SEO", "THEAD", "BODY")   # these hold HTML made here; every other value is escaped
 LOCK_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
             '<rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>')
 
@@ -330,7 +332,8 @@ def build():
     tools = data["tools"]
 
     reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon",
-                             "functions", "admin", "apple-touch-icon", "site", "blog", "blog-shell"} | {c for c, _ in LANGS}
+                             "functions", "admin", "apple-touch-icon", "site", "blog", "blog-shell",
+                             "india-saas-startups"} | {c for c, _ in LANGS}
     variant_slugs = {v["slug"] for v in data.get("variants", [])}
     by_slug = {t["slug"]: t for t in tools}
     for tool in tools:
@@ -416,6 +419,23 @@ def build():
 
     for key, (file, title, desc) in LEGAL.items():
         write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))
+    # the India SaaS database: one index, one page per sector, one per company (built by india_saas/)
+    saas, saas_urls = saas_pages.load(), []
+    if saas:
+        def _abs(node):   # the page builders write "{SITE_URL}" wherever they need this site's address
+            if isinstance(node, dict):
+                return {k: _abs(v) for k, v in node.items()}
+            if isinstance(node, list):
+                return [_abs(v) for v in node]
+            return node.replace("{SITE_URL}", SITE_URL) if isinstance(node, str) else node
+        for rel, path, title, desc, body, ld in saas_pages.all_pages(saas):
+            write(rel, render("saas.html", title=title, desc=desc, path=path, jsonld=_abs(ld),
+                              extra={"BODY": body}))
+            saas_urls.append(path)
+        print(f"India SaaS database: {len(saas_urls)} pages from {saas['count']} companies")
+    else:
+        print("India SaaS database: no data yet, pages skipped (run: python -m india_saas.pipeline)")
+
     write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True,
                               trackers=False))
     # the blog's page frame: functions/blog/* fill in each post (title, description, address, content), see lib/blog-store.js
@@ -433,7 +453,9 @@ def build():
         P = "" if code == "en" else "/" + code
         urls += [(P + "/", "1.0")] + [(f"{P}/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
         urls += [(f"{P}/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7") for v in variants]
-    urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]   # blog posts are added by functions/sitemap.xml.js
+    urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
+    # the India SaaS pages: the index first, then its sectors, then each company
+    urls += [(u, "0.7" if u.count("/") == 1 else ("0.6" if "/sector/" in u else "0.5")) for u in saas_urls]   # blog posts are added by functions/sitemap.xml.js
     # lastmod: the day a page's own content last changed (kept in sitemap-dates.json, committed, so every machine agrees). A date that moves on every
     # deploy teaches Google to ignore it; one that only moves when the page changes tells it what to crawl again.
     state_file = ROOT / "sitemap-dates.json"
@@ -478,7 +500,10 @@ def build():
         # Rules are read top to bottom, so the renamed tools above win over this catch-all.
         f.write("\n# tools moved from /tool/<slug> to /<slug>\n/tool  /  301\n/tool/  /  301\n/tool/:slug  /:slug  301\n")
         # the blog and the legal pages are in English only: their addresses under a language folder lead there
-        f.write("\n# English-only pages\n" + "".join(f"/{c}/blog  /blog  302\n/{c}/blog/*  /blog/:splat  302\n" + "".join(f"/{c}/{k}  /{k}  302\n" for k in LEGAL)
+        f.write("\n# English-only pages\n" + "".join(f"/{c}/blog  /blog  302\n/{c}/blog/*  /blog/:splat  302\n"
+                                                   f"/{c}/india-saas-startups  /india-saas-startups  302\n"
+                                                   f"/{c}/india-saas-startups/*  /india-saas-startups/:splat  302\n"
+                                                   + "".join(f"/{c}/{k}  /{k}  302\n" for k in LEGAL)
                                                    for c, _ in built if c != "en"))
 
     files = [p for p in DIST.rglob("*") if p.is_file()]
