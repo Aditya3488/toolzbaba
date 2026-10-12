@@ -97,7 +97,7 @@ def _charset(content_type: str, head: bytes) -> str:
 class Fetcher:
     """Thread-safe fetcher shared by all crawl workers."""
 
-    def __init__(self, allow_private: bool = False, timeout: float = 12.0, max_retries: int = 4, deadline: float = 40.0):
+    def __init__(self, allow_private: bool = False, timeout: float = 12.0, max_retries: int = 2, deadline: float = 40.0):
         self.allow_private = allow_private
         self.deadline = deadline  # hard limit for one page, even when a server trickles data slowly
         self.timeout = timeout
@@ -139,7 +139,7 @@ class Fetcher:
     def _pause(self, seconds: float):
         with self._lock:
             self._pause_until = max(self._pause_until, time.time() + seconds)
-            self.gap = min(2.5, self.gap + 0.4 if self.gap else 0.6)
+            self.gap = min(0.4, self.gap + 0.1 if self.gap else 0.15)  # small: a long gap serialises every worker
             self.rate_limited += 1
 
     def get(self, url: str, max_bytes: int = 2_000_000, stop_at: re.Pattern | None = None,
@@ -165,7 +165,7 @@ class Fetcher:
                         break  # next hop
                     if e.code == 429 and attempt < tries and not self._blocked():
                         ra = e.headers.get("Retry-After") or ""
-                        self._pause(min(60.0, float(ra) if ra.isdigit() else 4.0 * (attempt + 1)))
+                        self._pause(min(30.0, float(ra) if ra.isdigit() else 3.0 * (attempt + 1)))
                         continue
                     if e.code in (502, 503, 504) and attempt < 1:
                         time.sleep(1.5)

@@ -406,7 +406,7 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
     say = progress or (lambda *_a, **_k: None)
     stats = stats if stats is not None else Stats()
     say("Reading the homepage", 0.02)
-    home = yield Get(url, max_bytes=5_000_000, retries=5)
+    home = yield Get(url, max_bytes=5_000_000, retries=3)
     if home.status == 429:
         raise FetchError("The site is limiting how fast it can be read (429 Too Many Requests). Wait a few minutes and try again, or check fewer pages.")
     if home.status >= 400:
@@ -545,7 +545,8 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
             if discover and low not in queued:
                 queued.add(low)
                 found.append(p)
-        express.update(D.express_checkout(text))
+        if here == "/" or PRODUCT_PATH.match(here):   # express buttons live on product pages (and the cart, read later)
+            express.update(D.express_checkout(text))   # scanning every page for them cost more than everything else
         if LEGAL_PATH.search(here) or here == "/":   # the footer, about, contact and policy pages carry the company details
             for k, v in D.entity(text).items():
                 who.setdefault(k, v)
@@ -557,15 +558,16 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
         wave = queue[:min(WAVE, want - len(pages))]
         queue = queue[len(wave):]
         found = []
+        before = len(pages)   # pages finished in earlier waves; this wave is counted whole, finished or not
 
-        def each(i, r, wave=wave):
+        def each(i, r, wave=wave, before=before):
             path = wave[i]
             pages[path] = _page_facts(path, r)
             if not isinstance(r, FetchError) and r.status == 200 and r.text:
                 harvest(path, r.text)   # always: the link counts are wanted even when the sitemap filled the quota
             done[0] += 1
             if done[0] % 10 == 0:
-                total = min(want, max(done[0], len(pages) + len(queue) + len(found)))
+                total = min(want, max(done[0], before + len(wave) + len(queue) + len(found)))
                 say(f"Checked {done[0]} of {total} pages" + (f" (site asked us to slow down {stats.rate_limited}×)" if stats.rate_limited else ""),
                     0.22 + 0.66 * done[0] / max(1, total))
 
@@ -580,10 +582,13 @@ def report_steps(url: str, max_pages: int = 300, progress=None, stats=None, budg
     limited = [p for p, f in pages.items() if f.get("s") == 429]
     if limited:  # second, slower pass: one page at a time once the site has had a breather
         say(f"Re-checking {len(limited)} pages the site asked us to slow down on", 0.89)
-        yield Sleep(min(20, 2 + len(limited)))
-        for path in limited[:60]:
+        yield Sleep(min(12, 2 + len(limited)))
+        t_re = time.time()
+        for path in limited[:20]:   # a short second chance, never a long wait: whatever is still refused shows as not checked
+            if time.time() - t_re > 20:
+                break
             try:
-                r = yield page_get(path, retries=6)
+                r = yield page_get(path, retries=1)
             except FetchError as e:
                 r = e
             pages[path] = _page_facts(path, r)

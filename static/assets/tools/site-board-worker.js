@@ -9,13 +9,20 @@ const PY = '/assets/vendor/pyodide-314.0.7/', ZIP = '/assets/site-board/site_boa
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const host = u => { try { return new URL(u).hostname; } catch { return 'the site'; } };
 
-// one shared pace for all requests: a pause when the site asks for one, and a gap that grows on 429s and shrinks again
-const pace = { until: 0, gap: 0, last: 0, streak: 0, probe: 0 };
+// one shared pace for all requests: a pause when the site asks for one, and a gap that grows on 429s and shrinks again.
+// The gap stays small (GAP_MAX): with 16 pages in flight, a long gap serialises the whole crawl into minutes of silence.
+// A page the site refuses twice is given up (it shows as "not checked"), rather than retried for a minute.
+const DEADLINE = 45000, GAP_MAX = 400, RETRY_429 = 2;
+const pace = { until: 0, gap: 0, last: 0, streak: 0, probe: 0, told: 0 };
 async function slot() {
   for (;;) {
     const now = Date.now(), wait = Math.max(pace.until - now, pace.last + pace.gap - now);
     if (wait <= 0) { pace.last = now; return; }
-    await sleep(Math.min(wait, 2000));
+    if (pace.until > now && now - pace.told > 1000) {  // say why nothing is moving, instead of a frozen bar
+      pace.told = now;
+      postMessage({ type: 'progress', msg: `The site asked us to slow down: waiting ${Math.ceil((pace.until - now) / 1000)} s`, f: -1 });
+    }
+    await sleep(Math.min(wait, 1000));
   }
 }
 const charset = (type, head) => ((/charset=([\w-]+)/i.exec(type) || /<meta[^>]+charset=["']?([\w-]+)/i.exec(head) || [])[1] || 'utf-8');
@@ -31,35 +38,41 @@ self.sbFetch = async (url, max, stopH1, accept, retries) => {
   if (blocked()) return { status: 429, url, text: '', redirected: false, truncated: false, tries, limited };
   for (let attempt = 0; attempt <= retries; attempt++) {
     await slot(); tries++;
+    // one page may take at most DEADLINE ms end to end, however slowly a site trickles it: a stuck page must never
+    // hold up the whole crawl (what arrived by then is kept, and the page is marked cut short)
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), DEADLINE);
     let r;
-    try { r = await fetch('/api/site-fetch?' + new URLSearchParams({ url, max: String(max), accept })); }
-    catch { if (attempt < 1) { await sleep(1000); continue; } return { error: `Could not reach ${host(url)}.`, tries, limited }; }
+    try { r = await fetch('/api/site-fetch?' + new URLSearchParams({ url, max: String(max), accept }), { signal: ctl.signal }); }
+    catch { clearTimeout(timer); if (attempt < 1) { await sleep(1000); continue; } return { error: `Could not reach ${host(url)}.`, tries, limited }; }
     if (!r.ok) {
       const j = await r.json().catch(() => ({}));
       if ((r.status === 502 || r.status === 504) && attempt < 1) { await sleep(1500); continue; }
       return { error: (j && j.detail) || `Could not read the page (${r.status}).`, tries, limited };
     }
     const status = Number(r.headers.get('X-Upstream-Status')) || 0;
-    if (status === 429 && attempt < retries && !blocked()) {
-      const ra = r.headers.get('X-Retry-After') || '', secs = /^\d+$/.test(ra) ? Math.min(60, +ra) : 4 * (attempt + 1);
-      pace.until = Math.max(pace.until, Date.now() + secs * 1000); pace.gap = Math.min(2500, pace.gap ? pace.gap + 400 : 600); limited++;
-      if (r.body) r.body.cancel();
+    if (status === 429 && attempt < Math.min(retries, RETRY_429) && !blocked()) {
+      const ra = r.headers.get('X-Retry-After') || '', secs = /^\d+$/.test(ra) ? Math.min(30, +ra) : 3 * (attempt + 1);
+      pace.until = Math.max(pace.until, Date.now() + secs * 1000); pace.gap = Math.min(GAP_MAX, pace.gap ? pace.gap + 100 : 150); limited++;
+      clearTimeout(timer); if (r.body) r.body.cancel();
       continue;
     }
     if (status === 429) note429(true); else pace.streak = 0;
-    if ([502, 503, 504].includes(status) && attempt < 1) { if (r.body) r.body.cancel(); await sleep(1500); continue; }
-    if (pace.gap) pace.gap = Math.max(0, pace.gap - 20);
+    if ([502, 503, 504].includes(status) && attempt < 1) { clearTimeout(timer); if (r.body) r.body.cancel(); await sleep(1500); continue; }
+    if (pace.gap) pace.gap = Math.max(0, pace.gap - 10);
     const parts = []; let n = 0, truncated = false, tail = '';
     if (r.body) {
       const rd = r.body.getReader(), look = new TextDecoder('latin1');
-      for (;;) {
-        const { done, value } = await rd.read();
-        if (done) break;
-        parts.push(value); n += value.length;
-        if (stopH1) { const s = tail + look.decode(value); if (/<\/h1>/i.test(s)) { truncated = true; rd.cancel(); break; } tail = s.slice(-8); }
-        if (n >= max) { truncated = true; rd.cancel(); break; }
-      }
+      try {
+        for (;;) {
+          const { done, value } = await rd.read();
+          if (done) break;
+          parts.push(value); n += value.length;
+          if (stopH1) { const s = tail + look.decode(value); if (/<\/h1>/i.test(s)) { truncated = true; rd.cancel(); break; } tail = s.slice(-8); }
+          if (n >= max) { truncated = true; rd.cancel(); break; }
+        }
+      } catch { truncated = true; }  // the deadline hit or the stream broke: keep what arrived
     }
+    clearTimeout(timer);
     const buf = new Uint8Array(n); let o = 0; for (const p of parts) { buf.set(p, o); o += p.length; }
     const cs = charset(r.headers.get('X-Upstream-Type') || '', new TextDecoder('latin1').decode(buf.subarray(0, 4096)));
     let text; try { text = new TextDecoder(cs).decode(buf); } catch { text = new TextDecoder().decode(buf); }
