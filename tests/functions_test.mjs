@@ -229,7 +229,7 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
   try {
     let r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/old'), { headers: { 'Sec-Fetch-Site': 'same-origin' } }), env: {} });
     assert.equal(r.status, 200); assert.equal(r.headers.get('X-Upstream-Status'), '200'); assert.equal(r.headers.get('X-Final-Url'), 'https://example.com/new');
-    assert.equal(r.headers.get('X-Redirected'), '1'); assert.equal(r.headers.get('Content-Type'), 'application/octet-stream'); assert.match(r.headers.get('Content-Security-Policy'), /sandbox/);
+    assert.equal(r.headers.get('X-Redirected'), '1'); assert.equal(r.headers.get('Content-Type'), 'text/plain; charset=utf-8', 'compressible, never text/html'); assert.equal(r.headers.get('X-Content-Type-Options'), 'nosniff'); assert.match(r.headers.get('Content-Security-Policy'), /sandbox/);
     assert.equal((await r.text()).length, 50_000);
     r = await siteFetch({ request: req('/api/site-fetch?max=20000&url=' + encodeURIComponent('https://example.com/big')), env: {} });
     assert.equal((await r.arrayBuffer()).byteLength, 20_000, 'cut at max');

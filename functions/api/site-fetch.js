@@ -71,8 +71,10 @@ export async function onRequestGet({ request, env }) {
         continue;
       }
       const type = (r.headers.get('content-type') || '').slice(0, 200);
+      // text/plain (never text/html) so Cloudflare compresses it on the way to the browser (pages shrink 5-8x; an
+      // octet-stream is sent raw); nosniff + attachment + sandbox keep it an inert download, never a page of this site
       const h = new Headers({
-        'Content-Type': 'application/octet-stream', 'Content-Disposition': 'attachment', 'Content-Security-Policy': "default-src 'none'; sandbox",
+        'Content-Type': 'text/plain; charset=utf-8', 'X-Content-Type-Options': 'nosniff', 'Content-Disposition': 'attachment', 'Content-Security-Policy': "default-src 'none'; sandbox",
         'Cache-Control': 'no-store', 'X-Upstream-Status': String(r.status), 'X-Final-Url': cur.href, 'X-Redirected': redirected ? '1' : '0', 'X-Upstream-Type': type,
       });
       const ra = r.headers.get('retry-after');
