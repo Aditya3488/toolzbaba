@@ -37,6 +37,8 @@ GTM_ID = os.environ.get("GTM_ID", "GTM-T3R5TWTD").strip()
 # IndexNow (Bing, Yandex, Seznam, Naver...; DuckDuckGo and Yahoo use Bing): the key is public by design, it only proves the
 # site is ours. dist/<key>.txt holds it; deploy/indexnow.py sends the pages changed in a deploy (see deploy.yml).
 INDEXNOW_KEY = "4e110bff3a94fab1afdfc96bce4ab6b2"
+# Ahrefs sends IndexNow with its own key (Site Audit > IndexNow); a site may host several key files
+AHREFS_INDEXNOW_KEY = "bge1xay52k9kf4enbr396x4bqerpeznu"
 # "open from Google Drive / Dropbox" under every drop box: public browser keys, restricted to this site's address (see README).
 # Leave them empty and the buttons don't show.
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "").strip()
@@ -444,6 +446,7 @@ def build():
 
     # robots, sitemap, icons, manifest
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
+    write(f"{AHREFS_INDEXNOW_KEY}.txt", AHREFS_INDEXNOW_KEY)
     write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\n")  # blog posts are added to it by functions/sitemap.xml.js
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}
