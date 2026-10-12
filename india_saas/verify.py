@@ -110,6 +110,7 @@ def is_software_business(c: dict) -> tuple[bool, str]:
         return False, "website not reachable"
 
     saas, svc = probe.get("saas_points", 0), probe.get("services_points", 0)
+    retail = probe.get("retail_points", 0)
     pages = set(probe.get("pages") or [])
     product_page = bool(pages & {"pricing", "docs", "signup"})
 
@@ -117,6 +118,11 @@ def is_software_business(c: dict) -> tuple[bool, str]:
         return True, "accelerator backed"
     if c.get("sector") == "other-saas":
         return False, "nothing in its own words places it in a software sector"
+    # A bank matches "banking" as well as banking software does, so the sector alone
+    # proves nothing once the seed lists cover every Indian business. This is the
+    # test that keeps banks, dealerships, colleges and newspapers out.
+    if retail >= 6 and retail > saas:
+        return False, "sells to the public directly, not software to businesses"
     if saas < 3 and not product_page:
         return False, "homepage shows no product, price or documentation"
     if svc > saas:

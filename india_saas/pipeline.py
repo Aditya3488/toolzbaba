@@ -49,19 +49,46 @@ def collect() -> list[dict]:
     return batches
 
 
+def look(c: dict):
+    """Phase one: fetch the homepage. One request, and enough to decide the rest.
+
+    The seed lists are deliberately broad — most of what Wikidata calls an Indian
+    business is a bank, a broadcaster or a steel mill. Those are dropped on the
+    strength of this one request, so no archive, Hacker News or GitHub lookup is
+    ever spent on a company that was never going to be published.
+    """
+    c["probe"] = probe_mod.probe(c["domain"])
+    c["city"] = verify.clean_city(c.get("city") or "")
+
+
 def enrich(c: dict):
-    """Attach the live signals for one company: homepage, archive, HN, GitHub."""
+    """Phase two, for companies that passed the gate: archive, Hacker News, GitHub."""
     domain = c["domain"]
-    c["probe"] = probe_mod.probe(domain)
     c["first_seen"] = signals.first_seen(domain)
     c["hn"] = signals.hn_mentions(c["name"], domain)
     # GitHub only when the homepage links to one, and only when the handle looks like
     # it belongs to this company (see verify.github_handle for why that check exists)
     handle = verify.github_handle((c["probe"].get("social") or {}).get("github", ""), c["name"], domain)
     c["github"] = signals.github_org(handle) if handle else {"handle": "", "repos": 0, "stars": 0, "url": ""}
-    c["city"] = verify.clean_city(c.get("city") or "")
     year, why = verify.founded_year(c)
     c["age_year"], c["age_source"] = year, why
+
+
+def _in_parallel(job, rows: list[dict], label: str):
+    """Run `job` over every row in a thread pool, reporting progress as it goes."""
+    done = 0
+    with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {pool.submit(job, c): c for c in rows}
+        for f in concurrent.futures.as_completed(futures):
+            done += 1
+            try:
+                f.result()
+            except Exception as e:                 # one bad site must not end the run
+                c = futures[f]
+                print(f"  ! {label} {c.get('domain')}: {e}", file=sys.stderr)
+                c.setdefault("probe", {"live": False})
+            if done % 100 == 0 or done == len(rows):
+                print(f"  {done}/{len(rows)}")
 
 
 def publishable(c: dict) -> tuple[bool, str]:
@@ -84,26 +111,14 @@ def run(limit: int | None = None, fresh: bool = False) -> dict:
 
     if limit:
         companies = companies[:limit]
-    # Enriched in parallel: each company talks to a different homepage, and net.py
-    # still holds one-request-at-a-time per host for the shared sources (the archive,
-    # Hacker News, GitHub). Done one at a time this takes hours, because a few hundred
-    # of these domains are dead and every one of them is a timeout.
-    print(f"3. reading live signals for {len(companies)} companies ({WORKERS} at a time, cached)")
-    done = 0
-    with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:
-        futures = {pool.submit(enrich, c): c for c in companies}
-        for f in concurrent.futures.as_completed(futures):
-            done += 1
-            try:
-                f.result()
-            except Exception as e:                 # one bad site must not end the run
-                c = futures[f]
-                print(f"  ! {c['domain']}: {e}", file=sys.stderr)
-                c.setdefault("probe", {"live": False})
-            if done % 50 == 0 or done == len(companies):
-                print(f"  {done}/{len(companies)}")
+    # In parallel: each company talks to a different homepage, while net.py still
+    # holds one-request-at-a-time per host for the shared sources. Done one at a
+    # time this takes hours, because many of these domains are dead and every dead
+    # one is a timeout.
+    print(f"3. fetching {len(companies)} homepages ({WORKERS} at a time, cached)")
+    _in_parallel(look, companies, "probe")
 
-    print("4. classifying and scoring")
+    print("4. classifying and filtering")
     kept: list[dict] = []
     held: dict[str, int] = {}
     for c in companies:
@@ -115,15 +130,22 @@ def run(limit: int | None = None, fresh: bool = False) -> dict:
         if not ok:
             held[why] = held.get(why, 0) + 1
             continue
+        kept.append(c)
+    for why, n in sorted(held.items(), key=lambda kv: -kv[1]):
+        print(f"  held back {n:4d}  {why}")
+    print(f"  {len(kept)} of {len(companies)} look like software companies")
+
+    print(f"5. reading the remaining signals for {len(kept)} companies")
+    _in_parallel(enrich, kept, "signals")
+
+    print("6. scoring")
+    for c in kept:
         c["score"] = scoring.score(c)
         c["band"] = scoring.band(c["score"]["total"])
         # the one-line description a reader sees, best available
         c["summary"] = (c.get("desc") or (c.get("probe") or {}).get("meta_desc")
                         or (c.get("probe") or {}).get("title") or "")[:240]
-        kept.append(c)
     kept.sort(key=lambda x: (-x["score"]["total"], x["name"].lower()))
-    for why, n in sorted(held.items(), key=lambda kv: -kv[1]):
-        print(f"  held back {n:4d}  {why}")
     print(f"  {len(kept)} published of {len(companies)} checked")
 
     payload = {
@@ -154,7 +176,7 @@ def run(limit: int | None = None, fresh: bool = False) -> dict:
     }
     DATA.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", "utf-8")
-    print(f"5. wrote {OUT.relative_to(Path(__file__).parent.parent)} ({OUT.stat().st_size // 1024} KB)")
+    print(f"7. wrote {OUT.relative_to(Path(__file__).parent.parent)} ({OUT.stat().st_size // 1024} KB)")
     return payload
 
 

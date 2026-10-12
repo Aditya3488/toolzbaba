@@ -4505,83 +4505,187 @@
  },
  "/india-saas-startups": {
   "date": "2026-10-12",
-  "hash": "61cdfd33310314a0"
+  "hash": "745440dec32bddb1"
  },
  "/india-saas-startups/100x": {
   "date": "2026-10-12",
-  "hash": "afcdeb7bb9377ddc"
+  "hash": "e2348dd3ffe1578e"
  },
  "/india-saas-startups/63-moons-technologies": {
   "date": "2026-10-12",
-  "hash": "c5422d5913734f0a"
+  "hash": "b7228579d1839744"
+ },
+ "/india-saas-startups/9ai": {
+  "date": "2026-10-12",
+  "hash": "457ec0b6bd8c2910"
+ },
+ "/india-saas-startups/aaron-impex": {
+  "date": "2026-10-12",
+  "hash": "79330696b1ca75e3"
+ },
+ "/india-saas-startups/aavin": {
+  "date": "2026-10-12",
+  "hash": "8df84a583657240c"
  },
  "/india-saas-startups/able": {
   "date": "2026-10-12",
-  "hash": "a8d56fee21db4fe3"
+  "hash": "946bee8a2712fd4e"
  },
  "/india-saas-startups/acciojob": {
   "date": "2026-10-12",
-  "hash": "dd06a556f43777e8"
+  "hash": "15a5139b514b1bb0"
  },
- "/india-saas-startups/acko-insurance": {
+ "/india-saas-startups/adamanture": {
   "date": "2026-10-12",
-  "hash": "6da299bbe11c9e67"
+  "hash": "5495ac72436366fe"
  },
  "/india-saas-startups/adengage": {
   "date": "2026-10-12",
-  "hash": "44a050a31651fc9b"
+  "hash": "350c22749a7fe7c4"
  },
  "/india-saas-startups/advantage-club": {
   "date": "2026-10-12",
-  "hash": "fb30fea1a18ffce1"
+  "hash": "b75092e16bbfd150"
  },
  "/india-saas-startups/aerotime": {
   "date": "2026-10-12",
-  "hash": "7b7bb25105ee8f21"
+  "hash": "e37798dcc1a83485"
+ },
+ "/india-saas-startups/aestros": {
+  "date": "2026-10-12",
+  "hash": "f395bb408275a502"
+ },
+ "/india-saas-startups/afiya-india": {
+  "date": "2026-10-12",
+  "hash": "6ce4b46c61593856"
+ },
+ "/india-saas-startups/agastya-international-foundation": {
+  "date": "2026-10-12",
+  "hash": "3386e7d7a41617d0"
+ },
+ "/india-saas-startups/agni-steels": {
+  "date": "2026-10-12",
+  "hash": "d14f7c9f6e4979ac"
  },
  "/india-saas-startups/aiaj-technocrats": {
   "date": "2026-10-12",
-  "hash": "acbfeb84237f4dcf"
+  "hash": "da2bcb9b7d8df27d"
+ },
+ "/india-saas-startups/air-charter-services-pvt-ltd": {
+  "date": "2026-10-12",
+  "hash": "206b219dd1ce5171"
+ },
+ "/india-saas-startups/air-mantra": {
+  "date": "2026-10-12",
+  "hash": "487d99cadee5f8e2"
+ },
+ "/india-saas-startups/aix-connect": {
+  "date": "2026-10-12",
+  "hash": "9ffac5510f9fac18"
  },
  "/india-saas-startups/algosurg-inc": {
   "date": "2026-10-12",
-  "hash": "1c876b3a885aac79"
+  "hash": "47367fe71be00118"
  },
  "/india-saas-startups/algotest": {
   "date": "2026-10-12",
-  "hash": "f777efefdd3b2787"
+  "hash": "b330a77e317ce3a8"
  },
  "/india-saas-startups/algouniversity": {
   "date": "2026-10-12",
-  "hash": "a45d217594c71a43"
+  "hash": "f713d481e3b79e93"
  },
  "/india-saas-startups/allorasoft-private-limited": {
   "date": "2026-10-12",
-  "hash": "2561e5cb17a6639e"
+  "hash": "128e7b79ec56c17e"
  },
  "/india-saas-startups/alpha-ai-service": {
   "date": "2026-10-12",
-  "hash": "63ea188059b96d93"
+  "hash": "560baac5af4f0fa0"
+ },
+ "/india-saas-startups/ameyo": {
+  "date": "2026-10-12",
+  "hash": "ebe0bbe1bc001f7c"
+ },
+ "/india-saas-startups/antara-senior-living": {
+  "date": "2026-10-12",
+  "hash": "889cb2404ca5616f"
  },
  "/india-saas-startups/antwalk": {
   "date": "2026-10-12",
-  "hash": "a9f08f91dbb4d187"
+  "hash": "2ca392c2db429cb0"
  },
  "/india-saas-startups/apollo": {
   "date": "2026-10-12",
-  "hash": "1c6e35b50e4cc170"
+  "hash": "88a77020636f54c7"
  },
  "/india-saas-startups/appx": {
   "date": "2026-10-12",
-  "hash": "8423991bee6afcd0"
+  "hash": "78cb8eaaa2bb2e19"
+ },
+ "/india-saas-startups/archies-ltd": {
+  "date": "2026-10-12",
+  "hash": "dfa31b3825975b5f"
+ },
+ "/india-saas-startups/arcvision-technologies": {
+  "date": "2026-10-12",
+  "hash": "4fcd65bd98d83c66"
+ },
+ "/india-saas-startups/arduinnex": {
+  "date": "2026-10-12",
+  "hash": "2fb5d8cc74acd762"
+ },
+ "/india-saas-startups/artis-laminates": {
+  "date": "2026-10-12",
+  "hash": "19349723d0daea63"
+ },
+ "/india-saas-startups/astral": {
+  "date": "2026-10-12",
+  "hash": "bcd48cb49ca76fc7"
+ },
+ "/india-saas-startups/atom-technologies": {
+  "date": "2026-10-12",
+  "hash": "b9ae44acdfdb229f"
+ },
+ "/india-saas-startups/aujas-networks": {
+  "date": "2026-10-12",
+  "hash": "e4cf08fdebef8c72"
+ },
+ "/india-saas-startups/aurobindo-pharma": {
+  "date": "2026-10-12",
+  "hash": "43de86f6be50f785"
  },
  "/india-saas-startups/avairsense": {
   "date": "2026-10-12",
-  "hash": "f73809b0575a966d"
+  "hash": "20133920a569e473"
+ },
+ "/india-saas-startups/baecars": {
+  "date": "2026-10-12",
+  "hash": "4ab2d0911ad1cf4a"
+ },
+ "/india-saas-startups/balaji-motion-pictures": {
+  "date": "2026-10-12",
+  "hash": "18cab874d5aa63ef"
+ },
+ "/india-saas-startups/balaji-nursery": {
+  "date": "2026-10-12",
+  "hash": "c41dcf5af399719f"
+ },
+ "/india-saas-startups/balmer-lawrie": {
+  "date": "2026-10-12",
+  "hash": "d12732c2249be9ae"
+ },
+ "/india-saas-startups/bandhan-life": {
+  "date": "2026-10-12",
+  "hash": "af1605d5f6156a19"
+ },
+ "/india-saas-startups/beautyklove": {
+  "date": "2026-10-12",
+  "hash": "fc007ebd1dad72a1"
  },
  "/india-saas-startups/bentolabs-ai": {
   "date": "2026-10-12",
-  "hash": "04a6d555957b2429"
+  "hash": "4c077858ab29bc99"
  },
  "/india-saas-startups/betterhalf": {
   "date": "2026-10-12",
@@ -4589,247 +4693,415 @@
  },
  "/india-saas-startups/bewell-digital": {
   "date": "2026-10-12",
-  "hash": "fdcec8b47cae209d"
+  "hash": "72d65b7fde8b31e6"
  },
  "/india-saas-startups/bharatx": {
   "date": "2026-10-12",
-  "hash": "ea029f0c00a4b669"
+  "hash": "98a03e82702bd63b"
+ },
+ "/india-saas-startups/bhartiya-mahila-bank": {
+  "date": "2026-10-12",
+  "hash": "d87054750c0379ea"
+ },
+ "/india-saas-startups/bhashavox": {
+  "date": "2026-10-12",
+  "hash": "c086fc42c97870c0"
  },
  "/india-saas-startups/bicycle-ai": {
   "date": "2026-10-12",
-  "hash": "c096a160c4a40ba9"
+  "hash": "83043c60983faee6"
+ },
+ "/india-saas-startups/bideasy": {
+  "date": "2026-10-12",
+  "hash": "2431532c39801beb"
  },
  "/india-saas-startups/bikry": {
   "date": "2026-10-12",
-  "hash": "8d459f47f10010ae"
+  "hash": "b200b197738f30c4"
  },
  "/india-saas-startups/bimaplan": {
   "date": "2026-10-12",
-  "hash": "abbd2c5f71d23bf5"
+  "hash": "e1d0e117c47df143"
  },
  "/india-saas-startups/binks": {
   "date": "2026-10-12",
-  "hash": "18e77b5cd04607ca"
+  "hash": "48d2aea83195e2d7"
+ },
+ "/india-saas-startups/bitscore-cybertech-llp": {
+  "date": "2026-10-12",
+  "hash": "a153bd7a52aa8bf2"
  },
  "/india-saas-startups/bix-bytes-solutions-pvt-ltd": {
   "date": "2026-10-12",
-  "hash": "f48604ea4c31768f"
+  "hash": "7f11da2caffc047c"
+ },
+ "/india-saas-startups/bizpromo-databases": {
+  "date": "2026-10-12",
+  "hash": "0157b9be135686da"
  },
  "/india-saas-startups/bolna-ai": {
   "date": "2026-10-12",
-  "hash": "f233ebcbe56cfc81"
+  "hash": "1ea72715e2bbddbd"
+ },
+ "/india-saas-startups/brandforge-ai": {
+  "date": "2026-10-12",
+  "hash": "05104dc84c87398c"
  },
  "/india-saas-startups/breathe-well-being": {
   "date": "2026-10-12",
-  "hash": "d5857fe4d6500b3b"
+  "hash": "9dad87969e51a831"
  },
  "/india-saas-startups/brio-technologies": {
   "date": "2026-10-12",
-  "hash": "86e60bc1800726eb"
+  "hash": "aa56b094908b0e58"
+ },
+ "/india-saas-startups/brooke-bond-taj-mahal-tea-house": {
+  "date": "2026-10-12",
+  "hash": "d4a88c8127fe734a"
  },
  "/india-saas-startups/bulk-mro-industrial-supply": {
   "date": "2026-10-12",
-  "hash": "8d1d3970322fe2b1"
+  "hash": "e58ea939ceaae3ee"
+ },
+ "/india-saas-startups/bulk-sms-provider": {
+  "date": "2026-10-12",
+  "hash": "1a2ef7a0fc9330fa"
  },
  "/india-saas-startups/businessonbot": {
   "date": "2026-10-12",
-  "hash": "48c3d06ef1e57629"
+  "hash": "25eb2cab771b6d5e"
+ },
+ "/india-saas-startups/byju-s": {
+  "date": "2026-10-12",
+  "hash": "224cb332f794ee62"
  },
  "/india-saas-startups/byteroots": {
   "date": "2026-10-12",
-  "hash": "448f27213496771d"
+  "hash": "2dea973043d20ad7"
  },
  "/india-saas-startups/caerulean-bytechains-private-limited": {
   "date": "2026-10-12",
-  "hash": "62b8a69750ff37be"
+  "hash": "b0f8a16ac91542a4"
+ },
+ "/india-saas-startups/camlin": {
+  "date": "2026-10-12",
+  "hash": "cca889f344502d04"
  },
  "/india-saas-startups/cardboard": {
   "date": "2026-10-12",
-  "hash": "99f61679033336fa"
+  "hash": "7aa4b608d6177b8c"
+ },
+ "/india-saas-startups/carediumx-healthtech-llp": {
+  "date": "2026-10-12",
+  "hash": "f201105dfd065468"
+ },
+ "/india-saas-startups/carzonrent": {
+  "date": "2026-10-12",
+  "hash": "421e9ad0c13df1fb"
  },
  "/india-saas-startups/cashbook": {
   "date": "2026-10-12",
-  "hash": "bfc0b3bdd7019939"
+  "hash": "e44f95c109e7f5bc"
  },
  "/india-saas-startups/cashfree-payments": {
   "date": "2026-10-12",
-  "hash": "e09f3257892d61f4"
+  "hash": "59afcec8b118a3f7"
+ },
+ "/india-saas-startups/cashjosh": {
+  "date": "2026-10-12",
+  "hash": "08751915587d8f35"
  },
  "/india-saas-startups/castled-io": {
   "date": "2026-10-12",
-  "hash": "f457981cd77e3936"
+  "hash": "b842b3de251832db"
+ },
+ "/india-saas-startups/centre-for-monitoring-indian-economy": {
+  "date": "2026-10-12",
+  "hash": "ea616b792f6cedf6"
+ },
+ "/india-saas-startups/centre-for-sustainable-agriculture": {
+  "date": "2026-10-12",
+  "hash": "ba738c5a2b1b6fe7"
+ },
+ "/india-saas-startups/chaitanya-global": {
+  "date": "2026-10-12",
+  "hash": "422714740489a709"
  },
  "/india-saas-startups/chaos-genius": {
   "date": "2026-10-12",
-  "hash": "4f09605619191a24"
+  "hash": "340a04cf56628da1"
+ },
+ "/india-saas-startups/charmbox": {
+  "date": "2026-10-12",
+  "hash": "222fadea786da5a4"
  },
  "/india-saas-startups/chequpi": {
   "date": "2026-10-12",
-  "hash": "16102cd9816944c1"
+  "hash": "e7e6d70255eb32f4"
  },
  "/india-saas-startups/cityfurnish": {
   "date": "2026-10-12",
-  "hash": "d60baa6fd6ad0786"
+  "hash": "9354803505eafea8"
+ },
+ "/india-saas-startups/claarifai": {
+  "date": "2026-10-12",
+  "hash": "3ae44e3c8986ec8c"
  },
  "/india-saas-startups/clear": {
   "date": "2026-10-12",
-  "hash": "d8cbd8d0dca3cb4d"
+  "hash": "03ba343656e5e66d"
+ },
+ "/india-saas-startups/cleartrip": {
+  "date": "2026-10-12",
+  "hash": "071133628a2b6eb6"
  },
  "/india-saas-startups/clickpe": {
   "date": "2026-10-12",
-  "hash": "b45b58428a9d8565"
+  "hash": "4810a677865f785b"
+ },
+ "/india-saas-startups/climes": {
+  "date": "2026-10-12",
+  "hash": "66ebe290f54e935f"
  },
  "/india-saas-startups/clinikally": {
   "date": "2026-10-12",
-  "hash": "4cbce0765d416ed7"
+  "hash": "09466b39a8181938"
  },
  "/india-saas-startups/clinikpe": {
   "date": "2026-10-12",
-  "hash": "bd633e3e08a93dde"
+  "hash": "76ebecd022f1afe9"
  },
  "/india-saas-startups/cloudy-wave": {
   "date": "2026-10-12",
-  "hash": "0158975fb0c52e7d"
+  "hash": "563efbd0c39e6673"
  },
  "/india-saas-startups/clueso": {
   "date": "2026-10-12",
-  "hash": "6b40f2226f2e145d"
+  "hash": "4d9cd43398206574"
+ },
+ "/india-saas-startups/codechef": {
+  "date": "2026-10-12",
+  "hash": "477904215b6b5a05"
+ },
+ "/india-saas-startups/codedtx-solutions": {
+  "date": "2026-10-12",
+  "hash": "b922ebae9dd0e532"
  },
  "/india-saas-startups/codeparrot-ai": {
   "date": "2026-10-12",
-  "hash": "b2077b6000b850c6"
+  "hash": "1d31701cd11827f6"
  },
  "/india-saas-startups/codingal": {
   "date": "2026-10-12",
-  "hash": "6838d3d3ef6606d3"
+  "hash": "6dd50c8d04978369"
+ },
+ "/india-saas-startups/cognavi": {
+  "date": "2026-10-12",
+  "hash": "6a351b462f063aff"
  },
  "/india-saas-startups/compup": {
   "date": "2026-10-12",
-  "hash": "a62e75ef82cd358e"
+  "hash": "8b81e8edca544ad0"
  },
  "/india-saas-startups/cone": {
   "date": "2026-10-12",
-  "hash": "f984897815944601"
+  "hash": "3dd9ed97c58ccc9d"
  },
  "/india-saas-startups/core": {
   "date": "2026-10-12",
-  "hash": "6686cdf50a6f73f7"
+  "hash": "cc6967519c88d35a"
  },
  "/india-saas-startups/cortexvia": {
   "date": "2026-10-12",
-  "hash": "707983a6037502d2"
+  "hash": "117a16ec3fedd7d5"
  },
  "/india-saas-startups/coulomb-ai": {
   "date": "2026-10-12",
-  "hash": "d62b0c2bdb3087b8"
+  "hash": "95f1c5f10a42a3f9"
+ },
+ "/india-saas-startups/countronics": {
+  "date": "2026-10-12",
+  "hash": "6781090227d508c3"
  },
  "/india-saas-startups/coupl": {
   "date": "2026-10-12",
-  "hash": "161707831eeb1cc7"
+  "hash": "c39f4ef3a1400652"
  },
  "/india-saas-startups/craze": {
   "date": "2026-10-12",
-  "hash": "6c9773df920bb62f"
+  "hash": "82801d1c39442ba7"
+ },
+ "/india-saas-startups/cyberoam": {
+  "date": "2026-10-12",
+  "hash": "022e9a0acdf391d8"
+ },
+ "/india-saas-startups/datapls": {
+  "date": "2026-10-12",
+  "hash": "5e956fb0d6a90976"
  },
  "/india-saas-startups/decentro": {
   "date": "2026-10-12",
-  "hash": "d2291457882154ca"
+  "hash": "6f91256aa436e3ef"
  },
  "/india-saas-startups/derovest": {
   "date": "2026-10-12",
-  "hash": "0cbcbf7560fec7bc"
+  "hash": "3b3d823d9c3dd2c1"
+ },
+ "/india-saas-startups/desku": {
+  "date": "2026-10-12",
+  "hash": "61f45decea5fe333"
+ },
+ "/india-saas-startups/devpunya": {
+  "date": "2026-10-12",
+  "hash": "73aaab0737f82cd0"
  },
  "/india-saas-startups/digi-prex": {
   "date": "2026-10-12",
-  "hash": "bb0e8670e8a21aea"
+  "hash": "75fd95cdf893ee5d"
  },
  "/india-saas-startups/dockup": {
   "date": "2026-10-12",
-  "hash": "5d93960f97c68b7c"
+  "hash": "a8be0c3a0b6e8b5d"
  },
  "/india-saas-startups/docvita": {
   "date": "2026-10-12",
-  "hash": "e6226c3263dcbac9"
+  "hash": "fd6c8d4358baa6f8"
+ },
+ "/india-saas-startups/dolphin-films-pvt-ltd": {
+  "date": "2026-10-12",
+  "hash": "562e88fd2d75a606"
+ },
+ "/india-saas-startups/doorvi": {
+  "date": "2026-10-12",
+  "hash": "fd4cc6a254ae38ba"
  },
  "/india-saas-startups/dost-education": {
   "date": "2026-10-12",
-  "hash": "7a7efc17461e3508"
+  "hash": "aa2c9c4a59fbbc94"
+ },
+ "/india-saas-startups/draconic": {
+  "date": "2026-10-12",
+  "hash": "39af7770e61fc981"
  },
  "/india-saas-startups/drdroid": {
   "date": "2026-10-12",
-  "hash": "9bb49616d216eec5"
+  "hash": "2eeb43364b90a748"
  },
  "/india-saas-startups/drip-capital": {
   "date": "2026-10-12",
-  "hash": "2951c465337ec6b2"
+  "hash": "1576d47623535f57"
  },
  "/india-saas-startups/drish-labs": {
   "date": "2026-10-12",
-  "hash": "ed0d943b03b9ff15"
+  "hash": "1c9ea1d2646c7082"
+ },
+ "/india-saas-startups/drona-mobile": {
+  "date": "2026-10-12",
+  "hash": "52137776a3368113"
+ },
+ "/india-saas-startups/dukaan": {
+  "date": "2026-10-12",
+  "hash": "a870bca6c4692d59"
  },
  "/india-saas-startups/dyte": {
   "date": "2026-10-12",
-  "hash": "95538f2a0a63f446"
+  "hash": "2d7bcafa08d910a7"
  },
  "/india-saas-startups/easyplan": {
   "date": "2026-10-12",
-  "hash": "7379ace7499e3346"
+  "hash": "6b1fd35e4ccf5680"
+ },
+ "/india-saas-startups/ecobot": {
+  "date": "2026-10-12",
+  "hash": "8bae8bc61e9fc7ff"
  },
  "/india-saas-startups/edurev": {
   "date": "2026-10-12",
-  "hash": "3e6d9e8d6c25d6de"
+  "hash": "a7d0d24e486483e6"
+ },
+ "/india-saas-startups/edutris": {
+  "date": "2026-10-12",
+  "hash": "00f6c60a12c6ac8d"
+ },
+ "/india-saas-startups/el-domo-private-limited": {
+  "date": "2026-10-12",
+  "hash": "ceb74900e2f8e2ba"
+ },
+ "/india-saas-startups/emerge-digital": {
+  "date": "2026-10-12",
+  "hash": "b99d141c62f19f6c"
  },
  "/india-saas-startups/enerjazz": {
   "date": "2026-10-12",
-  "hash": "fc9e86c602733e2c"
+  "hash": "5ccc57797ebab2f6"
  },
  "/india-saas-startups/erp24k": {
   "date": "2026-10-12",
-  "hash": "67598ba379d92705"
+  "hash": "b13d307f409437e5"
  },
  "/india-saas-startups/ethosx": {
   "date": "2026-10-12",
-  "hash": "42f8a6d6f4190bde"
+  "hash": "94abe96ed4956f71"
  },
  "/india-saas-startups/exly": {
   "date": "2026-10-12",
-  "hash": "18047e1d042b6317"
+  "hash": "de75ea50b5dc4c46"
  },
  "/india-saas-startups/explorex": {
   "date": "2026-10-12",
-  "hash": "2ab63af4547fbd75"
+  "hash": "f2a67fad66c72a4c"
+ },
+ "/india-saas-startups/f21-properties": {
+  "date": "2026-10-12",
+  "hash": "deca87ea3c916f86"
+ },
+ "/india-saas-startups/fairwin-global-business-consulting-private-limited": {
+  "date": "2026-10-12",
+  "hash": "6e77edf039c239d2"
  },
  "/india-saas-startups/fampay": {
   "date": "2026-10-12",
-  "hash": "d5176cb4ceac5027"
+  "hash": "7115a86c356cab79"
  },
  "/india-saas-startups/farmako-healthcare": {
   "date": "2026-10-12",
-  "hash": "2c4c7f6ff3088015"
+  "hash": "5dd0149b8930868c"
  },
  "/india-saas-startups/farmtheory": {
   "date": "2026-10-12",
-  "hash": "86cd0a4b42517eae"
+  "hash": "4b36e5d14bc47c8c"
  },
  "/india-saas-startups/fastpad": {
   "date": "2026-10-12",
-  "hash": "cad2517a4d65bd33"
+  "hash": "6a43ccc36d6d8ded"
  },
  "/india-saas-startups/fello": {
   "date": "2026-10-12",
-  "hash": "f514658d22c6a1e4"
+  "hash": "64dd68946ba82d6f"
  },
  "/india-saas-startups/fieldproxy": {
   "date": "2026-10-12",
-  "hash": "800de81215835899"
+  "hash": "9684299721d68133"
+ },
+ "/india-saas-startups/finsamudra-private-limited": {
+  "date": "2026-10-12",
+  "hash": "7bef9956db9cb0ad"
  },
  "/india-saas-startups/finstack": {
   "date": "2026-10-12",
-  "hash": "480ae4d35db4476a"
+  "hash": "1e818038bb058173"
  },
  "/india-saas-startups/flatx": {
   "date": "2026-10-12",
-  "hash": "446a7518eb1a9124"
+  "hash": "684a9e2bc55e997d"
+ },
+ "/india-saas-startups/flickly": {
+  "date": "2026-10-12",
+  "hash": "09b580d86fcd1c97"
+ },
+ "/india-saas-startups/flintobox": {
+  "date": "2026-10-12",
+  "hash": "0cbee6404b2bc609"
  },
  "/india-saas-startups/floworks": {
   "date": "2026-10-12",
@@ -4837,155 +5109,299 @@
  },
  "/india-saas-startups/fluentgrid": {
   "date": "2026-10-12",
-  "hash": "199104de55a01a2c"
+  "hash": "14588a00b850db5a"
  },
  "/india-saas-startups/flux-auto": {
   "date": "2026-10-12",
-  "hash": "4f529fc38ec32bc4"
+  "hash": "bf8a03393f2851df"
  },
  "/india-saas-startups/foradian": {
   "date": "2026-10-12",
-  "hash": "472a70ddb5dd1b6a"
+  "hash": "3ee649155a5e221e"
+ },
+ "/india-saas-startups/fracktal-works": {
+  "date": "2026-10-12",
+  "hash": "3b6c40366be2860f"
  },
  "/india-saas-startups/freshworks": {
   "date": "2026-10-12",
-  "hash": "19882aefd683acce"
+  "hash": "c9c7958904a87107"
  },
  "/india-saas-startups/frontpage": {
   "date": "2026-10-12",
-  "hash": "4e36142b47ba780e"
+  "hash": "5fe1bf176290f475"
  },
  "/india-saas-startups/functionup-fanplay": {
   "date": "2026-10-12",
-  "hash": "b83413dc6a148e08"
+  "hash": "514fd76544792fa8"
  },
  "/india-saas-startups/fusioncharts": {
   "date": "2026-10-12",
-  "hash": "793521d5e6cf9576"
+  "hash": "255160829db7e252"
+ },
+ "/india-saas-startups/getit": {
+  "date": "2026-10-12",
+  "hash": "0a188ec1957a0dc9"
  },
  "/india-saas-startups/getwidget": {
   "date": "2026-10-12",
-  "hash": "57ce702a89e1a9b5"
+  "hash": "d4442f5e847e4cb1"
  },
  "/india-saas-startups/gimbooks": {
   "date": "2026-10-12",
-  "hash": "76d9c2c24f2ccb6a"
+  "hash": "7424d6500159d57d"
+ },
+ "/india-saas-startups/global-bioscience-solutions": {
+  "date": "2026-10-12",
+  "hash": "ed84200c6e295941"
  },
  "/india-saas-startups/gobillion": {
   "date": "2026-10-12",
-  "hash": "c85c14805635b889"
+  "hash": "87c8b886e5b1a5a5"
  },
  "/india-saas-startups/godigi-infotech": {
   "date": "2026-10-12",
-  "hash": "f1bbc3d9702b768c"
+  "hash": "7f98084bc9f6f20c"
  },
  "/india-saas-startups/godutch": {
   "date": "2026-10-12",
-  "hash": "de66485f72183036"
+  "hash": "5417b88dbd546120"
  },
  "/india-saas-startups/golorry": {
   "date": "2026-10-12",
-  "hash": "8924811e3b0eb5c0"
+  "hash": "9e0456f2ecaa085c"
  },
  "/india-saas-startups/gosats": {
   "date": "2026-10-12",
-  "hash": "59a3825ffe000c3b"
+  "hash": "0afdd509b8443840"
+ },
+ "/india-saas-startups/gotezu": {
+  "date": "2026-10-12",
+  "hash": "d759acec6c91bdc4"
+ },
+ "/india-saas-startups/greater-insights": {
+  "date": "2026-10-12",
+  "hash": "4ac52774a57cd5d5"
+ },
+ "/india-saas-startups/greaves-cotton": {
+  "date": "2026-10-12",
+  "hash": "eea86d049cd4f3e3"
  },
  "/india-saas-startups/gromo": {
   "date": "2026-10-12",
-  "hash": "a3f5b3c5081b9ccc"
+  "hash": "c9a90fad2eeef87a"
+ },
+ "/india-saas-startups/groovy-web": {
+  "date": "2026-10-12",
+  "hash": "71441e5fc44fa1e7"
  },
  "/india-saas-startups/groww": {
   "date": "2026-10-12",
-  "hash": "6bdc8162ffd96d3c"
+  "hash": "b160c729d963479a"
  },
  "/india-saas-startups/gullak-money": {
   "date": "2026-10-12",
-  "hash": "6a80ff344b8cfd0c"
+  "hash": "434150dd30ee4d92"
  },
  "/india-saas-startups/haemologix": {
   "date": "2026-10-12",
-  "hash": "5fb97213986113c4"
+  "hash": "d16ff6d41e5f6e05"
+ },
+ "/india-saas-startups/hathway": {
+  "date": "2026-10-12",
+  "hash": "2b86b5658d3ef582"
+ },
+ "/india-saas-startups/hdfc-securities": {
+  "date": "2026-10-12",
+  "hash": "83f014a3454704ad"
+ },
+ "/india-saas-startups/hdgelabs": {
+  "date": "2026-10-12",
+  "hash": "6acabd5fddc41926"
+ },
+ "/india-saas-startups/heylin-spark": {
+  "date": "2026-10-12",
+  "hash": "93d4971e24157eda"
+ },
+ "/india-saas-startups/hihoriya-global-exim": {
+  "date": "2026-10-12",
+  "hash": "5f9b063ad8c4a2bd"
+ },
+ "/india-saas-startups/hindustan-zinc-limited": {
+  "date": "2026-10-12",
+  "hash": "a139b35bdb1a5e79"
  },
  "/india-saas-startups/hiqbyte": {
   "date": "2026-10-12",
-  "hash": "7d84d486fd7ae1be"
+  "hash": "b7ebc9b3a00b0780"
  },
  "/india-saas-startups/hiration": {
   "date": "2026-10-12",
-  "hash": "1f32b2b18767b947"
+  "hash": "ef0a030a6ef2c1e9"
  },
  "/india-saas-startups/hiver": {
   "date": "2026-10-12",
-  "hash": "4cda041af7ae485a"
+  "hash": "8f4d88d8ef5700ce"
+ },
+ "/india-saas-startups/hoho-goa": {
+  "date": "2026-10-12",
+  "hash": "28788cf2200609c9"
+ },
+ "/india-saas-startups/hustl": {
+  "date": "2026-10-12",
+  "hash": "32388bdf859a6ea8"
  },
  "/india-saas-startups/hygnal": {
   "date": "2026-10-12",
-  "hash": "8fbaa50b46779e1f"
+  "hash": "da0f1d784e4838c5"
+ },
+ "/india-saas-startups/ich-creative-consulting-pvt-ltd": {
+  "date": "2026-10-12",
+  "hash": "ac306910f8f1b676"
+ },
+ "/india-saas-startups/ideal-ice-cream": {
+  "date": "2026-10-12",
+  "hash": "d145c4d7c6b8c147"
  },
  "/india-saas-startups/ilmira-technologies": {
   "date": "2026-10-12",
-  "hash": "31eb321c4642fac0"
+  "hash": "39c435bc2501aa8c"
+ },
+ "/india-saas-startups/impact-guru": {
+  "date": "2026-10-12",
+  "hash": "46a913f94a04bd9e"
  },
  "/india-saas-startups/imt-care": {
   "date": "2026-10-12",
-  "hash": "a4efd7bac2976b0d"
+  "hash": "9036d6f3be1f860a"
+ },
+ "/india-saas-startups/india-tourism-development-corporation": {
+  "date": "2026-10-12",
+  "hash": "72c463590f02d069"
+ },
+ "/india-saas-startups/indospace": {
+  "date": "2026-10-12",
+  "hash": "de083730ca2b2fe0"
+ },
+ "/india-saas-startups/industrial-promotion-investment-corporation-of-odisha-limite": {
+  "date": "2026-10-12",
+  "hash": "bba98a73f77e4718"
  },
  "/india-saas-startups/infer": {
   "date": "2026-10-12",
-  "hash": "93ff56ae07a12119"
+  "hash": "871cd0f1d782f402"
  },
  "/india-saas-startups/inferedge": {
   "date": "2026-10-12",
-  "hash": "94dc29f70d01e84f"
+  "hash": "7d2b1a4f18f30f32"
+ },
+ "/india-saas-startups/infibeam": {
+  "date": "2026-10-12",
+  "hash": "e93c97ab218391f9"
+ },
+ "/india-saas-startups/infinite-computer-solutions": {
+  "date": "2026-10-12",
+  "hash": "950b0dd5b93d6c3b"
  },
  "/india-saas-startups/infinity": {
   "date": "2026-10-12",
-  "hash": "6ae8d45b8397b7c5"
+  "hash": "fb1f82c1dbf66fbf"
  },
  "/india-saas-startups/infobeans-technologies-limited": {
   "date": "2026-10-12",
   "hash": "f02b23b18de9689b"
  },
+ "/india-saas-startups/infysec": {
+  "date": "2026-10-12",
+  "hash": "a8dfcd4d42e8dbc6"
+ },
  "/india-saas-startups/inito": {
   "date": "2026-10-12",
-  "hash": "cd5047587ed51f84"
+  "hash": "8f70d37e7ad28116"
+ },
+ "/india-saas-startups/inmobi": {
+  "date": "2026-10-12",
+  "hash": "fda770b8ba894a8b"
  },
  "/india-saas-startups/innov8": {
   "date": "2026-10-12",
-  "hash": "e51f6a386116c63c"
+  "hash": "24c03a3c81bb16a2"
+ },
+ "/india-saas-startups/instasafe": {
+  "date": "2026-10-12",
+  "hash": "70f55df0fe0e63c3"
+ },
+ "/india-saas-startups/intangles": {
+  "date": "2026-10-12",
+  "hash": "c12d30144209f8f3"
+ },
+ "/india-saas-startups/internshala": {
+  "date": "2026-10-12",
+  "hash": "a7a0e059a318a5a8"
  },
  "/india-saas-startups/invoid": {
   "date": "2026-10-12",
-  "hash": "8f87134825fb603e"
+  "hash": "47267f2e4b2531aa"
+ },
+ "/india-saas-startups/ispring": {
+  "date": "2026-10-12",
+  "hash": "121d956e803fd1d3"
  },
  "/india-saas-startups/ivy-homes": {
   "date": "2026-10-12",
-  "hash": "6987dc579c568431"
+  "hash": "cc2675b9152ca338"
+ },
+ "/india-saas-startups/ixigo-com": {
+  "date": "2026-10-12",
+  "hash": "7d862440939fadcd"
+ },
+ "/india-saas-startups/janaadhar-constructions": {
+  "date": "2026-10-12",
+  "hash": "85ff84dde824e44f"
+ },
+ "/india-saas-startups/job-recruitment": {
+  "date": "2026-10-12",
+  "hash": "4e08b04b87026c52"
  },
  "/india-saas-startups/joinsub": {
   "date": "2026-10-12",
-  "hash": "399bbf8448f981a4"
+  "hash": "6d5cb963fafdc3f8"
+ },
+ "/india-saas-startups/jr-compliance": {
+  "date": "2026-10-12",
+  "hash": "ef970536b27d3657"
  },
  "/india-saas-startups/kaagaz": {
   "date": "2026-10-12",
-  "hash": "96eb8c0a34358fa2"
+  "hash": "5e1a5eb88e47f580"
  },
  "/india-saas-startups/kailash-labs": {
   "date": "2026-10-12",
-  "hash": "7f7f35121076a4c7"
+  "hash": "0c41a585a2141e61"
  },
  "/india-saas-startups/kalam-labs": {
   "date": "2026-10-12",
-  "hash": "6e48624ac52634c0"
+  "hash": "684c546f000495aa"
+ },
+ "/india-saas-startups/kalnirnay-english-calendar": {
+  "date": "2026-10-12",
+  "hash": "a5423359b5ccc342"
  },
  "/india-saas-startups/karbon-card": {
   "date": "2026-10-12",
-  "hash": "903de561795c371a"
+  "hash": "54e77179e86f1a21"
+ },
+ "/india-saas-startups/kaushik-films-entertainment-company": {
+  "date": "2026-10-12",
+  "hash": "a3ac712ae291e1e0"
  },
  "/india-saas-startups/kayako": {
   "date": "2026-10-12",
-  "hash": "7f45d068c203bd60"
+  "hash": "8b71d4f5e0d6aa26"
+ },
+ "/india-saas-startups/keka-hr": {
+  "date": "2026-10-12",
+  "hash": "dfa5c637979f45df"
  },
  "/india-saas-startups/khabri": {
   "date": "2026-10-12",
@@ -4993,275 +5409,547 @@
  },
  "/india-saas-startups/khatabook": {
   "date": "2026-10-12",
-  "hash": "82fdb8cbfe89f23a"
+  "hash": "b6d04042618f3564"
+ },
+ "/india-saas-startups/kingfisher-xpress": {
+  "date": "2026-10-12",
+  "hash": "250bc22d618c22f3"
+ },
+ "/india-saas-startups/kirana-club": {
+  "date": "2026-10-12",
+  "hash": "eb99ab7c7e10a348"
  },
  "/india-saas-startups/kisan-network": {
   "date": "2026-10-12",
-  "hash": "ec726a6113a0eb97"
+  "hash": "542882f7788c8bb8"
  },
  "/india-saas-startups/kissflow": {
   "date": "2026-10-12",
-  "hash": "34920a32464c2739"
+  "hash": "39f8b6163f5ea98d"
  },
  "/india-saas-startups/kodo": {
   "date": "2026-10-12",
-  "hash": "595eb6437d137285"
+  "hash": "b3b0741ebd60ca9c"
+ },
+ "/india-saas-startups/korix": {
+  "date": "2026-10-12",
+  "hash": "0ae3a046910a3116"
  },
  "/india-saas-startups/kosh": {
   "date": "2026-10-12",
-  "hash": "ac3dfb1301bbe426"
+  "hash": "6b207b65880dc63c"
  },
  "/india-saas-startups/koshex": {
   "date": "2026-10-12",
-  "hash": "f57cd6b0cee9fd1e"
+  "hash": "b23d19888cfaa2a9"
+ },
+ "/india-saas-startups/kotak-securities": {
+  "date": "2026-10-12",
+  "hash": "25ff72506ad65040"
  },
  "/india-saas-startups/krazimo": {
   "date": "2026-10-12",
-  "hash": "8007db4c6d3e5634"
+  "hash": "fa604e414a5f95f9"
+ },
+ "/india-saas-startups/lajawab-rishtey": {
+  "date": "2026-10-12",
+  "hash": "8437cce7c40c0120"
+ },
+ "/india-saas-startups/lanco-solar-india": {
+  "date": "2026-10-12",
+  "hash": "88d393091f85c04b"
  },
  "/india-saas-startups/landeed": {
   "date": "2026-10-12",
-  "hash": "147756a95c2813c9"
+  "hash": "dd745dcf17eed31c"
+ },
+ "/india-saas-startups/lebrands-space": {
+  "date": "2026-10-12",
+  "hash": "b3dba138866ceb11"
  },
  "/india-saas-startups/leena-ai": {
   "date": "2026-10-12",
-  "hash": "340b0b2488a04268"
+  "hash": "1cc37e2a36ccda8b"
+ },
+ "/india-saas-startups/lemon-tree-hotels": {
+  "date": "2026-10-12",
+  "hash": "1ec36e156fb73a13"
+ },
+ "/india-saas-startups/lets-viz-technologies": {
+  "date": "2026-10-12",
+  "hash": "5f0ef361ae51e4f2"
+ },
+ "/india-saas-startups/lifespring-hospitals": {
+  "date": "2026-10-12",
+  "hash": "3d6ad852722bcd72"
+ },
+ "/india-saas-startups/little-side-quest": {
+  "date": "2026-10-12",
+  "hash": "edc870dec9234083"
+ },
+ "/india-saas-startups/logistimo-india": {
+  "date": "2026-10-12",
+  "hash": "e3daaea22f9b6441"
  },
  "/india-saas-startups/lokal": {
   "date": "2026-10-12",
-  "hash": "7d9086c22d960d26"
+  "hash": "11acd9fd267c726e"
  },
  "/india-saas-startups/loop-health": {
   "date": "2026-10-12",
-  "hash": "ef35a1d5f3054b53"
+  "hash": "039eceaea81f188c"
  },
  "/india-saas-startups/loop-mobile": {
   "date": "2026-10-12",
-  "hash": "a6a000703815470b"
+  "hash": "e52c03abad609a20"
  },
  "/india-saas-startups/lotuspay": {
   "date": "2026-10-12",
-  "hash": "769c4ada3cc06703"
+  "hash": "c2e75ef8bec25fbd"
+ },
+ "/india-saas-startups/mahindra-lifespace-developers": {
+  "date": "2026-10-12",
+  "hash": "640dc701b7d2c73c"
+ },
+ "/india-saas-startups/malabar-institute-of-medical-sciences": {
+  "date": "2026-10-12",
+  "hash": "fbccd8bf473e0330"
  },
  "/india-saas-startups/marketfeed": {
   "date": "2026-10-12",
-  "hash": "477aaefb41f75a8f"
+  "hash": "c284b50ae75513d4"
  },
  "/india-saas-startups/markov": {
   "date": "2026-10-12",
-  "hash": "fb59ab0bee7a6061"
+  "hash": "6796f1b19321c834"
  },
  "/india-saas-startups/markupwand": {
   "date": "2026-10-12",
-  "hash": "f3c72fc1fe6a2cb0"
+  "hash": "3293bf327d02d4c3"
+ },
+ "/india-saas-startups/masarrati-it-studio": {
+  "date": "2026-10-12",
+  "hash": "6f5f2a804e13f604"
  },
  "/india-saas-startups/material-depot": {
   "date": "2026-10-12",
-  "hash": "3fca9d09ab192499"
+  "hash": "18b4c3f756f1c99b"
+ },
+ "/india-saas-startups/maxxgro-agrology-limited": {
+  "date": "2026-10-12",
+  "hash": "ddf266cfb9ade332"
  },
  "/india-saas-startups/maya-labs": {
   "date": "2026-10-12",
-  "hash": "8b52ce74a504b400"
+  "hash": "66d7b19a90c4a818"
+ },
+ "/india-saas-startups/medindia": {
+  "date": "2026-10-12",
+  "hash": "26449f84962064e4"
+ },
+ "/india-saas-startups/mednext-academy": {
+  "date": "2026-10-12",
+  "hash": "f29770841f4d2ec4"
  },
  "/india-saas-startups/medpiper-technologies-inc": {
   "date": "2026-10-12",
-  "hash": "a711b3b53604a5f2"
+  "hash": "7389d0f6e846a00d"
+ },
+ "/india-saas-startups/melstar-information-technologies": {
+  "date": "2026-10-12",
+  "hash": "0eb069bc2a9fb830"
+ },
+ "/india-saas-startups/meril-life-sciences-india": {
+  "date": "2026-10-12",
+  "hash": "226f0e9e83a5c37b"
  },
  "/india-saas-startups/mesrai": {
   "date": "2026-10-12",
-  "hash": "9987c67225eeaa06"
+  "hash": "bb341fbc79c9319b"
+ },
+ "/india-saas-startups/mettl": {
+  "date": "2026-10-12",
+  "hash": "4c02e88084d7ab50"
+ },
+ "/india-saas-startups/millennial-labs": {
+  "date": "2026-10-12",
+  "hash": "8976d556de578014"
  },
  "/india-saas-startups/mindlyft": {
   "date": "2026-10-12",
-  "hash": "30c07bd5fb408e8b"
+  "hash": "37d54c56e960ab68"
+ },
+ "/india-saas-startups/mindstix-software-labs": {
+  "date": "2026-10-12",
+  "hash": "a5768728c5da728d"
+ },
+ "/india-saas-startups/mittal-hospital": {
+  "date": "2026-10-12",
+  "hash": "f8ab4bb2a8cdd4f8"
+ },
+ "/india-saas-startups/moglix": {
+  "date": "2026-10-12",
+  "hash": "ddef8757a2102d4d"
+ },
+ "/india-saas-startups/moksha-media": {
+  "date": "2026-10-12",
+  "hash": "1be51fd8f8a7b478"
+ },
+ "/india-saas-startups/moneyhop": {
+  "date": "2026-10-12",
+  "hash": "79a01696515be32e"
+ },
+ "/india-saas-startups/monginis": {
+  "date": "2026-10-12",
+  "hash": "c84e6b63896f5c58"
  },
  "/india-saas-startups/morphle-labs": {
   "date": "2026-10-12",
-  "hash": "6e099bfcc2c52181"
+  "hash": "fdab6f414fc5957e"
+ },
+ "/india-saas-startups/moshe-s": {
+  "date": "2026-10-12",
+  "hash": "f9da93acfef1d02a"
+ },
+ "/india-saas-startups/moti-mahal-delux": {
+  "date": "2026-10-12",
+  "hash": "6f69a443422b533c"
+ },
+ "/india-saas-startups/movozen-private-limited": {
+  "date": "2026-10-12",
+  "hash": "458ab8616d421b7f"
+ },
+ "/india-saas-startups/mrkiit": {
+  "date": "2026-10-12",
+  "hash": "026a9ed006f7f7aa"
  },
  "/india-saas-startups/mudrex": {
   "date": "2026-10-12",
-  "hash": "918cbe65f385ca9c"
+  "hash": "4368debfd1e9f3b6"
+ },
+ "/india-saas-startups/mylab-discovery-solutions": {
+  "date": "2026-10-12",
+  "hash": "ca6592338306b665"
  },
  "/india-saas-startups/myoperator": {
   "date": "2026-10-12",
-  "hash": "76d3e16cb65aff34"
+  "hash": "e53ac45fb504d68a"
  },
  "/india-saas-startups/mypetrolpump": {
   "date": "2026-10-12",
-  "hash": "4e833356d55aaf27"
+  "hash": "5da5e518ca4b5fd3"
+ },
+ "/india-saas-startups/nanohealth": {
+  "date": "2026-10-12",
+  "hash": "c6bc3635abe8ad06"
  },
  "/india-saas-startups/national-finance-olympiad": {
   "date": "2026-10-12",
-  "hash": "9ae518ce8b7867d0"
+  "hash": "a63a3487764b638b"
+ },
+ "/india-saas-startups/national-housing-bank": {
+  "date": "2026-10-12",
+  "hash": "7ea368efaea3b772"
+ },
+ "/india-saas-startups/nature-s-basket": {
+  "date": "2026-10-12",
+  "hash": "95ea1cf9c0a27f5f"
+ },
+ "/india-saas-startups/nearby-pets-india": {
+  "date": "2026-10-12",
+  "hash": "a59defd6c7745857"
  },
  "/india-saas-startups/neaurabuild": {
   "date": "2026-10-12",
-  "hash": "01798f36b77094f2"
+  "hash": "37d202c3b8274a7c"
+ },
+ "/india-saas-startups/neemrana-hotels": {
+  "date": "2026-10-12",
+  "hash": "9d509eb201566ffe"
  },
  "/india-saas-startups/neodocs": {
   "date": "2026-10-12",
-  "hash": "8736bde388d8e641"
+  "hash": "61b0bf32bc42ae41"
+ },
+ "/india-saas-startups/netcore": {
+  "date": "2026-10-12",
+  "hash": "9dccb1af45107099"
+ },
+ "/india-saas-startups/neumeal": {
+  "date": "2026-10-12",
+  "hash": "b5a66d66297140b3"
+ },
+ "/india-saas-startups/neuronurture": {
+  "date": "2026-10-12",
+  "hash": "895b700e26ea150d"
+ },
+ "/india-saas-startups/newgen-software-technologies-limited": {
+  "date": "2026-10-12",
+  "hash": "c2f4de4a9af6dfff"
  },
  "/india-saas-startups/nextdrop": {
   "date": "2026-10-12",
-  "hash": "ec9e2da74aa5809a"
+  "hash": "8c26fae71106d41e"
+ },
+ "/india-saas-startups/nikkiflower": {
+  "date": "2026-10-12",
+  "hash": "2e3cba36dad154fb"
+ },
+ "/india-saas-startups/nimara-ventures": {
+  "date": "2026-10-12",
+  "hash": "b5f63f1716e3cd1c"
  },
  "/india-saas-startups/nimitai": {
   "date": "2026-10-12",
-  "hash": "d8ee032a192a1b2f"
+  "hash": "5fe8be55b876b9d0"
+ },
+ "/india-saas-startups/nippon-life-india-mutual-fund": {
+  "date": "2026-10-12",
+  "hash": "f83e9d59921a8f04"
+ },
+ "/india-saas-startups/nivara-one-technologies-private-limited": {
+  "date": "2026-10-12",
+  "hash": "7aa72e647d3ffba2"
  },
  "/india-saas-startups/nonu": {
   "date": "2026-10-12",
-  "hash": "ec5acdf53ac16205"
+  "hash": "90e4a7cc899789a5"
  },
  "/india-saas-startups/nourresume": {
   "date": "2026-10-12",
-  "hash": "9e416bdd3f62b982"
+  "hash": "d23786840119f17b"
  },
  "/india-saas-startups/novatr": {
   "date": "2026-10-12",
-  "hash": "79185f47d6d36028"
+  "hash": "0826b9518f7b9f04"
  },
  "/india-saas-startups/novynix-technologies": {
   "date": "2026-10-12",
-  "hash": "eb73ffc4e510d18b"
+  "hash": "f216805133110755"
  },
- "/india-saas-startups/ntt-data-payment-services": {
+ "/india-saas-startups/nuziveedu-seeds-private-limited": {
   "date": "2026-10-12",
-  "hash": "a361fc8afb6f974d"
+  "hash": "4d4aa343ba3bedc0"
  },
- "/india-saas-startups/nucleus-software-exports": {
+ "/india-saas-startups/nyayaveda-ai": {
   "date": "2026-10-12",
-  "hash": "32aa474ac86d28bd"
+  "hash": "18222cfb6762c7d9"
+ },
+ "/india-saas-startups/odisha-construction-corporation": {
+  "date": "2026-10-12",
+  "hash": "7e8157a6b444626b"
+ },
+ "/india-saas-startups/odisha-rural-housing-development-corporation": {
+  "date": "2026-10-12",
+  "hash": "6808fd363207e4bb"
  },
  "/india-saas-startups/odwen": {
   "date": "2026-10-12",
-  "hash": "0dc866249b6cc8b1"
+  "hash": "07d9cf8d2a9a5cfe"
  },
  "/india-saas-startups/okcredit": {
   "date": "2026-10-12",
-  "hash": "8e74bfeb66f50762"
+  "hash": "b703b7de0f196d1e"
  },
- "/india-saas-startups/ola-cabs": {
+ "/india-saas-startups/om-shree-international-pvt-ltd": {
   "date": "2026-10-12",
-  "hash": "d0987cb6fd9698f4"
+  "hash": "158fc5ceecbbf899"
  },
  "/india-saas-startups/onefin": {
   "date": "2026-10-12",
-  "hash": "b47b5464d74ae897"
+  "hash": "141b3fc19b82850a"
  },
  "/india-saas-startups/opsenova": {
   "date": "2026-10-12",
-  "hash": "81c21f7f50223f65"
+  "hash": "a18830acb6932969"
  },
  "/india-saas-startups/opstral": {
   "date": "2026-10-12",
-  "hash": "f66afe01c9292ea0"
+  "hash": "c9d34db7db098589"
  },
  "/india-saas-startups/optifye-ai": {
   "date": "2026-10-12",
-  "hash": "ca4e7875c0b23d3a"
+  "hash": "b76ca4dbee7d7a75"
  },
  "/india-saas-startups/orange-health-labs": {
   "date": "2026-10-12",
-  "hash": "2ee2daf856e7638c"
+  "hash": "92ea412119b1c36d"
+ },
+ "/india-saas-startups/orissa-state-cooperative-milk-producers-federation-limited": {
+  "date": "2026-10-12",
+  "hash": "66a0de951a027c2d"
+ },
+ "/india-saas-startups/ots-advertising": {
+  "date": "2026-10-12",
+  "hash": "ea65a69ccf4ad779"
  },
  "/india-saas-startups/ownstreet": {
   "date": "2026-10-12",
-  "hash": "57b2237baff71420"
+  "hash": "6f41996ec8a6c4a5"
  },
  "/india-saas-startups/paasa": {
   "date": "2026-10-12",
-  "hash": "0c9009a8d22f99e3"
+  "hash": "f23e8119d3b0fa67"
+ },
+ "/india-saas-startups/panigrahana-weddings": {
+  "date": "2026-10-12",
+  "hash": "723ecc0b07c314ee"
+ },
+ "/india-saas-startups/parrys-leather-world": {
+  "date": "2026-10-12",
+  "hash": "65223367d725b266"
+ },
+ "/india-saas-startups/patel-apparel": {
+  "date": "2026-10-12",
+  "hash": "0a5018b877cc78ab"
  },
  "/india-saas-startups/payfura": {
   "date": "2026-10-12",
-  "hash": "495b3041ab854734"
+  "hash": "04e8cde0526f3770"
+ },
+ "/india-saas-startups/paytm-money": {
+  "date": "2026-10-12",
+  "hash": "7382e54f59c17abe"
  },
  "/india-saas-startups/pensil": {
   "date": "2026-10-12",
-  "hash": "28d5f771bdf7e89d"
+  "hash": "0b53a5027063230a"
  },
  "/india-saas-startups/peoplebox-ai": {
   "date": "2026-10-12",
-  "hash": "ee2b40d70ee65815"
+  "hash": "0d0373596e6acd87"
  },
  "/india-saas-startups/perk-payroll": {
   "date": "2026-10-12",
-  "hash": "0e0b2ba06d78c38b"
+  "hash": "1deb6b79375f3a66"
  },
  "/india-saas-startups/perseus": {
   "date": "2026-10-12",
-  "hash": "2b970ea810bdfb30"
+  "hash": "9a7f01e61e91a2f0"
+ },
+ "/india-saas-startups/pioneer-industrial-instruments": {
+  "date": "2026-10-12",
+  "hash": "836b8d65403624b1"
  },
  "/india-saas-startups/playment": {
   "date": "2026-10-12",
-  "hash": "9e17f73c5e6074e5"
+  "hash": "e550d87e9cc60e35"
+ },
+ "/india-saas-startups/pooja-entertainment": {
+  "date": "2026-10-12",
+  "hash": "fd03d9d6fe6078b3"
  },
  "/india-saas-startups/primevault": {
   "date": "2026-10-12",
-  "hash": "bba91c5fce314a04"
+  "hash": "70ca1b5a7d297ffd"
+ },
+ "/india-saas-startups/project-nanhi-kali": {
+  "date": "2026-10-12",
+  "hash": "88002ccc58ee750f"
+ },
+ "/india-saas-startups/prosquad-consulting": {
+  "date": "2026-10-12",
+  "hash": "184e35ee70e8430d"
+ },
+ "/india-saas-startups/prozo": {
+  "date": "2026-10-12",
+  "hash": "5ea217905a68f879"
  },
  "/india-saas-startups/pulse": {
   "date": "2026-10-12",
-  "hash": "145cdbf1423a7e33"
+  "hash": "8f4578898086d649"
  },
  "/india-saas-startups/pulse-active-stations-network": {
   "date": "2026-10-12",
-  "hash": "5fa5e3978ca8cfc8"
+  "hash": "af750de63d59c7e3"
  },
- "/india-saas-startups/quick-heal": {
+ "/india-saas-startups/qlavo": {
   "date": "2026-10-12",
-  "hash": "a573565301e1470b"
+  "hash": "cd64e61564e0b0fb"
+ },
+ "/india-saas-startups/radiance-realty": {
+  "date": "2026-10-12",
+  "hash": "a92b405a4d712ad6"
+ },
+ "/india-saas-startups/raheem-son": {
+  "date": "2026-10-12",
+  "hash": "e8cae2dbcd65e3ce"
+ },
+ "/india-saas-startups/randstad-india": {
+  "date": "2026-10-12",
+  "hash": "23874db2c1a8fa64"
+ },
+ "/india-saas-startups/rang-de": {
+  "date": "2026-10-12",
+  "hash": "7d574f1e50dfdf6d"
  },
  "/india-saas-startups/raven": {
   "date": "2026-10-12",
-  "hash": "aa6d96578e9d3631"
+  "hash": "3b21f727ca962c74"
+ },
+ "/india-saas-startups/raykam-alloys-llp": {
+  "date": "2026-10-12",
+  "hash": "d890f164beabe5dd"
  },
  "/india-saas-startups/razorpay": {
   "date": "2026-10-12",
-  "hash": "7e1b9543abed6889"
+  "hash": "bbc68fd1163d7fed"
  },
  "/india-saas-startups/rdash": {
   "date": "2026-10-12",
-  "hash": "5d34393fdbd048d6"
+  "hash": "54bda47640b8c86d"
+ },
+ "/india-saas-startups/rdp-technologies-limited": {
+  "date": "2026-10-12",
+  "hash": "8bdde8cc61b7d031"
+ },
+ "/india-saas-startups/real-value-portfolio-management-marketing": {
+  "date": "2026-10-12",
+  "hash": "ecc1af47abf2cf42"
+ },
+ "/india-saas-startups/rebillion": {
+  "date": "2026-10-12",
+  "hash": "f2dd7e11967105b1"
  },
  "/india-saas-startups/reclaim-protocol": {
   "date": "2026-10-12",
-  "hash": "b104a946152d28da"
+  "hash": "77790a6e975e6117"
  },
  "/india-saas-startups/recordbook": {
   "date": "2026-10-12",
-  "hash": "9101a6d5a0ebecee"
+  "hash": "30d203fbb45c9e0a"
  },
  "/india-saas-startups/recruitkar": {
   "date": "2026-10-12",
-  "hash": "ed22ec8d1484810c"
+  "hash": "4ea7c57cd645c0e6"
  },
  "/india-saas-startups/red-paper": {
   "date": "2026-10-12",
-  "hash": "59d303825bc6e2aa"
+  "hash": "6189ab2b39deb7e6"
  },
  "/india-saas-startups/redapto": {
   "date": "2026-10-12",
-  "hash": "c296464e27885645"
+  "hash": "54f8881abcf0f6df"
  },
  "/india-saas-startups/redbrick-ai": {
   "date": "2026-10-12",
-  "hash": "9e5e12d7c5f8927b"
+  "hash": "ebdecef1ff08c4f0"
  },
  "/india-saas-startups/redcliffe-lifetech": {
   "date": "2026-10-12",
-  "hash": "316abd4777c1abd3"
+  "hash": "0302308c97c23317"
+ },
+ "/india-saas-startups/registerkaro": {
+  "date": "2026-10-12",
+  "hash": "50bf1718e003af16"
  },
  "/india-saas-startups/rehook-ai": {
   "date": "2026-10-12",
-  "hash": "e5e3b59c8d97a2d3"
+  "hash": "8f4e89cc5991c460"
  },
- "/india-saas-startups/reliance-industries": {
+ "/india-saas-startups/reliance-entertainment": {
   "date": "2026-10-12",
-  "hash": "7bfe03edc62d320b"
+  "hash": "c5a8840d5a39b2c7"
  },
  "/india-saas-startups/ressl-ai": {
   "date": "2026-10-12",
@@ -5269,119 +5957,147 @@
  },
  "/india-saas-startups/restroworks": {
   "date": "2026-10-12",
-  "hash": "b492def50591060b"
+  "hash": "c9c6e54feb3f43ff"
  },
  "/india-saas-startups/retape": {
   "date": "2026-10-12",
-  "hash": "3b97c45a625784a9"
+  "hash": "7113783f2e2c5ff9"
+ },
+ "/india-saas-startups/revv-cars": {
+  "date": "2026-10-12",
+  "hash": "6d71266606304401"
  },
  "/india-saas-startups/rivia-ai": {
   "date": "2026-10-12",
-  "hash": "5650bcf0b05fbe1c"
+  "hash": "84529fb61518cc56"
+ },
+ "/india-saas-startups/rocketium": {
+  "date": "2026-10-12",
+  "hash": "7fd9657052111439"
  },
  "/india-saas-startups/rocketsdr": {
   "date": "2026-10-12",
-  "hash": "a3862643895745d7"
+  "hash": "970f481f412c1cd2"
  },
- "/india-saas-startups/route-mobile": {
+ "/india-saas-startups/rohera-healthcare-technology-private-limited": {
   "date": "2026-10-12",
-  "hash": "4b0dca96ae187e69"
+  "hash": "840e0bd0b654d339"
  },
  "/india-saas-startups/rowboat-labs": {
   "date": "2026-10-12",
-  "hash": "c21a89a39d0fcac2"
+  "hash": "bfd2a4f1a1616cb9"
  },
  "/india-saas-startups/roxyapi": {
   "date": "2026-10-12",
-  "hash": "525eecc62896db32"
+  "hash": "4e44ec68545bbc8b"
  },
  "/india-saas-startups/salarybook": {
   "date": "2026-10-12",
-  "hash": "04d359397a3f9602"
+  "hash": "79ceca3ae0fc774f"
  },
  "/india-saas-startups/salarybox": {
   "date": "2026-10-12",
-  "hash": "c4ced02b440c638f"
+  "hash": "4868a175ee772bc4"
+ },
+ "/india-saas-startups/salonist-software": {
+  "date": "2026-10-12",
+  "hash": "f7d9425b29f0947b"
  },
  "/india-saas-startups/salt": {
   "date": "2026-10-12",
-  "hash": "08bf4e489d94bd0f"
+  "hash": "f6ce9158a8600da1"
  },
  "/india-saas-startups/sanitation-and-health-rights-in-india-shri": {
   "date": "2026-10-12",
   "hash": "0a41014f602bd7c4"
  },
+ "/india-saas-startups/sarvam-ai": {
+  "date": "2026-10-12",
+  "hash": "440889ae4674f151"
+ },
  "/india-saas-startups/savein": {
   "date": "2026-10-12",
-  "hash": "65ff2e79441de645"
+  "hash": "7b7c39fc660a8894"
+ },
+ "/india-saas-startups/sbi-cards": {
+  "date": "2026-10-12",
+  "hash": "997a4bb06813b6e4"
+ },
+ "/india-saas-startups/scalix-world": {
+  "date": "2026-10-12",
+  "hash": "811119e8c7c93bf7"
  },
  "/india-saas-startups/scribe": {
   "date": "2026-10-12",
   "hash": "104f5c0e6e1a9177"
  },
+ "/india-saas-startups/scripbox": {
+  "date": "2026-10-12",
+  "hash": "092624be936dfe1a"
+ },
  "/india-saas-startups/seawise-capital": {
   "date": "2026-10-12",
-  "hash": "a935c366e719598e"
+  "hash": "484f57f934e077f3"
  },
  "/india-saas-startups/sector/agritech-saas": {
   "date": "2026-10-12",
-  "hash": "dee7ca32133fd443"
+  "hash": "8365db22e8b94ac8"
  },
  "/india-saas-startups/sector/ai-ml-platforms": {
   "date": "2026-10-12",
-  "hash": "eb24d9483291a73a"
+  "hash": "dc3e1908250ce138"
  },
  "/india-saas-startups/sector/collaboration-productivity": {
   "date": "2026-10-12",
-  "hash": "732af0c5cac51b21"
+  "hash": "e845f0deaf916c85"
  },
  "/india-saas-startups/sector/customer-support": {
   "date": "2026-10-12",
-  "hash": "f6739473c71fea2f"
+  "hash": "f8dc96ecd57e992c"
  },
  "/india-saas-startups/sector/data-analytics": {
   "date": "2026-10-12",
-  "hash": "bc025f3100d89d63"
+  "hash": "5ae6ec0321815450"
  },
  "/india-saas-startups/sector/devtools-infrastructure": {
   "date": "2026-10-12",
-  "hash": "901134a272dbe801"
+  "hash": "899e1fa38623899c"
  },
  "/india-saas-startups/sector/edtech-saas": {
   "date": "2026-10-12",
-  "hash": "98f939f89f6db395"
+  "hash": "370ee43993da6fc2"
  },
  "/india-saas-startups/sector/fintech-saas": {
   "date": "2026-10-12",
-  "hash": "ffd21f941bd4b7b4"
+  "hash": "819c29d1aac51c7e"
  },
  "/india-saas-startups/sector/healthtech-saas": {
   "date": "2026-10-12",
-  "hash": "22ef05e4c96ad94e"
+  "hash": "aaa5363c16f762cd"
  },
  "/india-saas-startups/sector/hr-recruiting": {
   "date": "2026-10-12",
-  "hash": "c31fe5dc661e9c6b"
+  "hash": "0478561f86337eda"
  },
  "/india-saas-startups/sector/legal-compliance-saas": {
   "date": "2026-10-12",
-  "hash": "69c93de7ff4e8ff0"
+  "hash": "824d1ad53c8fe8fb"
  },
  "/india-saas-startups/sector/logistics-saas": {
   "date": "2026-10-12",
-  "hash": "8d59d0ec379ca2f1"
+  "hash": "02843fa9db81461d"
  },
  "/india-saas-startups/sector/manufacturing-saas": {
   "date": "2026-10-12",
-  "hash": "d52a6aa124e3c6fb"
+  "hash": "1af8fb32308f7a4a"
  },
  "/india-saas-startups/sector/marketing-growth": {
   "date": "2026-10-12",
-  "hash": "de056ad4f280c71d"
+  "hash": "967ba8b238bf95d1"
  },
  "/india-saas-startups/sector/mobility-travel-saas": {
   "date": "2026-10-12",
-  "hash": "3a2697c6154f927e"
+  "hash": "fb6d8a2302973552"
  },
  "/india-saas-startups/sector/other-saas": {
   "date": "2026-10-12",
@@ -5389,11 +6105,11 @@
  },
  "/india-saas-startups/sector/realestate-construction-saas": {
   "date": "2026-10-12",
-  "hash": "952328efdb9e53df"
+  "hash": "43416b8dc0e80546"
  },
  "/india-saas-startups/sector/retail-commerce-saas": {
   "date": "2026-10-12",
-  "hash": "62a6413c5beac776"
+  "hash": "82addfa91d388461"
  },
  "/india-saas-startups/sector/sales-crm": {
   "date": "2026-10-12",
@@ -5401,247 +6117,487 @@
  },
  "/india-saas-startups/sector/security-saas": {
   "date": "2026-10-12",
-  "hash": "210c859ee6bf23cb"
+  "hash": "1c986af065698097"
+ },
+ "/india-saas-startups/selco-india": {
+  "date": "2026-10-12",
+  "hash": "979c1606982bc76f"
+ },
+ "/india-saas-startups/semsons-tech": {
+  "date": "2026-10-12",
+  "hash": "fa7545f2a134544a"
  },
  "/india-saas-startups/sendmsg-io": {
   "date": "2026-10-12",
-  "hash": "0abd117658693738"
+  "hash": "fe614f931fbcb5dc"
  },
  "/india-saas-startups/sentrup": {
   "date": "2026-10-12",
-  "hash": "1dbafb0a7e16979e"
+  "hash": "a995cb28e9fd3bff"
  },
  "/india-saas-startups/shanti-infosoft": {
   "date": "2026-10-12",
-  "hash": "7b78784b8b96e633"
+  "hash": "6d3fd160fc17f275"
+ },
+ "/india-saas-startups/shaw-wallace": {
+  "date": "2026-10-12",
+  "hash": "ae4888467882c0dc"
+ },
+ "/india-saas-startups/shree-ashtavinayak-cine-vision-ltd": {
+  "date": "2026-10-12",
+  "hash": "1e6a20e1af9318aa"
+ },
+ "/india-saas-startups/shriram-properties": {
+  "date": "2026-10-12",
+  "hash": "ea6cbfe13e023d37"
  },
  "/india-saas-startups/sivaro-softwares-llp": {
   "date": "2026-10-12",
-  "hash": "9d749bbfce01f46a"
+  "hash": "98c2a13d3110eb86"
  },
  "/india-saas-startups/skill-lync": {
   "date": "2026-10-12",
-  "hash": "98e8c3a6a609031f"
+  "hash": "1634728def01131e"
+ },
+ "/india-saas-startups/skyroot-aerospace": {
+  "date": "2026-10-12",
+  "hash": "c25c7bf02dc1eaf5"
  },
  "/india-saas-startups/slidely-ai": {
   "date": "2026-10-12",
-  "hash": "2275038099b4c1d9"
+  "hash": "efc37d0065a7deb2"
+ },
+ "/india-saas-startups/smm-orange": {
+  "date": "2026-10-12",
+  "hash": "81a66e4e49e5f0c6"
  },
  "/india-saas-startups/sort-string-solutions": {
   "date": "2026-10-12",
-  "hash": "3abee24f5cb86a80"
+  "hash": "79da496402355984"
+ },
+ "/india-saas-startups/sourcebae": {
+  "date": "2026-10-12",
+  "hash": "00f253f3fb779ea6"
+ },
+ "/india-saas-startups/south-malabar-gramin-bank": {
+  "date": "2026-10-12",
+  "hash": "db3004dc72b65202"
+ },
+ "/india-saas-startups/spaceblanket-ai": {
+  "date": "2026-10-12",
+  "hash": "efa51695ef8d338a"
  },
  "/india-saas-startups/spark-studio": {
   "date": "2026-10-12",
-  "hash": "cd8d88862977b527"
+  "hash": "3a5f949149eee938"
  },
  "/india-saas-startups/spenny": {
   "date": "2026-10-12",
-  "hash": "3bc492341690d4fd"
+  "hash": "66a746ffcd243de1"
+ },
+ "/india-saas-startups/spices-board-of-india": {
+  "date": "2026-10-12",
+  "hash": "a9a44747e38cc016"
+ },
+ "/india-saas-startups/sports-box": {
+  "date": "2026-10-12",
+  "hash": "59ea43f39f38a1fe"
  },
  "/india-saas-startups/sprintai": {
   "date": "2026-10-12",
-  "hash": "f44a36f2c1d7cbea"
+  "hash": "da32e7e038595b89"
  },
  "/india-saas-startups/statiq": {
   "date": "2026-10-12",
-  "hash": "f93cd2a63e249324"
+  "hash": "10964e56deb61d1b"
  },
  "/india-saas-startups/stayqrious": {
   "date": "2026-10-12",
-  "hash": "aed9c6e131e2448f"
+  "hash": "536ad599810177ca"
+ },
+ "/india-saas-startups/steel-and-industrial-forgings-ltd": {
+  "date": "2026-10-12",
+  "hash": "84aee53a9a396c64"
+ },
+ "/india-saas-startups/stevia-world": {
+  "date": "2026-10-12",
+  "hash": "b073c49e0c98b41a"
  },
  "/india-saas-startups/stortrends": {
   "date": "2026-10-12",
-  "hash": "b434337e4614009b"
+  "hash": "4c788b7947ddf554"
+ },
+ "/india-saas-startups/storzu": {
+  "date": "2026-10-12",
+  "hash": "5f520f3c5b5ea977"
  },
  "/india-saas-startups/stownest": {
   "date": "2026-10-12",
-  "hash": "f5210ddb6ca5110f"
+  "hash": "2c61410f56aecfb7"
+ },
+ "/india-saas-startups/studiokrew": {
+  "date": "2026-10-12",
+  "hash": "39503ed64cfbb54b"
+ },
+ "/india-saas-startups/sun-news": {
+  "date": "2026-10-12",
+  "hash": "b4d286cc114915d6"
+ },
+ "/india-saas-startups/sun-tv-india": {
+  "date": "2026-10-12",
+  "hash": "83785c724d366bd6"
  },
  "/india-saas-startups/superapi": {
   "date": "2026-10-12",
-  "hash": "0a7648dcf4d81cbf"
+  "hash": "5a17bb347b1375ad"
  },
  "/india-saas-startups/superkalam": {
   "date": "2026-10-12",
-  "hash": "fff976ea46f86f00"
+  "hash": "0e907758f04dd50e"
  },
  "/india-saas-startups/supr-daily": {
   "date": "2026-10-12",
-  "hash": "bedd82cd465de9d9"
+  "hash": "17b00ef90e6d9d33"
  },
  "/india-saas-startups/surebright": {
   "date": "2026-10-12",
-  "hash": "4dcefced3bfc44f9"
+  "hash": "b4d5c22572b1cb92"
+ },
+ "/india-saas-startups/sushilfinance": {
+  "date": "2026-10-12",
+  "hash": "4e3f176266c30e1f"
  },
  "/india-saas-startups/swadesh": {
   "date": "2026-10-12",
-  "hash": "5b3bae58c85835aa"
+  "hash": "69115927c4c7ad96"
  },
  "/india-saas-startups/swadesi-way": {
   "date": "2026-10-12",
-  "hash": "a8157095dc2e7187"
+  "hash": "48a59e2b16ae1bd1"
  },
  "/india-saas-startups/swipe": {
   "date": "2026-10-12",
-  "hash": "c2e9a7fdb7ad0ab1"
+  "hash": "986e4c39b863f914"
+ },
+ "/india-saas-startups/syntaai": {
+  "date": "2026-10-12",
+  "hash": "ffe45ef4f8ee91f6"
  },
  "/india-saas-startups/tagmango": {
   "date": "2026-10-12",
-  "hash": "0bde69edfce51f26"
+  "hash": "3133be8cc28395ff"
  },
  "/india-saas-startups/tally-solutions": {
   "date": "2026-10-12",
-  "hash": "7740ce4eb22cd2b4"
+  "hash": "ee4cfb06e4a4ba1b"
  },
  "/india-saas-startups/tata-communications": {
   "date": "2026-10-12",
-  "hash": "a63d74363e826400"
+  "hash": "ec150f7051e0f877"
+ },
+ "/india-saas-startups/tata-mcgraw-hill": {
+  "date": "2026-10-12",
+  "hash": "eb5f9b2e28997585"
+ },
+ "/india-saas-startups/tax-garden": {
+  "date": "2026-10-12",
+  "hash": "bf464d0e30612d90"
+ },
+ "/india-saas-startups/teabox": {
+  "date": "2026-10-12",
+  "hash": "d86f63bed94caf38"
+ },
+ "/india-saas-startups/tech-next-lab-private-limited": {
+  "date": "2026-10-12",
+  "hash": "113cef9efc259dfc"
  },
  "/india-saas-startups/techbiz": {
   "date": "2026-10-12",
-  "hash": "893ef36a988ce130"
+  "hash": "be22c9db3880526e"
+ },
+ "/india-saas-startups/telegrampanel": {
+  "date": "2026-10-12",
+  "hash": "0ca8ae77b102ac64"
+ },
+ "/india-saas-startups/terumo-penpol": {
+  "date": "2026-10-12",
+  "hash": "819ead40696095ea"
+ },
+ "/india-saas-startups/texaura": {
+  "date": "2026-10-12",
+  "hash": "efceaf22ef39c314"
+ },
+ "/india-saas-startups/the-moon-exports": {
+  "date": "2026-10-12",
+  "hash": "58555828f4ba6ae7"
+ },
+ "/india-saas-startups/the-office-pass": {
+  "date": "2026-10-12",
+  "hash": "fa810938bbe122b7"
+ },
+ "/india-saas-startups/the-wadhwa-group": {
+  "date": "2026-10-12",
+  "hash": "0941aa63732cb870"
+ },
+ "/india-saas-startups/ths-impex": {
+  "date": "2026-10-12",
+  "hash": "a9b418ccaf1497ae"
  },
  "/india-saas-startups/thunderpod": {
   "date": "2026-10-12",
-  "hash": "5266dfa5d4e9d191"
+  "hash": "9d9ba5ec01cba8f5"
+ },
+ "/india-saas-startups/thuyonx": {
+  "date": "2026-10-12",
+  "hash": "9bb8eb5460c75a8d"
  },
  "/india-saas-startups/tilt": {
   "date": "2026-10-12",
-  "hash": "9b892b66b09881a5"
+  "hash": "bc6faf9d839141a6"
  },
  "/india-saas-startups/toolify": {
   "date": "2026-10-12",
-  "hash": "49ba5bfb95c47a11"
+  "hash": "24929be9bee5a8f5"
+ },
+ "/india-saas-startups/torrent-pharmaceuticals": {
+  "date": "2026-10-12",
+  "hash": "1d100d7a74b07ce5"
+ },
+ "/india-saas-startups/tractors-india": {
+  "date": "2026-10-12",
+  "hash": "213cf8202296627c"
  },
  "/india-saas-startups/tradeindia": {
   "date": "2026-10-12",
-  "hash": "0b7849cf84f96fd9"
+  "hash": "4e5ca97b23e3280a"
+ },
+ "/india-saas-startups/treebo-hotels": {
+  "date": "2026-10-12",
+  "hash": "3219dfcfc0a777ff"
+ },
+ "/india-saas-startups/tvs-group": {
+  "date": "2026-10-12",
+  "hash": "0eb969057ea3c11f"
  },
  "/india-saas-startups/unschool": {
   "date": "2026-10-12",
-  "hash": "9c462d369668e879"
+  "hash": "c7dae2a739c86f15"
+ },
+ "/india-saas-startups/urbane-decor": {
+  "date": "2026-10-12",
+  "hash": "bdc393c67be04971"
  },
  "/india-saas-startups/urbankisaan": {
   "date": "2026-10-12",
-  "hash": "ce94345050d9c957"
+  "hash": "be8e129602bd6198"
+ },
+ "/india-saas-startups/uttar-pradesh-rajkiya-nirman-nigam-ltd": {
+  "date": "2026-10-12",
+  "hash": "ce22d5163b632b99"
  },
  "/india-saas-startups/vahan": {
   "date": "2026-10-12",
-  "hash": "2df9e07645e7fdc1"
+  "hash": "3000f55ad8fdead6"
+ },
+ "/india-saas-startups/vaidam-health": {
+  "date": "2026-10-12",
+  "hash": "ec76fd92e750dc8d"
  },
  "/india-saas-startups/vantage-circle": {
   "date": "2026-10-12",
-  "hash": "fda66e992b96caf1"
+  "hash": "2a998a7f5335103f"
+ },
+ "/india-saas-startups/vccircle": {
+  "date": "2026-10-12",
+  "hash": "887c4b8b70b997e7"
  },
  "/india-saas-startups/veera-health": {
   "date": "2026-10-12",
-  "hash": "9297628de8aa3a23"
+  "hash": "e1ed7f421ee305a0"
+ },
+ "/india-saas-startups/verbose-techlabs-llp": {
+  "date": "2026-10-12",
+  "hash": "49f915a0967e363a"
  },
  "/india-saas-startups/vinay-enterprises": {
   "date": "2026-10-12",
-  "hash": "d80ec754422435d6"
+  "hash": "d299827867227c40"
+ },
+ "/india-saas-startups/vinod-agencies": {
+  "date": "2026-10-12",
+  "hash": "d5b7e618f3e51113"
+ },
+ "/india-saas-startups/vishal-film-factory": {
+  "date": "2026-10-12",
+  "hash": "662752737ba87d75"
  },
  "/india-saas-startups/vivaconnect": {
   "date": "2026-10-12",
-  "hash": "54ed5dabddc9d377"
+  "hash": "50d958580b4f7d6f"
  },
  "/india-saas-startups/vizitor": {
   "date": "2026-10-12",
-  "hash": "572a763792818895"
+  "hash": "93f0b57a939153d7"
+ },
+ "/india-saas-startups/voizematic-ai": {
+  "date": "2026-10-12",
+  "hash": "32750372a9ac458f"
  },
  "/india-saas-startups/volopay": {
   "date": "2026-10-12",
-  "hash": "d256f613272a6b69"
+  "hash": "cbe5b18d30c76803"
  },
  "/india-saas-startups/voosh": {
   "date": "2026-10-12",
-  "hash": "984f12e7f0d924b0"
+  "hash": "7004fb74ba62f13e"
  },
  "/india-saas-startups/vxceed": {
   "date": "2026-10-12",
-  "hash": "f0d0fcb5c42c4508"
+  "hash": "0781ab3635841e64"
+ },
+ "/india-saas-startups/walonium-textile-llp": {
+  "date": "2026-10-12",
+  "hash": "99e0af1c726f6b5b"
  },
  "/india-saas-startups/wareiq": {
   "date": "2026-10-12",
-  "hash": "ca345bcc12e3c4ae"
+  "hash": "79c1bd5404df503d"
  },
  "/india-saas-startups/waybill": {
   "date": "2026-10-12",
-  "hash": "3b8dabf2e062527d"
+  "hash": "6904ec703652cf9a"
+ },
+ "/india-saas-startups/we-create-problems": {
+  "date": "2026-10-12",
+  "hash": "ea64736ec7aff338"
+ },
+ "/india-saas-startups/webappzo": {
+  "date": "2026-10-12",
+  "hash": "8159a97aa73f33c3"
  },
  "/india-saas-startups/webdail": {
   "date": "2026-10-12",
-  "hash": "b2caa7dbd2f558bb"
+  "hash": "f32765450240c221"
  },
  "/india-saas-startups/weekday": {
   "date": "2026-10-12",
-  "hash": "625e13f2c0aabf6b"
+  "hash": "95497f7294554a74"
+ },
+ "/india-saas-startups/west-bengal-housing-infrastructure-development-corporation": {
+  "date": "2026-10-12",
+  "hash": "89ddc67def19010e"
  },
  "/india-saas-startups/wheelstreet": {
   "date": "2026-10-12",
-  "hash": "45a52ce535d86295"
+  "hash": "22acae90a5052f14"
+ },
+ "/india-saas-startups/whilter-ai": {
+  "date": "2026-10-12",
+  "hash": "8ef343026d590502"
  },
  "/india-saas-startups/wifi-dabba-inc": {
   "date": "2026-10-12",
-  "hash": "dada988e38fa0313"
+  "hash": "1464638959da7ebe"
+ },
+ "/india-saas-startups/wisemonk": {
+  "date": "2026-10-12",
+  "hash": "b09895398ee521f1"
+ },
+ "/india-saas-startups/wockhardt": {
+  "date": "2026-10-12",
+  "hash": "2d759cbb854de7f7"
+ },
+ "/india-saas-startups/wockhardt-hospitals": {
+  "date": "2026-10-12",
+  "hash": "05e0b59bc10729a5"
  },
  "/india-saas-startups/writecv-ai": {
   "date": "2026-10-12",
-  "hash": "b2a0fc354d9a05ae"
+  "hash": "0a54f1be79eea526"
  },
  "/india-saas-startups/writesonic": {
   "date": "2026-10-12",
-  "hash": "88ba82a3326610c7"
+  "hash": "78de6c3f72807120"
+ },
+ "/india-saas-startups/xambaaz": {
+  "date": "2026-10-12",
+  "hash": "757cacbd82cdef78"
  },
  "/india-saas-startups/xpay": {
   "date": "2026-10-12",
-  "hash": "54dfa1ef7a980ad0"
+  "hash": "1634cf6c2df53d49"
+ },
+ "/india-saas-startups/y-films": {
+  "date": "2026-10-12",
+  "hash": "0afd47d88f35471f"
+ },
+ "/india-saas-startups/yash12007": {
+  "date": "2026-10-12",
+  "hash": "a2b1f5d5a5b94d44"
+ },
+ "/india-saas-startups/yashoda-hospitals": {
+  "date": "2026-10-12",
+  "hash": "d08190ef8fb2935f"
+ },
+ "/india-saas-startups/yellow-ai": {
+  "date": "2026-10-12",
+  "hash": "d6e4d56faee59a94"
  },
  "/india-saas-startups/yenmo": {
   "date": "2026-10-12",
-  "hash": "2032d3d89341e938"
+  "hash": "00936346a01700fe"
  },
  "/india-saas-startups/yourquote": {
   "date": "2026-10-12",
   "hash": "dcefaf3d6b3003ca"
  },
+ "/india-saas-startups/yrf-television": {
+  "date": "2026-10-12",
+  "hash": "1fea26ab6e9d49e9"
+ },
  "/india-saas-startups/yukti-ai": {
   "date": "2026-10-12",
-  "hash": "9cbc8420ad781ce5"
+  "hash": "3057a3d1dc3a171b"
  },
  "/india-saas-startups/zealth": {
   "date": "2026-10-12",
-  "hash": "0848af48c80647b3"
+  "hash": "24dba8ea7c264f70"
  },
  "/india-saas-startups/zeo-route-planner": {
   "date": "2026-10-12",
-  "hash": "2cd955e30fdf31e4"
+  "hash": "65e5a7703ac1d967"
  },
  "/india-saas-startups/zepto": {
   "date": "2026-10-12",
-  "hash": "bcd0b40328e00fe0"
+  "hash": "5a71b1aece1ef507"
+ },
+ "/india-saas-startups/zerodha": {
+  "date": "2026-10-12",
+  "hash": "28eccb8e2f122e1d"
  },
  "/india-saas-startups/ziffyhomes": {
   "date": "2026-10-12",
-  "hash": "539ad2c906305710"
+  "hash": "bc5d8d39e4ceb243"
  },
  "/india-saas-startups/zingbus": {
   "date": "2026-10-12",
-  "hash": "3730adfcfa86f4fb"
+  "hash": "16e5c79f3a11f373"
  },
  "/india-saas-startups/zoho-corporation": {
   "date": "2026-10-12",
-  "hash": "11bf0a83c5dc08d7"
+  "hash": "0195c1a7eb0f72e5"
  },
  "/india-saas-startups/zoko": {
   "date": "2026-10-12",
-  "hash": "a9ecf8a25bdad64e"
+  "hash": "9ee4a3fe1d09f71a"
+ },
+ "/india-saas-startups/zrev-ai": {
+  "date": "2026-10-12",
+  "hash": "be5ff5b21cd96883"
  },
  "/india-saas-startups/zuddl": {
   "date": "2026-10-12",
-  "hash": "b7e95671f7ea4490"
+  "hash": "ccf6d6e72f96a776"
  },
  "/instagram-image-carousel-splitter": {
   "date": "2026-10-08",

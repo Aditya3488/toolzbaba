@@ -189,12 +189,22 @@ Every request is cached on disk, and the output is static HTML served by Cloudfl
 | Layer | Source | What it gives |
 |---|---|---|
 | Seed list | Y Combinator company API (`regions=India`) | funded Indian startups: batch, team size, status, tags |
-| Seed list | Wikidata SPARQL | Indian software/internet companies: inception, website, HQ |
-| Seed list | Wikipedia category tree | editor-curated lists of Indian software companies |
+| Seed list | Wikidata SPARQL | any business headquartered in India with a website: inception, HQ, staff |
+| Seed list | Wikipedia category tree | ~38 categories by industry, city and founding year |
 | Product signals | each company's own homepage, one request | pricing/docs/login pages, tech stack, social links |
 | Age | Wayback Machine CDX | the year the domain first appeared |
 | Mindshare | Hacker News (Algolia index) | how often the company is discussed |
 | Public code | GitHub REST API | repos and stars, when the homepage links to an organisation |
+
+The seed lists are deliberately broad. Asking Wikidata for "Indian companies whose industry is
+software" returns a couple of hundred items, because most company entries never get an industry
+set; asking for "businesses headquartered in India that have a website" returns about ten times
+as many. Recall first, filtering second — the homepage probe decides what is actually software.
+
+That breadth is why `verify.is_software_business` measures consumer wording as well as product
+wording. Once the seed covers every Indian business, the sector alone proves nothing: a real bank
+matches "banking" exactly as well as banking software does, and its homepage has a login and a
+pricing page too. A company selling *to* banks still passes, because its own product words win.
 
 Deliberately **not** included: funding raised and valuation. Neither can be had for free and
 reliably, and a number nobody can check is worse than no number. (For reference, the way paid

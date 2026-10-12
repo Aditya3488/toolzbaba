@@ -11,12 +11,47 @@ from .. import net
 
 API = "https://en.wikipedia.org/w/api.php"
 CATEGORIES = [
+    # by industry
     "Category:Software companies of India",
     "Category:Internet companies of India",
-    "Category:Indian companies by industry",
     "Category:Information technology companies of India",
     "Category:Financial technology companies of India",
     "Category:E-commerce companies of India",
+    "Category:Online companies of India",
+    "Category:Technology companies of India",
+    "Category:Mobile phone companies of India",
+    "Category:Educational technology companies of India",
+    "Category:Health care companies of India",
+    "Category:Logistics companies of India",
+    "Category:Indian companies by industry",
+    # by city: where the companies themselves are, which catches anything the
+    # industry categories missed
+    "Category:Companies based in Bangalore",
+    "Category:Companies based in Mumbai",
+    "Category:Companies based in Delhi",
+    "Category:Companies based in Pune",
+    "Category:Companies based in Hyderabad",
+    "Category:Companies based in Chennai",
+    "Category:Companies based in Gurugram",
+    "Category:Companies based in Noida",
+    "Category:Companies based in Ahmedabad",
+    "Category:Companies based in Kolkata",
+    "Category:Companies based in Jaipur",
+    "Category:Companies based in Kochi",
+    # by era: the startup wave this directory is mostly about
+    "Category:Indian companies established in 2010",
+    "Category:Indian companies established in 2011",
+    "Category:Indian companies established in 2012",
+    "Category:Indian companies established in 2013",
+    "Category:Indian companies established in 2014",
+    "Category:Indian companies established in 2015",
+    "Category:Indian companies established in 2016",
+    "Category:Indian companies established in 2017",
+    "Category:Indian companies established in 2018",
+    "Category:Indian companies established in 2019",
+    "Category:Indian companies established in 2020",
+    "Category:Indian companies established in 2021",
+    "Category:Indian companies established in 2022",
 ]
 SKIP_PREFIX = ("List of", "Big Tech", "Category:", "Template:", "Electronics and")
 

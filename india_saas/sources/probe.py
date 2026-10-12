@@ -25,6 +25,23 @@ SERVICES_WORDS = [
     ("our clients include", 2), ("outsourcing", 3), ("development company", 3), ("case studies", 1),
     ("years of experience", 2), ("we deliver", 1), ("end-to-end services", 3), ("offshore", 3),
 ]
+# Broadening the seed lists brought in every kind of Indian business, and industry
+# words alone cannot tell them apart: a real bank matches "banking" exactly as well
+# as banking software does, and its homepage has a login and a pricing page too.
+# These are the words a company uses when it serves the public directly rather than
+# selling software to another business.
+RETAIL_WORDS = [
+    ("savings account", 5), ("current account", 4), ("interest rate", 4), ("ifsc", 5),
+    ("nearest branch", 5), ("branch locator", 5), ("atm", 3), ("apply for a loan", 4),
+    ("emi calculator", 3), ("premium calculator", 3), ("buy policy", 4), ("renew policy", 4),
+    ("showroom", 5), ("dealership", 5), ("test drive", 5), ("book a table", 5),
+    ("order online", 3), ("add to cart", 4), ("free delivery", 3), ("shop now", 3),
+    ("admission", 4), ("hostel", 5), ("syllabus", 3), ("campus", 3), ("prospectus", 4),
+    ("box office", 5), ("showtimes", 5), ("epaper", 5), ("subscribe to the newspaper", 5),
+    ("tariff plan", 3), ("recharge now", 4), ("prepaid", 3), ("postpaid", 4),
+    ("flight tickets", 4), ("book your stay", 4), ("menu", 2), ("outlets", 3),
+]
+
 STACK = {
     "Next.js": ("/_next/", "__next_f", "next/static"), "React": ("react", "data-reactroot"),
     "Vue": ("vue.js", "__vue__", "nuxt"), "Angular": ("ng-version", "angular"),
@@ -50,12 +67,30 @@ PAGE_HINTS = {"pricing": r'href="[^"]*?/pricing', "docs": r'href="[^"]*?/(?:docs
 
 
 def domain_of(url: str) -> str:
+    """The bare hostname, as a hostname is actually written on the wire.
+
+    India has real domains in Devanagari (भारतीयरेल.सरकार.भारत), and urllib encodes a
+    host as latin-1, so one of those raises rather than returning a result. Converting
+    to punycode here is what a browser does with the same address.
+    """
     if not url:
         return ""
     if "://" not in url:
         url = "https://" + url
-    host = (urllib.parse.urlparse(url).hostname or "").lower()
-    return host[4:] if host.startswith("www.") else host
+    try:
+        host = (urllib.parse.urlparse(url).hostname or "").lower()
+    except ValueError:                      # a malformed address is not a domain
+        return ""
+    if host.startswith("www."):
+        host = host[4:]
+    if any(ord(ch) > 127 for ch in host):
+        try:
+            host = host.encode("idna").decode("ascii")
+        except (UnicodeError, ValueError):
+            return ""
+    # some source records hold two things in the website field ("example.io, https"),
+    # and urlparse hands that back as a hostname quite happily
+    return host if re.fullmatch(r"[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+", host) else ""
 
 
 def _tag(html: str, pattern: str) -> str:
@@ -66,7 +101,8 @@ def _tag(html: str, pattern: str) -> str:
 def probe(domain: str) -> dict:
     """Fetch one homepage and read every signal we can off it."""
     out = {"live": False, "url": "", "title": "", "meta_desc": "", "stack": [], "pages": [],
-           "social": {}, "saas_points": 0, "services_points": 0, "html_bytes": 0}
+           "social": {}, "saas_points": 0, "services_points": 0, "retail_points": 0,
+           "html_bytes": 0}
     if not domain:
         return out
     # short and single-shot: a few hundred of these domains are parked or gone, and
@@ -92,4 +128,5 @@ def probe(domain: str) -> dict:
             out["social"][name] = "https://" + m.group(0).lstrip("/")
     out["saas_points"] = sum(w for word, w in SAAS_WORDS if word in low)
     out["services_points"] = sum(w for word, w in SERVICES_WORDS if word in low)
+    out["retail_points"] = sum(w for word, w in RETAIL_WORDS if word in low)
     return out

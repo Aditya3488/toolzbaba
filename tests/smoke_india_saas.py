@@ -82,6 +82,24 @@ def test_verify():
     check("verify: an accelerator overrides the sector test",
           verify.is_software_business({**live, "sector": "other-saas", "yc_batch": "S21"})[0])
 
+    # the broadened seed lists bring in every kind of Indian business, and a real bank
+    # matches "banking" exactly as well as banking software does
+    bank = {"sector": "fintech-saas",
+            "probe": {"live": True, "saas_points": 4, "services_points": 0, "retail_points": 18,
+                      "pages": ["pricing", "login"]}}
+    check("verify: holds back a retail bank", not verify.is_software_business(bank)[0],
+          verify.is_software_business(bank)[1])
+    college = {"sector": "edtech-saas",
+               "probe": {"live": True, "saas_points": 2, "services_points": 0, "retail_points": 14,
+                         "pages": ["login"]}}
+    check("verify: holds back a college", not verify.is_software_business(college)[0])
+    # a SaaS company selling INTO those industries still passes: its own product words win
+    vendor = {"sector": "fintech-saas",
+              "probe": {"live": True, "saas_points": 19, "services_points": 1, "retail_points": 5,
+                        "pages": ["pricing", "docs", "signup"]}}
+    check("verify: still publishes a vendor selling to banks", verify.is_software_business(vendor)[0],
+          verify.is_software_business(vendor)[1])
+
 
 # ------------------------------------------------------------- the score
 def test_score():
@@ -149,6 +167,11 @@ def test_pages():
           [c["city"] for c in cos if verify.NOT_INDIAN_PLACE.search(c.get("city") or "")][:3])
     check("pages: tags are not duplicated",
           all(len(c.get("tags") or []) == len(set(c.get("tags") or [])) for c in cos))
+    loud = [c["name"] for c in cos
+            if (c.get("probe") or {}).get("retail_points", 0) >= 6
+            and (c.get("probe") or {}).get("retail_points", 0) > (c.get("probe") or {}).get("saas_points", 0)
+            and not c.get("yc_batch")]
+    check("pages: no published company reads as a consumer business", not loud, loud[:4])
 
     built = list(pages.all_pages(payload))
     check("pages: one page per company, sector and index",
