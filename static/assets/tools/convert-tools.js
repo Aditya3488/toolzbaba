@@ -2,7 +2,8 @@
 // One screen for all of them: type or load Markdown / HTML and watch the preview, or add a Word / PDF file; the settings are on the left, the result on top of the preview.
 const el = HT.el;
 const V = '/assets/vendor/';
-const MD_FILES = '.md,.markdown,.mdown,.txt,text/markdown,text/plain', HTML_FILES = '.html,.htm,text/html';
+const MD_FILES = '.md,.markdown,.mdown,.txt,text/markdown,text/plain', HTML_FILES = '.html,.htm,text/html', TXT_FILES = '.txt,.text,.log,text/plain';
+const DOCX_FILES = '.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document', EML_FILES = '.eml,message/rfc822';
 const MODES = {
   md2pdf: { label: 'Markdown to PDF', kind: 'md', action: 'Create PDF', slug: 'markdown-to-pdf', accept: MD_FILES, pdf: true },
   md2html: { label: 'Markdown to HTML', kind: 'md', action: 'Create HTML page', slug: 'markdown-to-html', accept: MD_FILES },
@@ -11,28 +12,39 @@ const MODES = {
   docx2md: { label: 'Word to Markdown', kind: 'docx', action: 'Convert to Markdown', slug: 'docx-to-markdown', accept: '.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document' },
   pdf2md: { label: 'PDF to Markdown', kind: 'pdf', action: 'Convert to Markdown', slug: 'pdf-to-markdown', accept: '.pdf,application/pdf' },
   html2pdf: { label: 'HTML to PDF', kind: 'html', action: 'Create PDF', slug: 'html-to-pdf', accept: HTML_FILES, pdf: true },
+  // plain text, Word and email (the hub-only ones run through the markdown-converter dispatcher, by mode)
+  txt2md: { label: 'Text to Markdown', kind: 'txt', action: 'Convert to Markdown', slug: 'txt-to-md', accept: TXT_FILES },
+  txt2docx: { label: 'Text to Word', kind: 'txt', action: 'Create Word file', slug: 'txt-to-docx', accept: TXT_FILES },
+  txt2pdf: { label: 'Text to PDF', kind: 'txt', action: 'Create PDF', slug: 'markdown-converter', accept: TXT_FILES, pdf: true },
+  md2txt: { label: 'Markdown to Text', kind: 'md', action: 'Convert to plain text', slug: 'md-to-txt', accept: MD_FILES },
+  docx2txt: { label: 'Word to Text', kind: 'docx', action: 'Convert to plain text', slug: 'docx-to-txt', accept: DOCX_FILES },
+  docx2pdf: { label: 'Word to PDF', kind: 'docx', action: 'Create PDF', slug: 'markdown-converter', accept: DOCX_FILES, pdf: true },
+  eml2pdf: { label: 'Email (EML) to PDF', kind: 'eml', action: 'Create PDF', slug: 'eml-to-pdf', accept: EML_FILES, pdf: true },
 };
-const PICKABLE = ['md2pdf', 'md2html', 'md2docx', 'html2md', 'docx2md', 'pdf2md'];
+const PICKABLE = ['md2pdf', 'md2html', 'md2docx', 'md2txt', 'html2md', 'docx2md', 'docx2txt', 'pdf2md', 'txt2md', 'txt2docx', 'eml2pdf'];
+const SAMPLE_TXT = `Meeting notes\n\nWe agreed on three things:\n- the new page goes live on Monday\n- Priya writes the announcement\n- the old links keep working\n\nNext meeting: Thursday, 10 am.`;
 const SAMPLE_MD = `# My notes\n\nA short example of **Markdown**: *italic*, \`code\` and a [link](https://example.com).\n\n## To do\n\n- [x] Write the text\n- [ ] Make a PDF\n- [ ] Share it\n\n| Item | Price |\n|------|-------|\n| Tea  | 20    |\n| Cake | 60    |\n\n> Keep it simple.\n\n\`\`\`js\nconsole.log("Hello");\n\`\`\`\n`;
 const SAMPLE_HTML = `<h1>My page</h1>\n<p>Some <b>bold</b> and <i>italic</i> text with a <a href="https://example.com">link</a>.</p>\n<ul><li>One</li><li>Two</li></ul>\n<table border="1"><tr><th>Item</th><th>Price</th></tr><tr><td>Tea</td><td>20</td></tr></table>\n`;
 const PREVIEW_CSS = 'body{font:15px/1.55 system-ui,sans-serif;margin:14px;color:#1f2328}h1,h2{border-bottom:1px solid #d8dee4;padding-bottom:.25em}code{background:#eff1f3;padding:.1em .3em;border-radius:4px}pre{background:#f6f8fa;padding:10px;border-radius:6px;overflow:auto}pre code{background:none}blockquote{margin:0;padding:0 1em;color:#59636e;border-left:.25em solid #d1d9e0}table{border-collapse:collapse}td,th{border:1px solid #c9d1d9;padding:4px 10px}th{background:#f6f8fa}img{max-width:100%}';
 
 HT.register('markdown-tool', (root, meta) => {
   const pick = !!meta.pickMode;                       // the first page of the family lets the visitor choose the converter
-  let mode = MODES[meta.mode] ? meta.mode : 'md2pdf', current = null;
+  const PICK = Array.isArray(meta.modes) && meta.modes.length ? meta.modes.filter(k => MODES[k]) : PICKABLE;   // a hub page (TXT converter...) lists only its own
+  let mode = MODES[meta.mode] ? meta.mode : PICK[0], current = null;
   const holder = el('div');
   if (pick) {
-    const sel = el('select', { 'aria-label': 'What do you want to convert?', onchange: e => { mode = e.target.value; build(); } }, PICKABLE.map(k => el('option', { value: k, text: MODES[k].label, selected: k === mode ? 'selected' : null })));
+    const sel = el('select', { 'aria-label': 'What do you want to convert?', onchange: e => { mode = e.target.value; build(); } }, [...new Set([mode, ...PICK])].map(k => el('option', { value: k, text: MODES[k].label, selected: k === mode ? 'selected' : null })));
     root.append(el('div', { class: 'card', style: { marginBottom: '14px' } }, el('div', { class: 'field', style: { margin: 0 } }, el('label', { class: 'lbl', text: 'Convert' }), sel)));
   }
   root.append(holder);
 
   function build() {
-    holder.textContent = ''; const M = MODES[mode], text = M.kind === 'md' || M.kind === 'html', htmlIn = M.kind === 'html';
+    holder.textContent = ''; const M = MODES[mode], text = M.kind === 'md' || M.kind === 'html' || M.kind === 'txt', htmlIn = M.kind === 'html', txtIn = M.kind === 'txt';
+    const what = htmlIn ? 'HTML' : txtIn ? 'text' : 'Markdown';
     let fileName = '', timer = 0;
     // ---- left: the file, the settings, the button
     const list = text ? null : HT.fileList({ onChange: fs => { run.disabled = !fs.length; bench.set(fs.length > 0); } });
-    const dz = HT.dropzone({ accept: M.accept, multiple: !text, label: text ? 'Load a file' : (M.kind === 'docx' ? 'Drop your Word file here' : 'Drop your PDF here'),
+    const dz = HT.dropzone({ accept: M.accept, multiple: !text, label: text ? 'Load a file' : (M.kind === 'docx' ? 'Drop your Word file here' : M.kind === 'eml' ? 'Drop your email (.eml) files here' : 'Drop your PDF here'),
       hint: text ? 'or type / paste in the box on the right' : 'Runs in your browser. Nothing is uploaded.',
       onFiles: async fs => { if (text) { const f = fs[0]; fileName = HT.stem(f.name); input.value = new TextDecoder().decode(await f.arrayBuffer()).replace(/^﻿/, ''); changed(); } else list.add(fs, true); } });
     const fields = [];
@@ -46,20 +58,22 @@ HT.register('markdown-tool', (root, meta) => {
     const optCard = el('div', { class: 'card' }, HT.stepTitle(2, fields.length ? 'Settings' : 'Ready'), fields.length ? form.el : el('p', { class: 'help', style: { margin: '0 0 10px' }, text: text ? 'Nothing to set: type or load your text, then convert it.' : 'Nothing to set: add your file, then convert it.' }), el('div', { class: 'actions' }, run), prog.el);
 
     // ---- right: the text and its preview, and the result on top
-    const input = el('textarea', { class: 'cv-in', spellcheck: 'false', 'aria-label': htmlIn ? 'Your HTML' : 'Your Markdown', placeholder: htmlIn ? 'Paste your HTML here...' : 'Type or paste your Markdown here...', oninput: () => changed() });
+    const input = el('textarea', { class: 'cv-in', spellcheck: 'false', 'aria-label': 'Your ' + what, placeholder: htmlIn ? 'Paste your HTML here...' : txtIn ? 'Type or paste your text here...' : 'Type or paste your Markdown here...', oninput: () => changed() });
     const frame = el('iframe', { class: 'cv-prev', title: 'Preview', sandbox: '' });
-    const example = el('button', { class: 'btn ghost sm', type: 'button', text: 'Insert an example', onclick: () => { input.value = htmlIn ? SAMPLE_HTML : SAMPLE_MD; changed(); } });
+    const example = el('button', { class: 'btn ghost sm', type: 'button', text: 'Insert an example', onclick: () => { input.value = htmlIn ? SAMPLE_HTML : txtIn ? SAMPLE_TXT : SAMPLE_MD; changed(); } });
     const clear = el('button', { class: 'btn ghost sm', type: 'button', text: 'Clear', onclick: () => { input.value = ''; fileName = ''; changed(); } });
-    const editor = text ? el('div', { class: 'card tmain' }, el('div', { class: 'cv-bar' }, el('b', { text: htmlIn ? 'Your HTML' : 'Your Markdown' }), el('span', { class: 'sp' }), example, clear),
+    const editor = text ? el('div', { class: 'card tmain' }, el('div', { class: 'cv-bar' }, el('b', { text: 'Your ' + what }), el('span', { class: 'sp' }), example, clear),
       el('div', { class: 'cv-split' }, input, el('div', {}, el('div', { class: 'cv-cap', text: 'Preview' }), frame))) : null;
-    const note = !text ? el('div', { class: 'card tmain' }, el('p', { class: 'help', style: { margin: 0 }, text: M.kind === 'docx' ? 'Add a .docx file on the left. Headings, lists, bold / italic, links and tables become Markdown. Old .doc files need to be saved as .docx in Word first.' : 'Add a PDF on the left. Headings come from the bigger letters, and lists and paragraphs from the layout. Tables and columns are not rebuilt, so check the result. Scans (photos of pages) have no text: use Image to Text (OCR) for those.' })) : null;
+    const note = !text ? el('div', { class: 'card tmain' }, el('p', { class: 'help', style: { margin: 0 }, text: M.kind === 'eml' ? 'Add .eml files on the left (an email saved from Outlook, Gmail, Apple Mail or Thunderbird). The sender, date, subject and the message become a PDF; attachments are listed by name.'
+      : M.kind === 'docx' ? (mode === 'docx2md' ? 'Add a .docx file on the left. Headings, lists, bold / italic, links and tables become Markdown. Old .doc files need to be saved as .docx in Word first.' : 'Add a .docx file on the left. Old .doc files need to be saved as .docx in Word first.') : 'Add a PDF on the left. Headings come from the bigger letters, and lists and paragraphs from the layout. Tables and columns are not rebuilt, so check the result. Scans (photos of pages) have no text: use Image to Text (OCR) for those.' })) : null;
     const main = el('div', {}, resultBox, editor || note);
     const bench = HT.bench([dz, list && list.el, optCard], main, { keep: text }); holder.textContent = ''; holder.append(bench); bench.set(true);
 
     async function paint() {
       const v = input.value; if (!v.trim()) { frame.srcdoc = `<style>${PREVIEW_CSS}</style><p style="color:#888">The preview appears here as you type.</p>`; return; }
       let body = v;
-      if (!htmlIn) { if (!window.marked) await HT.loadScript(V + 'marked-18.1.0/marked.min.js'); body = window.marked.parse(v, { gfm: true, async: false }); }
+      if (txtIn) body = v.replace(/\r\n?/g, '\n').trim().split(/\n{2,}/).map(p => '<p>' + p.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]).replace(/\n/g, '<br>') + '</p>').join('');   // paragraphs, as the converter makes them
+      else if (!htmlIn) { if (!window.marked) await HT.loadScript(V + 'marked-18.1.0/marked.min.js'); body = window.marked.parse(v, { gfm: true, async: false }); }
       frame.srcdoc = `<style>${PREVIEW_CSS}</style>${htmlIn ? v.replace(/<script[\s\S]*?<\/script>/gi, '') : body}`;
     }
     function changed() { run.disabled = !input.value.trim(); clearTimeout(timer); timer = setTimeout(paint, 180); resultBox.textContent = ''; }

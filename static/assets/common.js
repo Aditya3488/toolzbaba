@@ -483,6 +483,7 @@
     const list = HT.fileList({ reorder: cfg.reorder, onChange: sync });
     // a tab page can start the tool with some settings already chosen: "preset" in tools.json, e.g. /png-to-jpg -> { "format": "jpg" }
     const pre = (HT.pageMeta && HT.pageMeta.preset) || {};
+    const preExtra = Object.fromEntries(Object.entries(pre).filter(([k]) => !(cfg.fields || []).some(f => f.name === k)));   // preset keys with no field go straight to the engine
     const dz = HT.dropzone({ accept: cfg.accept, multiple, label: (HT.pageMeta && HT.pageMeta.dropLabel) || cfg.dropLabel, hint: cfg.hint, onFiles: fs => list.add(fs, multiple) });
     const form = HT.form((cfg.fields || []).map(f => f.name in pre ? { ...f, value: pre[f.name] } : f), () => toggleExtra());
     const prog = HT.progress(), resultBox = el('div');
@@ -527,7 +528,7 @@
       resultBox.textContent = ''; run.disabled = true;
       try {
         prog.set(0, 'Starting...');
-        const { id } = await HT.upload(cfg.slug, send, cfg.buildOptions ? cfg.buildOptions(vals, files) : vals);
+        const { id } = await HT.upload(cfg.slug, send, { ...preExtra, ...(cfg.buildOptions ? cfg.buildOptions(vals, files) : vals) });
         const job = await HT.poll(id, s => prog.set(s.progress || 0, (s.speed || (s.status === 'processing' ? 'Finishing up...' : `Processing ${Math.round(s.progress || 0)}%`))));
         prog.clear(); empty.classList.add('hidden');
         if (matchMedia('(max-width:900px)').matches) setTimeout(() => main.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);  // on a phone the result sits above the settings
@@ -1052,18 +1053,18 @@
   // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
   const NAV_MENUS = [
     ['Image', 'image', 'compress-image', [
-      ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
+      ['Compress and resize', ['compress-image', 'compress-webp', 'compress-avif', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
       ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'svg-converter', 'image-to-svg', 'ai-converter', 'image-to-text', 'favicon-generator']],
       ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
     ]],
     ['PDF', 'pdf', 'merge-pdf', [
       ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf', 'crop-pdf', 'compare-pdf', 'repair-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'epub-to-pdf', 'csv-to-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'eml-to-pdf', 'epub-to-pdf', 'csv-to-pdf']],
       ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'pdf-to-svg', 'ocr-pdf']],
       ['Edit PDF', ['pdf-editor', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf', 'flatten-pdf', 'protect-pdf', 'unlock-pdf']],
       ['Documents and spreadsheets', ['spreadsheet-converter', 'document-to-image', 'xlsx-to-csv', 'csv-to-xlsx', 'docx-to-png']],
-      ['Markdown', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
+      ['Markdown', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown', 'txt-to-docx', 'docx-to-txt', 'document-converter']],
     ]],
     ['Video & audio', 'video', 'video-converter', [
       ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
@@ -1079,7 +1080,7 @@
       ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-svg', 'ocr-pdf']],
       ['Images', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'jpg-to-webp', 'svg-converter', 'image-to-svg']],
       ['Video and audio', ['video-converter', 'audio-converter', 'video-to-audio', 'mp4-to-mp3', 'wav-to-mp3', 'video-to-gif', 'gif-to-video']],
-      ['Documents and spreadsheets', ['spreadsheet-converter', 'xlsx-to-csv', 'csv-to-xlsx', 'document-to-image', 'markdown-converter', 'docx-to-markdown', 'epub-to-png']],
+      ['Documents and spreadsheets', ['spreadsheet-converter', 'xlsx-to-csv', 'csv-to-xlsx', 'document-to-image', 'document-converter', 'markdown-converter', 'eml-to-pdf', 'epub-to-png']],
       ['Fonts, vectors and archives', ['font-converter', 'ttf-to-woff2', 'ai-converter', 'ai-to-png', 'archive-converter', 'archive-extractor', 'create-zip']],
     ]],
     ['Other tools', 'other', 'toolbox', [

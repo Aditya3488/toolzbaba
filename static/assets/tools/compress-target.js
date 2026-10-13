@@ -36,15 +36,17 @@ function sizeControl(startKb, onChange) {
 }
 
 // ------------------------------------------------------------------ JPG, PNG and "any image" (same screen; PNG shrinks by reducing colours, then pixels)
-const srcFmt = f => { const x = (f.name.match(/\.([^.]+)$/) || [, ''])[1].toLowerCase(), t = f.type || ''; return /jpe?g|jfif/.test(x) || t === 'image/jpeg' ? 'jpg' : x === 'png' || t === 'image/png' ? 'png' : x === 'webp' || t === 'image/webp' ? 'webp' : x === 'gif' || t === 'image/gif' ? 'gif' : 'other'; };
+const srcFmt = f => { const x = (f.name.match(/\.([^.]+)$/) || [, ''])[1].toLowerCase(), t = f.type || ''; return /jpe?g|jfif/.test(x) || t === 'image/jpeg' ? 'jpg' : x === 'png' || t === 'image/png' ? 'png' : x === 'webp' || t === 'image/webp' ? 'webp' : x === 'gif' || t === 'image/gif' ? 'gif' : x === 'avif' || t === 'image/avif' ? 'avif' : 'other'; };
 const targetImage = kind => (root, meta) => {
-  const PNG = kind === 'png', ANY = kind === 'any', ACCEPT = ANY ? 'image/*,.heic,.heif,.avif,.tif,.tiff' : PNG ? 'image/png,.png' : 'image/jpeg,.jpg,.jpeg,.jfif';
-  let mode = ANY ? 'quality' : 'target', sel = 0, token = 0, quality = 75, colors = 256, maxW = 0, outFmt = 'keep', urlA = null, urlB = null;
+  const PNG = kind === 'png', ANY = kind === 'any', WEBP = kind === 'webp', AVIF = kind === 'avif';
+  const ACCEPT = ANY ? 'image/*,.heic,.heif,.avif,.tif,.tiff' : PNG ? 'image/png,.png' : WEBP ? 'image/webp,.webp' : AVIF ? 'image/avif,.avif' : 'image/jpeg,.jpg,.jpeg,.jfif';
+  // AVIF: quality only. Encoding takes seconds per try, so a search for a target size would take a minute.
+  let mode = ANY || AVIF ? 'quality' : 'target', sel = 0, token = 0, quality = 75, colors = 256, maxW = 0, outFmt = 'keep', urlA = null, urlB = null;
   // the format a file is written in: fixed on the JPG / PNG pages, "same as the original" (or your choice) on the all-formats page
-  const fmtOf = f => (PNG ? 'png' : !ANY ? 'jpg' : outFmt !== 'keep' ? outFmt : ({ jpg: 'jpg', png: 'png', webp: 'webp', gif: 'gif' })[srcFmt(f)] || 'jpg');
+  const fmtOf = f => (PNG ? 'png' : WEBP ? 'webp' : AVIF ? 'avif' : !ANY ? 'jpg' : outFmt !== 'keep' ? outFmt : ({ jpg: 'jpg', png: 'png', webp: 'webp', gif: 'gif' })[srcFmt(f)] || 'jpg');
   const bitmaps = new Map(), size = sizeControl(meta.target_kb || 200, () => update());
   const list = HT.fileList({ onChange: files => { for (const k of bitmaps.keys()) if (!files.includes(k)) bitmaps.delete(k); if (sel >= files.length) sel = 0; draw(); update(); } });
-  const dz = HT.dropzone({ accept: ACCEPT, multiple: true, hint: HT.t('{0}, up to 40 at once. Runs in your browser: nothing is uploaded.', HT.t(ANY ? 'JPG, PNG, WebP, GIF, AVIF, HEIC...' : PNG ? 'PNG pictures (transparency is kept)' : 'JPG / JPEG pictures')), onFiles: fs => list.add(fs, true) });
+  const dz = HT.dropzone({ accept: ACCEPT, multiple: true, hint: HT.t('{0}, up to 40 at once. Runs in your browser: nothing is uploaded.', HT.t(ANY ? 'JPG, PNG, WebP, GIF, AVIF, HEIC...' : PNG ? 'PNG pictures (transparency is kept)' : WEBP ? 'WebP pictures (transparency is kept)' : AVIF ? 'AVIF pictures' : 'JPG / JPEG pictures')), onFiles: fs => list.add(fs, true) });
 
   // ---- settings card
   const modeBtn = (m, t) => $e('button', { type: 'button', class: 'tab' + (m === mode ? ' on' : ''), 'data-m': m, text: t, onclick: () => { mode = m; draw(); update(); } });
@@ -54,14 +56,14 @@ const targetImage = kind => (root, meta) => {
   qRange.addEventListener('input', () => { quality = +qRange.value; qVal.textContent = quality + '%'; update(); });
   const cSel = $e('select', { 'aria-label': 'Colours', style: { width: 'auto' }, onchange: () => { colors = +cSel.value; update(); } }, [[256, '256 (best quality)'], [128, '128'], [64, '64 (smaller)'], [32, '32'], [16, '16 (smallest, flat look)']].map(([v, t]) => $e('option', { value: v, text: t })));
   const cField = $e('div', { class: 'field' }, $e('label', { class: 'lbl', text: 'Colours' }), cSel, $e('div', { class: 'help', text: 'Fewer colours = smaller file. Most graphics look the same at 128 or 64.' }));
-  const qField = $e('div', { class: 'field' }, $e('label', { class: 'lbl' }, 'Quality', qVal), qRange, $e('div', { class: 'help', text: 'Lower = smaller file. 70–80% is usually invisible.' }));
+  const qField = $e('div', { class: 'field' }, $e('label', { class: 'lbl' }, 'Quality', qVal), qRange, $e('div', { class: 'help', text: AVIF ? 'Lower = smaller file. AVIF keeps detail well: 50–65% usually looks like the original. Each change takes a few seconds.' : 'Lower = smaller file. 70–80% is usually invisible.' }));
   const qBox = $e('div', {}, qField, cField);  // which one shows depends on the format of the picture being previewed
   const fSel = $e('select', { 'aria-label': 'Output format', onchange: () => { outFmt = fSel.value; draw(); update(); } }, [['keep', 'Same as the original'], ['jpg', 'JPG'], ['webp', 'WebP (smaller)'], ['png', 'PNG']].map(([v, t]) => $e('option', { value: v, text: t })));
   const fBox = $e('div', { class: 'field', style: { marginBottom: '14px' } }, $e('label', { class: 'lbl', text: 'Save as' }), fSel);
   const wIn = $e('input', { type: 'number', min: 0, placeholder: 'e.g. 1920', 'aria-label': 'Max width' });
   wIn.addEventListener('input', () => { maxW = Math.max(0, parseInt(wIn.value, 10) || 0); update(); });
   const wBox = $e('div', { class: 'field', style: { marginTop: '14px', maxWidth: '260px' } }, $e('label', { class: 'lbl', text: 'Max width in px (optional)' }), wIn);
-  const setCard = $e('div', { class: 'card hidden' }, HT.stepTitle(2, ANY ? 'Compress' : 'Choose the size'), ANY ? fBox : null, modes, size.el, qBox, wBox);
+  const setCard = $e('div', { class: 'card hidden' }, HT.stepTitle(2, ANY ? 'Compress' : AVIF ? 'Choose the quality' : 'Choose the size'), ANY ? fBox : null, AVIF ? null : modes, size.el, qBox, wBox);
 
   // ---- preview (right): download on top, then Result / Original / Side by side
   const pick = $e('select', { 'aria-label': 'Which picture to preview', style: { width: 'auto', maxWidth: '100%' }, onchange: () => { sel = +pick.value; update(); } });
@@ -96,7 +98,9 @@ const targetImage = kind => (root, meta) => {
   }
 
   const bmpOf = async f => { if (!bitmaps.has(f)) bitmaps.set(f, await HT.loadBitmap(f)); return bitmaps.get(f); };
-  const encOf = fmt => (c, q) => HT.encode(c, fmt === 'webp' ? 'image/webp' : 'image/jpeg', q);
+  const encOf = fmt => fmt === 'avif'
+    ? async (c, q) => { await HT.loadScript('/assets/engine/image.js'); return HT.img.encode(c, 'avif', { quality: Math.round(q * 100) }); }   // the browser cannot write AVIF itself
+    : (c, q) => HT.encode(c, fmt === 'webp' ? 'image/webp' : 'image/jpeg', q);
   const encPng = async (c, n) => { await HT.loadScript('/assets/engine/image.js'); return HT.img.encode(c, 'png', { pngColors: n }); };
 
   // PNG: first fewer colours at full size; if that is not enough, shrink the pixels (sizes are estimated from the last try),
@@ -130,7 +134,7 @@ const targetImage = kind => (root, meta) => {
     const fmt = fmtOf(f);
     if (fmt === 'gif') return { blob: f, gif: true, ext: 'gif', w: bmp.width, h: bmp.height, w0: bmp.width, h0: bmp.height, reached: true };  // animations are not touched here
     if (fmt === 'png') return { ...await makePng(f, bmp), ext: 'png' };
-    return { ...await makeLossy(f, bmp, fmt), ext: fmt === 'webp' ? 'webp' : 'jpg' };
+    return { ...await makeLossy(f, bmp, fmt), ext: fmt === 'webp' ? 'webp' : fmt === 'avif' ? 'avif' : 'jpg' };
   }
   async function makeLossy(f, bmp, fmt) {
     const enc = encOf(fmt);
@@ -201,6 +205,8 @@ const targetImage = kind => (root, meta) => {
 HT.register('target-jpg', targetImage('jpg'));
 HT.register('target-png', targetImage('png'));
 HT.register('target-any', targetImage('any'));
+HT.register('target-webp', targetImage('webp'));
+HT.register('target-avif', targetImage('avif'));
 
 // ------------------------------------------------------------------ PDF
 HT.register('target-pdf', (root, meta) => {

@@ -121,10 +121,10 @@
     for (const [i, f] of ctx.files.entries()) {
       ctx.status(ctx.files.length > 1 ? `Converting ${i + 1} of ${ctx.files.length}...` : 'Converting...');
       await tick();
-      outs.push({ name: outName(f, fmt), blob: await encode(await load(f), fmt, { quality, bg: ctx.opts.background || '#ffffff' }) });
+      outs.push({ name: outName(f, ctx.opts.ext || fmt), blob: await encode(await load(f), fmt, { quality, bg: ctx.opts.background || '#ffffff' }) });   // ext: the same picture under another name (.jpeg, .jfif are JPEGs)
       ctx.progress((i + 1) / ctx.files.length);
     }
-    ctx.info = { summary: `Converted ${outs.length} file(s) to ${fmt.toUpperCase()}` };
+    ctx.info = { summary: `Converted ${outs.length} file(s) to ${String(ctx.opts.ext || fmt).toUpperCase()}` };
     return outs;
   });
 

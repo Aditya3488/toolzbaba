@@ -949,23 +949,23 @@
  },
  "/avif-to-bmp": {
   "date": "2026-10-13",
-  "hash": "b69048d3cfdaaaef"
+  "hash": "d2ad823206333a96"
  },
  "/avif-to-gif": {
   "date": "2026-10-13",
-  "hash": "c36d89310319c5ef"
+  "hash": "2230d3c681a9aaf8"
  },
  "/avif-to-ico": {
   "date": "2026-10-13",
-  "hash": "92cd6421a422ff33"
+  "hash": "397aa5001ab0c0ec"
  },
  "/avif-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "e75b68b544f6f2d7"
+  "hash": "6a752ecc3693acbd"
  },
  "/avif-to-jpg": {
   "date": "2026-10-13",
-  "hash": "3173f51c3e7e1421"
+  "hash": "a315d11d916dc092"
  },
  "/avif-to-pdf": {
   "date": "2026-10-13",
@@ -973,15 +973,15 @@
  },
  "/avif-to-png": {
   "date": "2026-10-13",
-  "hash": "ae3dce97edca9b9e"
+  "hash": "78d9ab64ce555302"
  },
  "/avif-to-tiff": {
   "date": "2026-10-13",
-  "hash": "27c7406beb3d5c43"
+  "hash": "1aef56a7d4ac667f"
  },
  "/avif-to-webp": {
   "date": "2026-10-13",
-  "hash": "d138d9d694c94e69"
+  "hash": "58b991d0af948089"
  },
  "/base64": {
   "date": "2026-10-13",
@@ -1001,23 +1001,23 @@
  },
  "/bmp-to-avif": {
   "date": "2026-10-13",
-  "hash": "d33a5e0c326d8067"
+  "hash": "dd4b2298b5ca5e62"
  },
  "/bmp-to-gif": {
   "date": "2026-10-13",
-  "hash": "478fe55a83f25571"
+  "hash": "774569b5328d3f61"
  },
  "/bmp-to-ico": {
   "date": "2026-10-13",
-  "hash": "4beef43f4af4fd5b"
+  "hash": "c40845637d8d8b61"
  },
  "/bmp-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "6eed995c14947ff4"
+  "hash": "8d4f54186af1872d"
  },
  "/bmp-to-jpg": {
   "date": "2026-10-13",
-  "hash": "01d30fd337bbc22e"
+  "hash": "4a5c0af01ddb7022"
  },
  "/bmp-to-pdf": {
   "date": "2026-10-13",
@@ -1025,15 +1025,15 @@
  },
  "/bmp-to-png": {
   "date": "2026-10-13",
-  "hash": "173aba330de352f7"
+  "hash": "8f93c5a6b76616e0"
  },
  "/bmp-to-tiff": {
   "date": "2026-10-13",
-  "hash": "7e2af39f64bc5cce"
+  "hash": "5cae0bb14e65ff9d"
  },
  "/bmp-to-webp": {
   "date": "2026-10-13",
-  "hash": "3b11acb0e4170c8e"
+  "hash": "e38d1991f0bccdb9"
  },
  "/bn/": {
   "date": "2026-10-13",
@@ -1631,57 +1631,61 @@
   "date": "2026-10-12",
   "hash": "2b68bfa45639e585"
  },
+ "/compress-avif": {
+  "date": "2026-10-13",
+  "hash": "785d0c468ce83b82"
+ },
  "/compress-gif": {
-  "date": "2026-10-12",
-  "hash": "f9d310e4518f2bf7"
+  "date": "2026-10-13",
+  "hash": "0f20e2218337fd7e"
  },
  "/compress-image": {
-  "date": "2026-10-08",
-  "hash": "f27311993fa5e4c6"
+  "date": "2026-10-13",
+  "hash": "db9e55c7f6ae3fd0"
  },
  "/compress-jpg": {
-  "date": "2026-10-12",
-  "hash": "1d747582b93041e3"
+  "date": "2026-10-13",
+  "hash": "d9e98052c1fab3c1"
  },
  "/compress-jpg-under-100kb": {
-  "date": "2026-10-08",
-  "hash": "cc90e1a67366bb95"
+  "date": "2026-10-13",
+  "hash": "2fdf24b897d09aba"
  },
  "/compress-jpg-under-10kb": {
-  "date": "2026-10-08",
-  "hash": "055bbc2e94b76414"
+  "date": "2026-10-13",
+  "hash": "51f02c3ca5545b77"
  },
  "/compress-jpg-under-150kb": {
-  "date": "2026-10-08",
-  "hash": "0f840f9efc000aa0"
+  "date": "2026-10-13",
+  "hash": "c4cca91fefd8c640"
  },
  "/compress-jpg-under-1mb": {
-  "date": "2026-10-08",
-  "hash": "30babad533852160"
+  "date": "2026-10-13",
+  "hash": "0dae92eaca566ba9"
  },
  "/compress-jpg-under-200kb": {
-  "date": "2026-10-08",
-  "hash": "f19d20ccd0f0f204"
+  "date": "2026-10-13",
+  "hash": "630066532e99eb2c"
  },
  "/compress-jpg-under-20kb": {
-  "date": "2026-10-08",
-  "hash": "16d792771d4e4bdd"
+  "date": "2026-10-13",
+  "hash": "023af20dbfbe3497"
  },
  "/compress-jpg-under-2mb": {
-  "date": "2026-10-08",
-  "hash": "95f656f3224697c0"
+  "date": "2026-10-13",
+  "hash": "990a0a0e291c99c4"
  },
  "/compress-jpg-under-300kb": {
-  "date": "2026-10-08",
-  "hash": "c235f07057156fe1"
+  "date": "2026-10-13",
+  "hash": "2a9c4b4567457bb0"
  },
  "/compress-jpg-under-500kb": {
-  "date": "2026-10-08",
-  "hash": "89a078e71762c972"
+  "date": "2026-10-13",
+  "hash": "02e68c3e150c82d1"
  },
  "/compress-jpg-under-50kb": {
-  "date": "2026-10-08",
-  "hash": "78dca5fa8ac727fb"
+  "date": "2026-10-13",
+  "hash": "05056bf6fff73bc1"
  },
  "/compress-pdf": {
   "date": "2026-10-13",
@@ -1712,52 +1716,56 @@
   "hash": "bc02aab20b7703c6"
  },
  "/compress-png": {
-  "date": "2026-10-12",
-  "hash": "200068d6371edb75"
+  "date": "2026-10-13",
+  "hash": "31285001198acadf"
  },
  "/compress-png-under-100kb": {
-  "date": "2026-10-08",
-  "hash": "5327f8d82512ae20"
+  "date": "2026-10-13",
+  "hash": "1993a245d7a189c5"
  },
  "/compress-png-under-10kb": {
-  "date": "2026-10-08",
-  "hash": "29943d01f5084823"
+  "date": "2026-10-13",
+  "hash": "640245a7b7fe5c3f"
  },
  "/compress-png-under-150kb": {
-  "date": "2026-10-08",
-  "hash": "ebf92b82ca6e4702"
+  "date": "2026-10-13",
+  "hash": "749083b0403776bd"
  },
  "/compress-png-under-1mb": {
-  "date": "2026-10-08",
-  "hash": "d1a5d3f1b0a5ef3b"
+  "date": "2026-10-13",
+  "hash": "660f1d90c63ee2d4"
  },
  "/compress-png-under-200kb": {
-  "date": "2026-10-08",
-  "hash": "b93509680603faba"
+  "date": "2026-10-13",
+  "hash": "1f2c54c742fd8f1f"
  },
  "/compress-png-under-20kb": {
-  "date": "2026-10-08",
-  "hash": "6e6a6f24dc706f02"
+  "date": "2026-10-13",
+  "hash": "2f67f4142ffba503"
  },
  "/compress-png-under-2mb": {
-  "date": "2026-10-08",
-  "hash": "0fe07bdc9784e297"
+  "date": "2026-10-13",
+  "hash": "f0eb9fdfbb02a786"
  },
  "/compress-png-under-300kb": {
-  "date": "2026-10-08",
-  "hash": "876c915d9a901704"
+  "date": "2026-10-13",
+  "hash": "38f4138bc8262765"
  },
  "/compress-png-under-500kb": {
-  "date": "2026-10-08",
-  "hash": "f7a7ed3fb2b3311a"
+  "date": "2026-10-13",
+  "hash": "c448c6e00d6ff545"
  },
  "/compress-png-under-50kb": {
-  "date": "2026-10-08",
-  "hash": "292dce122fe0844d"
+  "date": "2026-10-13",
+  "hash": "84e381c3f7f91bb7"
  },
  "/compress-video": {
   "date": "2026-10-12",
   "hash": "de9fcd213bd18765"
+ },
+ "/compress-webp": {
+  "date": "2026-10-13",
+  "hash": "15f9fa094375d5e3"
  },
  "/contact": {
   "date": "2026-10-08",
@@ -2431,9 +2439,17 @@
   "date": "2026-10-13",
   "hash": "6a74bb110610b095"
  },
+ "/document-converter": {
+  "date": "2026-10-13",
+  "hash": "3b9e85d6b726e41b"
+ },
  "/document-to-image": {
   "date": "2026-10-13",
   "hash": "6f47ef8285829e33"
+ },
+ "/docx-converter": {
+  "date": "2026-10-13",
+  "hash": "12dfb05a527a81bd"
  },
  "/docx-to-bmp": {
   "date": "2026-10-13",
@@ -2456,8 +2472,8 @@
   "hash": "c883041b11373e85"
  },
  "/docx-to-markdown": {
-  "date": "2026-10-12",
-  "hash": "1b791c0e8a22247d"
+  "date": "2026-10-13",
+  "hash": "4fa97e89978f4578"
  },
  "/docx-to-png": {
   "date": "2026-10-13",
@@ -2467,9 +2483,17 @@
   "date": "2026-10-13",
   "hash": "740e998b8bc1b733"
  },
+ "/docx-to-txt": {
+  "date": "2026-10-13",
+  "hash": "2a36956f32bbcae6"
+ },
  "/docx-to-webp": {
   "date": "2026-10-13",
   "hash": "53c490657b9cfc74"
+ },
+ "/eml-to-pdf": {
+  "date": "2026-10-13",
+  "hash": "bad7f12139546585"
  },
  "/eot-converter": {
   "date": "2026-10-13",
@@ -2505,23 +2529,23 @@
  },
  "/epub-to-bmp": {
   "date": "2026-10-13",
-  "hash": "bc82b52c83947c8c"
+  "hash": "40f706cc38ea60f7"
  },
  "/epub-to-gif": {
   "date": "2026-10-13",
-  "hash": "3bdf01c1f73f2185"
+  "hash": "e08d7c59355bb7d7"
  },
  "/epub-to-image": {
   "date": "2026-10-13",
-  "hash": "a2258af676ed1676"
+  "hash": "7b0da0f682c4f00b"
  },
  "/epub-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "42be84fdc8e38ccb"
+  "hash": "6a3dcb87fe2809c0"
  },
  "/epub-to-jpg": {
   "date": "2026-10-13",
-  "hash": "7f4f0fc47dc61eda"
+  "hash": "740e8a76778abf0a"
  },
  "/epub-to-pdf": {
   "date": "2026-10-13",
@@ -2529,15 +2553,15 @@
  },
  "/epub-to-png": {
   "date": "2026-10-13",
-  "hash": "041fc3022ecd2a6c"
+  "hash": "684cf1b9ff67034d"
  },
  "/epub-to-tiff": {
   "date": "2026-10-13",
-  "hash": "db58cbcf2f1d9956"
+  "hash": "3ae8161c440fffec"
  },
  "/epub-to-webp": {
   "date": "2026-10-13",
-  "hash": "f5e772e8ea8ed7c4"
+  "hash": "868447a2e9d133a9"
  },
  "/es/": {
   "date": "2026-10-13",
@@ -3901,11 +3925,11 @@
  },
  "/gif-to-avif": {
   "date": "2026-10-13",
-  "hash": "768263e30eb8f1dc"
+  "hash": "398416e84256c74a"
  },
  "/gif-to-bmp": {
   "date": "2026-10-13",
-  "hash": "9cae4b0621dfb7c6"
+  "hash": "e37d4249ebc99745"
  },
  "/gif-to-flv": {
   "date": "2026-10-13",
@@ -3913,15 +3937,15 @@
  },
  "/gif-to-ico": {
   "date": "2026-10-13",
-  "hash": "41e3ef003bae51b9"
+  "hash": "f12b22fc5b8e9c05"
  },
  "/gif-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "ce6f02d072d0a0fc"
+  "hash": "1e4a11102177d2a9"
  },
  "/gif-to-jpg": {
   "date": "2026-10-13",
-  "hash": "4990ed6035824d92"
+  "hash": "9a4fdfb0cce548f4"
  },
  "/gif-to-m4v": {
   "date": "2026-10-13",
@@ -3957,11 +3981,11 @@
  },
  "/gif-to-png": {
   "date": "2026-10-13",
-  "hash": "64ef5b25db4aa1b6"
+  "hash": "904a2a401fb2f39b"
  },
  "/gif-to-tiff": {
   "date": "2026-10-13",
-  "hash": "01c31c6434e2c211"
+  "hash": "50918d42a95eb17a"
  },
  "/gif-to-ts": {
   "date": "2026-10-13",
@@ -3981,7 +4005,7 @@
  },
  "/gif-to-webp": {
   "date": "2026-10-13",
-  "hash": "29580177447669bb"
+  "hash": "6d4202cd3fa71039"
  },
  "/gif-to-wmv": {
   "date": "2026-10-13",
@@ -4013,23 +4037,23 @@
  },
  "/heic-to-avif": {
   "date": "2026-10-13",
-  "hash": "3aac10edd89c5397"
+  "hash": "214577e3e7cc1ac0"
  },
  "/heic-to-bmp": {
   "date": "2026-10-13",
-  "hash": "47b19d6b37b3e596"
+  "hash": "ecf01693cd5b852c"
  },
  "/heic-to-gif": {
   "date": "2026-10-13",
-  "hash": "c8d975ae81199b30"
+  "hash": "15baf17433474f9f"
  },
  "/heic-to-ico": {
   "date": "2026-10-13",
-  "hash": "49dc9b0136e367e1"
+  "hash": "f8817f32690a1789"
  },
  "/heic-to-jpg": {
   "date": "2026-10-13",
-  "hash": "122d93aef478a3ea"
+  "hash": "2497b43980738923"
  },
  "/heic-to-pdf": {
   "date": "2026-10-13",
@@ -4037,15 +4061,15 @@
  },
  "/heic-to-png": {
   "date": "2026-10-13",
-  "hash": "ba50884ff4ece1e9"
+  "hash": "1dca4c9a98f24162"
  },
  "/heic-to-tiff": {
   "date": "2026-10-13",
-  "hash": "75a1e3bfd6aaf9ef"
+  "hash": "b46473eacd3fc4d3"
  },
  "/heic-to-webp": {
   "date": "2026-10-13",
-  "hash": "901439fe9df512f8"
+  "hash": "17d88420f46a39f8"
  },
  "/heif-converter": {
   "date": "2026-10-13",
@@ -4053,27 +4077,27 @@
  },
  "/heif-to-avif": {
   "date": "2026-10-13",
-  "hash": "fd8f99c789f2e740"
+  "hash": "c91b69879565cd9c"
  },
  "/heif-to-bmp": {
   "date": "2026-10-13",
-  "hash": "b5097fc6df4bfaa2"
+  "hash": "056293b8c32a3065"
  },
  "/heif-to-gif": {
   "date": "2026-10-13",
-  "hash": "6014207abc3c0a30"
+  "hash": "29d56b686cebb5dc"
  },
  "/heif-to-ico": {
   "date": "2026-10-13",
-  "hash": "4047beff4c8dbdac"
+  "hash": "3ed7c5f02f603b32"
  },
  "/heif-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "1ac09be9f917bb48"
+  "hash": "dbb5faf53f9e08b3"
  },
  "/heif-to-jpg": {
   "date": "2026-10-13",
-  "hash": "c99b48e2c70f3d1c"
+  "hash": "bd47a8e5aa79fa60"
  },
  "/heif-to-pdf": {
   "date": "2026-10-13",
@@ -4081,15 +4105,15 @@
  },
  "/heif-to-png": {
   "date": "2026-10-13",
-  "hash": "0fe7a32f8ca96ec8"
+  "hash": "cc48420b3cf01d92"
  },
  "/heif-to-tiff": {
   "date": "2026-10-13",
-  "hash": "25ffd781164e33a5"
+  "hash": "9758279eeda1fddb"
  },
  "/heif-to-webp": {
   "date": "2026-10-13",
-  "hash": "8d69b4b092549697"
+  "hash": "310db9d77170ee3d"
  },
  "/hi/": {
   "date": "2026-10-13",
@@ -4696,8 +4720,8 @@
   "hash": "24934549b8e0f2c9"
  },
  "/html-to-markdown": {
-  "date": "2026-10-12",
-  "hash": "3ab5760435ac15f3"
+  "date": "2026-10-13",
+  "hash": "1fc05038a31b9182"
  },
  "/html-to-pdf": {
   "date": "2026-10-13",
@@ -4721,23 +4745,23 @@
  },
  "/ico-to-avif": {
   "date": "2026-10-13",
-  "hash": "ff3db445f96d5d21"
+  "hash": "a94a2920412602f5"
  },
  "/ico-to-bmp": {
   "date": "2026-10-13",
-  "hash": "8c18557b72cd8a34"
+  "hash": "2cf555ea8f303a40"
  },
  "/ico-to-gif": {
   "date": "2026-10-13",
-  "hash": "73253f1b3e1d9362"
+  "hash": "7955980e1b5e84e2"
  },
  "/ico-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "a4e6238aca568930"
+  "hash": "11a2f1179c8eed96"
  },
  "/ico-to-jpg": {
   "date": "2026-10-13",
-  "hash": "f262669644bf3a9c"
+  "hash": "da31186a47aea9d3"
  },
  "/ico-to-pdf": {
   "date": "2026-10-13",
@@ -4745,19 +4769,19 @@
  },
  "/ico-to-png": {
   "date": "2026-10-13",
-  "hash": "b3d38533b8bceddb"
+  "hash": "fe4efc33def5d6f7"
  },
  "/ico-to-svg": {
   "date": "2026-10-13",
-  "hash": "278c629ab5dba9e5"
+  "hash": "c5395675f49c0df4"
  },
  "/ico-to-tiff": {
   "date": "2026-10-13",
-  "hash": "df2b48069e8bdfe3"
+  "hash": "31bf4b7188dae6b4"
  },
  "/ico-to-webp": {
   "date": "2026-10-13",
-  "hash": "b2d258e4bf8c8322"
+  "hash": "8d440fc1de3589ec"
  },
  "/id/": {
   "date": "2026-10-13",
@@ -8677,23 +8701,27 @@
  },
  "/jpeg-to-avif": {
   "date": "2026-10-13",
-  "hash": "8afd6c28da65059b"
+  "hash": "3e491ace721b5dfd"
  },
  "/jpeg-to-bmp": {
   "date": "2026-10-13",
-  "hash": "b3aebb3aaa026862"
+  "hash": "c2e98cadaae201cd"
  },
  "/jpeg-to-gif": {
   "date": "2026-10-13",
-  "hash": "880d4457a648057b"
+  "hash": "df4be249f1f7dd31"
  },
  "/jpeg-to-ico": {
   "date": "2026-10-13",
-  "hash": "f9170b72cf4e119d"
+  "hash": "a95ca647e13277e6"
+ },
+ "/jpeg-to-jpg": {
+  "date": "2026-10-13",
+  "hash": "14dce6d9027db765"
  },
  "/jpeg-to-tiff": {
   "date": "2026-10-13",
-  "hash": "48b42a9c3905b51e"
+  "hash": "fbd89477464f6466"
  },
  "/jpg-converter": {
   "date": "2026-10-13",
@@ -8701,19 +8729,27 @@
  },
  "/jpg-to-avif": {
   "date": "2026-10-13",
-  "hash": "855fed79827994f8"
+  "hash": "5ca6105320cefb22"
  },
  "/jpg-to-bmp": {
   "date": "2026-10-13",
-  "hash": "25e0f36c1d4deb51"
+  "hash": "075d32fc6df3af10"
  },
  "/jpg-to-gif": {
   "date": "2026-10-13",
-  "hash": "04b31ac0523a2fdc"
+  "hash": "08fe9453bbd9f8bb"
  },
  "/jpg-to-ico": {
   "date": "2026-10-13",
-  "hash": "714c865e05e82c30"
+  "hash": "8d2cb90e4fd9e9a1"
+ },
+ "/jpg-to-jfif": {
+  "date": "2026-10-13",
+  "hash": "4517aed7a850e111"
+ },
+ "/jpg-to-jpeg": {
+  "date": "2026-10-13",
+  "hash": "d87f7219e655b1c8"
  },
  "/jpg-to-pdf": {
   "date": "2026-10-13",
@@ -8721,19 +8757,19 @@
  },
  "/jpg-to-png": {
   "date": "2026-10-13",
-  "hash": "462f7d3083f1e4c4"
+  "hash": "6ebf332449ae7bee"
  },
  "/jpg-to-svg": {
   "date": "2026-10-13",
-  "hash": "61168aa6f9bb9ea3"
+  "hash": "ede97ca0ba72dc15"
  },
  "/jpg-to-tiff": {
   "date": "2026-10-13",
-  "hash": "69026b714cc0af18"
+  "hash": "3be617ff9b7e8e14"
  },
  "/jpg-to-webp": {
   "date": "2026-10-13",
-  "hash": "340ef97cc020dbd3"
+  "hash": "cf451498ef6f8555"
  },
  "/json-formatter": {
   "date": "2026-10-08",
@@ -8904,20 +8940,20 @@
   "hash": "ff3b38a71181ff03"
  },
  "/markdown-converter": {
-  "date": "2026-10-12",
-  "hash": "77371a8254badc33"
+  "date": "2026-10-13",
+  "hash": "1181db053feb51cd"
  },
  "/markdown-to-html": {
-  "date": "2026-10-12",
-  "hash": "8275ade7006e07d3"
+  "date": "2026-10-13",
+  "hash": "7d86441ffeb86da7"
  },
  "/markdown-to-pdf": {
-  "date": "2026-10-12",
-  "hash": "4fa7c4040a25072b"
+  "date": "2026-10-13",
+  "hash": "7f2c4bd9281ef219"
  },
  "/markdown-to-word": {
-  "date": "2026-10-12",
-  "hash": "4c9eb13bc6c6ab05"
+  "date": "2026-10-13",
+  "hash": "a4639d9ff99c1c29"
  },
  "/md-to-bmp": {
   "date": "2026-10-13",
@@ -8946,6 +8982,10 @@
  "/md-to-tiff": {
   "date": "2026-10-13",
   "hash": "37850c36caaf4d6d"
+ },
+ "/md-to-txt": {
+  "date": "2026-10-13",
+  "hash": "bfb2a8ff3b51c783"
  },
  "/md-to-webp": {
   "date": "2026-10-13",
@@ -9688,8 +9728,8 @@
   "hash": "9a8e6b1672edc27b"
  },
  "/pdf-to-markdown": {
-  "date": "2026-10-12",
-  "hash": "da4fc7621f90ccb7"
+  "date": "2026-10-13",
+  "hash": "e5fb5527a355631a"
  },
  "/pdf-to-png": {
   "date": "2026-10-13",
@@ -10345,23 +10385,23 @@
  },
  "/png-to-avif": {
   "date": "2026-10-13",
-  "hash": "652a8ed0d3263ea6"
+  "hash": "04a1b3de09b85c1a"
  },
  "/png-to-bmp": {
   "date": "2026-10-13",
-  "hash": "76c3a0d6bd97620c"
+  "hash": "dc4680d8135f2347"
  },
  "/png-to-gif": {
   "date": "2026-10-13",
-  "hash": "88b24b4dd3cbb9aa"
+  "hash": "95d83495af07e248"
  },
  "/png-to-ico": {
   "date": "2026-10-13",
-  "hash": "e6996993d1947162"
+  "hash": "48cb03d60edd1e6e"
  },
  "/png-to-jpg": {
   "date": "2026-10-13",
-  "hash": "c1d514a55ec0ce14"
+  "hash": "e40384c56684aa71"
  },
  "/png-to-pdf": {
   "date": "2026-10-13",
@@ -10369,11 +10409,11 @@
  },
  "/png-to-svg": {
   "date": "2026-10-13",
-  "hash": "3f85a964a34ad755"
+  "hash": "42b12f6b3142e2f4"
  },
  "/png-to-tiff": {
   "date": "2026-10-13",
-  "hash": "ad28e66e36fe70f3"
+  "hash": "608e6d6546df0a80"
  },
  "/powerpoint-to-pdf": {
   "date": "2026-10-12",
@@ -10381,7 +10421,7 @@
  },
  "/privacy": {
   "date": "2026-10-13",
-  "hash": "72525215e22b4b83"
+  "hash": "ec0f1b0c27dfe2cb"
  },
  "/protect-pdf": {
   "date": "2026-10-12",
@@ -11625,11 +11665,11 @@
  },
  "/svg-to-ico": {
   "date": "2026-10-13",
-  "hash": "6869b47805085cf8"
+  "hash": "e07e1f6419dc9d43"
  },
  "/svg-to-jpg": {
   "date": "2026-10-13",
-  "hash": "c82b0d3e5fdb39dd"
+  "hash": "24bdf951fb40b762"
  },
  "/svg-to-otf": {
   "date": "2026-10-13",
@@ -11637,7 +11677,7 @@
  },
  "/svg-to-png": {
   "date": "2026-10-13",
-  "hash": "199182271b22ef4c"
+  "hash": "cc2d7cf9b30233fb"
  },
  "/svg-to-ttc": {
   "date": "2026-10-13",
@@ -11649,7 +11689,7 @@
  },
  "/svg-to-webp": {
   "date": "2026-10-13",
-  "hash": "0fc02502f90acaf2"
+  "hash": "05486f6a97092562"
  },
  "/svg-to-woff": {
   "date": "2026-10-13",
@@ -11693,7 +11733,7 @@
  },
  "/terms": {
   "date": "2026-10-13",
-  "hash": "c972a53d787c6a85"
+  "hash": "3e121a2e39f206e9"
  },
  "/text-case-converter": {
   "date": "2026-10-12",
@@ -11713,27 +11753,27 @@
  },
  "/tiff-to-avif": {
   "date": "2026-10-13",
-  "hash": "6e42e17475c085bf"
+  "hash": "9fa36cf0fd1a2b8c"
  },
  "/tiff-to-bmp": {
   "date": "2026-10-13",
-  "hash": "4467570631442c5b"
+  "hash": "2d6d6800b406b8e6"
  },
  "/tiff-to-gif": {
   "date": "2026-10-13",
-  "hash": "35fdecf8898deeee"
+  "hash": "aeb7ddfec3c794fb"
  },
  "/tiff-to-ico": {
   "date": "2026-10-13",
-  "hash": "777864f1d78e6ce0"
+  "hash": "322aebc4a55cf666"
  },
  "/tiff-to-jpeg": {
   "date": "2026-10-13",
-  "hash": "47dfefeb6f8ca9db"
+  "hash": "cd4c4d2af1e8d4e4"
  },
  "/tiff-to-jpg": {
   "date": "2026-10-13",
-  "hash": "e5bab9bb4b7d2ca0"
+  "hash": "8d8199801a2d56f7"
  },
  "/tiff-to-pdf": {
   "date": "2026-10-13",
@@ -11741,11 +11781,11 @@
  },
  "/tiff-to-png": {
   "date": "2026-10-13",
-  "hash": "fc49da082d20a345"
+  "hash": "5f962dcfa2b211d4"
  },
  "/tiff-to-webp": {
   "date": "2026-10-13",
-  "hash": "44a86bfc24a0636c"
+  "hash": "45e36eeaa9953025"
  },
  "/tr/": {
   "date": "2026-10-13",
@@ -12499,9 +12539,17 @@
   "date": "2026-10-13",
   "hash": "299561707fdc04cf"
  },
+ "/txt-converter": {
+  "date": "2026-10-13",
+  "hash": "fd8916d66aca4f82"
+ },
  "/txt-to-bmp": {
   "date": "2026-10-13",
   "hash": "f0a162691b35f8ba"
+ },
+ "/txt-to-docx": {
+  "date": "2026-10-13",
+  "hash": "db9eddb93632afb6"
  },
  "/txt-to-gif": {
   "date": "2026-10-13",
@@ -12518,6 +12566,10 @@
  "/txt-to-jpg": {
   "date": "2026-10-13",
   "hash": "f4043630c76a70d2"
+ },
+ "/txt-to-md": {
+  "date": "2026-10-13",
+  "hash": "8417cdc917d9ab00"
  },
  "/txt-to-pdf": {
   "date": "2026-10-13",
@@ -13369,23 +13421,23 @@
  },
  "/webp-to-avif": {
   "date": "2026-10-13",
-  "hash": "5b6c314f3bbce39f"
+  "hash": "67d24c0f11302426"
  },
  "/webp-to-bmp": {
   "date": "2026-10-13",
-  "hash": "15532ed708f78417"
+  "hash": "2dedb5f9cc0c0823"
  },
  "/webp-to-gif": {
   "date": "2026-10-13",
-  "hash": "fcd3f75b2688fda9"
+  "hash": "e4cc378a52eed568"
  },
  "/webp-to-ico": {
   "date": "2026-10-13",
-  "hash": "5ad3fd44188ca640"
+  "hash": "1c3826835877894a"
  },
  "/webp-to-jpg": {
   "date": "2026-10-13",
-  "hash": "a13aed38b193cb4c"
+  "hash": "723f29199b07c502"
  },
  "/webp-to-pdf": {
   "date": "2026-10-13",
@@ -13393,15 +13445,15 @@
  },
  "/webp-to-png": {
   "date": "2026-10-13",
-  "hash": "737c0942200377d9"
+  "hash": "d4fb4ff85d537f9f"
  },
  "/webp-to-svg": {
   "date": "2026-10-13",
-  "hash": "d2074fd673e09f67"
+  "hash": "d6572efb0e4475e4"
  },
  "/webp-to-tiff": {
   "date": "2026-10-13",
-  "hash": "5461027293b40eb5"
+  "hash": "7d28beafcb5a9f27"
  },
  "/website-color-palette-extractor": {
   "date": "2026-10-13",
