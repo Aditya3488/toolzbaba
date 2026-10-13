@@ -385,7 +385,7 @@
   HT.askBabaMatch = (data, text) => match(data, text);
   HT.askBabaWords = text => [...analyse(text, HT.lang).hits.keys()];   // which ideas Baba sees in a text (for testing)
 
-  HT.askBaba = async (stage, { compact = false, above = null } = {}) => {
+  HT.askBaba = async (stage, { compact = false, above = null, box = null } = {}) => {
     if (!stage || stage.dataset.ready) return; stage.dataset.ready = '1';
     const data = await HT.loadTools(); await HT.i18n;
     const all = toolsOf(data);
@@ -432,7 +432,7 @@
       e.preventDefault(); const q = input.value.trim(); if (!q) return input.focus();
       open(q, match(data, q), form);
     });
-    stage.append(form);
+    (box || stage).append(form);   // the home page puts the box under the hero's line; elsewhere it sits at the foot of the field
 
     // one box awake at a time
     function wake(i, typeIt) {
@@ -487,7 +487,7 @@
       stage.append(panel); stage.classList.add('open');
       const pr = panel.getBoundingClientRect();
       panel.animate([{ transform: `translate(${fr.left - pr.left}px, ${fr.top - pr.top}px) scale(${fr.width / pr.width}, ${fr.height / pr.height})`, opacity: .6 }, { transform: 'none', opacity: 1 }],
-        { duration: 520, easing: 'cubic-bezier(.2, .8, .25, 1)' });
+        { duration: 320, easing: 'cubic-bezier(.2, .8, .25, 1)' });
       const shut = () => {
         if (!panel) return; const p = panel; panel = null; stage.classList.remove('open');
         p.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'scale(.96)' }], { duration: 220, easing: 'ease-in' }).onfinish = () => p.remove();
@@ -517,15 +517,10 @@
         tools.forEach((t, i) => steps.push(() => { if (!i) body.append(list); list.append(toolCard(t)); }));
         done = T('Baba found these'); buttons = [again()];
       }
-      let k = 0;
-      const next = () => {
-        if (!panel) return;
-        if (k < steps.length) { steps[k++](); bar.firstChild.style.width = (k / (steps.length + 1) * 100) + '%'; setTimeout(next, res.kind === 'tool' ? 650 : 420); return; }
-        bar.firstChild.style.width = '100%'; chip.classList.add('done'); chip.lastChild.textContent = done;
-        end.append(...buttons);
-        const a = end.querySelector('a, button'); if (a) a.focus({ preventScroll: true });
-      };
-      setTimeout(next, 850);
+      steps.forEach(fn => { const before = new Set(body.childNodes); fn(); let i = 0; body.querySelectorAll('.ab-say, .ab-tool, .ab-steps li').forEach(n => { if (!n.style.animationDelay) n.style.animationDelay = (i++ * 45) + 'ms'; }); });
+      end.append(...buttons); buttons.forEach(b => { b.style.animationDelay = '180ms'; });
+      requestAnimationFrame(() => { bar.firstChild.style.width = '100%'; });
+      setTimeout(() => { if (!panel) return; chip.classList.add('done'); chip.lastChild.textContent = done; const a = end.querySelector('a, button'); if (a) a.focus({ preventScroll: true }); }, 380);
     }
 
     // start only while the section is on screen

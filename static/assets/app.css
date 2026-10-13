@@ -833,7 +833,10 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* the home page: hero and field are one scene; the field fills it, the hero sits on top, and the panel comes above both */
 .scene { position:relative; margin:0 0 30px; background:radial-gradient(46% 40% at 50% 62%, color-mix(in srgb,#a855f7 7%,transparent), transparent 72%); }
 .scene > .ask-stage { position:absolute; inset:0; height:auto; z-index:0; } .scene > .ask-stage.open { z-index:2; }
-.ask-space { height:470px; } @media (max-width:700px) { .ask-space { height:430px; } }
+.ask-space { height:410px; } @media (max-width:700px) { .ask-space { height:400px; } }
+/* the home page: the message box sits under the hero's line, in the flow */
+.askbox .ab-ask { position:static; transform:none; width:min(560px,100%); margin:4px 0 22px; pointer-events:auto; }
+@media (max-width:960px) { .askbox .ab-ask { margin:4px auto 18px; } }
 .ask-h { text-align:center; margin:0 auto 4px; max-width:640px; padding:0 20px; } .ask-h h2 { font-size:clamp(1.35rem,2.6vw,1.9rem); margin:0 0 6px; letter-spacing:-.02em; } .ask-h p { margin:0; color:var(--muted); }
 .ask-stage { position:relative; height:500px; overflow-x:clip; }
 .ask-stage.compact { height:420px; }
@@ -897,7 +900,7 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .ab-tool i { flex:none; width:42px; height:42px; } .ab-tool b { display:block; } .ab-tool small { color:var(--muted); font-size:.82rem; line-height:1.35; display:block; }
 .ab-steps { margin:12px 0 10px; padding-inline-start:22px; } .ab-steps li { margin:6px 0; color:var(--muted); animation:abin .45s ease both; } .ab-steps li b { color:var(--text); }
 @keyframes abin { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-.ab-bar { height:6px; border-radius:99px; background:var(--bg2); overflow:hidden; } .ab-bar i { display:block; height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,#3b82f6,#a855f7); transition:width .6s ease; }
+.ab-bar { height:6px; border-radius:99px; background:var(--bg2); overflow:hidden; } .ab-bar i { display:block; height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,#3b82f6,#a855f7); transition:width .35s ease; }
 .ab-end { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:14px; } .ab-end .btn { animation:abin .45s ease both; } .ab-miss { margin:0; color:var(--muted); width:100%; }
 @media (max-width:700px) { .ask-stage { height:440px; } .ab-card { width:min(300px,80%); } .ab-text { font-size:.88rem; } .ab-ghosts i:nth-child(n+15) { display:none; } .ab-floor { background-size:48px 48px; } }
 .ab-body { display:grid; gap:10px; }
