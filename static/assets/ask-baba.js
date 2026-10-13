@@ -383,7 +383,7 @@
   HT.askBabaMatch = (data, text) => match(data, text);
   HT.askBabaWords = text => [...analyse(text, HT.lang).hits.keys()];   // which ideas Baba sees in a text (for testing)
 
-  HT.askBaba = async (stage, { compact = false } = {}) => {
+  HT.askBaba = async (stage, { compact = false, backdrop = null } = {}) => {
     if (!stage || stage.dataset.ready) return; stage.dataset.ready = '1';
     const data = await HT.loadTools(); await HT.i18n;
     const all = toolsOf(data);
@@ -402,6 +402,16 @@
     }
     const field = el('div', { class: 'ab-field' });
     stage.textContent = ''; stage.append(el('div', { class: 'ab-floor', 'aria-hidden': 'true' }), ghosts, field);
+    // the same far-away boxes behind the section above (the hero), so the field flows into it as one scene
+    if (backdrop) {
+      const back = el('div', { class: 'ab-ghosts ab-back', 'aria-hidden': 'true' });
+      for (let i = 0; i < 16; i++) {
+        const d = rnd() * .35, w = (60 + rnd() * 110) * (.6 + d);
+        const g = el('i', { style: { left: (rnd() * 96 + 2) + '%', top: (rnd() * 86 + 6) + '%', width: w.toFixed(0) + 'px', height: (w * .36).toFixed(0) + 'px', opacity: (.3 + d * .8).toFixed(2) } });
+        g.style.setProperty('--d', d.toFixed(2)); back.append(g);
+      }
+      backdrop.prepend(back);
+    }
 
     const place = () => {
       spots = narrow() ? NARROW : WIDE;
@@ -452,7 +462,7 @@
 
     // the pointer: the nearest box wakes up, and the field leans a little towards it (depth)
     let hover = false, px = 0, py = 0, tx = 0, ty = 0, raf = 0;
-    const lean = () => { tx += (px - tx) * .08; ty += (py - ty) * .08; stage.style.setProperty('--mx', tx.toFixed(3)); stage.style.setProperty('--my', ty.toFixed(3)); if (Math.abs(px - tx) + Math.abs(py - ty) > .002) raf = requestAnimationFrame(lean); else raf = 0; };
+    const lean = () => { tx += (px - tx) * .08; ty += (py - ty) * .08; for (const n of [stage, backdrop]) if (n) { n.style.setProperty('--mx', tx.toFixed(3)); n.style.setProperty('--my', ty.toFixed(3)); } if (Math.abs(px - tx) + Math.abs(py - ty) > .002) raf = requestAnimationFrame(lean); else raf = 0; };
     stage.addEventListener('pointermove', e => {
       if (e.pointerType !== 'mouse' || panel) return;
       const r = stage.getBoundingClientRect(); hover = true;
@@ -463,6 +473,10 @@
       if (best >= 0) wake(best, false);
     });
     stage.addEventListener('pointerleave', () => { hover = false; px = py = 0; if (!raf) raf = requestAnimationFrame(lean); });
+    if (backdrop) {   // the boxes behind the hero lean with the pointer too
+      backdrop.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; const r = backdrop.getBoundingClientRect(); px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5; if (!raf) raf = requestAnimationFrame(lean); });
+      backdrop.addEventListener('pointerleave', () => { px = py = 0; if (!raf) raf = requestAnimationFrame(lean); });
+    }
 
     // ---- Baba at work: the box grows into a panel and the answer appears piece by piece
     const hrefOf = t => t.href || HT.href(t.slug);
