@@ -1109,8 +1109,8 @@
       if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'other') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
       openItem = it; it.panel.hidden = false; place(it); it.btn.setAttribute('aria-expanded', 'true'); it.wrap.classList.add('open');
     };
-    for (const [label, key, icon] of NAV_MENUS) {
-      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, HT.toolIcon(icon, 'xs'), label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
+    for (const [label, key] of NAV_MENUS) {
+      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
       btn.addEventListener('click', () => (openItem === it ? close() : open(it)));
       wrap.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => open(it), 90); } });
       wrap.addEventListener('mouseleave', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => close(), 220); } });
@@ -1129,7 +1129,7 @@
       if (!mFilled) { mFilled = true; const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search all tools...'; mobile.append(s);
         const data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(x => by.get(x)).filter(Boolean).slice(0, 4);
         if (recent.length) mobile.append(el('div', { class: 'nv-mrecent' }, el('h4', { text: 'Your recent tools' }), el('ul', {}, recent.map(t => el('li', {}, link(t))))));
-        for (const [label, key, icon] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', {}, HT.toolIcon(icon, 'xs'), label), sections(data, key)));
+        for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', {}, label), sections(data, key)));
         const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), HT.t('Theme: {0}', HT.t(themeName(t)))); };
         tb.onclick = () => { cycleTheme(); paint(); }; paint(); mobile.append(tb); }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
