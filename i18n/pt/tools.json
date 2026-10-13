@@ -3119,5 +3119,86 @@
     "a": "Não. Ela é convertida no seu navegador e nunca sai do seu dispositivo."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Conversor de arquivos compactados",
+  "desc": "Converta entre ZIP, TAR, TAR.GZ e GZ. Funciona no seu navegador.",
+  "title": "Conversor de arquivos compactados grátis: ZIP, TAR, TAR.GZ, GZ online | Toolz Baba",
+  "metaDesc": "Converta arquivos compactados entre ZIP, TAR, TAR.GZ (TGZ) e GZ. Arquivos, pastas e nomes mantidos. Grátis, nada é enviado.",
+  "about": "Mude um arquivo compactado de um formato para outro: ZIP, TAR, TAR.GZ (também chamado TGZ) e GZ, em qualquer direção. Cada arquivo e pasta vem com seu nome e data, inclusive nomes longos. Um GZ guarda um único arquivo, então um compactado com vários arquivos passa antes por TAR (.tar.gz). RAR, 7z, XZ, BZ2, ISO e CAB ainda não abrem no navegador. Tudo acontece no seu navegador, então nada é enviado.",
+  "steps": [
+   "Adicione seu arquivo ZIP, TAR, TAR.GZ ou GZ.",
+   "Escolha o formato de destino.",
+   "Converta e baixe o novo arquivo."
+  ],
+  "faq": [
+   {
+    "q": "Quais formatos posso converter?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) e GZ, em qualquer direção. RAR, 7z, XZ, BZ2, ISO e CAB ainda não abrem no navegador."
+   },
+   {
+    "q": "As pastas e os nomes são mantidos?",
+    "a": "Sim. Cada arquivo vem com sua pasta, nome e data, inclusive nomes com mais de 100 caracteres."
+   },
+   {
+    "q": "Meu arquivo é enviado?",
+    "a": "Não. Ele é convertido no seu navegador e nunca sai do seu dispositivo."
+   }
+  ],
+  "tabAll": "Todos os formatos"
+ },
+ "archive-extractor": {
+  "name": "Extrator de arquivos compactados",
+  "desc": "Abra um ZIP, TAR, TAR.GZ ou GZ e tire os arquivos, um a um ou todos juntos.",
+  "title": "Extrator de arquivos compactados grátis: abrir ZIP, TAR, TAR.GZ online | Toolz Baba",
+  "metaDesc": "Abra um ZIP, TAR, TAR.GZ (TGZ) ou GZ online, veja o conteúdo e baixe qualquer arquivo. Sem programas, nada é enviado.",
+  "about": "Abra um arquivo compactado sem instalar nada: ao adicionar um ZIP, TAR, TAR.GZ (TGZ) ou GZ você vê cada arquivo de dentro com o tamanho e um botão de download próprio. Se quiser todos, toque em \"Extrair tudo\". Funciona também no celular, onde abrir um .tar.gz costuma ser difícil. O arquivo abre no seu navegador, então nada é enviado. RAR, 7z, XZ, BZ2, ISO e CAB ainda não abrem no navegador.",
+  "steps": [
+   "Adicione seu arquivo ZIP, TAR, TAR.GZ ou GZ.",
+   "Veja os arquivos de dentro e baixe o que precisar.",
+   "Ou toque em Extrair tudo para levar todos juntos."
+  ],
+  "faq": [
+   {
+    "q": "Posso tirar um só arquivo?",
+    "a": "Sim. Ao adicionar o compactado, cada arquivo aparece com seu próprio botão de download."
+   },
+   {
+    "q": "Funciona no celular?",
+    "a": "Sim. Funciona no navegador, então no Android e no iPhone não precisa de app."
+   },
+   {
+    "q": "Meu arquivo é enviado?",
+    "a": "Não. Ele abre no seu navegador e nunca sai do seu dispositivo."
+   }
+  ],
+  "tabAll": "Todos os formatos"
+ },
+ "create-zip": {
+  "name": "Criar arquivo ZIP",
+  "desc": "Compacte vários arquivos num ZIP, TAR.GZ ou TAR. Funciona no seu navegador.",
+  "title": "Criar arquivo ZIP online grátis: compacte arquivos em ZIP ou TAR.GZ | Toolz Baba",
+  "metaDesc": "Compacte qualquer arquivo num ZIP, TAR.GZ ou TAR para enviar tudo junto. Grátis, sem cadastro, nada é enviado.",
+  "about": "Junte vários arquivos num só, mais fácil de mandar por e-mail ou chat: um ZIP abre em qualquer computador e celular, e TAR.GZ é o comum em Linux e servidores. Escolha os arquivos, digite o nome e baixe. Dois arquivos com o mesmo nome recebem nomes diferentes automaticamente. A compactação acontece no seu navegador, então nada é enviado.",
+  "steps": [
+   "Adicione seus arquivos.",
+   "Escolha ZIP, TAR.GZ ou TAR e o nome do arquivo.",
+   "Compacte e baixe."
+  ],
+  "faq": [
+   {
+    "q": "ZIP ou TAR.GZ?",
+    "a": "ZIP para quase todo mundo, porque Windows, Mac, Android e iPhone abrem direto. TAR.GZ é o comum em Linux e servidores."
+   },
+   {
+    "q": "Quantos arquivos posso adicionar?",
+    "a": "Até 500 de uma vez. O limite real é a memória do seu dispositivo."
+   },
+   {
+    "q": "Meus arquivos são enviados?",
+    "a": "Não. O compactado é criado no seu navegador."
+   }
+  ],
+  "tabAll": "Todos os formatos"
  }
 }

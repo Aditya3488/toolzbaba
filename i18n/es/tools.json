@@ -3119,5 +3119,86 @@
     "a": "No. Se convierte en tu navegador y nunca sale de tu dispositivo."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Conversor de archivos comprimidos",
+  "desc": "Convierte entre ZIP, TAR, TAR.GZ y GZ. Funciona en tu navegador.",
+  "title": "Conversor de archivos comprimidos gratis: ZIP, TAR, TAR.GZ, GZ online | Toolz Baba",
+  "metaDesc": "Convierte archivos comprimidos entre ZIP, TAR, TAR.GZ (TGZ) y GZ. Se conservan archivos, carpetas y nombres. Gratis, sin subir nada.",
+  "about": "Pasa un archivo comprimido de un formato a otro: ZIP, TAR, TAR.GZ (también llamado TGZ) y GZ, en cualquier dirección. Cada archivo y carpeta se conserva con su nombre y fecha, incluso los nombres largos. Un GZ contiene un solo archivo, así que un comprimido con varios archivos pasa antes por TAR (.tar.gz). RAR, 7z, XZ, BZ2, ISO y CAB todavía no se pueden abrir en el navegador. Todo ocurre en tu navegador, así que nada se sube.",
+  "steps": [
+   "Añade tu archivo ZIP, TAR, TAR.GZ o GZ.",
+   "Elige el formato de destino.",
+   "Convierte y descarga el nuevo archivo."
+  ],
+  "faq": [
+   {
+    "q": "¿Qué formatos puedo convertir?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) y GZ, en cualquier dirección. RAR, 7z, XZ, BZ2, ISO y CAB todavía no se abren en el navegador."
+   },
+   {
+    "q": "¿Se conservan las carpetas y los nombres?",
+    "a": "Sí. Cada archivo llega con su carpeta, su nombre y su fecha, incluso nombres de más de 100 caracteres."
+   },
+   {
+    "q": "¿Se sube mi archivo?",
+    "a": "No. Se convierte en tu navegador y nunca sale de tu dispositivo."
+   }
+  ],
+  "tabAll": "Todos los formatos"
+ },
+ "archive-extractor": {
+  "name": "Extractor de archivos comprimidos",
+  "desc": "Abre un ZIP, TAR, TAR.GZ o GZ y saca los archivos, uno a uno o todos a la vez.",
+  "title": "Extractor de archivos comprimidos gratis: abrir ZIP, TAR, TAR.GZ online | Toolz Baba",
+  "metaDesc": "Abre un ZIP, TAR, TAR.GZ (TGZ) o GZ online, mira lo que contiene y descarga cualquier archivo. Sin programas, sin subir nada.",
+  "about": "Abre un archivo comprimido sin instalar nada: al añadir un ZIP, TAR, TAR.GZ (TGZ) o GZ ves cada archivo de dentro con su tamaño y su propio botón de descarga. Si los quieres todos, pulsa \"Extraer todo\". También funciona en el móvil, donde abrir un .tar.gz suele ser complicado. El archivo se abre en tu navegador, así que nada se sube. RAR, 7z, XZ, BZ2, ISO y CAB todavía no se pueden abrir en el navegador.",
+  "steps": [
+   "Añade tu archivo ZIP, TAR, TAR.GZ o GZ.",
+   "Mira los archivos de dentro y descarga el que necesites.",
+   "O pulsa Extraer todo para llevártelos todos juntos."
+  ],
+  "faq": [
+   {
+    "q": "¿Puedo sacar un solo archivo?",
+    "a": "Sí. Al añadir el comprimido, cada archivo aparece con su propio botón de descarga."
+   },
+   {
+    "q": "¿Funciona en el móvil?",
+    "a": "Sí. Funciona en el navegador, así que en Android y iPhone no necesitas ninguna app."
+   },
+   {
+    "q": "¿Se sube mi archivo?",
+    "a": "No. Se abre en tu navegador y nunca sale de tu dispositivo."
+   }
+  ],
+  "tabAll": "Todos los formatos"
+ },
+ "create-zip": {
+  "name": "Crear archivo ZIP",
+  "desc": "Empaqueta varios archivos en un ZIP, TAR.GZ o TAR. Funciona en tu navegador.",
+  "title": "Crear archivo ZIP online gratis: empaqueta archivos en ZIP o TAR.GZ | Toolz Baba",
+  "metaDesc": "Empaqueta cualquier archivo en un ZIP, TAR.GZ o TAR para enviarlos juntos. Gratis, sin registro, sin subir nada.",
+  "about": "Junta varios archivos en uno solo, más fácil de enviar por correo o chat: un ZIP se abre en cualquier ordenador y móvil, y TAR.GZ es lo habitual en Linux y servidores. Elige los archivos, escribe el nombre del comprimido y descárgalo. Dos archivos con el mismo nombre reciben nombres distintos automáticamente. El empaquetado ocurre en tu navegador, así que nada se sube.",
+  "steps": [
+   "Añade tus archivos.",
+   "Elige ZIP, TAR.GZ o TAR y el nombre del archivo.",
+   "Empaqueta y descarga el comprimido."
+  ],
+  "faq": [
+   {
+    "q": "¿ZIP o TAR.GZ?",
+    "a": "ZIP para casi todo el mundo, porque Windows, Mac, Android y iPhone lo abren directamente. TAR.GZ es lo habitual en Linux y servidores."
+   },
+   {
+    "q": "¿Cuántos archivos puedo añadir?",
+    "a": "Hasta 500 a la vez. El límite real es la memoria de tu dispositivo."
+   },
+   {
+    "q": "¿Se suben mis archivos?",
+    "a": "No. El comprimido se crea en tu navegador."
+   }
+  ],
+  "tabAll": "Todos los formatos"
  }
 }

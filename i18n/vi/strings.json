@@ -1812,5 +1812,11 @@
 "TSV (tab-separated)": "TSV (phân tách bằng tab)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, văn bản, Excel (XLSX, XLS), CSV, ODS và Numbers. Chạy trong trình duyệt.",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV và Numbers. Chuyển đổi trong trình duyệt: không tải lên gì.",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), văn bản, Excel (XLSX, XLS), CSV, TSV, ODS và Numbers. Chuyển đổi trong trình duyệt: bố cục đơn giản cho kết quả tốt nhất."
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), văn bản, Excel (XLSX, XLS), CSV, TSV, ODS và Numbers. Chuyển đổi trong trình duyệt: bố cục đơn giản cho kết quả tốt nhất.",
+"Extract all": "Giải nén tất cả",
+"Archive format": "Định dạng tệp nén",
+"File name": "Tên tệp",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) và GZ. Chuyển đổi trong trình duyệt: không tải lên gì.",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) và GZ. Mở trong trình duyệt: không tải lên gì.",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Bất kỳ tệp nào, bao nhiêu cũng được. Gói trong trình duyệt: không tải lên gì."
 }

@@ -1915,6 +1915,108 @@
    "keywords": "sitemap site map website structure seo audit broken links crawl tracking tags gtm pixel sales funnel competitor shopify"
   },
   {
+   "slug": "archive-converter",
+   "cat": "util",
+   "icon": "🗜️",
+   "name": "Archive Converter",
+   "desc": "Convert between ZIP, TAR, TAR.GZ and GZ archives. Runs in your browser.",
+   "kind": "client",
+   "engine": "archive",
+   "js": "archive",
+   "tabAll": "All formats",
+   "keywords": "zip tar tar.gz tgz gz gzip archive compressed convert",
+   "about": "Change an archive from one format to another: ZIP, TAR, TAR.GZ (also called TGZ) and GZ, in any direction. Every file and folder moves across with its name and date, long names included. A GZ file holds a single file, so an archive with several files is packed into a TAR first when you ask for GZ (.tar.gz). RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet. Everything happens in your browser, so nothing is uploaded.",
+   "title": "Archive Converter Free: Convert ZIP, TAR, TAR.GZ, GZ Online | Toolz Baba",
+   "metaDesc": "Convert archives between ZIP, TAR, TAR.GZ (TGZ) and GZ. Files, folders and names kept. Free, nothing uploaded.",
+   "steps": [
+    "Add your ZIP, TAR, TAR.GZ or GZ archive.",
+    "Choose the format to convert to.",
+    "Convert and download the new archive."
+   ],
+   "faq": [
+    {
+     "q": "Which archives can I convert?",
+     "a": "ZIP, TAR, TAR.GZ (TGZ) and GZ, in any direction. RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "archive-extractor",
+   "cat": "util",
+   "icon": "📦",
+   "name": "Archive Extractor",
+   "desc": "Open a ZIP, TAR, TAR.GZ or GZ and take the files out, one by one or all at once.",
+   "kind": "client",
+   "engine": "archive",
+   "js": "archive",
+   "tabAll": "All archives",
+   "keywords": "unzip extract open zip tar tar.gz tgz gz gzip archive files",
+   "about": "Open an archive without installing anything: add a ZIP, TAR, TAR.GZ (TGZ) or GZ and every file inside is listed with its size and its own download button. If you want all of them, press \"Extract all\". It works on a phone too, where a .tar.gz is usually hard to open. The archive is opened in your browser, so nothing is uploaded. RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet.",
+   "title": "Archive Extractor Free: Open ZIP, TAR, TAR.GZ Online | Toolz Baba",
+   "metaDesc": "Open a ZIP, TAR, TAR.GZ (TGZ) or GZ file online, see what is inside and download any file. No software, nothing uploaded.",
+   "steps": [
+    "Add your ZIP, TAR, TAR.GZ or GZ archive.",
+    "Look through the files inside and download the one you need.",
+    "Or press Extract all to take every file at once."
+   ],
+   "faq": [
+    {
+     "q": "Can I take out just one file?",
+     "a": "Yes. As soon as you add the archive, every file is listed with its own download button."
+    },
+    {
+     "q": "Does it work on a phone?",
+     "a": "Yes. It runs in the browser, so no app is needed on Android or iPhone."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is opened inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "create-zip",
+   "cat": "util",
+   "icon": "🗂️",
+   "name": "Create ZIP File",
+   "desc": "Pack several files into one ZIP, TAR.GZ or TAR archive. Runs in your browser.",
+   "kind": "client",
+   "engine": "archive",
+   "js": "archive",
+   "tabAll": "All formats",
+   "keywords": "create make zip tar.gz tgz archive compress pack files folder",
+   "about": "Put several files into one, easier to send by email or chat: a ZIP opens on every computer and phone, and TAR.GZ is the usual choice on Linux and servers. Choose the files, type a name for the archive and download it. Two files with the same name get different names automatically. The packing happens in your browser, so nothing is uploaded.",
+   "title": "Create ZIP File Online Free: Pack Files into ZIP or TAR.GZ | Toolz Baba",
+   "metaDesc": "Pack any files into one ZIP, TAR.GZ or TAR file to send them together. Free, no sign-up, nothing uploaded.",
+   "steps": [
+    "Add your files.",
+    "Choose ZIP, TAR.GZ or TAR and the file name.",
+    "Pack them and download the archive."
+   ],
+   "faq": [
+    {
+     "q": "ZIP or TAR.GZ?",
+     "a": "ZIP for almost everyone, because Windows, Mac, Android and iPhone open it directly. TAR.GZ is the usual choice on Linux and servers."
+    },
+    {
+     "q": "How many files can I add?",
+     "a": "Up to 500 at a time. The real limit is your device's memory."
+    },
+    {
+     "q": "Are my files uploaded?",
+     "a": "No. The archive is made inside your browser."
+    }
+   ]
+  },
+  {
    "slug": "image-color-palette-extractor",
    "cat": "util",
    "icon": "🎨",
@@ -24088,6 +24190,683 @@
     {
      "q": "Is my file uploaded?",
      "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "zip-to-tar",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "ZIP to TAR",
+   "tab": "ZIP to TAR",
+   "preset": {
+    "format": "tar"
+   },
+   "title": "ZIP to TAR Converter Free: Convert ZIP to TAR Online",
+   "desc": "Convert ZIP archives to TAR, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free ZIP to TAR converter. Turn a ZIP archive into TAR online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ZIP archives to TAR. Every file and folder in the ZIP is read, with its name and date. TAR keeps files and folders together without compressing them, the usual container on Linux. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your ZIP archive.",
+    "TAR is already selected.",
+    "Convert and download the TAR file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ZIP to TAR?",
+     "a": "Add the ZIP file above; TAR is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "zip-to-tar-gz",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "ZIP to TAR.GZ",
+   "tab": "ZIP to TAR.GZ",
+   "preset": {
+    "format": "tar-gz"
+   },
+   "title": "ZIP to TAR GZ Converter Free: Convert ZIP to TAR.GZ Online",
+   "desc": "Convert ZIP archives to TAR.GZ, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free ZIP to TAR.GZ converter. Turn a ZIP archive into TAR.GZ online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ZIP archives to TAR.GZ. Every file and folder in the ZIP is read, with its name and date. TAR.GZ (also called TGZ) is a TAR compressed with gzip, the usual archive on Linux and servers. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your ZIP archive.",
+    "TAR.GZ is already selected.",
+    "Convert and download the TAR.GZ file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ZIP to TAR.GZ?",
+     "a": "Add the ZIP file above; TAR.GZ is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "zip-to-tgz"
+   ]
+  },
+  {
+   "slug": "zip-to-gz",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "ZIP to GZ",
+   "tab": "ZIP to GZ",
+   "preset": {
+    "format": "gz"
+   },
+   "title": "ZIP to GZ Converter Free: Convert ZIP to GZ Online",
+   "desc": "Convert ZIP archives to GZ, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free ZIP to GZ converter. Turn a ZIP archive into GZ online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ZIP archives to GZ. Every file and folder in the ZIP is read, with its name and date. GZ compresses a single file with gzip. A GZ file holds exactly one file: an archive with one file becomes that file .gz, and one with several files is packed into a TAR first, giving a .tar.gz. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your ZIP archive.",
+    "GZ is already selected.",
+    "Convert and download the GZ file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ZIP to GZ?",
+     "a": "Add the ZIP file above; GZ is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "zip-converter",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "ZIP Converter",
+   "tab": "ZIP Converter",
+   "title": "ZIP Converter Free: Convert ZIP to TAR, TAR.GZ or GZ Online",
+   "desc": "Convert ZIP archives to TAR, TAR.GZ, GZ. Nothing uploaded.",
+   "metaDesc": "Free ZIP converter. Change ZIP archives into TAR, TAR.GZ, GZ online, files and folders kept. Nothing is uploaded, because it runs in your browser.",
+   "about": "Convert ZIP archives into TAR, TAR.GZ, GZ. Every file and folder in the ZIP is read, with its name and date. If you already know the format you want, its page is linked above and arrives with it chosen. RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your ZIP archive.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert ZIP to?",
+     "a": "TAR, TAR.GZ, GZ. Pick it from the list after you add your archive."
+    },
+    {
+     "q": "Can I convert several archives at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "extract-zip",
+   "base": "archive-extractor",
+   "cat": "util",
+   "kind": "client",
+   "name": "Extract ZIP",
+   "tab": "Extract ZIP",
+   "title": "Extract ZIP Online Free: Open ZIP Files Without Software",
+   "desc": "Open a ZIP file and take out any file inside, or all of them at once. Nothing uploaded.",
+   "metaDesc": "Extract zip online for free. Open a ZIP file, see every file inside and download one or all of them. Works on phones too. Nothing is uploaded.",
+   "about": "Open a ZIP file without installing anything. Every file and folder in the ZIP is read, with its name and date. Each file is listed with its size and its own download button, and \"Extract all\" gives you every file at once. It works on a phone too. The archive is opened in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your ZIP file.",
+    "Look through the files inside and download the one you need.",
+    "Or press Extract all to take every file at once."
+   ],
+   "faq": [
+    {
+     "q": "How do I open a ZIP file?",
+     "a": "Add it above. Every file inside appears straight away with a download button; nothing needs to be installed."
+    },
+    {
+     "q": "Can I take out just one file?",
+     "a": "Yes. Every file has its own download button."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is opened inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "unzip"
+   ]
+  },
+  {
+   "slug": "tar-to-zip",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR to ZIP",
+   "tab": "TAR to ZIP",
+   "preset": {
+    "format": "zip"
+   },
+   "title": "TAR to ZIP Converter Free: Convert TAR to ZIP Online",
+   "desc": "Convert TAR archives to ZIP, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free TAR to ZIP converter. Turn a TAR archive into ZIP online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TAR archives to ZIP. Every file and folder in the TAR is read, long names included. ZIP opens on every computer and phone without extra software. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your TAR archive.",
+    "ZIP is already selected.",
+    "Convert and download the ZIP file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TAR to ZIP?",
+     "a": "Add the TAR file above; ZIP is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "tar-to-tar-gz",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR to TAR.GZ",
+   "tab": "TAR to TAR.GZ",
+   "preset": {
+    "format": "tar-gz"
+   },
+   "title": "TAR to TAR GZ Converter Free: Convert TAR to TAR.GZ Online",
+   "desc": "Convert TAR archives to TAR.GZ, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free TAR to TAR.GZ converter. Turn a TAR archive into TAR.GZ online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TAR archives to TAR.GZ. Every file and folder in the TAR is read, long names included. TAR.GZ (also called TGZ) is a TAR compressed with gzip, the usual archive on Linux and servers. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your TAR archive.",
+    "TAR.GZ is already selected.",
+    "Convert and download the TAR.GZ file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TAR to TAR.GZ?",
+     "a": "Add the TAR file above; TAR.GZ is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "tar-to-tgz"
+   ]
+  },
+  {
+   "slug": "tar-to-gz",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR to GZ",
+   "tab": "TAR to GZ",
+   "preset": {
+    "format": "gz"
+   },
+   "title": "TAR to GZ Converter Free: Convert TAR to GZ Online",
+   "desc": "Convert TAR archives to GZ, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free TAR to GZ converter. Turn a TAR archive into GZ online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TAR archives to GZ. Every file and folder in the TAR is read, long names included. GZ compresses a single file with gzip. A GZ file holds exactly one file: an archive with one file becomes that file .gz, and one with several files is packed into a TAR first, giving a .tar.gz. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your TAR archive.",
+    "GZ is already selected.",
+    "Convert and download the GZ file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TAR to GZ?",
+     "a": "Add the TAR file above; GZ is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "tar-converter",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR Converter",
+   "tab": "TAR Converter",
+   "title": "TAR Converter Free: Convert TAR to ZIP, TAR.GZ or GZ Online",
+   "desc": "Convert TAR archives to ZIP, TAR.GZ, GZ. Nothing uploaded.",
+   "metaDesc": "Free TAR converter. Change TAR archives into ZIP, TAR.GZ, GZ online, files and folders kept. Nothing is uploaded, because it runs in your browser.",
+   "about": "Convert TAR archives into ZIP, TAR.GZ, GZ. Every file and folder in the TAR is read, long names included. If you already know the format you want, its page is linked above and arrives with it chosen. RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your TAR archive.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert TAR to?",
+     "a": "ZIP, TAR.GZ, GZ. Pick it from the list after you add your archive."
+    },
+    {
+     "q": "Can I convert several archives at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "extract-tar",
+   "base": "archive-extractor",
+   "cat": "util",
+   "kind": "client",
+   "name": "Extract TAR",
+   "tab": "Extract TAR",
+   "title": "Extract TAR Online Free: Open TAR Files Without Software",
+   "desc": "Open a TAR file and take out any file inside, or all of them at once. Nothing uploaded.",
+   "metaDesc": "Extract tar online for free. Open a TAR file, see every file inside and download one or all of them. Works on phones too. Nothing is uploaded.",
+   "about": "Open a TAR file without installing anything. Every file and folder in the TAR is read, long names included. Each file is listed with its size and its own download button, and \"Extract all\" gives you every file at once. It works on a phone too. The archive is opened in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your TAR file.",
+    "Look through the files inside and download the one you need.",
+    "Or press Extract all to take every file at once."
+   ],
+   "faq": [
+    {
+     "q": "How do I open a TAR file?",
+     "a": "Add it above. Every file inside appears straight away with a download button; nothing needs to be installed."
+    },
+    {
+     "q": "Can I take out just one file?",
+     "a": "Yes. Every file has its own download button."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is opened inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "tar-gz-to-zip",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR.GZ to ZIP",
+   "tab": "TAR.GZ to ZIP",
+   "preset": {
+    "format": "zip"
+   },
+   "title": "TAR GZ to ZIP Converter Free: Convert TAR.GZ to ZIP Online",
+   "desc": "Convert TAR.GZ archives to ZIP, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free TAR.GZ to ZIP converter. Turn a TAR.GZ archive into ZIP online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TAR.GZ archives to ZIP. The TAR.GZ (or TGZ) is unpacked and every file and folder in it is read. ZIP opens on every computer and phone without extra software. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your TAR.GZ archive.",
+    "ZIP is already selected.",
+    "Convert and download the ZIP file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TAR.GZ to ZIP?",
+     "a": "Add the TAR.GZ file above; ZIP is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "tgz-to-zip"
+   ]
+  },
+  {
+   "slug": "tar-gz-to-tar",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR.GZ to TAR",
+   "tab": "TAR.GZ to TAR",
+   "preset": {
+    "format": "tar"
+   },
+   "title": "TAR GZ to TAR Converter Free: Convert TAR.GZ to TAR Online",
+   "desc": "Convert TAR.GZ archives to TAR, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free TAR.GZ to TAR converter. Turn a TAR.GZ archive into TAR online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TAR.GZ archives to TAR. The TAR.GZ (or TGZ) is unpacked and every file and folder in it is read. TAR keeps files and folders together without compressing them, the usual container on Linux. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your TAR.GZ archive.",
+    "TAR is already selected.",
+    "Convert and download the TAR file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TAR.GZ to TAR?",
+     "a": "Add the TAR.GZ file above; TAR is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "tgz-to-tar"
+   ]
+  },
+  {
+   "slug": "tar-gz-converter",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TAR.GZ Converter",
+   "tab": "TAR.GZ Converter",
+   "title": "TAR GZ Converter Free: Convert TAR.GZ to ZIP, TAR or GZ Online",
+   "desc": "Convert TAR.GZ archives to ZIP, TAR, GZ. Nothing uploaded.",
+   "metaDesc": "Free TAR.GZ converter. Change TAR.GZ archives into ZIP, TAR, GZ online, files and folders kept. Nothing is uploaded, because it runs in your browser.",
+   "about": "Convert TAR.GZ archives into ZIP, TAR, GZ. The TAR.GZ (or TGZ) is unpacked and every file and folder in it is read. If you already know the format you want, its page is linked above and arrives with it chosen. RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your TAR.GZ archive.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert TAR.GZ to?",
+     "a": "ZIP, TAR, GZ. Pick it from the list after you add your archive."
+    },
+    {
+     "q": "Can I convert several archives at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "tgz-converter"
+   ]
+  },
+  {
+   "slug": "extract-tar-gz",
+   "base": "archive-extractor",
+   "cat": "util",
+   "kind": "client",
+   "name": "Extract TAR.GZ",
+   "tab": "Extract TAR.GZ",
+   "title": "Extract TAR GZ Online Free: Open TAR.GZ Files Without Software",
+   "desc": "Open a TAR.GZ file and take out any file inside, or all of them at once. Nothing uploaded.",
+   "metaDesc": "Extract tar gz online for free. Open a TAR.GZ file, see every file inside and download one or all of them. Works on phones too. Nothing is uploaded.",
+   "about": "Open a TAR.GZ file without installing anything. The TAR.GZ (or TGZ) is unpacked and every file and folder in it is read. Each file is listed with its size and its own download button, and \"Extract all\" gives you every file at once. It works on a phone too. The archive is opened in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your TAR.GZ file.",
+    "Look through the files inside and download the one you need.",
+    "Or press Extract all to take every file at once."
+   ],
+   "faq": [
+    {
+     "q": "How do I open a TAR.GZ file?",
+     "a": "Add it above. Every file inside appears straight away with a download button; nothing needs to be installed."
+    },
+    {
+     "q": "Can I take out just one file?",
+     "a": "Yes. Every file has its own download button."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is opened inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "gz-to-zip",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "GZ to ZIP",
+   "tab": "GZ to ZIP",
+   "preset": {
+    "format": "zip"
+   },
+   "title": "GZ to ZIP Converter Free: Convert GZ to ZIP Online",
+   "desc": "Convert GZ archives to ZIP, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free GZ to ZIP converter. Turn a GZ archive into ZIP online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert GZ archives to ZIP. The file inside the GZ is unpacked; if it is a TAR, every file in it is read. ZIP opens on every computer and phone without extra software. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your GZ archive.",
+    "ZIP is already selected.",
+    "Convert and download the ZIP file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert GZ to ZIP?",
+     "a": "Add the GZ file above; ZIP is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "gz-to-tar",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "GZ to TAR",
+   "tab": "GZ to TAR",
+   "preset": {
+    "format": "tar"
+   },
+   "title": "GZ to TAR Converter Free: Convert GZ to TAR Online",
+   "desc": "Convert GZ archives to TAR, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free GZ to TAR converter. Turn a GZ archive into TAR online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert GZ archives to TAR. The file inside the GZ is unpacked; if it is a TAR, every file in it is read. TAR keeps files and folders together without compressing them, the usual container on Linux. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your GZ archive.",
+    "TAR is already selected.",
+    "Convert and download the TAR file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert GZ to TAR?",
+     "a": "Add the GZ file above; TAR is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "gz-to-tar-gz",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "GZ to TAR.GZ",
+   "tab": "GZ to TAR.GZ",
+   "preset": {
+    "format": "tar-gz"
+   },
+   "title": "GZ to TAR GZ Converter Free: Convert GZ to TAR.GZ Online",
+   "desc": "Convert GZ archives to TAR.GZ, with every file and folder kept. Nothing uploaded.",
+   "metaDesc": "Free GZ to TAR.GZ converter. Turn a GZ archive into TAR.GZ online, files, folders and names kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert GZ archives to TAR.GZ. The file inside the GZ is unpacked; if it is a TAR, every file in it is read. TAR.GZ (also called TGZ) is a TAR compressed with gzip, the usual archive on Linux and servers. Several archives can be converted at once. The conversion runs in your browser, so your files never leave your device.",
+   "steps": [
+    "Add your GZ archive.",
+    "TAR.GZ is already selected.",
+    "Convert and download the TAR.GZ file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert GZ to TAR.GZ?",
+     "a": "Add the GZ file above; TAR.GZ is already chosen. Press Convert and download the new archive."
+    },
+    {
+     "q": "Are folders and file names kept?",
+     "a": "Yes. Every file arrives with its folder, name and date, even names longer than 100 characters."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "gz-to-tgz"
+   ]
+  },
+  {
+   "slug": "gz-converter",
+   "base": "archive-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "GZ Converter",
+   "tab": "GZ Converter",
+   "title": "GZ Converter Free: Convert GZ to ZIP, TAR or TAR.GZ Online",
+   "desc": "Convert GZ archives to ZIP, TAR, TAR.GZ. Nothing uploaded.",
+   "metaDesc": "Free GZ converter. Change GZ archives into ZIP, TAR, TAR.GZ online, files and folders kept. Nothing is uploaded, because it runs in your browser.",
+   "about": "Convert GZ archives into ZIP, TAR, TAR.GZ. The file inside the GZ is unpacked; if it is a TAR, every file in it is read. If you already know the format you want, its page is linked above and arrives with it chosen. RAR, 7z, XZ, BZ2, ISO and CAB cannot be opened in the browser yet. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your GZ archive.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert GZ to?",
+     "a": "ZIP, TAR, TAR.GZ. Pick it from the list after you add your archive."
+    },
+    {
+     "q": "Can I convert several archives at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Is my archive uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "extract-gz",
+   "base": "archive-extractor",
+   "cat": "util",
+   "kind": "client",
+   "name": "Extract GZ",
+   "tab": "Extract GZ",
+   "title": "Extract GZ Online Free: Open GZ Files Without Software",
+   "desc": "Open a GZ file and take out any file inside, or all of them at once. Nothing uploaded.",
+   "metaDesc": "Extract gz online for free. Open a GZ file, see every file inside and download one or all of them. Works on phones too. Nothing is uploaded.",
+   "about": "Open a GZ file without installing anything. The file inside the GZ is unpacked; if it is a TAR, every file in it is read. Each file is listed with its size and its own download button, and \"Extract all\" gives you every file at once. It works on a phone too. The archive is opened in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your GZ file.",
+    "Look through the files inside and download the one you need.",
+    "Or press Extract all to take every file at once."
+   ],
+   "faq": [
+    {
+     "q": "How do I open a GZ file?",
+     "a": "Add it above. Every file inside appears straight away with a download button; nothing needs to be installed."
+    },
+    {
+     "q": "Can I take out just one file?",
+     "a": "Yes. Every file has its own download button."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is opened inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "create-tar-gz",
+   "base": "create-zip",
+   "cat": "util",
+   "kind": "client",
+   "name": "Create TAR.GZ",
+   "tab": "Create TAR.GZ",
+   "preset": {
+    "format": "tar-gz"
+   },
+   "title": "Create TAR GZ Online Free: Pack Files into a TAR.GZ (TGZ)",
+   "desc": "Pack several files into one TAR.GZ archive. Runs in your browser, nothing uploaded.",
+   "metaDesc": "Create a TAR.GZ (TGZ) archive online for free. Pack any files into one compressed file for Linux or a server. Nothing is uploaded.",
+   "about": "Pack several files into a TAR.GZ, the compressed archive Linux, macOS and servers use (also called TGZ). Choose the files, type a name and download it. Two files with the same name get different names automatically. For people on Windows or phones, a ZIP is usually easier; pick it in the list. The archive is made in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your files.",
+    "TAR.GZ is already selected; type a name for the archive.",
+    "Pack them and download the .tar.gz."
+   ],
+   "faq": [
+    {
+     "q": "How do I make a tar.gz without a terminal?",
+     "a": "Add the files here and press the button: you get the same .tar.gz that tar -czf would make."
+    },
+    {
+     "q": "Is TGZ the same as TAR.GZ?",
+     "a": "Yes. Both are a TAR archive compressed with gzip; only the name differs."
+    },
+    {
+     "q": "Are my files uploaded?",
+     "a": "No. The archive is made inside your browser."
     }
    ]
   }

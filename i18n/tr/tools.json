@@ -3119,5 +3119,86 @@
     "a": "Hayır. Tarayıcınızda dönüştürülür ve cihazınızdan hiç çıkmaz."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Arşiv Dönüştürücü",
+  "desc": "ZIP, TAR, TAR.GZ ve GZ arasında dönüştürün. Tarayıcınızda çalışır.",
+  "title": "Arşiv Dönüştürücü Ücretsiz: ZIP, TAR, TAR.GZ, GZ Online | Toolz Baba",
+  "metaDesc": "Arşivleri ZIP, TAR, TAR.GZ (TGZ) ve GZ arasında dönüştürün. Dosyalar, klasörler ve adlar korunur. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "Bir arşivi başka bir biçime dönüştürün: ZIP, TAR, TAR.GZ (TGZ olarak da bilinir) ve GZ, her yönde. Her dosya ve klasör adı ve tarihiyle gelir, uzun adlar da. GZ yalnızca tek dosya tutar, bu yüzden birden çok dosyalı bir arşiv önce TAR'a konur (.tar.gz). RAR, 7z, XZ, BZ2, ISO ve CAB henüz tarayıcıda açılamıyor. Her şey tarayıcınızda olur, hiçbir şey yüklenmez.",
+  "steps": [
+   "ZIP, TAR, TAR.GZ veya GZ arşivinizi ekleyin.",
+   "Hedef biçimi seçin.",
+   "Dönüştürün ve yeni arşivi indirin."
+  ],
+  "faq": [
+   {
+    "q": "Hangi biçimleri dönüştürebilirim?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) ve GZ, her yönde. RAR, 7z, XZ, BZ2, ISO ve CAB henüz tarayıcıda açılamıyor."
+   },
+   {
+    "q": "Klasörler ve dosya adları korunuyor mu?",
+    "a": "Evet. Her dosya klasörü, adı ve tarihiyle gelir; 100 karakterden uzun adlar da."
+   },
+   {
+    "q": "Arşivim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda dönüştürülür ve cihazınızdan hiç çıkmaz."
+   }
+  ],
+  "tabAll": "Tüm biçimler"
+ },
+ "archive-extractor": {
+  "name": "Arşiv Açıcı",
+  "desc": "ZIP, TAR, TAR.GZ veya GZ açın ve dosyaları tek tek ya da hepsini birden çıkarın.",
+  "title": "Arşiv Açıcı Ücretsiz: ZIP, TAR, TAR.GZ Online Açın | Toolz Baba",
+  "metaDesc": "ZIP, TAR, TAR.GZ (TGZ) veya GZ dosyasını online açın, içeriğini görün ve istediğiniz dosyayı indirin. Program gerekmez, hiçbir şey yüklenmez.",
+  "about": "Hiçbir şey kurmadan arşiv açın: ZIP, TAR, TAR.GZ (TGZ) veya GZ eklediğiniz anda içindeki her dosya boyutu ve kendi indirme düğmesiyle görünür. Hepsini istiyorsanız \"Tümünü çıkar\"a basın. .tar.gz açmanın genelde zor olduğu telefonda da çalışır. Arşiv tarayıcınızda açılır, hiçbir şey yüklenmez. RAR, 7z, XZ, BZ2, ISO ve CAB henüz tarayıcıda açılamıyor.",
+  "steps": [
+   "ZIP, TAR, TAR.GZ veya GZ arşivinizi ekleyin.",
+   "İçindeki dosyalara bakın ve gerekeni indirin.",
+   "Ya da hepsini birden almak için Tümünü çıkar'a basın."
+  ],
+  "faq": [
+   {
+    "q": "Yalnızca tek bir dosya çıkarabilir miyim?",
+    "a": "Evet. Arşivi eklediğinizde her dosya kendi indirme düğmesiyle görünür."
+   },
+   {
+    "q": "Telefonda çalışır mı?",
+    "a": "Evet. Tarayıcıda çalıştığı için Android ve iPhone'da uygulama gerekmez."
+   },
+   {
+    "q": "Arşivim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda açılır ve cihazınızdan hiç çıkmaz."
+   }
+  ],
+  "tabAll": "Tüm arşivler"
+ },
+ "create-zip": {
+  "name": "ZIP Dosyası Oluştur",
+  "desc": "Birden çok dosyayı ZIP, TAR.GZ veya TAR arşivinde toplayın. Tarayıcınızda çalışır.",
+  "title": "Online ZIP Dosyası Oluştur Ücretsiz: Dosyaları ZIP veya TAR.GZ Yapın | Toolz Baba",
+  "metaDesc": "Her türlü dosyayı tek bir ZIP, TAR.GZ veya TAR dosyasında toplayıp birlikte gönderin. Ücretsiz, kayıt yok, hiçbir şey yüklenmez.",
+  "about": "Birden çok dosyayı e-posta veya sohbetle göndermesi daha kolay tek bir dosyada toplayın: ZIP her bilgisayar ve telefonda açılır, TAR.GZ ise Linux ve sunucularda yaygındır. Dosyaları seçin, arşive ad verin ve indirin. Aynı adlı iki dosya otomatik olarak farklı adlar alır. Paketleme tarayıcınızda yapılır, hiçbir şey yüklenmez.",
+  "steps": [
+   "Dosyalarınızı ekleyin.",
+   "ZIP, TAR.GZ veya TAR ile dosya adını seçin.",
+   "Paketleyin ve arşivi indirin."
+  ],
+  "faq": [
+   {
+    "q": "ZIP mi TAR.GZ mi?",
+    "a": "Çoğu kişi için ZIP, çünkü Windows, Mac, Android ve iPhone doğrudan açar. TAR.GZ Linux ve sunucularda yaygındır."
+   },
+   {
+    "q": "Kaç dosya ekleyebilirim?",
+    "a": "Tek seferde 500'e kadar. Asıl sınır cihazınızın belleğidir."
+   },
+   {
+    "q": "Dosyalarım yükleniyor mu?",
+    "a": "Hayır. Arşiv tarayıcınızda oluşturulur."
+   }
+  ],
+  "tabAll": "Tüm biçimler"
  }
 }

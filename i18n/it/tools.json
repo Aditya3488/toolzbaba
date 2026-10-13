@@ -3119,5 +3119,86 @@
     "a": "No. Viene convertito nel browser e non lascia mai il tuo dispositivo."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Convertitore di archivi",
+  "desc": "Converti tra ZIP, TAR, TAR.GZ e GZ. Funziona nel browser.",
+  "title": "Convertitore di archivi gratis: ZIP, TAR, TAR.GZ, GZ online | Toolz Baba",
+  "metaDesc": "Converti archivi tra ZIP, TAR, TAR.GZ (TGZ) e GZ. File, cartelle e nomi restano. Gratis, nulla viene caricato.",
+  "about": "Passa un archivio da un formato all'altro: ZIP, TAR, TAR.GZ (detto anche TGZ) e GZ, in ogni direzione. Ogni file e cartella mantiene nome e data, anche i nomi lunghi. Un GZ contiene un solo file, quindi un archivio con più file passa prima da un TAR (.tar.gz). RAR, 7z, XZ, BZ2, ISO e CAB non si aprono ancora nel browser. Tutto avviene nel browser, quindi nulla viene caricato.",
+  "steps": [
+   "Aggiungi l'archivio ZIP, TAR, TAR.GZ o GZ.",
+   "Scegli il formato di destinazione.",
+   "Converti e scarica il nuovo archivio."
+  ],
+  "faq": [
+   {
+    "q": "Quali formati posso convertire?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) e GZ, in ogni direzione. RAR, 7z, XZ, BZ2, ISO e CAB non si aprono ancora nel browser."
+   },
+   {
+    "q": "Cartelle e nomi dei file restano?",
+    "a": "Sì. Ogni file arriva con la sua cartella, nome e data, anche con nomi oltre i 100 caratteri."
+   },
+   {
+    "q": "Il mio archivio viene caricato?",
+    "a": "No. Viene convertito nel browser e non lascia mai il tuo dispositivo."
+   }
+  ],
+  "tabAll": "Tutti i formati"
+ },
+ "archive-extractor": {
+  "name": "Estrattore di archivi",
+  "desc": "Apri un ZIP, TAR, TAR.GZ o GZ ed estrai i file, uno alla volta o tutti insieme.",
+  "title": "Estrattore di archivi gratis: aprire ZIP, TAR, TAR.GZ online | Toolz Baba",
+  "metaDesc": "Apri un ZIP, TAR, TAR.GZ (TGZ) o GZ online, guarda cosa contiene e scarica qualsiasi file. Senza programmi, nulla viene caricato.",
+  "about": "Apri un archivio senza installare nulla: appena aggiungi un ZIP, TAR, TAR.GZ (TGZ) o GZ, ogni file contenuto appare con la sua dimensione e il suo pulsante di download. Se li vuoi tutti, premi \"Estrai tutto\". Funziona anche sul telefono, dove aprire un .tar.gz di solito è complicato. L'archivio si apre nel browser, quindi nulla viene caricato. RAR, 7z, XZ, BZ2, ISO e CAB non si aprono ancora nel browser.",
+  "steps": [
+   "Aggiungi l'archivio ZIP, TAR, TAR.GZ o GZ.",
+   "Guarda i file contenuti e scarica quello che ti serve.",
+   "Oppure premi Estrai tutto per prenderli tutti insieme."
+  ],
+  "faq": [
+   {
+    "q": "Posso estrarre un solo file?",
+    "a": "Sì. Aggiunto l'archivio, ogni file appare con il suo pulsante di download."
+   },
+   {
+    "q": "Funziona sul telefono?",
+    "a": "Sì. Funziona nel browser, quindi su Android e iPhone non serve nessuna app."
+   },
+   {
+    "q": "Il mio archivio viene caricato?",
+    "a": "No. Si apre nel browser e non lascia mai il tuo dispositivo."
+   }
+  ],
+  "tabAll": "Tutti gli archivi"
+ },
+ "create-zip": {
+  "name": "Crea file ZIP",
+  "desc": "Raccogli più file in un archivio ZIP, TAR.GZ o TAR. Funziona nel browser.",
+  "title": "Crea file ZIP online gratis: comprimi file in ZIP o TAR.GZ | Toolz Baba",
+  "metaDesc": "Raccogli qualsiasi file in un ZIP, TAR.GZ o TAR per inviarli insieme. Gratis, senza registrazione, nulla viene caricato.",
+  "about": "Riunisci più file in uno solo, più facile da inviare per e-mail o chat: un ZIP si apre su ogni computer e telefono, e TAR.GZ è lo standard su Linux e server. Scegli i file, dai un nome all'archivio e scaricalo. Due file con lo stesso nome ricevono automaticamente nomi diversi. La compressione avviene nel browser, quindi nulla viene caricato.",
+  "steps": [
+   "Aggiungi i tuoi file.",
+   "Scegli ZIP, TAR.GZ o TAR e il nome del file.",
+   "Crea e scarica l'archivio."
+  ],
+  "faq": [
+   {
+    "q": "ZIP o TAR.GZ?",
+    "a": "ZIP per quasi tutti, perché Windows, Mac, Android e iPhone lo aprono direttamente. TAR.GZ è lo standard su Linux e server."
+   },
+   {
+    "q": "Quanti file posso aggiungere?",
+    "a": "Fino a 500 alla volta. Il vero limite è la memoria del dispositivo."
+   },
+   {
+    "q": "I miei file vengono caricati?",
+    "a": "No. L'archivio viene creato nel browser."
+   }
+  ],
+  "tabAll": "Tutti i formati"
  }
 }

@@ -3119,5 +3119,86 @@
     "a": "Nie. Jest konwertowany w przeglądarce i nigdy nie opuszcza Twojego urządzenia."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Konwerter archiwów",
+  "desc": "Konwertuj między ZIP, TAR, TAR.GZ i GZ. Działa w przeglądarce.",
+  "title": "Konwerter archiwów za darmo: ZIP, TAR, TAR.GZ, GZ online | Toolz Baba",
+  "metaDesc": "Konwertuj archiwa między ZIP, TAR, TAR.GZ (TGZ) i GZ. Pliki, foldery i nazwy zostają. Za darmo, nic nie jest wysyłane.",
+  "about": "Zmień format archiwum na inny: ZIP, TAR, TAR.GZ (zwany też TGZ) i GZ, w dowolnym kierunku. Każdy plik i folder zachowuje nazwę i datę, także długie nazwy. GZ mieści tylko jeden plik, więc archiwum z wieloma plikami trafia najpierw do TAR (.tar.gz). RAR, 7z, XZ, BZ2, ISO i CAB nie otwierają się jeszcze w przeglądarce. Wszystko dzieje się w przeglądarce, więc nic nie jest wysyłane.",
+  "steps": [
+   "Dodaj archiwum ZIP, TAR, TAR.GZ lub GZ.",
+   "Wybierz format docelowy.",
+   "Konwertuj i pobierz nowe archiwum."
+  ],
+  "faq": [
+   {
+    "q": "Jakie formaty mogę konwertować?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) i GZ, w dowolnym kierunku. RAR, 7z, XZ, BZ2, ISO i CAB nie otwierają się jeszcze w przeglądarce."
+   },
+   {
+    "q": "Czy foldery i nazwy plików zostają?",
+    "a": "Tak. Każdy plik trafia z folderem, nazwą i datą, także nazwy dłuższe niż 100 znaków."
+   },
+   {
+    "q": "Czy moje archiwum jest wysyłane?",
+    "a": "Nie. Jest konwertowane w przeglądarce i nigdy nie opuszcza urządzenia."
+   }
+  ],
+  "tabAll": "Wszystkie formaty"
+ },
+ "archive-extractor": {
+  "name": "Rozpakowywanie archiwów",
+  "desc": "Otwórz ZIP, TAR, TAR.GZ lub GZ i wyjmij pliki, pojedynczo lub wszystkie naraz.",
+  "title": "Rozpakowywanie archiwów za darmo: otwórz ZIP, TAR, TAR.GZ online | Toolz Baba",
+  "metaDesc": "Otwórz ZIP, TAR, TAR.GZ (TGZ) lub GZ online, zobacz zawartość i pobierz dowolny plik. Bez programów, nic nie jest wysyłane.",
+  "about": "Otwórz archiwum bez instalowania czegokolwiek: po dodaniu ZIP, TAR, TAR.GZ (TGZ) lub GZ każdy plik w środku pojawia się z rozmiarem i własnym przyciskiem pobierania. Jeśli chcesz wszystkie, naciśnij „Rozpakuj wszystko”. Działa też na telefonie, gdzie otwarcie .tar.gz bywa trudne. Archiwum otwiera się w przeglądarce, więc nic nie jest wysyłane. RAR, 7z, XZ, BZ2, ISO i CAB nie otwierają się jeszcze w przeglądarce.",
+  "steps": [
+   "Dodaj archiwum ZIP, TAR, TAR.GZ lub GZ.",
+   "Przejrzyj pliki i pobierz ten, którego potrzebujesz.",
+   "Albo naciśnij Rozpakuj wszystko, by wziąć wszystkie naraz."
+  ],
+  "faq": [
+   {
+    "q": "Czy mogę wyjąć tylko jeden plik?",
+    "a": "Tak. Po dodaniu archiwum każdy plik ma własny przycisk pobierania."
+   },
+   {
+    "q": "Czy działa na telefonie?",
+    "a": "Tak. Działa w przeglądarce, więc na Androidzie i iPhonie nie potrzeba aplikacji."
+   },
+   {
+    "q": "Czy moje archiwum jest wysyłane?",
+    "a": "Nie. Otwiera się w przeglądarce i nigdy nie opuszcza urządzenia."
+   }
+  ],
+  "tabAll": "Wszystkie archiwa"
+ },
+ "create-zip": {
+  "name": "Utwórz plik ZIP",
+  "desc": "Spakuj kilka plików do archiwum ZIP, TAR.GZ lub TAR. Działa w przeglądarce.",
+  "title": "Utwórz plik ZIP online za darmo: spakuj pliki do ZIP lub TAR.GZ | Toolz Baba",
+  "metaDesc": "Spakuj dowolne pliki do jednego ZIP, TAR.GZ lub TAR, by wysłać je razem. Za darmo, bez rejestracji, nic nie jest wysyłane.",
+  "about": "Połącz kilka plików w jeden, łatwiejszy do wysłania mailem lub na czacie: ZIP otworzy każdy komputer i telefon, a TAR.GZ to standard w Linuksie i na serwerach. Wybierz pliki, nadaj nazwę archiwum i pobierz je. Dwa pliki o tej samej nazwie automatycznie dostają różne nazwy. Pakowanie odbywa się w przeglądarce, więc nic nie jest wysyłane.",
+  "steps": [
+   "Dodaj swoje pliki.",
+   "Wybierz ZIP, TAR.GZ lub TAR oraz nazwę pliku.",
+   "Spakuj i pobierz archiwum."
+  ],
+  "faq": [
+   {
+    "q": "ZIP czy TAR.GZ?",
+    "a": "ZIP dla prawie wszystkich, bo Windows, Mac, Android i iPhone otwierają go od razu. TAR.GZ to standard w Linuksie i na serwerach."
+   },
+   {
+    "q": "Ile plików mogę dodać?",
+    "a": "Do 500 naraz. Prawdziwym limitem jest pamięć urządzenia."
+   },
+   {
+    "q": "Czy moje pliki są wysyłane?",
+    "a": "Nie. Archiwum powstaje w przeglądarce."
+   }
+  ],
+  "tabAll": "Wszystkie formaty"
  }
 }

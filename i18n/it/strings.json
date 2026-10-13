@@ -1785,5 +1785,11 @@
 "TSV (tab-separated)": "TSV (separato da tabulazioni)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, testo, Excel (XLSX, XLS), CSV, ODS e Numbers. Funziona nel browser.",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV e Numbers. Convertito nel browser: nulla viene caricato.",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), testo, Excel (XLSX, XLS), CSV, TSV, ODS e Numbers. Convertito nel browser: i layout semplici rendono meglio."
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), testo, Excel (XLSX, XLS), CSV, TSV, ODS e Numbers. Convertito nel browser: i layout semplici rendono meglio.",
+"Extract all": "Estrai tutto",
+"Archive format": "Formato dell'archivio",
+"File name": "Nome del file",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) e GZ. Convertito nel browser: nulla viene caricato.",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) e GZ. Aperto nel browser: nulla viene caricato.",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Qualsiasi file, quanti ne vuoi. Raccolti nel browser: nulla viene caricato."
 }

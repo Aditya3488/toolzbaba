@@ -1757,5 +1757,11 @@
 "TSV (tab-separated)": "TSV (dipisah tab)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, teks, Excel (XLSX, XLS), CSV, ODS, dan Numbers. Berjalan di browser Anda.",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV, dan Numbers. Dikonversi di browser Anda: tidak ada yang diunggah.",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), teks, Excel (XLSX, XLS), CSV, TSV, ODS, dan Numbers. Dikonversi di browser Anda: tata letak sederhana paling baik."
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), teks, Excel (XLSX, XLS), CSV, TSV, ODS, dan Numbers. Dikonversi di browser Anda: tata letak sederhana paling baik.",
+"Extract all": "Ekstrak semua",
+"Archive format": "Format arsip",
+"File name": "Nama file",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ), dan GZ. Dikonversi di browser Anda: tidak ada yang diunggah.",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ), dan GZ. Dibuka di browser Anda: tidak ada yang diunggah.",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "File apa pun, sebanyak yang Anda mau. Dikemas di browser Anda: tidak ada yang diunggah."
 }

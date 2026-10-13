@@ -3119,5 +3119,86 @@
     "a": "Non. Il est converti dans votre navigateur et ne quitte jamais votre appareil."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Convertisseur d'archives",
+  "desc": "Convertissez entre ZIP, TAR, TAR.GZ et GZ. Fonctionne dans votre navigateur.",
+  "title": "Convertisseur d'archives gratuit : ZIP, TAR, TAR.GZ, GZ en ligne | Toolz Baba",
+  "metaDesc": "Convertissez des archives entre ZIP, TAR, TAR.GZ (TGZ) et GZ. Fichiers, dossiers et noms conservés. Gratuit, rien n'est envoyé.",
+  "about": "Passez une archive d'un format à un autre : ZIP, TAR, TAR.GZ (aussi appelé TGZ) et GZ, dans tous les sens. Chaque fichier et dossier garde son nom et sa date, même les noms longs. Un GZ ne contient qu'un fichier : une archive à plusieurs fichiers passe donc d'abord par TAR (.tar.gz). RAR, 7z, XZ, BZ2, ISO et CAB ne s'ouvrent pas encore dans le navigateur. Tout se passe dans votre navigateur : rien n'est envoyé.",
+  "steps": [
+   "Ajoutez votre archive ZIP, TAR, TAR.GZ ou GZ.",
+   "Choisissez le format de sortie.",
+   "Convertissez et téléchargez la nouvelle archive."
+  ],
+  "faq": [
+   {
+    "q": "Quels formats puis-je convertir ?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) et GZ, dans tous les sens. RAR, 7z, XZ, BZ2, ISO et CAB ne s'ouvrent pas encore dans le navigateur."
+   },
+   {
+    "q": "Les dossiers et les noms sont-ils conservés ?",
+    "a": "Oui. Chaque fichier arrive avec son dossier, son nom et sa date, même au-delà de 100 caractères."
+   },
+   {
+    "q": "Mon archive est-elle envoyée ?",
+    "a": "Non. Elle est convertie dans votre navigateur et ne quitte jamais votre appareil."
+   }
+  ],
+  "tabAll": "Tous les formats"
+ },
+ "archive-extractor": {
+  "name": "Extracteur d'archives",
+  "desc": "Ouvrez un ZIP, TAR, TAR.GZ ou GZ et sortez les fichiers, un par un ou tous ensemble.",
+  "title": "Extracteur d'archives gratuit : ouvrir ZIP, TAR, TAR.GZ en ligne | Toolz Baba",
+  "metaDesc": "Ouvrez un ZIP, TAR, TAR.GZ (TGZ) ou GZ en ligne, voyez son contenu et téléchargez n'importe quel fichier. Sans logiciel, rien n'est envoyé.",
+  "about": "Ouvrez une archive sans rien installer : dès que vous ajoutez un ZIP, TAR, TAR.GZ (TGZ) ou GZ, chaque fichier qu'il contient s'affiche avec sa taille et son propre bouton de téléchargement. Pour tout récupérer, appuyez sur « Tout extraire ». Cela marche aussi sur téléphone, où ouvrir un .tar.gz est souvent compliqué. L'archive s'ouvre dans votre navigateur : rien n'est envoyé. RAR, 7z, XZ, BZ2, ISO et CAB ne s'ouvrent pas encore dans le navigateur.",
+  "steps": [
+   "Ajoutez votre archive ZIP, TAR, TAR.GZ ou GZ.",
+   "Parcourez les fichiers et téléchargez celui qu'il vous faut.",
+   "Ou appuyez sur Tout extraire pour tout récupérer d'un coup."
+  ],
+  "faq": [
+   {
+    "q": "Puis-je extraire un seul fichier ?",
+    "a": "Oui. Une fois l'archive ajoutée, chaque fichier apparaît avec son propre bouton de téléchargement."
+   },
+   {
+    "q": "Est-ce que ça marche sur téléphone ?",
+    "a": "Oui. Tout se fait dans le navigateur : sur Android et iPhone, aucune application n'est nécessaire."
+   },
+   {
+    "q": "Mon archive est-elle envoyée ?",
+    "a": "Non. Elle s'ouvre dans votre navigateur et ne quitte jamais votre appareil."
+   }
+  ],
+  "tabAll": "Toutes les archives"
+ },
+ "create-zip": {
+  "name": "Créer un fichier ZIP",
+  "desc": "Regroupez plusieurs fichiers dans une archive ZIP, TAR.GZ ou TAR. Fonctionne dans votre navigateur.",
+  "title": "Créer un fichier ZIP en ligne gratuit : compresser des fichiers en ZIP ou TAR.GZ | Toolz Baba",
+  "metaDesc": "Regroupez n'importe quels fichiers dans un ZIP, TAR.GZ ou TAR pour les envoyer ensemble. Gratuit, sans inscription, rien n'est envoyé.",
+  "about": "Rassemblez plusieurs fichiers en un seul, plus facile à envoyer par e-mail ou messagerie : un ZIP s'ouvre sur tous les ordinateurs et téléphones, et TAR.GZ est l'usage sous Linux et sur les serveurs. Choisissez les fichiers, nommez l'archive et téléchargez-la. Deux fichiers du même nom reçoivent automatiquement des noms différents. La compression se fait dans votre navigateur : rien n'est envoyé.",
+  "steps": [
+   "Ajoutez vos fichiers.",
+   "Choisissez ZIP, TAR.GZ ou TAR et le nom du fichier.",
+   "Créez et téléchargez l'archive."
+  ],
+  "faq": [
+   {
+    "q": "ZIP ou TAR.GZ ?",
+    "a": "ZIP pour presque tout le monde, car Windows, Mac, Android et iPhone l'ouvrent directement. TAR.GZ est l'usage sous Linux et sur les serveurs."
+   },
+   {
+    "q": "Combien de fichiers puis-je ajouter ?",
+    "a": "Jusqu'à 500 à la fois. La vraie limite est la mémoire de votre appareil."
+   },
+   {
+    "q": "Mes fichiers sont-ils envoyés ?",
+    "a": "Non. L'archive est créée dans votre navigateur."
+   }
+  ],
+  "tabAll": "Tous les formats"
  }
 }

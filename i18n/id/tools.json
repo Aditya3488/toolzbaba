@@ -3119,5 +3119,86 @@
     "a": "Tidak. File dikonversi di browser Anda dan tidak pernah meninggalkan perangkat Anda."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Konverter Arsip",
+  "desc": "Konversi antara ZIP, TAR, TAR.GZ, dan GZ. Berjalan di browser Anda.",
+  "title": "Konverter Arsip Gratis: ZIP, TAR, TAR.GZ, GZ Online | Toolz Baba",
+  "metaDesc": "Ubah arsip antara ZIP, TAR, TAR.GZ (TGZ), dan GZ. File, folder, dan nama tetap ada. Gratis, tidak ada yang diunggah.",
+  "about": "Ubah arsip dari satu format ke format lain: ZIP, TAR, TAR.GZ (disebut juga TGZ), dan GZ, ke arah mana pun. Setiap file dan folder ikut dengan nama dan tanggalnya, termasuk nama panjang. GZ hanya berisi satu file, jadi arsip berisi beberapa file dimasukkan ke TAR dulu (.tar.gz). RAR, 7z, XZ, BZ2, ISO, dan CAB belum bisa dibuka di browser. Semua terjadi di browser Anda, jadi tidak ada yang diunggah.",
+  "steps": [
+   "Tambahkan arsip ZIP, TAR, TAR.GZ, atau GZ Anda.",
+   "Pilih format tujuan.",
+   "Konversi dan unduh arsip baru."
+  ],
+  "faq": [
+   {
+    "q": "Format apa yang bisa dikonversi?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ), dan GZ, ke arah mana pun. RAR, 7z, XZ, BZ2, ISO, dan CAB belum bisa dibuka di browser."
+   },
+   {
+    "q": "Apakah folder dan nama file tetap ada?",
+    "a": "Ya. Setiap file datang dengan folder, nama, dan tanggalnya, termasuk nama lebih dari 100 karakter."
+   },
+   {
+    "q": "Apakah arsip saya diunggah?",
+    "a": "Tidak. Arsip dikonversi di browser Anda dan tidak pernah meninggalkan perangkat."
+   }
+  ],
+  "tabAll": "Semua format"
+ },
+ "archive-extractor": {
+  "name": "Ekstraktor Arsip",
+  "desc": "Buka ZIP, TAR, TAR.GZ, atau GZ dan keluarkan filenya, satu per satu atau sekaligus.",
+  "title": "Ekstraktor Arsip Gratis: Buka ZIP, TAR, TAR.GZ Online | Toolz Baba",
+  "metaDesc": "Buka file ZIP, TAR, TAR.GZ (TGZ), atau GZ secara online, lihat isinya, dan unduh file mana pun. Tanpa software, tidak ada yang diunggah.",
+  "about": "Buka arsip tanpa memasang program: begitu Anda menambahkan ZIP, TAR, TAR.GZ (TGZ), atau GZ, setiap file di dalamnya tampil dengan ukurannya dan tombol unduhnya sendiri. Jika ingin semuanya, tekan \"Ekstrak semua\". Ini juga bekerja di ponsel, tempat membuka .tar.gz biasanya sulit. Arsip dibuka di browser Anda, jadi tidak ada yang diunggah. RAR, 7z, XZ, BZ2, ISO, dan CAB belum bisa dibuka di browser.",
+  "steps": [
+   "Tambahkan arsip ZIP, TAR, TAR.GZ, atau GZ Anda.",
+   "Lihat file di dalamnya dan unduh yang Anda perlukan.",
+   "Atau tekan Ekstrak semua untuk mengambil semuanya sekaligus."
+  ],
+  "faq": [
+   {
+    "q": "Bisakah saya mengeluarkan satu file saja?",
+    "a": "Bisa. Setelah arsip ditambahkan, setiap file tampil dengan tombol unduhnya sendiri."
+   },
+   {
+    "q": "Apakah ini bekerja di ponsel?",
+    "a": "Ya. Ini berjalan di browser, jadi di Android dan iPhone tidak perlu aplikasi."
+   },
+   {
+    "q": "Apakah arsip saya diunggah?",
+    "a": "Tidak. Arsip dibuka di browser Anda dan tidak pernah meninggalkan perangkat."
+   }
+  ],
+  "tabAll": "Semua arsip"
+ },
+ "create-zip": {
+  "name": "Buat File ZIP",
+  "desc": "Kemas beberapa file menjadi satu arsip ZIP, TAR.GZ, atau TAR. Berjalan di browser Anda.",
+  "title": "Buat File ZIP Online Gratis: Kemas File ke ZIP atau TAR.GZ | Toolz Baba",
+  "metaDesc": "Kemas file apa pun menjadi satu file ZIP, TAR.GZ, atau TAR agar bisa dikirim bersama. Gratis, tanpa daftar, tidak ada yang diunggah.",
+  "about": "Satukan beberapa file menjadi satu, lebih mudah dikirim lewat email atau chat: ZIP terbuka di setiap komputer dan ponsel, dan TAR.GZ umum di Linux dan server. Pilih file, tulis nama arsip, lalu unduh. Dua file dengan nama sama otomatis mendapat nama berbeda. Pengemasan terjadi di browser Anda, jadi tidak ada yang diunggah.",
+  "steps": [
+   "Tambahkan file Anda.",
+   "Pilih ZIP, TAR.GZ, atau TAR dan nama file.",
+   "Kemas dan unduh arsipnya."
+  ],
+  "faq": [
+   {
+    "q": "ZIP atau TAR.GZ?",
+    "a": "ZIP untuk hampir semua orang, karena Windows, Mac, Android, dan iPhone membukanya langsung. TAR.GZ umum di Linux dan server."
+   },
+   {
+    "q": "Berapa banyak file yang bisa ditambahkan?",
+    "a": "Hingga 500 sekaligus. Batas sebenarnya adalah memori perangkat Anda."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. Arsip dibuat di browser Anda."
+   }
+  ],
+  "tabAll": "Semua format"
  }
 }

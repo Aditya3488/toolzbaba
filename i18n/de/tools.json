@@ -3119,5 +3119,86 @@
     "a": "Nein. Sie wird in Ihrem Browser umgewandelt und verlässt nie Ihr Gerät."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Archiv-Konverter",
+  "desc": "Konvertieren Sie zwischen ZIP, TAR, TAR.GZ und GZ. Läuft in Ihrem Browser.",
+  "title": "Archiv-Konverter kostenlos: ZIP, TAR, TAR.GZ, GZ online umwandeln | Toolz Baba",
+  "metaDesc": "Wandeln Sie Archive zwischen ZIP, TAR, TAR.GZ (TGZ) und GZ um. Dateien, Ordner und Namen bleiben erhalten. Kostenlos, nichts wird hochgeladen.",
+  "about": "Wandeln Sie ein Archiv in ein anderes Format um: ZIP, TAR, TAR.GZ (auch TGZ genannt) und GZ, in jede Richtung. Jede Datei und jeder Ordner kommt mit Namen und Datum mit, auch lange Namen. Eine GZ-Datei enthält nur eine Datei, deshalb wird ein Archiv mit mehreren Dateien zuerst in ein TAR gepackt (.tar.gz). RAR, 7z, XZ, BZ2, ISO und CAB lassen sich im Browser noch nicht öffnen. Alles läuft in Ihrem Browser, es wird nichts hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihr ZIP-, TAR-, TAR.GZ- oder GZ-Archiv hinzu.",
+   "Wählen Sie das Zielformat.",
+   "Umwandeln und das neue Archiv herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Welche Formate kann ich umwandeln?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) und GZ, in jede Richtung. RAR, 7z, XZ, BZ2, ISO und CAB lassen sich im Browser noch nicht öffnen."
+   },
+   {
+    "q": "Bleiben Ordner und Dateinamen erhalten?",
+    "a": "Ja. Jede Datei kommt mit Ordner, Namen und Datum an, auch Namen mit mehr als 100 Zeichen."
+   },
+   {
+    "q": "Wird mein Archiv hochgeladen?",
+    "a": "Nein. Es wird in Ihrem Browser umgewandelt und verlässt nie Ihr Gerät."
+   }
+  ],
+  "tabAll": "Alle Formate"
+ },
+ "archive-extractor": {
+  "name": "Archiv entpacken",
+  "desc": "Öffnen Sie ein ZIP, TAR, TAR.GZ oder GZ und holen Sie die Dateien heraus, einzeln oder alle auf einmal.",
+  "title": "Archiv entpacken kostenlos: ZIP, TAR, TAR.GZ online öffnen | Toolz Baba",
+  "metaDesc": "Öffnen Sie ZIP, TAR, TAR.GZ (TGZ) oder GZ online, sehen Sie den Inhalt und laden Sie jede Datei herunter. Ohne Software, nichts wird hochgeladen.",
+  "about": "Öffnen Sie ein Archiv, ohne etwas zu installieren: Sobald Sie ein ZIP, TAR, TAR.GZ (TGZ) oder GZ hinzufügen, sehen Sie jede enthaltene Datei mit Größe und eigenem Download-Knopf. Wenn Sie alles wollen, drücken Sie „Alles entpacken“. Das klappt auch auf dem Handy, wo ein .tar.gz sonst schwer zu öffnen ist. Das Archiv wird in Ihrem Browser geöffnet, es wird nichts hochgeladen. RAR, 7z, XZ, BZ2, ISO und CAB lassen sich im Browser noch nicht öffnen.",
+  "steps": [
+   "Fügen Sie Ihr ZIP-, TAR-, TAR.GZ- oder GZ-Archiv hinzu.",
+   "Sehen Sie sich die Dateien an und laden Sie die gewünschte herunter.",
+   "Oder drücken Sie Alles entpacken, um alle Dateien auf einmal zu bekommen."
+  ],
+  "faq": [
+   {
+    "q": "Kann ich nur eine Datei entpacken?",
+    "a": "Ja. Sobald das Archiv hinzugefügt ist, hat jede Datei ihren eigenen Download-Knopf."
+   },
+   {
+    "q": "Funktioniert das auf dem Handy?",
+    "a": "Ja. Es läuft im Browser, auf Android und iPhone ist also keine App nötig."
+   },
+   {
+    "q": "Wird mein Archiv hochgeladen?",
+    "a": "Nein. Es wird in Ihrem Browser geöffnet und verlässt nie Ihr Gerät."
+   }
+  ],
+  "tabAll": "Alle Archive"
+ },
+ "create-zip": {
+  "name": "ZIP-Datei erstellen",
+  "desc": "Packen Sie mehrere Dateien in ein ZIP-, TAR.GZ- oder TAR-Archiv. Läuft in Ihrem Browser.",
+  "title": "ZIP-Datei online erstellen kostenlos: Dateien als ZIP oder TAR.GZ packen | Toolz Baba",
+  "metaDesc": "Packen Sie beliebige Dateien in eine ZIP-, TAR.GZ- oder TAR-Datei, um sie zusammen zu verschicken. Kostenlos, ohne Anmeldung, nichts wird hochgeladen.",
+  "about": "Fassen Sie mehrere Dateien zu einer zusammen, die sich leichter per E-Mail oder Chat verschicken lässt: Ein ZIP öffnet jeder Computer und jedes Handy, TAR.GZ ist unter Linux und auf Servern üblich. Dateien auswählen, Namen eingeben, herunterladen. Zwei Dateien mit gleichem Namen bekommen automatisch verschiedene Namen. Das Packen geschieht in Ihrem Browser, es wird nichts hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihre Dateien hinzu.",
+   "Wählen Sie ZIP, TAR.GZ oder TAR und den Dateinamen.",
+   "Packen und das Archiv herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "ZIP oder TAR.GZ?",
+    "a": "ZIP für fast alle, weil Windows, Mac, Android und iPhone es direkt öffnen. TAR.GZ ist unter Linux und auf Servern üblich."
+   },
+   {
+    "q": "Wie viele Dateien kann ich hinzufügen?",
+    "a": "Bis zu 500 auf einmal. Die eigentliche Grenze ist der Speicher Ihres Geräts."
+   },
+   {
+    "q": "Werden meine Dateien hochgeladen?",
+    "a": "Nein. Das Archiv wird in Ihrem Browser erstellt."
+   }
+  ],
+  "tabAll": "Alle Formate"
  }
 }

@@ -1825,5 +1825,11 @@
 "TSV (tab-separated)": "TSV (مفصول بعلامات جدولة)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX) وMarkdown وHTML والنصوص وExcel (XLSX وXLS) وCSV وODS وNumbers. يعمل في متصفحك.",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX وXLS) وODS وCSV وTSV وNumbers. يُحوَّل في متصفحك: لا يُرفع أي شيء.",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX) والنصوص وExcel (XLSX وXLS) وCSV وTSV وODS وNumbers. يُحوَّل في متصفحك: التخطيطات البسيطة تعطي أفضل نتيجة."
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX) والنصوص وExcel (XLSX وXLS) وCSV وTSV وODS وNumbers. يُحوَّل في متصفحك: التخطيطات البسيطة تعطي أفضل نتيجة.",
+"Extract all": "استخراج الكل",
+"Archive format": "صيغة الأرشيف",
+"File name": "اسم الملف",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP وTAR وTAR.GZ (TGZ) وGZ. يُحوَّل في متصفحك: لا يُرفع أي شيء.",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP وTAR وTAR.GZ (TGZ) وGZ. يُفتح في متصفحك: لا يُرفع أي شيء.",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "أي ملفات وبالعدد الذي تريده. تُضغط في متصفحك: لا يُرفع أي شيء."
 }

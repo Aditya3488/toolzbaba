@@ -1828,5 +1828,11 @@
 "TSV (tab-separated)": "TSV (через табуляцию)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, текст, Excel (XLSX, XLS), CSV, ODS и Numbers. Работает в браузере.",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV и Numbers. Конвертация в браузере: ничего не загружается.",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), текст, Excel (XLSX, XLS), CSV, TSV, ODS и Numbers. Конвертация в браузере: лучше всего получаются простые макеты."
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), текст, Excel (XLSX, XLS), CSV, TSV, ODS и Numbers. Конвертация в браузере: лучше всего получаются простые макеты.",
+"Extract all": "Распаковать всё",
+"Archive format": "Формат архива",
+"File name": "Имя файла",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) и GZ. Конвертация в браузере: ничего не загружается.",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) и GZ. Открывается в браузере: ничего не загружается.",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Любые файлы, сколько угодно. Упаковка в браузере: ничего не загружается."
 }

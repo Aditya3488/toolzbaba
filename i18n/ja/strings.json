@@ -1839,5 +1839,11 @@
 "TSV (tab-separated)": "TSV（タブ区切り）",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word（DOCX）、Markdown、HTML、テキスト、Excel（XLSX、XLS）、CSV、ODS、Numbers。ブラウザで動作します。",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel（XLSX、XLS）、ODS、CSV、TSV、Numbers。ブラウザ内で変換：アップロードはありません。",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word（DOCX）、テキスト、Excel（XLSX、XLS）、CSV、TSV、ODS、Numbers。ブラウザ内で変換：シンプルなレイアウトほどきれいに仕上がります。"
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word（DOCX）、テキスト、Excel（XLSX、XLS）、CSV、TSV、ODS、Numbers。ブラウザ内で変換：シンプルなレイアウトほどきれいに仕上がります。",
+"Extract all": "すべて展開",
+"Archive format": "アーカイブ形式",
+"File name": "ファイル名",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP、TAR、TAR.GZ（TGZ）、GZ。ブラウザ内で変換：アップロードはありません。",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP、TAR、TAR.GZ（TGZ）、GZ。ブラウザ内で開きます：アップロードはありません。",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "どんなファイルでも、いくつでも。ブラウザ内でまとめます：アップロードはありません。"
 }

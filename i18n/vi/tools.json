@@ -3119,5 +3119,86 @@
     "a": "Không. Tệp được chuyển đổi trong trình duyệt và không rời khỏi thiết bị của bạn."
    }
   ]
+ },
+ "archive-converter": {
+  "name": "Chuyển đổi tệp nén",
+  "desc": "Chuyển đổi giữa ZIP, TAR, TAR.GZ và GZ. Chạy trong trình duyệt.",
+  "title": "Chuyển đổi tệp nén miễn phí: ZIP, TAR, TAR.GZ, GZ trực tuyến | Toolz Baba",
+  "metaDesc": "Chuyển tệp nén giữa ZIP, TAR, TAR.GZ (TGZ) và GZ. Giữ nguyên tệp, thư mục và tên. Miễn phí, không tải lên.",
+  "about": "Đổi một tệp nén sang định dạng khác: ZIP, TAR, TAR.GZ (còn gọi là TGZ) và GZ, theo mọi chiều. Mỗi tệp và thư mục đi kèm tên và ngày của nó, kể cả tên dài. GZ chỉ chứa một tệp, nên tệp nén có nhiều tệp sẽ được gói vào TAR trước (.tar.gz). RAR, 7z, XZ, BZ2, ISO và CAB chưa mở được trong trình duyệt. Mọi thứ diễn ra trong trình duyệt, nên không có gì bị tải lên.",
+  "steps": [
+   "Thêm tệp nén ZIP, TAR, TAR.GZ hoặc GZ.",
+   "Chọn định dạng đích.",
+   "Chuyển đổi và tải tệp nén mới về."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể chuyển những định dạng nào?",
+    "a": "ZIP, TAR, TAR.GZ (TGZ) và GZ, theo mọi chiều. RAR, 7z, XZ, BZ2, ISO và CAB chưa mở được trong trình duyệt."
+   },
+   {
+    "q": "Thư mục và tên tệp có được giữ không?",
+    "a": "Có. Mỗi tệp đi kèm thư mục, tên và ngày của nó, kể cả tên dài hơn 100 ký tự."
+   },
+   {
+    "q": "Tệp nén của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi trong trình duyệt và không rời khỏi thiết bị của bạn."
+   }
+  ],
+  "tabAll": "Tất cả định dạng"
+ },
+ "archive-extractor": {
+  "name": "Giải nén tệp",
+  "desc": "Mở ZIP, TAR, TAR.GZ hoặc GZ và lấy tệp ra, từng tệp hoặc tất cả cùng lúc.",
+  "title": "Giải nén tệp miễn phí: mở ZIP, TAR, TAR.GZ trực tuyến | Toolz Baba",
+  "metaDesc": "Mở tệp ZIP, TAR, TAR.GZ (TGZ) hoặc GZ trực tuyến, xem bên trong và tải bất kỳ tệp nào. Không cần phần mềm, không tải lên.",
+  "about": "Mở tệp nén mà không cần cài gì: khi bạn thêm ZIP, TAR, TAR.GZ (TGZ) hoặc GZ, mọi tệp bên trong hiện ra kèm kích thước và nút tải riêng. Muốn lấy tất cả, hãy bấm \"Giải nén tất cả\". Công cụ cũng chạy trên điện thoại, nơi mở .tar.gz thường khó. Tệp nén được mở trong trình duyệt, nên không có gì bị tải lên. RAR, 7z, XZ, BZ2, ISO và CAB chưa mở được trong trình duyệt.",
+  "steps": [
+   "Thêm tệp nén ZIP, TAR, TAR.GZ hoặc GZ.",
+   "Xem các tệp bên trong và tải tệp bạn cần.",
+   "Hoặc bấm Giải nén tất cả để lấy mọi tệp cùng lúc."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể lấy ra chỉ một tệp không?",
+    "a": "Có. Sau khi thêm tệp nén, mỗi tệp hiện ra với nút tải riêng."
+   },
+   {
+    "q": "Có dùng được trên điện thoại không?",
+    "a": "Có. Công cụ chạy trong trình duyệt nên trên Android và iPhone không cần ứng dụng."
+   },
+   {
+    "q": "Tệp nén của tôi có bị tải lên không?",
+    "a": "Không. Tệp được mở trong trình duyệt và không rời khỏi thiết bị của bạn."
+   }
+  ],
+  "tabAll": "Tất cả tệp nén"
+ },
+ "create-zip": {
+  "name": "Tạo tệp ZIP",
+  "desc": "Gói nhiều tệp vào một tệp ZIP, TAR.GZ hoặc TAR. Chạy trong trình duyệt.",
+  "title": "Tạo tệp ZIP trực tuyến miễn phí: nén tệp thành ZIP hoặc TAR.GZ | Toolz Baba",
+  "metaDesc": "Gói bất kỳ tệp nào vào một tệp ZIP, TAR.GZ hoặc TAR để gửi cùng nhau. Miễn phí, không đăng ký, không tải lên.",
+  "about": "Gom nhiều tệp thành một, dễ gửi qua email hoặc tin nhắn hơn: ZIP mở được trên mọi máy tính và điện thoại, còn TAR.GZ phổ biến trên Linux và máy chủ. Chọn tệp, đặt tên tệp nén và tải về. Hai tệp trùng tên sẽ tự được đặt tên khác nhau. Việc gói diễn ra trong trình duyệt, nên không có gì bị tải lên.",
+  "steps": [
+   "Thêm các tệp của bạn.",
+   "Chọn ZIP, TAR.GZ hoặc TAR và tên tệp.",
+   "Gói và tải tệp nén về."
+  ],
+  "faq": [
+   {
+    "q": "Nên chọn ZIP hay TAR.GZ?",
+    "a": "ZIP cho hầu hết mọi người, vì Windows, Mac, Android và iPhone mở trực tiếp. TAR.GZ phổ biến trên Linux và máy chủ."
+   },
+   {
+    "q": "Tôi có thể thêm bao nhiêu tệp?",
+    "a": "Tối đa 500 tệp mỗi lần. Giới hạn thực tế là bộ nhớ của thiết bị."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp nén được tạo trong trình duyệt của bạn."
+   }
+  ],
+  "tabAll": "Tất cả định dạng"
  }
 }

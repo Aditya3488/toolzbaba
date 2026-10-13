@@ -1809,5 +1809,11 @@
 "TSV (tab-separated)": "TSV (sekmeyle ayrılmış)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, metin, Excel (XLSX, XLS), CSV, ODS ve Numbers. Tarayıcınızda çalışır.",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV ve Numbers. Tarayıcınızda dönüştürülür: hiçbir şey yüklenmez.",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), metin, Excel (XLSX, XLS), CSV, TSV, ODS ve Numbers. Tarayıcınızda dönüştürülür: sade düzenler en iyi sonucu verir."
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), metin, Excel (XLSX, XLS), CSV, TSV, ODS ve Numbers. Tarayıcınızda dönüştürülür: sade düzenler en iyi sonucu verir.",
+"Extract all": "Tümünü çıkar",
+"Archive format": "Arşiv biçimi",
+"File name": "Dosya adı",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) ve GZ. Tarayıcınızda dönüştürülür: hiçbir şey yüklenmez.",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) ve GZ. Tarayıcınızda açılır: hiçbir şey yüklenmez.",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Her türlü dosya, istediğiniz kadar. Tarayıcınızda paketlenir: hiçbir şey yüklenmez."
 }

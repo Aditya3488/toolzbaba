@@ -1831,5 +1831,11 @@
 "TSV (tab-separated)": "TSV (ট্যাব দিয়ে আলাদা)",
 "Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, টেক্সট, Excel (XLSX, XLS), CSV, ODS ও Numbers। আপনার ব্রাউজারে চলে।",
 "Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV ও Numbers। আপনার ব্রাউজারে কনভার্ট হয়: কিছুই আপলোড হয় না।",
-"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), টেক্সট, Excel (XLSX, XLS), CSV, TSV, ODS ও Numbers। আপনার ব্রাউজারে কনভার্ট হয়: সরল লেআউট সবচেয়ে ভালো কাজ করে।"
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), টেক্সট, Excel (XLSX, XLS), CSV, TSV, ODS ও Numbers। আপনার ব্রাউজারে কনভার্ট হয়: সরল লেআউট সবচেয়ে ভালো কাজ করে।",
+"Extract all": "সব বের করুন",
+"Archive format": "আর্কাইভ ফরম্যাট",
+"File name": "ফাইলের নাম",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) ও GZ। আপনার ব্রাউজারে কনভার্ট হয়: কিছুই আপলোড হয় না।",
+"ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) ও GZ। আপনার ব্রাউজারে খোলে: কিছুই আপলোড হয় না।",
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "যেকোনো ফাইল, যত খুশি। আপনার ব্রাউজারে প্যাক হয়: কিছুই আপলোড হয় না।"
 }
