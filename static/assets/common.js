@@ -1048,22 +1048,22 @@
   // ---------------------------------------------------------------- the navigation bar
   // Image, PDF, Video & audio and AI each open a menu with everything related to them (the tools of that kind and the converters that belong to it),
   // "Convert" collects every converter, "Other tools" holds everything else (text, developer, web and design helpers).
-  // Each menu wears the colour tile of one of its tools (the third value). Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // The menus are text only (the third value names a tool to stand for the menu). Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
   // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
   const NAV_MENUS = [
     ['Image', 'image', 'compress-image', [
       ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
-      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
+      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'svg-converter', 'image-to-svg', 'ai-converter', 'image-to-text', 'favicon-generator']],
       ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
     ]],
     ['PDF', 'pdf', 'merge-pdf', [
       ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf', 'crop-pdf', 'compare-pdf', 'repair-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
-      ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf', 'flatten-pdf']],
-      ['PDF security', ['protect-pdf', 'unlock-pdf']],
-      ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'epub-to-pdf', 'csv-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'pdf-to-svg', 'ocr-pdf']],
+      ['Edit PDF', ['pdf-editor', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf', 'flatten-pdf', 'protect-pdf', 'unlock-pdf']],
+      ['Documents and spreadsheets', ['spreadsheet-converter', 'document-to-image', 'xlsx-to-csv', 'csv-to-xlsx', 'docx-to-png']],
+      ['Markdown', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
     ]],
     ['Video & audio', 'video', 'video-converter', [
       ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
@@ -1075,25 +1075,27 @@
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
     ['Convert', 'convert', 'convert-image', [
-      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
-      ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
-      ['Images', ['png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'jpg-to-webp', 'convert-image', 'image-to-svg']],
-      ['Video and audio', ['video-converter', 'audio-converter', 'wav-to-mp3', 'm4a-to-mp3', 'mp3-to-wav', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
+      ['Convert to PDF', ['word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'jpg-to-pdf', 'html-to-pdf', 'epub-to-pdf', 'image-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-svg', 'ocr-pdf']],
+      ['Images', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'jpg-to-webp', 'svg-converter', 'image-to-svg']],
+      ['Video and audio', ['video-converter', 'audio-converter', 'video-to-audio', 'mp4-to-mp3', 'wav-to-mp3', 'video-to-gif', 'gif-to-video']],
+      ['Documents and spreadsheets', ['spreadsheet-converter', 'xlsx-to-csv', 'csv-to-xlsx', 'document-to-image', 'markdown-converter', 'docx-to-markdown', 'epub-to-png']],
+      ['Fonts, vectors and archives', ['font-converter', 'ttf-to-woff2', 'ai-converter', 'ai-to-png', 'archive-converter', 'archive-extractor', 'create-zip']],
     ]],
     ['Other tools', 'other', 'toolbox', [
       ['Text and developer', ['json-formatter', 'word-counter', 'text-case-converter', 'url-encoder', 'base64', 'hash-uuid-generator', 'password-generator']],
       ['Web and sharing', ['visual-sitemap-generator', 'website-color-palette-extractor', 'qr-code-generator', 'image-cdn', 'temporary-file-upload-direct-link-share']],
-      ['Colours and fonts', ['image-color-palette-extractor', 'color-palette-generator', 'font-library']],
+      ['Colours and fonts', ['image-color-palette-extractor', 'color-palette-generator', 'font-library', 'font-converter']],
+      ['Files and archives', ['archive-extractor', 'archive-converter', 'create-zip', 'extract-zip', 'extract-tar-gz']],
     ]],
   ];
   const buildNav = () => {
     const here = location.pathname.replace(/\/+$/, '') || '/', chev = () => HT.svg('<svg class="nv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>');
-    const link = t => el('a', { href: t.href, class: here === t.href ? 'on' : null }, el('i', {}, HT.toolIcon(iconKey(t), 'xs')), t.name);
+    const link = t => el('a', { href: t.href, class: here === t.href ? 'on' : null }, t.name);
     const sec = (title, items, wide) => el('div', { class: 'nv-sec' + (wide ? ' wide' : '') }, el('h4', { text: title }), el('ul', {}, items.map(t => el('li', {}, link(t)))));
     const sections = (data, key) => {
       const menu = NAV_MENUS.find(m => m[1] === key), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), box = el('div', { class: 'nv-grid ' + key });
-      if (menu[3]) { const groups = menu[3].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', Math.min(groups.length, 4)); for (const [title, items] of groups) box.append(sec(title, items)); }
+      if (menu[3]) { const groups = menu[3].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', groups.length <= 4 ? groups.length : 3); for (const [title, items] of groups) box.append(sec(title, items)); }
       else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: HT.href(t.slug) })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
       return box;
     };

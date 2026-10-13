@@ -73,7 +73,7 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
 
 /* ============================================================ header */
-.top { position:sticky; top:0; z-index:40; backdrop-filter:saturate(180%) blur(14px); -webkit-backdrop-filter:saturate(180%) blur(14px);
+.top { position:sticky; top:0; z-index:95; backdrop-filter:saturate(180%) blur(14px); -webkit-backdrop-filter:saturate(180%) blur(14px);
   background:color-mix(in srgb,var(--bg) 80%,transparent); border-bottom:1px solid var(--border); }
 .top-in { max-width:1200px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:18px; }
 .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem; color:var(--text); letter-spacing:-.03em; white-space:nowrap; }
@@ -620,7 +620,7 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 .nv-item { position:static; }
 .nv-panel { position:absolute; z-index:60; top:calc(100% - 4px); width:max-content; max-width:calc(100% - 20px); background:var(--card); border:1px solid var(--border); border-radius:16px; box-shadow:0 18px 50px rgba(15,18,32,.18); padding:20px 24px; max-height:calc(100vh - 96px); overflow:auto; }
 .nv-panel[hidden] { display:none; }
-.nv-grid { display:grid; gap:6px 30px; grid-template-columns:repeat(var(--cols,3),minmax(190px,1fr)); }
+.nv-grid { display:grid; align-items:start; gap:18px 34px; grid-template-columns:repeat(var(--cols,3),minmax(190px,1fr)); }
 .nv-sec h4 { margin:0 0 8px; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); } .nv-sec ul { list-style:none; margin:0; padding:0; } .nv-sec.wide { grid-column:span 2; } .nv-sec.wide ul { columns:2; column-gap:18px; }
 .nv-sec li { break-inside:avoid; } .nv-sec a, .nv-mlink { display:flex; align-items:center; gap:10px; padding:6px 8px; margin:0 -8px; border-radius:9px; color:var(--text); font-size:.9rem; font-weight:500; text-decoration:none; } .nv-sec a:hover { background:var(--accent-soft); color:var(--accent); } .nv-sec a.on { color:var(--accent); font-weight:700; }
 .nv-sec a i { display:inline-grid; flex:none; } .nv-foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:14px; padding-top:12px; border-top:1px solid var(--border); font-size:.86rem; color:var(--muted); } .nv-foot a { font-weight:600; }
@@ -732,7 +732,7 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* ============================================================ "Never miss free tools" toast: top centre, a little under the header.
    It opens like a funnel (small to big while moving down), stays until answered, and leaves the other way (big to small,
    moving up). The whole toast is the "yes" button; x is "not now". */
-.bmtoast { position:fixed; z-index:35;  /* under the header (40): its menus and search results open on top of the toast */
+.bmtoast { position:fixed; z-index:35;  /* under the header (95): its menus and search results open on top of the toast */
   top:78px; left:50%; width:min(420px,calc(100vw - 24px)); display:flex; align-items:center; gap:14px; padding:14px 46px 14px 16px;
   background:var(--card); color:var(--text); border:1px solid var(--border); border-radius:18px; box-shadow:0 18px 50px rgba(8,10,22,.22);
   cursor:pointer; transform:translateX(-50%); transform-origin:50% 0; animation:bmfunnelin .55s cubic-bezier(.2,.9,.25,1.12) both; }
