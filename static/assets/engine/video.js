@@ -4,7 +4,7 @@
 (() => {
   const BASE = '/assets/vendor/ffmpeg-0.12.15/';
   let wasm = null, onLog = null, onProgress = null;
-  const AUDIO_EXT = ['mp3', 'wav', 'm4a', 'aac', 'flac', 'ogg', 'opus', 'wma'];
+  const AUDIO_EXT = ['mp3', 'wav', 'm4a', 'aac', 'flac', 'ogg', 'opus', 'wma', 'aiff', 'm4r'];
   const mb = n => n < 1048576 ? Math.round(n / 1024) + ' KB' : (n / 1048576).toFixed(1) + ' MB';
 
   // A fresh ffmpeg for every job: reusing one across jobs can leave its memory in a broken state.
@@ -83,8 +83,18 @@
   const scale = res => res && res !== 'keep' && /^\d+$/.test(res) ? `scale=-2:min(${parseInt(res, 10)}\\,ih)` : null;
   const outName = (f, ext, suffix = '') => HT.stem(f.name) + suffix + '.' + ext;
   const MIME = { mp4: 'video/mp4', webm: 'video/webm', mkv: 'video/x-matroska', mov: 'video/quicktime', avi: 'video/x-msvideo', gif: 'image/gif',
-    mp3: 'audio/mpeg', m4a: 'audio/mp4', wav: 'audio/wav', ogg: 'audio/ogg', flac: 'audio/flac' };
-  const AUDIO = { mp3: ['-c:a', 'libmp3lame', '-q:a', '2'], m4a: ['-c:a', 'aac', '-b:a', '192k'], wav: ['-c:a', 'pcm_s16le'], ogg: ['-c:a', 'libopus', '-b:a', '160k'], flac: ['-c:a', 'flac'] };
+    wmv: 'video/x-ms-wmv', flv: 'video/x-flv', ts: 'video/mp2t', mts: 'video/mp2t', '3gp': 'video/3gpp', m4v: 'video/x-m4v',
+    mpg: 'video/mpeg', mpeg: 'video/mpeg', vob: 'video/dvd',
+    mp3: 'audio/mpeg', m4a: 'audio/mp4', wav: 'audio/wav', ogg: 'audio/ogg', flac: 'audio/flac',
+    aac: 'audio/aac', aiff: 'audio/aiff', wma: 'audio/x-ms-wma', m4r: 'audio/mp4', opus: 'audio/ogg' };
+  // The muxer is named for formats whose extension ffmpeg can't place (.m4r, .mts) and set for the rest anyway.
+  // Every one of these was encoded and re-probed in the browser build. AMR is missing on purpose: the build has the
+  // AMR container but no AMR encoder.
+  const AUDIO = { mp3: ['-c:a', 'libmp3lame', '-q:a', '2'], m4a: ['-c:a', 'aac', '-b:a', '192k'], wav: ['-c:a', 'pcm_s16le'], ogg: ['-c:a', 'libopus', '-b:a', '160k'], flac: ['-c:a', 'flac'],
+    aac: ['-c:a', 'aac', '-b:a', '192k', '-f', 'adts'], aiff: ['-c:a', 'pcm_s16be', '-f', 'aiff'], wma: ['-c:a', 'wmav2', '-b:a', '192k', '-f', 'asf'],
+    m4r: ['-c:a', 'aac', '-b:a', '192k', '-f', 'ipod'], opus: ['-c:a', 'libopus', '-b:a', '128k', '-f', 'opus'] };
+  const VIDEO_OUT = ['mp4', 'webm', 'mkv', 'mov', 'avi', 'wmv', 'flv', 'ts', 'mts', '3gp', 'm4v', 'mpg', 'mpeg', 'vob'];
+  const WMV_RATE = { high: '4000k', medium: '1500k', low: '700k' }, MPEG_Q = { high: '2', medium: '4', low: '7' };
   // WebM uses VP8: the VP9 encoder crashes in the browser build of ffmpeg
   const CRF = { high: 20, medium: 24, low: 28 }, VP8 = { high: ['10', '4M'], medium: ['20', '2M'], low: ['30', '1M'] };
   const X264 = ['-c:v', 'libx264', '-preset', 'veryfast', '-pix_fmt', 'yuv420p'];
@@ -99,14 +109,24 @@
       const src = paths[i], { duration } = await probe(ff, src);
       let args = ['-i', src];
       if (AUDIO[fmt]) args.push('-vn', ...AUDIO[fmt]);
-      else if (['mp4', 'webm', 'mkv', 'mov', 'avi'].includes(fmt)) {
+      else if (VIDEO_OUT.includes(fmt)) {
         const vf = scale(ctx.opts.resolution);
         if (vf) args.push('-vf', vf);
         if (fmt === 'webm') args.push('-c:v', 'libvpx', '-crf', VP8[quality][0], '-b:v', VP8[quality][1], '-deadline', 'realtime', '-cpu-used', '8', '-c:a', 'libopus', '-b:a', '128k');
-        else {
+        // Windows Media: its own codecs, as old Windows players expect
+        else if (fmt === 'wmv') args.push('-c:v', 'wmv2', '-b:v', WMV_RATE[quality], '-c:a', 'wmav2', '-b:a', '160k', '-f', 'asf');
+        // MPEG-2 for MPG and DVD VOB; MPEG-2 only allows broadcast frame rates, so the frame rate is set to 25
+        else if (fmt === 'mpg' || fmt === 'mpeg' || fmt === 'vob') {
+          args.push('-r', '25', '-c:v', 'mpeg2video', '-q:v', MPEG_Q[quality]);
+          args.push(...(fmt === 'vob' ? ['-c:a', 'ac3', '-b:a', '192k', '-f', 'vob'] : ['-c:a', 'mp2', '-b:a', '192k', '-f', 'mpeg']));
+        } else {
           args.push(...X264, '-crf', String(CRF[quality]));
-          args.push(...(fmt === 'avi' ? ['-c:a', 'libmp3lame', '-b:a', '192k'] : ['-c:a', 'aac', '-b:a', '160k']));
-          if (fmt === 'mp4' || fmt === 'mov') args.push('-movflags', '+faststart');
+          if (fmt === '3gp') args.push('-profile:v', 'baseline');
+          args.push(...(fmt === 'avi' ? ['-c:a', 'libmp3lame', '-b:a', '192k'] : ['-c:a', 'aac', '-b:a', fmt === '3gp' ? '96k' : '160k']));
+          if (fmt === 'flv' || fmt === '3gp') args.push('-ar', '44100');
+          if (fmt === 'mp4' || fmt === 'mov' || fmt === 'm4v') args.push('-movflags', '+faststart');
+          const mux = { ts: 'mpegts', mts: 'mpegts', '3gp': '3gp', m4v: 'ipod', flv: 'flv' }[fmt];
+          if (mux) args.push('-f', mux);
         }
       } else throw new Error('Unsupported output format.');
       const blob = await run(ff, ctx, args, `out.${fmt}`, { duration, base: i / ctx.files.length, span: 1 / ctx.files.length, type: MIME[fmt] });
@@ -307,7 +327,11 @@
     return outs;
   });
   // ---------------------------------------------------------------- video -> audio (pages /video-to-audio and /mp4-to-mp3)
-  const audioArgs = (fmt, br) => (fmt === 'mp3' ? ['-c:a', 'libmp3lame', '-b:a', br + 'k'] : fmt === 'm4a' ? ['-c:a', 'aac', '-b:a', br + 'k'] : fmt === 'ogg' ? ['-c:a', 'libopus', '-b:a', br + 'k'] : AUDIO[fmt]);
+  const audioArgs = (fmt, br) => ({
+    mp3: ['-c:a', 'libmp3lame', '-b:a', br + 'k'], m4a: ['-c:a', 'aac', '-b:a', br + 'k'], ogg: ['-c:a', 'libopus', '-b:a', br + 'k'],
+    aac: ['-c:a', 'aac', '-b:a', br + 'k', '-f', 'adts'], wma: ['-c:a', 'wmav2', '-b:a', br + 'k', '-f', 'asf'],
+    m4r: ['-c:a', 'aac', '-b:a', br + 'k', '-f', 'ipod'], opus: ['-c:a', 'libopus', '-b:a', br + 'k', '-f', 'opus'],
+  }[fmt] || AUDIO[fmt]);
   tool('video-to-audio', async (ctx, session) => {
     const fmt = ctx.opts.format || 'mp3', br = ['64', '96', '128', '160', '192', '256', '320'].includes(String(ctx.opts.bitrate)) ? String(ctx.opts.bitrate) : '192';
     if (!AUDIO[fmt]) throw new Error('Unsupported audio format.');

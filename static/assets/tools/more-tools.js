@@ -62,11 +62,11 @@ HT.register('compare-pdf', root => HT.serverTool(root, {
 }));
 
 HT.register('audio-converter', root => HT.serverTool(root, {
-  slug: 'audio-converter', accept: 'audio/*,.mp3,.wav,.m4a,.aac,.flac,.ogg,.opus,.wma,.amr,.aiff,.aif,video/*,.mkv,.mov,.avi,.webm', max: 20,
+  slug: 'audio-converter', accept: 'audio/*,.mp3,.wav,.m4a,.m4r,.aac,.flac,.ogg,.opus,.wma,.amr,.aiff,.aif,video/*,.mkv,.mov,.avi,.webm', max: 20,
   action: files => 'Convert ' + files.length + ' file' + (files.length > 1 ? 's' : ''), compare: false,
   hint: 'MP3, WAV, M4A, AAC, FLAC, OGG, OPUS, WMA, AMR and the sound of videos. Converted on your device.',
   fields: [
-    { name: 'format', label: 'Convert to', type: 'select', options: [['mp3', 'MP3 (plays everywhere)'], ['m4a', 'M4A / AAC (iPhone, small)'], ['wav', 'WAV (uncompressed)'], ['flac', 'FLAC (lossless, smaller than WAV)'], ['ogg', 'OGG (Opus)']] },
-    { name: 'bitrate', label: 'Quality', type: 'select', value: '192', options: [['96', '96 kbps (voice, small)'], ['128', '128 kbps'], ['192', '192 kbps (recommended)'], ['256', '256 kbps'], ['320', '320 kbps (best)']], showIf: v => ['mp3', 'm4a', 'ogg'].includes(v.format) },
+    { name: 'format', label: 'Convert to', type: 'select', options: [['mp3', 'MP3 (plays everywhere)'], ['m4a', 'M4A (iPhone, small)'], ['aac', 'AAC'], ['wav', 'WAV (uncompressed)'], ['aiff', 'AIFF (uncompressed, Apple)'], ['flac', 'FLAC (lossless, smaller than WAV)'], ['ogg', 'OGG (Opus)'], ['opus', 'Opus'], ['wma', 'WMA (Windows)'], ['m4r', 'M4R (iPhone ringtone)']] },
+    { name: 'bitrate', label: 'Quality', type: 'select', value: '192', options: [['96', '96 kbps (voice, small)'], ['128', '128 kbps'], ['192', '192 kbps (recommended)'], ['256', '256 kbps'], ['320', '320 kbps (best)']], showIf: v => ['mp3', 'm4a', 'ogg', 'aac', 'opus', 'wma', 'm4r'].includes(v.format) },
   ],
 }));
