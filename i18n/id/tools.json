@@ -3065,5 +3065,59 @@
   "metaDesc": "Konversi AAC ke MP3 online di browser Anda, hingga 20 file sekaligus. Bisa diputar di setiap ponsel, mobil, dan speaker. Gratis, tanpa daftar, tanpa unggah.",
   "tab": "AAC ke MP3",
   "dropLabel": "Letakkan file AAC Anda di sini"
+ },
+ "document-to-image": {
+  "name": "Dokumen ke Gambar",
+  "tabAll": "Semua format",
+  "desc": "Ubah file Word, Markdown, HTML, teks, dan Excel menjadi PNG, JPG, WebP, dan lainnya. Berjalan di browser Anda.",
+  "title": "Konverter Dokumen ke Gambar Gratis: Word, Excel, HTML ke PNG, JPG | Toolz Baba",
+  "metaDesc": "Ubah Word (DOCX), Markdown, HTML, teks, dan Excel menjadi gambar PNG, JPG, WebP, TIFF, GIF, atau BMP. Satu gambar per halaman atau satu gambar panjang. Gratis, tidak ada yang diunggah.",
+  "about": "Ubah dokumen menjadi gambar: Word (DOCX), Markdown, HTML, teks biasa, dan spreadsheet (XLSX, XLS, CSV, ODS, Numbers) menjadi gambar PNG, JPG, WebP, TIFF, GIF, atau BMP. Pilih satu gambar per halaman, atau satu gambar panjang yang dipotong sesuai isi, cocok untuk memposting tabel atau menempelkannya di chat. Pilih ketajaman dari 72 sampai 300 DPI. Judul, daftar, tabel, dan gambar tetap ada; tata letak rumit seperti kolom dan kotak teks tampil lebih sederhana daripada di Word. Semuanya berjalan di browser Anda, jadi file tidak pernah diunggah.",
+  "steps": [
+   "Tambahkan file Word, Markdown, HTML, teks, atau spreadsheet Anda.",
+   "Pilih format gambar, satu gambar per halaman atau satu gambar panjang, dan kualitasnya.",
+   "Konversi dan unduh gambarnya."
+  ],
+  "faq": [
+   {
+    "q": "File apa saja yang bisa diubah menjadi gambar?",
+    "a": "Word (DOCX), Markdown (MD), HTML, teks biasa (TXT), dan spreadsheet: XLSX, XLS, CSV, TSV, ODS, dan Numbers. File .doc, RTF, dan ODT lama perlu disimpan sebagai DOCX dulu."
+   },
+   {
+    "q": "Bisakah seluruh dokumen menjadi satu gambar?",
+    "a": "Bisa. Pilih \"Satu gambar panjang\" dan dokumen digambar sebagai satu gambar yang dipotong sesuai isi, tanpa kertas kosong di sekitar tabel kecil."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda dan tidak pernah meninggalkan perangkat Anda."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Konverter Spreadsheet",
+  "tabAll": "Semua format",
+  "desc": "Konversi antara XLSX, XLS, ODS, CSV, TSV, dan Apple Numbers. Berjalan di browser Anda.",
+  "title": "Konverter Spreadsheet Gratis: XLSX, XLS, CSV, ODS, Numbers Online | Toolz Baba",
+  "metaDesc": "Ubah spreadsheet antara Excel XLSX dan XLS, CSV, TSV, ODS, dan Apple Numbers. Semua sheet dan rumus tetap ada. Gratis, tidak ada yang diunggah.",
+  "about": "Ubah spreadsheet dari satu format ke format lain: Excel (XLSX dan XLS lama), OpenDocument (ODS), CSV, TSV, dan Apple Numbers, ke arah mana pun. Nilai dan rumus ikut pindah, dan setiap sheet di workbook tetap ada; CSV atau TSV hanya berisi satu tabel, jadi workbook dengan beberapa sheet menghasilkan satu file teks per sheet. Angka yang diawali nol, seperti kode pos dan nomor telepon, tetap seperti aslinya, dan file CSV disimpan dalam UTF-8 agar Excel membukanya dengan benar. Warna, font, dan grafik tidak ikut. Konversi berjalan di browser Anda, jadi data Anda tidak pernah meninggalkan perangkat.",
+  "steps": [
+   "Tambahkan file XLSX, XLS, ODS, CSV, TSV, atau Numbers Anda.",
+   "Pilih format tujuan.",
+   "Konversi dan unduh."
+  ],
+  "faq": [
+   {
+    "q": "Apakah rumus dan sheet tetap ada?",
+    "a": "Ya, antara XLSX, XLS, ODS, dan Numbers setiap sheet, nilai, dan rumus ikut pindah. CSV dan TSV hanya menyimpan nilai, satu tabel per file. Warna, font, dan grafik tidak ikut."
+   },
+   {
+    "q": "Bisakah membuka file Apple Numbers tanpa Mac?",
+    "a": "Bisa. Tambahkan file .numbers lalu ubah ke XLSX, CSV, atau format lain; tidak perlu memasang apa pun."
+   },
+   {
+    "q": "Apakah spreadsheet saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda dan tidak pernah meninggalkan perangkat Anda."
+   }
+  ]
  }
 }

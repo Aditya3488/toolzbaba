@@ -3065,5 +3065,59 @@
   "metaDesc": "AAC online im Browser in MP3 umwandeln, bis zu 20 Dateien auf einmal. Läuft auf jedem Handy, Auto und Lautsprecher. Kostenlos, ohne Upload.",
   "tab": "AAC in MP3",
   "dropLabel": "Ziehen Sie Ihre AAC-Dateien hierher"
+ },
+ "document-to-image": {
+  "name": "Dokument in Bild",
+  "tabAll": "Alle Formate",
+  "desc": "Wandeln Sie Word-, Markdown-, HTML-, Text- und Excel-Dateien in PNG, JPG, WebP und mehr um. Läuft in Ihrem Browser.",
+  "title": "Dokument in Bild umwandeln kostenlos: Word, Excel, HTML in PNG, JPG | Toolz Baba",
+  "metaDesc": "Wandeln Sie Word (DOCX), Markdown, HTML, Text und Excel in PNG-, JPG-, WebP-, TIFF-, GIF- oder BMP-Bilder um. Ein Bild pro Seite oder ein langes Bild. Kostenlos, nichts wird hochgeladen.",
+  "about": "Machen Sie aus einem Dokument Bilder: Word (DOCX), Markdown, HTML, reiner Text und Tabellen (XLSX, XLS, CSV, ODS, Numbers) werden zu PNG-, JPG-, WebP-, TIFF-, GIF- oder BMP-Bildern. Wählen Sie ein Bild pro Seite oder ein einziges langes, auf den Inhalt zugeschnittenes Bild, ideal, um eine Tabelle zu posten oder in einen Chat einzufügen. Die Schärfe wählen Sie von 72 bis 300 DPI. Überschriften, Listen, Tabellen und Bilder bleiben erhalten; komplexe Layouts wie Spalten und Textfelder werden einfacher als in Word. Alles läuft in Ihrem Browser, die Datei wird also nie hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihre Word-, Markdown-, HTML-, Text- oder Tabellendatei hinzu.",
+   "Wählen Sie das Bildformat, ein Bild pro Seite oder ein langes Bild, und die Qualität.",
+   "Umwandeln und die Bilder herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Welche Dateien kann ich in Bilder umwandeln?",
+    "a": "Word (DOCX), Markdown (MD), HTML, reinen Text (TXT) und Tabellen: XLSX, XLS, CSV, TSV, ODS und Numbers. Alte .doc-, RTF- und ODT-Dateien müssen zuerst als DOCX gespeichert werden."
+   },
+   {
+    "q": "Kann ich das ganze Dokument als ein Bild bekommen?",
+    "a": "Ja. Wählen Sie „Ein langes Bild“: Das Dokument wird als ein Bild gezeichnet und auf den Inhalt zugeschnitten, ohne leeres Papier um eine kleine Tabelle."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt und verlässt nie Ihr Gerät."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Tabellen-Konverter",
+  "tabAll": "Alle Formate",
+  "desc": "Konvertieren Sie zwischen XLSX, XLS, ODS, CSV, TSV und Apple Numbers. Läuft in Ihrem Browser.",
+  "title": "Tabellen-Konverter kostenlos: XLSX, XLS, CSV, ODS, Numbers online | Toolz Baba",
+  "metaDesc": "Wandeln Sie Tabellen zwischen Excel XLSX und XLS, CSV, TSV, ODS und Apple Numbers um. Alle Blätter und Formeln bleiben erhalten. Kostenlos, nichts wird hochgeladen.",
+  "about": "Wandeln Sie eine Tabelle von einem Format in ein anderes um: Excel (XLSX und das ältere XLS), OpenDocument (ODS), CSV, TSV und Apple Numbers, in jede Richtung. Werte und Formeln kommen mit, und jedes Blatt der Arbeitsmappe bleibt erhalten; eine CSV- oder TSV-Datei enthält nur eine Tabelle, daher ergibt eine Mappe mit mehreren Blättern eine Textdatei pro Blatt. Zahlen mit führender Null, etwa Postleitzahlen und Telefonnummern, bleiben unverändert, und CSV-Dateien werden als UTF-8 gespeichert, sodass Excel Umlaute richtig anzeigt. Farben, Schriften und Diagramme werden nicht übernommen. Die Umwandlung läuft in Ihrem Browser, Ihre Daten verlassen also nie Ihr Gerät.",
+  "steps": [
+   "Fügen Sie Ihre XLSX-, XLS-, ODS-, CSV-, TSV- oder Numbers-Dateien hinzu.",
+   "Wählen Sie das Zielformat.",
+   "Umwandeln und herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Bleiben Formeln und Blätter erhalten?",
+    "a": "Ja, zwischen XLSX, XLS, ODS und Numbers kommen alle Blätter, Werte und Formeln mit. CSV und TSV speichern nur Werte, eine Tabelle pro Datei. Farben, Schriften und Diagramme bleiben nicht erhalten."
+   },
+   {
+    "q": "Kann ich Apple-Numbers-Dateien ohne Mac öffnen?",
+    "a": "Ja. Fügen Sie die .numbers-Datei hinzu und wandeln Sie sie in XLSX, CSV oder ein anderes Format um; nichts muss installiert werden."
+   },
+   {
+    "q": "Wird meine Tabelle hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt und verlässt nie Ihr Gerät."
+   }
+  ]
  }
 }

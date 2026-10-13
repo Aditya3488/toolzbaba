@@ -3065,5 +3065,59 @@
   "metaDesc": "Converti AAC in MP3 online nel browser, fino a 20 file insieme. Si riproduce su ogni telefono, auto e altoparlante. Gratis, senza registrazione, nessun upload.",
   "tab": "Da AAC a MP3",
   "dropLabel": "Trascina qui i tuoi file AAC"
+ },
+ "document-to-image": {
+  "name": "Documento in immagine",
+  "tabAll": "Tutti i formati",
+  "desc": "Converti file Word, Markdown, HTML, testo ed Excel in PNG, JPG, WebP e altro. Funziona nel browser.",
+  "title": "Convertire documento in immagine gratis: Word, Excel, HTML in PNG, JPG | Toolz Baba",
+  "metaDesc": "Converti Word (DOCX), Markdown, HTML, testo ed Excel in immagini PNG, JPG, WebP, TIFF, GIF o BMP. Un'immagine per pagina o un'unica immagine lunga. Gratis, nulla viene caricato.",
+  "about": "Trasforma un documento in immagini: Word (DOCX), Markdown, HTML, testo semplice e fogli di calcolo (XLSX, XLS, CSV, ODS, Numbers) diventano immagini PNG, JPG, WebP, TIFF, GIF o BMP. Scegli un'immagine per pagina oppure un'unica immagine lunga ritagliata sul contenuto, comoda per pubblicare una tabella o incollarla in una chat. Scegli la nitidezza da 72 a 300 DPI. Titoli, elenchi, tabelle e immagini restano; i layout complessi, come colonne e caselle di testo, risultano più semplici che in Word. Tutto avviene nel browser, quindi il file non viene mai caricato.",
+  "steps": [
+   "Aggiungi il file Word, Markdown, HTML, testo o foglio di calcolo.",
+   "Scegli il formato dell'immagine, un'immagine per pagina o un'immagine lunga, e la qualità.",
+   "Converti e scarica le immagini."
+  ],
+  "faq": [
+   {
+    "q": "Quali file posso trasformare in immagini?",
+    "a": "Word (DOCX), Markdown (MD), HTML, testo semplice (TXT) e fogli di calcolo: XLSX, XLS, CSV, TSV, ODS e Numbers. I vecchi file .doc, RTF e ODT vanno prima salvati come DOCX."
+   },
+   {
+    "q": "Posso avere tutto il documento in un'unica immagine?",
+    "a": "Sì. Scegli \"Un'immagine lunga\" e il documento viene disegnato in un'unica immagine ritagliata sul contenuto, senza carta vuota intorno a una piccola tabella."
+   },
+   {
+    "q": "Il mio file viene caricato?",
+    "a": "No. Viene convertito nel browser e non lascia mai il tuo dispositivo."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Convertitore di fogli di calcolo",
+  "tabAll": "Tutti i formati",
+  "desc": "Converti tra XLSX, XLS, ODS, CSV, TSV e Apple Numbers. Funziona nel browser.",
+  "title": "Convertitore di fogli di calcolo gratis: XLSX, XLS, CSV, ODS, Numbers online | Toolz Baba",
+  "metaDesc": "Converti fogli di calcolo tra Excel XLSX e XLS, CSV, TSV, ODS e Apple Numbers. Tutti i fogli e le formule restano. Gratis, nulla viene caricato.",
+  "about": "Passa un foglio di calcolo da un formato all'altro: Excel (XLSX e il vecchio XLS), OpenDocument (ODS), CSV, TSV e Apple Numbers, in ogni direzione. Valori e formule vengono trasferiti e ogni foglio della cartella resta; un CSV o TSV contiene una sola tabella, quindi una cartella con più fogli dà un file di testo per foglio. I numeri che iniziano con zero, come CAP e numeri di telefono, restano come erano, e i CSV vengono salvati in UTF-8 così Excel mostra correttamente gli accenti. Colori, caratteri e grafici non vengono trasferiti. La conversione avviene nel browser, quindi i tuoi dati non lasciano mai il dispositivo.",
+  "steps": [
+   "Aggiungi i file XLSX, XLS, ODS, CSV, TSV o Numbers.",
+   "Scegli il formato di destinazione.",
+   "Converti e scarica."
+  ],
+  "faq": [
+   {
+    "q": "Formule e fogli vengono mantenuti?",
+    "a": "Sì, tra XLSX, XLS, ODS e Numbers vengono trasferiti tutti i fogli, i valori e le formule. CSV e TSV salvano solo i valori, una tabella per file. Colori, caratteri e grafici non vengono mantenuti."
+   },
+   {
+    "q": "Posso aprire file di Apple Numbers senza un Mac?",
+    "a": "Sì. Aggiungi il file .numbers e convertilo in XLSX, CSV o un altro formato; non serve installare nulla."
+   },
+   {
+    "q": "Il mio foglio di calcolo viene caricato?",
+    "a": "No. Viene convertito nel browser e non lascia mai il tuo dispositivo."
+   }
+  ]
  }
 }

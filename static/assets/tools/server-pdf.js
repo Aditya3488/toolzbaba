@@ -43,8 +43,29 @@ HT.register('compress-pdf', root => HT.serverTool(root, {
 }));
 
 HT.register('word-to-pdf', root => HT.serverTool(root, {
-  slug: 'word-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.ods', max: 10, action: 'Convert to PDF', compare: false,
-  hint: 'Word (DOCX), text, Excel (XLSX, XLS), CSV and ODS. Converted in your browser: simple layouts work best.',
+  slug: 'word-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.tsv,.ods,.numbers', max: 10, action: 'Convert to PDF', compare: false,
+  hint: 'Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.',
+}));
+
+// Word, Markdown, web pages, text and spreadsheets drawn as pictures (the Word to PDF layout, one picture per page or one long picture)
+HT.register('document-to-image', root => HT.serverTool(root, {
+  slug: 'document-to-image', accept: '.docx,.md,.markdown,.html,.htm,.txt,.xlsx,.xls,.csv,.tsv,.ods,.numbers', max: 10, action: 'Convert to images', compare: false,
+  hint: 'Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.',
+  fields: [
+    { name: 'format', label: 'Image format', type: 'select', options: [['png', 'PNG'], ['jpg', 'JPG'], ['jpeg', 'JPEG'], ['webp', 'WebP'], ['tiff', 'TIFF'], ['gif', 'GIF'], ['bmp', 'BMP']] },
+    { name: 'layout', label: 'Pictures', type: 'select', options: [['pages', 'One picture per page'], ['long', 'One long picture, cut to the content']] },
+    { name: 'dpi', label: 'Quality (DPI)', type: 'select', value: 150, options: [[72, '72 – small'], [150, '150 – good'], [200, '200 – sharp'], [300, '300 – print']] },
+    { name: 'pages', label: 'Pages', type: 'text', value: 'all', placeholder: 'all, or 1-3,5', help: 'Use all, or ranges like 1-3,5,8-10', showIf: v => v.layout !== 'long' },
+  ],
+}));
+
+// XLSX, XLS, ODS, CSV, TSV and Apple Numbers into each other (SheetJS)
+HT.register('spreadsheet-converter', root => HT.serverTool(root, {
+  slug: 'spreadsheet-converter', accept: '.xlsx,.xlsm,.xlsb,.xls,.ods,.fods,.csv,.tsv,.tab,.numbers', max: 20, action: 'Convert', compare: false,
+  hint: 'Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.',
+  fields: [
+    { name: 'format', label: 'Convert to', type: 'select', options: [['xlsx', 'XLSX (Excel)'], ['xls', 'XLS (Excel 97-2003)'], ['ods', 'ODS (LibreOffice, OpenOffice)'], ['csv', 'CSV'], ['tsv', 'TSV (tab-separated)'], ['numbers', 'Numbers (Apple)']] },
+  ],
 }));
 
 HT.register('pdf-to-word', root => HT.serverTool(root, {

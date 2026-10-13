@@ -3065,5 +3065,59 @@
   "metaDesc": "AAC'yi tarayıcınızda online MP3'e dönüştürün, tek seferde 20 dosyaya kadar. Her telefonda, arabada ve hoparlörde çalar. Ücretsiz, üyeliksiz, hiçbir şey yüklenmez.",
   "tab": "AAC'den MP3'e",
   "dropLabel": "AAC dosyalarınızı buraya bırakın"
+ },
+ "document-to-image": {
+  "name": "Belgeyi Resme Dönüştür",
+  "tabAll": "Tüm biçimler",
+  "desc": "Word, Markdown, HTML, metin ve Excel dosyalarını PNG, JPG, WebP ve daha fazlasına dönüştürün. Tarayıcınızda çalışır.",
+  "title": "Belgeyi Resme Dönüştürücü Ücretsiz: Word, Excel, HTML'den PNG, JPG'ye | Toolz Baba",
+  "metaDesc": "Word (DOCX), Markdown, HTML, metin ve Excel dosyalarını PNG, JPG, WebP, TIFF, GIF veya BMP resimlerine dönüştürün. Sayfa başına bir resim ya da tek uzun resim. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "Bir belgeyi resimlere dönüştürün: Word (DOCX), Markdown, HTML, düz metin ve tablolar (XLSX, XLS, CSV, ODS, Numbers) PNG, JPG, WebP, TIFF, GIF veya BMP resmi olur. Sayfa başına bir resim ya da içeriğe göre kırpılmış tek uzun resim seçin; bir tabloyu paylaşmak veya sohbete yapıştırmak için idealdir. Netliği 72 ile 300 DPI arasında seçin. Başlıklar, listeler, tablolar ve resimler korunur; sütunlar ve metin kutuları gibi karmaşık düzenler Word'dekinden daha sade çıkar. Her şey tarayıcınızda çalışır, bu yüzden dosya asla yüklenmez.",
+  "steps": [
+   "Word, Markdown, HTML, metin veya tablo dosyanızı ekleyin.",
+   "Resim biçimini, sayfa başına bir resim mi tek uzun resim mi olacağını ve kaliteyi seçin.",
+   "Dönüştürün ve resimleri indirin."
+  ],
+  "faq": [
+   {
+    "q": "Hangi dosyaları resme dönüştürebilirim?",
+    "a": "Word (DOCX), Markdown (MD), HTML, düz metin (TXT) ve tablolar: XLSX, XLS, CSV, TSV, ODS ve Numbers. Eski .doc, RTF ve ODT dosyalarını önce DOCX olarak kaydetmeniz gerekir."
+   },
+   {
+    "q": "Belgenin tamamını tek resim olarak alabilir miyim?",
+    "a": "Evet. \"Tek uzun resim\" seçin; belge içeriğe göre kırpılmış tek bir resim olarak çizilir, küçük bir tablonun çevresinde boş kâğıt kalmaz."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda dönüştürülür ve cihazınızdan hiç çıkmaz."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Tablo Dönüştürücü",
+  "tabAll": "Tüm biçimler",
+  "desc": "XLSX, XLS, ODS, CSV, TSV ve Apple Numbers arasında dönüştürün. Tarayıcınızda çalışır.",
+  "title": "Tablo Dönüştürücü Ücretsiz: XLSX, XLS, CSV, ODS, Numbers Online | Toolz Baba",
+  "metaDesc": "Tabloları Excel XLSX ve XLS, CSV, TSV, ODS ve Apple Numbers arasında dönüştürün. Tüm sayfalar ve formüller korunur. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "Bir tabloyu bir biçimden diğerine dönüştürün: Excel (XLSX ve eski XLS), OpenDocument (ODS), CSV, TSV ve Apple Numbers, her yönde. Değerler ve formüller aktarılır, çalışma kitabının her sayfası korunur; CSV veya TSV tek bir tablo tutar, bu yüzden birkaç sayfalı bir kitap her sayfa için ayrı bir metin dosyası verir. Posta kodu ve telefon numarası gibi sıfırla başlayan sayılar olduğu gibi kalır ve CSV dosyaları Excel'in Türkçe karakterleri doğru göstermesi için UTF-8 olarak kaydedilir. Renkler, yazı tipleri ve grafikler aktarılmaz. Dönüştürme tarayıcınızda yapılır, verileriniz cihazınızdan hiç çıkmaz.",
+  "steps": [
+   "XLSX, XLS, ODS, CSV, TSV veya Numbers dosyalarınızı ekleyin.",
+   "Hedef biçimi seçin.",
+   "Dönüştürün ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "Formüller ve sayfalar korunuyor mu?",
+    "a": "Evet, XLSX, XLS, ODS ve Numbers arasında tüm sayfalar, değerler ve formüller aktarılır. CSV ve TSV yalnızca değerleri tutar, dosya başına bir tablo. Renkler, yazı tipleri ve grafikler korunmaz."
+   },
+   {
+    "q": "Apple Numbers dosyalarını Mac olmadan açabilir miyim?",
+    "a": "Evet. .numbers dosyasını ekleyip XLSX, CSV veya başka bir biçime dönüştürün; hiçbir şey kurmanız gerekmez."
+   },
+   {
+    "q": "Tablom yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda dönüştürülür ve cihazınızdan hiç çıkmaz."
+   }
+  ]
  }
 }

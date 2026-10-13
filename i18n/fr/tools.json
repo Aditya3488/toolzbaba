@@ -3065,5 +3065,59 @@
   "metaDesc": "Convertissez du AAC en MP3 dans votre navigateur, 20 fichiers à la fois. Se lit sur tous les téléphones, voitures et enceintes. Gratuit, sans inscription.",
   "tab": "AAC en MP3",
   "dropLabel": "Déposez vos fichiers AAC ici"
+ },
+ "document-to-image": {
+  "name": "Document en image",
+  "tabAll": "Tous les formats",
+  "desc": "Convertissez des fichiers Word, Markdown, HTML, texte et Excel en PNG, JPG, WebP et plus. Fonctionne dans votre navigateur.",
+  "title": "Convertir un document en image gratuit : Word, Excel, HTML en PNG, JPG | Toolz Baba",
+  "metaDesc": "Convertissez Word (DOCX), Markdown, HTML, texte et Excel en images PNG, JPG, WebP, TIFF, GIF ou BMP. Une image par page ou une seule longue image. Gratuit, rien n'est envoyé.",
+  "about": "Transformez un document en images : Word (DOCX), Markdown, HTML, texte brut et tableurs (XLSX, XLS, CSV, ODS, Numbers) deviennent des images PNG, JPG, WebP, TIFF, GIF ou BMP. Choisissez une image par page, ou une seule longue image recadrée sur le contenu, pratique pour publier un tableau ou le coller dans une discussion. Choisissez la netteté de 72 à 300 DPI. Titres, listes, tableaux et images sont conservés ; les mises en page complexes, comme les colonnes et les zones de texte, sont plus simples que dans Word. Tout se passe dans votre navigateur : le fichier n'est jamais envoyé.",
+  "steps": [
+   "Ajoutez votre fichier Word, Markdown, HTML, texte ou tableur.",
+   "Choisissez le format d'image, une image par page ou une longue image, et la qualité.",
+   "Convertissez et téléchargez les images."
+  ],
+  "faq": [
+   {
+    "q": "Quels fichiers puis-je transformer en images ?",
+    "a": "Word (DOCX), Markdown (MD), HTML, texte brut (TXT) et tableurs : XLSX, XLS, CSV, TSV, ODS et Numbers. Les anciens fichiers .doc, RTF et ODT doivent d'abord être enregistrés en DOCX."
+   },
+   {
+    "q": "Puis-je obtenir tout le document en une seule image ?",
+    "a": "Oui. Choisissez « Une longue image » : le document est dessiné en une seule image recadrée sur le contenu, sans papier vide autour d'un petit tableau."
+   },
+   {
+    "q": "Mon fichier est-il envoyé ?",
+    "a": "Non. Il est converti dans votre navigateur et ne quitte jamais votre appareil."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Convertisseur de tableurs",
+  "tabAll": "Tous les formats",
+  "desc": "Convertissez entre XLSX, XLS, ODS, CSV, TSV et Apple Numbers. Fonctionne dans votre navigateur.",
+  "title": "Convertisseur de tableurs gratuit : XLSX, XLS, CSV, ODS, Numbers en ligne | Toolz Baba",
+  "metaDesc": "Convertissez des tableurs entre Excel XLSX et XLS, CSV, TSV, ODS et Apple Numbers. Toutes les feuilles et formules conservées. Gratuit, rien n'est envoyé.",
+  "about": "Passez un tableur d'un format à un autre : Excel (XLSX et l'ancien XLS), OpenDocument (ODS), CSV, TSV et Apple Numbers, dans tous les sens. Les valeurs et les formules suivent, et chaque feuille du classeur est conservée ; un CSV ou un TSV ne contient qu'un tableau, donc un classeur à plusieurs feuilles donne un fichier texte par feuille. Les nombres qui commencent par zéro, comme les codes postaux et les numéros de téléphone, restent tels quels, et les CSV sont enregistrés en UTF-8 pour qu'Excel affiche correctement les accents. Les couleurs, polices et graphiques ne sont pas repris. La conversion se fait dans votre navigateur : vos données ne quittent jamais votre appareil.",
+  "steps": [
+   "Ajoutez vos fichiers XLSX, XLS, ODS, CSV, TSV ou Numbers.",
+   "Choisissez le format de sortie.",
+   "Convertissez et téléchargez."
+  ],
+  "faq": [
+   {
+    "q": "Les formules et les feuilles sont-elles conservées ?",
+    "a": "Oui : entre XLSX, XLS, ODS et Numbers, toutes les feuilles, valeurs et formules suivent. CSV et TSV ne gardent que les valeurs, un tableau par fichier. Les couleurs, polices et graphiques ne sont pas conservés."
+   },
+   {
+    "q": "Puis-je ouvrir des fichiers Apple Numbers sans Mac ?",
+    "a": "Oui. Ajoutez le fichier .numbers et convertissez-le en XLSX, CSV ou un autre format ; rien à installer."
+   },
+   {
+    "q": "Mon tableur est-il envoyé ?",
+    "a": "Non. Il est converti dans votre navigateur et ne quitte jamais votre appareil."
+   }
+  ]
  }
 }

@@ -1833,5 +1833,11 @@
 "Convert {0} MP4s to MP3": "MP4 を MP3 に変換 ({0})",
 "Merge {0} audio file{1}": "音声ファイルを結合 ({0})",
 "Convert {0} presentations": "プレゼンテーションを変換 ({0})",
-"a lower quality": "低い画質"
+"a lower quality": "低い画質",
+"One picture per page": "1 ページにつき 1 枚",
+"One long picture, cut to the content": "1 枚の長い画像（内容に合わせて切り取り）",
+"TSV (tab-separated)": "TSV（タブ区切り）",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word（DOCX）、Markdown、HTML、テキスト、Excel（XLSX、XLS）、CSV、ODS、Numbers。ブラウザで動作します。",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel（XLSX、XLS）、ODS、CSV、TSV、Numbers。ブラウザ内で変換：アップロードはありません。",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word（DOCX）、テキスト、Excel（XLSX、XLS）、CSV、TSV、ODS、Numbers。ブラウザ内で変換：シンプルなレイアウトほどきれいに仕上がります。"
 }

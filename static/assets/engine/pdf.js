@@ -400,29 +400,40 @@
       await HT.loadScript(V + 'mammoth-1.13.0/mammoth.browser.min.js');
       return { html: (await mammoth.convertToHtml({ arrayBuffer: buf })).value };
     }
-    if (ext === 'txt') return { html: `<div style="white-space:pre-wrap;font-family:sans-serif;font-size:10.5pt">${esc(new TextDecoder().decode(buf).replace(/^\ufeff/, ''))}</div>` };
-    if (['xlsx', 'xls', 'csv', 'ods'].includes(ext)) {
+    const text = () => new TextDecoder().decode(buf).replace(/^\ufeff/, '');
+    if (ext === 'txt') return { html: `<div style="white-space:pre-wrap;font-family:sans-serif;font-size:10.5pt">${esc(text())}</div>` };
+    if (ext === 'md' || ext === 'markdown') {
+      if (!window.marked) await HT.loadScript(V + 'marked-18.1.0/marked.min.js');
+      return { html: window.marked.parse(text(), { gfm: true, async: false }) };
+    }
+    if (ext === 'html' || ext === 'htm') return { html: text() };   // MuPDF fetches nothing: outside style sheets and pictures are left out
+    if (['xlsx', 'xls', 'csv', 'tsv', 'ods', 'numbers'].includes(ext)) {
       await HT.loadScript(V + 'sheetjs-0.20.3/xlsx.full.min.js');
-      // CSV is text: read it as UTF-8 (SheetJS would guess an old Windows code page and garble Hindi and other scripts)
-      const wb = ext === 'csv' ? XLSX.read(new TextDecoder().decode(buf).replace(/^\ufeff/, ''), { type: 'string', cellDates: true }) : XLSX.read(buf, { cellDates: true });
+      // CSV and TSV are text: read them as UTF-8 (SheetJS would guess an old Windows code page and garble Hindi and other scripts)
+      const wb = ext === 'csv' || ext === 'tsv' ? XLSX.read(text(), { type: 'string', cellDates: true, ...(ext === 'tsv' ? { FS: '\t' } : {}) }) : XLSX.read(buf, { cellDates: true });
       const parts = wb.SheetNames.map(name => {
         const table = (XLSX.utils.sheet_to_html(wb.Sheets[name], { header: '', footer: '' }).match(/<table[\s\S]*<\/table>/) || [''])[0];
         return (wb.SheetNames.length > 1 ? `<h2>${esc(name)}</h2>` : '') + table;
       });
       return { html: `<div style="font-family:sans-serif;font-size:9pt">${parts.join('')}</div>`, landscape: true };
     }
-    throw new Error(`'${f.name}': old .doc, RTF, ODT and PowerPoint files can't be converted in the browser. `
+    throw new Error(`'${f.name}': old .doc, RTF, ODT, Pages and PowerPoint files can't be converted in the browser. `
       + 'Open the file in Word, Google Docs or LibreOffice and save it as DOCX first.');
   }
   // HTML text -> PDF. MuPDF lays the HTML out (basic CSS, tables, pictures as data: addresses; no scripts, nothing is fetched from the web) and writes the pages.
   // A full document (<html>...) is used as it is, a fragment is wrapped. The Indian-script fonts are loaded when the text needs them.
-  async function htmlToPdf(html, { css = DOC_CSS, w = 595, h = 842, em = 11, onPage } = {}) {
+  // HTML text -> a laid-out MuPDF document (its pages can be written to a PDF or drawn as pictures)
+  async function layoutHtml(html, { css = DOC_CSS, w = 595, h = 842, em = 11 } = {}) {
     const m = await mu(); await loadScriptFonts(m, html);
     html = String(html).replace(/<script[\s\S]*?<\/script>/gi, '');
     const full = /<html[\s>]|<!doctype/i.test(html), style = `<style>${css}</style>`;
     const page = full ? (/<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, x => x + '<meta charset="utf-8">' + style) : html.replace(/<html[^>]*>/i, x => x + '<head><meta charset="utf-8">' + style + '</head>'))
       : `<!DOCTYPE html><html><head><meta charset="utf-8">${style}</head><body>${html}</body></html>`;
     const src = m.Document.openDocument(new TextEncoder().encode(page), 'text/html'); src.layout(w, h, em);
+    return src;
+  }
+  async function htmlToPdf(html, { css = DOC_CSS, w = 595, h = 842, em = 11, onPage } = {}) {
+    const m = await mu(), src = await layoutHtml(html, { css, w, h, em });
     const buf = new m.Buffer(), wr = new m.DocumentWriter(buf, 'pdf', ''), n = src.countPages();
     for (let p = 0; p < n; p++) {
       const pg = src.loadPage(p), dev = wr.beginPage(pg.getBounds());
@@ -444,6 +455,51 @@
       ctx.progress((i + 1) / ctx.files.length);
     }
     ctx.info = { summary: `Converted ${outs.length} document(s) to PDF. Complex layouts (columns, text boxes) may look simpler than in Word.` };
+    return outs;
+  });
+
+  // ---------------------------------------------------------------- Word / Markdown / HTML / text / spreadsheet -> pictures
+  // The same layout as Word to PDF, drawn as pictures: one per page, or the whole document as one picture cut to its content.
+  const IMG_OUT = { png: 'png', jpg: 'jpg', jpeg: 'jpg', webp: 'webp', tiff: 'tiff', gif: 'gif', bmp: 'bmp' };
+  const IMG_CSS = DOC_CSS.replace('@page{margin:2cm}', '@page{margin:1.2cm}');
+  const LONG_H = 9000;   // points: the height of the one-picture layout (drawn at most 3x, so the picture stays under 27,000 pixels)
+  // the last row and column that are not white, so a picture of a small table is not a sheet of empty paper
+  function contentBox(px, w, h, n) {
+    const ink = i => px[i] < 245 || px[i + 1] < 245 || px[i + 2] < 245;
+    let bottom = 0, right = 0;
+    for (let y = h - 1; y >= 0 && !bottom; y--) for (let x = 0, i = y * w * n; x < w; x++, i += n) if (ink(i)) { bottom = y + 1; break; }
+    for (let y = 0; y < bottom; y++) for (let x = w - 1, i = (y * w + x) * n; x >= right; x--, i -= n) if (ink(i)) { right = x + 1; break; }
+    return { w: right, h: bottom };
+  }
+  HT.engine('document-to-image', async ctx => {
+    const m = await mu(), asked = String(ctx.opts.format || 'png').toLowerCase(), fmt = IMG_OUT[asked];
+    if (!fmt) throw new Error('Choose the picture format.');
+    const dpi = Math.max(50, Math.min(300, +ctx.opts.dpi || 150)), long = ctx.opts.layout === 'long', outs = [];
+    await imgEngine();
+    for (const [i, f] of ctx.files.entries()) {
+      ctx.status(`Reading ${f.name}...`); await tick();
+      const { html, landscape } = await toHtml(f), w = landscape ? 842 : 595;
+      const doc = await layoutHtml(html, { css: IMG_CSS, w, h: long ? LONG_H : (landscape ? 595 : 842) });
+      const n = doc.countPages(), pages = long ? [...Array(n).keys()] : parsePages(ctx.opts.pages, n), stem = HT.stem(f.name);
+      if (pages.length > 300) throw new Error(`'${f.name}' makes ${pages.length} pages; at most 300 pictures at once. Use the page box, for example 1-50.`);
+      const scale = long ? Math.min(dpi / 72, 3) : dpi / 72;
+      for (const [k, p] of pages.entries()) {
+        ctx.status(`Drawing ${long ? 'part' : 'page'} ${p + 1} of ${f.name}...`); await tick();
+        const page = doc.loadPage(p), pix = page.toPixmap(m.Matrix.scale(scale, scale), m.ColorSpace.DeviceRGB, false, true);
+        const pw = pix.getWidth(), ph = pix.getHeight(), nc = pix.getNumberOfComponents() + pix.getAlpha(), src = pix.getPixels();
+        // the one-picture layout is cut to what is drawn, with a small white edge
+        const pad = Math.round(scale * 12), box = long ? contentBox(src, pw, ph, nc) : null;
+        const cw = box ? Math.min(pw, Math.max(box.w + pad, 1)) : pw, ch = box ? Math.min(ph, Math.max(box.h + pad, 1)) : ph;
+        const rgba = new Uint8ClampedArray(cw * ch * 4);
+        for (let y = 0; y < ch; y++) for (let x = 0, o = y * cw * 4, j = y * pw * nc; x < cw; x++, o += 4, j += nc) { rgba[o] = src[j]; rgba[o + 1] = src[j + 1]; rgba[o + 2] = src[j + 2]; rgba[o + 3] = 255; }
+        pix.destroy(); page.destroy();
+        const c = HT.canvas(cw, ch); c.getContext('2d').putImageData(new ImageData(rgba, cw, ch), 0, 0);
+        const label = pages.length > 1 ? `_${long ? 'part' : 'page'}${String(p + 1).padStart(3, '0')}` : '';
+        outs.push({ name: `${stem}${label}.${asked}`, blob: await HT.img.encode(c, fmt, { quality: 90 }) });
+        ctx.progress((i + (k + 1) / pages.length) / ctx.files.length);
+      }
+    }
+    ctx.info = { summary: `${outs.length} picture(s) made at ${dpi} DPI. Complex layouts (columns, text boxes) may look simpler than in the original.` };
     return outs;
   });
 

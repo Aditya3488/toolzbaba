@@ -3065,5 +3065,59 @@
   "metaDesc": "Convierte AAC a MP3 en línea en tu navegador, hasta 20 archivos a la vez. Se reproduce en cualquier teléfono, coche y altavoz. Gratis, sin registro, sin subir nada.",
   "tab": "AAC a MP3",
   "dropLabel": "Suelta aquí tus archivos AAC"
+ },
+ "document-to-image": {
+  "name": "Documento a imagen",
+  "tabAll": "Todos los formatos",
+  "desc": "Convierte archivos de Word, Markdown, HTML, texto y Excel en PNG, JPG, WebP y más. Funciona en tu navegador.",
+  "title": "Convertir documento a imagen gratis: Word, Excel, HTML a PNG, JPG | Toolz Baba",
+  "metaDesc": "Convierte Word (DOCX), Markdown, HTML, texto y Excel en imágenes PNG, JPG, WebP, TIFF, GIF o BMP. Una imagen por página o una sola imagen larga. Gratis, sin subir nada.",
+  "about": "Convierte un documento en imágenes: Word (DOCX), Markdown, HTML, texto plano y hojas de cálculo (XLSX, XLS, CSV, ODS, Numbers) se convierten en imágenes PNG, JPG, WebP, TIFF, GIF o BMP. Elige una imagen por página o una sola imagen larga recortada al contenido, ideal para publicar una tabla o pegarla en un chat. Elige la nitidez entre 72 y 300 DPI. Se conservan títulos, listas, tablas e imágenes; los diseños complejos, como columnas y cuadros de texto, salen más simples que en Word. Todo ocurre en tu navegador, así que el archivo nunca se sube.",
+  "steps": [
+   "Añade tu archivo de Word, Markdown, HTML, texto u hoja de cálculo.",
+   "Elige el formato de imagen, una imagen por página o una imagen larga, y la calidad.",
+   "Convierte y descarga las imágenes."
+  ],
+  "faq": [
+   {
+    "q": "¿Qué archivos puedo convertir en imágenes?",
+    "a": "Word (DOCX), Markdown (MD), HTML, texto plano (TXT) y hojas de cálculo: XLSX, XLS, CSV, TSV, ODS y Numbers. Los archivos .doc, RTF y ODT antiguos deben guardarse antes como DOCX."
+   },
+   {
+    "q": "¿Puedo obtener todo el documento en una sola imagen?",
+    "a": "Sí. Elige \"Una imagen larga\" y el documento se dibuja en una sola imagen recortada al contenido, sin papel vacío alrededor de una tabla pequeña."
+   },
+   {
+    "q": "¿Se sube mi archivo?",
+    "a": "No. Se convierte en tu navegador y nunca sale de tu dispositivo."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Conversor de hojas de cálculo",
+  "tabAll": "Todos los formatos",
+  "desc": "Convierte entre XLSX, XLS, ODS, CSV, TSV y Apple Numbers. Funciona en tu navegador.",
+  "title": "Conversor de hojas de cálculo gratis: XLSX, XLS, CSV, ODS, Numbers online | Toolz Baba",
+  "metaDesc": "Convierte hojas de cálculo entre Excel XLSX y XLS, CSV, TSV, ODS y Apple Numbers. Se conservan todas las hojas y fórmulas. Gratis, sin subir nada.",
+  "about": "Cambia una hoja de cálculo de un formato a otro: Excel (XLSX y el antiguo XLS), OpenDocument (ODS), CSV, TSV y Apple Numbers, en cualquier dirección. Los valores y las fórmulas se conservan, y también cada hoja del libro; un CSV o TSV contiene una sola tabla, así que un libro con varias hojas da un archivo de texto por hoja. Los números que empiezan por cero, como códigos postales y teléfonos, se quedan como estaban, y los CSV se guardan en UTF-8 para que Excel muestre bien los acentos. No se trasladan colores, fuentes ni gráficos. La conversión ocurre en tu navegador, así que tus datos nunca salen de tu dispositivo.",
+  "steps": [
+   "Añade tus archivos XLSX, XLS, ODS, CSV, TSV o Numbers.",
+   "Elige el formato de destino.",
+   "Convierte y descarga."
+  ],
+  "faq": [
+   {
+    "q": "¿Se conservan las fórmulas y las hojas?",
+    "a": "Sí: entre XLSX, XLS, ODS y Numbers se conservan todas las hojas, valores y fórmulas. CSV y TSV solo guardan valores, una tabla por archivo. No se conservan colores, fuentes ni gráficos."
+   },
+   {
+    "q": "¿Puedo abrir archivos de Apple Numbers sin un Mac?",
+    "a": "Sí. Añade el archivo .numbers y conviértelo a XLSX, CSV u otro formato; no hace falta instalar nada."
+   },
+   {
+    "q": "¿Se sube mi hoja de cálculo?",
+    "a": "No. Se convierte en tu navegador y nunca sale de tu dispositivo."
+   }
+  ]
  }
 }

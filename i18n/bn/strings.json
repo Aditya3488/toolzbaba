@@ -1825,5 +1825,11 @@
 "Convert {0} MP4s to MP3": "MP4 থেকে MP3 করুন ({0})",
 "Merge {0} audio file{1}": "অডিও ফাইল মার্জ করুন ({0})",
 "Convert {0} presentations": "প্রেজেন্টেশন কনভার্ট করুন ({0})",
-"a lower quality": "কম কোয়ালিটি"
+"a lower quality": "কম কোয়ালিটি",
+"One picture per page": "প্রতি পাতায় একটি ছবি",
+"One long picture, cut to the content": "একটি লম্বা ছবি, কনটেন্ট পর্যন্ত কাটা",
+"TSV (tab-separated)": "TSV (ট্যাব দিয়ে আলাদা)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, টেক্সট, Excel (XLSX, XLS), CSV, ODS ও Numbers। আপনার ব্রাউজারে চলে।",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV ও Numbers। আপনার ব্রাউজারে কনভার্ট হয়: কিছুই আপলোড হয় না।",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), টেক্সট, Excel (XLSX, XLS), CSV, TSV, ODS ও Numbers। আপনার ব্রাউজারে কনভার্ট হয়: সরল লেআউট সবচেয়ে ভালো কাজ করে।"
 }

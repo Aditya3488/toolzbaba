@@ -1819,5 +1819,11 @@
 "Convert {0} MP4s to MP3": "تحويل MP4 إلى MP3 ({0})",
 "Merge {0} audio file{1}": "دمج الملفات الصوتية ({0})",
 "Convert {0} presentations": "تحويل العروض التقديمية ({0})",
-"a lower quality": "جودة أقل"
+"a lower quality": "جودة أقل",
+"One picture per page": "صورة لكل صفحة",
+"One long picture, cut to the content": "صورة طويلة واحدة مقصوصة على المحتوى",
+"TSV (tab-separated)": "TSV (مفصول بعلامات جدولة)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX) وMarkdown وHTML والنصوص وExcel (XLSX وXLS) وCSV وODS وNumbers. يعمل في متصفحك.",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX وXLS) وODS وCSV وTSV وNumbers. يُحوَّل في متصفحك: لا يُرفع أي شيء.",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX) والنصوص وExcel (XLSX وXLS) وCSV وTSV وODS وNumbers. يُحوَّل في متصفحك: التخطيطات البسيطة تعطي أفضل نتيجة."
 }

@@ -3065,5 +3065,59 @@
   "metaDesc": "Konwertuj AAC na MP3 online w przeglądarce, do 20 plików naraz. MP3 odtworzysz na każdym telefonie i głośniku. Za darmo, bez rejestracji i przesyłania.",
   "tab": "AAC na MP3",
   "dropLabel": "Upuść tutaj pliki AAC"
+ },
+ "document-to-image": {
+  "name": "Dokument na obraz",
+  "tabAll": "Wszystkie formaty",
+  "desc": "Zamieniaj pliki Word, Markdown, HTML, tekst i Excel na PNG, JPG, WebP i inne. Działa w przeglądarce.",
+  "title": "Konwerter dokumentu na obraz za darmo: Word, Excel, HTML na PNG, JPG | Toolz Baba",
+  "metaDesc": "Zamień Word (DOCX), Markdown, HTML, tekst i Excel na obrazy PNG, JPG, WebP, TIFF, GIF lub BMP. Jeden obraz na stronę albo jeden długi obraz. Za darmo, nic nie jest wysyłane.",
+  "about": "Zamień dokument na obrazy: Word (DOCX), Markdown, HTML, zwykły tekst i arkusze (XLSX, XLS, CSV, ODS, Numbers) stają się obrazami PNG, JPG, WebP, TIFF, GIF lub BMP. Wybierz jeden obraz na stronę albo jeden długi obraz przycięty do treści, wygodny do opublikowania tabeli lub wklejenia jej na czacie. Ostrość wybierasz od 72 do 300 DPI. Nagłówki, listy, tabele i obrazy zostają; złożone układy, takie jak kolumny i pola tekstowe, wychodzą prostsze niż w Wordzie. Wszystko działa w przeglądarce, więc plik nigdy nie jest wysyłany.",
+  "steps": [
+   "Dodaj plik Word, Markdown, HTML, tekstowy lub arkusz.",
+   "Wybierz format obrazu, jeden obraz na stronę lub jeden długi obraz, oraz jakość.",
+   "Konwertuj i pobierz obrazy."
+  ],
+  "faq": [
+   {
+    "q": "Jakie pliki mogę zamienić na obrazy?",
+    "a": "Word (DOCX), Markdown (MD), HTML, zwykły tekst (TXT) i arkusze: XLSX, XLS, CSV, TSV, ODS i Numbers. Stare pliki .doc, RTF i ODT trzeba najpierw zapisać jako DOCX."
+   },
+   {
+    "q": "Czy mogę dostać cały dokument jako jeden obraz?",
+    "a": "Tak. Wybierz „Jeden długi obraz”, a dokument zostanie narysowany jako jeden obraz przycięty do treści, bez pustego papieru wokół małej tabeli."
+   },
+   {
+    "q": "Czy mój plik jest wysyłany?",
+    "a": "Nie. Jest konwertowany w przeglądarce i nigdy nie opuszcza Twojego urządzenia."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Konwerter arkuszy",
+  "tabAll": "Wszystkie formaty",
+  "desc": "Konwertuj między XLSX, XLS, ODS, CSV, TSV i Apple Numbers. Działa w przeglądarce.",
+  "title": "Konwerter arkuszy za darmo: XLSX, XLS, CSV, ODS, Numbers online | Toolz Baba",
+  "metaDesc": "Konwertuj arkusze między Excel XLSX i XLS, CSV, TSV, ODS i Apple Numbers. Wszystkie arkusze i formuły zostają. Za darmo, nic nie jest wysyłane.",
+  "about": "Zmień format arkusza na inny: Excel (XLSX i starszy XLS), OpenDocument (ODS), CSV, TSV i Apple Numbers, w dowolnym kierunku. Wartości i formuły przechodzą, a każdy arkusz skoroszytu zostaje; plik CSV lub TSV mieści jedną tabelę, więc skoroszyt z kilkoma arkuszami daje jeden plik tekstowy na arkusz. Liczby zaczynające się od zera, takie jak kody pocztowe i numery telefonów, zostają bez zmian, a pliki CSV są zapisywane w UTF-8, by Excel poprawnie pokazał polskie znaki. Kolory, czcionki i wykresy nie są przenoszone. Konwersja odbywa się w przeglądarce, więc Twoje dane nie opuszczają urządzenia.",
+  "steps": [
+   "Dodaj pliki XLSX, XLS, ODS, CSV, TSV lub Numbers.",
+   "Wybierz format docelowy.",
+   "Konwertuj i pobierz."
+  ],
+  "faq": [
+   {
+    "q": "Czy formuły i arkusze zostają?",
+    "a": "Tak, między XLSX, XLS, ODS i Numbers przechodzą wszystkie arkusze, wartości i formuły. CSV i TSV przechowują tylko wartości, jedną tabelę na plik. Kolory, czcionki i wykresy nie zostają."
+   },
+   {
+    "q": "Czy mogę otworzyć pliki Apple Numbers bez Maca?",
+    "a": "Tak. Dodaj plik .numbers i przekonwertuj go na XLSX, CSV lub inny format; nie trzeba niczego instalować."
+   },
+   {
+    "q": "Czy mój arkusz jest wysyłany?",
+    "a": "Nie. Jest konwertowany w przeglądarce i nigdy nie opuszcza Twojego urządzenia."
+   }
+  ]
  }
 }

@@ -1751,5 +1751,11 @@
 "Convert {0} MP4s to MP3": "Ubah MP4 ke MP3 ({0})",
 "Merge {0} audio file{1}": "Gabung file audio ({0})",
 "Convert {0} presentations": "Konversi presentasi ({0})",
-"a lower quality": "kualitas lebih rendah"
+"a lower quality": "kualitas lebih rendah",
+"One picture per page": "Satu gambar per halaman",
+"One long picture, cut to the content": "Satu gambar panjang, dipotong sesuai isi",
+"TSV (tab-separated)": "TSV (dipisah tab)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, teks, Excel (XLSX, XLS), CSV, ODS, dan Numbers. Berjalan di browser Anda.",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV, dan Numbers. Dikonversi di browser Anda: tidak ada yang diunggah.",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), teks, Excel (XLSX, XLS), CSV, TSV, ODS, dan Numbers. Dikonversi di browser Anda: tata letak sederhana paling baik."
 }

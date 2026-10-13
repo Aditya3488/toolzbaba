@@ -1008,6 +1008,74 @@
    ]
   },
   {
+   "slug": "spreadsheet-converter",
+   "cat": "pdf",
+   "icon": "📊",
+   "name": "Spreadsheet Converter",
+   "desc": "Convert between XLSX, XLS, ODS, CSV, TSV and Apple Numbers. Runs in your browser.",
+   "kind": "client",
+   "engine": "sheet",
+   "js": "server-pdf",
+   "tabAll": "All formats",
+   "keywords": "excel xlsx xls csv tsv ods numbers spreadsheet sheet workbook convert",
+   "about": "Change a spreadsheet from one format to another: Excel (XLSX and the older XLS), OpenDocument (ODS), CSV, TSV and Apple Numbers, in any direction. Values and formulas move across, and every sheet of a workbook is kept; a CSV or TSV holds one table, so a workbook with several sheets gives one text file per sheet. Numbers with a leading zero, such as PIN codes and phone numbers, stay as they were, and CSV files are saved as UTF-8 that Excel opens with Hindi and accented letters intact. Colours, fonts and charts are not carried over. The conversion runs in your browser, so your data never leaves your device.",
+   "title": "Spreadsheet Converter Free: XLSX, XLS, CSV, ODS, Numbers Online | Toolz Baba",
+   "metaDesc": "Convert spreadsheets between Excel XLSX and XLS, CSV, TSV, ODS and Apple Numbers. Every sheet and formula kept, Hindi safe. Free, nothing uploaded.",
+   "steps": [
+    "Add your XLSX, XLS, ODS, CSV, TSV or Numbers files.",
+    "Choose the format to convert to.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "Are formulas and sheets kept?",
+     "a": "Yes, every sheet, value and formula moves across between XLSX, XLS, ODS and Numbers. CSV and TSV only store values, one table per file. Colours, fonts and charts are not kept."
+    },
+    {
+     "q": "Can I open Apple Numbers files without a Mac?",
+     "a": "Yes. Add the .numbers file and convert it to XLSX, CSV or another format; nothing needs to be installed."
+    },
+    {
+     "q": "Is my spreadsheet uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "document-to-image",
+   "cat": "pdf",
+   "icon": "🖼️",
+   "name": "Document to Image",
+   "desc": "Turn Word, Markdown, HTML, text and Excel files into PNG, JPG, WebP and more. Runs in your browser.",
+   "kind": "client",
+   "engine": "pdf",
+   "js": "server-pdf",
+   "tabAll": "All formats",
+   "keywords": "docx word excel xlsx xls markdown md html txt text document to png jpg jpeg webp image picture",
+   "about": "Turn a document into pictures: Word (DOCX), Markdown, HTML, plain text and spreadsheets (XLSX, XLS, CSV, ODS, Numbers) become PNG, JPG, WebP, TIFF, GIF or BMP images. Choose one picture per page, or one long picture cut to the content, which suits a table you want to post or paste into a chat. Pick the sharpness from 72 to 300 DPI. Headings, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Hindi and other Indian scripts are supported. Everything runs inside your browser, so the file is never uploaded.",
+   "title": "Document to Image Converter Free: Word, Excel, HTML to PNG, JPG | Toolz Baba",
+   "metaDesc": "Convert Word (DOCX), Markdown, HTML, text and Excel files to PNG, JPG, WebP, TIFF, GIF or BMP images. One picture per page or one long picture. Free, nothing uploaded.",
+   "steps": [
+    "Add your Word, Markdown, HTML, text or spreadsheet file.",
+    "Choose the picture format, one picture per page or one long picture, and the quality.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which files can I turn into pictures?",
+     "a": "Word (DOCX), Markdown (MD), HTML, plain text (TXT) and spreadsheets: XLSX, XLS, CSV, TSV, ODS and Numbers. Old .doc, RTF and ODT files need to be saved as DOCX first."
+    },
+    {
+     "q": "Can I get the whole document as one picture?",
+     "a": "Yes. Choose \"One long picture\" and the document is drawn as a single picture, cut to the content, so there is no empty paper around a small table."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
    "slug": "pdf-to-word",
    "cat": "pdf",
    "icon": "📃",
@@ -3814,6 +3882,9 @@
      "q": "Are tables and code blocks kept?",
      "a": "Yes. Tables, code blocks, quotes, lists, links and headings are all in the PDF. Pictures that come from the web are not added; pictures written as data addresses are."
     }
+   ],
+   "aliases": [
+    "md-to-pdf"
    ]
   },
   {
@@ -3861,7 +3932,10 @@
      "a": "Not yet: a picture shows as its description in square brackets."
     }
    ],
-   "metaDesc": "Convert Markdown to a Word (DOCX) file with real headings, lists, tables and links that opens in Word and Google Docs. Free and private."
+   "metaDesc": "Convert Markdown to a Word (DOCX) file with real headings, lists, tables and links that opens in Word and Google Docs. Free and private.",
+   "aliases": [
+    "md-to-docx"
+   ]
   },
   {
    "slug": "html-to-markdown",
@@ -3907,6 +3981,9 @@
      "q": "What happens to the pictures?",
      "a": "By default they are saved as files in an images folder next to the .md file, all in one ZIP. You can also embed them or leave them out."
     }
+   ],
+   "aliases": [
+    "docx-to-md"
    ]
   },
   {
@@ -21067,6 +21144,2950 @@
     {
      "q": "Is there a limit?",
      "a": "There is no account and no daily limit. Very large files are limited only by your device's memory."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-xls",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to XLS",
+   "tab": "XLSX to XLS",
+   "preset": {
+    "format": "xls"
+   },
+   "title": "XLSX to XLS Converter Free: Convert XLSX to XLS Online",
+   "desc": "Convert XLSX spreadsheets to XLS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xlsx to xls converter. Change an Excel workbook into XLS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLSX files to XLS. Every sheet of the workbook is read, with its values and formulas. XLS is the format of Excel 97 to 2003, for older software that cannot open XLSX. It holds at most 65,536 rows and 256 columns per sheet. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLSX files.",
+    "XLS is already selected.",
+    "Convert and download the XLS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to XLS?",
+     "a": "Add your XLSX files above; XLS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-ods",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to ODS",
+   "tab": "XLSX to ODS",
+   "preset": {
+    "format": "ods"
+   },
+   "title": "XLSX to ODS Converter Free: Convert XLSX to ODS Online",
+   "desc": "Convert XLSX spreadsheets to ODS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xlsx to ods converter. Change an Excel workbook into ODS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLSX files to ODS. Every sheet of the workbook is read, with its values and formulas. ODS is the native format of LibreOffice Calc and OpenOffice, and Excel and Google Sheets open it too. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLSX files.",
+    "ODS is already selected.",
+    "Convert and download the ODS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to ODS?",
+     "a": "Add your XLSX files above; ODS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-csv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to CSV",
+   "tab": "XLSX to CSV",
+   "preset": {
+    "format": "csv"
+   },
+   "title": "XLSX to CSV Converter Free: Convert XLSX to CSV Online",
+   "desc": "Convert XLSX spreadsheets to CSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xlsx to csv converter. Change an Excel workbook into CSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLSX files to CSV. Every sheet of the workbook is read, with its values and formulas. A CSV file holds one table, so a workbook with several sheets gives one CSV per sheet, delivered together in a ZIP. It is saved as UTF-8 with the mark Excel looks for, so Hindi and accented letters open correctly. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLSX files.",
+    "CSV is already selected.",
+    "Convert and download the CSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to CSV?",
+     "a": "Add your XLSX files above; CSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-tsv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to TSV",
+   "tab": "XLSX to TSV",
+   "preset": {
+    "format": "tsv"
+   },
+   "title": "XLSX to TSV Converter Free: Convert XLSX to TSV Online",
+   "desc": "Convert XLSX spreadsheets to TSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xlsx to tsv converter. Change an Excel workbook into TSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLSX files to TSV. Every sheet of the workbook is read, with its values and formulas. A TSV file holds one table, so a workbook with several sheets gives one TSV per sheet, delivered together in a ZIP. Tabs separate the columns, so commas inside your values need no quoting. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLSX files.",
+    "TSV is already selected.",
+    "Convert and download the TSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to TSV?",
+     "a": "Add your XLSX files above; TSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-numbers",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to Numbers",
+   "tab": "XLSX to Numbers",
+   "preset": {
+    "format": "numbers"
+   },
+   "title": "XLSX to Numbers Converter Free: Convert XLSX to Numbers Online",
+   "desc": "Convert XLSX spreadsheets to Numbers. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xlsx to numbers converter. Change an Excel workbook into Numbers online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLSX files to Numbers. Every sheet of the workbook is read, with its values and formulas. The Numbers file opens on a Mac, iPhone or iPad. Dates are written as the text you see, because Numbers counts dates differently. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLSX files.",
+    "Numbers is already selected.",
+    "Convert and download the Numbers file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to Numbers?",
+     "a": "Add your XLSX files above; Numbers is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-converter",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX Converter",
+   "tab": "XLSX Converter",
+   "title": "XLSX Converter Free: Convert XLSX to XLS, ODS, CSV, TSV or Numbers Online",
+   "desc": "Convert XLSX files to XLS, ODS, CSV, TSV, Numbers. Nothing uploaded.",
+   "metaDesc": "Free XLSX converter. Change XLSX files into XLS, ODS, CSV, TSV, Numbers online. Batch supported and nothing is uploaded, because it runs in your browser.",
+   "about": "Convert XLSX files into whatever you need: XLS, ODS, CSV, TSV, Numbers. Every sheet of the workbook is read, with its values and formulas. If you already know the format you want, the pages for each one are linked above and arrive with it chosen. Everything happens inside your browser, so your spreadsheets never leave your device.",
+   "steps": [
+    "Add your XLSX files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert XLSX to?",
+     "a": "XLS, ODS, CSV, TSV, Numbers. Pick it from the list after you add your files."
+    },
+    {
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Are my XLSX files uploaded?",
+     "a": "No. The conversion runs inside your browser, so your files stay on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-xlsx",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to XLSX",
+   "tab": "XLS to XLSX",
+   "preset": {
+    "format": "xlsx"
+   },
+   "title": "XLS to XLSX Converter Free: Convert XLS to XLSX Online",
+   "desc": "Convert XLS spreadsheets to XLSX. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xls to xlsx converter. Change an Excel 97-2003 workbook into XLSX online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLS files to XLSX. Old .xls files from Excel 97 to 2003 are read directly, every sheet included. XLSX opens in Excel, Google Sheets, LibreOffice and Numbers, with every sheet kept. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLS files.",
+    "XLSX is already selected.",
+    "Convert and download the XLSX file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to XLSX?",
+     "a": "Add your XLS files above; XLSX is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-ods",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to ODS",
+   "tab": "XLS to ODS",
+   "preset": {
+    "format": "ods"
+   },
+   "title": "XLS to ODS Converter Free: Convert XLS to ODS Online",
+   "desc": "Convert XLS spreadsheets to ODS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xls to ods converter. Change an Excel 97-2003 workbook into ODS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLS files to ODS. Old .xls files from Excel 97 to 2003 are read directly, every sheet included. ODS is the native format of LibreOffice Calc and OpenOffice, and Excel and Google Sheets open it too. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLS files.",
+    "ODS is already selected.",
+    "Convert and download the ODS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to ODS?",
+     "a": "Add your XLS files above; ODS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-csv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to CSV",
+   "tab": "XLS to CSV",
+   "preset": {
+    "format": "csv"
+   },
+   "title": "XLS to CSV Converter Free: Convert XLS to CSV Online",
+   "desc": "Convert XLS spreadsheets to CSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xls to csv converter. Change an Excel 97-2003 workbook into CSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLS files to CSV. Old .xls files from Excel 97 to 2003 are read directly, every sheet included. A CSV file holds one table, so a workbook with several sheets gives one CSV per sheet, delivered together in a ZIP. It is saved as UTF-8 with the mark Excel looks for, so Hindi and accented letters open correctly. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLS files.",
+    "CSV is already selected.",
+    "Convert and download the CSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to CSV?",
+     "a": "Add your XLS files above; CSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-tsv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to TSV",
+   "tab": "XLS to TSV",
+   "preset": {
+    "format": "tsv"
+   },
+   "title": "XLS to TSV Converter Free: Convert XLS to TSV Online",
+   "desc": "Convert XLS spreadsheets to TSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xls to tsv converter. Change an Excel 97-2003 workbook into TSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLS files to TSV. Old .xls files from Excel 97 to 2003 are read directly, every sheet included. A TSV file holds one table, so a workbook with several sheets gives one TSV per sheet, delivered together in a ZIP. Tabs separate the columns, so commas inside your values need no quoting. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLS files.",
+    "TSV is already selected.",
+    "Convert and download the TSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to TSV?",
+     "a": "Add your XLS files above; TSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-numbers",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to Numbers",
+   "tab": "XLS to Numbers",
+   "preset": {
+    "format": "numbers"
+   },
+   "title": "XLS to Numbers Converter Free: Convert XLS to Numbers Online",
+   "desc": "Convert XLS spreadsheets to Numbers. Several files at once, nothing uploaded.",
+   "metaDesc": "Free xls to numbers converter. Change an Excel 97-2003 workbook into Numbers online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert XLS files to Numbers. Old .xls files from Excel 97 to 2003 are read directly, every sheet included. The Numbers file opens on a Mac, iPhone or iPad. Dates are written as the text you see, because Numbers counts dates differently. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your XLS files.",
+    "Numbers is already selected.",
+    "Convert and download the Numbers file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to Numbers?",
+     "a": "Add your XLS files above; Numbers is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-converter",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS Converter",
+   "tab": "XLS Converter",
+   "title": "XLS Converter Free: Convert XLS to XLSX, ODS, CSV, TSV or Numbers Online",
+   "desc": "Convert XLS files to XLSX, ODS, CSV, TSV, Numbers. Nothing uploaded.",
+   "metaDesc": "Free XLS converter. Change XLS files into XLSX, ODS, CSV, TSV, Numbers online. Batch supported and nothing is uploaded, because it runs in your browser.",
+   "about": "Convert XLS files into whatever you need: XLSX, ODS, CSV, TSV, Numbers. Old .xls files from Excel 97 to 2003 are read directly, every sheet included. If you already know the format you want, the pages for each one are linked above and arrive with it chosen. Everything happens inside your browser, so your spreadsheets never leave your device.",
+   "steps": [
+    "Add your XLS files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert XLS to?",
+     "a": "XLSX, ODS, CSV, TSV, Numbers. Pick it from the list after you add your files."
+    },
+    {
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Are my XLS files uploaded?",
+     "a": "No. The conversion runs inside your browser, so your files stay on your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-to-xlsx",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS to XLSX",
+   "tab": "ODS to XLSX",
+   "preset": {
+    "format": "xlsx"
+   },
+   "title": "ODS to XLSX Converter Free: Convert ODS to XLSX Online",
+   "desc": "Convert ODS spreadsheets to XLSX. Several files at once, nothing uploaded.",
+   "metaDesc": "Free ods to xlsx converter. Change an OpenDocument spreadsheet into XLSX online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ODS files to XLSX. ODS files from LibreOffice Calc, OpenOffice and Google Sheets are read with every sheet. XLSX opens in Excel, Google Sheets, LibreOffice and Numbers, with every sheet kept. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your ODS files.",
+    "XLSX is already selected.",
+    "Convert and download the XLSX file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ODS to XLSX?",
+     "a": "Add your ODS files above; XLSX is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-to-xls",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS to XLS",
+   "tab": "ODS to XLS",
+   "preset": {
+    "format": "xls"
+   },
+   "title": "ODS to XLS Converter Free: Convert ODS to XLS Online",
+   "desc": "Convert ODS spreadsheets to XLS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free ods to xls converter. Change an OpenDocument spreadsheet into XLS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ODS files to XLS. ODS files from LibreOffice Calc, OpenOffice and Google Sheets are read with every sheet. XLS is the format of Excel 97 to 2003, for older software that cannot open XLSX. It holds at most 65,536 rows and 256 columns per sheet. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your ODS files.",
+    "XLS is already selected.",
+    "Convert and download the XLS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ODS to XLS?",
+     "a": "Add your ODS files above; XLS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-to-csv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS to CSV",
+   "tab": "ODS to CSV",
+   "preset": {
+    "format": "csv"
+   },
+   "title": "ODS to CSV Converter Free: Convert ODS to CSV Online",
+   "desc": "Convert ODS spreadsheets to CSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free ods to csv converter. Change an OpenDocument spreadsheet into CSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ODS files to CSV. ODS files from LibreOffice Calc, OpenOffice and Google Sheets are read with every sheet. A CSV file holds one table, so a workbook with several sheets gives one CSV per sheet, delivered together in a ZIP. It is saved as UTF-8 with the mark Excel looks for, so Hindi and accented letters open correctly. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your ODS files.",
+    "CSV is already selected.",
+    "Convert and download the CSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ODS to CSV?",
+     "a": "Add your ODS files above; CSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-to-tsv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS to TSV",
+   "tab": "ODS to TSV",
+   "preset": {
+    "format": "tsv"
+   },
+   "title": "ODS to TSV Converter Free: Convert ODS to TSV Online",
+   "desc": "Convert ODS spreadsheets to TSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free ods to tsv converter. Change an OpenDocument spreadsheet into TSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ODS files to TSV. ODS files from LibreOffice Calc, OpenOffice and Google Sheets are read with every sheet. A TSV file holds one table, so a workbook with several sheets gives one TSV per sheet, delivered together in a ZIP. Tabs separate the columns, so commas inside your values need no quoting. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your ODS files.",
+    "TSV is already selected.",
+    "Convert and download the TSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ODS to TSV?",
+     "a": "Add your ODS files above; TSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-to-numbers",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS to Numbers",
+   "tab": "ODS to Numbers",
+   "preset": {
+    "format": "numbers"
+   },
+   "title": "ODS to Numbers Converter Free: Convert ODS to Numbers Online",
+   "desc": "Convert ODS spreadsheets to Numbers. Several files at once, nothing uploaded.",
+   "metaDesc": "Free ods to numbers converter. Change an OpenDocument spreadsheet into Numbers online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert ODS files to Numbers. ODS files from LibreOffice Calc, OpenOffice and Google Sheets are read with every sheet. The Numbers file opens on a Mac, iPhone or iPad. Dates are written as the text you see, because Numbers counts dates differently. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your ODS files.",
+    "Numbers is already selected.",
+    "Convert and download the Numbers file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ODS to Numbers?",
+     "a": "Add your ODS files above; Numbers is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-converter",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS Converter",
+   "tab": "ODS Converter",
+   "title": "ODS Converter Free: Convert ODS to XLSX, XLS, CSV, TSV or Numbers Online",
+   "desc": "Convert ODS files to XLSX, XLS, CSV, TSV, Numbers. Nothing uploaded.",
+   "metaDesc": "Free ODS converter. Change ODS files into XLSX, XLS, CSV, TSV, Numbers online. Batch supported and nothing is uploaded, because it runs in your browser.",
+   "about": "Convert ODS files into whatever you need: XLSX, XLS, CSV, TSV, Numbers. ODS files from LibreOffice Calc, OpenOffice and Google Sheets are read with every sheet. If you already know the format you want, the pages for each one are linked above and arrive with it chosen. Everything happens inside your browser, so your spreadsheets never leave your device.",
+   "steps": [
+    "Add your ODS files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert ODS to?",
+     "a": "XLSX, XLS, CSV, TSV, Numbers. Pick it from the list after you add your files."
+    },
+    {
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Are my ODS files uploaded?",
+     "a": "No. The conversion runs inside your browser, so your files stay on your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-to-xlsx",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV to XLSX",
+   "tab": "CSV to XLSX",
+   "preset": {
+    "format": "xlsx"
+   },
+   "title": "CSV to XLSX Converter Free: Convert CSV to XLSX Online",
+   "desc": "Convert CSV spreadsheets to XLSX. Several files at once, nothing uploaded.",
+   "metaDesc": "Free csv to xlsx converter. Change a comma-separated text file into XLSX online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert CSV files to XLSX. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. XLSX opens in Excel, Google Sheets, LibreOffice and Numbers, with every sheet kept. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your CSV files.",
+    "XLSX is already selected.",
+    "Convert and download the XLSX file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert CSV to XLSX?",
+     "a": "Add your CSV files above; XLSX is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-to-xls",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV to XLS",
+   "tab": "CSV to XLS",
+   "preset": {
+    "format": "xls"
+   },
+   "title": "CSV to XLS Converter Free: Convert CSV to XLS Online",
+   "desc": "Convert CSV spreadsheets to XLS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free csv to xls converter. Change a comma-separated text file into XLS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert CSV files to XLS. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. XLS is the format of Excel 97 to 2003, for older software that cannot open XLSX. It holds at most 65,536 rows and 256 columns per sheet. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your CSV files.",
+    "XLS is already selected.",
+    "Convert and download the XLS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert CSV to XLS?",
+     "a": "Add your CSV files above; XLS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-to-ods",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV to ODS",
+   "tab": "CSV to ODS",
+   "preset": {
+    "format": "ods"
+   },
+   "title": "CSV to ODS Converter Free: Convert CSV to ODS Online",
+   "desc": "Convert CSV spreadsheets to ODS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free csv to ods converter. Change a comma-separated text file into ODS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert CSV files to ODS. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. ODS is the native format of LibreOffice Calc and OpenOffice, and Excel and Google Sheets open it too. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your CSV files.",
+    "ODS is already selected.",
+    "Convert and download the ODS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert CSV to ODS?",
+     "a": "Add your CSV files above; ODS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-to-tsv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV to TSV",
+   "tab": "CSV to TSV",
+   "preset": {
+    "format": "tsv"
+   },
+   "title": "CSV to TSV Converter Free: Convert CSV to TSV Online",
+   "desc": "Convert CSV spreadsheets to TSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free csv to tsv converter. Change a comma-separated text file into TSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert CSV files to TSV. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. A TSV file holds one table, so a workbook with several sheets gives one TSV per sheet, delivered together in a ZIP. Tabs separate the columns, so commas inside your values need no quoting. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your CSV files.",
+    "TSV is already selected.",
+    "Convert and download the TSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert CSV to TSV?",
+     "a": "Add your CSV files above; TSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-to-numbers",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV to Numbers",
+   "tab": "CSV to Numbers",
+   "preset": {
+    "format": "numbers"
+   },
+   "title": "CSV to Numbers Converter Free: Convert CSV to Numbers Online",
+   "desc": "Convert CSV spreadsheets to Numbers. Several files at once, nothing uploaded.",
+   "metaDesc": "Free csv to numbers converter. Change a comma-separated text file into Numbers online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert CSV files to Numbers. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. The Numbers file opens on a Mac, iPhone or iPad. Dates are written as the text you see, because Numbers counts dates differently. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your CSV files.",
+    "Numbers is already selected.",
+    "Convert and download the Numbers file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert CSV to Numbers?",
+     "a": "Add your CSV files above; Numbers is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-converter",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV Converter",
+   "tab": "CSV Converter",
+   "title": "CSV Converter Free: Convert CSV to XLSX, XLS, ODS, TSV or Numbers Online",
+   "desc": "Convert CSV files to XLSX, XLS, ODS, TSV, Numbers. Nothing uploaded.",
+   "metaDesc": "Free CSV converter. Change CSV files into XLSX, XLS, ODS, TSV, Numbers online. Batch supported and nothing is uploaded, because it runs in your browser.",
+   "about": "Convert CSV files into whatever you need: XLSX, XLS, ODS, TSV, Numbers. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. If you already know the format you want, the pages for each one are linked above and arrive with it chosen. Everything happens inside your browser, so your spreadsheets never leave your device.",
+   "steps": [
+    "Add your CSV files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert CSV to?",
+     "a": "XLSX, XLS, ODS, TSV, Numbers. Pick it from the list after you add your files."
+    },
+    {
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Are my CSV files uploaded?",
+     "a": "No. The conversion runs inside your browser, so your files stay on your device."
+    }
+   ]
+  },
+  {
+   "slug": "tsv-to-xlsx",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TSV to XLSX",
+   "tab": "TSV to XLSX",
+   "preset": {
+    "format": "xlsx"
+   },
+   "title": "TSV to XLSX Converter Free: Convert TSV to XLSX Online",
+   "desc": "Convert TSV spreadsheets to XLSX. Several files at once, nothing uploaded.",
+   "metaDesc": "Free tsv to xlsx converter. Change a tab-separated text file into XLSX online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TSV files to XLSX. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. XLSX opens in Excel, Google Sheets, LibreOffice and Numbers, with every sheet kept. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your TSV files.",
+    "XLSX is already selected.",
+    "Convert and download the XLSX file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TSV to XLSX?",
+     "a": "Add your TSV files above; XLSX is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "tsv-to-xls",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TSV to XLS",
+   "tab": "TSV to XLS",
+   "preset": {
+    "format": "xls"
+   },
+   "title": "TSV to XLS Converter Free: Convert TSV to XLS Online",
+   "desc": "Convert TSV spreadsheets to XLS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free tsv to xls converter. Change a tab-separated text file into XLS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TSV files to XLS. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. XLS is the format of Excel 97 to 2003, for older software that cannot open XLSX. It holds at most 65,536 rows and 256 columns per sheet. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your TSV files.",
+    "XLS is already selected.",
+    "Convert and download the XLS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TSV to XLS?",
+     "a": "Add your TSV files above; XLS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "tsv-to-ods",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TSV to ODS",
+   "tab": "TSV to ODS",
+   "preset": {
+    "format": "ods"
+   },
+   "title": "TSV to ODS Converter Free: Convert TSV to ODS Online",
+   "desc": "Convert TSV spreadsheets to ODS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free tsv to ods converter. Change a tab-separated text file into ODS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TSV files to ODS. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. ODS is the native format of LibreOffice Calc and OpenOffice, and Excel and Google Sheets open it too. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your TSV files.",
+    "ODS is already selected.",
+    "Convert and download the ODS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TSV to ODS?",
+     "a": "Add your TSV files above; ODS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "tsv-to-csv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TSV to CSV",
+   "tab": "TSV to CSV",
+   "preset": {
+    "format": "csv"
+   },
+   "title": "TSV to CSV Converter Free: Convert TSV to CSV Online",
+   "desc": "Convert TSV spreadsheets to CSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free tsv to csv converter. Change a tab-separated text file into CSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TSV files to CSV. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. A CSV file holds one table, so a workbook with several sheets gives one CSV per sheet, delivered together in a ZIP. It is saved as UTF-8 with the mark Excel looks for, so Hindi and accented letters open correctly. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your TSV files.",
+    "CSV is already selected.",
+    "Convert and download the CSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TSV to CSV?",
+     "a": "Add your TSV files above; CSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "tsv-to-numbers",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TSV to Numbers",
+   "tab": "TSV to Numbers",
+   "preset": {
+    "format": "numbers"
+   },
+   "title": "TSV to Numbers Converter Free: Convert TSV to Numbers Online",
+   "desc": "Convert TSV spreadsheets to Numbers. Several files at once, nothing uploaded.",
+   "metaDesc": "Free tsv to numbers converter. Change a tab-separated text file into Numbers online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TSV files to Numbers. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. The Numbers file opens on a Mac, iPhone or iPad. Dates are written as the text you see, because Numbers counts dates differently. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your TSV files.",
+    "Numbers is already selected.",
+    "Convert and download the Numbers file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TSV to Numbers?",
+     "a": "Add your TSV files above; Numbers is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "tsv-converter",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TSV Converter",
+   "tab": "TSV Converter",
+   "title": "TSV Converter Free: Convert TSV to XLSX, XLS, ODS, CSV or Numbers Online",
+   "desc": "Convert TSV files to XLSX, XLS, ODS, CSV, Numbers. Nothing uploaded.",
+   "metaDesc": "Free TSV converter. Change TSV files into XLSX, XLS, ODS, CSV, Numbers online. Batch supported and nothing is uploaded, because it runs in your browser.",
+   "about": "Convert TSV files into whatever you need: XLSX, XLS, ODS, CSV, Numbers. Every value is kept exactly as written: numbers with a leading zero, such as PIN codes and phone numbers, stay as text instead of losing the zero, and Hindi and accented letters come through intact. If you already know the format you want, the pages for each one are linked above and arrive with it chosen. Everything happens inside your browser, so your spreadsheets never leave your device.",
+   "steps": [
+    "Add your TSV files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert TSV to?",
+     "a": "XLSX, XLS, ODS, CSV, Numbers. Pick it from the list after you add your files."
+    },
+    {
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Are my TSV files uploaded?",
+     "a": "No. The conversion runs inside your browser, so your files stay on your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-to-xlsx",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers to XLSX",
+   "tab": "Numbers to XLSX",
+   "preset": {
+    "format": "xlsx"
+   },
+   "title": "Numbers to XLSX Converter Free: Convert Numbers to XLSX Online",
+   "desc": "Convert Numbers spreadsheets to XLSX. Several files at once, nothing uploaded.",
+   "metaDesc": "Free numbers to xlsx converter. Change an Apple Numbers spreadsheet into XLSX online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert Numbers files to XLSX. Numbers files from a Mac, iPhone or iPad are read directly, so you do not need a Mac to open them. XLSX opens in Excel, Google Sheets, LibreOffice and Numbers, with every sheet kept. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your Numbers files.",
+    "XLSX is already selected.",
+    "Convert and download the XLSX file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Numbers to XLSX?",
+     "a": "Add your Numbers files above; XLSX is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-to-xls",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers to XLS",
+   "tab": "Numbers to XLS",
+   "preset": {
+    "format": "xls"
+   },
+   "title": "Numbers to XLS Converter Free: Convert Numbers to XLS Online",
+   "desc": "Convert Numbers spreadsheets to XLS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free numbers to xls converter. Change an Apple Numbers spreadsheet into XLS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert Numbers files to XLS. Numbers files from a Mac, iPhone or iPad are read directly, so you do not need a Mac to open them. XLS is the format of Excel 97 to 2003, for older software that cannot open XLSX. It holds at most 65,536 rows and 256 columns per sheet. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your Numbers files.",
+    "XLS is already selected.",
+    "Convert and download the XLS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Numbers to XLS?",
+     "a": "Add your Numbers files above; XLS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-to-ods",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers to ODS",
+   "tab": "Numbers to ODS",
+   "preset": {
+    "format": "ods"
+   },
+   "title": "Numbers to ODS Converter Free: Convert Numbers to ODS Online",
+   "desc": "Convert Numbers spreadsheets to ODS. Several files at once, nothing uploaded.",
+   "metaDesc": "Free numbers to ods converter. Change an Apple Numbers spreadsheet into ODS online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert Numbers files to ODS. Numbers files from a Mac, iPhone or iPad are read directly, so you do not need a Mac to open them. ODS is the native format of LibreOffice Calc and OpenOffice, and Excel and Google Sheets open it too. Values and formulas move across; colours, fonts and charts do not. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your Numbers files.",
+    "ODS is already selected.",
+    "Convert and download the ODS file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Numbers to ODS?",
+     "a": "Add your Numbers files above; ODS is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Values and formulas move across; colours, fonts and charts do not. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-to-csv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers to CSV",
+   "tab": "Numbers to CSV",
+   "preset": {
+    "format": "csv"
+   },
+   "title": "Numbers to CSV Converter Free: Convert Numbers to CSV Online",
+   "desc": "Convert Numbers spreadsheets to CSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free numbers to csv converter. Change an Apple Numbers spreadsheet into CSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert Numbers files to CSV. Numbers files from a Mac, iPhone or iPad are read directly, so you do not need a Mac to open them. A CSV file holds one table, so a workbook with several sheets gives one CSV per sheet, delivered together in a ZIP. It is saved as UTF-8 with the mark Excel looks for, so Hindi and accented letters open correctly. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your Numbers files.",
+    "CSV is already selected.",
+    "Convert and download the CSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Numbers to CSV?",
+     "a": "Add your Numbers files above; CSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-to-tsv",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers to TSV",
+   "tab": "Numbers to TSV",
+   "preset": {
+    "format": "tsv"
+   },
+   "title": "Numbers to TSV Converter Free: Convert Numbers to TSV Online",
+   "desc": "Convert Numbers spreadsheets to TSV. Several files at once, nothing uploaded.",
+   "metaDesc": "Free numbers to tsv converter. Change an Apple Numbers spreadsheet into TSV online, with every sheet kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert Numbers files to TSV. Numbers files from a Mac, iPhone or iPad are read directly, so you do not need a Mac to open them. A TSV file holds one table, so a workbook with several sheets gives one TSV per sheet, delivered together in a ZIP. Tabs separate the columns, so commas inside your values need no quoting. Only the values move across, because a text file has no formulas, colours or fonts. The conversion runs inside your browser, so your spreadsheet never leaves your device and there is no sign-up or limit.",
+   "steps": [
+    "Add your Numbers files.",
+    "TSV is already selected.",
+    "Convert and download the TSV file."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Numbers to TSV?",
+     "a": "Add your Numbers files above; TSV is already chosen. Press Convert and download the result. Several files can be converted at once."
+    },
+    {
+     "q": "What is kept?",
+     "a": "Only the values move across, because a text file has no formulas, colours or fonts. Every sheet is converted."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser, so your data stays on your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-converter",
+   "base": "spreadsheet-converter",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers Converter",
+   "tab": "Numbers Converter",
+   "title": "Numbers Converter Free: Convert Numbers to XLSX, XLS, ODS, CSV, TSV Online",
+   "desc": "Convert Numbers files to XLSX, XLS, ODS, CSV, TSV. Nothing uploaded.",
+   "metaDesc": "Free Numbers converter. Change Numbers files into XLSX, XLS, ODS, CSV, TSV online. Batch supported and nothing is uploaded, because it runs in your browser.",
+   "about": "Convert Numbers files into whatever you need: XLSX, XLS, ODS, CSV, TSV. Numbers files from a Mac, iPhone or iPad are read directly, so you do not need a Mac to open them. If you already know the format you want, the pages for each one are linked above and arrive with it chosen. Everything happens inside your browser, so your spreadsheets never leave your device.",
+   "steps": [
+    "Add your Numbers files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert Numbers to?",
+     "a": "XLSX, XLS, ODS, CSV, TSV. Pick it from the list after you add your files."
+    },
+    {
+     "q": "Can I convert several files at once?",
+     "a": "Yes. Add as many as you like and they are all converted in one go."
+    },
+    {
+     "q": "Are my Numbers files uploaded?",
+     "a": "No. The conversion runs inside your browser, so your files stay on your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to PNG",
+   "tab": "DOCX to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "DOCX to PNG Converter Free: Convert DOCX to PNG Online",
+   "desc": "Turn a Word document into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to PNG converter. Turn a Word document into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into PNG pictures: sharp text and lines with no blur, the best choice for documents. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to PNG?",
+     "a": "Add the DOCX file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to JPG",
+   "tab": "DOCX to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "DOCX to JPG Converter Free: Convert DOCX to JPG Online",
+   "desc": "Turn a Word document into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to JPG converter. Turn a Word document into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into JPG pictures: small files that open everywhere, good for sending by chat or email. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to JPG?",
+     "a": "Add the DOCX file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to JPEG",
+   "tab": "DOCX to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "DOCX to JPEG Converter Free: Convert DOCX to JPEG Online",
+   "desc": "Turn a Word document into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to JPEG converter. Turn a Word document into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into JPEG pictures: small files that open everywhere, good for sending by chat or email. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to JPEG?",
+     "a": "Add the DOCX file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to WebP",
+   "tab": "DOCX to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "DOCX to WebP Converter Free: Convert DOCX to WebP Online",
+   "desc": "Turn a Word document into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to WebP converter. Turn a Word document into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into WebP pictures: small files with sharp text, made for web pages. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to WebP?",
+     "a": "Add the DOCX file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to TIFF",
+   "tab": "DOCX to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "DOCX to TIFF Converter Free: Convert DOCX to TIFF Online",
+   "desc": "Turn a Word document into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to TIFF converter. Turn a Word document into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into TIFF pictures: a format used for print and archiving. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to TIFF?",
+     "a": "Add the DOCX file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to GIF",
+   "tab": "DOCX to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "DOCX to GIF Converter Free: Convert DOCX to GIF Online",
+   "desc": "Turn a Word document into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to GIF converter. Turn a Word document into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to GIF?",
+     "a": "Add the DOCX file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to BMP",
+   "tab": "DOCX to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "DOCX to BMP Converter Free: Convert DOCX to BMP Online",
+   "desc": "Turn a Word document into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free DOCX to BMP converter. Turn a Word document into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a DOCX file into BMP pictures: uncompressed pictures for older software, so the files are large. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DOCX to BMP?",
+     "a": "Add the DOCX file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "docx-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "DOCX to Image",
+   "tab": "DOCX to Image",
+   "title": "DOCX to Image Converter Free: Convert DOCX to PNG, JPG, WebP Online",
+   "desc": "Turn a Word document into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free DOCX to image converter. Turn a Word document into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a DOCX file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. Headings, paragraphs, lists, tables and pictures are kept; complex layouts such as columns and text boxes come out simpler than in Word. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your DOCX file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn DOCX into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to PNG",
+   "tab": "MD to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "MD to PNG Converter Free: Convert Markdown (MD) to PNG Online",
+   "desc": "Turn a Markdown file into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to PNG converter. Turn a Markdown file into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into PNG pictures: sharp text and lines with no blur, the best choice for documents. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to PNG?",
+     "a": "Add the MD file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to JPG",
+   "tab": "MD to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "MD to JPG Converter Free: Convert Markdown (MD) to JPG Online",
+   "desc": "Turn a Markdown file into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to JPG converter. Turn a Markdown file into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into JPG pictures: small files that open everywhere, good for sending by chat or email. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to JPG?",
+     "a": "Add the MD file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to JPEG",
+   "tab": "MD to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "MD to JPEG Converter Free: Convert Markdown (MD) to JPEG Online",
+   "desc": "Turn a Markdown file into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to JPEG converter. Turn a Markdown file into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into JPEG pictures: small files that open everywhere, good for sending by chat or email. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to JPEG?",
+     "a": "Add the MD file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to WebP",
+   "tab": "MD to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "MD to WebP Converter Free: Convert Markdown (MD) to WebP Online",
+   "desc": "Turn a Markdown file into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to WebP converter. Turn a Markdown file into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into WebP pictures: small files with sharp text, made for web pages. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to WebP?",
+     "a": "Add the MD file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to TIFF",
+   "tab": "MD to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "MD to TIFF Converter Free: Convert Markdown (MD) to TIFF Online",
+   "desc": "Turn a Markdown file into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to TIFF converter. Turn a Markdown file into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into TIFF pictures: a format used for print and archiving. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to TIFF?",
+     "a": "Add the MD file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to GIF",
+   "tab": "MD to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "MD to GIF Converter Free: Convert Markdown (MD) to GIF Online",
+   "desc": "Turn a Markdown file into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to GIF converter. Turn a Markdown file into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to GIF?",
+     "a": "Add the MD file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to BMP",
+   "tab": "MD to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "MD to BMP Converter Free: Convert Markdown (MD) to BMP Online",
+   "desc": "Turn a Markdown file into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free MD to BMP converter. Turn a Markdown file into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into BMP pictures: uncompressed pictures for older software, so the files are large. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MD to BMP?",
+     "a": "Add the MD file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "md-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MD to Image",
+   "tab": "MD to Image",
+   "title": "MD to Image Converter Free: Convert Markdown (MD) to PNG, JPG, WebP Online",
+   "desc": "Turn a Markdown file into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free MD to image converter. Turn a Markdown file into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a Markdown (MD) file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. The Markdown is laid out first, so headings, lists, tables, links and code blocks look the way they would on GitHub, not as raw symbols. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your MD file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn MD into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to PNG",
+   "tab": "HTML to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "HTML to PNG Converter Free: Convert HTML to PNG Online",
+   "desc": "Turn a web page into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to PNG converter. Turn a web page into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into PNG pictures: sharp text and lines with no blur, the best choice for documents. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to PNG?",
+     "a": "Add the HTML file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to JPG",
+   "tab": "HTML to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "HTML to JPG Converter Free: Convert HTML to JPG Online",
+   "desc": "Turn a web page into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to JPG converter. Turn a web page into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into JPG pictures: small files that open everywhere, good for sending by chat or email. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to JPG?",
+     "a": "Add the HTML file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to JPEG",
+   "tab": "HTML to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "HTML to JPEG Converter Free: Convert HTML to JPEG Online",
+   "desc": "Turn a web page into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to JPEG converter. Turn a web page into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into JPEG pictures: small files that open everywhere, good for sending by chat or email. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to JPEG?",
+     "a": "Add the HTML file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to WebP",
+   "tab": "HTML to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "HTML to WebP Converter Free: Convert HTML to WebP Online",
+   "desc": "Turn a web page into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to WebP converter. Turn a web page into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into WebP pictures: small files with sharp text, made for web pages. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to WebP?",
+     "a": "Add the HTML file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to TIFF",
+   "tab": "HTML to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "HTML to TIFF Converter Free: Convert HTML to TIFF Online",
+   "desc": "Turn a web page into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to TIFF converter. Turn a web page into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into TIFF pictures: a format used for print and archiving. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to TIFF?",
+     "a": "Add the HTML file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to GIF",
+   "tab": "HTML to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "HTML to GIF Converter Free: Convert HTML to GIF Online",
+   "desc": "Turn a web page into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to GIF converter. Turn a web page into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to GIF?",
+     "a": "Add the HTML file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to BMP",
+   "tab": "HTML to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "HTML to BMP Converter Free: Convert HTML to BMP Online",
+   "desc": "Turn a web page into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free HTML to BMP converter. Turn a web page into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a HTML file into BMP pictures: uncompressed pictures for older software, so the files are large. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert HTML to BMP?",
+     "a": "Add the HTML file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "html-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HTML to Image",
+   "tab": "HTML to Image",
+   "title": "HTML to Image Converter Free: Convert HTML to PNG, JPG, WebP Online",
+   "desc": "Turn a web page into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free HTML to image converter. Turn a web page into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a HTML file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. The page is drawn from the HTML file itself: inline styles and pictures embedded in the file are shown, while style sheets and pictures from other addresses are not fetched, so a self-contained file works best. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your HTML file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn HTML into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to PNG",
+   "tab": "TXT to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "TXT to PNG Converter Free: Convert TXT to PNG Online",
+   "desc": "Turn a text file into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to PNG converter. Turn a text file into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into PNG pictures: sharp text and lines with no blur, the best choice for documents. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to PNG?",
+     "a": "Add the TXT file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to JPG",
+   "tab": "TXT to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "TXT to JPG Converter Free: Convert TXT to JPG Online",
+   "desc": "Turn a text file into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to JPG converter. Turn a text file into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into JPG pictures: small files that open everywhere, good for sending by chat or email. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to JPG?",
+     "a": "Add the TXT file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to JPEG",
+   "tab": "TXT to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "TXT to JPEG Converter Free: Convert TXT to JPEG Online",
+   "desc": "Turn a text file into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to JPEG converter. Turn a text file into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into JPEG pictures: small files that open everywhere, good for sending by chat or email. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to JPEG?",
+     "a": "Add the TXT file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to WebP",
+   "tab": "TXT to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "TXT to WebP Converter Free: Convert TXT to WebP Online",
+   "desc": "Turn a text file into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to WebP converter. Turn a text file into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into WebP pictures: small files with sharp text, made for web pages. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to WebP?",
+     "a": "Add the TXT file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to TIFF",
+   "tab": "TXT to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "TXT to TIFF Converter Free: Convert TXT to TIFF Online",
+   "desc": "Turn a text file into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to TIFF converter. Turn a text file into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into TIFF pictures: a format used for print and archiving. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to TIFF?",
+     "a": "Add the TXT file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to GIF",
+   "tab": "TXT to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "TXT to GIF Converter Free: Convert TXT to GIF Online",
+   "desc": "Turn a text file into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to GIF converter. Turn a text file into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to GIF?",
+     "a": "Add the TXT file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to BMP",
+   "tab": "TXT to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "TXT to BMP Converter Free: Convert TXT to BMP Online",
+   "desc": "Turn a text file into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free TXT to BMP converter. Turn a text file into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a TXT file into BMP pictures: uncompressed pictures for older software, so the files are large. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to BMP?",
+     "a": "Add the TXT file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to Image",
+   "tab": "TXT to Image",
+   "title": "TXT to Image Converter Free: Convert TXT to PNG, JPG, WebP Online",
+   "desc": "Turn a text file into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free TXT to image converter. Turn a text file into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a TXT file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. Line breaks and spacing are kept exactly as in the file, on clean pages. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your TXT file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn TXT into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to PNG",
+   "tab": "XLSX to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "XLSX to PNG Converter Free: Convert XLSX to PNG Online",
+   "desc": "Turn a Excel workbook into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to PNG converter. Turn a Excel workbook into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into PNG pictures: sharp text and lines with no blur, the best choice for documents. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to PNG?",
+     "a": "Add the XLSX file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to JPG",
+   "tab": "XLSX to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "XLSX to JPG Converter Free: Convert XLSX to JPG Online",
+   "desc": "Turn a Excel workbook into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to JPG converter. Turn a Excel workbook into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into JPG pictures: small files that open everywhere, good for sending by chat or email. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to JPG?",
+     "a": "Add the XLSX file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to JPEG",
+   "tab": "XLSX to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "XLSX to JPEG Converter Free: Convert XLSX to JPEG Online",
+   "desc": "Turn a Excel workbook into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to JPEG converter. Turn a Excel workbook into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into JPEG pictures: small files that open everywhere, good for sending by chat or email. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to JPEG?",
+     "a": "Add the XLSX file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to WebP",
+   "tab": "XLSX to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "XLSX to WebP Converter Free: Convert XLSX to WebP Online",
+   "desc": "Turn a Excel workbook into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to WebP converter. Turn a Excel workbook into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into WebP pictures: small files with sharp text, made for web pages. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to WebP?",
+     "a": "Add the XLSX file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to TIFF",
+   "tab": "XLSX to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "XLSX to TIFF Converter Free: Convert XLSX to TIFF Online",
+   "desc": "Turn a Excel workbook into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to TIFF converter. Turn a Excel workbook into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into TIFF pictures: a format used for print and archiving. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to TIFF?",
+     "a": "Add the XLSX file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to GIF",
+   "tab": "XLSX to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "XLSX to GIF Converter Free: Convert XLSX to GIF Online",
+   "desc": "Turn a Excel workbook into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to GIF converter. Turn a Excel workbook into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to GIF?",
+     "a": "Add the XLSX file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to BMP",
+   "tab": "XLSX to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "XLSX to BMP Converter Free: Convert XLSX to BMP Online",
+   "desc": "Turn a Excel workbook into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLSX to BMP converter. Turn a Excel workbook into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLSX file into BMP pictures: uncompressed pictures for older software, so the files are large. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLSX to BMP?",
+     "a": "Add the XLSX file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xlsx-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLSX to Image",
+   "tab": "XLSX to Image",
+   "title": "XLSX to Image Converter Free: Convert XLSX to PNG, JPG, WebP Online",
+   "desc": "Turn a Excel workbook into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free XLSX to image converter. Turn a Excel workbook into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a XLSX file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your XLSX file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn XLSX into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to PNG",
+   "tab": "XLS to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "XLS to PNG Converter Free: Convert XLS to PNG Online",
+   "desc": "Turn a Excel 97-2003 workbook into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to PNG converter. Turn a Excel 97-2003 workbook into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into PNG pictures: sharp text and lines with no blur, the best choice for documents. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to PNG?",
+     "a": "Add the XLS file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to JPG",
+   "tab": "XLS to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "XLS to JPG Converter Free: Convert XLS to JPG Online",
+   "desc": "Turn a Excel 97-2003 workbook into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to JPG converter. Turn a Excel 97-2003 workbook into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into JPG pictures: small files that open everywhere, good for sending by chat or email. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to JPG?",
+     "a": "Add the XLS file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to JPEG",
+   "tab": "XLS to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "XLS to JPEG Converter Free: Convert XLS to JPEG Online",
+   "desc": "Turn a Excel 97-2003 workbook into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to JPEG converter. Turn a Excel 97-2003 workbook into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into JPEG pictures: small files that open everywhere, good for sending by chat or email. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to JPEG?",
+     "a": "Add the XLS file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to WebP",
+   "tab": "XLS to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "XLS to WebP Converter Free: Convert XLS to WebP Online",
+   "desc": "Turn a Excel 97-2003 workbook into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to WebP converter. Turn a Excel 97-2003 workbook into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into WebP pictures: small files with sharp text, made for web pages. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to WebP?",
+     "a": "Add the XLS file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to TIFF",
+   "tab": "XLS to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "XLS to TIFF Converter Free: Convert XLS to TIFF Online",
+   "desc": "Turn a Excel 97-2003 workbook into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to TIFF converter. Turn a Excel 97-2003 workbook into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into TIFF pictures: a format used for print and archiving. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to TIFF?",
+     "a": "Add the XLS file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to GIF",
+   "tab": "XLS to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "XLS to GIF Converter Free: Convert XLS to GIF Online",
+   "desc": "Turn a Excel 97-2003 workbook into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to GIF converter. Turn a Excel 97-2003 workbook into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to GIF?",
+     "a": "Add the XLS file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to BMP",
+   "tab": "XLS to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "XLS to BMP Converter Free: Convert XLS to BMP Online",
+   "desc": "Turn a Excel 97-2003 workbook into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free XLS to BMP converter. Turn a Excel 97-2003 workbook into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a XLS file into BMP pictures: uncompressed pictures for older software, so the files are large. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert XLS to BMP?",
+     "a": "Add the XLS file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "xls-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "XLS to Image",
+   "tab": "XLS to Image",
+   "title": "XLS to Image Converter Free: Convert XLS to PNG, JPG, WebP Online",
+   "desc": "Turn a Excel 97-2003 workbook into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free XLS to image converter. Turn a Excel 97-2003 workbook into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a XLS file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. Choose one long picture to get a table cut to its size instead of a full page. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your XLS file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn XLS into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "csv-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "CSV to PDF",
+   "tab": "CSV to PDF",
+   "title": "CSV to PDF Converter Free: Convert CSV to PDF Online",
+   "desc": "Turn a CSV file into a PDF you can share and print. Runs in your browser.",
+   "metaDesc": "Free CSV to PDF converter. Turn a CSV file into a PDF online, ready to share and print. Hindi supported. Nothing is uploaded.",
+   "about": "Turn a CSV file into a PDF, when people only need to read or print it and nobody should change it by accident. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. The values are kept; colours, cell styles and charts are not. Hindi and other Indian scripts are supported. The file is converted inside your browser and never uploaded.",
+   "steps": [
+    "Add your CSV file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert CSV to PDF?",
+     "a": "Add the CSV file above, press Convert to PDF and download it. No sign-up is needed."
+    },
+    {
+     "q": "Does it support Hindi?",
+     "a": "Yes. Hindi and other Indian scripts show correctly in the PDF."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ods-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ODS to PDF",
+   "tab": "ODS to PDF",
+   "title": "ODS to PDF Converter Free: Convert ODS to PDF Online",
+   "desc": "Turn an ODS spreadsheet into a PDF you can share and print. Runs in your browser.",
+   "metaDesc": "Free ODS to PDF converter. Turn an ODS spreadsheet into a PDF online, ready to share and print. Hindi supported. Nothing is uploaded.",
+   "about": "Turn an ODS spreadsheet into a PDF, when people only need to read or print it and nobody should change it by accident. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. The values are kept; colours, cell styles and charts are not. Hindi and other Indian scripts are supported. The file is converted inside your browser and never uploaded.",
+   "steps": [
+    "Add your ODS file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert ODS to PDF?",
+     "a": "Add the ODS file above, press Convert to PDF and download it. No sign-up is needed."
+    },
+    {
+     "q": "Does it support Hindi?",
+     "a": "Yes. Hindi and other Indian scripts show correctly in the PDF."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "numbers-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "Numbers to PDF",
+   "tab": "Numbers to PDF",
+   "title": "Numbers to PDF Converter Free: Convert Numbers to PDF Online",
+   "desc": "Turn an Apple Numbers spreadsheet into a PDF you can share and print. Runs in your browser.",
+   "metaDesc": "Free Numbers to PDF converter. Turn an Apple Numbers spreadsheet into a PDF online, ready to share and print. Hindi supported. Nothing is uploaded.",
+   "about": "Turn an Apple Numbers spreadsheet into a PDF, when people only need to read or print it and nobody should change it by accident. Each sheet becomes a table on landscape pages, with the sheet name as a heading when there are several. The values are kept; colours, cell styles and charts are not. Hindi and other Indian scripts are supported. The file is converted inside your browser and never uploaded.",
+   "steps": [
+    "Add your Numbers file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert Numbers to PDF?",
+     "a": "Add the Numbers file above, press Convert to PDF and download it. No sign-up is needed."
+    },
+    {
+     "q": "Does it support Hindi?",
+     "a": "Yes. Hindi and other Indian scripts show correctly in the PDF."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "txt-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TXT to PDF",
+   "tab": "TXT to PDF",
+   "title": "TXT to PDF Converter Free: Convert TXT to PDF Online",
+   "desc": "Turn a plain text file into a PDF you can share and print. Runs in your browser.",
+   "metaDesc": "Free TXT to PDF converter. Turn a plain text file into a PDF online, ready to share and print. Hindi supported. Nothing is uploaded.",
+   "about": "Turn a plain text file into a PDF, when people only need to read or print it and nobody should change it by accident. The text is kept line for line, on clean A4 pages. Hindi and other Indian scripts are supported. The file is converted inside your browser and never uploaded.",
+   "steps": [
+    "Add your TXT file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TXT to PDF?",
+     "a": "Add the TXT file above, press Convert to PDF and download it. No sign-up is needed."
+    },
+    {
+     "q": "Does it support Hindi?",
+     "a": "Yes. Hindi and other Indian scripts show correctly in the PDF."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
     }
    ]
   }

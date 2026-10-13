@@ -3065,5 +3065,59 @@
   "metaDesc": "Chuyển AAC sang MP3 trong trình duyệt, tối đa 20 tệp cùng lúc. Phát được trên mọi điện thoại, xe hơi và loa. Miễn phí, không tải tệp lên.",
   "tab": "AAC sang MP3",
   "dropLabel": "Thả các tệp AAC của bạn vào đây"
+ },
+ "document-to-image": {
+  "name": "Tài liệu sang hình ảnh",
+  "tabAll": "Tất cả định dạng",
+  "desc": "Chuyển tệp Word, Markdown, HTML, văn bản và Excel sang PNG, JPG, WebP và hơn thế. Chạy trong trình duyệt.",
+  "title": "Chuyển tài liệu sang hình ảnh miễn phí: Word, Excel, HTML sang PNG, JPG | Toolz Baba",
+  "metaDesc": "Chuyển Word (DOCX), Markdown, HTML, văn bản và Excel sang ảnh PNG, JPG, WebP, TIFF, GIF hoặc BMP. Mỗi trang một ảnh hoặc một ảnh dài. Miễn phí, không tải lên.",
+  "about": "Biến tài liệu thành hình ảnh: Word (DOCX), Markdown, HTML, văn bản thuần và bảng tính (XLSX, XLS, CSV, ODS, Numbers) thành ảnh PNG, JPG, WebP, TIFF, GIF hoặc BMP. Chọn mỗi trang một ảnh, hoặc một ảnh dài được cắt vừa nội dung, tiện để đăng một bảng hoặc dán vào cuộc trò chuyện. Chọn độ nét từ 72 đến 300 DPI. Tiêu đề, danh sách, bảng và hình ảnh được giữ nguyên; bố cục phức tạp như cột và hộp văn bản sẽ đơn giản hơn so với Word. Mọi thứ chạy trong trình duyệt, nên tệp không bao giờ bị tải lên.",
+  "steps": [
+   "Thêm tệp Word, Markdown, HTML, văn bản hoặc bảng tính.",
+   "Chọn định dạng ảnh, mỗi trang một ảnh hay một ảnh dài, và chất lượng.",
+   "Chuyển đổi và tải ảnh về."
+  ],
+  "faq": [
+   {
+    "q": "Tôi có thể chuyển những tệp nào thành ảnh?",
+    "a": "Word (DOCX), Markdown (MD), HTML, văn bản thuần (TXT) và bảng tính: XLSX, XLS, CSV, TSV, ODS và Numbers. Tệp .doc, RTF và ODT cũ cần được lưu thành DOCX trước."
+   },
+   {
+    "q": "Có thể lấy cả tài liệu thành một ảnh không?",
+    "a": "Có. Chọn \"Một ảnh dài\", tài liệu được vẽ thành một ảnh duy nhất cắt vừa nội dung, không có giấy trống quanh một bảng nhỏ."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi trong trình duyệt và không rời khỏi thiết bị của bạn."
+   }
+  ]
+ },
+ "spreadsheet-converter": {
+  "name": "Chuyển đổi bảng tính",
+  "tabAll": "Tất cả định dạng",
+  "desc": "Chuyển đổi giữa XLSX, XLS, ODS, CSV, TSV và Apple Numbers. Chạy trong trình duyệt.",
+  "title": "Chuyển đổi bảng tính miễn phí: XLSX, XLS, CSV, ODS, Numbers trực tuyến | Toolz Baba",
+  "metaDesc": "Chuyển bảng tính giữa Excel XLSX và XLS, CSV, TSV, ODS và Apple Numbers. Giữ mọi trang tính và công thức. Miễn phí, không tải lên.",
+  "about": "Đổi bảng tính từ định dạng này sang định dạng khác: Excel (XLSX và XLS cũ), OpenDocument (ODS), CSV, TSV và Apple Numbers, theo mọi chiều. Giá trị và công thức được chuyển theo, mọi trang tính trong sổ làm việc được giữ lại; CSV hoặc TSV chỉ chứa một bảng, nên sổ có nhiều trang tính sẽ cho mỗi trang một tệp văn bản. Các số bắt đầu bằng 0, như mã bưu chính và số điện thoại, được giữ nguyên, và tệp CSV được lưu dạng UTF-8 để Excel hiển thị đúng tiếng Việt có dấu. Màu, phông chữ và biểu đồ không được chuyển. Việc chuyển đổi diễn ra trong trình duyệt, nên dữ liệu không rời khỏi thiết bị của bạn.",
+  "steps": [
+   "Thêm tệp XLSX, XLS, ODS, CSV, TSV hoặc Numbers.",
+   "Chọn định dạng đích.",
+   "Chuyển đổi và tải về."
+  ],
+  "faq": [
+   {
+    "q": "Công thức và trang tính có được giữ không?",
+    "a": "Có, giữa XLSX, XLS, ODS và Numbers mọi trang tính, giá trị và công thức đều được chuyển. CSV và TSV chỉ lưu giá trị, mỗi tệp một bảng. Màu, phông chữ và biểu đồ không được giữ."
+   },
+   {
+    "q": "Tôi có mở được tệp Apple Numbers mà không cần Mac không?",
+    "a": "Có. Thêm tệp .numbers và chuyển sang XLSX, CSV hoặc định dạng khác; không cần cài đặt gì."
+   },
+   {
+    "q": "Bảng tính của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi trong trình duyệt và không rời khỏi thiết bị của bạn."
+   }
+  ]
  }
 }

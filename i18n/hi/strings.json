@@ -1822,5 +1822,11 @@
 "Convert {0} MP4s to MP3": "MP4 को MP3 में बदलें ({0})",
 "Merge {0} audio file{1}": "ऑडियो फ़ाइलें मर्ज करें ({0})",
 "Convert {0} presentations": "प्रेज़ेंटेशन कन्वर्ट करें ({0})",
-"a lower quality": "कम क्वालिटी"
+"a lower quality": "कम क्वालिटी",
+"One picture per page": "हर पेज की एक तस्वीर",
+"One long picture, cut to the content": "एक लंबी तस्वीर, कंटेंट तक कटी हुई",
+"TSV (tab-separated)": "TSV (टैब से अलग)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, टेक्स्ट, Excel (XLSX, XLS), CSV, ODS और Numbers। आपके ब्राउज़र में चलता है।",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV और Numbers। आपके ब्राउज़र में कन्वर्ट होता है: कुछ अपलोड नहीं होता।",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), टेक्स्ट, Excel (XLSX, XLS), CSV, TSV, ODS और Numbers। आपके ब्राउज़र में कन्वर्ट होता है: सरल लेआउट सबसे अच्छे चलते हैं।"
 }

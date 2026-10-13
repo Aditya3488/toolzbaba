@@ -1822,5 +1822,11 @@
 "Convert {0} MP4s to MP3": "Конвертировать MP4 в MP3 ({0})",
 "Merge {0} audio file{1}": "Объединить аудиофайлы ({0})",
 "Convert {0} presentations": "Конвертировать презентации ({0})",
-"a lower quality": "более низкое качество"
+"a lower quality": "более низкое качество",
+"One picture per page": "Одна картинка на страницу",
+"One long picture, cut to the content": "Одна длинная картинка, обрезанная по содержимому",
+"TSV (tab-separated)": "TSV (через табуляцию)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, текст, Excel (XLSX, XLS), CSV, ODS и Numbers. Работает в браузере.",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV и Numbers. Конвертация в браузере: ничего не загружается.",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), текст, Excel (XLSX, XLS), CSV, TSV, ODS и Numbers. Конвертация в браузере: лучше всего получаются простые макеты."
 }

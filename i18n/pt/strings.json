@@ -1795,5 +1795,11 @@
 "Convert {0} MP4s to MP3": "Converter MP4 em MP3 ({0})",
 "Merge {0} audio file{1}": "Mesclar arquivos de áudio ({0})",
 "Convert {0} presentations": "Converter apresentações ({0})",
-"a lower quality": "uma qualidade menor"
+"a lower quality": "uma qualidade menor",
+"One picture per page": "Uma imagem por página",
+"One long picture, cut to the content": "Uma imagem longa, recortada ao conteúdo",
+"TSV (tab-separated)": "TSV (separado por tabulações)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, texto, Excel (XLSX, XLS), CSV, ODS e Numbers. Funciona no seu navegador.",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV e Numbers. Convertido no seu navegador: nada é enviado.",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), texto, Excel (XLSX, XLS), CSV, TSV, ODS e Numbers. Convertido no seu navegador: layouts simples funcionam melhor."
 }

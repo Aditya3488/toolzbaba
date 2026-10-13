@@ -1806,5 +1806,11 @@
 "Convert {0} MP4s to MP3": "Chuyển MP4 sang MP3 ({0})",
 "Merge {0} audio file{1}": "Gộp tệp âm thanh ({0})",
 "Convert {0} presentations": "Chuyển đổi bài thuyết trình ({0})",
-"a lower quality": "chất lượng thấp hơn"
+"a lower quality": "chất lượng thấp hơn",
+"One picture per page": "Mỗi trang một ảnh",
+"One long picture, cut to the content": "Một ảnh dài, cắt vừa nội dung",
+"TSV (tab-separated)": "TSV (phân tách bằng tab)",
+"Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.": "Word (DOCX), Markdown, HTML, văn bản, Excel (XLSX, XLS), CSV, ODS và Numbers. Chạy trong trình duyệt.",
+"Excel (XLSX, XLS), ODS, CSV, TSV and Numbers. Converted in your browser: nothing is uploaded.": "Excel (XLSX, XLS), ODS, CSV, TSV và Numbers. Chuyển đổi trong trình duyệt: không tải lên gì.",
+"Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.": "Word (DOCX), văn bản, Excel (XLSX, XLS), CSV, TSV, ODS và Numbers. Chuyển đổi trong trình duyệt: bố cục đơn giản cho kết quả tốt nhất."
 }
