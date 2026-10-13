@@ -160,6 +160,13 @@
   HT.loadScript = src => (src = HT.ver(src), scripts[src] || (scripts[src] = new Promise((res, rej) => { const s = el('script', Object.assign({ src }, /\/assets\/tools\//.test(src) ? { type: 'module' } : {})); s.onload = res; s.onerror = () => rej(new Error('Could not load ' + src)); document.head.append(s); })));
 
   // ---------------------------------------------------------------- files / images / downloads
+  // files handed from one page to the next (the home page's message box -> the tool): kept in the browser's IndexedDB for one hop
+  HT.handoff = (() => {
+    const open = () => new Promise((res, rej) => { const r = indexedDB.open('tz-handoff', 1); r.onupgradeneeded = () => r.result.createObjectStore('f'); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+    const run = async (mode, fn) => { const db = await open(); return new Promise((res, rej) => { const t = db.transaction('f', mode), q = fn(t.objectStore('f')); t.oncomplete = () => { db.close(); res(q && q.result); }; t.onerror = () => { db.close(); rej(t.error); }; }); };
+    return { put: files => run('readwrite', s => s.put({ files, at: Date.now() }, 'next')).catch(() => { }),
+      take: async () => { try { const v = await run('readonly', s => s.get('next')); if (!v) return []; await run('readwrite', s => s.delete('next')); return Date.now() - v.at < 180e3 ? v.files : []; } catch { return []; } } };
+  })();
   // one line into the data layer Tag Manager reads: GA4 sees it once a trigger for the event name exists in the container
   HT.track = (event, data) => { try { (window.dataLayer = window.dataLayer || []).push({ event, ...data }); } catch { } };
   HT.download = (blobOrUrl, name) => {
@@ -1348,6 +1355,8 @@
           const ok = files.filter(f => HT.matches(f, current.accept));
           if (ok.length) { work.classList.add('has-file'); current.list.add(ok, true); }
           if (ok.length < files.length) HT.toast((files.length - ok.length) + ' file(s) removed: ' + (files.length - ok.length > 1 ? 'they are' : 'it is') + ' not ' + (m.tab || 'the right type') + '.');
+        } else if (current && current.list) {   // a file handed over by the home page's message box
+          HT.handoff.take().then(h => { const ok = h.filter(f => !current.accept || HT.matches(f, current.accept)); if (ok.length && current.list) { work.classList.add('has-file'); current.list.add(ok, true); } });
         }
       } catch (e) { app.append(el('div', { class: 'status err', text: 'Could not load this tool: ' + e.message })); console.error(e); }
     }

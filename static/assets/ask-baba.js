@@ -27,8 +27,6 @@
   };
   // where the boxes sit: x / y as a share of the stage (the centre of the box), depth 0 (far) .. 1 (near)
   const WIDE = [[.17, .15, .55], [.5, .1, .4], [.83, .19, .65], [.2, .46, .95], [.53, .4, .8], [.84, .52, .5], [.38, .69, .7]];   // the real box sits below them
-  // the home page: the field also covers the hero (headline left, Baba right), so some boxes float behind them
-  const TALL = [[.08, .08, .45], [.47, .13, .55], [.3, .38, .4], [.93, .42, .5], [.17, .57, .55], [.5, .53, .4], [.83, .6, .65], [.2, .79, .95], [.53, .74, .8], [.84, .83, .5]];
   const NARROW = [[.42, .12, .6], [.58, .32, .85], [.42, .52, .7], [.58, .71, .5]];
   const send = () => HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>');
   const face = () => { const s = HT.star(22); return el('span', { class: 'ab-face' }, s); };
@@ -385,15 +383,31 @@
   HT.askBabaMatch = (data, text) => match(data, text);
   HT.askBabaWords = text => [...analyse(text, HT.lang).hits.keys()];   // which ideas Baba sees in a text (for testing)
 
-  HT.askBaba = async (stage, { compact = false, above = null, box = null } = {}) => {
+  // a dropped file with no words: the tools for that kind of file
+  const FILE_PICKS = { pdf: ['compress-pdf', 'merge-pdf', 'pdf-to-word', 'pdf-to-jpg', 'esign-pdf'], image: ['compress-image', 'resize-image-to-kb', 'remove-background', 'image-to-pdf', 'convert-image'],
+    video: ['compress-video', 'video-to-audio', 'video-to-gif', 'video-trimmer'], audio: ['audio-converter', 'split-audio', 'merge-audio'], docx: ['word-to-pdf', 'docx-to-markdown', 'docx-to-txt', 'document-to-image'],
+    sheet: ['spreadsheet-converter', 'excel-to-pdf'], pptx: ['powerpoint-to-pdf'], text: ['txt-to-pdf', 'txt-to-docx', 'txt-to-md'], md: ['markdown-to-pdf', 'markdown-to-word', 'markdown-to-html'],
+    html: ['html-to-pdf', 'html-to-markdown'], eml: ['eml-to-pdf'], archive: ['archive-extractor', 'archive-converter'], font: ['font-converter'], vector: ['svg-converter', 'ai-converter', 'image-to-svg'] };
+  const kindOf = f => {
+    const x = HT.ext(f.name), t = f.type || '';
+    return x === 'pdf' ? 'pdf' : /^(jpe?g|jfif|png|webp|gif|bmp|tiff?|avif|heic|heif|ico)$/.test(x) || (t.startsWith('image/') && x !== 'svg') ? 'image'
+      : /^(mp4|mov|mkv|avi|webm|wmv|flv|m4v|mpe?g|ts|mts|vob|3gp)$/.test(x) || t.startsWith('video/') ? 'video' : /^(mp3|wav|m4a|aac|flac|ogg|opus|wma|aiff?|m4r|amr)$/.test(x) || t.startsWith('audio/') ? 'audio'
+      : /^docx?$/.test(x) ? 'docx' : /^(xlsx|xls|csv|tsv|ods|numbers)$/.test(x) ? 'sheet' : /^(pptx?|odp|key)$/.test(x) ? 'pptx' : x === 'txt' ? 'text' : /^(md|markdown)$/.test(x) ? 'md' : /^html?$/.test(x) ? 'html'
+      : x === 'eml' ? 'eml' : /^(zip|tar|gz|tgz|rar|7z)$/.test(x) ? 'archive' : /^(ttf|otf|woff2?|ttc|eot)$/.test(x) ? 'font' : /^(svg|ai|eps)$/.test(x) ? 'vector' : '';
+  };
+  const CLIP = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.4 11.1 12.5 20a5.5 5.5 0 0 1-7.8-7.8l9.2-9.2a3.5 3.5 0 0 1 5 5l-9.2 9.1a1.5 1.5 0 0 1-2.1-2.1L16 6.6"/></svg>';
+  const FILE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>';
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  HT.askBaba = async (stage, { compact = false, box = null } = {}) => {
     if (!stage || stage.dataset.ready) return; stage.dataset.ready = '1';
     const data = await HT.loadTools(); await HT.i18n;
     const all = toolsOf(data);
     const texts = Q[HT.lang] || Q.en;
-    const tasks = SLUGS.map((s, i) => ({ slug: s, text: texts[i], tool: all.get(s) })).filter(t => t.tool);   // archived tools drop out
+    const tasks = shuffle(SLUGS.map((s, i) => ({ slug: s, text: texts[i], tool: all.get(s) })).filter(t => t.tool));   // archived tools drop out; a random order each visit
+    const forFiles = files => ({ kind: 'pick', tools: (FILE_PICKS[kindOf(files[0])] || SLUGS.slice(0, 4)).map(s => all.get(s)).filter(Boolean).slice(0, 4), faqs: [] });
     const narrow = () => stage.clientWidth < 700 || compact;
-    const wideSpots = () => (above ? TALL : WIDE);
-    let spots = narrow() ? NARROW : wideSpots(), cards = [], active = -1, auto = null, typing = null, panel = null, next = 0;
+    let spots = narrow() ? NARROW : WIDE, cards = [], active = -1, auto = null, typing = null, panel = null;
 
     // far-away boxes: small soft cards across the whole width (the farther, the smaller and blurrier), on a faint floor
     const ghosts = el('div', { class: 'ab-ghosts', 'aria-hidden': 'true' });
@@ -408,9 +422,8 @@
 
 
     const place = () => {
-      spots = narrow() ? NARROW : wideSpots();
-      const top = above && narrow() ? Math.min(.6, above.offsetHeight / Math.max(1, stage.clientHeight) + .05) : 0;   // on a phone the boxes stay below the hero text
-      cards.forEach((c, i) => { const s = spots[i]; c.hidden = !s; if (!s) return; c.style.left = (s[0] * 100) + '%'; c.style.top = ((top + s[1] * (1 - top)) * 100) + '%'; c.style.setProperty('--d', s[2]); c.style.zIndex = Math.round(s[2] * 10); });
+      spots = narrow() ? NARROW : WIDE;
+      cards.forEach((c, i) => { const s = spots[i]; c.hidden = !s; if (!s) return; c.style.left = (s[0] * 100) + '%'; c.style.top = (s[1] * 100) + '%'; c.style.setProperty('--d', s[2]); c.style.zIndex = Math.round(s[2] * 10); });
     };
     const makeCard = (task, i) => {
       const txt = el('span', { class: 'ab-text', text: task.text });
@@ -420,19 +433,51 @@
       c.addEventListener('focus', () => wake(i, false));
       return c;
     };
-    for (let i = 0; i < Math.max(wideSpots().length, NARROW.length); i++) { const c = makeCard(tasks[i % tasks.length], i); cards.push(c); field.append(c); }
-    next = cards.length % tasks.length;
+    for (let i = 0; i < Math.max(WIDE.length, NARROW.length); i++) { const c = makeCard(tasks[i % tasks.length], i); cards.push(c); field.append(c); }
     place(); addEventListener('resize', HT.debounce(place, 150));
 
-    // the real message box, at the front
-    const input = el('input', { type: 'text', class: 'ab-input', placeholder: T('Type what you need…'), 'aria-label': T('Type what you need…'), enterkeyhint: 'send', autocomplete: 'off', maxlength: '300' });
+    // the real message box: it looks like the boxes (text on top, the face and the send button below), a little bigger.
+    // Its placeholder types the most-asked questions until you write; a file can be dropped on it or added with the clip,
+    // and travels with you to the tool (HT.handoff).
+    const input = el('input', { type: 'text', class: 'ab-input', 'aria-label': T('Type what you need…'), enterkeyhint: 'send', autocomplete: 'off', maxlength: '300' });
+    const ph = el('span', { class: 'ab-ph', 'aria-hidden': 'true' });
     const go = el('button', { type: 'submit', class: 'ab-go', 'aria-label': T('Ask Baba') }, send());
-    const form = el('form', { class: 'ab-ask' }, face(), input, go);
+    const picker = el('input', { type: 'file', multiple: 'multiple', hidden: 'hidden', tabindex: '-1', 'aria-hidden': 'true' });
+    const attach = el('button', { type: 'button', class: 'ab-attach', onclick: () => picker.click() }, HT.svg(CLIP), T('Add a file'));
+    const chips = el('div', { class: 'ab-chips' });
+    const form = el('form', { class: 'ab-ask' }, el('div', { class: 'ab-inwrap' }, input, ph), chips, el('span', { class: 'ab-foot' }, face(), el('span', { class: 'ab-tools' }, attach, go)), picker);
+    let pending = [];
+    const drawChips = () => {
+      chips.textContent = ''; form.classList.toggle('has-files', pending.length > 0);
+      pending.forEach(f => chips.append(el('span', { class: 'ab-chip-f' }, HT.svg(FILE_ICON), el('b', { text: f.name }), el('button', { type: 'button', 'aria-label': T('Remove'), text: '×', onclick: () => { pending = pending.filter(x => x !== f); drawChips(); } }))));
+    };
+    const addFiles = fs => { pending = [...pending, ...[...fs].filter(f => f && f.name)].slice(0, 20); drawChips(); input.focus(); };
+    picker.addEventListener('change', () => { addFiles(picker.files); picker.value = ''; });
+    ['dragenter', 'dragover'].forEach(ev => form.addEventListener(ev, e => { if ([...e.dataTransfer.types].includes('Files')) { e.preventDefault(); form.classList.add('drag'); } }));
+    form.addEventListener('dragleave', e => { if (!form.contains(e.relatedTarget)) form.classList.remove('drag'); });
+    form.addEventListener('drop', e => { e.preventDefault(); form.classList.remove('drag'); addFiles(e.dataTransfer.files); });
     form.addEventListener('submit', e => {
-      e.preventDefault(); const q = input.value.trim(); if (!q) return input.focus();
-      open(q, match(data, q), form);
+      e.preventDefault(); const q = input.value.trim(); if (!q && !pending.length) return input.focus();
+      const files = pending.slice();
+      if (q) open(q, match(data, q), form, files);
+      else open(T('What can I do with {0}?', files.length > 1 ? T('{0} files', files.length) : files[0].name), forFiles(files), form, files);
     });
     (box || stage).append(form);   // the home page puts the box under the hero's line; elsewhere it sits at the foot of the field
+    // the placeholder types the most-asked questions, one after another, until you start writing
+    const phTexts = tasks.map(t => t.text); let phi = Math.floor(Math.random() * phTexts.length), phT = 0;
+    const idle = () => !input.value && document.activeElement !== input && !document.hidden;
+    const phStop = () => { clearTimeout(phT); ph.textContent = ''; input.placeholder = T('Type what you need…'); };
+    const phRun = () => {
+      clearTimeout(phT); if (!idle()) return phStop();
+      input.placeholder = ''; const full = phTexts[phi % phTexts.length]; let n = 0;
+      const type = () => { if (!idle()) return phStop(); n += 1 + (Math.random() < .2); ph.textContent = full.slice(0, n); phT = setTimeout(n < full.length ? type : erase, n < full.length ? 38 : 1900); };
+      const erase = () => { if (!idle()) return phStop(); n -= 3; ph.textContent = full.slice(0, Math.max(0, n)); if (n > 0) phT = setTimeout(erase, 16); else { phi++; phT = setTimeout(phRun, 350); } };
+      type();
+    };
+    input.addEventListener('focus', phStop); input.addEventListener('input', () => { if (input.value) phStop(); });
+    input.addEventListener('blur', () => { phT = setTimeout(phRun, 700); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) phStop(); else phRun(); });
+    phRun();
 
     // one box awake at a time
     function wake(i, typeIt) {
@@ -448,8 +493,8 @@
     // now and then a sleeping box gets another task, so all of them come round
     function swapOne() {
       const free = cards.filter((c, k) => k !== active && !c.hidden); if (!free.length || tasks.length <= cards.length) return;
-      const c = free[Math.floor(Math.random() * free.length)], shown = new Set(cards.map(x => x.task.slug));
-      let t = tasks[next % tasks.length], guard = 0; while (shown.has(t.slug) && guard++ < tasks.length) t = tasks[++next % tasks.length]; next++;
+      const c = free[Math.floor(Math.random() * free.length)], shown = new Set(cards.map(x => x.task.slug)), rest = tasks.filter(t => !shown.has(t.slug)); if (!rest.length) return;
+      const t = rest[Math.floor(Math.random() * rest.length)];
       c.classList.add('swap'); setTimeout(() => { c.task = t; c.txt.textContent = t.text; c.setAttribute('aria-label', t.text); c.classList.remove('swap'); }, 350);
     }
     const tick = () => { if (panel || hover) return; const vis = cards.map((c, k) => (c.hidden ? -1 : k)).filter(k => k >= 0); const k = vis[(vis.indexOf(active) + 1) % vis.length]; swapOne(); wake(k, true); };
@@ -475,7 +520,7 @@
     const stepsOf = t => { const b = t.isTab && all.get(t.base); const s = (t.steps && t.steps.length ? t.steps : b && b.steps) || []; return s.length ? s : [T('<b>Add your file</b>: it stays on your device'), T('<b>Adjust</b> the settings and watch the live preview'), T('<b>Download</b> the finished result')]; };
     const toolCard = (t, label) => el('a', { class: 'ab-tool', href: hrefOf(t) }, el('i', {}, HT.toolIcon(t.isTab ? t.base : t.slug)),
       el('span', {}, label ? el('em', { text: label }) : null, el('b', { text: t.name }), el('small', { text: t.desc })));
-    function open(text, res, from) {
+    function open(text, res, from, files = []) {
       if (panel) return;
       clearInterval(auto); clearInterval(typing);
       const fr = from.getBoundingClientRect();
@@ -495,9 +540,12 @@
       };
       const esc = e => { if (e.key === 'Escape') shut(); };
       close.onclick = shut; document.addEventListener('keydown', esc);
-      const again = () => el('button', { type: 'button', class: 'btn ghost sm', text: T('Ask something else'), onclick: () => { shut(); setTimeout(() => { input.value = ''; input.focus(); }, 250); } });
+      // a file that came with the question goes along to the tool, which picks it up as soon as it opens
+      if (files.length) panel.addEventListener('click', e => { const a = e.target.closest('a[href]'); if (!a) return; e.preventDefault(); HT.handoff.put(files).then(() => { location.href = a.href; }); });
+      const again = () => el('button', { type: 'button', class: 'btn ghost sm', text: T('Ask something else'), onclick: () => { shut(); pending = []; drawChips(); setTimeout(() => { input.value = ''; input.focus(); }, 250); } });
       // what to show, one piece at a time
       const steps = [], say = id => steps.push(() => body.append(el('p', { class: 'ab-say', text: T(FAQ_A[id]) })));
+      if (files.length) steps.push(() => body.append(el('p', { class: 'ab-with' }, HT.svg(FILE_ICON), el('span', { text: files.map(f => f.name).join(', ') }))));
       const tools = res.tools; let done = '', buttons = [];
       if (res.kind === 'tool') {
         res.faqs.forEach(say);
@@ -524,6 +572,6 @@
     }
 
     // start only while the section is on screen
-    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (active < 0) wake(spots === NARROW ? 1 : above ? 5 : 4, true); startAuto(); } else clearInterval(auto); }), { threshold: .2 }).observe(stage);
+    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (active < 0) wake(spots === NARROW ? 1 : 4, true); startAuto(); } else clearInterval(auto); }), { threshold: .2 }).observe(stage);
   };
 })();
