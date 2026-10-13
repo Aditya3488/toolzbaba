@@ -1049,22 +1049,23 @@
   // ---------------------------------------------------------------- the navigation bar
   // Image, PDF, Video & audio and AI each open a menu with everything related to them (the tools of that kind and the converters that belong to it),
   // "Convert" collects every converter, "Other tools" holds everything else (text, developer, web and design helpers).
-  // The menus are text only (the third value names a tool to stand for the menu). Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // Each menu wears the colour tile of one of its tools (the third value). Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // At most 7 links a group, so a menu of six groups (two rows of three) fits a laptop screen without scrolling; the foot link leads to the rest.
   // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
   const NAV_MENUS = [
     ['Image', 'image', 'compress-image', [
-      ['Compress and resize', ['compress-image', 'compress-webp', 'compress-avif', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
-      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'svg-converter', 'image-to-svg', 'ai-converter', 'image-to-text', 'favicon-generator']],
-      ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
-      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
+      ['Compress and resize', ['compress-image', 'compress-webp', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'social-media-image-resizer']],
+      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'svg-converter', 'ai-converter']],
+      ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'thumbnail-generator', 'favicon-generator']],
+      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'passport-size-photo-maker', 'image-to-text']],
     ]],
     ['PDF', 'pdf', 'merge-pdf', [
-      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf', 'crop-pdf', 'compare-pdf', 'repair-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'eml-to-pdf', 'epub-to-pdf', 'csv-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'pdf-to-svg', 'ocr-pdf']],
-      ['Edit PDF', ['pdf-editor', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf', 'flatten-pdf', 'protect-pdf', 'unlock-pdf']],
-      ['Documents and spreadsheets', ['spreadsheet-converter', 'document-to-image', 'xlsx-to-csv', 'csv-to-xlsx', 'docx-to-png']],
-      ['Markdown', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown', 'txt-to-docx', 'docx-to-txt', 'document-converter']],
+      ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf']],
+      ['Edit PDF', ['pdf-editor', 'esign-pdf', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'crop-pdf', 'compare-pdf']],
+      ['Protect and repair', ['protect-pdf', 'unlock-pdf', 'flatten-pdf', 'repair-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'eml-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
+      ['Markdown and documents', ['document-converter', 'spreadsheet-converter', 'document-to-image', 'markdown-converter', 'docx-to-markdown', 'docx-to-txt', 'txt-to-docx']],
     ]],
     ['Video & audio', 'video', 'video-converter', [
       ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
@@ -1080,7 +1081,7 @@
       ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-svg', 'ocr-pdf']],
       ['Images', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'jpg-to-webp', 'svg-converter', 'image-to-svg']],
       ['Video and audio', ['video-converter', 'audio-converter', 'video-to-audio', 'mp4-to-mp3', 'wav-to-mp3', 'video-to-gif', 'gif-to-video']],
-      ['Documents and spreadsheets', ['spreadsheet-converter', 'xlsx-to-csv', 'csv-to-xlsx', 'document-to-image', 'document-converter', 'markdown-converter', 'eml-to-pdf', 'epub-to-png']],
+      ['Documents and spreadsheets', ['spreadsheet-converter', 'document-converter', 'document-to-image', 'xlsx-to-csv', 'csv-to-xlsx', 'docx-to-markdown', 'eml-to-pdf']],
       ['Fonts, vectors and archives', ['font-converter', 'ttf-to-woff2', 'ai-converter', 'ai-to-png', 'archive-converter', 'archive-extractor', 'create-zip']],
     ]],
     ['Other tools', 'other', 'toolbox', [
@@ -1092,7 +1093,7 @@
   ];
   const buildNav = () => {
     const here = location.pathname.replace(/\/+$/, '') || '/', chev = () => HT.svg('<svg class="nv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>');
-    const link = t => el('a', { href: t.href, class: here === t.href ? 'on' : null }, t.name);
+    const link = t => el('a', { href: t.href, class: here === t.href ? 'on' : null }, el('i', {}, HT.toolIcon(iconKey(t), 'xs')), t.name);
     const sec = (title, items, wide) => el('div', { class: 'nv-sec' + (wide ? ' wide' : '') }, el('h4', { text: title }), el('ul', {}, items.map(t => el('li', {}, link(t)))));
     const sections = (data, key) => {
       const menu = NAV_MENUS.find(m => m[1] === key), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), box = el('div', { class: 'nv-grid ' + key });
@@ -1109,11 +1110,14 @@
     };
     const open = async it => {
       clearTimeout(timer); if (openItem === it) return; close();
-      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'other') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
+      if (!it.filled) {   // the groups show the most used tools; the foot leads to every tool of that kind
+        const data = await HT.loadTools(), cat = data.categories.find(c => c.id === it.key);
+        it.panel.append(sections(data, it.key), el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/' + (cat ? '#' + cat.id : ''), text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true;
+      }
       openItem = it; it.panel.hidden = false; place(it); it.btn.setAttribute('aria-expanded', 'true'); it.wrap.classList.add('open');
     };
-    for (const [label, key] of NAV_MENUS) {
-      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
+    for (const [label, key, icon] of NAV_MENUS) {
+      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, HT.toolIcon(icon, 'xs'), label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
       btn.addEventListener('click', () => (openItem === it ? close() : open(it)));
       wrap.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => open(it), 90); } });
       wrap.addEventListener('mouseleave', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => close(), 220); } });
@@ -1132,7 +1136,7 @@
       if (!mFilled) { mFilled = true; const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search all tools...'; mobile.append(s);
         const data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(x => by.get(x)).filter(Boolean).slice(0, 4);
         if (recent.length) mobile.append(el('div', { class: 'nv-mrecent' }, el('h4', { text: 'Your recent tools' }), el('ul', {}, recent.map(t => el('li', {}, link(t))))));
-        for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', {}, label), sections(data, key)));
+        for (const [label, key, icon] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', {}, HT.toolIcon(icon, 'xs'), label), sections(data, key)));
         const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), HT.t('Theme: {0}', HT.t(themeName(t)))); };
         tb.onclick = () => { cycleTheme(); paint(); }; paint(); mobile.append(tb); }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
