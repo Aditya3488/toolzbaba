@@ -141,6 +141,11 @@ def translate_tools(data: dict, tl: dict) -> dict:
         for f, v in (tl.get(t["slug"]) or {}).items():
             if f in TOOL_TEXT and type(v) is type(t.get(f, v)):
                 t[f] = v
+    if tl:   # a language, not English
+        # A format page with no translation would be an English page on a translated address: the same title on
+        # fifteen URLs, which is exactly what search engines treat as duplicate content. Leave it out of this
+        # language until it is translated; the English page still carries it.
+        out["variants"] = [v for v in out.get("variants", []) if v["slug"] in tl]
     cats = tl.get("_categories") or {}
     for c in out["categories"]:
         c["name"] = cats.get(c["id"], c["name"])
@@ -294,6 +299,9 @@ def thead_html(t: dict, tr=Tr({})) -> str:
             f'<div class="badges">{"".join(badges)}</div></div>')
 
 
+SIB_MAX = 14   # format pages shown on a sibling page before the list becomes a directory
+
+
 def seo_block(tool: dict, tools: list, variants: list | None = None, tr=Tr({}), P: str = "") -> str:
     base = tool.get("base", tool["slug"])  # a format page (variant) belongs to a base tool
     variants = variants or []
@@ -301,6 +309,14 @@ def seo_block(tool: dict, tools: list, variants: list | None = None, tr=Tr({}), 
     base_tool = next(t for t in tools if t["slug"] == base)
     # format pages (PNG / JPEG / JPG / GIF) are siblings; a size page links up to its parent page instead
     sibs = [v for v in variants if v["base"] == base and v.get("group") != "size" and v["slug"] != tool["slug"]]
+    # A base tool with dozens of format pages would otherwise put every one of them on every page: the image
+    # converter alone reached 92 pills and 356 links. Show the ones that share this page's source format first,
+    # then a few others, so each page stays a page rather than a directory.
+    if len(sibs) > SIB_MAX:
+        src = tool["slug"].split("-to-")[0]
+        same = [v for v in sibs if v["slug"].split("-to-")[0] == src]
+        rest = [v for v in sibs if v not in same]
+        sibs = (same + rest)[:SIB_MAX]
     fmt = [(P + "/" + v["slug"], v) for v in sibs]
     if tool.get("group") == "size" and tool.get("parent") in by_slug and not any(v["slug"] == tool["parent"] for v in sibs):
         fmt.append((P + "/" + tool["parent"], by_slug[tool["parent"]]))
@@ -383,9 +399,21 @@ def build():
 
     built = [(code, name) for code, name in LANGS if load_lang(code) is not None]
     (DIST / "assets" / "langs.json").write_text(json.dumps([{"code": c, "name": n, "rtl": c in RTL} for c, n in built], ensure_ascii=False), "utf-8")
-    def alts(path):   # the same page in every built language, and English as the default
-        out = [(c, SITE_URL + ("" if c == "en" else "/" + c) + path) for c, _ in built]
-        return out + [("x-default", SITE_URL + path)] if len(built) > 1 else []
+    # which languages actually have each format page, so an untranslated one never advertises addresses
+    # that were not built (English always has them all)
+    variant_langs = {v["slug"]: {"en"} for v in data.get("variants", [])}
+    for c, _ in built:
+        if c == "en":
+            continue
+        _, tl = load_lang(c)
+        for slug in variant_langs:
+            if slug in (tl or {}):
+                variant_langs[slug].add(c)
+
+    def alts(path, only=None):   # the same page in every built language that has it, English as the default
+        langs = [(c, n) for c, n in built if only is None or c in only]
+        out = [(c, SITE_URL + ("" if c == "en" else "/" + c) + path) for c, _ in langs]
+        return out + [("x-default", SITE_URL + path)] if len(langs) > 1 else []
     for code, _ in built:
         ui, tl = load_lang(code)
         tr, P = Tr(ui), ("" if code == "en" else "/" + code)
@@ -395,7 +423,7 @@ def build():
             (DIST / "assets" / f"tools.{code}.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), "utf-8")
             (DIST / "assets" / "i18n").mkdir(exist_ok=True)
             (DIST / "assets" / "i18n" / f"{code}.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
-        page = lambda file, path, **kw: render(file, path=P + path, lang=code, tr=tr, alts=alts(path), prefix=P, **kw)
+        page = lambda file, path, alt_langs=None, **kw: render(file, path=P + path, lang=code, tr=tr, alts=alts(path, alt_langs), prefix=P, **kw)
         out = lambda rel: (code + "/" + rel) if code != "en" else rel
 
         # home
@@ -451,7 +479,7 @@ def build():
             ]
             if v.get("faq"):
                 ld.append(faq_ld(v["faq"]))
-            write(out(f"{slug}.html"), page("tool.html", f"/{slug}", title=v.get("title") or tr("{0} – Free Online Tool | {1}", v["name"], SITE_NAME),
+            write(out(f"{slug}.html"), page("tool.html", f"/{slug}", alt_langs=variant_langs.get(slug), title=v.get("title") or tr("{0} – Free Online Tool | {1}", v["name"], SITE_NAME),
                                             desc=v.get("metaDesc") or tr("{0} Free, no sign-up.", v["desc"]), jsonld=ld, canonical=(P + "/" + v["canonical"]) if v.get("canonical") else None,
                                             extra={"SEO": seo_block(merged, ltools, lvariants, tr, P), "TOOL_NAME": v["name"], "THEAD": thead_html(merged, tr)}))
 
@@ -491,7 +519,10 @@ def build():
     for code, _ in built:
         P = "" if code == "en" else "/" + code
         urls += [(P + "/", "1.0")] + [(f"{P}/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
-        urls += [(f"{P}/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7") for v in variants if not v.get("canonical")]   # twins point at their canonical page instead
+        # twins point at their canonical page instead; and a format page is only listed in a language that has it,
+        # since an untranslated one is not built there (see translate_tools)
+        urls += [(f"{P}/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7")
+                 for v in variants if not v.get("canonical") and code in variant_langs.get(v["slug"], {"en"})]
     urls += [("/blog", "0.6")] + [(f"/{k}", "0.3") for k in ("privacy", "terms", "contact")]
     # the India SaaS pages: the index first, then its sectors, then each company
     urls += [(u, "0.7" if u.count("/") == 1 else ("0.6" if "/sector/" in u else "0.5")) for u in saas_urls]   # blog posts are added by functions/sitemap.xml.js

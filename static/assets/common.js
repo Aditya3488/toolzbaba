@@ -1299,7 +1299,16 @@
     if (group.length) {
       // Format tabs (PNG / JPEG / JPG / GIF): real links, so search engines and "open in new tab" work, but a plain click
       // switches the tool in place without reloading the page; only the address, text and settings change.
-      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...group.filter(v => !v.tabOf).map(v => ({ slug: v.slug, label: v.tab || v.name }))], lit = homeOf(meta);
+      // With dozens of format pages this row became a directory: 92 tabs on one screen. Keep the ones that start
+      // from the same file type as this page, then fill up to TAB_MAX, and always keep the lit tab in the row.
+      const TAB_MAX = 14, lit = homeOf(meta);
+      let pages = group.filter(v => !v.tabOf);
+      if (pages.length > TAB_MAX) {
+        const src = s => String(s).split('-to-')[0];
+        const mine = src(slug), keep = p => p.slug === lit || src(p.slug) === mine;
+        pages = [...pages.filter(keep), ...pages.filter(p => !keep(p))].slice(0, TAB_MAX);
+      }
+      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...pages.map(v => ({ slug: v.slug, label: v.tab || v.name }))];
       work.append(el('nav', { class: 'vtabs', role: 'tablist', 'aria-label': 'Choose a version of this tool' }, items.map(t => {
         const a = el('a', { class: 'vtab' + (t.slug === lit ? ' on' : ''), href: pathOf(t.slug), role: 'tab', 'aria-selected': t.slug === lit ? 'true' : 'false', 'data-slug': t.slug, text: t.label });
         a.addEventListener('click', e => { if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); switchTo(t.slug, true); });
