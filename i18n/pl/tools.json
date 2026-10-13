@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Wszystkie formaty"
+ },
+ "font-converter": {
+  "name": "Konwerter czcionek",
+  "desc": "Konwertuj między TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, czcionkami SVG i Type 1. Działa w przeglądarce.",
+  "title": "Konwerter czcionek za darmo: TTF, OTF, WOFF2, WOFF online | Toolz Baba",
+  "metaDesc": "Zamień czcionki na TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG lub DFONT. WOFF2 dla stron, TTF do projektowania. Za darmo, nic nie jest wysyłane.",
+  "about": "Zamień dowolną czcionkę na potrzebny format: WOFF2 dla stron (najmniejszy), TTF lub OTF dla Windowsa, Maca i programów graficznych, TTC dla kilku czcionek w jednym pliku oraz EOT, czcionka SVG lub DFONT dla starszych systemów. Wszystkie glify, metryki, kerning i nazwy zostają; gdy format wymaga innego rodzaju krzywych (TrueType lub CFF), są przeliczane bez zmiany kształtu. Otwierają się też stare czcionki Type 1 (PFB). Konwersja nie zmienia licencji czcionki. fontTools z Pythona działa w przeglądarce, więc czcionka nie jest wysyłana.",
+  "steps": [
+   "Dodaj pliki czcionek.",
+   "Wybierz format docelowy.",
+   "Konwertuj i pobierz."
+  ],
+  "faq": [
+   {
+    "q": "Jaki format na stronę internetową?",
+    "a": "WOFF2: najmniejszy i czytany przez wszystkie obecne przeglądarki. Dla bardzo starych przeglądarek dodaj WOFF."
+   },
+   {
+    "q": "Czy coś się traci?",
+    "a": "W WOFF, WOFF2, TTC i DFONT czcionka jest ta sama, tylko inaczej spakowana. Między TTF a OTF kształty się nie zmieniają; znika tylko hinting."
+   },
+   {
+    "q": "Czy moja czcionka jest wysyłana?",
+    "a": "Nie. Jest konwertowana w przeglądarce i nigdy nie opuszcza urządzenia."
+   }
+  ],
+  "tabAll": "Wszystkie formaty"
  }
 }

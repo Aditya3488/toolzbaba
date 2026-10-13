@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Tüm biçimler"
+ },
+ "font-converter": {
+  "name": "Yazı Tipi Dönüştürücü",
+  "desc": "TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, SVG yazı tipleri ve Type 1 arasında dönüştürün. Tarayıcınızda çalışır.",
+  "title": "Yazı Tipi Dönüştürücü Ücretsiz: TTF, OTF, WOFF2, WOFF Online | Toolz Baba",
+  "metaDesc": "Yazı tiplerini TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG veya DFONT'a dönüştürün. Web için WOFF2, tasarım için TTF. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "Herhangi bir yazı tipini ihtiyacınız olan biçime dönüştürün: web siteleri için WOFF2 (en küçüğü), Windows, Mac ve tasarım uygulamaları için TTF veya OTF, tek dosyada birden çok yazı tipi için TTC, eski sistemler için EOT, SVG yazı tipi veya DFONT. Tüm glifler, ölçüler, kerning ve adlar korunur; biçim başka türde eğri isterse (TrueType veya CFF) eğriler şekil değişmeden dönüştürülür. Eski Type 1 (PFB) yazı tipleri de açılır. Dönüştürmek yazı tipinin lisansını değiştirmez. Python'un fontTools'u tarayıcınızda çalışır, bu yüzden yazı tipi yüklenmez.",
+  "steps": [
+   "Yazı tipi dosyalarınızı ekleyin.",
+   "Hedef biçimi seçin.",
+   "Dönüştürün ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "Web sitesi için hangi biçim?",
+    "a": "WOFF2: en küçüğüdür ve tüm güncel tarayıcılar okur. Çok eski tarayıcılar için WOFF da ekleyin."
+   },
+   {
+    "q": "Bir şey kaybolur mu?",
+    "a": "WOFF, WOFF2, TTC ve DFONT'ta yazı tipi aynıdır, yalnızca farklı paketlenir. TTF ile OTF arasında şekiller değişmez; yalnızca hinting atılır."
+   },
+   {
+    "q": "Yazı tipim yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda dönüştürülür ve cihazınızdan hiç çıkmaz."
+   }
+  ],
+  "tabAll": "Tüm biçimler"
  }
 }

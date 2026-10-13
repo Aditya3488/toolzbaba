@@ -1818,5 +1818,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Her türlü dosya, istediğiniz kadar. Tarayıcınızda paketlenir: hiçbir şey yüklenmez.",
 "The height follows the drawing.": "Yükseklik çizime göre ayarlanır.",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "SVG dosyaları, istediğiniz kadar. Seçtiğiniz boyutta keskin çizilir, tarayıcınızda.",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator (AI) dosyaları ve PDF'ler. Tarayıcınızda çalışır: hiçbir şey yüklenmez."
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator (AI) dosyaları ve PDF'ler. Tarayıcınızda çalışır: hiçbir şey yüklenmez.",
+"WOFF2 (websites)": "WOFF2 (web siteleri)",
+"WOFF (older browsers)": "WOFF (eski tarayıcılar)",
+"TTC (font collection)": "TTC (yazı tipi koleksiyonu)",
+"EOT (old Internet Explorer)": "EOT (eski Internet Explorer)",
+"SVG font": "SVG yazı tipi",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG yazı tipleri ve Type 1 (PFB). Tarayıcınızda dönüştürülür: hiçbir şey yüklenmez.",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "İlk dönüştürmede yazı tipi motoru bir kez indirilir (yaklaşık 15 MB); sonrasında hemen başlar."
 }

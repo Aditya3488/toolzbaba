@@ -1834,5 +1834,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "أي ملفات وبالعدد الذي تريده. تُضغط في متصفحك: لا يُرفع أي شيء.",
 "The height follows the drawing.": "يتبع الارتفاع الرسم تلقائيًا.",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "ملفات SVG بالعدد الذي تريده. تُرسم حادة بالمقاس الذي تختاره، في متصفحك.",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "ملفات Illustrator (AI) وPDF. يعمل في متصفحك: لا يُرفع أي شيء."
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "ملفات Illustrator (AI) وPDF. يعمل في متصفحك: لا يُرفع أي شيء.",
+"WOFF2 (websites)": "WOFF2 (المواقع)",
+"WOFF (older browsers)": "WOFF (المتصفحات القديمة)",
+"TTC (font collection)": "TTC (مجموعة خطوط)",
+"EOT (old Internet Explorer)": "EOT (Internet Explorer القديم)",
+"SVG font": "خط SVG",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF وOTF وWOFF وWOFF2 وTTC وEOT وDFONT وخطوط SVG وType 1 (PFB). يُحوَّل في متصفحك: لا يُرفع أي شيء.",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "يُنزَّل محرك الخطوط مرة واحدة عند أول تحويل (نحو 15 ميغابايت)؛ وبعدها يبدأ فورًا."
 }

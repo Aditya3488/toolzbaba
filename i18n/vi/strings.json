@@ -1821,5 +1821,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Bất kỳ tệp nào, bao nhiêu cũng được. Gói trong trình duyệt: không tải lên gì.",
 "The height follows the drawing.": "Chiều cao tự theo hình vẽ.",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "Tệp SVG, bao nhiêu cũng được. Vẽ sắc nét ở kích thước bạn chọn, ngay trong trình duyệt.",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Tệp Illustrator (AI) và PDF. Chạy trong trình duyệt: không tải lên gì."
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Tệp Illustrator (AI) và PDF. Chạy trong trình duyệt: không tải lên gì.",
+"WOFF2 (websites)": "WOFF2 (trang web)",
+"WOFF (older browsers)": "WOFF (trình duyệt cũ)",
+"TTC (font collection)": "TTC (bộ sưu tập phông)",
+"EOT (old Internet Explorer)": "EOT (Internet Explorer cũ)",
+"SVG font": "Phông SVG",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, phông SVG và Type 1 (PFB). Chuyển đổi trong trình duyệt: không tải lên gì.",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "Lần chuyển đổi đầu tiên tải bộ xử lý phông một lần (khoảng 15 MB); sau đó chạy ngay."
 }

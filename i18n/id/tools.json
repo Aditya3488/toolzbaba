@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Semua format"
+ },
+ "font-converter": {
+  "name": "Konverter Font",
+  "desc": "Konversi antara TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, font SVG, dan Type 1. Berjalan di browser Anda.",
+  "title": "Konverter Font Gratis: TTF, OTF, WOFF2, WOFF Online | Toolz Baba",
+  "metaDesc": "Ubah font ke TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG, atau DFONT. WOFF2 untuk situs web, TTF untuk desain. Gratis, tidak ada yang diunggah.",
+  "about": "Ubah font apa pun ke format yang Anda perlukan: WOFF2 untuk situs web (paling kecil), TTF atau OTF untuk Windows, Mac, dan aplikasi desain, TTC untuk beberapa font dalam satu file, serta EOT, font SVG, atau DFONT untuk sistem lama. Semua glif, metrik, kerning, dan nama tetap ada; jika format meminta jenis kurva lain (TrueType atau CFF), kurva diubah tanpa mengubah bentuk. Font Type 1 (PFB) lama juga bisa dibuka. Mengonversi font tidak mengubah lisensinya. fontTools dari Python berjalan di browser Anda, jadi font tidak diunggah.",
+  "steps": [
+   "Tambahkan file font Anda.",
+   "Pilih format tujuan.",
+   "Konversi dan unduh."
+  ],
+  "faq": [
+   {
+    "q": "Format apa untuk situs web?",
+    "a": "WOFF2: paling kecil dan dibaca semua browser saat ini. Tambahkan WOFF jika perlu browser yang sangat lama."
+   },
+   {
+    "q": "Apakah ada yang hilang?",
+    "a": "Di WOFF, WOFF2, TTC, dan DFONT font tetap sama, hanya dikemas berbeda. Antara TTF dan OTF bentuknya sama; hanya hinting yang dibuang."
+   },
+   {
+    "q": "Apakah font saya diunggah?",
+    "a": "Tidak. Font dikonversi di browser Anda dan tidak pernah meninggalkan perangkat."
+   }
+  ],
+  "tabAll": "Semua format"
  }
 }

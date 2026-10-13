@@ -1770,5 +1770,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "N'importe quels fichiers, autant que vous voulez. Regroupés dans votre navigateur : rien n'est envoyé.",
 "The height follows the drawing.": "La hauteur suit le dessin.",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "Fichiers SVG, autant que vous voulez. Dessinés nets à la taille choisie, dans votre navigateur.",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Fichiers Illustrator (AI) et PDF. Fonctionne dans votre navigateur : rien n'est envoyé."
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Fichiers Illustrator (AI) et PDF. Fonctionne dans votre navigateur : rien n'est envoyé.",
+"WOFF2 (websites)": "WOFF2 (sites web)",
+"WOFF (older browsers)": "WOFF (anciens navigateurs)",
+"TTC (font collection)": "TTC (collection de polices)",
+"EOT (old Internet Explorer)": "EOT (ancien Internet Explorer)",
+"SVG font": "Police SVG",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, polices SVG et Type 1 (PFB). Converti dans votre navigateur : rien n'est envoyé.",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "La première conversion télécharge une fois le moteur de polices (environ 15 Mo) ; ensuite il démarre aussitôt."
 }

@@ -1840,5 +1840,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "যেকোনো ফাইল, যত খুশি। আপনার ব্রাউজারে প্যাক হয়: কিছুই আপলোড হয় না।",
 "The height follows the drawing.": "উচ্চতা আঁকার অনুপাতে নিজে থেকে ঠিক হয়।",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "SVG ফাইল, যত খুশি। আপনার বেছে নেওয়া মাপে স্পষ্ট, আপনার ব্রাউজারে।",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator (AI) ফাইল ও PDF। আপনার ব্রাউজারে চলে: কিছুই আপলোড হয় না।"
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator (AI) ফাইল ও PDF। আপনার ব্রাউজারে চলে: কিছুই আপলোড হয় না।",
+"WOFF2 (websites)": "WOFF2 (ওয়েবসাইট)",
+"WOFF (older browsers)": "WOFF (পুরোনো ব্রাউজার)",
+"TTC (font collection)": "TTC (ফন্ট কালেকশন)",
+"EOT (old Internet Explorer)": "EOT (পুরোনো Internet Explorer)",
+"SVG font": "SVG ফন্ট",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG ফন্ট ও Type 1 (PFB)। আপনার ব্রাউজারে কনভার্ট হয়: কিছুই আপলোড হয় না।",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "প্রথমবার ফন্ট ইঞ্জিন একবার ডাউনলোড হয় (প্রায় 15 MB); তারপর সঙ্গে সঙ্গে শুরু হয়।"
 }

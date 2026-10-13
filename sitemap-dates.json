@@ -1,7 +1,7 @@
 {
  "/": {
   "date": "2026-10-13",
-  "hash": "f27f858762b66489"
+  "hash": "efa76916e798c4a1"
  },
  "/3gp-converter": {
   "date": "2026-10-13",
@@ -265,7 +265,7 @@
  },
  "/ar/": {
   "date": "2026-10-13",
-  "hash": "7923976eccfb6247"
+  "hash": "49b0929881df9585"
  },
  "/ar/aac-to-mp3": {
   "date": "2026-10-12",
@@ -301,11 +301,11 @@
  },
  "/ar/archive-converter": {
   "date": "2026-10-13",
-  "hash": "310cb7568e3eefaf"
+  "hash": "4b372ac7aee8c67d"
  },
  "/ar/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "ceb8c9f05fc59aaf"
+  "hash": "a1bd52f7986a3f6d"
  },
  "/ar/audio-converter": {
   "date": "2026-10-12",
@@ -313,7 +313,7 @@
  },
  "/ar/base64": {
   "date": "2026-10-13",
-  "hash": "a5c4fe072f5b6cd7"
+  "hash": "df2d71ab811acbce"
  },
  "/ar/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -465,7 +465,7 @@
  },
  "/ar/create-zip": {
   "date": "2026-10-13",
-  "hash": "666b0f5be8e73cd7"
+  "hash": "e6db7a199032fb51"
  },
  "/ar/crop-image": {
   "date": "2026-10-12",
@@ -519,9 +519,13 @@
   "date": "2026-10-12",
   "hash": "a9b93317c8bf8ff0"
  },
+ "/ar/font-converter": {
+  "date": "2026-10-13",
+  "hash": "1b5f9945553c982a"
+ },
  "/ar/font-library": {
   "date": "2026-10-13",
-  "hash": "14585ba8c7647e3b"
+  "hash": "db05107502ba70f9"
  },
  "/ar/gif-to-video": {
   "date": "2026-10-12",
@@ -545,11 +549,11 @@
  },
  "/ar/image-cdn": {
   "date": "2026-10-13",
-  "hash": "f2de953bbaed8101"
+  "hash": "6c04af442a36bad6"
  },
  "/ar/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "928a69e443f95582"
+  "hash": "0fb67b74ffbdb2ae"
  },
  "/ar/image-to-pdf": {
   "date": "2026-10-13",
@@ -709,7 +713,7 @@
  },
  "/ar/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "89d2a7c38f745bfb"
+  "hash": "466716ebddf14a12"
  },
  "/ar/remove-background": {
   "date": "2026-10-12",
@@ -769,7 +773,7 @@
  },
  "/ar/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "18d63b0879d61ff0"
+  "hash": "e195fc27416ad695"
  },
  "/ar/text-case-converter": {
   "date": "2026-10-12",
@@ -845,11 +849,11 @@
  },
  "/archive-converter": {
   "date": "2026-10-13",
-  "hash": "2d44e0f914f2ad1c"
+  "hash": "6c655424ba949eda"
  },
  "/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "325f2a15246aef97"
+  "hash": "cbd8e19fcdffebde"
  },
  "/audio-converter": {
   "date": "2026-10-13",
@@ -981,7 +985,7 @@
  },
  "/base64": {
   "date": "2026-10-13",
-  "hash": "97b6a14ae6a4f57e"
+  "hash": "9338d22ba3f736bd"
  },
  "/blog": {
   "date": "2026-10-06",
@@ -1033,7 +1037,7 @@
  },
  "/bn/": {
   "date": "2026-10-13",
-  "hash": "e072456170b6985d"
+  "hash": "20a95691b688936d"
  },
  "/bn/aac-to-mp3": {
   "date": "2026-10-12",
@@ -1069,11 +1073,11 @@
  },
  "/bn/archive-converter": {
   "date": "2026-10-13",
-  "hash": "bb1875c0c7e746a0"
+  "hash": "af251c9e10fc3f9b"
  },
  "/bn/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "a1a489b9b003892d"
+  "hash": "54e8cc7ea625f7ec"
  },
  "/bn/audio-converter": {
   "date": "2026-10-12",
@@ -1081,7 +1085,7 @@
  },
  "/bn/base64": {
   "date": "2026-10-13",
-  "hash": "1aa9cbc1990ee942"
+  "hash": "60240fa417d6932b"
  },
  "/bn/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -1233,7 +1237,7 @@
  },
  "/bn/create-zip": {
   "date": "2026-10-13",
-  "hash": "62df1e5b12e5dfc4"
+  "hash": "fc3d4d9615d403dc"
  },
  "/bn/crop-image": {
   "date": "2026-10-12",
@@ -1287,9 +1291,13 @@
   "date": "2026-10-12",
   "hash": "5a11a1da787d0ed1"
  },
+ "/bn/font-converter": {
+  "date": "2026-10-13",
+  "hash": "ed2ff1bd9086976b"
+ },
  "/bn/font-library": {
   "date": "2026-10-13",
-  "hash": "c862e13bc087f204"
+  "hash": "86d3e279b07f8961"
  },
  "/bn/gif-to-video": {
   "date": "2026-10-12",
@@ -1313,11 +1321,11 @@
  },
  "/bn/image-cdn": {
   "date": "2026-10-13",
-  "hash": "39783448910c8064"
+  "hash": "a2d52f97ca9853b1"
  },
  "/bn/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "8eca9f4f92de4805"
+  "hash": "4ef551e76ded0016"
  },
  "/bn/image-to-pdf": {
   "date": "2026-10-13",
@@ -1477,7 +1485,7 @@
  },
  "/bn/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "f7dc7a839ed4118c"
+  "hash": "fc1e076a1959adc8"
  },
  "/bn/remove-background": {
   "date": "2026-10-12",
@@ -1537,7 +1545,7 @@
  },
  "/bn/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "5368a49c157b7d94"
+  "hash": "0edf4cae72d6aa05"
  },
  "/bn/text-case-converter": {
   "date": "2026-10-12",
@@ -1761,11 +1769,11 @@
  },
  "/create-tar-gz": {
   "date": "2026-10-13",
-  "hash": "7081b474f7e5d068"
+  "hash": "cced76b3ef290199"
  },
  "/create-zip": {
   "date": "2026-10-13",
-  "hash": "d9ff1a0fcb786a59"
+  "hash": "40cf0c8ad1ae0aab"
  },
  "/crop-image": {
   "date": "2026-10-12",
@@ -1805,7 +1813,7 @@
  },
  "/de/": {
   "date": "2026-10-13",
-  "hash": "6469f00e58e947b1"
+  "hash": "3389e03f2563a7f0"
  },
  "/de/aac-to-mp3": {
   "date": "2026-10-12",
@@ -1841,11 +1849,11 @@
  },
  "/de/archive-converter": {
   "date": "2026-10-13",
-  "hash": "88a04a6c73f7c905"
+  "hash": "4895de189a4b93fc"
  },
  "/de/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "350d388812b8287d"
+  "hash": "925562c842193a12"
  },
  "/de/audio-converter": {
   "date": "2026-10-12",
@@ -1853,7 +1861,7 @@
  },
  "/de/base64": {
   "date": "2026-10-13",
-  "hash": "51367b9d3ff25ce1"
+  "hash": "86f044f3e87f3ca4"
  },
  "/de/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -2005,7 +2013,7 @@
  },
  "/de/create-zip": {
   "date": "2026-10-13",
-  "hash": "9ca733f037a23b43"
+  "hash": "4bcf13e877b5396f"
  },
  "/de/crop-image": {
   "date": "2026-10-12",
@@ -2059,9 +2067,13 @@
   "date": "2026-10-12",
   "hash": "febe741088217d9a"
  },
+ "/de/font-converter": {
+  "date": "2026-10-13",
+  "hash": "4d2ea5a6ca8997ad"
+ },
  "/de/font-library": {
   "date": "2026-10-13",
-  "hash": "a04ad58a787d169b"
+  "hash": "adbc2f1f698a3c09"
  },
  "/de/gif-to-video": {
   "date": "2026-10-12",
@@ -2085,11 +2097,11 @@
  },
  "/de/image-cdn": {
   "date": "2026-10-13",
-  "hash": "9837b9dd67bde39d"
+  "hash": "e86a2885d599a190"
  },
  "/de/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "243c86480b34ca2f"
+  "hash": "913ccbcf99145b1a"
  },
  "/de/image-to-pdf": {
   "date": "2026-10-13",
@@ -2249,7 +2261,7 @@
  },
  "/de/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "5fee2c663d302379"
+  "hash": "b33040851c95ea51"
  },
  "/de/remove-background": {
   "date": "2026-10-12",
@@ -2309,7 +2321,7 @@
  },
  "/de/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "fcb8ed6623b9988b"
+  "hash": "7f4fc91fa267715c"
  },
  "/de/text-case-converter": {
   "date": "2026-10-12",
@@ -2387,6 +2399,38 @@
   "date": "2026-10-13",
   "hash": "1b4331c5acb12c40"
  },
+ "/dfont-converter": {
+  "date": "2026-10-13",
+  "hash": "008b5c82aafd95b6"
+ },
+ "/dfont-to-eot": {
+  "date": "2026-10-13",
+  "hash": "579a660e66a8f1c9"
+ },
+ "/dfont-to-otf": {
+  "date": "2026-10-13",
+  "hash": "09e0915dbfacefd7"
+ },
+ "/dfont-to-svg": {
+  "date": "2026-10-13",
+  "hash": "c7526f78107d9f9d"
+ },
+ "/dfont-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "e645c92a97712a19"
+ },
+ "/dfont-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "d345907e60467683"
+ },
+ "/dfont-to-woff": {
+  "date": "2026-10-13",
+  "hash": "d06e3b05554584d0"
+ },
+ "/dfont-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "6a74bb110610b095"
+ },
  "/document-to-image": {
   "date": "2026-10-13",
   "hash": "6f47ef8285829e33"
@@ -2427,6 +2471,38 @@
   "date": "2026-10-13",
   "hash": "53c490657b9cfc74"
  },
+ "/eot-converter": {
+  "date": "2026-10-13",
+  "hash": "b640dda91bf92116"
+ },
+ "/eot-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "a3f7ff056985ec96"
+ },
+ "/eot-to-otf": {
+  "date": "2026-10-13",
+  "hash": "84d969809638d14c"
+ },
+ "/eot-to-svg": {
+  "date": "2026-10-13",
+  "hash": "d1f56fe1fa70904b"
+ },
+ "/eot-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "eeb05fb3f9156684"
+ },
+ "/eot-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "b881a3daf21116e0"
+ },
+ "/eot-to-woff": {
+  "date": "2026-10-13",
+  "hash": "a564335722ec0f81"
+ },
+ "/eot-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "b3d9cfcb6b16e454"
+ },
  "/epub-to-bmp": {
   "date": "2026-10-13",
   "hash": "bc82b52c83947c8c"
@@ -2465,7 +2541,7 @@
  },
  "/es/": {
   "date": "2026-10-13",
-  "hash": "821d65a5026be2e0"
+  "hash": "0afc7db9a7b3f59c"
  },
  "/es/aac-to-mp3": {
   "date": "2026-10-12",
@@ -2501,11 +2577,11 @@
  },
  "/es/archive-converter": {
   "date": "2026-10-13",
-  "hash": "5ed0350712bf95fa"
+  "hash": "77f9049c83f068e0"
  },
  "/es/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "5f308c5ebe054a96"
+  "hash": "c6d3f23d3b0e0d67"
  },
  "/es/audio-converter": {
   "date": "2026-10-12",
@@ -2513,7 +2589,7 @@
  },
  "/es/base64": {
   "date": "2026-10-13",
-  "hash": "6cdaa355d0e98051"
+  "hash": "6b4dd41a3fdc5d0d"
  },
  "/es/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -2665,7 +2741,7 @@
  },
  "/es/create-zip": {
   "date": "2026-10-13",
-  "hash": "6f1e9064f381ed08"
+  "hash": "2bcfcbd36159b355"
  },
  "/es/crop-image": {
   "date": "2026-10-12",
@@ -2719,9 +2795,13 @@
   "date": "2026-10-12",
   "hash": "62492314f1837936"
  },
+ "/es/font-converter": {
+  "date": "2026-10-13",
+  "hash": "116dd20e23b9bf4f"
+ },
  "/es/font-library": {
   "date": "2026-10-13",
-  "hash": "8ee0c5247d4518da"
+  "hash": "51bdaf353de7e5d6"
  },
  "/es/gif-to-video": {
   "date": "2026-10-12",
@@ -2745,11 +2825,11 @@
  },
  "/es/image-cdn": {
   "date": "2026-10-13",
-  "hash": "9fe4377bfe55600a"
+  "hash": "0e9bb1fd400e37fc"
  },
  "/es/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "0a870d7844e0c6a5"
+  "hash": "c2df008eff0a0d2c"
  },
  "/es/image-to-pdf": {
   "date": "2026-10-13",
@@ -2909,7 +2989,7 @@
  },
  "/es/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "dcb67d6fd4632458"
+  "hash": "9f7b68cfb4866ab3"
  },
  "/es/remove-background": {
   "date": "2026-10-12",
@@ -2969,7 +3049,7 @@
  },
  "/es/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "440c51d485a45027"
+  "hash": "0cd6cfe5533d20a0"
  },
  "/es/text-case-converter": {
   "date": "2026-10-12",
@@ -3057,7 +3137,7 @@
  },
  "/extract-gz": {
   "date": "2026-10-13",
-  "hash": "31c9d49c808fbfe0"
+  "hash": "f7db21638b1106a0"
  },
  "/extract-pdf-pages": {
   "date": "2026-10-13",
@@ -3069,7 +3149,7 @@
  },
  "/extract-tar-gz": {
   "date": "2026-10-13",
-  "hash": "087c23a2d19632b6"
+  "hash": "78c13fd254ce5416"
  },
  "/extract-zip": {
   "date": "2026-10-13",
@@ -3215,13 +3295,17 @@
   "date": "2026-10-13",
   "hash": "47c380cd866e9675"
  },
+ "/font-converter": {
+  "date": "2026-10-13",
+  "hash": "d03bde951cdde1a9"
+ },
  "/font-library": {
   "date": "2026-10-13",
-  "hash": "0df258c5814560be"
+  "hash": "1b3c12383e742fea"
  },
  "/fr/": {
   "date": "2026-10-13",
-  "hash": "0bb2720a42afcd3d"
+  "hash": "e5b1d66a2b7d2b5a"
  },
  "/fr/aac-to-mp3": {
   "date": "2026-10-12",
@@ -3257,11 +3341,11 @@
  },
  "/fr/archive-converter": {
   "date": "2026-10-13",
-  "hash": "a7747203576b0c59"
+  "hash": "be9539cf7dee2130"
  },
  "/fr/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "c0dc77cc52852280"
+  "hash": "f4e86eeed1a62f98"
  },
  "/fr/audio-converter": {
   "date": "2026-10-12",
@@ -3269,7 +3353,7 @@
  },
  "/fr/base64": {
   "date": "2026-10-13",
-  "hash": "2f498de498c9818b"
+  "hash": "e956e26813b7e9ee"
  },
  "/fr/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -3421,7 +3505,7 @@
  },
  "/fr/create-zip": {
   "date": "2026-10-13",
-  "hash": "0ba92c5cd3797887"
+  "hash": "95967bfd1548e54e"
  },
  "/fr/crop-image": {
   "date": "2026-10-12",
@@ -3475,9 +3559,13 @@
   "date": "2026-10-12",
   "hash": "08dd59979a809d94"
  },
+ "/fr/font-converter": {
+  "date": "2026-10-13",
+  "hash": "572ddc4f10760a5b"
+ },
  "/fr/font-library": {
   "date": "2026-10-13",
-  "hash": "71ecc7168e6c6170"
+  "hash": "745a677058a4da4e"
  },
  "/fr/gif-to-video": {
   "date": "2026-10-12",
@@ -3501,11 +3589,11 @@
  },
  "/fr/image-cdn": {
   "date": "2026-10-13",
-  "hash": "7481b1b5003490b8"
+  "hash": "ad9457513a249282"
  },
  "/fr/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "9acbcef32c0f0a06"
+  "hash": "5b873f420f4cf914"
  },
  "/fr/image-to-pdf": {
   "date": "2026-10-13",
@@ -3665,7 +3753,7 @@
  },
  "/fr/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "be0d6867658b8c28"
+  "hash": "5a4034b212b67cee"
  },
  "/fr/remove-background": {
   "date": "2026-10-12",
@@ -3725,7 +3813,7 @@
  },
  "/fr/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "5ccc2b77861a7929"
+  "hash": "d4e7c1d54aa24471"
  },
  "/fr/text-case-converter": {
   "date": "2026-10-12",
@@ -3901,19 +3989,19 @@
  },
  "/gz-converter": {
   "date": "2026-10-13",
-  "hash": "76bc7ba898e77438"
+  "hash": "ab6222027045284c"
  },
  "/gz-to-tar": {
   "date": "2026-10-13",
-  "hash": "ad4f6d955381014c"
+  "hash": "67651a8bfb60fab8"
  },
  "/gz-to-tar-gz": {
   "date": "2026-10-13",
-  "hash": "ea6994d0e9c9c93d"
+  "hash": "2886779e872ad086"
  },
  "/gz-to-zip": {
   "date": "2026-10-13",
-  "hash": "477e1a95f578d9b5"
+  "hash": "799ea5957d86dbfb"
  },
  "/hash-uuid-generator": {
   "date": "2026-10-12",
@@ -4005,7 +4093,7 @@
  },
  "/hi/": {
   "date": "2026-10-13",
-  "hash": "1043d3451f7d2762"
+  "hash": "ea8b592eca871268"
  },
  "/hi/aac-to-mp3": {
   "date": "2026-10-12",
@@ -4041,11 +4129,11 @@
  },
  "/hi/archive-converter": {
   "date": "2026-10-13",
-  "hash": "eeefadb93e72851e"
+  "hash": "6c4c8626d23bbd38"
  },
  "/hi/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "cb1126a86d7a2c50"
+  "hash": "c8ebc9602c334912"
  },
  "/hi/audio-converter": {
   "date": "2026-10-12",
@@ -4053,7 +4141,7 @@
  },
  "/hi/base64": {
   "date": "2026-10-13",
-  "hash": "a94d4ab40d7bb0f6"
+  "hash": "5c8f3e41feb6def9"
  },
  "/hi/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -4205,7 +4293,7 @@
  },
  "/hi/create-zip": {
   "date": "2026-10-13",
-  "hash": "d8b934e743c47490"
+  "hash": "5d3acf17c6c6bc2d"
  },
  "/hi/crop-image": {
   "date": "2026-10-12",
@@ -4259,9 +4347,13 @@
   "date": "2026-10-12",
   "hash": "f88a08ad2d15e363"
  },
+ "/hi/font-converter": {
+  "date": "2026-10-13",
+  "hash": "4e81a6616c5282a6"
+ },
  "/hi/font-library": {
   "date": "2026-10-13",
-  "hash": "00233e49649b8f3d"
+  "hash": "b8189631bd3c1002"
  },
  "/hi/gif-to-video": {
   "date": "2026-10-12",
@@ -4285,11 +4377,11 @@
  },
  "/hi/image-cdn": {
   "date": "2026-10-13",
-  "hash": "84a55204db5654ec"
+  "hash": "6fa973038445de95"
  },
  "/hi/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "23886790f277c5da"
+  "hash": "06e8f3b1abfadf65"
  },
  "/hi/image-to-pdf": {
   "date": "2026-10-13",
@@ -4449,7 +4541,7 @@
  },
  "/hi/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "56ac99861f040a74"
+  "hash": "a7c85a950320d456"
  },
  "/hi/remove-background": {
   "date": "2026-10-12",
@@ -4509,7 +4601,7 @@
  },
  "/hi/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "752d10dd9e50735e"
+  "hash": "d763ebc807d014ad"
  },
  "/hi/text-case-converter": {
   "date": "2026-10-12",
@@ -4669,7 +4761,7 @@
  },
  "/id/": {
   "date": "2026-10-13",
-  "hash": "25cdadebeec865b3"
+  "hash": "fa9d3cfc5855840f"
  },
  "/id/aac-to-mp3": {
   "date": "2026-10-12",
@@ -4705,11 +4797,11 @@
  },
  "/id/archive-converter": {
   "date": "2026-10-13",
-  "hash": "e08b0d82af8b9588"
+  "hash": "7e2011081f54207f"
  },
  "/id/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "568db24300403c14"
+  "hash": "e9a35e4b8ec3617f"
  },
  "/id/audio-converter": {
   "date": "2026-10-12",
@@ -4717,7 +4809,7 @@
  },
  "/id/base64": {
   "date": "2026-10-13",
-  "hash": "1c8fc349b2088bbb"
+  "hash": "89bb9981aa9c695b"
  },
  "/id/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -4869,7 +4961,7 @@
  },
  "/id/create-zip": {
   "date": "2026-10-13",
-  "hash": "d1ab6e0ff82817ec"
+  "hash": "0e9f7f94b6951958"
  },
  "/id/crop-image": {
   "date": "2026-10-12",
@@ -4923,9 +5015,13 @@
   "date": "2026-10-12",
   "hash": "71d2afca8d0de973"
  },
+ "/id/font-converter": {
+  "date": "2026-10-13",
+  "hash": "9927576a5df5061a"
+ },
  "/id/font-library": {
   "date": "2026-10-13",
-  "hash": "e1c59108e2469646"
+  "hash": "ca3f08878653825b"
  },
  "/id/gif-to-video": {
   "date": "2026-10-12",
@@ -4949,11 +5045,11 @@
  },
  "/id/image-cdn": {
   "date": "2026-10-13",
-  "hash": "a609f9b41a851b56"
+  "hash": "50bd557a05d817e4"
  },
  "/id/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "0e2da96a665df9d2"
+  "hash": "4c3a82ed48fdeee3"
  },
  "/id/image-to-pdf": {
   "date": "2026-10-13",
@@ -5113,7 +5209,7 @@
  },
  "/id/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "33be62f0d13de2dd"
+  "hash": "d5ee74ac8b41c985"
  },
  "/id/remove-background": {
   "date": "2026-10-12",
@@ -5173,7 +5269,7 @@
  },
  "/id/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "aa507ba151af26d8"
+  "hash": "5226f08ad9177a2b"
  },
  "/id/text-case-converter": {
   "date": "2026-10-12",
@@ -5249,11 +5345,11 @@
  },
  "/image-cdn": {
   "date": "2026-10-13",
-  "hash": "7d9cf48a03371800"
+  "hash": "42a395bf6690b240"
  },
  "/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "87544efbccd63df0"
+  "hash": "5e3eb7b9ef5de24d"
  },
  "/image-to-pdf": {
   "date": "2026-10-13",
@@ -7369,7 +7465,7 @@
  },
  "/it/": {
   "date": "2026-10-13",
-  "hash": "84d2803cbe96bf6c"
+  "hash": "63bb1727bae108b8"
  },
  "/it/aac-to-mp3": {
   "date": "2026-10-12",
@@ -7405,11 +7501,11 @@
  },
  "/it/archive-converter": {
   "date": "2026-10-13",
-  "hash": "caf6f5aa06f00341"
+  "hash": "c6e49b6562e3ba46"
  },
  "/it/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "ab817efbd2f0c8fd"
+  "hash": "fcdc028eb21c303e"
  },
  "/it/audio-converter": {
   "date": "2026-10-12",
@@ -7417,7 +7513,7 @@
  },
  "/it/base64": {
   "date": "2026-10-13",
-  "hash": "5600bacddcfa70c3"
+  "hash": "228acaa4eaee29bd"
  },
  "/it/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -7569,7 +7665,7 @@
  },
  "/it/create-zip": {
   "date": "2026-10-13",
-  "hash": "8786fa3b1f8d37a1"
+  "hash": "18ee81f00822976e"
  },
  "/it/crop-image": {
   "date": "2026-10-12",
@@ -7623,9 +7719,13 @@
   "date": "2026-10-12",
   "hash": "a0ad13b602fff4fa"
  },
+ "/it/font-converter": {
+  "date": "2026-10-13",
+  "hash": "0dc5aded083de8a5"
+ },
  "/it/font-library": {
   "date": "2026-10-13",
-  "hash": "aef7eca727dda0e8"
+  "hash": "a4f456b6b36f5edc"
  },
  "/it/gif-to-video": {
   "date": "2026-10-12",
@@ -7649,11 +7749,11 @@
  },
  "/it/image-cdn": {
   "date": "2026-10-13",
-  "hash": "5c81a8dbb06c6b61"
+  "hash": "570e8b867fb3dc5a"
  },
  "/it/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "523bf9b4948eae2d"
+  "hash": "568bc1ad6bbf46b6"
  },
  "/it/image-to-pdf": {
   "date": "2026-10-13",
@@ -7813,7 +7913,7 @@
  },
  "/it/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "b39a777cc82583cf"
+  "hash": "17fc17648cefa046"
  },
  "/it/remove-background": {
   "date": "2026-10-12",
@@ -7873,7 +7973,7 @@
  },
  "/it/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "f80cf412e7654857"
+  "hash": "602e79d611cca813"
  },
  "/it/text-case-converter": {
   "date": "2026-10-12",
@@ -7949,7 +8049,7 @@
  },
  "/ja/": {
   "date": "2026-10-13",
-  "hash": "daaffa9071634014"
+  "hash": "f8abdb69668c1732"
  },
  "/ja/aac-to-mp3": {
   "date": "2026-10-12",
@@ -7985,11 +8085,11 @@
  },
  "/ja/archive-converter": {
   "date": "2026-10-13",
-  "hash": "8a01a616b659ae53"
+  "hash": "dcef7430b0669dfe"
  },
  "/ja/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "d10fc7afcd26577e"
+  "hash": "74651d12ea39ff13"
  },
  "/ja/audio-converter": {
   "date": "2026-10-12",
@@ -7997,7 +8097,7 @@
  },
  "/ja/base64": {
   "date": "2026-10-13",
-  "hash": "6b547d6c30585d99"
+  "hash": "70bc08612d6ac568"
  },
  "/ja/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -8149,7 +8249,7 @@
  },
  "/ja/create-zip": {
   "date": "2026-10-13",
-  "hash": "feb57e326820e9e9"
+  "hash": "56d1484e25eba901"
  },
  "/ja/crop-image": {
   "date": "2026-10-12",
@@ -8203,9 +8303,13 @@
   "date": "2026-10-12",
   "hash": "9b7656935195265a"
  },
+ "/ja/font-converter": {
+  "date": "2026-10-13",
+  "hash": "60f55aba62d60b21"
+ },
  "/ja/font-library": {
   "date": "2026-10-13",
-  "hash": "9389701ef3ab6bd3"
+  "hash": "937e1824092aed22"
  },
  "/ja/gif-to-video": {
   "date": "2026-10-12",
@@ -8229,11 +8333,11 @@
  },
  "/ja/image-cdn": {
   "date": "2026-10-13",
-  "hash": "28f9199203b2e1ed"
+  "hash": "956223abb7d66a03"
  },
  "/ja/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "557291428db2e0da"
+  "hash": "48fb0d896dcd706b"
  },
  "/ja/image-to-pdf": {
   "date": "2026-10-13",
@@ -8393,7 +8497,7 @@
  },
  "/ja/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "65639b1c6b575ab1"
+  "hash": "6252c29a0acd3946"
  },
  "/ja/remove-background": {
   "date": "2026-10-12",
@@ -8453,7 +8557,7 @@
  },
  "/ja/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "d3316f6ebafcbac8"
+  "hash": "0276fb13b6c14bfb"
  },
  "/ja/text-case-converter": {
   "date": "2026-10-12",
@@ -9527,6 +9631,38 @@
   "date": "2026-10-12",
   "hash": "7c6247f756aedb96"
  },
+ "/otf-converter": {
+  "date": "2026-10-13",
+  "hash": "5dc2852a48ba47e7"
+ },
+ "/otf-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "363a49f842627ff7"
+ },
+ "/otf-to-eot": {
+  "date": "2026-10-13",
+  "hash": "98c662fe2f707f2e"
+ },
+ "/otf-to-svg": {
+  "date": "2026-10-13",
+  "hash": "41730a2a8495c1c4"
+ },
+ "/otf-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "c7558f61f851e508"
+ },
+ "/otf-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "a695fd0dc708d021"
+ },
+ "/otf-to-woff": {
+  "date": "2026-10-13",
+  "hash": "4fe48553d7951f9a"
+ },
+ "/otf-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "4b136c245e35c114"
+ },
  "/passport-size-photo-maker": {
   "date": "2026-10-12",
   "hash": "d93c7768620f1535"
@@ -9575,6 +9711,42 @@
   "date": "2026-10-12",
   "hash": "8f01101168042b18"
  },
+ "/pfb-converter": {
+  "date": "2026-10-13",
+  "hash": "d12996994c0d9e37"
+ },
+ "/pfb-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "fef5697c340efc57"
+ },
+ "/pfb-to-eot": {
+  "date": "2026-10-13",
+  "hash": "c6db3d2ac507d2e6"
+ },
+ "/pfb-to-otf": {
+  "date": "2026-10-13",
+  "hash": "27f6f0bcf6f5e837"
+ },
+ "/pfb-to-svg": {
+  "date": "2026-10-13",
+  "hash": "69f2ef2ca83dc8a9"
+ },
+ "/pfb-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "2ac77b1e447f0a7a"
+ },
+ "/pfb-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "8e12ea22ee418470"
+ },
+ "/pfb-to-woff": {
+  "date": "2026-10-13",
+  "hash": "241d959ac45bf782"
+ },
+ "/pfb-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "2d2e2bcfef6cda2c"
+ },
  "/photo-collage-maker": {
   "date": "2026-10-13",
   "hash": "973f53d60d841cce"
@@ -9585,7 +9757,7 @@
  },
  "/pl/": {
   "date": "2026-10-13",
-  "hash": "a7ed79f7262f1c42"
+  "hash": "c28eac290a99b2a6"
  },
  "/pl/aac-to-mp3": {
   "date": "2026-10-12",
@@ -9621,11 +9793,11 @@
  },
  "/pl/archive-converter": {
   "date": "2026-10-13",
-  "hash": "c627e6aa48880e55"
+  "hash": "ced46f6860be0421"
  },
  "/pl/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "437abd7515da4c76"
+  "hash": "aa4e405783335bc6"
  },
  "/pl/audio-converter": {
   "date": "2026-10-12",
@@ -9633,7 +9805,7 @@
  },
  "/pl/base64": {
   "date": "2026-10-13",
-  "hash": "505d28ec12cd10e4"
+  "hash": "e15817197d07cedc"
  },
  "/pl/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -9785,7 +9957,7 @@
  },
  "/pl/create-zip": {
   "date": "2026-10-13",
-  "hash": "ca47720a5bc782bb"
+  "hash": "85a2c16686770e94"
  },
  "/pl/crop-image": {
   "date": "2026-10-12",
@@ -9839,9 +10011,13 @@
   "date": "2026-10-12",
   "hash": "0b0b6a68ff5e8520"
  },
+ "/pl/font-converter": {
+  "date": "2026-10-13",
+  "hash": "b51c88c02df7a6fd"
+ },
  "/pl/font-library": {
   "date": "2026-10-13",
-  "hash": "071f20a612a92a73"
+  "hash": "7243e3ba357432af"
  },
  "/pl/gif-to-video": {
   "date": "2026-10-12",
@@ -9865,11 +10041,11 @@
  },
  "/pl/image-cdn": {
   "date": "2026-10-13",
-  "hash": "a6740f5e52d5d65a"
+  "hash": "66dbf8cd0954edf6"
  },
  "/pl/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "7943799e16e36656"
+  "hash": "46d751bae9823ae5"
  },
  "/pl/image-to-pdf": {
   "date": "2026-10-13",
@@ -10029,7 +10205,7 @@
  },
  "/pl/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "a5c972136e7b4f4b"
+  "hash": "56a9a485cbebbe57"
  },
  "/pl/remove-background": {
   "date": "2026-10-12",
@@ -10089,7 +10265,7 @@
  },
  "/pl/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "ef3c4d3571b1e886"
+  "hash": "75a96b601bff57b9"
  },
  "/pl/text-case-converter": {
   "date": "2026-10-12",
@@ -10213,7 +10389,7 @@
  },
  "/pt/": {
   "date": "2026-10-13",
-  "hash": "e62aaeb7e26a8c44"
+  "hash": "a901a78dcb295b0b"
  },
  "/pt/aac-to-mp3": {
   "date": "2026-10-12",
@@ -10249,11 +10425,11 @@
  },
  "/pt/archive-converter": {
   "date": "2026-10-13",
-  "hash": "334aa012419539c5"
+  "hash": "d58e514de2ab38c9"
  },
  "/pt/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "a9c0f7b1f20da6f3"
+  "hash": "8de1950250d55a43"
  },
  "/pt/audio-converter": {
   "date": "2026-10-12",
@@ -10261,7 +10437,7 @@
  },
  "/pt/base64": {
   "date": "2026-10-13",
-  "hash": "2af175ab99e3b88a"
+  "hash": "5417280f9041d0a8"
  },
  "/pt/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -10413,7 +10589,7 @@
  },
  "/pt/create-zip": {
   "date": "2026-10-13",
-  "hash": "70967a27d44e53e6"
+  "hash": "e5f4a653407289bf"
  },
  "/pt/crop-image": {
   "date": "2026-10-12",
@@ -10467,9 +10643,13 @@
   "date": "2026-10-12",
   "hash": "09123ea595bf0547"
  },
+ "/pt/font-converter": {
+  "date": "2026-10-13",
+  "hash": "9642cbbf7558afeb"
+ },
  "/pt/font-library": {
   "date": "2026-10-13",
-  "hash": "1acd31091216854b"
+  "hash": "5da262af68ac4606"
  },
  "/pt/gif-to-video": {
   "date": "2026-10-12",
@@ -10493,11 +10673,11 @@
  },
  "/pt/image-cdn": {
   "date": "2026-10-13",
-  "hash": "7eddd1390b4fc7df"
+  "hash": "b9e46fef3f399181"
  },
  "/pt/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "4574ce71cf96f3af"
+  "hash": "890b8e2054f8ae0c"
  },
  "/pt/image-to-pdf": {
   "date": "2026-10-13",
@@ -10657,7 +10837,7 @@
  },
  "/pt/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "015bd0014f2804f1"
+  "hash": "9a354d568a4a8f1e"
  },
  "/pt/remove-background": {
   "date": "2026-10-12",
@@ -10717,7 +10897,7 @@
  },
  "/pt/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "d9847960e5d4b4c4"
+  "hash": "e50e217531c74d83"
  },
  "/pt/text-case-converter": {
   "date": "2026-10-12",
@@ -10793,7 +10973,7 @@
  },
  "/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "846c425c0e483a10"
+  "hash": "b1253b84d034c3e0"
  },
  "/remove-background": {
   "date": "2026-10-12",
@@ -10825,7 +11005,7 @@
  },
  "/ru/": {
   "date": "2026-10-13",
-  "hash": "fc478693229afa4d"
+  "hash": "5e774355d6825e08"
  },
  "/ru/aac-to-mp3": {
   "date": "2026-10-12",
@@ -10861,11 +11041,11 @@
  },
  "/ru/archive-converter": {
   "date": "2026-10-13",
-  "hash": "4bfd9c722c48059f"
+  "hash": "e2e2ed813068c66b"
  },
  "/ru/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "ed0ffda4f0e97a5d"
+  "hash": "34e377c864f2a577"
  },
  "/ru/audio-converter": {
   "date": "2026-10-12",
@@ -10873,7 +11053,7 @@
  },
  "/ru/base64": {
   "date": "2026-10-13",
-  "hash": "a03a734572e52193"
+  "hash": "1062356d3a5033f3"
  },
  "/ru/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -11025,7 +11205,7 @@
  },
  "/ru/create-zip": {
   "date": "2026-10-13",
-  "hash": "c47ba66c17e17673"
+  "hash": "a097063fc719cc1c"
  },
  "/ru/crop-image": {
   "date": "2026-10-12",
@@ -11079,9 +11259,13 @@
   "date": "2026-10-12",
   "hash": "6d16de32711bf8a3"
  },
+ "/ru/font-converter": {
+  "date": "2026-10-13",
+  "hash": "70ff9083f75955a4"
+ },
  "/ru/font-library": {
   "date": "2026-10-13",
-  "hash": "283bf8dd6f3edbe4"
+  "hash": "99551889be5a9226"
  },
  "/ru/gif-to-video": {
   "date": "2026-10-12",
@@ -11105,11 +11289,11 @@
  },
  "/ru/image-cdn": {
   "date": "2026-10-13",
-  "hash": "cdb951296bd65e7c"
+  "hash": "6aa8ce426f4c8ba1"
  },
  "/ru/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "de048fd8c73b795e"
+  "hash": "4b4ffd35b81a964b"
  },
  "/ru/image-to-pdf": {
   "date": "2026-10-13",
@@ -11269,7 +11453,7 @@
  },
  "/ru/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "8d5dad0a0c6fa7b3"
+  "hash": "e10a679c2d3743f5"
  },
  "/ru/remove-background": {
   "date": "2026-10-12",
@@ -11329,7 +11513,7 @@
  },
  "/ru/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "eddfea4dc8b84fff"
+  "hash": "9502afbcd87a3909"
  },
  "/ru/text-case-converter": {
   "date": "2026-10-12",
@@ -11431,6 +11615,14 @@
   "date": "2026-10-13",
   "hash": "8a3ce59b13ce33d5"
  },
+ "/svg-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "13f6bdd08520957b"
+ },
+ "/svg-to-eot": {
+  "date": "2026-10-13",
+  "hash": "a30c2dd4ca2c605b"
+ },
  "/svg-to-ico": {
   "date": "2026-10-13",
   "hash": "6869b47805085cf8"
@@ -11439,13 +11631,33 @@
   "date": "2026-10-13",
   "hash": "c82b0d3e5fdb39dd"
  },
+ "/svg-to-otf": {
+  "date": "2026-10-13",
+  "hash": "0903ed372b902e97"
+ },
  "/svg-to-png": {
   "date": "2026-10-13",
   "hash": "199182271b22ef4c"
  },
+ "/svg-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "a90902b2fde60c62"
+ },
+ "/svg-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "62f2c292e43e1341"
+ },
  "/svg-to-webp": {
   "date": "2026-10-13",
   "hash": "0fc02502f90acaf2"
+ },
+ "/svg-to-woff": {
+  "date": "2026-10-13",
+  "hash": "8032e2832f1b8ff8"
+ },
+ "/svg-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "1d2eeea3ec24161d"
  },
  "/tar-converter": {
   "date": "2026-10-13",
@@ -11453,7 +11665,7 @@
  },
  "/tar-gz-converter": {
   "date": "2026-10-13",
-  "hash": "bd01e7eb271c353b"
+  "hash": "44515a4a17e174b4"
  },
  "/tar-gz-to-tar": {
   "date": "2026-10-13",
@@ -11537,7 +11749,7 @@
  },
  "/tr/": {
   "date": "2026-10-13",
-  "hash": "24630c8da09d88c2"
+  "hash": "156ab95877494c8e"
  },
  "/tr/aac-to-mp3": {
   "date": "2026-10-12",
@@ -11573,11 +11785,11 @@
  },
  "/tr/archive-converter": {
   "date": "2026-10-13",
-  "hash": "6b3830c7d62ca20a"
+  "hash": "cd19b679623b8098"
  },
  "/tr/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "ef148dc0c26650a0"
+  "hash": "2d02accd1e2300a2"
  },
  "/tr/audio-converter": {
   "date": "2026-10-12",
@@ -11585,7 +11797,7 @@
  },
  "/tr/base64": {
   "date": "2026-10-13",
-  "hash": "69a1c130e39f5a7b"
+  "hash": "a43530f45fd67d76"
  },
  "/tr/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -11737,7 +11949,7 @@
  },
  "/tr/create-zip": {
   "date": "2026-10-13",
-  "hash": "8525239a235dfd98"
+  "hash": "97f63c210d4fae4c"
  },
  "/tr/crop-image": {
   "date": "2026-10-12",
@@ -11791,9 +12003,13 @@
   "date": "2026-10-12",
   "hash": "b4c4df26b8547e18"
  },
+ "/tr/font-converter": {
+  "date": "2026-10-13",
+  "hash": "b7c138a5aa4121a3"
+ },
  "/tr/font-library": {
   "date": "2026-10-13",
-  "hash": "49a3332406df5fd8"
+  "hash": "a6a5388ca2f13413"
  },
  "/tr/gif-to-video": {
   "date": "2026-10-12",
@@ -11817,11 +12033,11 @@
  },
  "/tr/image-cdn": {
   "date": "2026-10-13",
-  "hash": "4ddf46efedcf1a02"
+  "hash": "ca8ef764706b927a"
  },
  "/tr/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "7f2a43fcc3e45cb4"
+  "hash": "5205b3bbb90ba368"
  },
  "/tr/image-to-pdf": {
   "date": "2026-10-13",
@@ -11981,7 +12197,7 @@
  },
  "/tr/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "916b426a8e47f2ba"
+  "hash": "54f0a3bd56753d19"
  },
  "/tr/remove-background": {
   "date": "2026-10-12",
@@ -12041,7 +12257,7 @@
  },
  "/tr/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "4fedcf64eaf89e1a"
+  "hash": "744178db31dfae53"
  },
  "/tr/text-case-converter": {
   "date": "2026-10-12",
@@ -12219,6 +12435,70 @@
   "date": "2026-10-13",
   "hash": "dced132d45a625b2"
  },
+ "/ttc-converter": {
+  "date": "2026-10-13",
+  "hash": "a4e108858ccfeee8"
+ },
+ "/ttc-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "d292cd69dba5d6ad"
+ },
+ "/ttc-to-eot": {
+  "date": "2026-10-13",
+  "hash": "ba3cc88eebaf0fa6"
+ },
+ "/ttc-to-otf": {
+  "date": "2026-10-13",
+  "hash": "e85a618cf10fecab"
+ },
+ "/ttc-to-svg": {
+  "date": "2026-10-13",
+  "hash": "2c58ddae2bd19d08"
+ },
+ "/ttc-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "4556cf6cb2e64374"
+ },
+ "/ttc-to-woff": {
+  "date": "2026-10-13",
+  "hash": "f8bbac5a68191116"
+ },
+ "/ttc-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "2b4ef5d690c556fe"
+ },
+ "/ttf-converter": {
+  "date": "2026-10-13",
+  "hash": "e3dc4f74ae888fa3"
+ },
+ "/ttf-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "87c37a41e31f3771"
+ },
+ "/ttf-to-eot": {
+  "date": "2026-10-13",
+  "hash": "33c6d4f8577ffb04"
+ },
+ "/ttf-to-otf": {
+  "date": "2026-10-13",
+  "hash": "67cee43c0db23ee8"
+ },
+ "/ttf-to-svg": {
+  "date": "2026-10-13",
+  "hash": "ff69136dc96a6b39"
+ },
+ "/ttf-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "6e62b1e8c8e17e03"
+ },
+ "/ttf-to-woff": {
+  "date": "2026-10-13",
+  "hash": "82970342c2ef0aac"
+ },
+ "/ttf-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "299561707fdc04cf"
+ },
  "/txt-to-bmp": {
   "date": "2026-10-13",
   "hash": "f0a162691b35f8ba"
@@ -12269,7 +12549,7 @@
  },
  "/vi/": {
   "date": "2026-10-13",
-  "hash": "e9c004a9209f78b4"
+  "hash": "2fc519b6be43222d"
  },
  "/vi/aac-to-mp3": {
   "date": "2026-10-12",
@@ -12305,11 +12585,11 @@
  },
  "/vi/archive-converter": {
   "date": "2026-10-13",
-  "hash": "c5a6d82601cbf808"
+  "hash": "bbb23f57aa5e8001"
  },
  "/vi/archive-extractor": {
   "date": "2026-10-13",
-  "hash": "2bcc196d8905cfdb"
+  "hash": "ad622c02c27480a8"
  },
  "/vi/audio-converter": {
   "date": "2026-10-12",
@@ -12317,7 +12597,7 @@
  },
  "/vi/base64": {
   "date": "2026-10-13",
-  "hash": "258e1deee1bcb5b8"
+  "hash": "af8746560a4fa018"
  },
  "/vi/blur-redact-pdf": {
   "date": "2026-10-12",
@@ -12469,7 +12749,7 @@
  },
  "/vi/create-zip": {
   "date": "2026-10-13",
-  "hash": "62f0245d67ed88cf"
+  "hash": "158af9e04d5601ff"
  },
  "/vi/crop-image": {
   "date": "2026-10-12",
@@ -12523,9 +12803,13 @@
   "date": "2026-10-12",
   "hash": "d9defc20726243dc"
  },
+ "/vi/font-converter": {
+  "date": "2026-10-13",
+  "hash": "ff6c1747b8608bb9"
+ },
  "/vi/font-library": {
   "date": "2026-10-13",
-  "hash": "00e3ff02bfd6f2ab"
+  "hash": "dbcee80a11840d18"
  },
  "/vi/gif-to-video": {
   "date": "2026-10-12",
@@ -12549,11 +12833,11 @@
  },
  "/vi/image-cdn": {
   "date": "2026-10-13",
-  "hash": "e40e122cfb8ced6f"
+  "hash": "515b4c6923947890"
  },
  "/vi/image-color-palette-extractor": {
   "date": "2026-10-13",
-  "hash": "b4920cf77c780b65"
+  "hash": "241c9d8fcbdae1cf"
  },
  "/vi/image-to-pdf": {
   "date": "2026-10-13",
@@ -12713,7 +12997,7 @@
  },
  "/vi/qr-code-generator": {
   "date": "2026-10-13",
-  "hash": "795a90d9d12ef3d0"
+  "hash": "92d9c1e5b37c2180"
  },
  "/vi/remove-background": {
   "date": "2026-10-12",
@@ -12773,7 +13057,7 @@
  },
  "/vi/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
-  "hash": "e8643ff2d4bdd253"
+  "hash": "8ecf596a9d6a5135"
  },
  "/vi/text-case-converter": {
   "date": "2026-10-12",
@@ -13246,6 +13530,70 @@
  "/wmv-to-webm": {
   "date": "2026-10-13",
   "hash": "04ac27d585975541"
+ },
+ "/woff-converter": {
+  "date": "2026-10-13",
+  "hash": "b68920747abeb956"
+ },
+ "/woff-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "2335aa6535e6490f"
+ },
+ "/woff-to-eot": {
+  "date": "2026-10-13",
+  "hash": "ad4a1949acef27fc"
+ },
+ "/woff-to-otf": {
+  "date": "2026-10-13",
+  "hash": "6455a8e50a123ce4"
+ },
+ "/woff-to-svg": {
+  "date": "2026-10-13",
+  "hash": "0c2bacc044843d34"
+ },
+ "/woff-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "991643e7d94ce604"
+ },
+ "/woff-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "e0ec81cf6c68b992"
+ },
+ "/woff-to-woff2": {
+  "date": "2026-10-13",
+  "hash": "22fb886eaeebd5e6"
+ },
+ "/woff2-converter": {
+  "date": "2026-10-13",
+  "hash": "e1cdd2f18d80e5b2"
+ },
+ "/woff2-to-dfont": {
+  "date": "2026-10-13",
+  "hash": "d751eeeaf3cd1eb0"
+ },
+ "/woff2-to-eot": {
+  "date": "2026-10-13",
+  "hash": "42cde7298a087b29"
+ },
+ "/woff2-to-otf": {
+  "date": "2026-10-13",
+  "hash": "fd42e75f6bea165d"
+ },
+ "/woff2-to-svg": {
+  "date": "2026-10-13",
+  "hash": "9877132c3f23a4b2"
+ },
+ "/woff2-to-ttc": {
+  "date": "2026-10-13",
+  "hash": "3ff9acafdfa5a712"
+ },
+ "/woff2-to-ttf": {
+  "date": "2026-10-13",
+  "hash": "14a1a4fe053675ba"
+ },
+ "/woff2-to-woff": {
+  "date": "2026-10-13",
+  "hash": "fc33b18e8adb87b8"
  },
  "/word-counter": {
   "date": "2026-10-12",

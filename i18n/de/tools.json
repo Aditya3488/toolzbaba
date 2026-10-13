@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Alle Formate"
+ },
+ "font-converter": {
+  "name": "Schriftarten-Konverter",
+  "desc": "Konvertieren Sie zwischen TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, SVG-Schriften und Type 1. Läuft in Ihrem Browser.",
+  "title": "Schriftarten-Konverter kostenlos: TTF, OTF, WOFF2, WOFF online | Toolz Baba",
+  "metaDesc": "Wandeln Sie Schriften in TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG oder DFONT um. WOFF2 für Websites, TTF für Design. Kostenlos, nichts wird hochgeladen.",
+  "about": "Wandeln Sie jede Schrift in das Format um, das Sie brauchen: WOFF2 für Websites (am kleinsten), TTF oder OTF für Windows, Mac und Design-Programme, TTC für mehrere Schriften in einer Datei sowie EOT, SVG-Schrift oder DFONT für alte Systeme. Alle Glyphen, Maße, Unterschneidungen und Namen bleiben erhalten; verlangt das Format eine andere Kurvenart (TrueType oder CFF), werden die Kurven ohne Formänderung umgerechnet. Alte Type-1-Schriften (PFB) lassen sich auch öffnen. Das Umwandeln ändert nichts an der Lizenz. Pythons fontTools läuft in Ihrem Browser, die Schrift wird also nicht hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihre Schriftdateien hinzu.",
+   "Wählen Sie das Zielformat.",
+   "Umwandeln und herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Welches Format für eine Website?",
+    "a": "WOFF2: am kleinsten und von allen aktuellen Browsern gelesen. Für sehr alte Browser zusätzlich WOFF."
+   },
+   {
+    "q": "Geht etwas verloren?",
+    "a": "Bei WOFF, WOFF2, TTC und DFONT ist die Schrift dieselbe, nur anders verpackt. Zwischen TTF und OTF bleiben die Formen gleich; nur das Hinting entfällt."
+   },
+   {
+    "q": "Wird meine Schrift hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt und verlässt nie Ihr Gerät."
+   }
+  ],
+  "tabAll": "Alle Formate"
  }
 }

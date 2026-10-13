@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Tất cả định dạng"
+ },
+ "font-converter": {
+  "name": "Chuyển đổi phông chữ",
+  "desc": "Chuyển đổi giữa TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, phông SVG và Type 1. Chạy trong trình duyệt.",
+  "title": "Chuyển đổi phông chữ miễn phí: TTF, OTF, WOFF2, WOFF trực tuyến | Toolz Baba",
+  "metaDesc": "Chuyển phông chữ sang TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG hoặc DFONT. WOFF2 cho web, TTF cho thiết kế. Miễn phí, không tải lên.",
+  "about": "Chuyển bất kỳ phông chữ nào sang định dạng bạn cần: WOFF2 cho trang web (nhỏ nhất), TTF hoặc OTF cho Windows, Mac và ứng dụng thiết kế, TTC cho nhiều phông trong một tệp, và EOT, phông SVG hoặc DFONT cho hệ thống cũ. Mọi glyph, thông số, kerning và tên đều được giữ; khi định dạng cần loại đường cong khác (TrueType hoặc CFF), đường cong được chuyển mà hình dạng không đổi. Phông Type 1 (PFB) cũ cũng mở được. Chuyển đổi không làm thay đổi giấy phép của phông. fontTools của Python chạy trong trình duyệt, nên phông chữ không bị tải lên.",
+  "steps": [
+   "Thêm các tệp phông chữ.",
+   "Chọn định dạng đích.",
+   "Chuyển đổi và tải về."
+  ],
+  "faq": [
+   {
+    "q": "Nên dùng định dạng nào cho trang web?",
+    "a": "WOFF2: nhỏ nhất và mọi trình duyệt hiện nay đều đọc được. Thêm WOFF nếu cần trình duyệt rất cũ."
+   },
+   {
+    "q": "Có mất gì không?",
+    "a": "Với WOFF, WOFF2, TTC và DFONT, phông vẫn như cũ, chỉ đóng gói khác. Giữa TTF và OTF hình dạng không đổi; chỉ phần hinting bị bỏ."
+   },
+   {
+    "q": "Phông chữ của tôi có bị tải lên không?",
+    "a": "Không. Phông được chuyển đổi trong trình duyệt và không rời khỏi thiết bị của bạn."
+   }
+  ],
+  "tabAll": "Tất cả định dạng"
  }
 }

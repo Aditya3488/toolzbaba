@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Tous les formats"
+ },
+ "font-converter": {
+  "name": "Convertisseur de polices",
+  "desc": "Convertissez entre TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, polices SVG et Type 1. Fonctionne dans votre navigateur.",
+  "title": "Convertisseur de polices gratuit : TTF, OTF, WOFF2, WOFF en ligne | Toolz Baba",
+  "metaDesc": "Convertissez des polices en TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG ou DFONT. WOFF2 pour le web, TTF pour le graphisme. Gratuit, rien n'est envoyé.",
+  "about": "Convertissez n'importe quelle police dans le format voulu : WOFF2 pour les sites (le plus léger), TTF ou OTF pour Windows, Mac et les logiciels de création, TTC pour plusieurs polices dans un fichier, et EOT, police SVG ou DFONT pour les anciens systèmes. Glyphes, métriques, crénage et noms sont conservés ; si le format demande un autre type de courbes (TrueType ou CFF), elles sont converties sans changer la forme. Les anciennes polices Type 1 (PFB) s'ouvrent aussi. Convertir une police ne change pas sa licence. fontTools (Python) tourne dans votre navigateur : la police n'est pas envoyée.",
+  "steps": [
+   "Ajoutez vos fichiers de police.",
+   "Choisissez le format de sortie.",
+   "Convertissez et téléchargez."
+  ],
+  "faq": [
+   {
+    "q": "Quel format pour un site web ?",
+    "a": "WOFF2 : le plus léger, lu par tous les navigateurs actuels. Ajoutez WOFF pour les très vieux navigateurs."
+   },
+   {
+    "q": "Perd-on quelque chose ?",
+    "a": "En WOFF, WOFF2, TTC et DFONT, la police est identique, seulement emballée autrement. Entre TTF et OTF, les formes ne changent pas ; seul le hinting disparaît."
+   },
+   {
+    "q": "Ma police est-elle envoyée ?",
+    "a": "Non. Elle est convertie dans votre navigateur et ne quitte jamais votre appareil."
+   }
+  ],
+  "tabAll": "Tous les formats"
  }
 }

@@ -2260,6 +2260,40 @@
    ]
   },
   {
+   "slug": "font-converter",
+   "cat": "util",
+   "icon": "🔤",
+   "name": "Font Converter",
+   "desc": "Convert between TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, SVG fonts and Type 1. Runs in your browser.",
+   "kind": "client",
+   "engine": "font",
+   "js": "font-converter",
+   "tabAll": "All formats",
+   "keywords": "font typeface ttf otf woff woff2 eot ttc dfont pfb type1 webfont convert",
+   "about": "Convert any font to the format you need: WOFF2 for websites (the smallest), TTF or OTF for Windows, Mac and design apps, TTC for several fonts in one file, and EOT, SVG font or DFONT for older systems. Every glyph, metric, kerning pair and name is kept; when the format needs the other kind of curves (TrueType or CFF), the curves are converted and the shapes stay the same. Old Type 1 (PFB) fonts open too. Converting a font does not change its licence. Python's fontTools runs in your browser, so the font is not uploaded.",
+   "title": "Font Converter Free: Convert TTF, OTF, WOFF2, WOFF Online | Toolz Baba",
+   "metaDesc": "Convert fonts to TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG or DFONT. WOFF2 for websites, TTF for design. Free, nothing uploaded.",
+   "steps": [
+    "Add your font files.",
+    "Choose the format to convert to.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "Which format should I use on a website?",
+     "a": "WOFF2. It is the smallest and every current browser reads it. Add WOFF as well only if you need very old browsers."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "In WOFF, WOFF2, TTC and DFONT the font is the same, only packed differently. Between TTF and OTF the shapes stay the same and only the hinting is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
    "slug": "pdf-editor",
    "cat": "pdf",
    "icon": "✏️",
@@ -25805,6 +25839,2502 @@
     },
     {
      "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to OTF",
+   "tab": "TTF to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to OTF Converter Free: Convert TTF Font to OTF Online",
+   "desc": "Convert TTF fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to OTF font converter. Turn TTF files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to OTF. Every glyph, metric, kerning pair and name in the TTF is read. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to OTF?",
+     "a": "Add the TTF files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to WOFF",
+   "tab": "TTF to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to WOFF Converter Free: Convert TTF Font to WOFF Online",
+   "desc": "Convert TTF fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to WOFF font converter. Turn TTF files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to WOFF. Every glyph, metric, kerning pair and name in the TTF is read. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to WOFF?",
+     "a": "Add the TTF files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to WOFF2",
+   "tab": "TTF to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to WOFF2 Converter Free: Convert TTF Font to WOFF2 Online",
+   "desc": "Convert TTF fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to WOFF2 font converter. Turn TTF files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to WOFF2. Every glyph, metric, kerning pair and name in the TTF is read. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to WOFF2?",
+     "a": "Add the TTF files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to TTC",
+   "tab": "TTF to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to TTC Converter Free: Convert TTF Font to TTC Online",
+   "desc": "Convert TTF fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to TTC font converter. Turn TTF files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to TTC. Every glyph, metric, kerning pair and name in the TTF is read. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to TTC?",
+     "a": "Add the TTF files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to EOT",
+   "tab": "TTF to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to EOT Converter Free: Convert TTF Font to EOT Online",
+   "desc": "Convert TTF fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to EOT font converter. Turn TTF files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to EOT. Every glyph, metric, kerning pair and name in the TTF is read. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to EOT?",
+     "a": "Add the TTF files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to SVG",
+   "tab": "TTF to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to SVG Converter Free: Convert TTF Font to SVG Font Online",
+   "desc": "Convert TTF fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to SVG font converter. Turn TTF files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to SVG Font. Every glyph, metric, kerning pair and name in the TTF is read. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to SVG?",
+     "a": "Add the TTF files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF to DFONT",
+   "tab": "TTF to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF to DFONT Converter Free: Convert TTF Font to DFONT Online",
+   "desc": "Convert TTF fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTF to DFONT font converter. Turn TTF files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts to DFONT. Every glyph, metric, kerning pair and name in the TTF is read. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTF files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTF to DFONT?",
+     "a": "Add the TTF files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttf-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTF Converter",
+   "tab": "TTF Converter",
+   "dropLabel": "Drop your TTF files here",
+   "title": "TTF Converter Free: Convert TTF Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert TTF fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free TTF converter. Turn TTF fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTF fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. Every glyph, metric, kerning pair and name in the TTF is read. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your TTF files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert TTF to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to TTF",
+   "tab": "OTF to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to TTF Converter Free: Convert OTF Font to TTF Online",
+   "desc": "Convert OTF fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to TTF font converter. Turn OTF files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to TTF. OpenType fonts with CFF or TrueType outlines are both read. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to TTF?",
+     "a": "Add the OTF files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to WOFF",
+   "tab": "OTF to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to WOFF Converter Free: Convert OTF Font to WOFF Online",
+   "desc": "Convert OTF fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to WOFF font converter. Turn OTF files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to WOFF. OpenType fonts with CFF or TrueType outlines are both read. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to WOFF?",
+     "a": "Add the OTF files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to WOFF2",
+   "tab": "OTF to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to WOFF2 Converter Free: Convert OTF Font to WOFF2 Online",
+   "desc": "Convert OTF fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to WOFF2 font converter. Turn OTF files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to WOFF2. OpenType fonts with CFF or TrueType outlines are both read. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to WOFF2?",
+     "a": "Add the OTF files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to TTC",
+   "tab": "OTF to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to TTC Converter Free: Convert OTF Font to TTC Online",
+   "desc": "Convert OTF fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to TTC font converter. Turn OTF files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to TTC. OpenType fonts with CFF or TrueType outlines are both read. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to TTC?",
+     "a": "Add the OTF files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to EOT",
+   "tab": "OTF to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to EOT Converter Free: Convert OTF Font to EOT Online",
+   "desc": "Convert OTF fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to EOT font converter. Turn OTF files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to EOT. OpenType fonts with CFF or TrueType outlines are both read. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to EOT?",
+     "a": "Add the OTF files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to SVG",
+   "tab": "OTF to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to SVG Converter Free: Convert OTF Font to SVG Font Online",
+   "desc": "Convert OTF fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to SVG font converter. Turn OTF files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to SVG Font. OpenType fonts with CFF or TrueType outlines are both read. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to SVG?",
+     "a": "Add the OTF files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF to DFONT",
+   "tab": "OTF to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF to DFONT Converter Free: Convert OTF Font to DFONT Online",
+   "desc": "Convert OTF fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free OTF to DFONT font converter. Turn OTF files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts to DFONT. OpenType fonts with CFF or TrueType outlines are both read. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your OTF files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert OTF to DFONT?",
+     "a": "Add the OTF files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "otf-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "OTF Converter",
+   "tab": "OTF Converter",
+   "dropLabel": "Drop your OTF files here",
+   "title": "OTF Converter Free: Convert OTF Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert OTF fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free OTF converter. Turn OTF fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert OTF fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. OpenType fonts with CFF or TrueType outlines are both read. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your OTF files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert OTF to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to TTF",
+   "tab": "WOFF to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to TTF Converter Free: Convert WOFF Font to TTF Online",
+   "desc": "Convert WOFF fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to TTF font converter. Turn WOFF files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to TTF. The WOFF is unpacked to the full font first. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to TTF?",
+     "a": "Add the WOFF files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to OTF",
+   "tab": "WOFF to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to OTF Converter Free: Convert WOFF Font to OTF Online",
+   "desc": "Convert WOFF fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to OTF font converter. Turn WOFF files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to OTF. The WOFF is unpacked to the full font first. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to OTF?",
+     "a": "Add the WOFF files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to WOFF2",
+   "tab": "WOFF to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to WOFF2 Converter Free: Convert WOFF Font to WOFF2 Online",
+   "desc": "Convert WOFF fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to WOFF2 font converter. Turn WOFF files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to WOFF2. The WOFF is unpacked to the full font first. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to WOFF2?",
+     "a": "Add the WOFF files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to TTC",
+   "tab": "WOFF to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to TTC Converter Free: Convert WOFF Font to TTC Online",
+   "desc": "Convert WOFF fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to TTC font converter. Turn WOFF files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to TTC. The WOFF is unpacked to the full font first. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to TTC?",
+     "a": "Add the WOFF files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to EOT",
+   "tab": "WOFF to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to EOT Converter Free: Convert WOFF Font to EOT Online",
+   "desc": "Convert WOFF fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to EOT font converter. Turn WOFF files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to EOT. The WOFF is unpacked to the full font first. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to EOT?",
+     "a": "Add the WOFF files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to SVG",
+   "tab": "WOFF to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to SVG Converter Free: Convert WOFF Font to SVG Font Online",
+   "desc": "Convert WOFF fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to SVG font converter. Turn WOFF files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to SVG Font. The WOFF is unpacked to the full font first. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to SVG?",
+     "a": "Add the WOFF files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF to DFONT",
+   "tab": "WOFF to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF to DFONT Converter Free: Convert WOFF Font to DFONT Online",
+   "desc": "Convert WOFF fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF to DFONT font converter. Turn WOFF files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts to DFONT. The WOFF is unpacked to the full font first. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF to DFONT?",
+     "a": "Add the WOFF files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF Converter",
+   "tab": "WOFF Converter",
+   "dropLabel": "Drop your WOFF files here",
+   "title": "WOFF Converter Free: Convert WOFF Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert WOFF fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free WOFF converter. Turn WOFF fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. The WOFF is unpacked to the full font first. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your WOFF files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert WOFF to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to TTF",
+   "tab": "WOFF2 to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to TTF Converter Free: Convert WOFF2 Font to TTF Online",
+   "desc": "Convert WOFF2 fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to TTF font converter. Turn WOFF2 files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to TTF. The WOFF2 is decompressed (it uses Brotli) to the full font first. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to TTF?",
+     "a": "Add the WOFF2 files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to OTF",
+   "tab": "WOFF2 to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to OTF Converter Free: Convert WOFF2 Font to OTF Online",
+   "desc": "Convert WOFF2 fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to OTF font converter. Turn WOFF2 files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to OTF. The WOFF2 is decompressed (it uses Brotli) to the full font first. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to OTF?",
+     "a": "Add the WOFF2 files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to WOFF",
+   "tab": "WOFF2 to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to WOFF Converter Free: Convert WOFF2 Font to WOFF Online",
+   "desc": "Convert WOFF2 fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to WOFF font converter. Turn WOFF2 files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to WOFF. The WOFF2 is decompressed (it uses Brotli) to the full font first. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to WOFF?",
+     "a": "Add the WOFF2 files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to TTC",
+   "tab": "WOFF2 to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to TTC Converter Free: Convert WOFF2 Font to TTC Online",
+   "desc": "Convert WOFF2 fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to TTC font converter. Turn WOFF2 files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to TTC. The WOFF2 is decompressed (it uses Brotli) to the full font first. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to TTC?",
+     "a": "Add the WOFF2 files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to EOT",
+   "tab": "WOFF2 to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to EOT Converter Free: Convert WOFF2 Font to EOT Online",
+   "desc": "Convert WOFF2 fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to EOT font converter. Turn WOFF2 files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to EOT. The WOFF2 is decompressed (it uses Brotli) to the full font first. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to EOT?",
+     "a": "Add the WOFF2 files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to SVG",
+   "tab": "WOFF2 to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to SVG Converter Free: Convert WOFF2 Font to SVG Font Online",
+   "desc": "Convert WOFF2 fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to SVG font converter. Turn WOFF2 files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to SVG Font. The WOFF2 is decompressed (it uses Brotli) to the full font first. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to SVG?",
+     "a": "Add the WOFF2 files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 to DFONT",
+   "tab": "WOFF2 to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 to DFONT Converter Free: Convert WOFF2 Font to DFONT Online",
+   "desc": "Convert WOFF2 fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 to DFONT font converter. Turn WOFF2 files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts to DFONT. The WOFF2 is decompressed (it uses Brotli) to the full font first. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert WOFF2 to DFONT?",
+     "a": "Add the WOFF2 files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "woff2-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "WOFF2 Converter",
+   "tab": "WOFF2 Converter",
+   "dropLabel": "Drop your WOFF2 files here",
+   "title": "WOFF2 Converter Free: Convert WOFF2 Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert WOFF2 fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free WOFF2 converter. Turn WOFF2 fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert WOFF2 fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. The WOFF2 is decompressed (it uses Brotli) to the full font first. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your WOFF2 files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert WOFF2 to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to TTF",
+   "tab": "TTC to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to TTF Converter Free: Convert TTC Font to TTF Online",
+   "desc": "Convert TTC fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to TTF font converter. Turn TTC files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to TTF. Every font inside the collection is converted, each to its own file. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to TTF?",
+     "a": "Add the TTC files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to OTF",
+   "tab": "TTC to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to OTF Converter Free: Convert TTC Font to OTF Online",
+   "desc": "Convert TTC fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to OTF font converter. Turn TTC files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to OTF. Every font inside the collection is converted, each to its own file. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to OTF?",
+     "a": "Add the TTC files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to WOFF",
+   "tab": "TTC to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to WOFF Converter Free: Convert TTC Font to WOFF Online",
+   "desc": "Convert TTC fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to WOFF font converter. Turn TTC files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to WOFF. Every font inside the collection is converted, each to its own file. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to WOFF?",
+     "a": "Add the TTC files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to WOFF2",
+   "tab": "TTC to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to WOFF2 Converter Free: Convert TTC Font to WOFF2 Online",
+   "desc": "Convert TTC fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to WOFF2 font converter. Turn TTC files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to WOFF2. Every font inside the collection is converted, each to its own file. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to WOFF2?",
+     "a": "Add the TTC files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to EOT",
+   "tab": "TTC to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to EOT Converter Free: Convert TTC Font to EOT Online",
+   "desc": "Convert TTC fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to EOT font converter. Turn TTC files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to EOT. Every font inside the collection is converted, each to its own file. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to EOT?",
+     "a": "Add the TTC files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to SVG",
+   "tab": "TTC to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to SVG Converter Free: Convert TTC Font to SVG Font Online",
+   "desc": "Convert TTC fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to SVG font converter. Turn TTC files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to SVG Font. Every font inside the collection is converted, each to its own file. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to SVG?",
+     "a": "Add the TTC files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC to DFONT",
+   "tab": "TTC to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC to DFONT Converter Free: Convert TTC Font to DFONT Online",
+   "desc": "Convert TTC fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free TTC to DFONT font converter. Turn TTC files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts to DFONT. Every font inside the collection is converted, each to its own file. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your TTC files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert TTC to DFONT?",
+     "a": "Add the TTC files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ttc-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "TTC Converter",
+   "tab": "TTC Converter",
+   "dropLabel": "Drop your TTC files here",
+   "title": "TTC Converter Free: Convert TTC Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert TTC fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free TTC converter. Turn TTC fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert TTC fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. Every font inside the collection is converted, each to its own file. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your TTC files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert TTC to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to TTF",
+   "tab": "EOT to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to TTF Converter Free: Convert EOT Font to TTF Online",
+   "desc": "Convert EOT fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to TTF font converter. Turn EOT files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to TTF. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to TTF?",
+     "a": "Add the EOT files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to OTF",
+   "tab": "EOT to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to OTF Converter Free: Convert EOT Font to OTF Online",
+   "desc": "Convert EOT fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to OTF font converter. Turn EOT files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to OTF. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to OTF?",
+     "a": "Add the EOT files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to WOFF",
+   "tab": "EOT to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to WOFF Converter Free: Convert EOT Font to WOFF Online",
+   "desc": "Convert EOT fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to WOFF font converter. Turn EOT files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to WOFF. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to WOFF?",
+     "a": "Add the EOT files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to WOFF2",
+   "tab": "EOT to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to WOFF2 Converter Free: Convert EOT Font to WOFF2 Online",
+   "desc": "Convert EOT fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to WOFF2 font converter. Turn EOT files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to WOFF2. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to WOFF2?",
+     "a": "Add the EOT files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to TTC",
+   "tab": "EOT to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to TTC Converter Free: Convert EOT Font to TTC Online",
+   "desc": "Convert EOT fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to TTC font converter. Turn EOT files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to TTC. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to TTC?",
+     "a": "Add the EOT files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to SVG",
+   "tab": "EOT to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to SVG Converter Free: Convert EOT Font to SVG Font Online",
+   "desc": "Convert EOT fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to SVG font converter. Turn EOT files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to SVG Font. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to SVG?",
+     "a": "Add the EOT files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT to DFONT",
+   "tab": "EOT to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT to DFONT Converter Free: Convert EOT Font to DFONT Online",
+   "desc": "Convert EOT fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free EOT to DFONT font converter. Turn EOT files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts to DFONT. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your EOT files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EOT to DFONT?",
+     "a": "Add the EOT files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "eot-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "EOT Converter",
+   "tab": "EOT Converter",
+   "dropLabel": "Drop your EOT files here",
+   "title": "EOT Converter Free: Convert EOT Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert EOT fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free EOT converter. Turn EOT fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert EOT fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. The font inside the EOT is taken out; EOT files compressed with MicroType Express are the one kind that cannot be opened. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your EOT files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert EOT to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to TTF",
+   "tab": "DFONT to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to TTF Converter Free: Convert DFONT Font to TTF Online",
+   "desc": "Convert DFONT fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to TTF font converter. Turn DFONT files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to TTF. Every font inside the Mac suitcase is converted, each to its own file. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to TTF?",
+     "a": "Add the DFONT files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to OTF",
+   "tab": "DFONT to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to OTF Converter Free: Convert DFONT Font to OTF Online",
+   "desc": "Convert DFONT fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to OTF font converter. Turn DFONT files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to OTF. Every font inside the Mac suitcase is converted, each to its own file. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to OTF?",
+     "a": "Add the DFONT files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to WOFF",
+   "tab": "DFONT to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to WOFF Converter Free: Convert DFONT Font to WOFF Online",
+   "desc": "Convert DFONT fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to WOFF font converter. Turn DFONT files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to WOFF. Every font inside the Mac suitcase is converted, each to its own file. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to WOFF?",
+     "a": "Add the DFONT files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to WOFF2",
+   "tab": "DFONT to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to WOFF2 Converter Free: Convert DFONT Font to WOFF2 Online",
+   "desc": "Convert DFONT fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to WOFF2 font converter. Turn DFONT files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to WOFF2. Every font inside the Mac suitcase is converted, each to its own file. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to WOFF2?",
+     "a": "Add the DFONT files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to TTC",
+   "tab": "DFONT to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to TTC Converter Free: Convert DFONT Font to TTC Online",
+   "desc": "Convert DFONT fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to TTC font converter. Turn DFONT files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to TTC. Every font inside the Mac suitcase is converted, each to its own file. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to TTC?",
+     "a": "Add the DFONT files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to EOT",
+   "tab": "DFONT to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to EOT Converter Free: Convert DFONT Font to EOT Online",
+   "desc": "Convert DFONT fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to EOT font converter. Turn DFONT files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to EOT. Every font inside the Mac suitcase is converted, each to its own file. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to EOT?",
+     "a": "Add the DFONT files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT to SVG",
+   "tab": "DFONT to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT to SVG Converter Free: Convert DFONT Font to SVG Font Online",
+   "desc": "Convert DFONT fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free DFONT to SVG font converter. Turn DFONT files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts to SVG Font. Every font inside the Mac suitcase is converted, each to its own file. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your DFONT files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert DFONT to SVG?",
+     "a": "Add the DFONT files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "dfont-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "DFONT Converter",
+   "tab": "DFONT Converter",
+   "dropLabel": "Drop your DFONT files here",
+   "title": "DFONT Converter Free: Convert DFONT Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert DFONT fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free DFONT converter. Turn DFONT fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert DFONT fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. Every font inside the Mac suitcase is converted, each to its own file. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your DFONT files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert DFONT to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to TTF",
+   "tab": "PFB to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to TTF Converter Free: Convert PFB Font to TTF Online",
+   "desc": "Convert PFB fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to TTF font converter. Turn PFB files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to TTF. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to TTF?",
+     "a": "Add the PFB files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to OTF",
+   "tab": "PFB to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to OTF Converter Free: Convert PFB Font to OTF Online",
+   "desc": "Convert PFB fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to OTF font converter. Turn PFB files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to OTF. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to OTF?",
+     "a": "Add the PFB files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to WOFF",
+   "tab": "PFB to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to WOFF Converter Free: Convert PFB Font to WOFF Online",
+   "desc": "Convert PFB fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to WOFF font converter. Turn PFB files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to WOFF. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to WOFF?",
+     "a": "Add the PFB files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to WOFF2",
+   "tab": "PFB to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to WOFF2 Converter Free: Convert PFB Font to WOFF2 Online",
+   "desc": "Convert PFB fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to WOFF2 font converter. Turn PFB files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to WOFF2. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to WOFF2?",
+     "a": "Add the PFB files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to TTC",
+   "tab": "PFB to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to TTC Converter Free: Convert PFB Font to TTC Online",
+   "desc": "Convert PFB fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to TTC font converter. Turn PFB files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to TTC. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to TTC?",
+     "a": "Add the PFB files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to EOT",
+   "tab": "PFB to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to EOT Converter Free: Convert PFB Font to EOT Online",
+   "desc": "Convert PFB fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to EOT font converter. Turn PFB files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to EOT. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to EOT?",
+     "a": "Add the PFB files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-svg",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to SVG",
+   "tab": "PFB to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to SVG Converter Free: Convert PFB Font to SVG Font Online",
+   "desc": "Convert PFB fonts to SVG Font, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to SVG font converter. Turn PFB files into SVG Font online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to SVG Font. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. An SVG font describes every letter as an SVG path. Old iPhones needed it for web fonts; today it is handy for editing letter shapes or loading them into icon, embroidery and cutting-machine programs. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "SVG Font is already selected.",
+    "Convert and download the SVG Font."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to SVG?",
+     "a": "Add the PFB files above; SVG Font is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "SVG fonts have no kerning or OpenType features, so those are left out; every letter shape and width is kept."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB to DFONT",
+   "tab": "PFB to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB to DFONT Converter Free: Convert PFB Font to DFONT Online",
+   "desc": "Convert PFB fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free PFB to DFONT font converter. Turn PFB files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts to DFONT. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your PFB files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert PFB to DFONT?",
+     "a": "Add the PFB files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pfb-converter",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "PFB Converter",
+   "tab": "PFB Converter",
+   "dropLabel": "Drop your PFB files here",
+   "title": "PFB Converter Free: Convert PFB Fonts to WOFF2, TTF, OTF and More",
+   "desc": "Convert PFB fonts to WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT. Nothing uploaded.",
+   "metaDesc": "Free PFB converter. Turn PFB fonts into WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG or DFONT online. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert PFB fonts into whatever you need: WOFF2 or WOFF for a website, TTF or OTF for design programs, TTC, EOT, SVG font or DFONT for older systems. The Type 1 (PostScript) outlines, widths and glyph names are read and turned into a modern font, with each letter matched to its Unicode character from its glyph name. If you already know the format you want, its page is linked above and arrives with it chosen. Everything runs in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your PFB files.",
+    "Choose the format you want.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "What can I convert PFB to?",
+     "a": "WOFF2, WOFF, TTF, OTF, EOT, TTC, SVG font and DFONT. Pick it from the list after you add your fonts."
+    },
+    {
+     "q": "Can I convert several fonts at once?",
+     "a": "Yes. Add as many as you like; for TTC and DFONT they all go into one file."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-ttf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to TTF",
+   "tab": "SVG to TTF",
+   "preset": {
+    "format": "ttf"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to TTF Converter Free: Convert SVG Font to TTF Online",
+   "desc": "Convert SVG Font fonts to TTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to TTF font converter. Turn SVG Font files into TTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to TTF. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. TTF (TrueType) installs on Windows, Mac and Linux and works in every design program. CFF outlines are turned into TrueType curves that look the same. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "TTF is already selected.",
+    "Convert and download the TTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to TTF?",
+     "a": "Add the SVG Font files above; TTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. Fonts with CFF outlines lose their PostScript hints, which modern screens rarely use."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-otf",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to OTF",
+   "tab": "SVG to OTF",
+   "preset": {
+    "format": "otf"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to OTF Converter Free: Convert SVG Font to OTF Online",
+   "desc": "Convert SVG Font fonts to OTF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to OTF font converter. Turn SVG Font files into OTF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to OTF. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. OTF here means OpenType with CFF (PostScript) outlines, the kind type designers ship. TrueType curves become cubic CFF curves with the same shapes; TrueType hinting is dropped. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "OTF is already selected.",
+    "Convert and download the OTF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to OTF?",
+     "a": "Add the SVG Font files above; OTF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes, widths and kerning stay the same. TrueType hinting has no place in a CFF font, so it is dropped."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-woff",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to WOFF",
+   "tab": "SVG to WOFF",
+   "preset": {
+    "format": "woff"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to WOFF Converter Free: Convert SVG Font to WOFF Online",
+   "desc": "Convert SVG Font fonts to WOFF, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to WOFF font converter. Turn SVG Font files into WOFF online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to WOFF. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. WOFF is a compressed font for websites that every browser of the last decade reads; WOFF2 is smaller if you only need current browsers. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "WOFF is already selected.",
+    "Convert and download the WOFF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to WOFF?",
+     "a": "Add the SVG Font files above; WOFF is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-woff2",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to WOFF2",
+   "tab": "SVG to WOFF2",
+   "preset": {
+    "format": "woff2"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to WOFF2 Converter Free: Convert SVG Font to WOFF2 Online",
+   "desc": "Convert SVG Font fonts to WOFF2, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to WOFF2 font converter. Turn SVG Font files into WOFF2 online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to WOFF2. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. WOFF2 is the smallest web font format, usually 30 to 60% smaller than the TTF, and every current browser supports it in @font-face. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "WOFF2 is already selected.",
+    "Convert and download the WOFF2."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to WOFF2?",
+     "a": "Add the SVG Font files above; WOFF2 is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: the font is the same, only compressed for the web."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-ttc",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to TTC",
+   "tab": "SVG to TTC",
+   "preset": {
+    "format": "ttc"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to TTC Converter Free: Convert SVG Font to TTC Online",
+   "desc": "Convert SVG Font fonts to TTC, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to TTC font converter. Turn SVG Font files into TTC online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to TTC. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. A TTC (TrueType Collection) keeps several fonts in one file: add several fonts and they all go into the same collection. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "TTC is already selected.",
+    "Convert and download the TTC."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to TTC?",
+     "a": "Add the SVG Font files above; TTC is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the collection."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-eot",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to EOT",
+   "tab": "SVG to EOT",
+   "preset": {
+    "format": "eot"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to EOT Converter Free: Convert SVG Font to EOT Online",
+   "desc": "Convert SVG Font fonts to EOT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to EOT font converter. Turn SVG Font files into EOT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to EOT. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. EOT is the web font format of old Internet Explorer (versions 6 to 8). Only those browsers need it; everything else uses WOFF or WOFF2. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "EOT is already selected.",
+    "Convert and download the EOT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to EOT?",
+     "a": "Add the SVG Font files above; EOT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "The shapes and widths stay the same; the EOT carries a TrueType copy of the font."
+    },
+    {
+     "q": "Is my font uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-dfont",
+   "base": "font-converter",
+   "cat": "util",
+   "kind": "client",
+   "name": "SVG to DFONT",
+   "tab": "SVG to DFONT",
+   "preset": {
+    "format": "dfont"
+   },
+   "dropLabel": "Drop your SVG Font files here",
+   "title": "SVG to DFONT Converter Free: Convert SVG Font to DFONT Online",
+   "desc": "Convert SVG Font fonts to DFONT, every letter and metric kept. Nothing uploaded.",
+   "metaDesc": "Free SVG to DFONT font converter. Turn SVG Font files into DFONT online with every glyph, width and name kept. Runs in your browser, so nothing is uploaded.",
+   "about": "Convert SVG Font fonts to DFONT. The file must be an SVG font, one with a <font> element and a <glyph> for each letter; an ordinary SVG drawing has no letters to convert. DFONT is the Mac's own font suitcase format, kept for older Mac software. The fonts are stored inside as standard TrueType or OpenType data. Several fonts can be converted at once. Converting does not change the font's licence. The conversion runs in your browser, so your fonts never leave your device.",
+   "steps": [
+    "Add your SVG Font files.",
+    "DFONT is already selected.",
+    "Convert and download the DFONT."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to DFONT?",
+     "a": "Add the SVG Font files above; DFONT is already chosen. Press Convert and download the result."
+    },
+    {
+     "q": "Is anything lost?",
+     "a": "Nothing: each font is stored as it is inside the suitcase."
+    },
+    {
+     "q": "Is my font uploaded?",
      "a": "No. It is converted inside your browser and never leaves your device."
     }
    ]

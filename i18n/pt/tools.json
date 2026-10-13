@@ -3254,5 +3254,32 @@
    }
   ],
   "tabAll": "Todos os formatos"
+ },
+ "font-converter": {
+  "name": "Conversor de fontes",
+  "desc": "Converta entre TTF, OTF, WOFF, WOFF2, EOT, TTC, DFONT, fontes SVG e Type 1. Funciona no seu navegador.",
+  "title": "Conversor de fontes grátis: TTF, OTF, WOFF2, WOFF online | Toolz Baba",
+  "metaDesc": "Converta fontes em TTF, OTF, WOFF, WOFF2, EOT, TTC, SVG ou DFONT. WOFF2 para sites, TTF para design. Grátis, nada é enviado.",
+  "about": "Converta qualquer fonte para o formato que precisar: WOFF2 para sites (o menor), TTF ou OTF para Windows, Mac e apps de design, TTC para várias fontes num arquivo, e EOT, fonte SVG ou DFONT para sistemas antigos. Todos os glifos, métricas, kerning e nomes são mantidos; quando o formato pede outro tipo de curva (TrueType ou CFF), as curvas são convertidas sem mudar a forma. Fontes Type 1 (PFB) antigas também abrem. Converter uma fonte não muda a licença dela. O fontTools do Python roda no seu navegador, então a fonte não é enviada.",
+  "steps": [
+   "Adicione seus arquivos de fonte.",
+   "Escolha o formato de destino.",
+   "Converta e baixe."
+  ],
+  "faq": [
+   {
+    "q": "Qual formato usar num site?",
+    "a": "WOFF2: é o menor e todos os navegadores atuais leem. Inclua WOFF se precisar de navegadores muito antigos."
+   },
+   {
+    "q": "Perde-se alguma coisa?",
+    "a": "Em WOFF, WOFF2, TTC e DFONT a fonte é a mesma, só empacotada de outro jeito. Entre TTF e OTF as formas não mudam; só o hinting sai."
+   },
+   {
+    "q": "Minha fonte é enviada?",
+    "a": "Não. Ela é convertida no seu navegador e nunca sai do seu dispositivo."
+   }
+  ],
+  "tabAll": "Todos os formatos"
  }
 }

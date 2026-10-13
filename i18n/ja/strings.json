@@ -1848,5 +1848,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "どんなファイルでも、いくつでも。ブラウザ内でまとめます：アップロードはありません。",
 "The height follows the drawing.": "高さは図に合わせて決まります。",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "SVG ファイルをいくつでも。選んだサイズでくっきり、ブラウザ内で描きます。",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator（AI）ファイルと PDF。ブラウザで動作：アップロードはありません。"
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator（AI）ファイルと PDF。ブラウザで動作：アップロードはありません。",
+"WOFF2 (websites)": "WOFF2（ウェブサイト）",
+"WOFF (older browsers)": "WOFF（古いブラウザ）",
+"TTC (font collection)": "TTC（フォントコレクション）",
+"EOT (old Internet Explorer)": "EOT（古い Internet Explorer）",
+"SVG font": "SVG フォント",
+"DFONT (Mac)": "DFONT（Mac）",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF、OTF、WOFF、WOFF2、TTC、EOT、DFONT、SVG フォント、Type 1（PFB）。ブラウザ内で変換：アップロードはありません。",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "最初の変換時にフォントエンジンを一度だけダウンロードします（約 15 MB）。以降はすぐに始まります。"
 }

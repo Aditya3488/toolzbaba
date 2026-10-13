@@ -1766,5 +1766,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "File apa pun, sebanyak yang Anda mau. Dikemas di browser Anda: tidak ada yang diunggah.",
 "The height follows the drawing.": "Tinggi mengikuti gambar.",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "File SVG, sebanyak yang Anda mau. Digambar tajam di ukuran pilihan Anda, di browser Anda.",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "File Illustrator (AI) dan PDF. Berjalan di browser Anda: tidak ada yang diunggah."
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "File Illustrator (AI) dan PDF. Berjalan di browser Anda: tidak ada yang diunggah.",
+"WOFF2 (websites)": "WOFF2 (situs web)",
+"WOFF (older browsers)": "WOFF (browser lama)",
+"TTC (font collection)": "TTC (koleksi font)",
+"EOT (old Internet Explorer)": "EOT (Internet Explorer lama)",
+"SVG font": "Font SVG",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, font SVG, dan Type 1 (PFB). Dikonversi di browser Anda: tidak ada yang diunggah.",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "Konversi pertama mengunduh mesin font sekali (sekitar 15 MB); setelah itu langsung mulai."
 }

@@ -1837,5 +1837,13 @@
 "Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Любые файлы, сколько угодно. Упаковка в браузере: ничего не загружается.",
 "The height follows the drawing.": "Высота подстраивается под рисунок.",
 "SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "Файлы SVG, сколько угодно. Рисуются чётко в выбранном размере, в вашем браузере.",
-"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Файлы Illustrator (AI) и PDF. Работает в браузере: ничего не загружается."
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Файлы Illustrator (AI) и PDF. Работает в браузере: ничего не загружается.",
+"WOFF2 (websites)": "WOFF2 (сайты)",
+"WOFF (older browsers)": "WOFF (старые браузеры)",
+"TTC (font collection)": "TTC (коллекция шрифтов)",
+"EOT (old Internet Explorer)": "EOT (старый Internet Explorer)",
+"SVG font": "SVG-шрифт",
+"DFONT (Mac)": "DFONT (Mac)",
+"TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG fonts and Type 1 (PFB). Converted in your browser: nothing is uploaded.": "TTF, OTF, WOFF, WOFF2, TTC, EOT, DFONT, SVG-шрифты и Type 1 (PFB). Конвертация в браузере: ничего не загружается.",
+"The first conversion downloads the font engine once (about 15 MB); after that it starts straight away.": "При первой конвертации движок шрифтов скачивается один раз (около 15 МБ); потом он запускается сразу."
 }
