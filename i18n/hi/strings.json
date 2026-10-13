@@ -1834,5 +1834,8 @@
 "File name": "फ़ाइल का नाम",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) और GZ। आपके ब्राउज़र में कन्वर्ट होता है: कुछ अपलोड नहीं होता।",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) और GZ। आपके ब्राउज़र में खुलता है: कुछ अपलोड नहीं होता।",
-"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "कोई भी फ़ाइलें, जितनी चाहें। आपके ब्राउज़र में पैक होती हैं: कुछ अपलोड नहीं होता।"
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "कोई भी फ़ाइलें, जितनी चाहें। आपके ब्राउज़र में पैक होती हैं: कुछ अपलोड नहीं होता।",
+"The height follows the drawing.": "ऊँचाई ड्रॉइंग के हिसाब से अपने-आप आती है।",
+"SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "SVG फ़ाइलें, जितनी चाहें। आपके चुने साइज़ पर शार्प, आपके ब्राउज़र में।",
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator (AI) फ़ाइलें और PDF। आपके ब्राउज़र में चलता है: कुछ अपलोड नहीं होता।"
 }

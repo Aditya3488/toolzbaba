@@ -1813,5 +1813,8 @@
 "File name": "Nombre del archivo",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) y GZ. Se convierte en tu navegador: no se sube nada.",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) y GZ. Se abre en tu navegador: no se sube nada.",
-"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Cualquier archivo, todos los que quieras. Se empaquetan en tu navegador: no se sube nada."
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Cualquier archivo, todos los que quieras. Se empaquetan en tu navegador: no se sube nada.",
+"The height follows the drawing.": "La altura sigue a la del dibujo.",
+"SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "Archivos SVG, todos los que quieras. Se dibujan nítidos al tamaño que elijas, en tu navegador.",
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Archivos de Illustrator (AI) y PDF. Funciona en tu navegador: no se sube nada."
 }

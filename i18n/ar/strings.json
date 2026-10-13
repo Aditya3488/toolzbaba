@@ -1831,5 +1831,8 @@
 "File name": "اسم الملف",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP وTAR وTAR.GZ (TGZ) وGZ. يُحوَّل في متصفحك: لا يُرفع أي شيء.",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP وTAR وTAR.GZ (TGZ) وGZ. يُفتح في متصفحك: لا يُرفع أي شيء.",
-"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "أي ملفات وبالعدد الذي تريده. تُضغط في متصفحك: لا يُرفع أي شيء."
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "أي ملفات وبالعدد الذي تريده. تُضغط في متصفحك: لا يُرفع أي شيء.",
+"The height follows the drawing.": "يتبع الارتفاع الرسم تلقائيًا.",
+"SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "ملفات SVG بالعدد الذي تريده. تُرسم حادة بالمقاس الذي تختاره، في متصفحك.",
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "ملفات Illustrator (AI) وPDF. يعمل في متصفحك: لا يُرفع أي شيء."
 }

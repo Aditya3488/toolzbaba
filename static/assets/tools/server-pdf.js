@@ -43,19 +43,30 @@ HT.register('compress-pdf', root => HT.serverTool(root, {
 }));
 
 HT.register('word-to-pdf', root => HT.serverTool(root, {
-  slug: 'word-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.tsv,.ods,.numbers', max: 10, action: 'Convert to PDF', compare: false,
+  slug: 'word-to-pdf', accept: '.docx,.txt,.xlsx,.xls,.csv,.tsv,.ods,.numbers,.epub,.mobi,.prc,.fb2', max: 10, action: 'Convert to PDF', compare: false,
   hint: 'Word (DOCX), text, Excel (XLSX, XLS), CSV, TSV, ODS and Numbers. Converted in your browser: simple layouts work best.',
 }));
 
 // Word, Markdown, web pages, text and spreadsheets drawn as pictures (the Word to PDF layout, one picture per page or one long picture)
 HT.register('document-to-image', root => HT.serverTool(root, {
-  slug: 'document-to-image', accept: '.docx,.md,.markdown,.html,.htm,.txt,.xlsx,.xls,.csv,.tsv,.ods,.numbers', max: 10, action: 'Convert to images', compare: false,
+  slug: 'document-to-image', accept: '.docx,.md,.markdown,.html,.htm,.txt,.xlsx,.xls,.csv,.tsv,.ods,.numbers,.epub,.mobi,.prc,.fb2', max: 10, action: 'Convert to images', compare: false,
   hint: 'Word (DOCX), Markdown, HTML, text, Excel (XLSX, XLS), CSV, ODS and Numbers. Runs in your browser.',
   fields: [
     { name: 'format', label: 'Image format', type: 'select', options: [['png', 'PNG'], ['jpg', 'JPG'], ['jpeg', 'JPEG'], ['webp', 'WebP'], ['tiff', 'TIFF'], ['gif', 'GIF'], ['bmp', 'BMP']] },
     { name: 'layout', label: 'Pictures', type: 'select', options: [['pages', 'One picture per page'], ['long', 'One long picture, cut to the content']] },
     { name: 'dpi', label: 'Quality (DPI)', type: 'select', value: 150, options: [[72, '72 – small'], [150, '150 – good'], [200, '200 – sharp'], [300, '300 – print']] },
     { name: 'pages', label: 'Pages', type: 'text', value: 'all', placeholder: 'all, or 1-3,5', help: 'Use all, or ranges like 1-3,5,8-10', showIf: v => v.layout !== 'long' },
+  ],
+}));
+
+// Illustrator (AI, saved with PDF compatibility) and PDF artwork -> pictures, a plain PDF, or SVG
+HT.register('ai-converter', root => HT.serverTool(root, {
+  slug: 'ai-converter', accept: '.ai,.pdf,application/pdf,application/illustrator,application/postscript', max: 20, action: 'Convert', compare: false,
+  hint: 'Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.',
+  fields: [
+    { name: 'format', label: 'Convert to', type: 'select', options: [['png', 'PNG'], ['jpg', 'JPG'], ['webp', 'WebP'], ['svg', 'SVG'], ['pdf', 'PDF'], ['ico', 'ICO (icon)'], ['tiff', 'TIFF']] },
+    { name: 'dpi', label: 'Quality (DPI)', type: 'select', value: 150, options: [[72, '72 – small'], [150, '150 – good'], [200, '200 – sharp'], [300, '300 – print']], showIf: v => !['svg', 'pdf'].includes(v.format) },
+    { name: 'pages', label: 'Pages', type: 'text', value: 'all', placeholder: 'all, or 1-3,5', help: 'Use all, or ranges like 1-3,5,8-10', showIf: v => v.format !== 'pdf' },
   ],
 }));
 

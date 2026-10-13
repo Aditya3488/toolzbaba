@@ -1815,5 +1815,8 @@
 "File name": "Dosya adı",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) ve GZ. Tarayıcınızda dönüştürülür: hiçbir şey yüklenmez.",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP, TAR, TAR.GZ (TGZ) ve GZ. Tarayıcınızda açılır: hiçbir şey yüklenmez.",
-"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Her türlü dosya, istediğiniz kadar. Tarayıcınızda paketlenir: hiçbir şey yüklenmez."
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "Her türlü dosya, istediğiniz kadar. Tarayıcınızda paketlenir: hiçbir şey yüklenmez.",
+"The height follows the drawing.": "Yükseklik çizime göre ayarlanır.",
+"SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "SVG dosyaları, istediğiniz kadar. Seçtiğiniz boyutta keskin çizilir, tarayıcınızda.",
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator (AI) dosyaları ve PDF'ler. Tarayıcınızda çalışır: hiçbir şey yüklenmez."
 }

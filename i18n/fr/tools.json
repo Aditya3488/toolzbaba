@@ -3200,5 +3200,59 @@
    }
   ],
   "tabAll": "Tous les formats"
+ },
+ "ai-converter": {
+  "name": "Convertisseur AI",
+  "desc": "Convertissez des fichiers Illustrator (AI) en PNG, JPG, SVG, PDF et plus. Fonctionne dans votre navigateur.",
+  "title": "Convertisseur de fichiers AI gratuit : AI en PNG, JPG, SVG, PDF en ligne | Toolz Baba",
+  "metaDesc": "Convertissez un fichier AI d'Illustrator en PNG, JPG, WebP, SVG, PDF ou ICO sans Illustrator. Chaque plan de travail à part. Gratuit, rien n'est envoyé.",
+  "about": "Ouvrez et convertissez des fichiers AI sans Illustrator : images PNG, JPG, WebP, TIFF ou ICO, PDF ordinaire, ou SVG où les formes restent vectorielles. Chaque plan de travail devient un fichier, et la netteté va de 72 à 300 DPI. Les fichiers AI d'Illustrator 9 et suivants contiennent un PDF (« Créer un fichier compatible PDF », activé par défaut) : c'est lui qui est dessiné. Les PDF sont acceptés aussi. Tout se passe dans votre navigateur : rien n'est envoyé.",
+  "steps": [
+   "Ajoutez votre fichier AI.",
+   "Choisissez le format et la qualité.",
+   "Convertissez et téléchargez."
+  ],
+  "faq": [
+   {
+    "q": "Peut-on ouvrir un AI sans Illustrator ?",
+    "a": "Oui. Les AI enregistrés depuis Illustrator 9 contiennent un PDF que cet outil lit directement. Rien à installer."
+   },
+   {
+    "q": "Pourquoi mon fichier AI ne s'ouvre-t-il pas ?",
+    "a": "Il a été enregistré sans compatibilité PDF, ou vient d'Illustrator 8 ou plus ancien. Ouvrez-le dans Illustrator et enregistrez-le avec « Créer un fichier compatible PDF »."
+   },
+   {
+    "q": "Mon fichier est-il envoyé ?",
+    "a": "Non. Il est converti dans votre navigateur et ne quitte jamais votre appareil."
+   }
+  ],
+  "tabAll": "Tous les formats"
+ },
+ "svg-converter": {
+  "name": "Convertisseur SVG",
+  "desc": "Convertissez un SVG en PNG, JPG, WebP, ICO et plus, à la largeur voulue. Fonctionne dans votre navigateur.",
+  "title": "Convertisseur SVG gratuit : SVG en PNG, JPG, WebP, ICO en ligne | Toolz Baba",
+  "metaDesc": "Convertissez un SVG en PNG, JPG, WebP, ICO, AVIF, GIF, BMP ou TIFF, net à toutes les largeurs. Plusieurs fichiers à la fois. Gratuit, rien n'est envoyé.",
+  "about": "Un SVG est un vecteur sans pixels : en le convertissant, vous choisissez la largeur et le dessin reste net à cette taille, 64 pixels pour une icône ou 4000 pour une affiche. PNG, WebP et ICO gardent la transparence ; pour le JPG, choisissez une couleur de fond. L'ICO contient toutes les tailles de 16 à 256 pixels pour les sites et Windows. Le SVG est dessiné dans votre navigateur : rien n'est envoyé.",
+  "steps": [
+   "Ajoutez vos fichiers SVG.",
+   "Choisissez le format et la largeur.",
+   "Convertissez et téléchargez."
+  ],
+  "faq": [
+   {
+    "q": "Quelle taille peut faire l'image ?",
+    "a": "Jusqu'à 8000 pixels de large, avec des bords nets à toutes les tailles puisque le SVG est dessiné à cette taille."
+   },
+   {
+    "q": "La transparence est-elle conservée ?",
+    "a": "Oui, en PNG, WebP, AVIF et ICO. Le JPG et le BMP ne peuvent pas être transparents : choisissez une couleur de fond."
+   },
+   {
+    "q": "Mon fichier est-il envoyé ?",
+    "a": "Non. Le SVG est dessiné dans votre navigateur."
+   }
+  ],
+  "tabAll": "Tous les formats"
  }
 }

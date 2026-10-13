@@ -3200,5 +3200,59 @@
    }
   ],
   "tabAll": "Tüm biçimler"
+ },
+ "ai-converter": {
+  "name": "AI Dönüştürücü",
+  "desc": "Illustrator (AI) dosyalarını PNG, JPG, SVG, PDF ve daha fazlasına dönüştürün. Tarayıcınızda çalışır.",
+  "title": "AI Dosya Dönüştürücü Ücretsiz: AI'dan PNG, JPG, SVG, PDF'ye Online | Toolz Baba",
+  "metaDesc": "Illustrator AI dosyasını Illustrator olmadan PNG, JPG, WebP, SVG, PDF veya ICO'ya dönüştürün. Her çalışma yüzeyi ayrı. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "AI dosyalarını Illustrator olmadan açıp dönüştürün: PNG, JPG, WebP, TIFF veya ICO resimleri, sıradan bir PDF ya da şekillerin vektör kaldığı bir SVG. Her çalışma yüzeyi ayrı bir dosya olur, resim netliği 72 ile 300 DPI arasında seçilir. Illustrator 9 ve sonrası AI dosyaları içinde bir PDF taşır (\"PDF Uyumlu Dosya Oluştur\", varsayılan olarak açık), çizim de oradan yapılır. PDF dosyaları da olur. Her şey tarayıcınızda olur, hiçbir şey yüklenmez.",
+  "steps": [
+   "AI dosyanızı ekleyin.",
+   "Biçimi ve kaliteyi seçin.",
+   "Dönüştürün ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "AI dosyası Illustrator olmadan açılır mı?",
+    "a": "Evet. Illustrator 9 ve sonrasında kaydedilen AI dosyaları içinde bu aracın doğrudan okuduğu bir PDF taşır. Hiçbir şey kurmanız gerekmez."
+   },
+   {
+    "q": "AI dosyam neden açılmadı?",
+    "a": "PDF uyumluluğu olmadan kaydedilmiş ya da Illustrator 8 veya daha eskisinden. Illustrator'da açıp \"PDF Uyumlu Dosya Oluştur\" ile yeniden kaydedin."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. Tarayıcınızda dönüştürülür ve cihazınızdan hiç çıkmaz."
+   }
+  ],
+  "tabAll": "Tüm biçimler"
+ },
+ "svg-converter": {
+  "name": "SVG Dönüştürücü",
+  "desc": "SVG'yi istediğiniz genişlikte PNG, JPG, WebP, ICO ve daha fazlasına dönüştürün. Tarayıcınızda çalışır.",
+  "title": "SVG Dönüştürücü Ücretsiz: SVG'den PNG, JPG, WebP, ICO'ya Online | Toolz Baba",
+  "metaDesc": "SVG'yi PNG, JPG, WebP, ICO, AVIF, GIF, BMP veya TIFF'e dönüştürün, her genişlikte keskin. Birden çok dosya aynı anda. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "SVG piksel içermeyen bir vektördür; dönüştürürken genişliği siz seçersiniz ve çizim o boyutta keskin çıkar: simge için 64 piksel, afiş için 4000. PNG, WebP ve ICO saydamlığı korur; JPG için bir arka plan rengi seçin. ICO, web siteleri ve Windows için 16'dan 256 piksele kadar tüm boyutları içerir. SVG tarayıcınızda çizilir, hiçbir şey yüklenmez.",
+  "steps": [
+   "SVG dosyalarınızı ekleyin.",
+   "Biçimi ve genişliği seçin.",
+   "Dönüştürün ve indirin."
+  ],
+  "faq": [
+   {
+    "q": "Resim ne kadar büyük olabilir?",
+    "a": "8000 piksel genişliğe kadar; SVG o boyutta çizildiği için her boyutta kenarlar keskin kalır."
+   },
+   {
+    "q": "Saydamlık korunuyor mu?",
+    "a": "Evet, PNG, WebP, AVIF ve ICO'da. JPG ve BMP saydam olamaz; bir arka plan rengi seçin."
+   },
+   {
+    "q": "Dosyam yükleniyor mu?",
+    "a": "Hayır. SVG tarayıcınızda çizilir."
+   }
+  ],
+  "tabAll": "Tüm biçimler"
  }
 }

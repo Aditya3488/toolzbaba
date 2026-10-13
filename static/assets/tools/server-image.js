@@ -68,6 +68,17 @@ HT.register('image-to-svg', root => HT.serverTool(root, {
   fields: [{ name: 'preset', label: 'Type of image', type: 'select', options: [['logo', 'Logo / icon / illustration'], ['photo', 'Photo (more detail, bigger file)'], ['bw', 'Black & white line art']] }],
 }));
 
+// SVG drawn as a picture at the width you choose
+HT.register('svg-converter', root => HT.serverTool(root, {
+  slug: 'svg-converter', accept: '.svg,image/svg+xml', max: 40, action: 'Convert', compare: false,
+  hint: 'SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.',
+  fields: [
+    { name: 'format', label: 'Convert to', type: 'select', options: [['png', 'PNG'], ['jpg', 'JPG'], ['webp', 'WebP'], ['ico', 'ICO (icon)'], ['avif', 'AVIF'], ['gif', 'GIF'], ['bmp', 'BMP'], ['tiff', 'TIFF']] },
+    { name: 'width', label: 'Width (px)', type: 'number', value: 1024, min: 16, max: 8000, showIf: v => v.format !== 'ico', help: 'The height follows the drawing.' },
+    { name: 'background', label: 'Background for transparent areas', type: 'color', value: '#ffffff', showIf: v => ['jpg', 'bmp'].includes(v.format), help: 'JPG and BMP cannot be transparent.' },
+  ],
+}));
+
 HT.register('passport-size-photo-maker', root => HT.serverTool(root, {
   slug: 'passport-size-photo-maker', accept: 'image/*,.heic,.heif,.avif', max: 1, action: 'Make passport photo', compare: true,
   hint: 'Use a clear, front-facing photo with your whole head visible and even lighting',

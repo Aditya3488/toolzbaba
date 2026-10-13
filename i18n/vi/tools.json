@@ -3200,5 +3200,59 @@
    }
   ],
   "tabAll": "Tất cả định dạng"
+ },
+ "ai-converter": {
+  "name": "Chuyển đổi AI",
+  "desc": "Chuyển tệp Illustrator (AI) sang PNG, JPG, SVG, PDF và hơn thế. Chạy trong trình duyệt.",
+  "title": "Chuyển đổi tệp AI miễn phí: AI sang PNG, JPG, SVG, PDF trực tuyến | Toolz Baba",
+  "metaDesc": "Chuyển tệp AI của Illustrator sang PNG, JPG, WebP, SVG, PDF hoặc ICO mà không cần Illustrator. Mỗi artboard riêng. Miễn phí, không tải lên.",
+  "about": "Mở và chuyển tệp AI không cần Illustrator: ảnh PNG, JPG, WebP, TIFF hoặc ICO, một PDF thông thường, hoặc SVG mà các hình vẫn là vector. Mỗi artboard thành một tệp riêng, độ nét ảnh chọn từ 72 đến 300 DPI. Tệp AI từ Illustrator 9 trở đi có chứa một PDF (\"Create PDF Compatible File\", bật sẵn), và hình được vẽ từ đó. Tệp PDF cũng dùng được. Mọi thứ diễn ra trong trình duyệt, nên không có gì bị tải lên.",
+  "steps": [
+   "Thêm tệp AI của bạn.",
+   "Chọn định dạng và chất lượng.",
+   "Chuyển đổi và tải về."
+  ],
+  "faq": [
+   {
+    "q": "Có mở được tệp AI mà không cần Illustrator không?",
+    "a": "Có. Tệp AI lưu từ Illustrator 9 trở đi chứa một PDF mà công cụ này đọc trực tiếp. Không cần cài gì."
+   },
+   {
+    "q": "Vì sao tệp AI của tôi không mở được?",
+    "a": "Tệp được lưu mà không có tương thích PDF, hoặc từ Illustrator 8 trở về trước. Mở trong Illustrator và lưu lại với \"Create PDF Compatible File\"."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. Tệp được chuyển đổi trong trình duyệt và không rời khỏi thiết bị của bạn."
+   }
+  ],
+  "tabAll": "Tất cả định dạng"
+ },
+ "svg-converter": {
+  "name": "Chuyển đổi SVG",
+  "desc": "Chuyển SVG sang PNG, JPG, WebP, ICO và hơn thế, với độ rộng tùy chọn. Chạy trong trình duyệt.",
+  "title": "Chuyển đổi SVG miễn phí: SVG sang PNG, JPG, WebP, ICO trực tuyến | Toolz Baba",
+  "metaDesc": "Chuyển SVG sang PNG, JPG, WebP, ICO, AVIF, GIF, BMP hoặc TIFF, sắc nét ở mọi độ rộng. Nhiều tệp cùng lúc. Miễn phí, không tải lên.",
+  "about": "SVG là vector, không có điểm ảnh, nên khi chuyển bạn chọn độ rộng và hình được vẽ sắc nét đúng kích thước đó: 64 điểm ảnh cho biểu tượng hay 4000 cho áp phích. PNG, WebP và ICO giữ độ trong suốt; với JPG hãy chọn màu nền. ICO chứa mọi kích thước từ 16 đến 256 điểm ảnh cho trang web và Windows. SVG được vẽ trong trình duyệt, nên không có gì bị tải lên.",
+  "steps": [
+   "Thêm các tệp SVG.",
+   "Chọn định dạng và độ rộng.",
+   "Chuyển đổi và tải về."
+  ],
+  "faq": [
+   {
+    "q": "Ảnh có thể lớn đến mức nào?",
+    "a": "Rộng tới 8000 điểm ảnh, viền vẫn sắc nét ở mọi kích thước vì SVG được vẽ đúng kích thước đó."
+   },
+   {
+    "q": "Độ trong suốt có được giữ không?",
+    "a": "Có, với PNG, WebP, AVIF và ICO. JPG và BMP không thể trong suốt; hãy chọn màu nền."
+   },
+   {
+    "q": "Tệp của tôi có bị tải lên không?",
+    "a": "Không. SVG được vẽ trong trình duyệt của bạn."
+   }
+  ],
+  "tabAll": "Tất cả định dạng"
  }
 }

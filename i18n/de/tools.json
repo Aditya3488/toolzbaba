@@ -3200,5 +3200,59 @@
    }
   ],
   "tabAll": "Alle Formate"
+ },
+ "ai-converter": {
+  "name": "AI-Konverter",
+  "desc": "Wandeln Sie Illustrator-Dateien (AI) in PNG, JPG, SVG, PDF und mehr um. Läuft in Ihrem Browser.",
+  "title": "AI-Datei-Konverter kostenlos: AI in PNG, JPG, SVG, PDF online | Toolz Baba",
+  "metaDesc": "Wandeln Sie eine Illustrator-AI-Datei ohne Illustrator in PNG, JPG, WebP, SVG, PDF oder ICO um. Jede Zeichenfläche einzeln. Kostenlos, nichts wird hochgeladen.",
+  "about": "Öffnen und wandeln Sie AI-Dateien ohne Illustrator um: PNG-, JPG-, WebP-, TIFF- oder ICO-Bilder, ein normales PDF oder ein SVG, in dem die Formen Vektoren bleiben. Jede Zeichenfläche wird eine eigene Datei, die Schärfe wählen Sie von 72 bis 300 DPI. AI-Dateien ab Illustrator 9 enthalten ein PDF („PDF-kompatible Datei erstellen“, standardmäßig an), und daraus wird gezeichnet. PDFs gehen auch. Alles läuft in Ihrem Browser, es wird nichts hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihre AI-Datei hinzu.",
+   "Wählen Sie Format und Qualität.",
+   "Umwandeln und herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Lässt sich eine AI-Datei ohne Illustrator öffnen?",
+    "a": "Ja. AI-Dateien ab Illustrator 9 enthalten ein PDF, das dieses Werkzeug direkt liest. Nichts muss installiert werden."
+   },
+   {
+    "q": "Warum öffnet sich meine AI-Datei nicht?",
+    "a": "Sie wurde ohne PDF-Kompatibilität gespeichert oder stammt aus Illustrator 8 oder älter. Öffnen Sie sie in Illustrator und speichern Sie mit „PDF-kompatible Datei erstellen“."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Sie wird in Ihrem Browser umgewandelt und verlässt nie Ihr Gerät."
+   }
+  ],
+  "tabAll": "Alle Formate"
+ },
+ "svg-converter": {
+  "name": "SVG-Konverter",
+  "desc": "Wandeln Sie SVG in PNG, JPG, WebP, ICO und mehr um, in jeder Breite. Läuft in Ihrem Browser.",
+  "title": "SVG-Konverter kostenlos: SVG in PNG, JPG, WebP, ICO online | Toolz Baba",
+  "metaDesc": "Wandeln Sie SVG in PNG, JPG, WebP, ICO, AVIF, GIF, BMP oder TIFF um, scharf in jeder Breite. Mehrere Dateien auf einmal. Kostenlos, nichts wird hochgeladen.",
+  "about": "Ein SVG ist ein Vektor ohne Pixel: Beim Umwandeln wählen Sie die Breite, und die Zeichnung wird in genau dieser Größe scharf, 64 Pixel für ein Icon oder 4000 für ein Poster. PNG, WebP und ICO behalten die Transparenz; für JPG wählen Sie eine Hintergrundfarbe. Das ICO enthält alle Größen von 16 bis 256 Pixeln für Websites und Windows. Das SVG wird in Ihrem Browser gezeichnet, es wird nichts hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihre SVG-Dateien hinzu.",
+   "Wählen Sie Format und Breite.",
+   "Umwandeln und herunterladen."
+  ],
+  "faq": [
+   {
+    "q": "Wie groß kann das Bild werden?",
+    "a": "Bis zu 8000 Pixel breit, mit scharfen Kanten in jeder Größe, weil das SVG in dieser Größe gezeichnet wird."
+   },
+   {
+    "q": "Bleibt die Transparenz erhalten?",
+    "a": "Ja, bei PNG, WebP, AVIF und ICO. JPG und BMP können nicht transparent sein; wählen Sie eine Hintergrundfarbe."
+   },
+   {
+    "q": "Wird meine Datei hochgeladen?",
+    "a": "Nein. Das SVG wird in Ihrem Browser gezeichnet."
+   }
+  ],
+  "tabAll": "Alle Formate"
  }
 }

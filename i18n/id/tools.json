@@ -3200,5 +3200,59 @@
    }
   ],
   "tabAll": "Semua format"
+ },
+ "ai-converter": {
+  "name": "Konverter AI",
+  "desc": "Ubah file Illustrator (AI) menjadi PNG, JPG, SVG, PDF, dan lainnya. Berjalan di browser Anda.",
+  "title": "Konverter File AI Gratis: AI ke PNG, JPG, SVG, PDF Online | Toolz Baba",
+  "metaDesc": "Ubah file AI Illustrator menjadi PNG, JPG, WebP, SVG, PDF, atau ICO tanpa Illustrator. Setiap artboard terpisah. Gratis, tidak ada yang diunggah.",
+  "about": "Buka dan ubah file AI tanpa Illustrator: gambar PNG, JPG, WebP, TIFF, atau ICO, PDF biasa, atau SVG yang bentuknya tetap vektor. Setiap artboard menjadi file sendiri, dan ketajaman gambar bisa dipilih dari 72 sampai 300 DPI. File AI dari Illustrator 9 ke atas berisi PDF (\"Create PDF Compatible File\", aktif secara bawaan), dan dari situlah gambar dibuat. File PDF juga bisa. Semuanya terjadi di browser Anda, jadi tidak ada yang diunggah.",
+  "steps": [
+   "Tambahkan file AI Anda.",
+   "Pilih format dan kualitas.",
+   "Konversi dan unduh."
+  ],
+  "faq": [
+   {
+    "q": "Bisakah membuka file AI tanpa Illustrator?",
+    "a": "Bisa. File AI yang disimpan dari Illustrator 9 ke atas berisi PDF yang dibaca langsung oleh alat ini. Tidak perlu memasang apa pun."
+   },
+   {
+    "q": "Mengapa file AI saya tidak terbuka?",
+    "a": "File disimpan tanpa kompatibilitas PDF, atau berasal dari Illustrator 8 atau lebih lama. Buka di Illustrator dan simpan dengan \"Create PDF Compatible File\"."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. File dikonversi di browser Anda dan tidak pernah meninggalkan perangkat."
+   }
+  ],
+  "tabAll": "Semua format"
+ },
+ "svg-converter": {
+  "name": "Konverter SVG",
+  "desc": "Ubah SVG menjadi PNG, JPG, WebP, ICO, dan lainnya, dengan lebar yang Anda mau. Berjalan di browser Anda.",
+  "title": "Konverter SVG Gratis: SVG ke PNG, JPG, WebP, ICO Online | Toolz Baba",
+  "metaDesc": "Ubah SVG menjadi PNG, JPG, WebP, ICO, AVIF, GIF, BMP, atau TIFF, tajam di lebar berapa pun. Banyak file sekaligus. Gratis, tidak ada yang diunggah.",
+  "about": "SVG adalah vektor tanpa piksel, jadi saat mengubahnya Anda memilih lebar dan gambar tetap tajam di ukuran itu: 64 piksel untuk ikon atau 4000 untuk poster. PNG, WebP, dan ICO mempertahankan transparansi; untuk JPG pilih warna latar. ICO berisi semua ukuran dari 16 sampai 256 piksel untuk situs web dan Windows. SVG digambar di browser Anda, jadi tidak ada yang diunggah.",
+  "steps": [
+   "Tambahkan file SVG Anda.",
+   "Pilih format dan lebar.",
+   "Konversi dan unduh."
+  ],
+  "faq": [
+   {
+    "q": "Seberapa besar gambar yang bisa dibuat?",
+    "a": "Hingga lebar 8000 piksel, dengan tepi tetap tajam di setiap ukuran karena SVG digambar pada ukuran itu."
+   },
+   {
+    "q": "Apakah transparansi tetap ada?",
+    "a": "Ya, di PNG, WebP, AVIF, dan ICO. JPG dan BMP tidak bisa transparan; pilih warna latar."
+   },
+   {
+    "q": "Apakah file saya diunggah?",
+    "a": "Tidak. SVG digambar di browser Anda."
+   }
+  ],
+  "tabAll": "Semua format"
  }
 }

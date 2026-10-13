@@ -508,6 +508,74 @@
    ]
   },
   {
+   "slug": "svg-converter",
+   "cat": "image",
+   "icon": "🔷",
+   "name": "SVG Converter",
+   "desc": "Convert SVG to PNG, JPG, WebP, ICO and more, at any width you like. Runs in your browser.",
+   "kind": "client",
+   "engine": "image",
+   "js": "server-image",
+   "tabAll": "All formats",
+   "keywords": "svg vector logo icon convert png jpg webp ico favicon rasterize export",
+   "about": "An SVG is a vector with no pixels of its own, so when you convert it you choose the width and the drawing comes out sharp at exactly that size: 64 pixels for an icon or 4000 for a poster. PNG, WebP and ICO keep the transparency; for JPG, pick a background colour. The ICO holds every size from 16 to 256 pixels for websites and Windows. The SVG is drawn in your browser, so nothing is uploaded.",
+   "title": "SVG Converter Free: SVG to PNG, JPG, WebP, ICO Online | Toolz Baba",
+   "metaDesc": "Convert SVG to PNG, JPG, WebP, ICO, AVIF, GIF, BMP or TIFF, sharp at any width. Several files at once. Free, nothing uploaded.",
+   "steps": [
+    "Add your SVG files.",
+    "Choose the format and the width.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "How big can the picture be?",
+     "a": "Up to 8000 pixels wide, with sharp edges at every size, because the SVG is drawn at that size."
+    },
+    {
+     "q": "Is the transparency kept?",
+     "a": "Yes, in PNG, WebP, AVIF and ICO. JPG and BMP cannot be transparent; pick a background colour for them."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The SVG is drawn inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "ai-converter",
+   "cat": "image",
+   "icon": "✒️",
+   "name": "AI Converter",
+   "desc": "Convert Illustrator (AI) files to PNG, JPG, SVG, PDF and more. Runs in your browser.",
+   "kind": "client",
+   "engine": "pdf",
+   "js": "server-pdf",
+   "tabAll": "All formats",
+   "keywords": "ai illustrator adobe vector artwork logo convert png jpg svg pdf open without illustrator",
+   "about": "Open and convert AI files without Illustrator: PNG, JPG, WebP, TIFF or ICO pictures, a plain PDF, or an SVG where the shapes stay vectors. Every artboard becomes its own file, and the sharpness of pictures goes from 72 to 300 DPI. AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. PDFs work too. Everything happens in your browser, so nothing is uploaded.",
+   "title": "AI File Converter Free: AI to PNG, JPG, SVG, PDF Online | Toolz Baba",
+   "metaDesc": "Convert an Illustrator AI file to PNG, JPG, WebP, SVG, PDF or ICO without Illustrator. Each artboard separately. Free, nothing uploaded.",
+   "steps": [
+    "Add your AI file.",
+    "Choose the format and the quality.",
+    "Convert and download."
+   ],
+   "faq": [
+    {
+     "q": "Can I open an AI file without Illustrator?",
+     "a": "Yes. AI files saved from Illustrator 9 onwards carry a PDF inside, which this tool reads directly. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it comes from Illustrator 8 or older. Open it in Illustrator and save it again with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
    "slug": "resize-image-to-kb",
    "cat": "image",
    "icon": "⚖️",
@@ -24867,6 +24935,877 @@
     {
      "q": "Are my files uploaded?",
      "a": "No. The archive is made inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "ai-to-png",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "AI to PNG",
+   "tab": "AI to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "AI to PNG Converter Free: Convert Illustrator AI to PNG Online",
+   "desc": "Turn an Illustrator AI file into PNG without Illustrator. Nothing uploaded.",
+   "metaDesc": "Free AI to PNG converter. Turn an Adobe Illustrator AI file into PNG online, without Illustrator, every artboard included. Nothing is uploaded.",
+   "about": "Turn an Illustrator AI file into PNG: a sharp picture with a transparent background, the usual choice for logos. You do not need Illustrator: AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. Every artboard becomes its own file. The conversion runs in your browser, so the artwork never leaves your device.",
+   "steps": [
+    "Add your AI file.",
+    "PNG is already selected. Choose the quality.",
+    "Convert and download the PNG."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert AI to PNG without Illustrator?",
+     "a": "Add the AI file above; PNG is already chosen. Press Convert and download it. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it is from Illustrator 8 or older. Save it again from Illustrator with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ai-to-jpg",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "AI to JPG",
+   "tab": "AI to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "AI to JPG Converter Free: Convert Illustrator AI to JPG Online",
+   "desc": "Turn an Illustrator AI file into JPG without Illustrator. Nothing uploaded.",
+   "metaDesc": "Free AI to JPG converter. Turn an Adobe Illustrator AI file into JPG online, without Illustrator, every artboard included. Nothing is uploaded.",
+   "about": "Turn an Illustrator AI file into JPG: a small picture with a white background, for sending and sharing. You do not need Illustrator: AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. Every artboard becomes its own file. The conversion runs in your browser, so the artwork never leaves your device.",
+   "steps": [
+    "Add your AI file.",
+    "JPG is already selected. Choose the quality.",
+    "Convert and download the JPG."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert AI to JPG without Illustrator?",
+     "a": "Add the AI file above; JPG is already chosen. Press Convert and download it. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it is from Illustrator 8 or older. Save it again from Illustrator with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ai-to-webp",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "AI to WebP",
+   "tab": "AI to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "AI to WebP Converter Free: Convert Illustrator AI to WebP Online",
+   "desc": "Turn an Illustrator AI file into WebP without Illustrator. Nothing uploaded.",
+   "metaDesc": "Free AI to WebP converter. Turn an Adobe Illustrator AI file into WebP online, without Illustrator, every artboard included. Nothing is uploaded.",
+   "about": "Turn an Illustrator AI file into WebP: a small, sharp picture with transparency, made for websites. You do not need Illustrator: AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. Every artboard becomes its own file. The conversion runs in your browser, so the artwork never leaves your device.",
+   "steps": [
+    "Add your AI file.",
+    "WebP is already selected. Choose the quality.",
+    "Convert and download the WebP."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert AI to WebP without Illustrator?",
+     "a": "Add the AI file above; WebP is already chosen. Press Convert and download it. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it is from Illustrator 8 or older. Save it again from Illustrator with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ai-to-ico",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "AI to ICO",
+   "tab": "AI to ICO",
+   "preset": {
+    "format": "ico"
+   },
+   "title": "AI to ICO Converter Free: Convert Illustrator AI to ICO Online",
+   "desc": "Turn an Illustrator AI file into ICO without Illustrator. Nothing uploaded.",
+   "metaDesc": "Free AI to ICO converter. Turn an Adobe Illustrator AI file into ICO online, without Illustrator, every artboard included. Nothing is uploaded.",
+   "about": "Turn an Illustrator AI file into ICO: an icon file with every size from 16 to 256 pixels, for a website favicon or a Windows icon. You do not need Illustrator: AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. Every artboard becomes its own file. The conversion runs in your browser, so the artwork never leaves your device.",
+   "steps": [
+    "Add your AI file.",
+    "ICO is already selected. Choose the quality.",
+    "Convert and download the ICO."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert AI to ICO without Illustrator?",
+     "a": "Add the AI file above; ICO is already chosen. Press Convert and download it. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it is from Illustrator 8 or older. Save it again from Illustrator with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ai-to-pdf",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "AI to PDF",
+   "tab": "AI to PDF",
+   "preset": {
+    "format": "pdf"
+   },
+   "title": "AI to PDF Converter Free: Convert Illustrator AI to PDF Online",
+   "desc": "Turn an Illustrator AI file into PDF without Illustrator. Nothing uploaded.",
+   "metaDesc": "Free AI to PDF converter. Turn an Adobe Illustrator AI file into PDF online, without Illustrator, every artboard included. Nothing is uploaded.",
+   "about": "Turn an Illustrator AI file into PDF: a plain PDF that opens in any viewer, for printing or sending to someone without Illustrator. You do not need Illustrator: AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. Every artboard becomes its own file. The conversion runs in your browser, so the artwork never leaves your device.",
+   "steps": [
+    "Add your AI file.",
+    "PDF is already selected.",
+    "Convert and download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert AI to PDF without Illustrator?",
+     "a": "Add the AI file above; PDF is already chosen. Press Convert and download it. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it is from Illustrator 8 or older. Save it again from Illustrator with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "ai-to-svg",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "AI to SVG",
+   "tab": "AI to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "title": "AI to SVG Converter Free: Convert Illustrator AI to SVG Online",
+   "desc": "Turn an Illustrator AI file into SVG without Illustrator. Nothing uploaded.",
+   "metaDesc": "Free AI to SVG converter. Turn an Adobe Illustrator AI file into SVG online, without Illustrator, every artboard included. Nothing is uploaded.",
+   "about": "Turn an Illustrator AI file into SVG: a vector file for the web and for Inkscape, Figma or Canva: shapes stay shapes and scale without blur. You do not need Illustrator: AI files from Illustrator 9 onwards carry a PDF inside (\"Create PDF Compatible File\", on by default), and that is what is drawn. Every artboard becomes its own file. The conversion runs in your browser, so the artwork never leaves your device.",
+   "steps": [
+    "Add your AI file.",
+    "SVG is already selected.",
+    "Convert and download the SVG."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert AI to SVG without Illustrator?",
+     "a": "Add the AI file above; SVG is already chosen. Press Convert and download it. Nothing needs to be installed."
+    },
+    {
+     "q": "Why did my AI file not open?",
+     "a": "It was saved without PDF compatibility, or it is from Illustrator 8 or older. Save it again from Illustrator with \"Create PDF Compatible File\" ticked."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "pdf-to-svg",
+   "base": "ai-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "PDF to SVG",
+   "tab": "PDF to SVG",
+   "preset": {
+    "format": "svg"
+   },
+   "dropLabel": "Drop your PDF here",
+   "title": "PDF to SVG Converter Free: Convert PDF Pages to SVG Online",
+   "desc": "Turn PDF pages into SVG vector files. Shapes stay shapes. Nothing uploaded.",
+   "metaDesc": "Free PDF to SVG converter. Turn each PDF page into an SVG vector file online: lines and shapes stay sharp at any size. Nothing is uploaded.",
+   "about": "Turn the pages of a PDF into SVG files, one per page. Lines, shapes and text stay vectors (the text becomes outlines, so it looks the same on every computer), which makes the SVG sharp at any size: good for putting a drawing or a logo from a PDF onto a website, or editing it in Inkscape, Figma or Illustrator. Photos inside the PDF stay photos. Choose all pages or a range. The conversion runs in your browser, so the PDF never leaves your device.",
+   "steps": [
+    "Add your PDF.",
+    "SVG is already selected; choose the pages.",
+    "Convert and download the SVG files."
+   ],
+   "faq": [
+    {
+     "q": "Is the SVG really vector?",
+     "a": "Yes. Lines and shapes are written as SVG paths, and text as outlines. Photos in the PDF stay pictures inside the SVG."
+    },
+    {
+     "q": "Can I edit the text in the SVG?",
+     "a": "Not as text: it is turned into outlines so it looks right everywhere. You can still recolour, move or resize it."
+    },
+    {
+     "q": "Is my PDF uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-png",
+   "base": "svg-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "SVG to PNG",
+   "tab": "SVG to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "SVG to PNG Converter Free: Convert SVG to PNG Online",
+   "desc": "Turn SVG into PNG, sharp at the width you choose. Several files at once, nothing uploaded.",
+   "metaDesc": "Free SVG to PNG converter. Turn SVG files into PNG online at any width, with sharp edges. Batch supported and nothing is uploaded.",
+   "about": "Turn SVG files into PNG: transparency kept, the usual choice for logos and icons. An SVG has no pixels of its own, so you choose the width and the drawing is made sharp at exactly that size, from a small icon to a poster. Add as many files as you like. The SVG is drawn in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your SVG files.",
+    "PNG is already selected; choose the width.",
+    "Convert and download the PNG."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to PNG?",
+     "a": "Add the SVG files above; PNG is already chosen. Press Convert and download. Change the width first if you need a bigger or smaller picture."
+    },
+    {
+     "q": "Will it be blurry?",
+     "a": "No. The SVG is drawn at the final size, not stretched from a small picture, so the edges stay sharp."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The SVG is drawn inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-jpg",
+   "base": "svg-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "SVG to JPG",
+   "tab": "SVG to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "SVG to JPG Converter Free: Convert SVG to JPG Online",
+   "desc": "Turn SVG into JPG, sharp at the width you choose. Several files at once, nothing uploaded.",
+   "metaDesc": "Free SVG to JPG converter. Turn SVG files into JPG online at any width, with sharp edges. Batch supported and nothing is uploaded.",
+   "about": "Turn SVG files into JPG: a white background, small files for sharing. An SVG has no pixels of its own, so you choose the width and the drawing is made sharp at exactly that size, from a small icon to a poster. Add as many files as you like. The SVG is drawn in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your SVG files.",
+    "JPG is already selected; choose the width.",
+    "Convert and download the JPG."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to JPG?",
+     "a": "Add the SVG files above; JPG is already chosen. Press Convert and download. Change the width first if you need a bigger or smaller picture."
+    },
+    {
+     "q": "Will it be blurry?",
+     "a": "No. The SVG is drawn at the final size, not stretched from a small picture, so the edges stay sharp."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The SVG is drawn inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-webp",
+   "base": "svg-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "SVG to WebP",
+   "tab": "SVG to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "SVG to WebP Converter Free: Convert SVG to WebP Online",
+   "desc": "Turn SVG into WebP, sharp at the width you choose. Several files at once, nothing uploaded.",
+   "metaDesc": "Free SVG to WebP converter. Turn SVG files into WebP online at any width, with sharp edges. Batch supported and nothing is uploaded.",
+   "about": "Turn SVG files into WebP: transparency kept and small files, made for websites. An SVG has no pixels of its own, so you choose the width and the drawing is made sharp at exactly that size, from a small icon to a poster. Add as many files as you like. The SVG is drawn in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your SVG files.",
+    "WebP is already selected; choose the width.",
+    "Convert and download the WebP."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to WebP?",
+     "a": "Add the SVG files above; WebP is already chosen. Press Convert and download. Change the width first if you need a bigger or smaller picture."
+    },
+    {
+     "q": "Will it be blurry?",
+     "a": "No. The SVG is drawn at the final size, not stretched from a small picture, so the edges stay sharp."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The SVG is drawn inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "svg-to-ico",
+   "base": "svg-converter",
+   "cat": "image",
+   "kind": "client",
+   "name": "SVG to ICO",
+   "tab": "SVG to ICO",
+   "preset": {
+    "format": "ico"
+   },
+   "title": "SVG to ICO Converter Free: Convert SVG to ICO Online (Favicon)",
+   "desc": "Turn SVG into ICO, sharp at the width you choose. Several files at once, nothing uploaded.",
+   "metaDesc": "Free SVG to ICO converter. Turn SVG files into ICO online at any width, with sharp edges. Batch supported and nothing is uploaded.",
+   "about": "Turn SVG files into ICO: every size from 16 to 256 pixels in one icon, for a favicon or Windows. An SVG has no pixels of its own, so the icon is drawn fresh at every size it holds, 16 to 256 pixels. Add as many files as you like. The SVG is drawn in your browser, so nothing is uploaded.",
+   "steps": [
+    "Add your SVG files.",
+    "ICO is already selected.",
+    "Convert and download the ICO."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert SVG to ICO?",
+     "a": "Add the SVG files above; ICO is already chosen. Press Convert and download."
+    },
+    {
+     "q": "Will it be blurry?",
+     "a": "No. The SVG is drawn at the final size, not stretched from a small picture, so the edges stay sharp."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The SVG is drawn inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "png-to-svg",
+   "base": "image-to-svg",
+   "cat": "image",
+   "kind": "client",
+   "name": "PNG to SVG",
+   "tab": "PNG to SVG",
+   "dropLabel": "Drop your PNG images here",
+   "title": "PNG to SVG Converter Free: Convert PNG to SVG Vector Online",
+   "desc": "Trace a PNG image into an SVG vector that scales without blur. Nothing uploaded.",
+   "metaDesc": "Free PNG to SVG converter. Trace a PNG logo, icon or drawing into a real SVG vector online, sharp at any size. Nothing is uploaded.",
+   "about": "Turn a PNG into an SVG by tracing it: the colours and edges become vector shapes, so the result scales to any size without blur. It works best on logos, icons, signatures and flat illustrations; photos turn into many small shapes and a larger file. Choose logo, photo or black and white line art before you convert. The tracing runs in your browser, so the image never leaves your device.",
+   "steps": [
+    "Add your PNG images.",
+    "Choose the type of image: logo, photo or line art.",
+    "Convert and download the SVG."
+   ],
+   "faq": [
+    {
+     "q": "Is this a real vector, or a PNG inside an SVG?",
+     "a": "A real vector: the image is traced into shapes. Nothing of the original picture is embedded."
+    },
+    {
+     "q": "Which images work best?",
+     "a": "Logos, icons, text and flat drawings with clear edges. Photos work, but the SVG gets large and looks painted."
+    },
+    {
+     "q": "Is my image uploaded?",
+     "a": "No. It is traced inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "jpg-to-svg",
+   "base": "image-to-svg",
+   "cat": "image",
+   "kind": "client",
+   "name": "JPG to SVG",
+   "tab": "JPG to SVG",
+   "dropLabel": "Drop your JPG images here",
+   "title": "JPG to SVG Converter Free: Convert JPG to SVG Vector Online",
+   "desc": "Trace a JPG image into an SVG vector that scales without blur. Nothing uploaded.",
+   "metaDesc": "Free JPG to SVG converter. Trace a JPG logo, icon or drawing into a real SVG vector online, sharp at any size. Nothing is uploaded.",
+   "about": "Turn a JPG into an SVG by tracing it: the colours and edges become vector shapes, so the result scales to any size without blur. It works best on logos, icons, signatures and flat illustrations; photos turn into many small shapes and a larger file. Choose logo, photo or black and white line art before you convert. The tracing runs in your browser, so the image never leaves your device.",
+   "steps": [
+    "Add your JPG images.",
+    "Choose the type of image: logo, photo or line art.",
+    "Convert and download the SVG."
+   ],
+   "faq": [
+    {
+     "q": "Is this a real vector, or a JPG inside an SVG?",
+     "a": "A real vector: the image is traced into shapes. Nothing of the original picture is embedded."
+    },
+    {
+     "q": "Which images work best?",
+     "a": "Logos, icons, text and flat drawings with clear edges. Photos work, but the SVG gets large and looks painted."
+    },
+    {
+     "q": "Is my image uploaded?",
+     "a": "No. It is traced inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "webp-to-svg",
+   "base": "image-to-svg",
+   "cat": "image",
+   "kind": "client",
+   "name": "WebP to SVG",
+   "tab": "WebP to SVG",
+   "dropLabel": "Drop your WebP images here",
+   "title": "WebP to SVG Converter Free: Convert WebP to SVG Vector Online",
+   "desc": "Trace a WebP image into an SVG vector that scales without blur. Nothing uploaded.",
+   "metaDesc": "Free WebP to SVG converter. Trace a WebP logo, icon or drawing into a real SVG vector online, sharp at any size. Nothing is uploaded.",
+   "about": "Turn a WebP into an SVG by tracing it: the colours and edges become vector shapes, so the result scales to any size without blur. It works best on logos, icons, signatures and flat illustrations; photos turn into many small shapes and a larger file. Choose logo, photo or black and white line art before you convert. The tracing runs in your browser, so the image never leaves your device.",
+   "steps": [
+    "Add your WebP images.",
+    "Choose the type of image: logo, photo or line art.",
+    "Convert and download the SVG."
+   ],
+   "faq": [
+    {
+     "q": "Is this a real vector, or a WebP inside an SVG?",
+     "a": "A real vector: the image is traced into shapes. Nothing of the original picture is embedded."
+    },
+    {
+     "q": "Which images work best?",
+     "a": "Logos, icons, text and flat drawings with clear edges. Photos work, but the SVG gets large and looks painted."
+    },
+    {
+     "q": "Is my image uploaded?",
+     "a": "No. It is traced inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "ico-to-svg",
+   "base": "image-to-svg",
+   "cat": "image",
+   "kind": "client",
+   "name": "ICO to SVG",
+   "tab": "ICO to SVG",
+   "dropLabel": "Drop your ICO images here",
+   "title": "ICO to SVG Converter Free: Convert ICO to SVG Vector Online",
+   "desc": "Trace a ICO image into an SVG vector that scales without blur. Nothing uploaded.",
+   "metaDesc": "Free ICO to SVG converter. Trace a ICO logo, icon or drawing into a real SVG vector online, sharp at any size. Nothing is uploaded.",
+   "about": "Turn a ICO into an SVG by tracing it: the colours and edges become vector shapes, so the result scales to any size without blur. It works best on logos, icons, signatures and flat illustrations; photos turn into many small shapes and a larger file. Choose logo, photo or black and white line art before you convert. The tracing runs in your browser, so the image never leaves your device.",
+   "steps": [
+    "Add your ICO images.",
+    "Choose the type of image: logo, photo or line art.",
+    "Convert and download the SVG."
+   ],
+   "faq": [
+    {
+     "q": "Is this a real vector, or a ICO inside an SVG?",
+     "a": "A real vector: the image is traced into shapes. Nothing of the original picture is embedded."
+    },
+    {
+     "q": "Which images work best?",
+     "a": "Logos, icons, text and flat drawings with clear edges. Photos work, but the SVG gets large and looks painted."
+    },
+    {
+     "q": "Is my image uploaded?",
+     "a": "No. It is traced inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to PDF",
+   "tab": "EPUB to PDF",
+   "dropLabel": "Drop your EPUB file here",
+   "title": "EPUB to PDF Converter Free: Convert EPUB to PDF Online",
+   "desc": "Turn an EPUB e-book into a PDF for printing or reading anywhere. Nothing uploaded.",
+   "metaDesc": "Free EPUB to PDF converter. Turn an EPUB e-book into an A4 PDF online, with chapters, pictures and text kept. Hindi supported. Nothing is uploaded.",
+   "about": "Turn an EPUB e-book into a PDF: the book is laid out on A4 pages with its chapters, headings, pictures and styles, ready to print or to read on any device without an e-book app. Hindi and other Indian scripts are supported. Books with DRM (the copy lock on many store-bought books) cannot be opened. The conversion runs in your browser, so the book never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to PDF?",
+     "a": "Add the EPUB file above, press Convert to PDF and download it. No app or sign-up is needed."
+    },
+    {
+     "q": "Why does my book not open?",
+     "a": "Books bought in some stores are locked with DRM, which only the store's own app can open. Books without DRM convert fine."
+    },
+    {
+     "q": "Is my book uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ],
+   "aliases": [
+    "ebook-to-pdf"
+   ]
+  },
+  {
+   "slug": "mobi-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "MOBI to PDF",
+   "tab": "MOBI to PDF",
+   "dropLabel": "Drop your MOBI file here",
+   "title": "MOBI to PDF Converter Free: Convert MOBI to PDF Online",
+   "desc": "Turn a Kindle MOBI e-book into a PDF for printing or reading anywhere. Nothing uploaded.",
+   "metaDesc": "Free MOBI to PDF converter. Turn a Kindle MOBI e-book into an A4 PDF online, with chapters, pictures and text kept. Hindi supported. Nothing is uploaded.",
+   "about": "Turn a Kindle MOBI e-book into a PDF: the book is laid out on A4 pages with its chapters, headings, pictures and styles, ready to print or to read on any device without an e-book app. Hindi and other Indian scripts are supported. Books with DRM (the copy lock on many store-bought books) cannot be opened. The conversion runs in your browser, so the book never leaves your device.",
+   "steps": [
+    "Add your MOBI file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert MOBI to PDF?",
+     "a": "Add the MOBI file above, press Convert to PDF and download it. No app or sign-up is needed."
+    },
+    {
+     "q": "Why does my book not open?",
+     "a": "Books bought in some stores are locked with DRM, which only the store's own app can open. Books without DRM convert fine."
+    },
+    {
+     "q": "Is my book uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "fb2-to-pdf",
+   "base": "word-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "FB2 to PDF",
+   "tab": "FB2 to PDF",
+   "dropLabel": "Drop your FB2 file here",
+   "title": "FB2 to PDF Converter Free: Convert FB2 to PDF Online",
+   "desc": "Turn an FB2 (FictionBook) e-book into a PDF for printing or reading anywhere. Nothing uploaded.",
+   "metaDesc": "Free FB2 to PDF converter. Turn an FB2 (FictionBook) e-book into an A4 PDF online, with chapters, pictures and text kept. Hindi supported. Nothing is uploaded.",
+   "about": "Turn an FB2 (FictionBook) e-book into a PDF: the book is laid out on A4 pages with its chapters, headings, pictures and styles, ready to print or to read on any device without an e-book app. Hindi and other Indian scripts are supported. Books with DRM (the copy lock on many store-bought books) cannot be opened. The conversion runs in your browser, so the book never leaves your device.",
+   "steps": [
+    "Add your FB2 file.",
+    "Press Convert to PDF.",
+    "Download the PDF."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert FB2 to PDF?",
+     "a": "Add the FB2 file above, press Convert to PDF and download it. No app or sign-up is needed."
+    },
+    {
+     "q": "Why does my book not open?",
+     "a": "Books bought in some stores are locked with DRM, which only the store's own app can open. Books without DRM convert fine."
+    },
+    {
+     "q": "Is my book uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-png",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to PNG",
+   "tab": "EPUB to PNG",
+   "preset": {
+    "format": "png"
+   },
+   "title": "EPUB to PNG Converter Free: Convert EPUB to PNG Online",
+   "desc": "Turn a EPUB e-book into PNG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to PNG converter. Turn a EPUB e-book into PNG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into PNG pictures: sharp text and lines with no blur, the best choice for documents. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "PNG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the PNG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to PNG?",
+     "a": "Add the EPUB file above; PNG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-jpg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to JPG",
+   "tab": "EPUB to JPG",
+   "preset": {
+    "format": "jpg"
+   },
+   "title": "EPUB to JPG Converter Free: Convert EPUB to JPG Online",
+   "desc": "Turn a EPUB e-book into JPG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to JPG converter. Turn a EPUB e-book into JPG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into JPG pictures: small files that open everywhere, good for sending by chat or email. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "JPG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to JPG?",
+     "a": "Add the EPUB file above; JPG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-jpeg",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to JPEG",
+   "tab": "EPUB to JPEG",
+   "preset": {
+    "format": "jpeg"
+   },
+   "title": "EPUB to JPEG Converter Free: Convert EPUB to JPEG Online",
+   "desc": "Turn a EPUB e-book into JPEG pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to JPEG converter. Turn a EPUB e-book into JPEG images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into JPEG pictures: small files that open everywhere, good for sending by chat or email. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "JPEG is already selected; choose one picture per page or one long picture.",
+    "Convert and download the JPEG pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to JPEG?",
+     "a": "Add the EPUB file above; JPEG is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-webp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to WebP",
+   "tab": "EPUB to WebP",
+   "preset": {
+    "format": "webp"
+   },
+   "title": "EPUB to WebP Converter Free: Convert EPUB to WebP Online",
+   "desc": "Turn a EPUB e-book into WebP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to WebP converter. Turn a EPUB e-book into WebP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into WebP pictures: small files with sharp text, made for web pages. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "WebP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the WebP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to WebP?",
+     "a": "Add the EPUB file above; WebP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-tiff",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to TIFF",
+   "tab": "EPUB to TIFF",
+   "preset": {
+    "format": "tiff"
+   },
+   "title": "EPUB to TIFF Converter Free: Convert EPUB to TIFF Online",
+   "desc": "Turn a EPUB e-book into TIFF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to TIFF converter. Turn a EPUB e-book into TIFF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into TIFF pictures: a format used for print and archiving. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "TIFF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the TIFF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to TIFF?",
+     "a": "Add the EPUB file above; TIFF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-gif",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to GIF",
+   "tab": "EPUB to GIF",
+   "preset": {
+    "format": "gif"
+   },
+   "title": "EPUB to GIF Converter Free: Convert EPUB to GIF Online",
+   "desc": "Turn a EPUB e-book into GIF pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to GIF converter. Turn a EPUB e-book into GIF images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into GIF pictures: a format every program opens; text stays crisp because a document has few colours. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "GIF is already selected; choose one picture per page or one long picture.",
+    "Convert and download the GIF pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to GIF?",
+     "a": "Add the EPUB file above; GIF is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-bmp",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to BMP",
+   "tab": "EPUB to BMP",
+   "preset": {
+    "format": "bmp"
+   },
+   "title": "EPUB to BMP Converter Free: Convert EPUB to BMP Online",
+   "desc": "Turn a EPUB e-book into BMP pictures, one per page or one long picture. Nothing uploaded.",
+   "metaDesc": "Free EPUB to BMP converter. Turn a EPUB e-book into BMP images online, one per page or as one long picture. Runs in your browser, so nothing is uploaded.",
+   "about": "Turn a EPUB file into BMP pictures: uncompressed pictures for older software, so the files are large. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content, and a sharpness from 72 to 300 DPI. Hindi and other Indian scripts are supported. The file is converted inside your browser, so it never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "BMP is already selected; choose one picture per page or one long picture.",
+    "Convert and download the BMP pictures."
+   ],
+   "faq": [
+    {
+     "q": "How do I convert EPUB to BMP?",
+     "a": "Add the EPUB file above; BMP is already chosen. Press Convert to images and download the pictures. Several pages come together in a ZIP."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
+    }
+   ]
+  },
+  {
+   "slug": "epub-to-image",
+   "base": "document-to-image",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "EPUB to Image",
+   "tab": "EPUB to Image",
+   "title": "EPUB to Image Converter Free: Convert EPUB to PNG, JPG, WebP Online",
+   "desc": "Turn a EPUB e-book into PNG, JPG, WebP, TIFF, GIF or BMP pictures. Nothing uploaded.",
+   "metaDesc": "Free EPUB to image converter. Turn a EPUB e-book into PNG, JPG, WebP, TIFF, GIF or BMP images online, one per page or one long picture. Nothing is uploaded.",
+   "about": "Turn a EPUB file into pictures: PNG, JPG, WebP, TIFF, GIF or BMP. The book is laid out page by page with its chapters, pictures and styles. Books with DRM (a store's copy lock) cannot be opened. Choose one picture per page or one long picture cut to the content. The pages for each picture format are linked above and arrive with it chosen. Everything runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your EPUB file.",
+    "Choose the picture format, and one picture per page or one long picture.",
+    "Convert and download the pictures."
+   ],
+   "faq": [
+    {
+     "q": "Which picture formats can I turn EPUB into?",
+     "a": "PNG, JPG, JPEG, WebP, TIFF, GIF and BMP. PNG keeps text the sharpest; JPG makes the smallest files."
+    },
+    {
+     "q": "Can I get one picture instead of one per page?",
+     "a": "Yes. Choose \"One long picture\" and the whole file is drawn as a single picture, cut to the content."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. It is converted inside your browser and never leaves your device."
     }
    ]
   }

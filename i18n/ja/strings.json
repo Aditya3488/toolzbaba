@@ -1845,5 +1845,8 @@
 "File name": "ファイル名",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Converted in your browser: nothing is uploaded.": "ZIP、TAR、TAR.GZ（TGZ）、GZ。ブラウザ内で変換：アップロードはありません。",
 "ZIP, TAR, TAR.GZ (TGZ) and GZ. Opened in your browser: nothing is uploaded.": "ZIP、TAR、TAR.GZ（TGZ）、GZ。ブラウザ内で開きます：アップロードはありません。",
-"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "どんなファイルでも、いくつでも。ブラウザ内でまとめます：アップロードはありません。"
+"Any files, as many as you like. Packed in your browser: nothing is uploaded.": "どんなファイルでも、いくつでも。ブラウザ内でまとめます：アップロードはありません。",
+"The height follows the drawing.": "高さは図に合わせて決まります。",
+"SVG files, as many as you like. Drawn sharp at the size you choose, in your browser.": "SVG ファイルをいくつでも。選んだサイズでくっきり、ブラウザ内で描きます。",
+"Illustrator (AI) files and PDFs. Runs in your browser: nothing is uploaded.": "Illustrator（AI）ファイルと PDF。ブラウザで動作：アップロードはありません。"
 }

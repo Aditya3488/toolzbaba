@@ -228,6 +228,43 @@
       w.postMessage({ imgd, opts });
     });
   }
+  // ---------------------------------------------------------------- SVG -> pictures
+  // The browser draws the SVG itself at the width asked for, so the picture is sharp at any size (a vector has no pixels of its own).
+  async function svgCanvas(f, width) {
+    const text = await f.text(), tag = (text.match(/<svg\b[^>]*>/i) || [''])[0];
+    if (!tag) throw new Error(`'${f.name}' is not an SVG file.`);
+    // the drawing's own size: width and height in pixels, else the viewBox, else 300 x 150 (what browsers use)
+    const num = a => { const m = new RegExp('\\s' + a + '\\s*=\\s*["\']\\s*([\\d.]+)(px)?\\s*["\']', 'i').exec(tag); return m ? +m[1] : 0; };
+    const vb = /viewBox\s*=\s*["']\s*[-\d.e]+[\s,]+[-\d.e]+[\s,]+([\d.e]+)[\s,]+([\d.e]+)/i.exec(tag);
+    let w = num('width'), h = num('height');
+    if (!(w && h) && vb) { const r = +vb[2] / +vb[1]; if (w) h = w * r; else if (h) w = h / r; else { w = +vb[1]; h = +vb[2]; } }
+    if (!(w && h)) { w = 300; h = 150; }
+    const W = Math.max(16, Math.min(8000, Math.round(width || w))), H = Math.max(1, Math.min(8000, Math.round(W * h / w)));
+    // the size goes into the file, so a percentage or a missing size cannot shrink the drawing
+    const sized = text.replace(tag, tag.replace(/\s(width|height)\s*=\s*("[^"]*"|'[^']*')/gi, '').replace(/\s*\/?>$/, m => ` width="${W}" height="${H}"` + (vb ? '' : ` viewBox="0 0 ${w} ${h}"`) + m));
+    const url = URL.createObjectURL(new Blob([sized], { type: 'image/svg+xml' }));
+    try {
+      const img = new Image();
+      await new Promise((res, rej) => { img.onload = res; img.onerror = () => rej(new Error(`'${f.name}' could not be drawn. Check that it opens in a browser on its own.`)); img.src = url; });
+      const c = HT.canvas(W, H); c.getContext('2d').drawImage(img, 0, 0, W, H);
+      return c;
+    } finally { URL.revokeObjectURL(url); }
+  }
+  const SVG_OUT = { png: 'png', jpg: 'jpg', jpeg: 'jpg', webp: 'webp', ico: 'ico', avif: 'avif', gif: 'gif', bmp: 'bmp', tiff: 'tiff' };
+  HT.engine('svg-converter', async ctx => {
+    const asked = String(ctx.opts.format || 'png').toLowerCase(), fmt = SVG_OUT[asked], outs = [];
+    if (!fmt) throw new Error('Choose the format to convert to.');
+    for (const [i, f] of ctx.files.entries()) {
+      ctx.status(ctx.files.length > 1 ? `Drawing ${i + 1} of ${ctx.files.length}...` : 'Drawing the SVG...'); await tick();
+      const c = await svgCanvas(f, fmt === 'ico' ? 256 : +ctx.opts.width || 1024);
+      outs.push({ name: outName(f, asked), blob: await encode(c, fmt, { quality: +ctx.opts.quality || 92, bg: ctx.opts.background || '#ffffff' }) });
+      ctx.progress((i + 1) / ctx.files.length);
+    }
+    const one = outs.length === 1 ? ` (${kb(outs[0].blob.size)})` : '';
+    ctx.info = { summary: `Converted ${outs.length} SVG file(s) to ${asked.toUpperCase()}${one}.` };
+    return outs;
+  });
+
   HT.engine('image-to-svg', async ctx => {
     const p = PRESETS[ctx.opts.preset] || PRESETS.logo, outs = [];
     for (const [i, f] of ctx.files.entries()) {
