@@ -27,6 +27,8 @@
   };
   // where the boxes sit: x / y as a share of the stage (the centre of the box), depth 0 (far) .. 1 (near)
   const WIDE = [[.17, .15, .55], [.5, .1, .4], [.83, .19, .65], [.2, .46, .95], [.53, .4, .8], [.84, .52, .5], [.38, .69, .7]];   // the real box sits below them
+  // the home page: the field also covers the hero (headline left, Baba right), so some boxes float behind them
+  const TALL = [[.08, .08, .45], [.47, .13, .55], [.3, .38, .4], [.93, .42, .5], [.17, .57, .55], [.5, .53, .4], [.83, .6, .65], [.2, .79, .95], [.53, .74, .8], [.84, .83, .5]];
   const NARROW = [[.42, .12, .6], [.58, .32, .85], [.42, .52, .7], [.58, .71, .5]];
   const send = () => HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>');
   const face = () => { const s = HT.star(22); return el('span', { class: 'ab-face' }, s); };
@@ -383,14 +385,15 @@
   HT.askBabaMatch = (data, text) => match(data, text);
   HT.askBabaWords = text => [...analyse(text, HT.lang).hits.keys()];   // which ideas Baba sees in a text (for testing)
 
-  HT.askBaba = async (stage, { compact = false, backdrop = null } = {}) => {
+  HT.askBaba = async (stage, { compact = false, above = null } = {}) => {
     if (!stage || stage.dataset.ready) return; stage.dataset.ready = '1';
     const data = await HT.loadTools(); await HT.i18n;
     const all = toolsOf(data);
     const texts = Q[HT.lang] || Q.en;
     const tasks = SLUGS.map((s, i) => ({ slug: s, text: texts[i], tool: all.get(s) })).filter(t => t.tool);   // archived tools drop out
     const narrow = () => stage.clientWidth < 700 || compact;
-    let spots = narrow() ? NARROW : WIDE, cards = [], active = -1, auto = null, typing = null, panel = null, next = 0;
+    const wideSpots = () => (above ? TALL : WIDE);
+    let spots = narrow() ? NARROW : wideSpots(), cards = [], active = -1, auto = null, typing = null, panel = null, next = 0;
 
     // far-away boxes: small soft cards across the whole width (the farther, the smaller and blurrier), on a faint floor
     const ghosts = el('div', { class: 'ab-ghosts', 'aria-hidden': 'true' });
@@ -402,20 +405,12 @@
     }
     const field = el('div', { class: 'ab-field' });
     stage.textContent = ''; stage.append(el('div', { class: 'ab-floor', 'aria-hidden': 'true' }), ghosts, field);
-    // the same far-away boxes behind the section above (the hero), so the field flows into it as one scene
-    if (backdrop) {
-      const back = el('div', { class: 'ab-ghosts ab-back', 'aria-hidden': 'true' });
-      for (let i = 0; i < 16; i++) {
-        const d = rnd() * .35, w = (60 + rnd() * 110) * (.6 + d);
-        const g = el('i', { style: { left: (rnd() * 96 + 2) + '%', top: (rnd() * 86 + 6) + '%', width: w.toFixed(0) + 'px', height: (w * .36).toFixed(0) + 'px', opacity: (.3 + d * .8).toFixed(2) } });
-        g.style.setProperty('--d', d.toFixed(2)); back.append(g);
-      }
-      backdrop.prepend(back);
-    }
+
 
     const place = () => {
-      spots = narrow() ? NARROW : WIDE;
-      cards.forEach((c, i) => { const s = spots[i]; c.hidden = !s; if (!s) return; c.style.left = (s[0] * 100) + '%'; c.style.top = (s[1] * 100) + '%'; c.style.setProperty('--d', s[2]); c.style.zIndex = Math.round(s[2] * 10); });
+      spots = narrow() ? NARROW : wideSpots();
+      const top = above && narrow() ? Math.min(.6, above.offsetHeight / Math.max(1, stage.clientHeight) + .05) : 0;   // on a phone the boxes stay below the hero text
+      cards.forEach((c, i) => { const s = spots[i]; c.hidden = !s; if (!s) return; c.style.left = (s[0] * 100) + '%'; c.style.top = ((top + s[1] * (1 - top)) * 100) + '%'; c.style.setProperty('--d', s[2]); c.style.zIndex = Math.round(s[2] * 10); });
     };
     const makeCard = (task, i) => {
       const txt = el('span', { class: 'ab-text', text: task.text });
@@ -425,7 +420,7 @@
       c.addEventListener('focus', () => wake(i, false));
       return c;
     };
-    for (let i = 0; i < Math.max(WIDE.length, NARROW.length); i++) { const c = makeCard(tasks[i % tasks.length], i); cards.push(c); field.append(c); }
+    for (let i = 0; i < Math.max(wideSpots().length, NARROW.length); i++) { const c = makeCard(tasks[i % tasks.length], i); cards.push(c); field.append(c); }
     next = cards.length % tasks.length;
     place(); addEventListener('resize', HT.debounce(place, 150));
 
@@ -462,7 +457,7 @@
 
     // the pointer: the nearest box wakes up, and the field leans a little towards it (depth)
     let hover = false, px = 0, py = 0, tx = 0, ty = 0, raf = 0;
-    const lean = () => { tx += (px - tx) * .08; ty += (py - ty) * .08; for (const n of [stage, backdrop]) if (n) { n.style.setProperty('--mx', tx.toFixed(3)); n.style.setProperty('--my', ty.toFixed(3)); } if (Math.abs(px - tx) + Math.abs(py - ty) > .002) raf = requestAnimationFrame(lean); else raf = 0; };
+    const lean = () => { tx += (px - tx) * .08; ty += (py - ty) * .08; stage.style.setProperty('--mx', tx.toFixed(3)); stage.style.setProperty('--my', ty.toFixed(3)); if (Math.abs(px - tx) + Math.abs(py - ty) > .002) raf = requestAnimationFrame(lean); else raf = 0; };
     stage.addEventListener('pointermove', e => {
       if (e.pointerType !== 'mouse' || panel) return;
       const r = stage.getBoundingClientRect(); hover = true;
@@ -473,10 +468,7 @@
       if (best >= 0) wake(best, false);
     });
     stage.addEventListener('pointerleave', () => { hover = false; px = py = 0; if (!raf) raf = requestAnimationFrame(lean); });
-    if (backdrop) {   // the boxes behind the hero lean with the pointer too
-      backdrop.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; const r = backdrop.getBoundingClientRect(); px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5; if (!raf) raf = requestAnimationFrame(lean); });
-      backdrop.addEventListener('pointerleave', () => { px = py = 0; if (!raf) raf = requestAnimationFrame(lean); });
-    }
+
 
     // ---- Baba at work: the box grows into a panel and the answer appears piece by piece
     const hrefOf = t => t.href || HT.href(t.slug);
@@ -537,6 +529,6 @@
     }
 
     // start only while the section is on screen
-    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (active < 0) wake(spots === NARROW ? 1 : 4, true); startAuto(); } else clearInterval(auto); }), { threshold: .2 }).observe(stage);
+    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (active < 0) wake(spots === NARROW ? 1 : above ? 5 : 4, true); startAuto(); } else clearInterval(auto); }), { threshold: .2 }).observe(stage);
   };
 })();

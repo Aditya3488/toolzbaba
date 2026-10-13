@@ -97,10 +97,10 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 @media (max-width:560px) { .top-in { padding:9px 14px; gap:8px; } .brand span { font-size:1.02rem; } }
 
 /* ============================================================ hero (home) */
-.hero { position:relative; text-align:left; padding:56px 0 4px; overflow-x:clip; }   /* no vertical clip: Baba's soft glow fades into the next section instead of ending in a hard line */
+.hero { position:relative; z-index:1; text-align:left; padding:56px 0 4px; overflow-x:clip; pointer-events:none; }   /* no vertical clip: Baba's soft glow fades into the next section instead of ending in a hard line */
 .hero::before { content:""; position:absolute; inset:0 0 -80px; background:var(--hero-glow); pointer-events:none;
   -webkit-mask-image:linear-gradient(#000 55%,transparent); mask-image:linear-gradient(#000 55%,transparent); }
-.hero-in { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 20px; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:34px; align-items:center; }
+.hero-in { position:relative; max-width:1200px; margin:0 auto; padding:0 20px; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:34px; align-items:center; }
 .hero-art { justify-self:center; width:100%; max-width:540px; }
 .hero-art img { width:100%; height:auto; display:block; filter:drop-shadow(0 24px 40px rgba(10,79,245,.16)); animation:float 6s ease-in-out infinite; }
 @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
@@ -108,7 +108,9 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 .eyebrow i { width:8px; height:8px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 4px var(--ok-soft); }
 .hero h1 { text-wrap:balance; font-size:clamp(2.1rem,4.6vw,3.4rem); font-weight:800; letter-spacing:-.035em; margin:18px 0 14px; line-height:1.08; }
 .grad { background:var(--grad-warm); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.hero p.lead { font-size:1.12rem; color:var(--muted); max-width:580px; margin:0 0 26px; line-height:1.6; } .hero p.lead strong { color:var(--text); font-weight:700; }
+.hero a, .hero button, .hero input { pointer-events:auto; }
+/* one line, as wide as the headline above it (the size is the headline's, scaled by the two widths) */
+.hero p.lead { font-family:var(--font-display); font-weight:700; font-size:clamp(1.35rem,2.97vw,2.2rem); letter-spacing:-.025em; line-height:1.15; color:var(--text); max-width:none; margin:6px 0 22px; white-space:nowrap; }
 .bigsearch { position:relative; max-width:600px; margin:0; }
 .bigsearch input[type=search] { width:100%; padding:17px 70px 17px 52px; font:inherit; font-size:1.05rem; border:1px solid var(--border2); border-radius:16px; background:var(--card); color:var(--text); box-shadow:var(--shadow); }
 .bigsearch input[type=search]:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 5px var(--accent-ring),var(--shadow); }
@@ -311,14 +313,14 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 
 @media (max-width:900px) {
   .hero { text-align:center; padding-top:30px; } .hero-in { grid-template-columns:minmax(0,1fr); gap:14px; }
-  .hero-art { order:-1; max-width:300px; } .hero p.lead { margin:0 auto 24px; } .bigsearch { margin:0 auto; }
+  .hero-art { order:-1; max-width:300px; } .hero p.lead { margin:0 auto 24px; white-space:normal; font-size:clamp(1.2rem,5.2vw,1.6rem); } .bigsearch { margin:0 auto; }
   .chips,.trust { justify-content:center; }
 }
 /* phones: a smaller Baba and a tighter hero, so the search and the popular tools fit on the first screen */
 @media (max-width:560px) {
   .hero { padding:14px 0 12px; } .hero-in { gap:6px; }
   .hero-art { max-width:150px; } .hero-art img { animation:none; }
-  .hero h1 { margin:10px 0 8px; } .hero p.lead { font-size:.98rem; margin:0 auto 14px; }
+  .hero h1 { margin:10px 0 8px; } .hero p.lead { font-size:clamp(1.2rem,5.4vw,1.5rem); margin:0 auto 14px; }
   .hero .trust { display:none; }   /* the same three promises are in the "why" cards further down */
   /* one row you swipe sideways, so it stays a single line however many tools it holds */
   .hero .chips { margin:12px -20px 0; padding:0 20px 4px; gap:6px; flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; scrollbar-width:none; }
@@ -828,6 +830,10 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
    pointer (--d: 0 far .. 1 near); far-away boxes are small soft cards that melt into the page at the edges. */
 .ask { width:100%; margin:0 0 30px; position:relative;
   background:radial-gradient(46% 52% at 50% 58%, color-mix(in srgb,#a855f7 7%,transparent), transparent 72%); }
+/* the home page: hero and field are one scene; the field fills it, the hero sits on top, and the panel comes above both */
+.scene { position:relative; margin:0 0 30px; background:radial-gradient(46% 40% at 50% 62%, color-mix(in srgb,#a855f7 7%,transparent), transparent 72%); }
+.scene > .ask-stage { position:absolute; inset:0; height:auto; z-index:0; } .scene > .ask-stage.open { z-index:2; }
+.ask-space { height:470px; } @media (max-width:700px) { .ask-space { height:430px; } }
 .ask-h { text-align:center; margin:0 auto 4px; max-width:640px; padding:0 20px; } .ask-h h2 { font-size:clamp(1.35rem,2.6vw,1.9rem); margin:0 0 6px; letter-spacing:-.02em; } .ask-h p { margin:0; color:var(--muted); }
 .ask-stage { position:relative; height:500px; overflow-x:clip; }
 .ask-stage.compact { height:420px; }
@@ -877,9 +883,6 @@ input[type=file]::file-selector-button:hover { background:color-mix(in srgb,var(
 /* Baba at work */
 .ask-stage.open .ab-field, .ask-stage.open .ab-ghosts { opacity:.35; filter:blur(2px); } .ask-stage.open .ab-ask { opacity:0; pointer-events:none; }
 .ab-ghosts { transition:opacity .4s, filter .4s; }
-/* the far-away boxes behind the hero: the field above flows into the section (ask-baba.js "backdrop") */
-.ab-back { z-index:0; -webkit-mask-image:linear-gradient(transparent, #000 18%, #000 100%); mask-image:linear-gradient(transparent, #000 18%, #000 100%); }
-@media (max-width:700px) { .ab-back i:nth-child(n+9) { display:none; } }
 .ab-panel { position:absolute; left:0; right:0; top:5%; margin:0 auto; width:min(560px,calc(100% - 32px)); max-height:90%; overflow:auto; z-index:50; transform-origin:0 0;
   background:var(--card); border:0; border-radius:20px; padding:16px 18px 18px; box-shadow:0 2px 8px rgba(20,24,60,.06), 0 30px 70px -20px rgba(40,30,120,.45); }
 .ab-top { display:flex; align-items:flex-start; gap:10px; }
