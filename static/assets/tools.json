@@ -13141,6 +13141,831 @@
      "a": "There is no account and no daily limit. Very large files are limited only by your device's memory."
     }
    ]
+  },
+  {
+   "slug": "webp-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "WebP to PDF",
+   "title": "WebP to PDF Converter Free: Convert WebP to PDF Online",
+   "desc": "Turn WebP pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free WebP to PDF converter. Combine WebP images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put WebP pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your WebP files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn WebP into a PDF?",
+     "a": "Add your WebP files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "gif-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "GIF to PDF",
+   "title": "GIF to PDF Converter Free: Convert GIF to PDF Online",
+   "desc": "Turn GIF pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free GIF to PDF converter. Combine GIF images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put GIF pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your GIF files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn GIF into a PDF?",
+     "a": "Add your GIF files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "bmp-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "BMP to PDF",
+   "title": "BMP to PDF Converter Free: Convert BMP to PDF Online",
+   "desc": "Turn BMP pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free BMP to PDF converter. Combine BMP images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put BMP pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your BMP files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn BMP into a PDF?",
+     "a": "Add your BMP files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "tiff-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "TIFF to PDF",
+   "title": "TIFF to PDF Converter Free: Convert TIFF to PDF Online",
+   "desc": "Turn TIFF pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free TIFF to PDF converter. Combine TIFF images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put TIFF pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your TIFF files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn TIFF into a PDF?",
+     "a": "Add your TIFF files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "avif-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "AVIF to PDF",
+   "title": "AVIF to PDF Converter Free: Convert AVIF to PDF Online",
+   "desc": "Turn AVIF pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free AVIF to PDF converter. Combine AVIF images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put AVIF pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your AVIF files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn AVIF into a PDF?",
+     "a": "Add your AVIF files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "heic-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HEIC to PDF",
+   "title": "HEIC to PDF Converter Free: Convert HEIC to PDF Online",
+   "desc": "Turn HEIC pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free HEIC to PDF converter. Combine HEIC images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put HEIC pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your HEIC files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn HEIC into a PDF?",
+     "a": "Add your HEIC files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "heif-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "HEIF to PDF",
+   "title": "HEIF to PDF Converter Free: Convert HEIF to PDF Online",
+   "desc": "Turn HEIF pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free HEIF to PDF converter. Combine HEIF images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put HEIF pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your HEIF files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn HEIF into a PDF?",
+     "a": "Add your HEIF files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "jfif-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "JFIF to PDF",
+   "title": "JFIF to PDF Converter Free: Convert JFIF to PDF Online",
+   "desc": "Turn JFIF pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free JFIF to PDF converter. Combine JFIF images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put JFIF pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your JFIF files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn JFIF into a PDF?",
+     "a": "Add your JFIF files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "ico-to-pdf",
+   "base": "image-to-pdf",
+   "cat": "pdf",
+   "kind": "client",
+   "name": "ICO to PDF",
+   "title": "ICO to PDF Converter Free: Convert ICO to PDF Online",
+   "desc": "Turn ICO pictures into one PDF. Choose the page size and the order. Runs in your browser.",
+   "metaDesc": "Free ICO to PDF converter. Combine ICO images into a single PDF online, choose page size and order. Nothing is uploaded.",
+   "about": "Put ICO pictures into a PDF, one page each or several to a page. Drag them into the order you want, pick the page size, and download a single document. Useful for sending scans, receipts or photos as one file instead of many. The PDF is made inside your browser, so the pictures never leave your device.",
+   "steps": [
+    "Add your ICO files.",
+    "Drag them into the order you want and choose a page size.",
+    "Make the PDF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn ICO into a PDF?",
+     "a": "Add your ICO files above, drag them into the order you want, then press the button. You get one PDF with every picture in it."
+    },
+    {
+     "q": "Can I put several pictures on one page?",
+     "a": "Yes. Choose the layout before you make the PDF; one picture per page is the default."
+    },
+    {
+     "q": "Are my pictures uploaded?",
+     "a": "No. The PDF is built inside your browser, so nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "mov-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "MOV to GIF",
+   "title": "MOV to GIF Converter Free: Convert MOV to GIF Online",
+   "desc": "Turn a MOV video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free MOV to GIF converter. Make an animated GIF from a MOV video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a MOV video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your MOV video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a MOV video into a GIF?",
+     "a": "Add the MOV file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "mkv-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "MKV to GIF",
+   "title": "MKV to GIF Converter Free: Convert MKV to GIF Online",
+   "desc": "Turn a MKV video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free MKV to GIF converter. Make an animated GIF from a MKV video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a MKV video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your MKV video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a MKV video into a GIF?",
+     "a": "Add the MKV file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "avi-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "AVI to GIF",
+   "title": "AVI to GIF Converter Free: Convert AVI to GIF Online",
+   "desc": "Turn a AVI video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free AVI to GIF converter. Make an animated GIF from a AVI video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a AVI video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your AVI video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a AVI video into a GIF?",
+     "a": "Add the AVI file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "webm-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "WebM to GIF",
+   "title": "WebM to GIF Converter Free: Convert WebM to GIF Online",
+   "desc": "Turn a WebM video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free WebM to GIF converter. Make an animated GIF from a WebM video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a WebM video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your WebM video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a WebM video into a GIF?",
+     "a": "Add the WebM file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "wmv-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "WMV to GIF",
+   "title": "WMV to GIF Converter Free: Convert WMV to GIF Online",
+   "desc": "Turn a WMV video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free WMV to GIF converter. Make an animated GIF from a WMV video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a WMV video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your WMV video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a WMV video into a GIF?",
+     "a": "Add the WMV file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "flv-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "FLV to GIF",
+   "title": "FLV to GIF Converter Free: Convert FLV to GIF Online",
+   "desc": "Turn a FLV video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free FLV to GIF converter. Make an animated GIF from a FLV video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a FLV video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your FLV video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a FLV video into a GIF?",
+     "a": "Add the FLV file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "m4v-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "M4V to GIF",
+   "title": "M4V to GIF Converter Free: Convert M4V to GIF Online",
+   "desc": "Turn a M4V video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free M4V to GIF converter. Make an animated GIF from a M4V video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a M4V video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your M4V video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a M4V video into a GIF?",
+     "a": "Add the M4V file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "mpg-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "MPG to GIF",
+   "title": "MPG to GIF Converter Free: Convert MPG to GIF Online",
+   "desc": "Turn a MPG video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free MPG to GIF converter. Make an animated GIF from a MPG video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a MPG video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your MPG video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a MPG video into a GIF?",
+     "a": "Add the MPG file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "mpeg-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "MPEG to GIF",
+   "title": "MPEG to GIF Converter Free: Convert MPEG to GIF Online",
+   "desc": "Turn a MPEG video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free MPEG to GIF converter. Make an animated GIF from a MPEG video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a MPEG video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your MPEG video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a MPEG video into a GIF?",
+     "a": "Add the MPEG file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "ts-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "TS to GIF",
+   "title": "TS to GIF Converter Free: Convert TS to GIF Online",
+   "desc": "Turn a TS video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free TS to GIF converter. Make an animated GIF from a TS video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a TS video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your TS video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a TS video into a GIF?",
+     "a": "Add the TS file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "mts-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "MTS to GIF",
+   "title": "MTS to GIF Converter Free: Convert MTS to GIF Online",
+   "desc": "Turn a MTS video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free MTS to GIF converter. Make an animated GIF from a MTS video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a MTS video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your MTS video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a MTS video into a GIF?",
+     "a": "Add the MTS file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "vob-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "VOB to GIF",
+   "title": "VOB to GIF Converter Free: Convert VOB to GIF Online",
+   "desc": "Turn a VOB video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free VOB to GIF converter. Make an animated GIF from a VOB video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a VOB video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your VOB video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a VOB video into a GIF?",
+     "a": "Add the VOB file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "3gp-to-gif",
+   "base": "video-to-gif",
+   "cat": "video",
+   "kind": "client",
+   "name": "3GP to GIF",
+   "title": "3GP to GIF Converter Free: Convert 3GP to GIF Online",
+   "desc": "Turn a 3GP video into an animated GIF. Pick the part, the size and the frame rate. Runs in your browser.",
+   "metaDesc": "Free 3GP to GIF converter. Make an animated GIF from a 3GP video online: choose the clip, size and frame rate. Nothing is uploaded.",
+   "about": "Make an animated GIF out of a 3GP video. Choose where the clip starts and ends, how wide the GIF should be and how many frames a second it keeps: all three decide the file size, and the preview shows the result before you download. GIFs play anywhere and need no player, which is why they suit short loops. The video is read inside your browser and never uploaded.",
+   "steps": [
+    "Add your 3GP video.",
+    "Choose the start, the end, the width and the frame rate.",
+    "Make the GIF and download it."
+   ],
+   "faq": [
+    {
+     "q": "How do I turn a 3GP video into a GIF?",
+     "a": "Add the 3GP file, pick the part you want and the size, then press the button. The preview shows the GIF before you download it."
+    },
+    {
+     "q": "Why is my GIF so large?",
+     "a": "A GIF stores every frame as a picture. Shorten the clip, reduce the width or lower the frame rate and the file gets much smaller."
+    },
+    {
+     "q": "Is my video uploaded?",
+     "a": "No. It is read inside your browser and nothing is sent to a server."
+    }
+   ]
+  },
+  {
+   "slug": "gif-to-mp4",
+   "base": "video-converter",
+   "cat": "video",
+   "kind": "client",
+   "name": "GIF to MP4",
+   "title": "GIF to MP4 Converter Free: Convert GIF to MP4 Online",
+   "desc": "Turn an animated GIF into a MP4 video. Much smaller than the GIF, and it plays anywhere.",
+   "metaDesc": "Free GIF to MP4 converter. Turn an animated GIF into a MP4 video online, usually far smaller than the GIF. Nothing is uploaded.",
+   "about": "Turn an animated GIF into a MP4 video. A GIF stores every frame as a full picture, so the same animation as MP4 is very often a fraction of the size while looking the same or better. That matters where a GIF is too big to send or too heavy for a web page. The conversion runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your GIF.",
+    "MP4 is already selected; adjust the quality if you want.",
+    "Convert and download the MP4 file."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a GIF to MP4?",
+     "a": "A MP4 video of the same animation is usually much smaller than the GIF, often by ten times or more, and it plays on every phone and browser."
+    },
+    {
+     "q": "Does it still loop?",
+     "a": "A video does not loop on its own the way a GIF does. Most players and social sites loop short clips automatically; on a web page you set loop on the video tag."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser."
+    }
+   ],
+   "preset": {
+    "format": "mp4"
+   }
+  },
+  {
+   "slug": "gif-to-webm",
+   "base": "video-converter",
+   "cat": "video",
+   "kind": "client",
+   "name": "GIF to WebM",
+   "title": "GIF to WebM Converter Free: Convert GIF to WebM Online",
+   "desc": "Turn an animated GIF into a WebM video. Much smaller than the GIF, and it plays anywhere.",
+   "metaDesc": "Free GIF to WebM converter. Turn an animated GIF into a WebM video online, usually far smaller than the GIF. Nothing is uploaded.",
+   "about": "Turn an animated GIF into a WebM video. A GIF stores every frame as a full picture, so the same animation as WebM is very often a fraction of the size while looking the same or better. That matters where a GIF is too big to send or too heavy for a web page. The conversion runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your GIF.",
+    "WebM is already selected; adjust the quality if you want.",
+    "Convert and download the WebM file."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a GIF to WebM?",
+     "a": "A WebM video of the same animation is usually much smaller than the GIF, often by ten times or more, and it plays on every phone and browser."
+    },
+    {
+     "q": "Does it still loop?",
+     "a": "A video does not loop on its own the way a GIF does. Most players and social sites loop short clips automatically; on a web page you set loop on the video tag."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser."
+    }
+   ],
+   "preset": {
+    "format": "webm"
+   }
+  },
+  {
+   "slug": "gif-to-mkv",
+   "base": "video-converter",
+   "cat": "video",
+   "kind": "client",
+   "name": "GIF to MKV",
+   "title": "GIF to MKV Converter Free: Convert GIF to MKV Online",
+   "desc": "Turn an animated GIF into a MKV video. Much smaller than the GIF, and it plays anywhere.",
+   "metaDesc": "Free GIF to MKV converter. Turn an animated GIF into a MKV video online, usually far smaller than the GIF. Nothing is uploaded.",
+   "about": "Turn an animated GIF into a MKV video. A GIF stores every frame as a full picture, so the same animation as MKV is very often a fraction of the size while looking the same or better. That matters where a GIF is too big to send or too heavy for a web page. The conversion runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your GIF.",
+    "MKV is already selected; adjust the quality if you want.",
+    "Convert and download the MKV file."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a GIF to MKV?",
+     "a": "A MKV video of the same animation is usually much smaller than the GIF, often by ten times or more, and it plays on every phone and browser."
+    },
+    {
+     "q": "Does it still loop?",
+     "a": "A video does not loop on its own the way a GIF does. Most players and social sites loop short clips automatically; on a web page you set loop on the video tag."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser."
+    }
+   ],
+   "preset": {
+    "format": "mkv"
+   }
+  },
+  {
+   "slug": "gif-to-mov",
+   "base": "video-converter",
+   "cat": "video",
+   "kind": "client",
+   "name": "GIF to MOV",
+   "title": "GIF to MOV Converter Free: Convert GIF to MOV Online",
+   "desc": "Turn an animated GIF into a MOV video. Much smaller than the GIF, and it plays anywhere.",
+   "metaDesc": "Free GIF to MOV converter. Turn an animated GIF into a MOV video online, usually far smaller than the GIF. Nothing is uploaded.",
+   "about": "Turn an animated GIF into a MOV video. A GIF stores every frame as a full picture, so the same animation as MOV is very often a fraction of the size while looking the same or better. That matters where a GIF is too big to send or too heavy for a web page. The conversion runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your GIF.",
+    "MOV is already selected; adjust the quality if you want.",
+    "Convert and download the MOV file."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a GIF to MOV?",
+     "a": "A MOV video of the same animation is usually much smaller than the GIF, often by ten times or more, and it plays on every phone and browser."
+    },
+    {
+     "q": "Does it still loop?",
+     "a": "A video does not loop on its own the way a GIF does. Most players and social sites loop short clips automatically; on a web page you set loop on the video tag."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser."
+    }
+   ],
+   "preset": {
+    "format": "mov"
+   }
+  },
+  {
+   "slug": "gif-to-avi",
+   "base": "video-converter",
+   "cat": "video",
+   "kind": "client",
+   "name": "GIF to AVI",
+   "title": "GIF to AVI Converter Free: Convert GIF to AVI Online",
+   "desc": "Turn an animated GIF into a AVI video. Much smaller than the GIF, and it plays anywhere.",
+   "metaDesc": "Free GIF to AVI converter. Turn an animated GIF into a AVI video online, usually far smaller than the GIF. Nothing is uploaded.",
+   "about": "Turn an animated GIF into a AVI video. A GIF stores every frame as a full picture, so the same animation as AVI is very often a fraction of the size while looking the same or better. That matters where a GIF is too big to send or too heavy for a web page. The conversion runs inside your browser, so the file never leaves your device.",
+   "steps": [
+    "Add your GIF.",
+    "AVI is already selected; adjust the quality if you want.",
+    "Convert and download the AVI file."
+   ],
+   "faq": [
+    {
+     "q": "Why convert a GIF to AVI?",
+     "a": "A AVI video of the same animation is usually much smaller than the GIF, often by ten times or more, and it plays on every phone and browser."
+    },
+    {
+     "q": "Does it still loop?",
+     "a": "A video does not loop on its own the way a GIF does. Most players and social sites loop short clips automatically; on a web page you set loop on the video tag."
+    },
+    {
+     "q": "Is my file uploaded?",
+     "a": "No. The conversion happens inside your browser."
+    }
+   ],
+   "preset": {
+    "format": "avi"
+   }
   }
  ]
 }
