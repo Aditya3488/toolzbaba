@@ -73,7 +73,8 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
 
 /* ============================================================ header */
-.top { position:sticky; top:0; z-index:95; min-height:64px;   /* filled by common.js: the space is held so the page does not jump */ backdrop-filter:saturate(180%) blur(14px); -webkit-backdrop-filter:saturate(180%) blur(14px);
+#top { min-height:64px; }   /* the header is filled by common.js (which also gives it the .top class): its space is held by id, so the page does not jump */
+.top { position:sticky; top:0; z-index:95; backdrop-filter:saturate(180%) blur(14px); -webkit-backdrop-filter:saturate(180%) blur(14px);
   background:color-mix(in srgb,var(--bg) 80%,transparent); border-bottom:1px solid var(--border); }
 .top-in { max-width:1200px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:18px; }
 .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem; color:var(--text); letter-spacing:-.03em; white-space:nowrap; }
@@ -94,7 +95,7 @@ h1 { font-size:2rem; margin:0 0 6px; } h2 { font-size:1.1rem; margin:0 0 12px; }
 .iconbtn:hover { color:var(--text); border-color:var(--border2); }
 .iconbtn svg { width:18px; height:18px; }
 @media (max-width:820px) { .hsearch { display:none; }  }
-@media (max-width:560px) { .top { min-height:57px; } .top-in { padding:9px 14px; gap:8px; } .brand span { font-size:1.02rem; } }
+@media (max-width:560px) { #top { min-height:57px; } .top-in { padding:9px 14px; gap:8px; } .brand span { font-size:1.02rem; } }
 
 /* ============================================================ hero (home) */
 .hero { position:relative; z-index:1; text-align:left; padding:56px 0 4px; overflow-x:clip; pointer-events:none; }   /* no vertical clip: Baba's soft glow fades into the next section instead of ending in a hard line */
