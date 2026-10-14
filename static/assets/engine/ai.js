@@ -22,29 +22,70 @@
     ort.env.wasm.proxy = true;   // the model runs in a worker: the page keeps responding and the timer keeps ticking
     return ort;
   }));
+  // ---- model bytes: downloaded once per page and kept in the browser's cache storage, so the next visit has them at
+  // once. Several callers can watch one download: the tool page warms the model up before the button is pressed.
+  const CACHE = 'tz-models-v1', loads = {};
+  async function fetchPart(url) {
+    let cache = null;
+    try { cache = await caches.open(CACHE); const hit = await cache.match(url); if (hit) return hit; } catch (e) { /* no cache storage (private window): a plain fetch */ }
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('Could not download the AI model. Check your connection and try again.');
+    if (cache) cache.put(url, r.clone()).catch(() => {});
+    return r;
+  }
+  const fmtMB = b => (b / 1048576).toFixed(b < 10 * 1048576 ? 1 : 0);
+  function modelBytes(key, ctx) {
+    let L = loads[key];
+    if (!L) {
+      const m = MODEL[key];
+      L = loads[key] = { watchers: [], got: 0, total: m.mb * 1048576, hist: [], last: 0 };
+      const say = final => {   // what the visitor reads: how much, how fast, how long to go
+        const now = performance.now();
+        if (!final && now - L.last < 150) return;
+        L.last = now; L.hist.push([now, L.got]); while (L.hist.length > 2 && now - L.hist[0][0] > 3000) L.hist.shift();
+        const [t1, g1] = L.hist[0], speed = now - t1 > 400 ? (L.got - g1) / ((now - t1) / 1000) : 0, left = speed > 0 ? Math.max(0, (L.total - L.got) / speed) : 0;
+        let msg = `Downloading the AI model: ${fmtMB(L.got)} of ${fmtMB(L.total)} MB (only the first time)`;
+        if (speed > 0 && !final) msg += ` · ${speed < 1048576 ? Math.round(speed / 1024) + ' KB' : (speed / 1048576).toFixed(1) + ' MB'}/s · about ${left < 90 ? Math.max(5, Math.ceil(left / 5) * 5) + ' s' : Math.ceil(left / 60) + ' min'} left`;
+        if (speed > 0 && !final && left > 60 && m.mb > 10) L.hint = true;   // once shown, the hint stays (no flicker around the mark)
+        if (L.hint && !final) msg += '. Slow connection: the "Fast" model is only 5 MB';
+        for (const c of L.watchers) { c.status(msg + '...'); c.progress(L.got / L.total); }
+      };
+      L.p = (async () => {
+        const chunks = [];
+        for (const file of m.files) {
+          const reader = (await fetchPart(MODELS + file)).body.getReader();
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value); L.got += value.length; say(false);
+          }
+        }
+        L.total = L.got; say(true);
+        const bytes = new Uint8Array(L.got);
+        let off = 0;
+        for (const c of chunks) { bytes.set(c, off); off += c.length; }
+        return bytes;
+      })();
+      L.p.catch(() => { delete loads[key]; });   // a failed download is tried again next time
+    }
+    if (ctx) L.watchers.push(ctx);
+    return L.p;
+  }
   async function session(ctx, key) {
     if (sessions[key]) return sessions[key];
-    const ort = await runtime(), m = MODEL[key], chunks = [];
-    let got = 0;
-    for (const file of m.files) {
-      const r = await fetch(MODELS + file);
-      if (!r.ok) throw new Error('Could not download the AI model. Check your connection and try again.');
-      const reader = r.body.getReader();
-      for (;;) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        chunks.push(value); got += value.length;
-        ctx.status(`Downloading the AI model: ${Math.round(got / 1048576)} of ${Math.round(m.mb)} MB (only the first time)...`);
-      }
-    }
-    const bytes = new Uint8Array(got);
-    let off = 0;
-    for (const c of chunks) { bytes.set(c, off); off += c.length; }
-    ctx.status('Starting the AI model...'); await tick();
+    const ort = await runtime(), bytes = await modelBytes(key, ctx);
+    ctx.status('Starting the AI model...'); ctx.progress(0); await tick();
     sessions[key] = await ort.InferenceSession.create(bytes, { executionProviders: ['wasm'], graphOptimizationLevel: 'all', logSeverityLevel: 3 });   // 3 = errors only, also inside the worker
+    delete loads[key];   // the bytes live in the session now
     ctx.status('');
     return sessions[key];
   }
+  // Fetch the runtime and the models a tool will need before its button is pressed (names: a cut-out model or a MODEL key)
+  let warmed = false;
+  HT.aiWarm = (...names) => {
+    if (!warmed) { warmed = true; runtime().catch(() => {}); fetch(ORT + 'ort-wasm-simd-threaded.wasm').then(r => r.arrayBuffer()).catch(() => {}); }
+    for (const n of names) { const key = n && ((CUT[n] || {}).key || (MODEL[n] ? n : null)); if (key && !sessions[key]) modelBytes(key).catch(() => {}); }
+  };
   async function infer(key, ctx, feeds) {
     const s = await session(ctx, key), ort = await runtime(), inputs = {};
     for (const [i, [data, dims]] of feeds.entries()) inputs[s.inputNames[i]] = new ort.Tensor('float32', data, dims);

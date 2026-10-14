@@ -1,8 +1,23 @@
 const IMG = 'image/*,.heic,.heif,.avif';
 const NOTE = 'The AI runs on your device, so your photos are never uploaded. The first use downloads the AI model once (5 to 46 MB); after that it starts quickly.';
+// The AI runtime and model are fetched before the visitor presses the button: as soon as a file is added (they mean to
+// use the tool), and on opening the page unless the connection is metered or slow. The browser keeps them, so the
+// download happens once, and before the click rather than after it.
+const warmAI = (field, ...fixed) => {
+  let go = () => {};
+  return {
+    onReady: ({ form }) => {
+      go = () => HT.loadScript('/assets/engine/ai.js').then(() => HT.aiWarm(...fixed, field && form.values()[field])).catch(() => {});
+      const c = navigator.connection, slow = c && (c.saveData || /^(slow-2g|2g|3g)$/.test(c.effectiveType || ''));
+      if (!slow) setTimeout(go, 1200);
+      if (field) form.el.addEventListener('change', go);
+    },
+    onFiles: files => { if (files.length) go(); },
+  };
+};
 
 HT.register('remove-background', root => HT.serverTool(root, {
-  slug: 'remove-background', accept: IMG, max: 10, action: 'Remove background', notice: NOTE, hint: 'People, groups, products, animals, objects',
+  ...warmAI('model'), slug: 'remove-background', accept: IMG, max: 10, action: 'Remove background', notice: NOTE, hint: 'People, groups, products, animals, objects',
   fields: [
     { name: 'model', label: 'Model', type: 'select', options: [['general', 'Best quality: people, groups, objects (46 MB)'], ['person', 'Single portrait or selfie only (26 MB)'], ['fast', 'Fast, rough edges (5 MB)']] },
     { name: 'format', label: 'Output', type: 'select', options: [['png', 'PNG (transparent)'], ['webp', 'WebP (transparent, smaller)']] },
@@ -10,7 +25,7 @@ HT.register('remove-background', root => HT.serverTool(root, {
 }));
 
 HT.register('replace-background', root => HT.serverTool(root, {
-  slug: 'replace-background', accept: IMG, max: 1, action: 'Replace background', notice: NOTE, hint: 'Add the photo whose background you want to change',
+  ...warmAI('model'), slug: 'replace-background', accept: IMG, max: 1, action: 'Replace background', notice: NOTE, hint: 'Add the photo whose background you want to change',
   fields: [
     { name: 'mode', label: 'New background', type: 'select', options: [['color', 'Solid colour'], ['gradient', 'Gradient'], ['blur', 'Blurred original'], ['image', 'Another photo'], ['transparent', 'Transparent']] },
     { name: 'color', label: 'Colour', type: 'color', value: '#4f46e5', showIf: v => v.mode === 'color' || v.mode === 'gradient' },
@@ -22,7 +37,7 @@ HT.register('replace-background', root => HT.serverTool(root, {
 }));
 
 HT.register('upscale-image', root => HT.serverTool(root, {
-  slug: 'upscale-image', accept: IMG, max: 5, action: 'Upscale', notice: NOTE,
+  ...warmAI(null, 'realesr'), slug: 'upscale-image', accept: IMG, max: 5, action: 'Upscale', notice: NOTE,
   hint: 'AI mode handles images up to about 1.5 megapixels and takes a little while on phones. Great for small or blurry pictures.',
   fields: [
     { name: 'scale', label: 'Enlarge', type: 'select', options: [[2, '2×'], [3, '3×'], [4, '4×']] },
@@ -31,7 +46,7 @@ HT.register('upscale-image', root => HT.serverTool(root, {
 }));
 
 HT.register('face-blur', root => HT.serverTool(root, {
-  slug: 'face-blur', accept: IMG, max: 20, action: 'Blur faces', hint: 'Faces are found automatically',
+  ...warmAI(null, 'yunet'), slug: 'face-blur', accept: IMG, max: 20, action: 'Blur faces', hint: 'Faces are found automatically',
   fields: [
     { name: 'style', label: 'Style', type: 'select', options: [['blur', 'Blur'], ['pixelate', 'Pixelate'], ['black', 'Black cover']] },
     { name: 'strength', label: 'Strength', type: 'range', min: 10, max: 100, value: 70, unit: '%', showIf: v => v.style !== 'black' },
@@ -41,12 +56,12 @@ HT.register('face-blur', root => HT.serverTool(root, {
 }));
 
 HT.register('anime-style', root => HT.serverTool(root, {
-  slug: 'anime-style', accept: IMG, max: 10, action: 'Turn into anime', notice: NOTE, hint: 'Portraits and scenery both work',
+  ...warmAI('style'), slug: 'anime-style', accept: IMG, max: 10, action: 'Turn into anime', notice: NOTE, hint: 'Portraits and scenery both work',
   fields: [{ name: 'style', label: 'Style', type: 'select', options: [['hayao', 'Hayao (soft, painterly)'], ['shinkai', 'Shinkai (vivid, cinematic)']] }],
 }));
 
 HT.register('ai-headshot-generator', root => HT.serverTool(root, {
-  slug: 'ai-headshot-generator', accept: IMG, max: 1, action: 'Make my headshot', notice: NOTE, hint: 'A clear photo of yourself with your whole head visible, facing the camera',
+  ...warmAI(null, 'person', 'yunet'), slug: 'ai-headshot-generator', accept: IMG, max: 1, action: 'Make my headshot', notice: NOTE, hint: 'A clear photo of yourself with your whole head visible, facing the camera',
   fields: [
     { name: 'background', label: 'Background', type: 'select', value: 'studio', options: [['studio', 'Studio grey'], ['warm', 'Warm beige'], ['blue', 'Soft blue'], ['dark', 'Dark'], ['white', 'White'], ['blur', 'Blurred original'], ['custom', 'Custom colour...']] },
     { name: 'custom_color', label: 'Colour', type: 'color', value: '#dfe6f3', showIf: v => v.background === 'custom' },
