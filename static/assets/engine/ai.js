@@ -19,6 +19,7 @@
     ort.env.wasm.wasmPaths = ORT;
     ort.env.logLevel = 'error'; // the models trigger harmless 'unused initializer' warnings
     ort.env.wasm.numThreads = self.crossOriginIsolated ? Math.min(4, navigator.hardwareConcurrency || 1) : 1;
+    ort.env.wasm.proxy = true;   // the model runs in a worker: the page keeps responding and the timer keeps ticking
     return ort;
   }));
   async function session(ctx, key) {
@@ -40,7 +41,7 @@
     let off = 0;
     for (const c of chunks) { bytes.set(c, off); off += c.length; }
     ctx.status('Starting the AI model...'); await tick();
-    sessions[key] = await ort.InferenceSession.create(bytes, { executionProviders: ['wasm'], graphOptimizationLevel: 'all' });
+    sessions[key] = await ort.InferenceSession.create(bytes, { executionProviders: ['wasm'], graphOptimizationLevel: 'all', logSeverityLevel: 3 });   // 3 = errors only, also inside the worker
     ctx.status('');
     return sessions[key];
   }
@@ -78,7 +79,7 @@
     fast: { key: 'u2netp', size: 320, mean: [0.485, 0.456, 0.406], std: [0.229, 0.224, 0.225], norm: true },
     person: { key: 'modnet', mean: [0.5, 0.5, 0.5], std: [0.5, 0.5, 0.5] },
   };
-  async function cutout(ctx, c, model) {
+  async function cutout(ctx, c, model, label = '') {
     const cfg = CUT[model] || CUT.general;
     let w, h;
     if (cfg.size) w = h = cfg.size;
@@ -90,7 +91,11 @@
     const small = scaled(c, w, h);
     let max = 255;
     if (cfg.norm) { const d = pixels(small).data; max = 1; for (let i = 0; i < d.length; i += 4) max = Math.max(max, d[i], d[i + 1], d[i + 2]); }
-    const out = await infer(cfg.key, ctx, [[chw(small, cfg.mean, cfg.std, max), [1, 3, h, w]]]);
+    const feed = chw(small, cfg.mean, cfg.std, max);
+    await session(ctx, cfg.key);   // downloads and starts the model first (with its own messages), then the stage below
+    ctx.status(label + 'Finding the subject with AI (the slow part: a few seconds, up to half a minute on a phone)...');
+    const out = await infer(cfg.key, ctx, [[feed, [1, 3, h, w]]]);
+    ctx.status(label + 'Cutting it out...'); await tick();
     const pred = out[Object.keys(out)[0]].data;
     let lo = Infinity, hi = -Infinity;
     for (const v of pred) { if (v < lo) lo = v; if (v > hi) hi = v; }
@@ -105,12 +110,15 @@
 
   HT.engine('remove-background', async ctx => {
     const fmt = ctx.opts.format === 'webp' ? 'webp' : 'png', outs = [];
+    const n = ctx.files.length;
     for (const [i, f] of ctx.files.entries()) {
-      ctx.status(ctx.files.length > 1 ? `Removing background ${i + 1} of ${ctx.files.length}...` : 'Removing background...');
+      const label = n > 1 ? `Photo ${i + 1} of ${n}: ` : '';
+      ctx.status(label + 'Preparing the photo...'); ctx.progress(i / n);
       await tick();
-      const res = await cutout(ctx, limit(await load(f), 3000), ctx.opts.model);
+      const res = await cutout(ctx, limit(await load(f), 3000), ctx.opts.model, label);
+      ctx.status(label + 'Saving...'); ctx.progress((i + 0.9) / n);
       outs.push({ name: outName(f, fmt, '_nobg'), blob: await blob(res, 'image/' + fmt, fmt === 'webp' ? 1 : undefined) });
-      ctx.progress((i + 1) / ctx.files.length);
+      ctx.progress((i + 1) / n);
     }
     ctx.info = { summary: `Background removed from ${outs.length} image(s)` };
     return outs;

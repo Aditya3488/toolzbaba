@@ -431,13 +431,21 @@
     job.done.then(tick);
   });
 
-  // A progress bar + status line pair
+  // A progress bar + status line pair. While a job runs the time so far ticks after the message ("12 s", shown by
+  // CSS from data-tm), and until there is a real percentage the bar sweeps, so a long job never looks stuck.
   HT.progress = () => {
     const fill = el('i'), bar = el('div', { class: 'bar' }, fill), st = el('div', { class: 'status' });
+    let t0 = 0, timer = 0;
+    const show = () => { const s = (performance.now() - t0) / 1000; st.dataset.tm = s < 1 ? '' : s < 60 ? Math.floor(s) + ' s' : Math.floor(s / 60) + ' min ' + Math.floor(s % 60) + ' s'; };
+    const stop = () => { clearInterval(timer); timer = 0; st.dataset.tm = ''; };
     return { bar, st, el: el('div', {}, bar, st),
-      set(p, msg) { bar.style.display = 'block'; fill.style.width = Math.max(0, Math.min(100, p)) + '%'; st.className = 'status'; st.textContent = msg || ''; },
-      error(msg) { bar.style.display = 'none'; st.className = 'status err'; st.textContent = msg; },
-      clear() { bar.style.display = 'none'; st.className = 'status'; st.textContent = ''; } };
+      set(p, msg) {
+        bar.style.display = 'block'; bar.classList.toggle('busy', p < 3); fill.style.width = Math.max(0, Math.min(100, p)) + '%';
+        st.className = 'status'; st.textContent = msg || '';
+        if (!timer) { t0 = performance.now(); timer = setInterval(show, 200); }
+      },
+      error(msg) { stop(); bar.style.display = 'none'; st.className = 'status err'; st.textContent = msg; },
+      clear() { stop(); bar.style.display = 'none'; st.className = 'status'; st.textContent = ''; } };
   };
 
   // The workbench: everything you can change in a left sidebar, the preview / result on the right (stacked on small screens).

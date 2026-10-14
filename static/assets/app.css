@@ -253,6 +253,9 @@ input[type=checkbox],input[type=radio] { accent-color:var(--accent); width:17px;
 /* progress / status / results */
 .bar { height:9px; background:var(--bg2); border-radius:99px; overflow:hidden; margin-top:16px; display:none; border:1px solid var(--border); }
 .bar i { display:block; height:100%; width:0; background:var(--grad); transition:width .3s; background-size:200% 100%; animation:flow 1.6s linear infinite; }
+.bar.busy i { width:38% !important; border-radius:99px; animation:flow 1.6s linear infinite, sweep 1.4s ease-in-out infinite; }   /* no percentage yet: the fill sweeps across */
+@keyframes sweep { from { transform:translateX(-100%); } to { transform:translateX(265%); } }
+.status[data-tm]:not([data-tm=""])::after { content:" · " attr(data-tm); color:var(--text); font-weight:600; font-variant-numeric:tabular-nums; }   /* the time so far */
 @keyframes flow { to { background-position:-200% 0; } }
 .status { margin-top:10px; color:var(--muted); font-size:.92rem; min-height:1.4em; } .status.err { color:var(--err); font-weight:600; }
 .result { border-color:color-mix(in srgb,var(--ok) 40%,var(--border)); background:linear-gradient(180deg,color-mix(in srgb,var(--ok) 6%,var(--card)),var(--card) 90px); }
