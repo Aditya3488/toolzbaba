@@ -93,7 +93,7 @@
     if (cfg.norm) { const d = pixels(small).data; max = 1; for (let i = 0; i < d.length; i += 4) max = Math.max(max, d[i], d[i + 1], d[i + 2]); }
     const feed = chw(small, cfg.mean, cfg.std, max);
     await session(ctx, cfg.key);   // downloads and starts the model first (with its own messages), then the stage below
-    ctx.status(label + 'Finding the subject with AI (the slow part: a few seconds, up to half a minute on a phone)...');
+    ctx.status(label + 'AI is finding the subject (the slow part, up to 30 s on a phone)...');
     const out = await infer(cfg.key, ctx, [[feed, [1, 3, h, w]]]);
     ctx.status(label + 'Cutting it out...'); await tick();
     const pred = out[Object.keys(out)[0]].data;

@@ -2,9 +2,9 @@ const IMG = 'image/*,.heic,.heif,.avif';
 const NOTE = 'The AI runs on your device, so your photos are never uploaded. The first use downloads the AI model once (5 to 46 MB); after that it starts quickly.';
 
 HT.register('remove-background', root => HT.serverTool(root, {
-  slug: 'remove-background', accept: IMG, max: 10, action: 'Remove background', notice: NOTE, hint: 'Photos of people, products, animals, objects',
+  slug: 'remove-background', accept: IMG, max: 10, action: 'Remove background', notice: NOTE, hint: 'People, groups, products, animals, objects',
   fields: [
-    { name: 'model', label: 'Model', type: 'select', options: [['general', 'Best quality (general, 46 MB)'], ['person', 'People / portraits (26 MB)'], ['fast', 'Fast (5 MB, lower quality)']] },
+    { name: 'model', label: 'Model', type: 'select', options: [['general', 'Best quality: people, groups, objects (46 MB)'], ['person', 'Single portrait or selfie only (26 MB)'], ['fast', 'Fast, rough edges (5 MB)']] },
     { name: 'format', label: 'Output', type: 'select', options: [['png', 'PNG (transparent)'], ['webp', 'WebP (transparent, smaller)']] },
   ],
 }));
@@ -16,7 +16,7 @@ HT.register('replace-background', root => HT.serverTool(root, {
     { name: 'color', label: 'Colour', type: 'color', value: '#4f46e5', showIf: v => v.mode === 'color' || v.mode === 'gradient' },
     { name: 'color2', label: 'Second colour', type: 'color', value: '#ec4899', showIf: v => v.mode === 'gradient' },
     { name: 'blur', label: 'Blur amount', type: 'range', min: 4, max: 60, value: 20, showIf: v => v.mode === 'blur' },
-    { name: 'model', label: 'Cut-out model', type: 'select', options: [['general', 'Best quality (46 MB)'], ['person', 'People / portraits (26 MB)'], ['fast', 'Fast (5 MB)']] },
+    { name: 'model', label: 'Cut-out model', type: 'select', options: [['general', 'Best quality: people, groups, objects (46 MB)'], ['person', 'Single portrait or selfie only (26 MB)'], ['fast', 'Fast, rough edges (5 MB)']] },
   ],
   extraFile: { label: 'Background photo', showIf: v => v.mode === 'image' },
 }));
