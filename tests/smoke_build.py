@@ -73,6 +73,10 @@ def main():
           [v["slug"] for v in twins][:5])
     nofile = [l for l in pages if not ((DIST / (l.strip("/") or "index")).with_suffix(".html").exists() or (DIST / l.strip("/") / "index.html").exists() or (DIST / l.strip("/")).with_suffix("").exists() or l == "/blog")]
     check("every sitemap address has a built page", not nofile, nofile[:8])
+    # the per-kind sitemaps (core, formats, languages, saas) split the full one: together the same set, no address twice
+    groups = [re.findall(r"<loc>([^<]+)</loc>", (DIST / f"sitemap-{g}.xml").read_text("utf-8")) for g in ("core", "formats", "languages", "saas")]
+    check("the per-kind sitemaps split the full sitemap exactly",
+          sorted(sum(groups, [])) == sorted(re.findall(r"<loc>([^<]+)</loc>", xml)) and all(groups), [len(g) for g in groups])
     check("no alias (redirect) address is in the sitemap", not [a for a in aliases if f"/{a}" in pages], [a for a in aliases if f"/{a}" in pages][:5])
     check("redirects file maps every alias", all(re.search(rf"^/{re.escape(a)}\s", (DIST / "_redirects").read_text("utf-8"), re.M) for a in aliases))
 

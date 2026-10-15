@@ -348,6 +348,7 @@ def faq_ld(faq: list) -> dict:
         {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in faq]}
 
 
+SITEMAP_GROUPS = ("core", "formats", "languages", "saas")   # sitemaps by kind of page, next to the full sitemap.xml
 PAGE_HASH = {}   # "/merge-pdf" -> hash of what the page says (for the sitemap's lastmod)
 
 
@@ -511,7 +512,8 @@ def build():
     # robots, sitemap, icons, manifest
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
     write(f"{AHREFS_INDEXNOW_KEY}.txt", AHREFS_INDEXNOW_KEY)
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\n")  # blog posts are added to it by functions/sitemap.xml.js
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /i/\nDisallow: /admin\nDisallow: /blog-shell\n\nSitemap: {SITE_URL}/sitemap.xml\n"
+                        + "".join(f"Sitemap: {SITE_URL}/sitemap-{g}.xml\n" for g in SITEMAP_GROUPS))  # blog posts are added to the main one by functions/sitemap.xml.js
     # archived in tools.json: not offered to search engines (the admin panel's switch works at run time, it cannot change this file)
     dead = {t["slug"] for t in tools if t.get("archived")}
     variants = [v for v in data.get("variants", []) if v["base"] not in dead and not v.get("archived")]
@@ -541,6 +543,20 @@ def build():
     state_file.write_text(json.dumps(fresh, indent=1, sort_keys=True) + "\n", "utf-8")
     body = "\n".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{fresh[p]['date']}</lastmod><priority>{pr}</priority></url>" for p, pr in urls)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "\n</urlset>\n")
+    # The same addresses again, one sitemap per kind of page. Search Console counts discovered and indexed pages per sitemap,
+    # so submitting these shows which kind Google is reading and which it is leaving for later. The full sitemap stays the main one.
+    langs = {c for c, _ in built if c != "en"}
+    saas_set, en_core = set(saas_urls), {"/", "/blog"} | {f"/{t['slug']}" for t in tools} | {f"/{k}" for k in ("privacy", "terms", "contact")}
+
+    def kind(path):
+        if path in saas_set:
+            return "saas"
+        if path.split("/")[1] in langs:
+            return "languages"
+        return "core" if path in en_core else "formats"
+    for g in SITEMAP_GROUPS:
+        part = "\n".join(f"<url><loc>{esc(SITE_URL + p)}</loc><lastmod>{fresh[p]['date']}</lastmod></url>" for p, _ in urls if kind(p) == g)
+        write(f"sitemap-{g}.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + part + "\n</urlset>\n")
     shutil.copyfile(STATIC / "assets" / "favicon.ico", DIST / "favicon.ico")
     shutil.copyfile(STATIC / "assets" / "brand" / "apple-touch-icon.png", DIST / "apple-touch-icon.png")
     icons = [{"src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
