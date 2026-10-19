@@ -1910,5 +1910,10 @@
 "Enhancing...": "Mejorando...",
 "For photos up to {0} px": "Para fotos de hasta {0} px",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "Esta foto ya tiene alta resolución ({0} × {1} px), así que no necesita IA HD: está pensada para fotos pequeñas, suaves o de baja calidad. La corrección automática sigue mejorando la luz, el color y el detalle.",
-"White background": "Fondo blanco"
+"White background": "Fondo blanco",
+"Studio product photo": "Foto de producto de estudio",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "Fondo blanco puro, sin sombras ni manchas, bordes más nítidos. Para fichas de producto.",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "La IA redibuja la foto nítida (hasta 4096 px) y pone el producto sobre blanco puro. La primera vez descarga su IA (51 MB); después, unos 20 segundos por foto con tarjeta gráfica.",
+"Studio: the AI is redrawing the details and finding the product...": "Estudio: la IA está redibujando los detalles y encontrando el producto...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "Estudio: la IA está redibujando los detalles y encontrando el producto (en este dispositivo puede tardar un minuto)..."
 }

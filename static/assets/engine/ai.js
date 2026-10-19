@@ -149,6 +149,8 @@
     return res;
   }
 
+  HT.aiCutout = cutout;   // the Image Enhancer's Studio mode uses the same cut-out
+
   HT.engine('remove-background', async ctx => {
     const fmt = ctx.opts.format === 'webp' ? 'webp' : 'png', outs = [];
     const n = ctx.files.length;

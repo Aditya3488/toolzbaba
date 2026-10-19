@@ -1928,5 +1928,10 @@
 "Enhancing...": "جارٍ التحسين...",
 "For photos up to {0} px": "للصور حتى {0} بكسل",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "هذه الصورة عالية الدقة أصلًا ({0} × {1} بكسل)، لذا لا حاجة إلى HD بالذكاء الاصطناعي: فهو مخصص للصور الصغيرة أو الناعمة أو منخفضة الجودة. ويظل الإصلاح التلقائي يحسّن الإضاءة والألوان والتفاصيل.",
-"White background": "خلفية بيضاء"
+"White background": "خلفية بيضاء",
+"Studio product photo": "صورة منتج احترافية",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "خلفية بيضاء نقية، بلا ظلال أو بقع، وحواف أوضح. لقوائم المنتجات.",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "يعيد الذكاء الاصطناعي رسم الصورة بوضوح (حتى 4096 بكسل) ويضع المنتج على خلفية بيضاء نقية. في المرة الأولى ينزّل نموذجه (51 ميغابايت)؛ ثم نحو 20 ثانية لكل صورة مع بطاقة رسومات.",
+"Studio: the AI is redrawing the details and finding the product...": "الاستوديو: الذكاء الاصطناعي يعيد رسم التفاصيل ويحدد المنتج...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "الاستوديو: الذكاء الاصطناعي يعيد رسم التفاصيل ويحدد المنتج (قد يستغرق دقيقة على هذا الجهاز)..."
 }

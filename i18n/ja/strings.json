@@ -1942,5 +1942,10 @@
 "Enhancing...": "補正中...",
 "For photos up to {0} px": "{0} px までの写真用",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "この写真はすでに高解像度（{0} × {1} px）なので AI HD は不要です。AI HD は小さい・甘い・低画質の写真向けです。自動補正で明るさ・色・ディテールは改善されます。",
-"White background": "白背景"
+"White background": "白背景",
+"Studio product photo": "スタジオ商品写真",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "真っ白な背景、影や汚れなし、よりくっきりした輪郭。商品ページ向け。",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "AI が写真をくっきり描き直し（最大 4096 px）、商品を真っ白な背景に置きます。初回は AI をダウンロードします（51 MB）。その後はグラフィックカードで 1 枚約 20 秒です。",
+"Studio: the AI is redrawing the details and finding the product...": "スタジオ：AI がディテールを描き直し、商品を見つけています...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "スタジオ：AI がディテールを描き直し、商品を見つけています（この端末では 1 分ほどかかることがあります）..."
 }

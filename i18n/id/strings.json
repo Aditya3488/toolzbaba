@@ -1860,5 +1860,10 @@
 "Enhancing...": "Meningkatkan...",
 "For photos up to {0} px": "Untuk foto hingga {0} px",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "Foto ini sudah beresolusi tinggi ({0} × {1} px), jadi AI HD tidak diperlukan: AI HD dibuat untuk foto kecil, lembut, atau berkualitas rendah. Perbaikan otomatis tetap meningkatkan cahaya, warna, dan detail.",
-"White background": "Latar putih"
+"White background": "Latar putih",
+"Studio product photo": "Foto produk studio",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "Latar putih bersih, tanpa bayangan atau noda, tepi lebih tajam. Untuk listing produk.",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "AI menggambar ulang foto dengan tajam (hingga 4096 px) dan menaruh produk di latar putih bersih. Pertama kali AI diunduh (51 MB); setelah itu sekitar 20 detik per foto dengan kartu grafis.",
+"Studio: the AI is redrawing the details and finding the product...": "Studio: AI sedang menggambar ulang detail dan mencari produk...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "Studio: AI sedang menggambar ulang detail dan mencari produk (di perangkat ini bisa sampai satu menit)..."
 }

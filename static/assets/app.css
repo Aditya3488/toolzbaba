@@ -1036,6 +1036,7 @@ h1, h2 { font-weight:700; } h3 { font-weight:700; }
 .enh-sw-ui::after { content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.3); transition:transform .2s; }
 .enh-sw-in:checked + .enh-sw-ui { background:var(--accent); } .enh-sw-in:checked + .enh-sw-ui::after { transform:translateX(20px); }
 .enh-sw-in:focus-visible + .enh-sw-ui { outline:2px solid var(--accent); outline-offset:2px; }
+.enh-sec.enh-off{opacity:.45;pointer-events:none}
 .enh-factors { display:flex; margin-top:12px; width:100%; } .enh-factors .segb { flex:1; font-size:.84rem; padding:8px 4px; } .enh-factors .segb:disabled { opacity:.45; cursor:default; }
 .enh-ainote { margin:8px 0 0; font-size:.8rem; }
 .enh-lookgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }

@@ -394,8 +394,11 @@
     for (const [i, f] of ctx.files.entries()) {
       const label = ctx.files.length > 1 ? `${i + 1} of ${ctx.files.length}: ` : '';
       ctx.status(label + 'Reading the photo...'); await HT.tick();
-      let c = await HT.img.load(f);
-      if (o.ai && o.ai !== 'off') {   // the AI's own progress, as this photo's share of the whole batch
+      let c = await HT.img.load(f), mask = null;
+      if (o.studio) {   // Studio: the AI's crisp redraw and the product's outline (from the preview when it was made there)
+        const part = { status: ctx.status, progress: p => ctx.progress((i + p * 0.8) / ctx.files.length) };
+        const S = await studioPrep(part, f, c, label); c = S.big; mask = S.mask;
+      } else if (o.ai && o.ai !== 'off') {   // the AI's own progress, as this photo's share of the whole batch
         const part = { status: ctx.status, progress: p => ctx.progress((i + p * 0.85) / ctx.files.length) };
         c = await aiRestore(part, c, o.ai, label);
       }
@@ -403,8 +406,9 @@
       if (max && Math.max(c.width, c.height) > max) { const k = max / Math.max(c.width, c.height); c = HT.resample(c, c.width * k, c.height * k); }
       ctx.status(label + 'Enhancing...'); await HT.tick();
       const x = c.getContext('2d'), img = x.getImageData(0, 0, c.width, c.height);
-      const ai = !!(o.ai && o.ai !== 'off'), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
-      x.putImageData(apply(img, s, 1), 0, 0);
+      const ai = !!(o.studio || (o.ai && o.ai !== 'off')), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
+      const done = apply(img, s, 1);
+      x.putImageData(mask ? studioFinish(done, mask) : done, 0, 0);
       ctx.status(label + 'Saving...'); await HT.tick();
       const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), out = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
       outs.push({ name: HT.stem(f.name) + '_enhanced.' + (fmt === 'jpg' ? 'jpg' : fmt), blob: out });
@@ -490,6 +494,59 @@
     }
     return out;
   }
+  // ---------------------------------------------------------------- Studio: a product photo made catalogue-clean, free
+  // AI HD redraws a 1024 px copy 4x larger (soft edges come back crisp), the background remover's AI finds the product,
+  // and everything that is not the product becomes pure white. Kept per photo: the preview and the download share the work.
+  const studioCache = new Map();
+  function studioPrep(ctx, file, full, label = '') {
+    const key = `${file.name}|${file.size}|${file.lastModified}`;
+    if (studioCache.has(key)) return studioCache.get(key);
+    const p = (async () => {
+      const gpu = await hasGPU(), side = gpu ? 1024 : 640, k = Math.min(1, side / Math.max(full.width, full.height));
+      const src = k < 1 ? HT.resample(full, full.width * k, full.height * k) : full;
+      await HT.loadScript('/assets/engine/ai.js');
+      const msg = label + (gpu ? 'Studio: the AI is redrawing the details and finding the product...' : 'Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...');
+      let fs = 0, fc = 0;
+      const prog = () => ctx.progress(fs * 0.6 + fc * 0.4);
+      ctx.status(msg); prog();
+      const [big, cut] = await Promise.all([
+        sr4x(src, f => { fs = f; prog(); }),
+        HT.aiCutout({ status: t => ctx.status(/^Downloading/.test(t) ? label + t : msg), progress: f => { fc = f; prog(); } }, src, 'general'),
+      ]);
+      return { big, mask: studioMask(cut) };
+    })();
+    studioCache.set(key, p);
+    p.catch(() => studioCache.delete(key));
+    if (studioCache.size > 4) studioCache.delete(studioCache.keys().next().value);
+    return p;
+  }
+  // the outline, cleaned: speckles in the background go, holes in a blurred edge close, edges stay soft
+  function studioMask(cut) {
+    const w = cut.width, h = cut.height, n = w * h, d = cut.getContext('2d').getImageData(0, 0, w, h).data, A = new Float32Array(n);
+    for (let i = 0; i < n; i++) A[i] = d[i * 4 + 3] / 255;
+    const B = blur(A, w, h, Math.max(2, Math.max(w, h) * 0.005)), out = HT.canvas(w, h), x = out.getContext('2d'), o = x.createImageData(w, h);
+    for (let i = 0; i < n; i++) o.data[i * 4 + 3] = Math.max(smooth(0.3, 0.6, B[i]), smooth(0.85, 0.98, A[i])) * 255;
+    x.putImageData(o, 0, 0);
+    return out;
+  }
+  // outside the product: pure white; pale colourless leftovers (shadow, backdrop) at the outline's soft edge: white too
+  function studioFinish(img, mask) {
+    const W = img.width, H = img.height, c = HT.canvas(W, H), x = c.getContext('2d');
+    x.imageSmoothingQuality = 'high'; x.drawImage(mask, 0, 0, W, H);
+    const md = x.getImageData(0, 0, W, H).data, d = img.data;
+    for (let j = 0; j < d.length; j += 4) {
+      const A = md[j + 3] / 255; if (A >= 1) continue;
+      const r = d[j] / 255, g = d[j + 1] / 255, b = d[j + 2] / 255, y = luma(r, g, b), ch = Math.max(r, g, b) - Math.min(r, g, b);
+      // the outline can miss a blurred part (a temple out of focus): whatever is clearly darker than the backdrop or has a
+      // colour stays, so only pale grey leftovers (shadows, smudges, the backdrop) turn white
+      const keep = Math.max(smooth(0.74, 0.5, y), smooth(0.06, 0.14, ch));
+      const a = Math.max(keep, A * (1 - smooth(0.72, 0.9, y) * (1 - smooth(0.05, 0.12, ch)) * (1 - smooth(0.92, 1, A)))), wa = 255 * (1 - a);
+      d[j] = wa + d[j] * a; d[j + 1] = wa + d[j + 1] * a; d[j + 2] = wa + d[j + 2] * a;
+    }
+    return img;
+  }
+  HT.enhance.studioPrep = studioPrep; HT.enhance.studioFinish = studioFinish;
+
   HT.enhance.sr4x = sr4x; HT.enhance.srWarm = srWarm; HT.enhance.hasGPU = hasGPU; HT.enhance.FACTOR = FACTOR;
   HT.enhance.aiRestore = aiRestore;
 })();

@@ -1931,5 +1931,10 @@
 "Enhancing...": "एन्हांस हो रहा है...",
 "For photos up to {0} px": "{0} px तक की फ़ोटो के लिए",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "यह फ़ोटो पहले से हाई रेज़ोल्यूशन ({0} × {1} px) की है, इसलिए AI HD की ज़रूरत नहीं: यह छोटी, धुंधली या कम क्वालिटी की फ़ोटो के लिए है। ऑटो सुधार फिर भी रोशनी, रंग और डिटेल बेहतर करता है।",
-"White background": "सफ़ेद बैकग्राउंड"
+"White background": "सफ़ेद बैकग्राउंड",
+"Studio product photo": "स्टूडियो प्रोडक्ट फ़ोटो",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "पूरी तरह सफ़ेद बैकग्राउंड, बिना छाया या धब्बों के, ज़्यादा साफ़ किनारे। प्रोडक्ट लिस्टिंग के लिए।",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "AI फ़ोटो को साफ़ और तीखा फिर से बनाता है (4096 px तक) और प्रोडक्ट को पूरी तरह सफ़ेद बैकग्राउंड पर रखता है। पहली बार यह अपना AI डाउनलोड करता है (51 MB); फिर ग्राफ़िक्स कार्ड पर हर फ़ोटो में लगभग 20 सेकंड।",
+"Studio: the AI is redrawing the details and finding the product...": "स्टूडियो: AI डिटेल फिर से बना रहा है और प्रोडक्ट ढूँढ रहा है...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "स्टूडियो: AI डिटेल फिर से बना रहा है और प्रोडक्ट ढूँढ रहा है (इस डिवाइस पर एक मिनट लग सकता है)..."
 }

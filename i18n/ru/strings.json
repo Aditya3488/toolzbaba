@@ -1931,5 +1931,10 @@
 "Enhancing...": "Улучшаем...",
 "For photos up to {0} px": "Для фото до {0} px",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "У этого фото уже высокое разрешение ({0} × {1} px), ИИ HD не нужен: он для маленьких, мягких или некачественных фото. Автоисправление всё равно улучшит свет, цвет и детали.",
-"White background": "Белый фон"
+"White background": "Белый фон",
+"Studio product photo": "Студийное фото товара",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "Чисто белый фон, без теней и пятен, более чёткие края. Для карточек товаров.",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "ИИ заново прорисовывает фото чётким (до 4096 px) и ставит товар на чисто белый фон. В первый раз он загружает свою модель (51 МБ); затем около 20 секунд на фото с видеокартой.",
+"Studio: the AI is redrawing the details and finding the product...": "Студия: ИИ прорисовывает детали и находит товар...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "Студия: ИИ прорисовывает детали и находит товар (на этом устройстве это может занять минуту)..."
 }

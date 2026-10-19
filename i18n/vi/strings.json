@@ -1915,5 +1915,10 @@
 "Enhancing...": "Đang cải thiện...",
 "For photos up to {0} px": "Cho ảnh tới {0} px",
 "This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "Ảnh này đã có độ phân giải cao ({0} × {1} px) nên không cần AI HD: AI HD dành cho ảnh nhỏ, mềm hoặc chất lượng thấp. Tự sửa vẫn cải thiện ánh sáng, màu và chi tiết.",
-"White background": "Nền trắng"
+"White background": "Nền trắng",
+"Studio product photo": "Ảnh sản phẩm studio",
+"Pure white background, no shadows or smudges, crisper edges. For product listings.": "Nền trắng tinh, không bóng hay vết bẩn, viền sắc nét hơn. Dành cho trang sản phẩm.",
+"The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "AI vẽ lại ảnh sắc nét (tới 4096 px) và đặt sản phẩm trên nền trắng tinh. Lần đầu nó tải AI về (51 MB); sau đó khoảng 20 giây mỗi ảnh với card đồ họa.",
+"Studio: the AI is redrawing the details and finding the product...": "Studio: AI đang vẽ lại chi tiết và tìm sản phẩm...",
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "Studio: AI đang vẽ lại chi tiết và tìm sản phẩm (trên thiết bị này có thể mất một phút)..."
 }
