@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Wszystkie formaty"
+ },
+ "image-enhancer": {
+  "name": "Poprawa jakości zdjęć",
+  "desc": "Popraw ciemne, mdłe, rozmyte lub zaszumione zdjęcia jednym kliknięciem, a potem dopracuj je jak profesjonalista. Działa w przeglądarce.",
+  "title": "Poprawa jakości zdjęć za darmo: ulepsz zdjęcia online | Toolz Baba",
+  "metaDesc": "Popraw ciemne, mdłe, rozmyte lub zaszumione zdjęcia jednym kliknięciem. Profesjonalne suwaki, odtwarzanie szczegółów AI, style dla portretów, starych zdjęć i dokumentów. Za darmo i prywatnie.",
+  "about": "Wydobądź z każdego zdjęcia to, co najlepsze. Automatyczna poprawa analizuje każde zdjęcie i koryguje to, czego potrzebuje: ekspozycję, kontrast, balans bieli, cienie i światła, mdłe kolory, szum i brak ostrości. Każda korekta jest widoczna na suwaku, więc widzisz dokładnie, co się zmieniło, i możesz to dopracować jak w profesjonalnym edytorze. Style dla portretu, krajobrazu, słabego światła, produktu, jedzenia, starego zdjęcia, dokumentu i czerni i bieli zmieniają wynik jednym dotknięciem. Opcjonalny krok AI (Real-ESRGAN) usuwa rozmycie, szum i bloki JPEG. Zapisz jako JPG, WebP, AVIF lub PNG, zmniejsz dla internetu i ustaw docelowy rozmiar pliku, dla wielu zdjęć naraz. Wszystko dzieje się w przeglądarce, więc zdjęcia nigdy nie są wysyłane.",
+  "steps": [
+   "Dodaj zdjęcia (kilka naraz też można).",
+   "Wybierz styl lub zostaw Auto: każde zdjęcie jest poprawiane osobno.",
+   "Jeśli chcesz, przesuń suwaki, porównaj przeciągając linię i zapisz jako JPG, WebP, AVIF lub PNG."
+  ],
+  "faq": [
+   {
+    "q": "Jak automatyczna poprawa decyduje, co zmienić?",
+    "a": "Mierzy zdjęcie: jasność, rozpiętość tonów, przebarwienia neutralnych kolorów, ilość szumu i drobnych szczegółów. Na tej podstawie ustawia każdy suwak, a każdą wartość możesz zobaczyć i zmienić."
+   },
+   {
+    "q": "Czy naprawi rozmyte zdjęcie?",
+    "a": "Wyostrzanie i klarowność sprawiają, że miękkie zdjęcia są wyraźniejsze. Przy bardzo miękkich, małych lub starych zdjęciach włącz odtwarzanie szczegółów AI."
+   },
+   {
+    "q": "Czy moje zdjęcia są wysyłane?",
+    "a": "Nie. Wszystko, także AI, działa w przeglądarce."
+   }
+  ],
+  "tabAll": "Wszystkie style"
  }
 }

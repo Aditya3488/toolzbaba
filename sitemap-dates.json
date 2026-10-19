@@ -1,7 +1,7 @@
 {
  "/": {
-  "date": "2026-10-13",
-  "hash": "1a6cbb0f520de5b6"
+  "date": "2026-10-19",
+  "hash": "f8210fb1794ee233"
  },
  "/3gp-converter": {
   "date": "2026-10-13",
@@ -144,8 +144,8 @@
   "hash": "68e31e68e77cc948"
  },
  "/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "ba5834b8047d265e"
+  "date": "2026-10-19",
+  "hash": "1ca7455e35cc0b7f"
  },
  "/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -264,8 +264,8 @@
   "hash": "dd6b1cf2d6499382"
  },
  "/ar/": {
-  "date": "2026-10-13",
-  "hash": "d8a6d616bc783d5e"
+  "date": "2026-10-19",
+  "hash": "b0d8679c55da340f"
  },
  "/ar/aac-to-mp3": {
   "date": "2026-10-12",
@@ -288,8 +288,8 @@
   "hash": "18c3ce37fc7b431b"
  },
  "/ar/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "a50f5db9487df744"
+  "date": "2026-10-19",
+  "hash": "373314528b68f171"
  },
  "/ar/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -508,8 +508,8 @@
   "hash": "e64beb3034bbc931"
  },
  "/ar/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "92a17e01f8045568"
+  "date": "2026-10-19",
+  "hash": "7f53cd0e2ad6198c"
  },
  "/ar/flac-to-mp3": {
   "date": "2026-10-12",
@@ -555,17 +555,21 @@
   "date": "2026-10-13",
   "hash": "0fb67b74ffbdb2ae"
  },
+ "/ar/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "623ba8e5d534222c"
+ },
  "/ar/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "4335b07edb9c9f94"
  },
  "/ar/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "a507d3c9f4794747"
+  "date": "2026-10-19",
+  "hash": "5067b4b10659d2ee"
  },
  "/ar/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "5cd32758cf95611c"
+  "date": "2026-10-19",
+  "hash": "8453d28edb6b528a"
  },
  "/ar/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -644,8 +648,8 @@
   "hash": "8f7421364b43199a"
  },
  "/ar/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "87a2404aaeedb03b"
+  "date": "2026-10-19",
+  "hash": "f6fa2a9ab64051cd"
  },
  "/ar/password-generator": {
   "date": "2026-10-12",
@@ -732,8 +736,8 @@
   "hash": "86a8aea48f522780"
  },
  "/ar/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "64109f128e6f6afe"
+  "date": "2026-10-19",
+  "hash": "548b12c8d1f9dadc"
  },
  "/ar/rotate-flip": {
   "date": "2026-10-12",
@@ -744,8 +748,8 @@
   "hash": "8629823e1d07128c"
  },
  "/ar/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "1872f88b90b0d40a"
+  "date": "2026-10-19",
+  "hash": "055e3f4270889851"
  },
  "/ar/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -768,8 +772,8 @@
   "hash": "87c6a3d771e45f9e"
  },
  "/ar/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "e9f87b714e9d2f0f"
+  "date": "2026-10-19",
+  "hash": "eeaccc79ca69c0a0"
  },
  "/ar/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -1036,8 +1040,8 @@
   "hash": "e38d1991f0bccdb9"
  },
  "/bn/": {
-  "date": "2026-10-13",
-  "hash": "9b1c5f61e97fa9d5"
+  "date": "2026-10-19",
+  "hash": "7b4471388d3c9ac9"
  },
  "/bn/aac-to-mp3": {
   "date": "2026-10-12",
@@ -1060,8 +1064,8 @@
   "hash": "324e8fc2847de9c2"
  },
  "/bn/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "82d9f1c18a276acf"
+  "date": "2026-10-19",
+  "hash": "bcdd30bfd1971c5b"
  },
  "/bn/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -1280,8 +1284,8 @@
   "hash": "fb77ae37fc429a8b"
  },
  "/bn/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "7377240523d39446"
+  "date": "2026-10-19",
+  "hash": "34de73235d9d1f94"
  },
  "/bn/flac-to-mp3": {
   "date": "2026-10-12",
@@ -1327,17 +1331,21 @@
   "date": "2026-10-13",
   "hash": "4ef551e76ded0016"
  },
+ "/bn/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "023229fafcea7d2a"
+ },
  "/bn/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "cc1bf4eb5a1dc48a"
  },
  "/bn/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "366570649d76296b"
+  "date": "2026-10-19",
+  "hash": "3a68aab9b0e61e99"
  },
  "/bn/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "3c87472081d4c3ce"
+  "date": "2026-10-19",
+  "hash": "25297ab4c73ba5d3"
  },
  "/bn/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -1416,8 +1424,8 @@
   "hash": "88bc89d918eedf1c"
  },
  "/bn/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "a1030bf0c1be4644"
+  "date": "2026-10-19",
+  "hash": "dffd72f77c798ce1"
  },
  "/bn/password-generator": {
   "date": "2026-10-12",
@@ -1504,8 +1512,8 @@
   "hash": "e0fb84f12b658a1e"
  },
  "/bn/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "ddb2731431cf247b"
+  "date": "2026-10-19",
+  "hash": "ea0aa3a228a1ab30"
  },
  "/bn/rotate-flip": {
   "date": "2026-10-12",
@@ -1516,8 +1524,8 @@
   "hash": "9f54c5f13fd37911"
  },
  "/bn/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "3387591f74122f54"
+  "date": "2026-10-19",
+  "hash": "27d37eebbbd1a74b"
  },
  "/bn/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -1540,8 +1548,8 @@
   "hash": "12957eeb36576d30"
  },
  "/bn/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "4b08f9d9ce25ba88"
+  "date": "2026-10-19",
+  "hash": "ead26f427281b009"
  },
  "/bn/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -1820,8 +1828,8 @@
   "hash": "7db5f55e22722a55"
  },
  "/de/": {
-  "date": "2026-10-13",
-  "hash": "4d77fd7013f134f2"
+  "date": "2026-10-19",
+  "hash": "6270f74fc460f9bc"
  },
  "/de/aac-to-mp3": {
   "date": "2026-10-12",
@@ -1844,8 +1852,8 @@
   "hash": "6d42e69ae83b8506"
  },
  "/de/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "0bfb3ed291e7ce9d"
+  "date": "2026-10-19",
+  "hash": "79d8920fb958ffc4"
  },
  "/de/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -2064,8 +2072,8 @@
   "hash": "fd85011d5cab411c"
  },
  "/de/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "de699f3d216c56ba"
+  "date": "2026-10-19",
+  "hash": "77504c30e9890763"
  },
  "/de/flac-to-mp3": {
   "date": "2026-10-12",
@@ -2111,17 +2119,21 @@
   "date": "2026-10-13",
   "hash": "913ccbcf99145b1a"
  },
+ "/de/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "d285816fe318d567"
+ },
  "/de/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "298a734a54323303"
  },
  "/de/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "75d0e67864315d2b"
+  "date": "2026-10-19",
+  "hash": "4d8552d90c6eda7d"
  },
  "/de/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "3666f3b83ec90660"
+  "date": "2026-10-19",
+  "hash": "3a82089c752b5f9d"
  },
  "/de/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -2200,8 +2212,8 @@
   "hash": "fbc2e37e336dc971"
  },
  "/de/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "2e1e635650f69609"
+  "date": "2026-10-19",
+  "hash": "36e8343b225fc561"
  },
  "/de/password-generator": {
   "date": "2026-10-12",
@@ -2288,8 +2300,8 @@
   "hash": "fa01bd31ba7adafb"
  },
  "/de/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "6d36693840145f10"
+  "date": "2026-10-19",
+  "hash": "55e1eecaee680c0d"
  },
  "/de/rotate-flip": {
   "date": "2026-10-12",
@@ -2300,8 +2312,8 @@
   "hash": "7e56b3674d40630f"
  },
  "/de/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "5914d7610cda0a91"
+  "date": "2026-10-19",
+  "hash": "9daae6f27eed6708"
  },
  "/de/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -2324,8 +2336,8 @@
   "hash": "5de8485879f2fb1a"
  },
  "/de/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "739e54f5f0006e15"
+  "date": "2026-10-19",
+  "hash": "76c71d1c9840ca9d"
  },
  "/de/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -2442,6 +2454,10 @@
  "/document-converter": {
   "date": "2026-10-13",
   "hash": "3b9e85d6b726e41b"
+ },
+ "/document-scan-enhancer": {
+  "date": "2026-10-19",
+  "hash": "3635324f1a52d3f4"
  },
  "/document-to-image": {
   "date": "2026-10-13",
@@ -2564,8 +2580,8 @@
   "hash": "868447a2e9d133a9"
  },
  "/es/": {
-  "date": "2026-10-13",
-  "hash": "b98e0a5a795a0741"
+  "date": "2026-10-19",
+  "hash": "2713fe6f86ea29c7"
  },
  "/es/aac-to-mp3": {
   "date": "2026-10-12",
@@ -2588,8 +2604,8 @@
   "hash": "717aa207fadea44e"
  },
  "/es/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "cf23736cfc39627b"
+  "date": "2026-10-19",
+  "hash": "2525f343d800902e"
  },
  "/es/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -2808,8 +2824,8 @@
   "hash": "662a6fae885b9f14"
  },
  "/es/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "8622d6da1349caf6"
+  "date": "2026-10-19",
+  "hash": "b506b32a82aabb93"
  },
  "/es/flac-to-mp3": {
   "date": "2026-10-12",
@@ -2855,17 +2871,21 @@
   "date": "2026-10-13",
   "hash": "c2df008eff0a0d2c"
  },
+ "/es/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "8295e29403a7103d"
+ },
  "/es/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "e1eec10dca7fcc3e"
  },
  "/es/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "df99a02956993cd5"
+  "date": "2026-10-19",
+  "hash": "7ffbc73b800d6bb1"
  },
  "/es/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "2e2133757edb8187"
+  "date": "2026-10-19",
+  "hash": "8208f6d5b8d1dcdd"
  },
  "/es/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -2944,8 +2964,8 @@
   "hash": "dc2a2f3962b35300"
  },
  "/es/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "78843497fdfbc0f5"
+  "date": "2026-10-19",
+  "hash": "27540cb84c4b5551"
  },
  "/es/password-generator": {
   "date": "2026-10-12",
@@ -3032,8 +3052,8 @@
   "hash": "865ce4eb47cda640"
  },
  "/es/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "0907636c5fb6ceca"
+  "date": "2026-10-19",
+  "hash": "f8024aff35e7b369"
  },
  "/es/rotate-flip": {
   "date": "2026-10-12",
@@ -3044,8 +3064,8 @@
   "hash": "5a6201ac56c56968"
  },
  "/es/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "b34c1cd4d2bee141"
+  "date": "2026-10-19",
+  "hash": "2c8167060fb6ac52"
  },
  "/es/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -3068,8 +3088,8 @@
   "hash": "4b84d7a877f4bd6e"
  },
  "/es/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "c3d7a6a9662b3738"
+  "date": "2026-10-19",
+  "hash": "aabc04d85abb5cd9"
  },
  "/es/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -3184,8 +3204,8 @@
   "hash": "1caf3ebe07b3531f"
  },
  "/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "147eb244f976ca4d"
+  "date": "2026-10-19",
+  "hash": "62326ecf2ef476c3"
  },
  "/fb2-to-pdf": {
   "date": "2026-10-13",
@@ -3328,8 +3348,8 @@
   "hash": "1b3c12383e742fea"
  },
  "/fr/": {
-  "date": "2026-10-13",
-  "hash": "4cf56ddf1f8a3098"
+  "date": "2026-10-19",
+  "hash": "c2f89875464aac33"
  },
  "/fr/aac-to-mp3": {
   "date": "2026-10-12",
@@ -3352,8 +3372,8 @@
   "hash": "c423622591f7ac26"
  },
  "/fr/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "3b7a128fb2b1bfb1"
+  "date": "2026-10-19",
+  "hash": "9a10c767b816567b"
  },
  "/fr/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -3572,8 +3592,8 @@
   "hash": "fc6e93300e20ed05"
  },
  "/fr/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "60a115528ee90266"
+  "date": "2026-10-19",
+  "hash": "921e00acca15c645"
  },
  "/fr/flac-to-mp3": {
   "date": "2026-10-12",
@@ -3619,17 +3639,21 @@
   "date": "2026-10-13",
   "hash": "5b873f420f4cf914"
  },
+ "/fr/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "342ad17a21d3c640"
+ },
  "/fr/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "66cdf05e045f8019"
  },
  "/fr/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "7c13f467c13cd7ba"
+  "date": "2026-10-19",
+  "hash": "10eba292c20ed700"
  },
  "/fr/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "aaaa5869a6a44d42"
+  "date": "2026-10-19",
+  "hash": "be7bf9c78f960800"
  },
  "/fr/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -3708,8 +3732,8 @@
   "hash": "fc11599af06e90d1"
  },
  "/fr/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "e35aa10407d3e9e8"
+  "date": "2026-10-19",
+  "hash": "53627006d95313aa"
  },
  "/fr/password-generator": {
   "date": "2026-10-12",
@@ -3796,8 +3820,8 @@
   "hash": "4be642d8fbf9ca2a"
  },
  "/fr/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "9bf2c48d7146d8c3"
+  "date": "2026-10-19",
+  "hash": "c291ccdaf554d7d0"
  },
  "/fr/rotate-flip": {
   "date": "2026-10-12",
@@ -3808,8 +3832,8 @@
   "hash": "141eb3fe2798c937"
  },
  "/fr/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "80b04483b25a3eba"
+  "date": "2026-10-19",
+  "hash": "e6ba05f7e74e2fb4"
  },
  "/fr/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -3832,8 +3856,8 @@
   "hash": "ed35e9d9f78b87b2"
  },
  "/fr/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "34c50a9963086954"
+  "date": "2026-10-19",
+  "hash": "a2da3fa2bc396264"
  },
  "/fr/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -4116,8 +4140,8 @@
   "hash": "310db9d77170ee3d"
  },
  "/hi/": {
-  "date": "2026-10-13",
-  "hash": "29fa3662a7431323"
+  "date": "2026-10-19",
+  "hash": "61413b08f29bb9ad"
  },
  "/hi/aac-to-mp3": {
   "date": "2026-10-12",
@@ -4140,8 +4164,8 @@
   "hash": "88975dadb458b5cc"
  },
  "/hi/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "5f885c82342961a2"
+  "date": "2026-10-19",
+  "hash": "152489f11eaa801f"
  },
  "/hi/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -4360,8 +4384,8 @@
   "hash": "3ddce0f6a8117ab9"
  },
  "/hi/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "4a2b95946b10c3df"
+  "date": "2026-10-19",
+  "hash": "1a29b4038fbcf7dd"
  },
  "/hi/flac-to-mp3": {
   "date": "2026-10-12",
@@ -4407,17 +4431,21 @@
   "date": "2026-10-13",
   "hash": "06e8f3b1abfadf65"
  },
+ "/hi/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "8a62e1f963eff9e6"
+ },
  "/hi/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "ca47ca62964c2b20"
  },
  "/hi/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "7fec0bd255d4ce93"
+  "date": "2026-10-19",
+  "hash": "71e8d615557565ad"
  },
  "/hi/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "07df0e0a41f281bb"
+  "date": "2026-10-19",
+  "hash": "966186ea2c61388a"
  },
  "/hi/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -4496,8 +4524,8 @@
   "hash": "91c78cbb8cd7fb61"
  },
  "/hi/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "5799ac76d7e0d574"
+  "date": "2026-10-19",
+  "hash": "7b63eab6f8b4a487"
  },
  "/hi/password-generator": {
   "date": "2026-10-12",
@@ -4584,8 +4612,8 @@
   "hash": "1fb84fda948c80e2"
  },
  "/hi/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "a4c78ff8d8196d6a"
+  "date": "2026-10-19",
+  "hash": "25fbd8b3c52fd3f2"
  },
  "/hi/rotate-flip": {
   "date": "2026-10-12",
@@ -4596,8 +4624,8 @@
   "hash": "c167af021085c342"
  },
  "/hi/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "c7cabb5342067999"
+  "date": "2026-10-19",
+  "hash": "febea3cb47e1f79d"
  },
  "/hi/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -4620,8 +4648,8 @@
   "hash": "e3fce291f69acd2b"
  },
  "/hi/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "41faab76e97ef173"
+  "date": "2026-10-19",
+  "hash": "a47474a803e15a71"
  },
  "/hi/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -4784,8 +4812,8 @@
   "hash": "8d440fc1de3589ec"
  },
  "/id/": {
-  "date": "2026-10-13",
-  "hash": "43419b95aa4a7929"
+  "date": "2026-10-19",
+  "hash": "c2df4f2369c68773"
  },
  "/id/aac-to-mp3": {
   "date": "2026-10-12",
@@ -4808,8 +4836,8 @@
   "hash": "a746f79e67b15305"
  },
  "/id/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "b3afe776f9da5dd0"
+  "date": "2026-10-19",
+  "hash": "ff9b9cd89cc79cd4"
  },
  "/id/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -5028,8 +5056,8 @@
   "hash": "3e541f5632f07147"
  },
  "/id/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "139843923f449ee1"
+  "date": "2026-10-19",
+  "hash": "2fbc07e713e6b87e"
  },
  "/id/flac-to-mp3": {
   "date": "2026-10-12",
@@ -5075,17 +5103,21 @@
   "date": "2026-10-13",
   "hash": "4c3a82ed48fdeee3"
  },
+ "/id/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "d26e3f3f3a18a4e1"
+ },
  "/id/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "6d77731cfef04c58"
  },
  "/id/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "85892ae084a8c57f"
+  "date": "2026-10-19",
+  "hash": "e213e4bb4dc52b08"
  },
  "/id/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "b978dc73cc275e04"
+  "date": "2026-10-19",
+  "hash": "14ab537786c06caa"
  },
  "/id/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -5164,8 +5196,8 @@
   "hash": "d1a4038ed067e131"
  },
  "/id/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "d3041a433ec61982"
+  "date": "2026-10-19",
+  "hash": "17db71fdc6e8bb36"
  },
  "/id/password-generator": {
   "date": "2026-10-12",
@@ -5252,8 +5284,8 @@
   "hash": "06f2383ab518e957"
  },
  "/id/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "d50376730d3d009d"
+  "date": "2026-10-19",
+  "hash": "14e0e94aeb7daa76"
  },
  "/id/rotate-flip": {
   "date": "2026-10-12",
@@ -5264,8 +5296,8 @@
   "hash": "c4d29c5d4e1cf99f"
  },
  "/id/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "ebe3e649b9a45cfa"
+  "date": "2026-10-19",
+  "hash": "00f25613916a0625"
  },
  "/id/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -5288,8 +5320,8 @@
   "hash": "a37d381a3119e802"
  },
  "/id/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "207cb2171de4a5a6"
+  "date": "2026-10-19",
+  "hash": "253a374f35ff484e"
  },
  "/id/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -5375,17 +5407,25 @@
   "date": "2026-10-13",
   "hash": "5e3eb7b9ef5de24d"
  },
+ "/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "ce7a81e42250c353"
+ },
+ "/image-optimizer": {
+  "date": "2026-10-19",
+  "hash": "4894c78dc10653a9"
+ },
  "/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "e1bcd86a90bcaddf"
  },
  "/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "ce82c56a6e8571b5"
+  "date": "2026-10-19",
+  "hash": "29ad4fd3bea58765"
  },
  "/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "c8cde52fbae1be1e"
+  "date": "2026-10-19",
+  "hash": "709ef34092e19580"
  },
  "/india-saas-startups": {
   "date": "2026-10-12",
@@ -7488,8 +7528,8 @@
   "hash": "120cb4f0b05fdc6b"
  },
  "/it/": {
-  "date": "2026-10-13",
-  "hash": "c660b1c0d84b283b"
+  "date": "2026-10-19",
+  "hash": "3fbb9b3d53023293"
  },
  "/it/aac-to-mp3": {
   "date": "2026-10-12",
@@ -7512,8 +7552,8 @@
   "hash": "1b57dfcd63c12bce"
  },
  "/it/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "f16168d7ec2d5989"
+  "date": "2026-10-19",
+  "hash": "568aa8b26ee44f20"
  },
  "/it/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -7732,8 +7772,8 @@
   "hash": "17bbbacea36fe5de"
  },
  "/it/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "855194534e9e94c7"
+  "date": "2026-10-19",
+  "hash": "5a54284cdea1ed32"
  },
  "/it/flac-to-mp3": {
   "date": "2026-10-12",
@@ -7779,17 +7819,21 @@
   "date": "2026-10-13",
   "hash": "568bc1ad6bbf46b6"
  },
+ "/it/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "1ddab34d49c8ca55"
+ },
  "/it/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "a01389ffb1f60700"
  },
  "/it/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "8a3bd9fe0f6f95ad"
+  "date": "2026-10-19",
+  "hash": "bab654d58ad7b367"
  },
  "/it/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "96172c6a5ad38d0e"
+  "date": "2026-10-19",
+  "hash": "ebf453176a052505"
  },
  "/it/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -7868,8 +7912,8 @@
   "hash": "7a18190fdcc62011"
  },
  "/it/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "b499ecd1e7b41779"
+  "date": "2026-10-19",
+  "hash": "d31b84dfaed7f0e7"
  },
  "/it/password-generator": {
   "date": "2026-10-12",
@@ -7956,8 +8000,8 @@
   "hash": "40ba4549bf3c3601"
  },
  "/it/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "e3db97e51a0d4239"
+  "date": "2026-10-19",
+  "hash": "313c5506f0034d04"
  },
  "/it/rotate-flip": {
   "date": "2026-10-12",
@@ -7968,8 +8012,8 @@
   "hash": "31c7f4bf57e12c06"
  },
  "/it/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "7db6a40917212fe1"
+  "date": "2026-10-19",
+  "hash": "e0942be35c7bcd9b"
  },
  "/it/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -7992,8 +8036,8 @@
   "hash": "f4a0f4ddcb381563"
  },
  "/it/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "57ab9855df70feb0"
+  "date": "2026-10-19",
+  "hash": "1c1562b730f012a4"
  },
  "/it/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -8072,8 +8116,8 @@
   "hash": "c032b873e3b49325"
  },
  "/ja/": {
-  "date": "2026-10-13",
-  "hash": "d7d5c434f46f317a"
+  "date": "2026-10-19",
+  "hash": "c234f28cc42c3e67"
  },
  "/ja/aac-to-mp3": {
   "date": "2026-10-12",
@@ -8096,8 +8140,8 @@
   "hash": "11e6f1742d35ac57"
  },
  "/ja/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "1b254387c1733c8f"
+  "date": "2026-10-19",
+  "hash": "915f646d2fc437c0"
  },
  "/ja/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -8316,8 +8360,8 @@
   "hash": "b64b1c976dd1fae1"
  },
  "/ja/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "0a7f7c1a1d529fcb"
+  "date": "2026-10-19",
+  "hash": "526c9a34cc1fbefc"
  },
  "/ja/flac-to-mp3": {
   "date": "2026-10-12",
@@ -8363,17 +8407,21 @@
   "date": "2026-10-13",
   "hash": "48fb0d896dcd706b"
  },
+ "/ja/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "65abbabcf44ca1ee"
+ },
  "/ja/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "080a5e28f9512670"
  },
  "/ja/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "6fd9bde889661b24"
+  "date": "2026-10-19",
+  "hash": "17a2dd113a3f63a9"
  },
  "/ja/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "ea99ffcdb2273da7"
+  "date": "2026-10-19",
+  "hash": "61233bfdacf6bd73"
  },
  "/ja/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -8452,8 +8500,8 @@
   "hash": "2e951e703eb942ef"
  },
  "/ja/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "038a013cd30df432"
+  "date": "2026-10-19",
+  "hash": "3e8f449af0d0dd32"
  },
  "/ja/password-generator": {
   "date": "2026-10-12",
@@ -8540,8 +8588,8 @@
   "hash": "62011b3544f18454"
  },
  "/ja/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "ea9a75eb35f50b73"
+  "date": "2026-10-19",
+  "hash": "7bcba48f08509675"
  },
  "/ja/rotate-flip": {
   "date": "2026-10-12",
@@ -8552,8 +8600,8 @@
   "hash": "242e5fcf66afaf2f"
  },
  "/ja/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "3a9fd4a3ea8eab96"
+  "date": "2026-10-19",
+  "hash": "b66d22ef1ce20fe6"
  },
  "/ja/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -8576,8 +8624,8 @@
   "hash": "adb91486b3cf8fbd"
  },
  "/ja/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "b8fc2f92de9709b1"
+  "date": "2026-10-19",
+  "hash": "6d46da8865cd1b14"
  },
  "/ja/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -8778,6 +8826,10 @@
  "/linkedin-carousel-maker": {
   "date": "2026-10-13",
   "hash": "b8af4ce20e2337ab"
+ },
+ "/low-light-photo-enhancer": {
+  "date": "2026-10-19",
+  "hash": "bd6b6d59f3960eee"
  },
  "/m4a-converter": {
   "date": "2026-10-13",
@@ -9627,6 +9679,10 @@
   "date": "2026-10-13",
   "hash": "90bb0f1f00ab4a84"
  },
+ "/old-photo-restoration": {
+  "date": "2026-10-19",
+  "hash": "343a197e6f048edb"
+ },
  "/opus-converter": {
   "date": "2026-10-13",
   "hash": "94c8bd21018c3c38"
@@ -9704,8 +9760,8 @@
   "hash": "4b136c245e35c114"
  },
  "/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "d93c7768620f1535"
+  "date": "2026-10-19",
+  "hash": "45dc93c20697ed90"
  },
  "/password-generator": {
   "date": "2026-10-12",
@@ -9796,8 +9852,8 @@
   "hash": "321e36ddd6e2da7f"
  },
  "/pl/": {
-  "date": "2026-10-13",
-  "hash": "b532c81a07a1b71c"
+  "date": "2026-10-19",
+  "hash": "bbe55b650cf48f2a"
  },
  "/pl/aac-to-mp3": {
   "date": "2026-10-12",
@@ -9820,8 +9876,8 @@
   "hash": "6322bb1d3d8c581c"
  },
  "/pl/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "067885115200c499"
+  "date": "2026-10-19",
+  "hash": "7572504c5e051f65"
  },
  "/pl/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -10040,8 +10096,8 @@
   "hash": "33af628c32211ce3"
  },
  "/pl/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "d0d1c53c35b14cbe"
+  "date": "2026-10-19",
+  "hash": "81edb39f46b2024b"
  },
  "/pl/flac-to-mp3": {
   "date": "2026-10-12",
@@ -10087,17 +10143,21 @@
   "date": "2026-10-13",
   "hash": "46d751bae9823ae5"
  },
+ "/pl/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "59a4f67e5a53b3c6"
+ },
  "/pl/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "a1207638a6f166da"
  },
  "/pl/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "7959550fdfb488e2"
+  "date": "2026-10-19",
+  "hash": "0a9345aa501193f1"
  },
  "/pl/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "0fecc3544f86163a"
+  "date": "2026-10-19",
+  "hash": "ef9881016720eaaa"
  },
  "/pl/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -10176,8 +10236,8 @@
   "hash": "0e459d0f061649e8"
  },
  "/pl/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "c8148c2faefccb96"
+  "date": "2026-10-19",
+  "hash": "f2bb337ccdda1e86"
  },
  "/pl/password-generator": {
   "date": "2026-10-12",
@@ -10264,8 +10324,8 @@
   "hash": "015ae8096c4d0607"
  },
  "/pl/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "dbf76ae694592c73"
+  "date": "2026-10-19",
+  "hash": "8a2c55ab88004086"
  },
  "/pl/rotate-flip": {
   "date": "2026-10-12",
@@ -10276,8 +10336,8 @@
   "hash": "a3ab64aabdbe9eea"
  },
  "/pl/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "89b71038a4099546"
+  "date": "2026-10-19",
+  "hash": "b3fe888f69f514c2"
  },
  "/pl/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -10300,8 +10360,8 @@
   "hash": "ebbac83909cdd51a"
  },
  "/pl/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "7d4626b458259cb2"
+  "date": "2026-10-19",
+  "hash": "779a315fca051608"
  },
  "/pl/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -10423,13 +10483,17 @@
   "date": "2026-10-15",
   "hash": "72525215e22b4b83"
  },
+ "/product-photo-enhancer": {
+  "date": "2026-10-19",
+  "hash": "de6057fb4697488e"
+ },
  "/protect-pdf": {
   "date": "2026-10-12",
   "hash": "0eb44889dbfc67f3"
  },
  "/pt/": {
-  "date": "2026-10-13",
-  "hash": "fda2fc28054e8ee8"
+  "date": "2026-10-19",
+  "hash": "47621f8047556565"
  },
  "/pt/aac-to-mp3": {
   "date": "2026-10-12",
@@ -10452,8 +10516,8 @@
   "hash": "1a7a9a5541bded46"
  },
  "/pt/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "4c451b95452c3060"
+  "date": "2026-10-19",
+  "hash": "12dc0e38c127b395"
  },
  "/pt/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -10672,8 +10736,8 @@
   "hash": "6b28b2a195f55d26"
  },
  "/pt/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "0f2d09b09e407085"
+  "date": "2026-10-19",
+  "hash": "bb82f97009a862f5"
  },
  "/pt/flac-to-mp3": {
   "date": "2026-10-12",
@@ -10719,17 +10783,21 @@
   "date": "2026-10-13",
   "hash": "890b8e2054f8ae0c"
  },
+ "/pt/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "d13bd5f5d8404352"
+ },
  "/pt/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "0c76976ee2dd7ce7"
  },
  "/pt/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "337d22e5faba2080"
+  "date": "2026-10-19",
+  "hash": "7f939b6f5bb6bd51"
  },
  "/pt/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "9de2c9a7c7e9984f"
+  "date": "2026-10-19",
+  "hash": "6cb85f55ff080134"
  },
  "/pt/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -10808,8 +10876,8 @@
   "hash": "936a9eba7d394e7d"
  },
  "/pt/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "c9898669579de537"
+  "date": "2026-10-19",
+  "hash": "1b12d8e3c2a8ee1a"
  },
  "/pt/password-generator": {
   "date": "2026-10-12",
@@ -10896,8 +10964,8 @@
   "hash": "5f9f54fe70119764"
  },
  "/pt/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "e0414412d307b7c5"
+  "date": "2026-10-19",
+  "hash": "c74f2c1401238094"
  },
  "/pt/rotate-flip": {
   "date": "2026-10-12",
@@ -10908,8 +10976,8 @@
   "hash": "06765f8fadba2c62"
  },
  "/pt/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "687116a9f5e05f46"
+  "date": "2026-10-19",
+  "hash": "2e81d7f76fdc9291"
  },
  "/pt/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -10932,8 +11000,8 @@
   "hash": "cea7476ef183a264"
  },
  "/pt/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "c4622447c9043e1d"
+  "date": "2026-10-19",
+  "hash": "8525d77dab8569cb"
  },
  "/pt/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -11032,8 +11100,8 @@
   "hash": "017bde66cfc146b6"
  },
  "/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "2169819cdaba146e"
+  "date": "2026-10-19",
+  "hash": "0d8243ddb738f3e7"
  },
  "/rotate-flip": {
   "date": "2026-10-12",
@@ -11044,8 +11112,8 @@
   "hash": "54a5a5cde0820c5a"
  },
  "/ru/": {
-  "date": "2026-10-13",
-  "hash": "84c5b4b4d6da4491"
+  "date": "2026-10-19",
+  "hash": "fc140eed04871331"
  },
  "/ru/aac-to-mp3": {
   "date": "2026-10-12",
@@ -11068,8 +11136,8 @@
   "hash": "2ea82252cd84bb52"
  },
  "/ru/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "0170907093be4a5d"
+  "date": "2026-10-19",
+  "hash": "98570ed257cac0b7"
  },
  "/ru/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -11288,8 +11356,8 @@
   "hash": "cfe92a3374b06c37"
  },
  "/ru/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "a2f06dd7fb233104"
+  "date": "2026-10-19",
+  "hash": "13c4f98f608a4676"
  },
  "/ru/flac-to-mp3": {
   "date": "2026-10-12",
@@ -11335,17 +11403,21 @@
   "date": "2026-10-13",
   "hash": "4b4ffd35b81a964b"
  },
+ "/ru/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "30bc71686497bc48"
+ },
  "/ru/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "ab396b87f598d414"
  },
  "/ru/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "0b8ce48dae764375"
+  "date": "2026-10-19",
+  "hash": "21089fd29683f5d3"
  },
  "/ru/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "b2558cbf2b250a97"
+  "date": "2026-10-19",
+  "hash": "79725f63c95af579"
  },
  "/ru/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -11424,8 +11496,8 @@
   "hash": "ce16d775c0887c39"
  },
  "/ru/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "33abc545190e625d"
+  "date": "2026-10-19",
+  "hash": "7d6c00ce001f5387"
  },
  "/ru/password-generator": {
   "date": "2026-10-12",
@@ -11512,8 +11584,8 @@
   "hash": "b29cf04b784eddc8"
  },
  "/ru/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "0ad5a87c1d9e1ad4"
+  "date": "2026-10-19",
+  "hash": "16365e2e0588e516"
  },
  "/ru/rotate-flip": {
   "date": "2026-10-12",
@@ -11524,8 +11596,8 @@
   "hash": "22ce54df35ce280d"
  },
  "/ru/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "5336a29b492bc2ce"
+  "date": "2026-10-19",
+  "hash": "496ca5f3f2a4d49f"
  },
  "/ru/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -11548,8 +11620,8 @@
   "hash": "31eba3619ff81805"
  },
  "/ru/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "8ec8da0cdc6c5c84"
+  "date": "2026-10-19",
+  "hash": "4d0de19336c5f6cb"
  },
  "/ru/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -11628,8 +11700,8 @@
   "hash": "efa09cd8fc6668c6"
  },
  "/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "bf14d8d0fe6c19d6"
+  "date": "2026-10-19",
+  "hash": "b9724cd290bd0770"
  },
  "/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -11652,8 +11724,8 @@
   "hash": "6b2df138303e7ab0"
  },
  "/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "8a3ce59b13ce33d5"
+  "date": "2026-10-19",
+  "hash": "3982c379f30119cf"
  },
  "/svg-to-dfont": {
   "date": "2026-10-13",
@@ -11788,8 +11860,8 @@
   "hash": "45e36eeaa9953025"
  },
  "/tr/": {
-  "date": "2026-10-13",
-  "hash": "68f2f0d864bd7f13"
+  "date": "2026-10-19",
+  "hash": "6c1b0534355a3470"
  },
  "/tr/aac-to-mp3": {
   "date": "2026-10-12",
@@ -11812,8 +11884,8 @@
   "hash": "c422690267145497"
  },
  "/tr/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "49012809c0389afb"
+  "date": "2026-10-19",
+  "hash": "94e1ac4f84d39800"
  },
  "/tr/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -12032,8 +12104,8 @@
   "hash": "6068667ae364bbd3"
  },
  "/tr/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "e89364fcac2698c8"
+  "date": "2026-10-19",
+  "hash": "82cd5871023906a0"
  },
  "/tr/flac-to-mp3": {
   "date": "2026-10-12",
@@ -12079,17 +12151,21 @@
   "date": "2026-10-13",
   "hash": "5205b3bbb90ba368"
  },
+ "/tr/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "c9d90aefb401977d"
+ },
  "/tr/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "cec93870508c577b"
  },
  "/tr/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "f1a6608de39f7ca8"
+  "date": "2026-10-19",
+  "hash": "0103529171416201"
  },
  "/tr/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "0e42caf8752c7588"
+  "date": "2026-10-19",
+  "hash": "8153bf7cee4a15b8"
  },
  "/tr/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -12168,8 +12244,8 @@
   "hash": "a39784cee28c4559"
  },
  "/tr/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "a99a3b71671f0969"
+  "date": "2026-10-19",
+  "hash": "2fd9e17d2694d75d"
  },
  "/tr/password-generator": {
   "date": "2026-10-12",
@@ -12256,8 +12332,8 @@
   "hash": "e6d344837b22003c"
  },
  "/tr/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "cdff451d8b499652"
+  "date": "2026-10-19",
+  "hash": "855e41a6b0ab3c60"
  },
  "/tr/rotate-flip": {
   "date": "2026-10-12",
@@ -12268,8 +12344,8 @@
   "hash": "e01b693aebbde754"
  },
  "/tr/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "b88beef34bf359e6"
+  "date": "2026-10-19",
+  "hash": "426596aebf3ae392"
  },
  "/tr/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -12292,8 +12368,8 @@
   "hash": "7c1ec993b2378ca7"
  },
  "/tr/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "201a2095082395de"
+  "date": "2026-10-19",
+  "hash": "b94d7d06a4ad0cbf"
  },
  "/tr/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",
@@ -12587,6 +12663,10 @@
   "date": "2026-10-13",
   "hash": "26990d01cb40dbc2"
  },
+ "/unblur-image": {
+  "date": "2026-10-19",
+  "hash": "e1c821f9237b61b9"
+ },
  "/unlock-pdf": {
   "date": "2026-10-12",
   "hash": "b58ef68bcc26389d"
@@ -12600,8 +12680,8 @@
   "hash": "5766e45d920da18a"
  },
  "/vi/": {
-  "date": "2026-10-13",
-  "hash": "16c2fc157cc71337"
+  "date": "2026-10-19",
+  "hash": "66e0513944895110"
  },
  "/vi/aac-to-mp3": {
   "date": "2026-10-12",
@@ -12624,8 +12704,8 @@
   "hash": "4972527d2ee73375"
  },
  "/vi/ai-converter": {
-  "date": "2026-10-13",
-  "hash": "020e0b028950b11e"
+  "date": "2026-10-19",
+  "hash": "c01863dbd82a8bb9"
  },
  "/vi/ai-headshot-generator": {
   "date": "2026-10-12",
@@ -12844,8 +12924,8 @@
   "hash": "7c373715b320a9c5"
  },
  "/vi/favicon-generator": {
-  "date": "2026-10-13",
-  "hash": "00622695f3298736"
+  "date": "2026-10-19",
+  "hash": "87f3e8bfe26ca431"
  },
  "/vi/flac-to-mp3": {
   "date": "2026-10-12",
@@ -12891,17 +12971,21 @@
   "date": "2026-10-13",
   "hash": "241c9d8fcbdae1cf"
  },
+ "/vi/image-enhancer": {
+  "date": "2026-10-19",
+  "hash": "85ffa2b2a4e63dc0"
+ },
  "/vi/image-to-pdf": {
   "date": "2026-10-13",
   "hash": "bd5007b6fb60e450"
  },
  "/vi/image-to-svg": {
-  "date": "2026-10-13",
-  "hash": "e3c53bdbd1090163"
+  "date": "2026-10-19",
+  "hash": "b2f09a17909079a2"
  },
  "/vi/image-to-text": {
-  "date": "2026-10-12",
-  "hash": "c8a9627f89788f6c"
+  "date": "2026-10-19",
+  "hash": "d56d9d1f45569183"
  },
  "/vi/instagram-image-carousel-splitter": {
   "date": "2026-10-12",
@@ -12980,8 +13064,8 @@
   "hash": "a9ca63762bbf883e"
  },
  "/vi/passport-size-photo-maker": {
-  "date": "2026-10-12",
-  "hash": "22aba1f8772afd70"
+  "date": "2026-10-19",
+  "hash": "800728ad5f226e8d"
  },
  "/vi/password-generator": {
   "date": "2026-10-12",
@@ -13068,8 +13152,8 @@
   "hash": "5157197b49971e24"
  },
  "/vi/resize-image-to-kb": {
-  "date": "2026-10-12",
-  "hash": "a87b72e80210dca8"
+  "date": "2026-10-19",
+  "hash": "5bd21d6618640e4c"
  },
  "/vi/rotate-flip": {
   "date": "2026-10-12",
@@ -13080,8 +13164,8 @@
   "hash": "dbcfae3385903449"
  },
  "/vi/screenshot-beautifier": {
-  "date": "2026-10-13",
-  "hash": "c2610ea1637f7cc4"
+  "date": "2026-10-19",
+  "hash": "bcaf0a1be388c198"
  },
  "/vi/social-media-image-resizer": {
   "date": "2026-10-12",
@@ -13104,8 +13188,8 @@
   "hash": "d543cdf26497f53d"
  },
  "/vi/svg-converter": {
-  "date": "2026-10-13",
-  "hash": "fa54952c243657c2"
+  "date": "2026-10-19",
+  "hash": "9553596853b21855"
  },
  "/vi/temporary-file-upload-direct-link-share": {
   "date": "2026-10-13",

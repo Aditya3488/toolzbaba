@@ -755,6 +755,50 @@
    ]
   },
   {
+   "slug": "image-enhancer",
+   "cat": "image",
+   "icon": "image-enhancer",
+   "name": "Image Enhancer",
+   "desc": "Fix dark, dull, blurry or noisy photos in one click, then fine-tune like a pro. Runs in your browser.",
+   "kind": "client",
+   "engine": "enhance",
+   "js": "image-enhancer",
+   "tabAll": "All looks",
+   "keywords": "photo enhancer image enhancer improve photo quality auto enhance brighten fix dark photo sharpen denoise unblur optimize optimise colour correction lightroom",
+   "about": "Make any photo look its best. Auto Enhance reads each picture and corrects what it needs: exposure, contrast, white balance, shadows and highlights, dull colours, noise and softness. Every correction is shown on a slider, so you can see exactly what changed and fine-tune it like in a professional editor: exposure, contrast, highlights, shadows, whites, blacks, temperature, tint, vibrance, saturation, clarity, dehaze, sharpening, noise reduction and vignette. Looks for portraits, landscapes, low light, products, food, old photos, documents and black and white shape the result in one tap. An optional AI step (Real-ESRGAN) removes blur, noise and JPEG blocks. Save as JPG, WebP, AVIF or PNG, resize for the web and hit a target file size, for many photos at once. Everything runs in your browser, so your photos are never uploaded.",
+   "title": "Image Enhancer Free: Auto Enhance & Improve Photo Quality Online | Toolz Baba",
+   "metaDesc": "Fix dark, dull, blurry or noisy photos in one click. Pro sliders, AI detail restore, looks for portraits, old photos and documents. Free, private, nothing uploaded.",
+   "steps": [
+    "Add your photos (several at once is fine).",
+    "Pick a look, or keep Auto: each photo is corrected on its own.",
+    "Fine-tune the sliders if you like, compare with the drag line, then save as JPG, WebP, AVIF or PNG."
+   ],
+   "faq": [
+    {
+     "q": "How does Auto Enhance decide what to change?",
+     "a": "It measures the photo: how bright it is, how wide its tones are, whether neutral colours have a cast, how much noise and how much fine detail it has. From that it sets each slider, and you can see and change every value."
+    },
+    {
+     "q": "Can it fix a blurry photo?",
+     "a": "Sharpening and clarity make soft photos crisper. For really soft, small or old photos, turn on AI detail restore: an AI model rebuilds fine detail and removes noise and JPEG blocks."
+    },
+    {
+     "q": "Will it work on many photos at once?",
+     "a": "Yes. Each photo is analysed and corrected on its own, with your chosen look and slider changes on top, and they download together in a ZIP."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. Everything, including the AI step, runs inside your browser, so your photos never leave your device."
+    }
+   ],
+   "aliases": [
+    "photo-enhancer",
+    "enhance-photo",
+    "photo-quality-enhancer",
+    "image-quality-enhancer"
+   ]
+  },
+  {
    "slug": "upscale-image",
    "cat": "ai",
    "icon": "🔍",
@@ -29275,6 +29319,216 @@
     "txt2docx",
     "txt2pdf",
     "eml2pdf"
+   ]
+  },
+  {
+   "slug": "image-optimizer",
+   "base": "image-enhancer",
+   "cat": "image",
+   "kind": "client",
+   "preset": {
+    "format": "webp",
+    "maxSide": 1920,
+    "quality": 82
+   },
+   "name": "Image Optimizer",
+   "tab": "Image Optimizer",
+   "title": "Image Optimizer Online Free: Optimize Images for Web (WebP, Smaller, Sharper)",
+   "desc": "Make images smaller and better for websites: enhanced, resized and saved as WebP. Nothing uploaded.",
+   "metaDesc": "Free image optimizer for websites and shops: auto-enhance, resize to 1920 px and save as WebP or AVIF, often 70 to 90% smaller. Batch, private, no upload.",
+   "about": "Optimise images for a website, an online shop or social media in one go. Each photo is enhanced (exposure, colour and sharpness corrected), resized to 1920 pixels and saved as WebP, which is usually 70 to 90% smaller than the original JPG or PNG while looking the same. Change the size, quality or format, or set a target file size, before you download. Smaller images load faster, which helps both visitors and search rankings. Metadata such as camera details and location are removed. Everything runs in your browser, so the images are never uploaded.",
+   "steps": [
+    "Add your photos.",
+    "The right settings are already chosen; adjust the sliders if you like.",
+    "Compare with the drag line and download."
+   ],
+   "faq": [
+    {
+     "q": "Why WebP?",
+     "a": "Every current browser shows WebP, and it is usually 25 to 35% smaller than a JPG of the same quality. AVIF is smaller still, if your site supports it."
+    },
+    {
+     "q": "What size should web images be?",
+     "a": "1920 pixels on the long side covers full-width images on most screens; 1280 pixels is enough for images inside an article; product photos often use 1080 to 2000 pixels."
+    },
+    {
+     "q": "Are the photos uploaded?",
+     "a": "No. They are optimised inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "unblur-image",
+   "base": "image-enhancer",
+   "cat": "image",
+   "kind": "client",
+   "preset": {
+    "ai": "restore"
+   },
+   "name": "Unblur Image",
+   "tab": "Unblur Image",
+   "title": "Unblur Image Online Free: Sharpen & Fix Blurry Photos with AI",
+   "desc": "Sharpen soft photos and restore detail with AI, then fine-tune. Nothing uploaded.",
+   "metaDesc": "Free unblur image tool: AI detail restore plus sharpening and clarity fix soft, blurry and low-quality photos. Runs in your browser, nothing uploaded.",
+   "about": "Make a soft or slightly blurry photo crisp again. AI detail restore is already switched on: an AI model (Real-ESRGAN) rebuilds fine detail and removes noise and JPEG blocks, then sharpening and clarity bring out edges. It works best on photos that are a bit soft, low resolution or compressed; a photo that is very out of focus or shaken cannot be made fully sharp by any tool. Compare with the drag line and adjust the sliders before you save. Everything runs in your browser, so the photo is never uploaded.",
+   "steps": [
+    "Add your photos.",
+    "The right settings are already chosen; adjust the sliders if you like.",
+    "Compare with the drag line and download."
+   ],
+   "faq": [
+    {
+     "q": "Can any blurry photo be fixed?",
+     "a": "Slight softness, low resolution and compression blur improve a lot. Strong motion blur or a badly missed focus can only be improved a little."
+    },
+    {
+     "q": "Why is the first run slow?",
+     "a": "The AI model (5 MB) is downloaded once and runs on your device; a large photo can take up to a minute on a phone."
+    },
+    {
+     "q": "Is my photo uploaded?",
+     "a": "No. The AI runs inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "old-photo-restoration",
+   "base": "image-enhancer",
+   "cat": "image",
+   "kind": "client",
+   "preset": {
+    "look": "oldphoto",
+    "ai": "restore"
+   },
+   "name": "Old Photo Restoration",
+   "tab": "Old Photo Restoration",
+   "title": "Old Photo Restoration Free: Restore Faded Old Photos Online",
+   "desc": "Bring back faded colours, contrast and detail in old photos. Nothing uploaded.",
+   "metaDesc": "Free old photo restoration: repair faded and yellowed colours, lift contrast, reduce grain and restore detail with AI. Runs in your browser, nothing uploaded.",
+   "about": "Restore scanned or photographed old prints. The Old photo look repairs faded and yellowed colours by stretching each colour channel back to its full range, lifts contrast, reduces grain and noise, and AI detail restore rebuilds fine detail. Scratches and tears are not painted over, but the photo becomes much clearer and more natural. Fine-tune with the sliders and compare before you save. Everything runs in your browser, so family photos never leave your device.",
+   "steps": [
+    "Add your photos.",
+    "The right settings are already chosen; adjust the sliders if you like.",
+    "Compare with the drag line and download."
+   ],
+   "faq": [
+    {
+     "q": "How do I scan an old photo for the best result?",
+     "a": "Scan at 600 DPI if you can, or photograph it flat in daylight without flash and without reflections."
+    },
+    {
+     "q": "Can it remove scratches?",
+     "a": "Not yet: it fixes colour, contrast, noise and detail. Scratches and tears stay."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. They are restored inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "low-light-photo-enhancer",
+   "base": "image-enhancer",
+   "cat": "image",
+   "kind": "client",
+   "preset": {
+    "look": "lowlight"
+   },
+   "name": "Low Light Photo Enhancer",
+   "tab": "Low Light Photo Enhancer",
+   "title": "Low Light Photo Enhancer Free: Brighten Dark Photos Online",
+   "desc": "Brighten dark photos, open up shadows and clean the noise. Nothing uploaded.",
+   "metaDesc": "Free low light photo enhancer: brighten dark and night photos, lift shadows, keep highlights and remove noise. Batch, private, nothing uploaded.",
+   "about": "Fix photos taken indoors, at night or against the light. The Low light look raises the exposure, opens up the shadows while holding back bright windows and lamps, and removes the coloured noise that dark photos are full of. Each photo is measured on its own, so a whole batch of party or wedding photos comes out evenly. Fine-tune and compare before you save. Everything runs in your browser, so the photos are never uploaded.",
+   "steps": [
+    "Add your photos.",
+    "The right settings are already chosen; adjust the sliders if you like.",
+    "Compare with the drag line and download."
+   ],
+   "faq": [
+    {
+     "q": "Why does a brightened photo look grainy?",
+     "a": "Dark photos carry noise that brightening reveals. The noise reduction slider removes most of it; raise it for very dark photos."
+    },
+    {
+     "q": "Can I fix many dark photos at once?",
+     "a": "Yes. Each one is analysed on its own and they download together."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. Everything runs in your browser."
+    }
+   ]
+  },
+  {
+   "slug": "document-scan-enhancer",
+   "base": "image-enhancer",
+   "cat": "image",
+   "kind": "client",
+   "preset": {
+    "look": "document",
+    "format": "jpg"
+   },
+   "name": "Document Scan Enhancer",
+   "tab": "Document Scan Enhancer",
+   "title": "Document Scan Enhancer Free: Make Scanned Documents Clear & White",
+   "desc": "Turn phone photos of documents into clean, white, readable scans. Nothing uploaded.",
+   "metaDesc": "Free document scan enhancer: whiten the paper, remove shadows, darken the text and sharpen phone photos of documents, certificates and forms. Nothing uploaded.",
+   "about": "Turn a phone photo of a document, certificate, ID or handwritten page into a clean scan. The Document look evens out uneven light and shadows, turns grey or yellow paper white, darkens the text and sharpens it, which makes uploads for exam and government forms easier to read. Set a target file size (for example 200 KB) before saving if a form asks for one. Everything runs in your browser, so your documents are never uploaded.",
+   "steps": [
+    "Add your photos.",
+    "The right settings are already chosen; adjust the sliders if you like.",
+    "Compare with the drag line and download."
+   ],
+   "faq": [
+    {
+     "q": "Will it work on a photo with a shadow across the page?",
+     "a": "Yes. The page's own lighting is measured and evened out, so a shadow or a dark corner turns white with the rest of the paper."
+    },
+    {
+     "q": "Can I make it smaller for an online form?",
+     "a": "Yes. Type the size the form allows, for example 100 or 200 KB, in the target file size box."
+    },
+    {
+     "q": "Are my documents uploaded?",
+     "a": "No. They are processed inside your browser."
+    }
+   ]
+  },
+  {
+   "slug": "product-photo-enhancer",
+   "base": "image-enhancer",
+   "cat": "image",
+   "kind": "client",
+   "preset": {
+    "look": "product",
+    "format": "webp",
+    "maxSide": 2000
+   },
+   "name": "Product Photo Enhancer",
+   "tab": "Product Photo Enhancer",
+   "title": "Product Photo Enhancer Free: Bright, Clean Photos for Online Stores",
+   "desc": "Make product photos bright, neutral and crisp for Amazon, Flipkart, Shopify and Instagram. Nothing uploaded.",
+   "metaDesc": "Free product photo enhancer: correct colour, brighten whites, sharpen detail and save store-ready images for Amazon, Flipkart, Meesho, Shopify and Instagram.",
+   "about": "Get store-ready product photos without a studio. The Product look fully neutralises colour casts (so a white shirt is white), brightens the background and whites, adds clarity and sharpens detail. Photos are saved as WebP at 2000 pixels by default, a good size for zoom on most marketplaces; switch to JPG if a store needs it. Enhance a whole catalogue at once. Everything runs in your browser, so your photos are never uploaded.",
+   "steps": [
+    "Add your photos.",
+    "The right settings are already chosen; adjust the sliders if you like.",
+    "Compare with the drag line and download."
+   ],
+   "faq": [
+    {
+     "q": "What size do marketplaces want?",
+     "a": "Most ask for at least 1000 pixels on the long side so buyers can zoom; 2000 pixels is a safe choice. Check your marketplace's rules."
+    },
+    {
+     "q": "Can it make the background pure white?",
+     "a": "It brightens the background a lot. For a perfectly white or removed background, use the Background Remover after enhancing."
+    },
+    {
+     "q": "Are my photos uploaded?",
+     "a": "No. They are processed inside your browser."
+    }
    ]
   }
  ]

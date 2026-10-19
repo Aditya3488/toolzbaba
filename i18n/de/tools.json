@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Alle Formate"
+ },
+ "image-enhancer": {
+  "name": "Bildverbesserer",
+  "desc": "Dunkle, flaue, unscharfe oder verrauschte Fotos mit einem Klick verbessern und wie ein Profi feinjustieren. Läuft in Ihrem Browser.",
+  "title": "Bildverbesserer kostenlos: Fotoqualität online verbessern | Toolz Baba",
+  "metaDesc": "Dunkle, flaue, unscharfe oder verrauschte Fotos mit einem Klick verbessern. Profi-Regler, KI-Detailwiederherstellung, Looks für Porträts, alte Fotos und Dokumente. Kostenlos, nichts wird hochgeladen.",
+  "about": "Holen Sie das Beste aus jedem Foto. Die automatische Verbesserung analysiert jedes Bild und korrigiert, was es braucht: Belichtung, Kontrast, Weißabgleich, Tiefen und Lichter, flaue Farben, Rauschen und Unschärfe. Jede Korrektur steht auf einem Regler, sodass Sie genau sehen, was sich geändert hat, und wie in einem Profi-Editor nachjustieren können. Looks für Porträt, Landschaft, wenig Licht, Produkt, Essen, alte Fotos, Dokumente und Schwarzweiß verändern das Ergebnis mit einem Tipp. Ein optionaler KI-Schritt (Real-ESRGAN) entfernt Unschärfe, Rauschen und JPEG-Blöcke. Speichern Sie als JPG, WebP, AVIF oder PNG, verkleinern Sie für das Web und treffen Sie eine Zieldateigröße, für viele Fotos auf einmal. Alles läuft in Ihrem Browser, Ihre Fotos werden nie hochgeladen.",
+  "steps": [
+   "Fügen Sie Ihre Fotos hinzu (gern mehrere auf einmal).",
+   "Wählen Sie einen Look oder lassen Sie Auto: Jedes Foto wird einzeln korrigiert.",
+   "Regler bei Bedarf anpassen, mit der Linie vergleichen und als JPG, WebP, AVIF oder PNG speichern."
+  ],
+  "faq": [
+   {
+    "q": "Wie entscheidet die automatische Verbesserung, was sie ändert?",
+    "a": "Sie misst das Foto: Helligkeit, Tonwertumfang, Farbstiche in neutralen Farben, Rauschen und feine Details. Daraus stellt sie jeden Regler ein, und Sie können jeden Wert sehen und ändern."
+   },
+   {
+    "q": "Kann es ein unscharfes Foto retten?",
+    "a": "Schärfen und Klarheit machen weiche Fotos knackiger. Für sehr weiche, kleine oder alte Fotos schalten Sie die KI-Detailwiederherstellung ein."
+   },
+   {
+    "q": "Werden meine Fotos hochgeladen?",
+    "a": "Nein. Alles, auch die KI, läuft in Ihrem Browser."
+   }
+  ],
+  "tabAll": "Alle Looks"
  }
 }

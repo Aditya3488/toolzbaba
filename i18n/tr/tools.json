@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Tüm biçimler"
+ },
+ "image-enhancer": {
+  "name": "Görüntü İyileştirici",
+  "desc": "Karanlık, soluk, bulanık veya gürültülü fotoğrafları tek tıkla düzeltin, sonra bir profesyonel gibi ince ayar yapın. Tarayıcınızda çalışır.",
+  "title": "Görüntü İyileştirici Ücretsiz: Fotoğraf Kalitesini Online Artırın | Toolz Baba",
+  "metaDesc": "Karanlık, soluk, bulanık veya gürültülü fotoğrafları tek tıkla düzeltin. Profesyonel kaydırıcılar, AI ayrıntı onarımı, portre, eski fotoğraf ve belge stilleri. Ücretsiz, hiçbir şey yüklenmez.",
+  "about": "Her fotoğrafı en iyi hâline getirin. Otomatik iyileştirme her görüntüyü okur ve gerekeni düzeltir: pozlama, kontrast, beyaz dengesi, gölgeler ve parlak alanlar, soluk renkler, gürültü ve netlik eksikliği. Her düzeltme bir kaydırıcıda görünür; neyin değiştiğini tam olarak görür ve profesyonel bir editördeki gibi ayarlarsınız. Portre, manzara, düşük ışık, ürün, yemek, eski fotoğraf, belge ve siyah beyaz stilleri sonucu tek dokunuşla değiştirir. İsteğe bağlı AI adımı (Real-ESRGAN) bulanıklığı, gürültüyü ve JPEG bloklarını giderir. JPG, WebP, AVIF veya PNG olarak kaydedin, web için küçültün ve hedef dosya boyutu belirleyin, birçok fotoğrafı bir kerede. Her şey tarayıcınızda olur, fotoğraflarınız asla yüklenmez.",
+  "steps": [
+   "Fotoğraflarınızı ekleyin (birden çok da olur).",
+   "Bir stil seçin veya Otomatik bırakın: her fotoğraf kendi başına düzeltilir.",
+   "İsterseniz kaydırıcıları ayarlayın, çizgiyi sürükleyerek karşılaştırın, ardından JPG, WebP, AVIF veya PNG olarak kaydedin."
+  ],
+  "faq": [
+   {
+    "q": "Otomatik iyileştirme neyi değiştireceğine nasıl karar verir?",
+    "a": "Fotoğrafı ölçer: ne kadar aydınlık olduğunu, tonların ne kadar geniş olduğunu, nötr renklerde renk kayması olup olmadığını, ne kadar gürültü ve ince ayrıntı olduğunu. Buna göre her kaydırıcıyı ayarlar; her değeri görüp değiştirebilirsiniz."
+   },
+   {
+    "q": "Bulanık bir fotoğrafı düzeltebilir mi?",
+    "a": "Keskinleştirme ve netlik, yumuşak fotoğrafları daha belirgin yapar. Çok yumuşak, küçük veya eski fotoğraflar için AI ayrıntı onarımını açın."
+   },
+   {
+    "q": "Fotoğraflarım yükleniyor mu?",
+    "a": "Hayır. AI dahil her şey tarayıcınızda çalışır."
+   }
+  ],
+  "tabAll": "Tüm stiller"
  }
 }

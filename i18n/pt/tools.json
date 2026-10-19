@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Todos os formatos"
+ },
+ "image-enhancer": {
+  "name": "Melhorador de imagens",
+  "desc": "Corrija fotos escuras, apagadas, borradas ou com ruído em um clique e ajuste como um profissional. Funciona no seu navegador.",
+  "title": "Melhorador de imagens grátis: melhore a qualidade das fotos online | Toolz Baba",
+  "metaDesc": "Corrija fotos escuras, apagadas, borradas ou com ruído em um clique. Controles profissionais, restauração de detalhes com IA e estilos para retratos, fotos antigas e documentos. Grátis e privado.",
+  "about": "Deixe cada foto no seu melhor. O aprimoramento automático analisa cada imagem e corrige o que ela precisa: exposição, contraste, balanço de branco, sombras e realces, cores apagadas, ruído e falta de nitidez. Cada correção aparece num controle deslizante, então você vê exatamente o que mudou e ajusta como num editor profissional. Estilos para retratos, paisagens, pouca luz, produtos, comida, fotos antigas, documentos e preto e branco mudam o resultado com um toque. Uma etapa opcional com IA (Real-ESRGAN) remove desfoque, ruído e blocos de JPEG. Salve em JPG, WebP, AVIF ou PNG, redimensione para a web e defina o tamanho do arquivo, com várias fotos de uma vez. Tudo acontece no seu navegador: suas fotos nunca são enviadas.",
+  "steps": [
+   "Adicione suas fotos (várias de uma vez sem problema).",
+   "Escolha um estilo ou deixe no Auto: cada foto é corrigida por si.",
+   "Ajuste os controles se quiser, compare arrastando a linha e salve em JPG, WebP, AVIF ou PNG."
+  ],
+  "faq": [
+   {
+    "q": "Como o aprimoramento automático decide o que mudar?",
+    "a": "Ele mede a foto: quanta luz tem, quão amplos são os tons, se as cores neutras têm um tom, quanto ruído e quanto detalhe fino. Com isso ajusta cada controle, e você pode ver e mudar cada valor."
+   },
+   {
+    "q": "Ele consegue corrigir uma foto borrada?",
+    "a": "Nitidez e clareza deixam fotos suaves mais definidas. Para fotos muito suaves, pequenas ou antigas, ative a restauração de detalhes com IA."
+   },
+   {
+    "q": "Minhas fotos são enviadas?",
+    "a": "Não. Tudo, inclusive a IA, roda no seu navegador."
+   }
+  ],
+  "tabAll": "Todos os estilos"
  }
 }

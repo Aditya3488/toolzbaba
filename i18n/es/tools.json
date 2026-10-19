@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Todos los formatos"
+ },
+ "image-enhancer": {
+  "name": "Mejorador de imágenes",
+  "desc": "Arregla fotos oscuras, apagadas, borrosas o con ruido en un clic y ajústalas como un profesional. Funciona en tu navegador.",
+  "title": "Mejorador de imágenes gratis: mejora la calidad de tus fotos online | Toolz Baba",
+  "metaDesc": "Arregla fotos oscuras, apagadas, borrosas o con ruido en un clic. Controles profesionales, restauración de detalle con IA y estilos para retratos, fotos antiguas y documentos. Gratis y privado.",
+  "about": "Saca lo mejor de cada foto. Mejora automática analiza cada imagen y corrige lo que necesita: exposición, contraste, balance de blancos, sombras y luces, colores apagados, ruido y falta de nitidez. Cada corrección aparece en un control deslizante, así que ves exactamente qué cambió y puedes afinarlo como en un editor profesional. Los estilos para retratos, paisajes, poca luz, productos, comida, fotos antiguas, documentos y blanco y negro cambian el resultado con un toque. Un paso opcional con IA (Real-ESRGAN) elimina desenfoque, ruido y bloques JPEG. Guarda en JPG, WebP, AVIF o PNG, redimensiona para la web y ajusta el tamaño del archivo, con muchas fotos a la vez. Todo ocurre en tu navegador: tus fotos nunca se suben.",
+  "steps": [
+   "Añade tus fotos (varias a la vez sin problema).",
+   "Elige un estilo o deja Auto: cada foto se corrige por separado.",
+   "Ajusta los controles si quieres, compara arrastrando la línea y guarda en JPG, WebP, AVIF o PNG."
+  ],
+  "faq": [
+   {
+    "q": "¿Cómo decide la mejora automática qué cambiar?",
+    "a": "Mide la foto: cuánta luz tiene, cuánto abarcan sus tonos, si los colores neutros tienen un tinte, cuánto ruido y cuánto detalle fino hay. Con eso ajusta cada control, y puedes ver y cambiar cada valor."
+   },
+   {
+    "q": "¿Puede arreglar una foto borrosa?",
+    "a": "Nitidez y claridad hacen más definidas las fotos suaves. Para fotos muy suaves, pequeñas o antiguas, activa la restauración de detalle con IA."
+   },
+   {
+    "q": "¿Se suben mis fotos?",
+    "a": "No. Todo, incluida la IA, funciona en tu navegador."
+   }
+  ],
+  "tabAll": "Todos los estilos"
  }
 }

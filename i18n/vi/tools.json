@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Tất cả định dạng"
+ },
+ "image-enhancer": {
+  "name": "Làm nét và cải thiện ảnh",
+  "desc": "Sửa ảnh tối, nhạt, mờ hoặc nhiễu chỉ với một cú nhấp, rồi tinh chỉnh như dân chuyên. Chạy trong trình duyệt.",
+  "title": "Cải thiện chất lượng ảnh miễn phí: làm đẹp ảnh trực tuyến | Toolz Baba",
+  "metaDesc": "Sửa ảnh tối, nhạt, mờ hoặc nhiễu chỉ với một cú nhấp. Thanh trượt chuyên nghiệp, khôi phục chi tiết bằng AI, phong cách cho chân dung, ảnh cũ và tài liệu. Miễn phí, không tải lên.",
+  "about": "Làm cho mỗi bức ảnh đẹp nhất. Tự động cải thiện đọc từng ảnh và sửa đúng chỗ cần: phơi sáng, tương phản, cân bằng trắng, vùng tối và vùng sáng, màu nhạt, nhiễu và độ mềm. Mỗi chỉnh sửa hiện trên một thanh trượt, nên bạn thấy chính xác điều gì thay đổi và có thể tinh chỉnh như trong trình chỉnh sửa chuyên nghiệp. Các phong cách chân dung, phong cảnh, thiếu sáng, sản phẩm, đồ ăn, ảnh cũ, tài liệu và đen trắng thay đổi kết quả chỉ với một chạm. Bước AI tùy chọn (Real-ESRGAN) loại bỏ mờ, nhiễu và khối JPEG. Lưu dạng JPG, WebP, AVIF hoặc PNG, thu nhỏ cho web và đặt dung lượng tệp, cho nhiều ảnh cùng lúc. Mọi thứ chạy trong trình duyệt nên ảnh không bao giờ bị tải lên.",
+  "steps": [
+   "Thêm ảnh của bạn (nhiều ảnh cùng lúc cũng được).",
+   "Chọn một phong cách hoặc để Tự động: mỗi ảnh được sửa riêng.",
+   "Tinh chỉnh thanh trượt nếu muốn, kéo đường so sánh, rồi lưu dạng JPG, WebP, AVIF hoặc PNG."
+  ],
+  "faq": [
+   {
+    "q": "Tự động cải thiện quyết định thay đổi gì như thế nào?",
+    "a": "Nó đo bức ảnh: độ sáng, độ rộng dải tông, màu trung tính có bị ám không, lượng nhiễu và chi tiết nhỏ. Từ đó đặt từng thanh trượt, và bạn có thể xem và đổi mọi giá trị."
+   },
+   {
+    "q": "Có sửa được ảnh mờ không?",
+    "a": "Làm nét và độ rõ giúp ảnh hơi mềm sắc hơn. Với ảnh rất mờ, nhỏ hoặc cũ, hãy bật khôi phục chi tiết bằng AI."
+   },
+   {
+    "q": "Ảnh của tôi có bị tải lên không?",
+    "a": "Không. Mọi thứ, kể cả AI, chạy trong trình duyệt của bạn."
+   }
+  ],
+  "tabAll": "Tất cả phong cách"
  }
 }

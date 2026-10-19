@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Tous les formats"
+ },
+ "image-enhancer": {
+  "name": "Améliorateur d'images",
+  "desc": "Corrigez en un clic les photos sombres, ternes, floues ou bruitées, puis peaufinez comme un pro. Fonctionne dans votre navigateur.",
+  "title": "Améliorateur d'images gratuit : améliorer la qualité des photos en ligne | Toolz Baba",
+  "metaDesc": "Corrigez en un clic les photos sombres, ternes, floues ou bruitées. Réglages pro, restauration des détails par IA, styles pour portraits, vieilles photos et documents. Gratuit et privé.",
+  "about": "Tirez le meilleur de chaque photo. L'amélioration automatique analyse chaque image et corrige ce qu'il faut : exposition, contraste, balance des blancs, ombres et hautes lumières, couleurs ternes, bruit et manque de netteté. Chaque correction apparaît sur un curseur : vous voyez exactement ce qui a changé et pouvez l'ajuster comme dans un éditeur professionnel. Les styles portrait, paysage, faible lumière, produit, cuisine, vieille photo, document et noir et blanc changent le résultat d'un geste. Une étape IA facultative (Real-ESRGAN) supprime le flou, le bruit et les blocs JPEG. Enregistrez en JPG, WebP, AVIF ou PNG, redimensionnez pour le web et visez une taille de fichier, pour de nombreuses photos à la fois. Tout se passe dans votre navigateur : vos photos ne sont jamais envoyées.",
+  "steps": [
+   "Ajoutez vos photos (plusieurs à la fois, sans problème).",
+   "Choisissez un style ou gardez Auto : chaque photo est corrigée séparément.",
+   "Ajustez les curseurs si vous le souhaitez, comparez en faisant glisser la ligne, puis enregistrez en JPG, WebP, AVIF ou PNG."
+  ],
+  "faq": [
+   {
+    "q": "Comment l'amélioration automatique décide-t-elle quoi changer ?",
+    "a": "Elle mesure la photo : sa luminosité, l'étendue de ses tons, une éventuelle dominante de couleur, la quantité de bruit et de détail fin. Elle règle ainsi chaque curseur, et vous pouvez voir et modifier chaque valeur."
+   },
+   {
+    "q": "Peut-elle corriger une photo floue ?",
+    "a": "La netteté et la clarté rendent les photos douces plus précises. Pour les photos très douces, petites ou anciennes, activez la restauration des détails par IA."
+   },
+   {
+    "q": "Mes photos sont-elles envoyées ?",
+    "a": "Non. Tout, y compris l'IA, fonctionne dans votre navigateur."
+   }
+  ],
+  "tabAll": "Tous les styles"
  }
 }

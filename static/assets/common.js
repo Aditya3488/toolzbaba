@@ -627,6 +627,7 @@
     'image-to-svg': '<circle cx="5.8" cy="18.2" r="2.3"/><circle cx="18.2" cy="5.8" r="2.3"/><path d="M8 18.2c7 0 1.5-12.4 8-12.4"/>',
     'remove-background': '<path d="M4.5 19.5l11-11"/><path d="M15 8.5l1.5 1.5"/><path d="M15 3.5v3M13.5 5h3M19.5 10v3M18 11.5h3M8 3.5v2M7 4.5h2"/>',
     'replace-background': '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 18l5-5 4 4 3-3 4.5 4.5"/>',
+    'image-enhancer': '<path d="M4 20 15 9"/><path d="m14 6 1-3 1 3 3 1-3 1-1 3-1-3-3-1z"/><path d="M19.5 13.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/><path d="M7 3.5l.5 1.2 1.2.5-1.2.5L7 6.9l-.5-1.2-1.2-.5 1.2-.5z"/>',
     'upscale-image': '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4l5.1 5.1M7.8 10.5h5.4M10.5 7.8v5.4"/>',
     'face-blur': '<circle cx="12" cy="12" r="8.6"/><path d="M8.6 10h.01M15.4 10h.01" stroke-width="2.6"/><path d="M8.5 15.2h7" stroke-dasharray="1.4 2.2"/>',
     'anime-style': '<circle cx="12" cy="7" r="3"/><circle cx="17" cy="11" r="3"/><circle cx="15" cy="17" r="3"/><circle cx="9" cy="17" r="3"/><circle cx="7" cy="11" r="3"/>',
@@ -1069,9 +1070,9 @@
   // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
   const NAV_MENUS = [
     ['Image', 'image', 'compress-image', [
-      ['Compress and resize', ['compress-image', 'compress-webp', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'social-media-image-resizer']],
+      ['Compress and resize', ['compress-image', 'image-optimizer', 'compress-webp', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'social-media-image-resizer']],
       ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'svg-converter', 'ai-converter']],
-      ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'thumbnail-generator', 'favicon-generator']],
+      ['Edit and design', ['image-enhancer', 'add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'thumbnail-generator', 'favicon-generator']],
       ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'passport-size-photo-maker', 'image-to-text']],
     ]],
     ['PDF', 'pdf', 'merge-pdf', [
@@ -1088,7 +1089,7 @@
       ['Words from sound', ['video-to-text', 'text-to-audio']],
     ]],
     ['AI', 'ai', 'remove-background', [
-      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style']],
+      ['AI for pictures', ['image-enhancer', 'unblur-image', 'remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style']],
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
     ['Convert', 'convert', 'convert-image', [

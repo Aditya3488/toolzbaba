@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Semua format"
+ },
+ "image-enhancer": {
+  "name": "Peningkat Kualitas Gambar",
+  "desc": "Perbaiki foto gelap, kusam, buram, atau berisik dalam satu klik, lalu atur seperti profesional. Berjalan di browser Anda.",
+  "title": "Peningkat Kualitas Gambar Gratis: Tingkatkan Kualitas Foto Online | Toolz Baba",
+  "metaDesc": "Perbaiki foto gelap, kusam, buram, atau berisik dalam satu klik. Slider profesional, pemulihan detail AI, gaya untuk potret, foto lama, dan dokumen. Gratis, tidak ada yang diunggah.",
+  "about": "Buat setiap foto tampil terbaik. Peningkatan otomatis membaca setiap gambar dan memperbaiki yang dibutuhkan: eksposur, kontras, white balance, bayangan dan sorotan, warna kusam, noise, dan kurang tajam. Setiap perbaikan tampil di slider, jadi Anda melihat persis apa yang berubah dan bisa mengaturnya seperti di editor profesional. Gaya untuk potret, pemandangan, cahaya rendah, produk, makanan, foto lama, dokumen, dan hitam putih mengubah hasil dalam satu ketukan. Langkah AI opsional (Real-ESRGAN) menghapus blur, noise, dan blok JPEG. Simpan sebagai JPG, WebP, AVIF, atau PNG, ubah ukuran untuk web dan tentukan ukuran file, untuk banyak foto sekaligus. Semuanya berjalan di browser Anda, jadi foto tidak pernah diunggah.",
+  "steps": [
+   "Tambahkan foto Anda (beberapa sekaligus juga bisa).",
+   "Pilih gaya atau biarkan Otomatis: setiap foto diperbaiki sendiri-sendiri.",
+   "Atur slider jika mau, bandingkan dengan menggeser garis, lalu simpan sebagai JPG, WebP, AVIF, atau PNG."
+  ],
+  "faq": [
+   {
+    "q": "Bagaimana peningkatan otomatis menentukan apa yang diubah?",
+    "a": "Alat ini mengukur foto: seberapa terang, seberapa lebar rentang nadanya, apakah warna netral punya rona, seberapa banyak noise dan detail halus. Dari situ setiap slider diatur, dan Anda bisa melihat serta mengubah setiap nilai."
+   },
+   {
+    "q": "Bisakah memperbaiki foto buram?",
+    "a": "Penajaman dan kejernihan membuat foto yang lembut lebih tegas. Untuk foto yang sangat lembut, kecil, atau lama, nyalakan pemulihan detail AI."
+   },
+   {
+    "q": "Apakah foto saya diunggah?",
+    "a": "Tidak. Semuanya, termasuk AI, berjalan di browser Anda."
+   }
+  ],
+  "tabAll": "Semua gaya"
  }
 }

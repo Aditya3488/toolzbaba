@@ -3281,5 +3281,32 @@
    }
   ],
   "tabAll": "Tutti i formati"
+ },
+ "image-enhancer": {
+  "name": "Migliora immagini",
+  "desc": "Correggi in un clic foto scure, spente, sfocate o rumorose, poi rifiniscile come un professionista. Funziona nel browser.",
+  "title": "Migliora immagini gratis: migliora la qualità delle foto online | Toolz Baba",
+  "metaDesc": "Correggi in un clic foto scure, spente, sfocate o rumorose. Cursori professionali, ripristino dei dettagli con IA, stili per ritratti, foto vecchie e documenti. Gratis e privato.",
+  "about": "Tira fuori il meglio da ogni foto. Il miglioramento automatico analizza ogni immagine e corregge ciò che serve: esposizione, contrasto, bilanciamento del bianco, ombre e luci, colori spenti, rumore e scarsa nitidezza. Ogni correzione compare su un cursore, così vedi esattamente cosa è cambiato e puoi rifinirlo come in un editor professionale. Gli stili per ritratti, paesaggi, poca luce, prodotti, cibo, foto vecchie, documenti e bianco e nero cambiano il risultato con un tocco. Un passaggio facoltativo con IA (Real-ESRGAN) elimina sfocatura, rumore e blocchi JPEG. Salva in JPG, WebP, AVIF o PNG, ridimensiona per il web e imposta il peso del file, per molte foto insieme. Tutto avviene nel browser: le foto non vengono mai caricate.",
+  "steps": [
+   "Aggiungi le foto (anche più di una alla volta).",
+   "Scegli uno stile o lascia Auto: ogni foto viene corretta per conto suo.",
+   "Regola i cursori se vuoi, confronta trascinando la linea e salva in JPG, WebP, AVIF o PNG."
+  ],
+  "faq": [
+   {
+    "q": "Come decide il miglioramento automatico cosa cambiare?",
+    "a": "Misura la foto: luminosità, ampiezza dei toni, eventuali dominanti nei colori neutri, quantità di rumore e di dettaglio fine. Da lì imposta ogni cursore, e puoi vedere e cambiare ogni valore."
+   },
+   {
+    "q": "Può sistemare una foto sfocata?",
+    "a": "Nitidezza e chiarezza rendono più definite le foto morbide. Per foto molto morbide, piccole o vecchie attiva il ripristino dei dettagli con IA."
+   },
+   {
+    "q": "Le mie foto vengono caricate?",
+    "a": "No. Tutto, IA compresa, funziona nel browser."
+   }
+  ],
+  "tabAll": "Tutti gli stili"
  }
 }
