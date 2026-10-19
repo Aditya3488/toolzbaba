@@ -84,17 +84,22 @@
   function analyze(img, scale = 1) {
     const P = split(img), { R, G, B, n, w, h } = P;
     const HY = new Uint32Array(256), HC = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)];
-    let sumLin = 0, sat = 0, wr = 0, wg = 0, wb = 0, wn = 0, dark = 0, clip = 0;
+    // A product or document on white (or black) is mostly background: it must stay white, and only the subject is measured.
+    const HS = new Uint32Array(256);   // brightness of the subject (everything that is not plain background)
+    let sat = 0, wr = 0, wg = 0, wb = 0, wn = 0, br = 0, bgG = 0, bb = 0, bgn = 0, dark = 0, clip = 0, bg = 0, cn = 0;
     const Y = new Float32Array(n);
     for (let i = 0; i < n; i++) {
-      const r = R[i], g = G[i], b = B[i], y = luma(r, g, b), mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+      const r = R[i], g = G[i], b = B[i], y = luma(r, g, b), mx = Math.max(r, g, b), mn = Math.min(r, g, b), c = mx - mn;
       Y[i] = y; HY[(y * 255) | 0]++; HC[0][(r * 255) | 0]++; HC[1][(g * 255) | 0]++; HC[2][(b * 255) | 0]++;
-      sumLin += lut(S2L, y); sat += mx - mn;
-      if (y < 0.12) dark++; if (y > 0.97) clip++;
-      if (y > 0.12 && y < 0.92 && mx - mn < 0.3) { wr += r; wg += g; wb += b; wn++; }   // near-neutral midtones show a colour cast
+      const plain = (y > 0.9 && c < 0.1) || (y < 0.04 && c < 0.06);
+      if (plain) { bg++; if (y > 0.85) { br += r; bgG += g; bb += b; bgn++; } continue; }
+      cn++; HS[(y * 255) | 0]++; sat += c;
+      if (y < 0.15) dark++; if (y > 0.97) clip++;
+      if (y > 0.15 && y < 0.9 && c < 0.25) { wr += r; wg += g; wb += b; wn++; }   // near-neutral midtones show a colour cast
     }
-    const lo = pct(HY, n, 0.005), hi = pct(HY, n, 0.995), meanLin = sumLin / n, meanSat = sat / n;
-    let sd = 0; const meanY = Y.reduce((a, v) => a + v, 0) / n; for (let i = 0; i < n; i += 7) sd += (Y[i] - meanY) ** 2; sd = Math.sqrt(sd / (n / 7));
+    const bgFrac = bg / n, cnt0 = Math.max(cn, 1), med = pct(HS, cnt0, 0.5), meanSat = sat / cnt0;
+    const lo = pct(HY, n, 0.005), hi = pct(HY, n, 0.995);
+    let sd = 0, k0 = 0; const cm = med; for (let i = 0; i < n; i += 5) { const y = Y[i]; if (bgFrac > 0.1 && y > 0.9) continue; sd += (y - cm) ** 2; k0++; } sd = Math.sqrt(sd / Math.max(k0, 1));
     // noise: Immerkaer's estimate (a Laplacian difference mask that cancels smooth shapes and edges, leaving the grain);
     // sharpness: how strong the finest detail is (high percentile of the difference from a tiny blur)
     let nsum = 0, cnt = 0;
@@ -109,24 +114,31 @@
     const detail = (lap.length ? lap[(lap.length * 0.9) | 0] : 0) * Math.max(scale, 0.2);   // fine detail at full size
 
     const s = {};
-    // exposure: bring the average brightness near a natural middle grey, gently (2 EV at +-100)
-    const off = Math.log2(0.19 / Math.max(meanLin, 1e-4)), ev = clamp(Math.sign(off) * Math.max(0, Math.abs(off) - 0.35) * 0.75, -1.2, 1.4);
-    s.exposure = Math.abs(ev) < 0.08 ? 0 : Math.round(ev / 2 * 100);
-    s.blacks = lo > 0.04 ? -Math.round(clamp((lo - 0.02) / 0.1 * 100, 0, 45)) : 0;
-    s.whites = hi < 0.93 ? Math.round(clamp((0.97 - hi) / 0.15 * 100, 0, 60)) : 0;
-    s.highlights = clip / n > 0.01 ? -Math.round(clamp(clip / n * 1500, 15, 70)) : -10;
-    s.shadows = dark / n > 0.12 ? Math.round(clamp(dark / n * 150, 15, 60)) : 8;
-    s.contrast = sd < 0.2 ? Math.round(clamp((0.22 - sd) * 300, 5, 40)) : sd > 0.3 ? -10 : 5;
-    // white balance: make near-neutral midtones neutral, but keep a quarter of the original mood
-    if (wn > n * 0.02) {
-      const rb = wb / Math.max(wr, 1e-6), gRB = (wr + wb) / 2 / Math.max(wg, 1e-6);
-      s.temperature = Math.round(clamp((rb - 1) / (rb + 1) / 0.3 * 100 * 0.75, -60, 60));
-      s.tint = Math.round(clamp((1 - gRB) / 0.2 * 100 * 0.5, -25, 25));   // gentler: beige and golden scenes look like a green-magenta cast
-    } else { s.temperature = 0; s.tint = 0; }
-    s.vibrance = meanSat < 0.1 ? 35 : meanSat < 0.2 ? 22 : 10;
+    const studio = bgFrac > 0.15;   // product or document shot: keep the background white, do not recover its "highlights"
+    // exposure: only a clearly dark subject is brightened, only a clearly blown one darkened (a well-lit photo is left alone)
+    let ev = 0;
+    if (med < 0.36) ev = clamp(Math.log2(lut(S2L, 0.46) / Math.max(lut(S2L, med), 1e-4)) * 0.8, 0, 1.4);
+    else if (!studio && med > 0.72 && clip / cnt0 > 0.04) ev = clamp(Math.log2(lut(S2L, 0.62) / lut(S2L, med)) * 0.6, -0.8, 0);
+    s.exposure = Math.abs(ev) < 0.1 ? 0 : Math.round(ev / 2 * 100);
+    s.blacks = lo > 0.05 && !studio ? -Math.round(clamp((lo - 0.02) / 0.1 * 100, 0, 40)) : 0;
+    s.whites = studio ? 12 : hi < 0.93 ? Math.round(clamp((0.97 - hi) / 0.15 * 100, 0, 50)) : 0;
+    s.highlights = !studio && clip / cnt0 > 0.02 ? -Math.round(clamp(clip / cnt0 * 1200, 15, 60)) : 0;
+    s.shadows = dark / cnt0 > 0.15 ? Math.round(clamp(dark / cnt0 * 120, 10, 50)) : 0;
+    s.contrast = sd < 0.16 ? Math.round(clamp((0.2 - sd) * 250, 4, 30)) : sd > 0.32 ? -8 : 4;
+    // white balance: a white background is the best white reference; otherwise near-neutral midtones (keeping some mood)
+    s.temperature = 0; s.tint = 0;
+    const wbFrom = (r, g, b, k) => {
+      const rb = b / Math.max(r, 1e-6), gRB = (r + b) / 2 / Math.max(g, 1e-6);
+      s.temperature = Math.round(clamp((rb - 1) / (rb + 1) / 0.3 * 100 * k, -60, 60));
+      s.tint = Math.round(clamp((1 - gRB) / 0.2 * 100 * k * 0.7, -25, 25));
+    };
+    if (bgn > n * 0.08) wbFrom(br, bgG, bb, 0.9);
+    else if (wn > n * 0.02) wbFrom(wr, wg, wb, 0.7);
+    if (Math.abs(s.temperature) < 4) s.temperature = 0; if (Math.abs(s.tint) < 4) s.tint = 0;
+    s.vibrance = meanSat < 0.08 ? 28 : meanSat < 0.18 ? 16 : 6;
     s.saturation = 0;
-    s.clarity = 12;
-    s.dehaze = lo > 0.12 && sd < 0.18 && meanSat < 0.18 ? Math.round(clamp((lo - 0.08) * 250, 10, 40)) : 0;
+    s.clarity = studio ? 6 : 8;
+    s.dehaze = !studio && lo > 0.12 && sd < 0.16 && meanSat < 0.16 ? Math.round(clamp((lo - 0.08) * 250, 10, 35)) : 0;
     s.denoise = Math.round(clamp((noise - 0.006) / 0.024 * 70, 0, 70));   // ~0.006 is a clean photo, 0.03 a very noisy one
     s.sharpen = Math.round(Math.max(8, clamp(45 - detail * 900, 15, 45) - s.denoise * 0.2));   // a little crispness back after noise reduction
     s.vignette = 0; s.repair = 0; s.flatten = 0;
@@ -151,10 +163,13 @@
   const KEYS = ['exposure', 'contrast', 'highlights', 'shadows', 'whites', 'blacks', 'temperature', 'tint', 'vibrance', 'saturation', 'clarity', 'dehaze', 'denoise', 'sharpen', 'vignette', 'repair', 'flatten'];
   const RANGE = k => (k === 'denoise' || k === 'sharpen' || k === 'repair' || k === 'flatten') ? [0, 100] : [-100, 100];
   // base = what the photo needs (analyze), shaped by the preset, then the visitor's own changes (deltas) on top
-  function combine(base, preset, deltas = {}) {
+  // ai: AI HD runs first and already sharpens and cleans the photo, so Auto adds only part of its own sharpening and noise reduction
+  function combine(base, preset, deltas = {}, ai = false) {
     const p = PRESETS[preset] || PRESETS.auto, out = { _chan: base._chan };
     for (const k of KEYS) {
       let v = base[k] || 0;
+      if (ai && k === 'sharpen') v *= 0.45;
+      if (ai && k === 'denoise') v *= 0.35;
       if (p.mul != null) v *= p.mul;
       if (p.add && p.add[k] != null) v += p.add[k];
       if (p.set && p.set[k] != null) v = p.set[k] === 'neutral' ? (base[k] || 0) / 0.75 : p.set[k];   // full correction instead of 75%
@@ -214,7 +229,7 @@
     // 6. highlights and shadows, following the blurred brightness around each pixel (keeps local contrast)
     if (s.highlights || s.shadows) {
       const Y = new Float32Array(n); for (let i = 0; i < n; i++) Y[i] = luma(R[i], G[i], B[i]);
-      const base = blur(Y, w, h, px(size * 0.02)), sh = s.shadows / 100, hl = s.highlights / 100;
+      const base = guided(Y, w, h, Math.max(2, Math.round(px(size * 0.02))), 0.01), sh = s.shadows / 100, hl = s.highlights / 100;   // edge-aware: no halos
       for (let i = 0; i < n; i++) {
         const b = clamp01(base[i]);
         let f = 1 + sh * 1.1 * smooth(0.55, 0.0, b) * (sh > 0 ? 1 : 0.6);
@@ -247,7 +262,7 @@
       const Y = new Float32Array(n); for (let i = 0; i < n; i++) Y[i] = luma(R[i], G[i], B[i]);
       const add = new Float32Array(n);
       if (s.clarity) {
-        const big = blur(Y, w, h, px(size * 0.012)), k = s.clarity / 100 * 1.1;
+        const big = guided(Y, w, h, Math.max(2, Math.round(px(size * 0.012))), 0.015), k = s.clarity / 100 * 1.4;   // edge-aware local contrast: no halos
         for (let i = 0; i < n; i++) { const m = 1 - Math.pow(2 * Y[i] - 1, 2); add[i] += k * (Y[i] - big[i]) * m; }
       }
       if (s.sharpen) {
@@ -304,7 +319,7 @@
       if (max && Math.max(c.width, c.height) > max) { const k = max / Math.max(c.width, c.height); c = HT.resample(c, c.width * k, c.height * k); }
       ctx.status(label + 'Enhancing...'); await HT.tick();
       const x = c.getContext('2d'), img = x.getImageData(0, 0, c.width, c.height);
-      const probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {});
+      const ai = !!(o.ai && o.ai !== 'off'), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
       x.putImageData(apply(img, s, 1), 0, 0);
       ctx.status(label + 'Saving...'); await HT.tick();
       const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), out = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
@@ -338,19 +353,58 @@
   }
   HT.enhance.encodeTo = encodeTo; HT.enhance.pickFormat = pickFormat; HT.enhance.probeOf = probeOf;
 
-  // AI detail restore: the Real-ESRGAN model of the Image Upscaler removes blur, noise and JPEG blocks while enlarging.
-  // 'restore' keeps the size (enlarge 2x, then back), '2x' keeps the enlargement. Big photos are first brought to ~1.5 MP.
-  async function aiRestore(ctx, c, mode, label) {
-    await HT.loadScript('/assets/engine/ai.js');
-    let src = c;
-    const mp = c.width * c.height, cap = 1400000;
-    if (mp > cap) { const k = Math.sqrt(cap / mp); src = HT.resample(c, c.width * k, c.height * k); }
-    ctx.status(label + 'AI is restoring detail (the slow part)...');
-    const file = new File([await HT.img.encode(src, 'png')], 'in.png', { type: 'image/png' });
-    const sub = { files: [file], opts: { scale: 2, engine: 'ai' }, progress: p => ctx.progress(p), status: m => m && ctx.status(label + m), info: null };
-    const [out] = await HT.engines['upscale-image'](sub);
-    const big = await HT.img.load(new File([out.blob], 'ai.png', { type: 'image/png' }));
-    return mode === 'restore' ? HT.resample(big, c.width, c.height) : big;
+  // ---------------------------------------------------------------- AI HD (Real-ESRGAN in engine/sr-worker.js: the graphics card when it can)
+  let srW = null, srSeq = 0;
+  const srWait = {}, warmers = [];
+  function srWorker() {
+    if (srW) return srW;
+    srW = new Worker(HT.ver('/assets/engine/sr-worker.js'), { type: 'module' });
+    srW.onmessage = ({ data: m }) => {
+      if (m.type === 'ready') { HT.enhance.backend = m.backend; warmers.splice(0).forEach(f => f(m.backend)); return; }
+      const w = srWait[m.id]; if (!w) return;
+      if (m.type === 'progress') return w.progress(m.f);
+      delete srWait[m.id];
+      if (m.type === 'error') w.rej(new Error(m.msg)); else { HT.enhance.backend = m.backend; w.res(m); }
+    };
+    srW.onerror = e => {   // the worker could not start: tell everyone waiting, start afresh next time
+      for (const k of Object.keys(srWait)) { srWait[k].rej(new Error('The AI could not start: ' + (e.message || 'unknown error'))); delete srWait[k]; }
+      srW.terminate(); srW = null;
+    };
+    return srW;
   }
+  // gets the model (and on a graphics card the runtime) ready before it is needed; resolves to 'gpu' or 'cpu'
+  const srWarm = () => new Promise(res => { warmers.push(res); srWorker().postMessage({ type: 'warm' }); });
+  // does this browser offer a graphics card to web pages? (decides whether AI HD is on by default; downloads nothing)
+  let gpuP = null;
+  const hasGPU = () => gpuP || (gpuP = (async () => { try { return !!(navigator.gpu && await navigator.gpu.requestAdapter()); } catch (e) { return false; } })());
+  // canvas -> canvas 4x as large
+  function sr4x(c, progress) {
+    const img = c.getContext('2d').getImageData(0, 0, c.width, c.height), id = ++srSeq;
+    return new Promise((res, rej) => {
+      srWait[id] = { res, rej, progress: progress || (() => {}) };
+      srWorker().postMessage({ type: 'run', id, w: c.width, h: c.height, rgba: img.data.buffer }, [img.data.buffer]);
+    }).then(m => { const out = HT.canvas(m.w, m.h); out.getContext('2d').putImageData(new ImageData(new Uint8ClampedArray(m.rgba), m.w, m.h), 0, 0); return out; });
+  }
+  const FACTOR = { restore: 1, '1': 1, '2x': 2, '2': 2, '4': 4, '4x': 4 };
+  // AI HD: factor 1 keeps the size (detail restored), 2 or 4 enlarges. Very large photos are first brought to a size the
+  // device can handle (a graphics card manages much more), and the enlargement never goes past what the AI produced.
+  async function aiRestore(ctx, c, mode, label = '') {
+    const factor = FACTOR[String(mode)] || 1, gpu = await hasGPU();
+    const cap = (gpu ? 2.2e6 : 1e6) / (factor === 4 ? 2.5 : 1), mp = c.width * c.height;
+    let src = c;
+    if (mp > cap) { const k = Math.sqrt(cap / mp); src = HT.resample(c, c.width * k, c.height * k); }
+    ctx.status(label + (gpu ? 'AI HD is sharpening the details...' : 'AI HD is sharpening the details (on this device it can take a minute)...'));
+    const big = await sr4x(src, f => ctx.progress(f));
+    const tw = Math.min(big.width, Math.round(c.width * factor)), th = Math.min(big.height, Math.round(c.height * factor));
+    const out = tw === big.width && th === big.height ? big : HT.resample(big, tw, th);
+    if (HT.img.hasAlpha(c)) {   // transparency is not part of the AI: it is enlarged smoothly and put back
+      const a = HT.canvas(tw, th), ax = a.getContext('2d'); ax.imageSmoothingQuality = 'high'; ax.drawImage(c, 0, 0, tw, th);
+      const ad = ax.getImageData(0, 0, tw, th).data, od = out.getContext('2d').getImageData(0, 0, tw, th);
+      for (let i = 3; i < ad.length; i += 4) od.data[i] = ad[i];
+      out.getContext('2d').putImageData(od, 0, 0);
+    }
+    return out;
+  }
+  HT.enhance.sr4x = sr4x; HT.enhance.srWarm = srWarm; HT.enhance.hasGPU = hasGPU; HT.enhance.FACTOR = FACTOR;
   HT.enhance.aiRestore = aiRestore;
 })();
