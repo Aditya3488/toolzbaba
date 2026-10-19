@@ -1901,5 +1901,8 @@
 "Export settings": "Configurações de exportação",
 "AI HD is sharpening the details...": "A IA HD está refinando os detalhes...",
 "AI HD is sharpening the details (on this device it can take a minute)...": "A IA HD está refinando os detalhes (neste aparelho pode levar um minuto)...",
-"Enhancing...": "Melhorando..."
+"Enhancing...": "Melhorando...",
+"For photos up to {0} px": "Para fotos de até {0} px",
+"This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "Esta foto já tem alta resolução ({0} × {1} px), então não precisa de IA HD: ela é feita para fotos pequenas, suaves ou de baixa qualidade. A correção automática ainda melhora luz, cor e detalhe.",
+"White background": "Fundo branco"
 }

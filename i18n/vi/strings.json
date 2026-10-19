@@ -1912,5 +1912,8 @@
 "Export settings": "Cài đặt xuất",
 "AI HD is sharpening the details...": "AI HD đang làm nét chi tiết...",
 "AI HD is sharpening the details (on this device it can take a minute)...": "AI HD đang làm nét chi tiết (trên thiết bị này có thể mất một phút)...",
-"Enhancing...": "Đang cải thiện..."
+"Enhancing...": "Đang cải thiện...",
+"For photos up to {0} px": "Cho ảnh tới {0} px",
+"This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "Ảnh này đã có độ phân giải cao ({0} × {1} px) nên không cần AI HD: AI HD dành cho ảnh nhỏ, mềm hoặc chất lượng thấp. Tự sửa vẫn cải thiện ánh sáng, màu và chi tiết.",
+"White background": "Nền trắng"
 }

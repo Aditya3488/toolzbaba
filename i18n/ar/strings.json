@@ -1925,5 +1925,8 @@
 "Export settings": "إعدادات التصدير",
 "AI HD is sharpening the details...": "HD بالذكاء الاصطناعي يحسّن التفاصيل...",
 "AI HD is sharpening the details (on this device it can take a minute)...": "HD بالذكاء الاصطناعي يحسّن التفاصيل (قد يستغرق دقيقة على هذا الجهاز)...",
-"Enhancing...": "جارٍ التحسين..."
+"Enhancing...": "جارٍ التحسين...",
+"For photos up to {0} px": "للصور حتى {0} بكسل",
+"This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.": "هذه الصورة عالية الدقة أصلًا ({0} × {1} بكسل)، لذا لا حاجة إلى HD بالذكاء الاصطناعي: فهو مخصص للصور الصغيرة أو الناعمة أو منخفضة الجودة. ويظل الإصلاح التلقائي يحسّن الإضاءة والألوان والتفاصيل.",
+"White background": "خلفية بيضاء"
 }

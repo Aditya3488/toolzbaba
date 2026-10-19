@@ -1016,7 +1016,9 @@ h1, h2 { font-weight:700; } h3 { font-weight:700; }
 .enh-before { position:absolute; inset:0; } .enh-before canvas { width:100%; height:100%; max-height:none; min-width:0; }
 .enh-line { position:absolute; top:0; bottom:0; width:2px; margin-left:-1px; background:#fff; box-shadow:0 0 0 1px rgba(0,0,0,.2),0 0 12px rgba(0,0,0,.3); pointer-events:none; }
 .enh-line::after { content:"↔"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:38px; height:38px; border-radius:50%; background:#fff; color:#111; display:grid; place-items:center; font:700 17px/1 system-ui; box-shadow:0 3px 12px rgba(0,0,0,.35); }
-.enh-split { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:ew-resize; }
+.enh-stage { cursor:ew-resize; user-select:none; -webkit-user-select:none; }
+.enh-stage .enh-split { position:absolute; left:0; bottom:0; width:100%; height:1px; margin:0; opacity:0; pointer-events:none; }   /* for the keyboard only: the whole picture is the handle */
+.enh-stage .enh-split:focus-visible ~ .enh-tag.l { outline:2px solid #fff; }
 .enh-tag { position:absolute; top:12px; padding:4px 10px; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font:600 .72rem/1.4 system-ui; letter-spacing:.05em; text-transform:uppercase; pointer-events:none; }
 .enh-tag.l { left:12px; } .enh-tag.r { right:12px; background:var(--accent); }
 .enh-busy { position:absolute; inset:0; display:grid; place-content:center; justify-items:center; gap:12px; background:rgba(12,14,24,.5); backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); color:#fff; line-height:1.4; text-align:center; padding:20px; }

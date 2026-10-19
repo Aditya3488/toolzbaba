@@ -78,11 +78,68 @@
   }
   const pct = (hist, total, p) => { let c = 0; for (let i = 0; i < hist.length; i++) { c += hist[i]; if (c >= total * p) return i / (hist.length - 1); } return 1; };
 
+  // ---------------------------------------------------------------- the backdrop (grey paper, a sweep, a light table)
+  // Measured on a grid of about 400 cells across, whatever the photo's size, so the preview and the download agree.
+  // Returns the backdrop's own lighting per channel (I), which pixels are backdrop (M), and how sure we are it is one.
+  function maxLine(src, dst, len, stride, off, r) {
+    for (let i = 0; i < len; i++) {
+      let m = 0; const a = Math.max(0, i - r), b = Math.min(len - 1, i + r);
+      for (let j = a; j <= b; j++) { const v = src[off + j * stride]; if (v > m) m = v; }
+      dst[off + i * stride] = m;
+    }
+  }
+  function backdropOf(R, G, B, w, h) {
+    const f = Math.max(1, Math.ceil(Math.max(w, h) / 400)), gw = Math.ceil(w / f), gh = Math.ceil(h / f), m = gw * gh;
+    const r = new Float32Array(m), g = new Float32Array(m), b = new Float32Array(m), cnt = new Float32Array(m);
+    for (let y = 0; y < h; y++) { const row = ((y / f) | 0) * gw; for (let x = 0; x < w; x++) { const i = y * w + x, k = row + ((x / f) | 0); r[k] += R[i]; g[k] += G[i]; b[k] += B[i]; cnt[k]++; } }
+    const Y = new Float32Array(m), Y2 = new Float32Array(m);
+    for (let k = 0; k < m; k++) { r[k] /= cnt[k]; g[k] /= cnt[k]; b[k] /= cnt[k]; Y[k] = luma(r[k], g[k], b[k]); Y2[k] = Y[k] * Y[k]; }
+    // the backdrop: light, colourless, smooth, and as bright as the brightest backdrop around it (dark objects drop out)
+    const side = Math.max(gw, gh), rd = Math.max(2, Math.round(side * 0.03)), tmp = new Float32Array(m), env = new Float32Array(m);
+    for (let y = 0; y < gh; y++) maxLine(Y, tmp, gw, 1, y * gw, rd);
+    for (let x = 0; x < gw; x++) maxLine(tmp, env, gh, gw, x, rd);
+    const mY = box(Y, gw, gh, 1), mY2 = box(Y2, gw, gh, 1), M = new Float32Array(m);
+    for (let k = 0; k < m; k++) {
+      const c = Math.max(r[k], g[k], b[k]) - Math.min(r[k], g[k], b[k]), sd = Math.sqrt(Math.max(0, mY2[k] - mY[k] * mY[k]));
+      M[k] = c < 0.09 && Y[k] > 0.3 && Y[k] > env[k] * 0.86 && sd < 0.025 ? 1 : 0;
+    }
+    // how much of the frame's edge is backdrop: a product shot is surrounded by it
+    let ring = 0, ringOn = 0, all = 0; const e = Math.max(1, Math.round(side * 0.08));
+    for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) {
+      const k = y * gw + x; all += M[k];
+      if (x < e || y < e || x >= gw - e || y >= gh - e) { ring++; ringOn += M[k]; }
+    }
+    const sure = clamp01((ringOn / Math.max(ring, 1) - 0.6) / 0.25) * (all / m > 0.3 ? 1 : 0);
+    // the backdrop's lighting under the object: averaged from backdrop cells only (near, then far for big objects)
+    const fill = (rad) => {
+      const wM = blur(M, gw, gh, rad), out = [r, g, b].map(ch => { const t = new Float32Array(m); for (let k = 0; k < m; k++) t[k] = ch[k] * M[k]; return blur(t, gw, gh, rad); });
+      for (let k = 0; k < m; k++) { const d = Math.max(wM[k], 1e-4); out[0][k] /= d; out[1][k] /= d; out[2][k] /= d; }
+      return { I: out, wM };
+    };
+    const near = fill(Math.max(2, side * 0.06)), far = fill(Math.max(4, side * 0.2)), I = [new Float32Array(m), new Float32Array(m), new Float32Array(m)];
+    for (let k = 0; k < m; k++) {
+      const t = clamp01(near.wM[k] / 0.15);
+      for (let c = 0; c < 3; c++) I[c][k] = Math.max(0.2, far.I[c][k] + (near.I[c][k] - far.I[c][k]) * t);
+    }
+    let lv = 0; for (let k = 0; k < m; k++) lv += M[k] * luma(r[k], g[k], b[k]);
+    return { I: all ? I : null, gw, gh, f, sure, level: lv / Math.max(all, 1) };   // level: how bright the backdrop already is
+  }
+
   // ---------------------------------------------------------------- what does this photo need?
   // Every number is a slider value (-100..100, sharpen / denoise / flatten / repair 0..100), so the visitor sees exactly what was decided.
   // scale: how much smaller this copy is than the photo that will be saved (shrinking hides grain and looks sharper)
-  function analyze(img, scale = 1) {
+  function analyze(img, scale = 1, inner = false) {
     const P = split(img), { R, G, B, n, w, h } = P;
+    // a product on a grey backdrop: the backdrop turns white first, and the photo is judged as it will then look
+    if (!inner) {
+      const bd = backdropOf(R, G, B, w, h);
+      if (bd.sure > 0.4) {
+        const v = Math.round(60 + 40 * bd.sure), zero = {}; for (const k of KEYS) zero[k] = 0; zero.backdrop = v;
+        const s = analyze(apply(img, zero, scale), scale, true); s.backdrop = v;
+        s.exposure = Math.min(s.exposure, 10); s.shadows = 0; s.vibrance = Math.min(s.vibrance, 10);   // a dark product is meant to be dark: keep its blacks deep
+        return s;
+      }
+    }
     const HY = new Uint32Array(256), HC = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)];
     // A product or document on white (or black) is mostly background: it must stay white, and only the subject is measured.
     const HS = new Uint32Array(256);   // brightness of the subject (everything that is not plain background)
@@ -141,7 +198,7 @@
     s.dehaze = !studio && lo > 0.12 && sd < 0.16 && meanSat < 0.16 ? Math.round(clamp((lo - 0.08) * 250, 10, 35)) : 0;
     s.denoise = Math.round(clamp((noise - 0.006) / 0.024 * 70, 0, 70));   // ~0.006 is a clean photo, 0.03 a very noisy one
     s.sharpen = Math.round(Math.max(8, clamp(45 - detail * 900, 15, 45) - s.denoise * 0.2));   // a little crispness back after noise reduction
-    s.vignette = 0; s.repair = 0; s.flatten = 0;
+    s.vignette = 0; s.repair = 0; s.flatten = 0; s.backdrop = 0;
     // per-channel range, for "repair faded colours" (old photos) and the B&W / document looks
     s._chan = { lo: HC.map(hst => pct(hst, n, 0.005)), hi: HC.map(hst => pct(hst, n, 0.995)) };
     return s;
@@ -156,12 +213,12 @@
     product: { label: 'Product', add: { whites: 25, clarity: 10, sharpen: 15, vibrance: 8 }, set: { temperature: 'neutral', tint: 'neutral' } },
     food: { label: 'Food', add: { temperature: 12, vibrance: 32, clarity: 10, contrast: 6 } },
     oldphoto: { label: 'Old photo', add: { repair: 70, denoise: 25, vibrance: 30, contrast: 12, dehaze: 8, sharpen: 10 } },
-    document: { label: 'Document', set: { flatten: 85, saturation: -40, vibrance: 0, contrast: 30, whites: 40, blacks: -30, clarity: 25, sharpen: 35, denoise: 15, exposure: 0, shadows: 0, highlights: 0, temperature: 0, tint: 0, dehaze: 0 } },
+    document: { label: 'Document', set: { backdrop: 0, flatten: 85, saturation: -40, vibrance: 0, contrast: 30, whites: 40, blacks: -30, clarity: 25, sharpen: 35, denoise: 15, exposure: 0, shadows: 0, highlights: 0, temperature: 0, tint: 0, dehaze: 0 } },
     bw: { label: 'Black & white', add: { contrast: 15, clarity: 18 }, set: { saturation: -100, vibrance: 0 } },
     natural: { label: 'Natural', mul: 0.5 },
   };
-  const KEYS = ['exposure', 'contrast', 'highlights', 'shadows', 'whites', 'blacks', 'temperature', 'tint', 'vibrance', 'saturation', 'clarity', 'dehaze', 'denoise', 'sharpen', 'vignette', 'repair', 'flatten'];
-  const RANGE = k => (k === 'denoise' || k === 'sharpen' || k === 'repair' || k === 'flatten') ? [0, 100] : [-100, 100];
+  const KEYS = ['exposure', 'contrast', 'highlights', 'shadows', 'whites', 'blacks', 'temperature', 'tint', 'vibrance', 'saturation', 'clarity', 'dehaze', 'denoise', 'sharpen', 'vignette', 'repair', 'flatten', 'backdrop'];
+  const RANGE = k => (k === 'denoise' || k === 'sharpen' || k === 'repair' || k === 'flatten' || k === 'backdrop') ? [0, 100] : [-100, 100];
   // base = what the photo needs (analyze), shaped by the preset, then the visitor's own changes (deltas) on top
   // ai: AI HD runs first and already sharpens and cleans the photo, so Auto adds only part of its own sharpening and noise reduction
   function combine(base, preset, deltas = {}, ai = false) {
@@ -191,6 +248,32 @@
       for (let c = 0; c < 3; c++) {
         const lo = s._chan.lo[c], hi = Math.max(s._chan.hi[c], lo + 0.05), ch = C[c];
         for (let i = 0; i < n; i++) ch[i] = ch[i] + k * ((ch[i] - lo) / (hi - lo) - ch[i]);
+      }
+    }
+    // 1b. white backdrop: divide by the backdrop's own lighting, so grey paper and uneven light turn pure white and its colour cast goes;
+    //     then the darks are deepened (lenses, black parts), so the product stands out crisp, as in a retouched catalogue photo
+    if (s.backdrop > 0) {
+      const bd = backdropOf(R, G, B, w, h), k = s.backdrop / 100;
+      if (bd.I) {
+        const { I, gw, gh, f } = bd, [Ir, Ig, Ib] = I, gam = 1 + 0.35 * clamp01((0.96 - bd.level) / 0.15);   // a grey (dull) backdrop shot also gets deeper darks
+        for (let y = 0; y < h; y++) {
+          const gy = Math.min(gh - 1, Math.max(0, (y + 0.5) / f - 0.5)), y0 = gy | 0, y1 = Math.min(gh - 1, y0 + 1), fy = gy - y0;
+          for (let x = 0; x < w; x++) {
+            const gx = Math.min(gw - 1, Math.max(0, (x + 0.5) / f - 0.5)), x0 = gx | 0, x1 = Math.min(gw - 1, x0 + 1), fx = gx - x0;
+            const a = y0 * gw + x0, b = y0 * gw + x1, c = y1 * gw + x0, d = y1 * gw + x1;
+            const w00 = (1 - fx) * (1 - fy), w01 = fx * (1 - fy), w10 = (1 - fx) * fy, w11 = fx * fy;
+            const i = y * w + x;
+            let r = R[i] / (Ir[a] * w00 + Ir[b] * w01 + Ir[c] * w10 + Ir[d] * w11);
+            let g = G[i] / (Ig[a] * w00 + Ig[b] * w01 + Ig[c] * w10 + Ig[d] * w11);
+            let bl = B[i] / (Ib[a] * w00 + Ib[b] * w01 + Ib[c] * w10 + Ib[d] * w11);
+            const yy = luma(r, g, bl);
+            if (gam > 1.01 && yy > 1e-4 && yy < 1) { const t = Math.pow(yy, gam) / yy; r *= t; g *= t; bl *= t; }
+            const ch = Math.max(r, g, bl) - Math.min(r, g, bl);
+            const wt = smooth(0.86, 0.97, yy) * (1 - smooth(0.05, 0.14, ch));   // the backdrop (and its grain) becomes exactly white; bright colours stay
+            r += (1 - r) * wt; g += (1 - g) * wt; bl += (1 - bl) * wt;
+            R[i] += (r - R[i]) * k; G[i] += (g - G[i]) * k; B[i] += (bl - B[i]) * k;
+          }
+        }
       }
     }
     // 2. document flatten: divide by the page's own lighting, so shadows and yellowed paper turn white and the text stays
@@ -307,6 +390,7 @@
   HT.engine('image-enhancer', async ctx => {
     await HT.loadScript('/assets/engine/image.js');
     const o = ctx.opts || {}, outs = [], rows = [];
+    HT.enhance.aiSkipped = 0;
     for (const [i, f] of ctx.files.entries()) {
       const label = ctx.files.length > 1 ? `${i + 1} of ${ctx.files.length}: ` : '';
       ctx.status(label + 'Reading the photo...'); await HT.tick();
@@ -327,7 +411,8 @@
       rows.push(`${f.name}: ${HT.fmtBytes(f.size)} → ${HT.fmtBytes(out.size)}`);
       ctx.progress((i + 1) / ctx.files.length);
     }
-    ctx.info = { summary: `Enhanced ${outs.length} photo(s). ` + rows.slice(0, 3).join(' · ') };
+    const skipped = HT.enhance.aiSkipped ? ` AI HD was skipped for ${HT.enhance.aiSkipped} photo(s) that are already high resolution.` : '';
+    ctx.info = { summary: `Enhanced ${outs.length} photo(s). ` + rows.slice(0, 3).join(' · ') + skipped };
     return outs;
   });
 
@@ -390,9 +475,9 @@
   // device can handle (a graphics card manages much more), and the enlargement never goes past what the AI produced.
   async function aiRestore(ctx, c, mode, label = '') {
     const factor = FACTOR[String(mode)] || 1, gpu = await hasGPU();
-    const cap = (gpu ? 2.2e6 : 1e6) / (factor === 4 ? 2.5 : 1), mp = c.width * c.height;
-    let src = c;
-    if (mp > cap) { const k = Math.sqrt(cap / mp); src = HT.resample(c, c.width * k, c.height * k); }
+    const max = (gpu ? { 1: 2048, 2: 2048, 4: 1024 } : { 1: 1280, 2: 1280, 4: 640 })[factor];
+    if (Math.max(c.width, c.height) > max) { HT.enhance.aiSkipped = (HT.enhance.aiSkipped || 0) + 1; return c; }   // already large: AI would lose detail
+    const src = c;
     ctx.status(label + (gpu ? 'AI HD is sharpening the details...' : 'AI HD is sharpening the details (on this device it can take a minute)...'));
     const big = await sr4x(src, f => ctx.progress(f));
     const tw = Math.min(big.width, Math.round(c.width * factor)), th = Math.min(big.height, Math.round(c.height * factor));

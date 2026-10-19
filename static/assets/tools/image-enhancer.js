@@ -5,13 +5,16 @@
 HT.register('image-enhancer', root => {
   const el = HT.el, E = () => HT.enhance;
   const VIEW = 1100;          // longest side of the on-screen result
-  const AI_PREVIEW = 520;     // longest side the AI works on for the on-screen result (the download uses the full photo)
+  // AI HD is for small, soft or low-quality photos: past these sizes (longest side) it would have to shrink the photo first
+  // and the result would hold less detail than the original. Without a graphics card the limits are lower (time).
+  const AI_MAX = { gpu: { 1: 2048, 2: 2048, 4: 1024 }, cpu: { 1: 1280, 2: 1280, 4: 640 } };
+  const aiPreviewSide = gpu => (gpu ? 720 : 480);   // the AI's working size for the on-screen result (the download uses the full photo)
   const LOOKS = [['auto', 'Auto'], ['natural', 'Natural'], ['portrait', 'Portrait'], ['product', 'Product'], ['landscape', 'Landscape'], ['lowlight', 'Low light'], ['food', 'Food'], ['oldphoto', 'Old photo'], ['document', 'Document'], ['bw', 'Black & white']];
   const GROUPS = [
     ['Light', [['exposure', 'Exposure'], ['contrast', 'Contrast'], ['highlights', 'Highlights'], ['shadows', 'Shadows'], ['whites', 'Whites'], ['blacks', 'Blacks']]],
     ['Colour', [['temperature', 'Temperature'], ['tint', 'Tint'], ['vibrance', 'Vibrance'], ['saturation', 'Saturation']]],
     ['Detail', [['clarity', 'Clarity'], ['dehaze', 'Dehaze'], ['sharpen', 'Sharpen'], ['denoise', 'Noise reduction']]],
-    ['Effects and repair', [['vignette', 'Vignette'], ['repair', 'Repair faded colours'], ['flatten', 'Document cleanup']]],
+    ['Effects and repair', [['vignette', 'Vignette'], ['repair', 'Repair faded colours'], ['flatten', 'Document cleanup'], ['backdrop', 'White background']]],
   ];
   const pre = (HT.pageMeta && HT.pageMeta.preset) || {};
   const st = {
@@ -40,6 +43,12 @@ HT.register('image-enhancer', root => {
   const stage = el('div', { class: 'enh-stage' }, after, beforeWrap, line, split, el('span', { class: 'enh-tag l', text: 'Before' }), el('span', { class: 'enh-tag r', text: 'After' }), busy);
   const placeSplit = () => { const p = +split.value; beforeWrap.style.clipPath = `inset(0 ${100 - p}% 0 0)`; line.style.left = p + '%'; };
   split.addEventListener('input', placeSplit); placeSplit();
+  let dragging = false;
+  const toX = e => { const b = stage.getBoundingClientRect(); split.value = Math.max(0, Math.min(100, (e.clientX - b.left) / b.width * 100)); placeSplit(); };
+  stage.addEventListener('pointerdown', e => { if (!busy.classList.contains('hidden')) return; dragging = true; stage.setPointerCapture(e.pointerId); toX(e); e.preventDefault(); });
+  stage.addEventListener('pointermove', e => { if (dragging) toX(e); });
+  const stop = () => { dragging = false; };
+  stage.addEventListener('pointerup', stop); stage.addEventListener('pointercancel', stop);
   const meta = el('div', { class: 'enh-meta', 'data-notr': '' }), thumbs = el('div', { class: 'enh-thumbs' });
   const more = el('label', { class: 'btn sec sm enh-addmore' }, '+ ', 'Add photos', el('input', { type: 'file', accept: 'image/*,.heic,.heif,.avif,.tif,.tiff', multiple: true, hidden: true, onchange: e => { add(e.target.files); e.target.value = ''; } }));
   const restart = el('button', { type: 'button', class: 'btn sec sm', text: 'Start over', onclick: () => { st.files = []; st.cur = null; paintThumbs(); show(false); } });
@@ -58,7 +67,7 @@ HT.register('image-enhancer', root => {
   // fine-tune (folded)
   const forms = {};
   const groupEls = GROUPS.map(([title, keys]) => {
-    const f = HT.form(keys.map(([k, label]) => ({ name: k, label, type: 'range', min: ['denoise', 'sharpen', 'repair', 'flatten'].includes(k) ? 0 : -100, max: 100, value: 0 })), () => onSlide());
+    const f = HT.form(keys.map(([k, label]) => ({ name: k, label, type: 'range', min: ['denoise', 'sharpen', 'repair', 'flatten', 'backdrop'].includes(k) ? 0 : -100, max: 100, value: 0 })), () => onSlide());
     keys.forEach(([k]) => (forms[k] = f));
     return el('div', { class: 'enh-group' }, el('h4', { text: title }), f.el);
   });
@@ -82,10 +91,22 @@ HT.register('image-enhancer', root => {
 
   // ---------------------------------------------------------------- state changes
   function setAI(v) {
-    st.ai = v === 'off' ? 'off' : +v; if (st.ai !== 'off') st.lastFactor = st.ai;
-    aiSwitch.checked = st.ai !== 'off';
-    factorBtns.forEach(b => { b.classList.toggle('on', +b.dataset.f === st.ai); b.disabled = st.ai === 'off'; });
+    st.pref = v === 'off' ? 'off' : +v; if (st.pref !== 'off') st.lastFactor = st.pref;
+    applyAI();
     if (st.cur) { fill(); prepareView(); }
+  }
+  // what this photo allows: the wish, or the largest enlargement it can take, or off for a photo that is already large
+  const allowed = f => { const L = st.full ? Math.max(st.full.width, st.full.height) : 0; return L && L <= AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]; };
+  function applyAI() {
+    const full = st.full, okAny = [1, 2, 4].some(allowed);
+    let v = st.pref == null ? 'off' : st.pref;
+    if (v !== 'off' && !allowed(v)) v = [4, 2, 1].find(f => f <= v && allowed(f)) || [1, 2, 4].find(allowed) || 'off';
+    st.ai = v;
+    aiSwitch.checked = v !== 'off'; aiSwitch.disabled = !okAny;
+    factorBtns.forEach(b => { const f = +b.dataset.f; b.classList.toggle('on', f === v); b.disabled = v === 'off' || !allowed(f); b.title = allowed(f) ? '' : HT.t('For photos up to {0} px', AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]); });
+    aiNote.textContent = !full ? '' : !okAny
+      ? HT.t('This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.', full.width, full.height)
+      : st.gpu ? HT.t('Runs on your graphics card: a few seconds.') : HT.t('Runs on the processor of this device: up to a minute per photo.');
   }
   function paintThumbs() {
     thumbs.textContent = '';
@@ -111,18 +132,18 @@ HT.register('image-enhancer', root => {
       // the analysis looks at a copy of up to 1100 px (it scales its noise and detail readings to the full photo)
       const k = Math.min(1, VIEW / Math.max(full.width, full.height)), probe = k < 1 ? HT.resample(full, full.width * k, full.height * k) : full;
       st.base = E().analyze(probe.getContext('2d').getImageData(0, 0, probe.width, probe.height), k);
-      if (st.ai == null) {   // first photo: AI HD is on by default when the device has a graphics card for it
-        const gpu = await E().hasGPU();
-        const small = Math.max(full.width, full.height) <= 1400;
-        setAIQuiet(aiFromPreset || (gpu ? (small ? 2 : 1) : 'off'));
-        aiNote.textContent = gpu ? 'Runs on your graphics card: a few seconds.' : 'Runs on the processor of this device: up to a minute per photo.';
-        if (gpu || aiFromPreset) E().srWarm().catch(() => {});
+      if (st.pref == null) {   // first photo: AI HD is on by default when the device has a graphics card and the photo is small
+        st.gpu = await E().hasGPU();
+        const L = Math.max(full.width, full.height);
+        st.pref = aiFromPreset || (st.gpu ? (L <= 600 ? 4 : 2) : 'off');
+        if (st.gpu || aiFromPreset) E().srWarm().catch(() => {});
       }
+      applyAI();
       fill(); paintLooks();
       await prepareView();
     } catch (e) { busyOff(); HT.toast(e.message); }
   }
-  function setAIQuiet(v) { st.ai = v; if (v !== 'off') st.lastFactor = v; aiSwitch.checked = v !== 'off'; factorBtns.forEach(b => { b.classList.toggle('on', +b.dataset.f === v); b.disabled = v === 'off'; }); }
+  function setAIQuiet(v) { st.pref = v; applyAI(); }
 
   // the on-screen pair: "before" is the photo simply enlarged to the result's size, "after" the AI + adjustments
   async function prepareView() {
@@ -139,8 +160,9 @@ HT.register('image-enhancer', root => {
       if (st.aiKey !== key) {
         try {
           busyOn('AI HD is sharpening the details...', 0);
-          // the AI works on a copy of up to 520 px and enlarges it 4x, which is then fitted to the view
-          const s = Math.min(1, AI_PREVIEW / Math.max(full.width, full.height));
+          // the AI works on a copy of up to 720 px (480 without a graphics card) and enlarges it 4x, then fitted to the view;
+          // a small photo is worked on whole, exactly as the download will be
+          const s = Math.min(1, aiPreviewSide(st.gpu) / Math.max(full.width, full.height));
           const src = s < 1 ? HT.resample(full, Math.max(1, full.width * s), Math.max(1, full.height * s)) : full;
           const big = await E().sr4x(src, p => { if (my === st.token) busyOn('AI HD is sharpening the details...', p); });
           if (my !== st.token) return;
