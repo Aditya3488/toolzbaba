@@ -83,7 +83,11 @@
     }
     throw new Error('Unsupported format: ' + fmt);
   }
-  const load = async f => HT.toCanvas(await HT.loadBitmap(f));
+  const load = async f => {
+    const bmp = await HT.loadBitmap(f);
+    try { return HT.toCanvas(bmp); }
+    finally { if (bmp && typeof bmp.close === 'function') bmp.close(); }
+  };
   HT.img = { encode, load, pixels, hasAlpha, flatten, toBlob, srcFormat, outName, kb, tick };
 
   // ---------------------------------------------------------------- compress

@@ -784,7 +784,7 @@
     },
     {
      "q": "Will it work on many photos at once?",
-     "a": "Yes. Each photo is analysed and corrected on its own, with your chosen look and slider changes on top, and they download together in a ZIP."
+     "a": "Yes. Select 100 or more photos and Fast batch mode turns on automatically at 20. It skips AI and Studio and caps output at 1600 px to reduce processing time. Speed depends on your device and image sizes; turn Fast batch off to keep full resolution and AI options. Results download together in a ZIP."
     },
     {
      "q": "Are my photos uploaded?",

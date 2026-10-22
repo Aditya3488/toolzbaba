@@ -386,37 +386,44 @@
   HT.enhance = { analyze, apply, combine, histogram, PRESETS, KEYS, RANGE };
 
   // ---------------------------------------------------------------- the batch job (Download): each photo analysed on its own
-  // opts: { preset, deltas: {key: change}, ai: 'off'|'restore'|'2x', format, quality, maxSide, targetKB }
+  // opts: { preset, deltas: {key: change}, ai: 'off'|'restore'|'2x', format, quality, maxSide, targetKB, fastBatch }
   HT.engine('image-enhancer', async ctx => {
     await HT.loadScript('/assets/engine/image.js');
-    const o = ctx.opts || {}, outs = [], rows = [];
+    const o = ctx.opts || {}, outs = [], rows = [], failures = [], fastBatch = !!o.fastBatch;
     HT.enhance.aiSkipped = 0;
     for (const [i, f] of ctx.files.entries()) {
       const label = ctx.files.length > 1 ? `${i + 1} of ${ctx.files.length}: ` : '';
-      ctx.status(label + 'Reading the photo...'); await HT.tick();
-      let c = await HT.img.load(f), mask = null;
-      if (o.studio) {   // Studio: the AI's crisp redraw and the product's outline (from the preview when it was made there)
-        const part = { status: ctx.status, progress: p => ctx.progress((i + p * 0.8) / ctx.files.length) };
-        const S = await studioPrep(part, f, c, label); c = S.big; mask = S.mask;
-      } else if (o.ai && o.ai !== 'off') {   // the AI's own progress, as this photo's share of the whole batch
-        const part = { status: ctx.status, progress: p => ctx.progress((i + p * 0.85) / ctx.files.length) };
-        c = await aiRestore(part, c, o.ai, label);
+      try {
+        ctx.status(label + 'Reading the photo...'); await HT.tick();
+        let c = await HT.img.load(f), mask = null;
+        if (!fastBatch && o.studio) {   // Studio: the AI's crisp redraw and the product's outline (from the preview when it was made there)
+          const part = { status: ctx.status, progress: p => ctx.progress((i + p * 0.8) / ctx.files.length) };
+          const S = await studioPrep(part, f, c, label); c = S.big; mask = S.mask;
+        } else if (!fastBatch && o.ai && o.ai !== 'off') {   // the AI's own progress, as this photo's share of the whole batch
+          const part = { status: ctx.status, progress: p => ctx.progress((i + p * 0.85) / ctx.files.length) };
+          c = await aiRestore(part, c, o.ai, label);
+        }
+        const requestedMax = +o.maxSide || 0, max = fastBatch ? Math.min(requestedMax || 1600, 1600) : requestedMax;
+        if (max && Math.max(c.width, c.height) > max) { const k = max / Math.max(c.width, c.height); c = HT.resample(c, c.width * k, c.height * k); }
+        ctx.status(label + 'Enhancing...'); await HT.tick();
+        const x = c.getContext('2d'), img = x.getImageData(0, 0, c.width, c.height);
+        const ai = !fastBatch && !!(o.studio || (o.ai && o.ai !== 'off')), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
+        const done = apply(img, s, 1);
+        x.putImageData(mask ? studioFinish(done, mask) : done, 0, 0);
+        ctx.status(label + 'Saving...'); await HT.tick();
+        const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), out = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
+        outs.push({ name: HT.stem(f.name) + '_enhanced.' + (fmt === 'jpg' ? 'jpg' : fmt), blob: out });
+        rows.push(`${f.name}: ${HT.fmtBytes(f.size)} → ${HT.fmtBytes(out.size)}`);
+      } catch (e) {
+        failures.push(`${f.name}: ${(e && e.message) || 'Could not process this image.'}`);
       }
-      const max = +o.maxSide || 0;
-      if (max && Math.max(c.width, c.height) > max) { const k = max / Math.max(c.width, c.height); c = HT.resample(c, c.width * k, c.height * k); }
-      ctx.status(label + 'Enhancing...'); await HT.tick();
-      const x = c.getContext('2d'), img = x.getImageData(0, 0, c.width, c.height);
-      const ai = !!(o.studio || (o.ai && o.ai !== 'off')), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
-      const done = apply(img, s, 1);
-      x.putImageData(mask ? studioFinish(done, mask) : done, 0, 0);
-      ctx.status(label + 'Saving...'); await HT.tick();
-      const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), out = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
-      outs.push({ name: HT.stem(f.name) + '_enhanced.' + (fmt === 'jpg' ? 'jpg' : fmt), blob: out });
-      rows.push(`${f.name}: ${HT.fmtBytes(f.size)} → ${HT.fmtBytes(out.size)}`);
       ctx.progress((i + 1) / ctx.files.length);
     }
+    if (!outs.length) throw new Error(failures[0] || 'Could not process any of the selected images.');
     const skipped = HT.enhance.aiSkipped ? ` AI HD was skipped for ${HT.enhance.aiSkipped} photo(s) that are already high resolution.` : '';
-    ctx.info = { summary: `Enhanced ${outs.length} photo(s). ` + rows.slice(0, 3).join(' · ') + skipped };
+    const failed = failures.length ? ` ${failures.length} photo(s) could not be processed: ${failures.slice(0, 3).join(' · ')}${failures.length > 3 ? ' · …' : ''}` : '';
+    ctx.info = { summary: `Enhanced ${outs.length} of ${ctx.files.length} photo(s).` + (fastBatch ? ' Fast batch used; AI and Studio were skipped and outputs were capped at 1600 px.' : ' ' + rows.slice(0, 3).join(' · ')) + failed + skipped,
+      failures: failures.map(x => x.split(': ', 1)[0]) };
     return outs;
   });
 

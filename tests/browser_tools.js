@@ -48,6 +48,58 @@ let pass = 0, fail = 0;
     if (r.units !== 1 || r.dpi !== 200) throw new Error('dpi header ' + r.units + '/' + r.dpi);
     return `${r.w}x${r.h}px ${r.kb.toFixed(1)} KB ${r.dpi} DPI (${r.name})`;
   });
+  await T('image-enhancer: 100-photo fast batch ZIP', async page => {
+    await go(page, 'image-enhancer'); await capture(page);
+    await page.evaluate(async () => {
+      const c = document.createElement('canvas'); c.width = 2400; c.height = 1600;
+      const x = c.getContext('2d'), g = x.createLinearGradient(0, 0, c.width, c.height);
+      g.addColorStop(0, '#365d99'); g.addColorStop(.5, '#c47d5d'); g.addColorStop(1, '#e5ae79'); x.fillStyle = g; x.fillRect(0, 0, c.width, c.height);
+      x.fillStyle = 'rgba(20,30,45,.35)'; for (let i = 0; i < 80; i++) x.fillRect(i * 31, (i * 43) % 1560, 18, 40);
+      const blob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', .86));
+      const dt = new DataTransfer();
+      for (let i = 0; i < 100; i++) dt.items.add(new File([blob], `batch-${String(i + 1).padStart(3, '0')}.jpg`, { type: 'image/jpeg' }));
+      const input = document.querySelector('#app input[type=file]'); input.files = dt.files; input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForFunction(() => document.querySelectorAll('.enh-thumb').length === 100, null, { timeout: 30000 });
+    await page.waitForFunction(() => document.querySelector('.enh-busy')?.classList.contains('hidden'), null, { timeout: 60000 });
+    if (!(await page.locator('.enh-sw-in').first().isChecked())) throw new Error('fast batch did not turn on automatically');
+    const t0 = Date.now(); await page.locator('.enh-go').click();
+    await page.waitForFunction(() => window.__dl && window.__dl.length, null, { timeout: 180000 });
+    const r = await page.evaluate(async () => {
+      const item = window.__dl[0], blob = typeof item.b === 'string' ? await (await fetch(item.b)).blob() : item.b;
+      const zip = await JSZip.loadAsync(blob), names = Object.keys(zip.files).filter(n => !zip.files[n].dir);
+      const image = await zip.file(names[0]).async('blob'), bitmap = await createImageBitmap(image);
+      return { name: item.n, count: names.length, width: bitmap.width, height: bitmap.height };
+    });
+    const seconds = (Date.now() - t0) / 1000;
+    if (r.count !== 100) throw new Error(`ZIP has ${r.count} images, expected 100`);
+    if (r.width !== 1600 || r.height !== 1067) throw new Error(`expected 1600x1067 output, got ${r.width}x${r.height}`);
+    if (seconds > 180) throw new Error(`100-image batch took ${seconds.toFixed(1)} s, exceeding 3 minutes`);
+    return `${r.count} large images → ${r.width}x${r.height}px; ${seconds.toFixed(1)} s after clicking Download`;
+  });
+  await T('image-enhancer: fast batch caps large outputs', async page => {
+    await go(page, 'image-enhancer'); await capture(page);
+    await page.evaluate(async () => {
+      const c = document.createElement('canvas'); c.width = 2400; c.height = 1600;
+      const x = c.getContext('2d'), g = x.createLinearGradient(0, 0, c.width, c.height);
+      g.addColorStop(0, '#244a80'); g.addColorStop(.5, '#b88061'); g.addColorStop(1, '#e6d39b'); x.fillStyle = g; x.fillRect(0, 0, c.width, c.height);
+      for (let i = 0; i < 40; i++) { x.fillStyle = `rgba(${i * 5},80,140,.18)`; x.fillRect(i * 59, (i * 83) % 1500, 28, 70); }
+      const blob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', .82));
+      const dt = new DataTransfer();
+      for (let i = 0; i < 20; i++) dt.items.add(new File([blob], `large-${String(i + 1).padStart(2, '0')}.jpg`, { type: 'image/jpeg' }));
+      const input = document.querySelector('#app input[type=file]'); input.files = dt.files; input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForFunction(() => document.querySelectorAll('.enh-thumb').length === 20 && document.querySelector('.enh-busy')?.classList.contains('hidden'), null, { timeout: 90000 });
+    await page.locator('.enh-go').click(); await page.waitForFunction(() => window.__dl && window.__dl.length, null, { timeout: 180000 });
+    const r = await page.evaluate(async () => {
+      const item = window.__dl[0], blob = typeof item.b === 'string' ? await (await fetch(item.b)).blob() : item.b;
+      const zip = await JSZip.loadAsync(blob), names = Object.keys(zip.files).filter(n => !zip.files[n].dir);
+      const image = await zip.file(names[0]).async('blob'), bitmap = await createImageBitmap(image);
+      return { count: names.length, width: bitmap.width, height: bitmap.height };
+    });
+    if (r.count !== 20 || r.width !== 1600 || r.height !== 1067) throw new Error(`expected 20 images at 1600x1067, got ${r.count} at ${r.width}x${r.height}`);
+    return `${r.count} images capped at ${r.width}x${r.height}px`;
+  });
   await T('resize-image-to-kb: padded to min KB', async page => {
     await go(page, 'resize-image-to-kb'); await capture(page);
     await page.evaluate(async () => { const c = document.createElement('canvas'); c.width = c.height = 300; const x = c.getContext('2d'); x.fillStyle = '#3366cc'; x.fillRect(0, 0, 300, 300); const b = await new Promise(r => c.toBlob(r, 'image/png')); const dt = new DataTransfer(); dt.items.add(new File([b], 'flat.png', { type: 'image/png' })); const i = document.querySelector('input[type=file]'); i.files = dt.files; i.dispatchEvent(new Event('change', { bubbles: true })); });

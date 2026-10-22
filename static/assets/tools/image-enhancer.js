@@ -5,6 +5,7 @@
 HT.register('image-enhancer', root => {
   const el = HT.el, E = () => HT.enhance;
   const VIEW = 1100;          // longest side of the on-screen result
+  const FAST_BATCH_AT = 20, FAST_BATCH_SIDE = 1600;
   // AI HD is for small, soft or low-quality photos: past these sizes (longest side) it would have to shrink the photo first
   // and the result would hold less detail than the original. Without a graphics card the limits are lower (time).
   const AI_MAX = { gpu: { 1: 2048, 2: 2048, 4: 1024 }, cpu: { 1: 1280, 2: 1280, 4: 640 } };
@@ -20,6 +21,7 @@ HT.register('image-enhancer', root => {
   const st = {
     files: [], cur: null, look: LOOKS.some(l => l[0] === pre.look) ? pre.look : 'auto', deltas: {},
     ai: null,   // 'off' or 1 / 2 / 4; decided when the first photo arrives (it depends on the graphics card check)
+    fastBatch: null, // null follows the 20-photo default; otherwise this is the visitor's choice
     studio: false, studioPref: null,   // Studio: product on pure white, AI redraw (on by default for a product on a backdrop)
     full: null, base: null, before: null, aiBase: null, aiKey: '', viewScale: 1, token: 0, busy: false, again: false,
   };
@@ -52,7 +54,7 @@ HT.register('image-enhancer', root => {
   stage.addEventListener('pointerup', stop); stage.addEventListener('pointercancel', stop);
   const meta = el('div', { class: 'enh-meta', 'data-notr': '' }), thumbs = el('div', { class: 'enh-thumbs' });
   const more = el('label', { class: 'btn sec sm enh-addmore' }, '+ ', 'Add photos', el('input', { type: 'file', accept: 'image/*,.heic,.heif,.avif,.tif,.tiff', multiple: true, hidden: true, onchange: e => { add(e.target.files); e.target.value = ''; } }));
-  const restart = el('button', { type: 'button', class: 'btn sec sm', text: 'Start over', onclick: () => { st.files = []; st.cur = null; paintThumbs(); show(false); } });
+  const restart = el('button', { type: 'button', class: 'btn sec sm', text: 'Start over', onclick: () => { st.files = []; st.cur = null; st.fastBatch = null; paintThumbs(); show(false); } });
   const mainCard = el('div', { class: 'card enh-main' }, el('div', { class: 'enh-top' }, thumbs, el('div', { class: 'enh-top-r' }, more, restart)), stage, meta);
 
   // side panel: Studio (product photos), then AI HD
@@ -67,6 +69,14 @@ HT.register('image-enhancer', root => {
   const aiSec = el('section', { class: 'enh-sec' },
     el('label', { class: 'enh-sw' }, aiSwitch, el('span', { class: 'enh-sw-ui' }), el('span', {}, el('b', { text: 'AI HD' }), el('small', { text: 'Sharper details, less blur, noise and JPEG blocks' }))),
     el('div', { class: 'enh-factors seg' }, factorBtns), aiNote);
+  const fastBatchSwitch = el('input', { type: 'checkbox', class: 'enh-sw-in', onchange: () => {
+    st.fastBatch = fastBatchSwitch.checked;
+    paintBatch();
+  } });
+  const fastBatchNote = el('p', { class: 'help enh-ainote' });
+  const batchSec = el('section', { class: 'enh-sec hidden' },
+    el('label', { class: 'enh-sw' }, fastBatchSwitch, el('span', { class: 'enh-sw-ui' }), el('span', {}, el('b', { text: 'Fast batch mode' }), el('small', { text: `For ${FAST_BATCH_AT}+ photos: skip AI and Studio, export at up to ${FAST_BATCH_SIDE} px` }))),
+    fastBatchNote);
   // looks as tiles of the visitor's own photo
   const lookGrid = el('div', { class: 'enh-lookgrid' });
   const lookSec = el('section', { class: 'enh-sec' }, el('h3', { text: 'Look' }), lookGrid);
@@ -90,16 +100,32 @@ HT.register('image-enhancer', root => {
   const go = el('button', { class: 'btn enh-go', type: 'button', onclick: download }, el('span', { text: 'Download' }));
   const goSub = el('div', { class: 'enh-go-sub', 'data-notr': '' });
   const saveSec = el('section', { class: 'enh-sec enh-save' }, go, goSub, el('details', { class: 'enh-export' }, el('summary', { text: 'Export settings' }), save.el));
-  const panel = el('aside', { class: 'card enh-panel' }, studioSec, aiSec, lookSec, tuneSec, saveSec);
+  const panel = el('aside', { class: 'card enh-panel' }, batchSec, studioSec, aiSec, lookSec, tuneSec, saveSec);
   const ws = el('div', { class: 'enh-ws hidden' }, mainCard, panel);
   root.append(empty, ws);
   function show(on) { empty.classList.toggle('hidden', on); ws.classList.toggle('hidden', !on); }
+  function fastBatchOn() { return st.files.length > 1 && (st.fastBatch == null ? st.files.length >= FAST_BATCH_AT : st.fastBatch); }
+  let lastFastBatch = false;
+  function paintBatch() {
+    const on = fastBatchOn();
+    batchSec.classList.toggle('hidden', st.files.length < 2);
+    fastBatchSwitch.checked = on;
+    fastBatchNote.textContent = on
+      ? `Fast batch is on. AI HD and Studio are skipped; each output is capped at ${FAST_BATCH_SIDE} px. Processing speed depends on your device and image sizes.`
+      : `For ${FAST_BATCH_AT}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.`;
+    if (on !== lastFastBatch) {
+      lastFastBatch = on;
+      paintStudio(); applyAI();
+      if (st.cur) { fill(); prepareView(); }
+    }
+  }
 
   // ---------------------------------------------------------------- state changes
   function setStudio(on) { st.studioPref = !!on; st.studioAuto = false; paintStudio(); if (st.cur) { fill(); prepareView(); } }
   function paintStudio() {
-    st.studio = !!st.studioPref; studioSwitch.checked = st.studio;
-    aiSec.classList.toggle('enh-off', st.studio);
+    const fast = fastBatchOn();
+    st.studio = !fast && !!st.studioPref; studioSwitch.checked = st.studio; studioSwitch.disabled = fast;
+    studioSec.classList.toggle('enh-off', fast);
     studioNote.textContent = st.studio ? HT.t('The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.') : '';
   }
   function setAI(v) {
@@ -110,13 +136,14 @@ HT.register('image-enhancer', root => {
   // what this photo allows: the wish, or the largest enlargement it can take, or off for a photo that is already large
   const allowed = f => { const L = st.full ? Math.max(st.full.width, st.full.height) : 0; return L && L <= AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]; };
   function applyAI() {
-    const full = st.full, okAny = [1, 2, 4].some(allowed);
-    let v = st.pref == null ? 'off' : st.pref;
+    const full = st.full, fast = fastBatchOn(), okAny = [1, 2, 4].some(allowed);
+    let v = fast || st.pref == null ? 'off' : st.pref;
     if (v !== 'off' && !allowed(v)) v = [4, 2, 1].find(f => f <= v && allowed(f)) || [1, 2, 4].find(allowed) || 'off';
     st.ai = v;
-    aiSwitch.checked = v !== 'off'; aiSwitch.disabled = !okAny;
-    factorBtns.forEach(b => { const f = +b.dataset.f; b.classList.toggle('on', f === v); b.disabled = v === 'off' || !allowed(f); b.title = allowed(f) ? '' : HT.t('For photos up to {0} px', AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]); });
-    aiNote.textContent = !full ? '' : !okAny
+    aiSwitch.checked = v !== 'off'; aiSwitch.disabled = fast || !okAny;
+    aiSec.classList.toggle('enh-off', fast || st.studio);
+    factorBtns.forEach(b => { const f = +b.dataset.f; b.classList.toggle('on', f === v); b.disabled = fast || v === 'off' || !allowed(f); b.title = allowed(f) ? '' : HT.t('For photos up to {0} px', AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]); });
+    aiNote.textContent = fast ? 'AI HD is skipped for this fast batch.' : !full ? '' : !okAny
       ? HT.t('This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.', full.width, full.height)
       : st.gpu ? HT.t('Runs on your graphics card: a few seconds.') : HT.t('Runs on the processor of this device: up to a minute per photo.');
   }
@@ -127,6 +154,7 @@ HT.register('image-enhancer', root => {
       thumbs.append(el('button', { type: 'button', class: 'enh-thumb' + (f === st.cur ? ' on' : ''), title: f.name, onclick: () => open(f) }, im));
     });
     thumbs.classList.toggle('hidden', st.files.length < 2);
+    paintBatch();
   }
   function busyOn(text, f) { busy.classList.remove('hidden'); busyTxt.textContent = text; busyBar.style.width = f == null ? '' : Math.round(f * 100) + '%'; busy.classList.toggle('ind', f == null); }
   const busyOff = () => busy.classList.add('hidden');
@@ -251,22 +279,24 @@ HT.register('image-enhancer', root => {
   }
   function paintMeta() {
     const full = st.full; if (!full) return;
-    const factor = st.ai === 'off' ? 1 : st.ai, max = +save.values().maxSide || 0, S = st.studio && st.studioData;
+    const fast = fastBatchOn(), factor = st.ai === 'off' ? 1 : st.ai, selectedMax = +save.values().maxSide || 0;
+    const max = fast ? Math.min(selectedMax || FAST_BATCH_SIDE, FAST_BATCH_SIDE) : selectedMax, S = st.studio && st.studioData;
     let w = S ? S.big.width : full.width * factor, h = S ? S.big.height : full.height * factor;
     if (max && Math.max(w, h) > max) { const k = max / Math.max(w, h); w = Math.round(w * k); h = Math.round(h * k); }
     meta.textContent = `${st.cur.name} · ${full.width} × ${full.height} px` + (S ? ` → ${w} × ${h} px · Studio` : st.ai !== 'off' ? ` → ${w} × ${h} px · AI HD ${factor}×${E().backend === 'gpu' ? ' (GPU)' : ''}` : '');
     go.firstChild.textContent = st.files.length > 1 ? HT.t('Download all {0}', st.files.length) : (st.ai !== 'off' && factor > 1 ? HT.t('Download HD') : HT.t('Download'));
     const fmt = save.values().format;
-    goSub.textContent = `${w} × ${h} px · ${fmt === 'same' ? (HT.ext(st.cur.name) || 'jpg').toUpperCase() : fmt.toUpperCase()}`;
+    goSub.textContent = `${w} × ${h} px · ${fmt === 'same' ? (HT.ext(st.cur.name) || 'jpg').toUpperCase() : fmt.toUpperCase()}` + (fast ? ` · Fast batch (up to ${FAST_BATCH_SIDE}px)` : '');
   }
 
   // ---------------------------------------------------------------- download: each photo analysed on its own, same look and changes
   async function download() {
     if (!st.files.length) return;
-    const v = save.values(); go.disabled = true;
+    const v = save.values(), fast = fastBatchOn(); go.disabled = true;
     try {
       busyOn('Preparing...', 0);
-      const { id } = await HT.upload('image-enhancer', st.files.slice(), { preset: st.look, deltas: st.deltas, ai: st.studio ? 'off' : st.ai, studio: st.studio, format: v.format, quality: v.quality, maxSide: +v.maxSide, targetKB: +v.targetKB || 0 });
+      const selectedMax = +v.maxSide || 0;
+      const { id } = await HT.upload('image-enhancer', st.files.slice(), { preset: st.look, deltas: st.deltas, ai: fast || st.studio ? 'off' : st.ai, studio: fast ? false : st.studio, format: v.format, quality: v.quality, maxSide: fast ? Math.min(selectedMax || FAST_BATCH_SIDE, FAST_BATCH_SIDE) : selectedMax, targetKB: +v.targetKB || 0, fastBatch: fast });
       const job = await HT.poll(id, s => busyOn(s.speed || 'Enhancing...', (s.progress || 0) / 100));
       busyOff();
       if (job.status === 'error') throw new Error(job.error);
