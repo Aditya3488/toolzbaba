@@ -127,8 +127,8 @@ HT.register('image-enhancer', root => {
     st.studio = !fast && !!st.studioPref; studioSwitch.checked = st.studio; studioSwitch.disabled = fast;
     studioSec.classList.toggle('enh-off', fast);
     studioNote.textContent = st.studio
-      ? HT.t('Studio keeps the original product pixels, replaces the background with pure white and adds a soft shadow. The first use downloads a 46 MB cut-out model.')
-      : HT.t('Off by default. Turn on for product photos to keep their original details, replace the background with white and add a soft shadow. The first use downloads a 46 MB cut-out model.');
+      ? HT.t('Studio keeps the original product pixels, replaces the background with pure white and adds a soft shadow. First use downloads a 46 MB model; your browser caches it for later visits when possible.')
+      : HT.t('Off by default. Turn on for product photos to keep their original details, replace the background with white and add a soft shadow. First use downloads a 46 MB model; your browser caches it for later visits when possible.');
   }
   function setAI(v) {
     st.pref = v === 'off' ? 'off' : +v; if (st.pref !== 'off') st.lastFactor = st.pref;
