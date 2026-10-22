@@ -22,7 +22,7 @@ HT.register('image-enhancer', root => {
     files: [], cur: null, look: LOOKS.some(l => l[0] === pre.look) ? pre.look : 'auto', deltas: {},
     ai: null,   // 'off' or 1 / 2 / 4; AI HD stays off until the visitor enables it (unless a preset requests it)
     fastBatch: null, // null follows the 20-photo default; otherwise this is the visitor's choice
-    studio: false, studioPref: false, // Studio is opt-in because it redraws the full image and can take much longer
+    studio: false, studioPref: false, // Studio is opt-in because it downloads a cut-out model and changes the background
     full: null, base: null, before: null, aiBase: null, aiKey: '', viewScale: 1, token: 0, busy: false, again: false,
   };
   const aiFromPreset = pre.ai ? ({ restore: 1, '2x': 2, '1': 1, '2': 2, '4': 4 })[String(pre.ai)] || 1 : null;
@@ -61,7 +61,7 @@ HT.register('image-enhancer', root => {
   const studioSwitch = el('input', { type: 'checkbox', class: 'enh-sw-in', onchange: () => setStudio(studioSwitch.checked) });
   const studioNote = el('p', { class: 'help enh-ainote' });
   const studioSec = el('section', { class: 'enh-sec' },
-    el('label', { class: 'enh-sw' }, studioSwitch, el('span', { class: 'enh-sw-ui' }), el('span', {}, el('b', { text: 'Studio product photo' }), el('small', { text: 'Pure white background, no shadows or smudges, crisper edges. For product listings.' }))),
+    el('label', { class: 'enh-sw' }, studioSwitch, el('span', { class: 'enh-sw-ui' }), el('span', {}, el('b', { text: 'Studio product photo' }), el('small', { text: 'Pure white background and soft shadow. Keeps original product details, logos and lens contents.' }))),
     studioNote);
   const aiSwitch = el('input', { type: 'checkbox', class: 'enh-sw-in', onchange: () => setAI(aiSwitch.checked ? (st.lastFactor || 2) : 'off') });
   const factorBtns = [[1, '1× Restore'], [2, '2× HD'], [4, '4× Ultra HD']].map(([f, t]) => el('button', { type: 'button', class: 'segb', 'data-f': f, text: t, onclick: () => setAI(f) }));
@@ -121,14 +121,14 @@ HT.register('image-enhancer', root => {
   }
 
   // ---------------------------------------------------------------- state changes
-  function setStudio(on) { st.studioPref = !!on; paintStudio(); if (st.cur) { fill(); prepareView(); } }
+  function setStudio(on) { st.studioPref = !!on; paintStudio(); applyAI(); if (st.cur) { fill(); prepareView(); } }
   function paintStudio() {
     const fast = fastBatchOn();
     st.studio = !fast && !!st.studioPref; studioSwitch.checked = st.studio; studioSwitch.disabled = fast;
     studioSec.classList.toggle('enh-off', fast);
     studioNote.textContent = st.studio
-      ? HT.t('The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.')
-      : HT.t('Off by default. Turn on only for product photos: Studio redraws the image, downloads a 51 MB model the first time, and takes about 20 seconds per photo on a graphics card (longer without one).');
+      ? HT.t('Studio keeps the original product pixels, replaces the background with pure white and adds a soft shadow. The first use downloads a 46 MB cut-out model.')
+      : HT.t('Off by default. Turn on for product photos to keep their original details, replace the background with white and add a soft shadow. The first use downloads a 46 MB cut-out model.');
   }
   function setAI(v) {
     st.pref = v === 'off' ? 'off' : +v; if (st.pref !== 'off') st.lastFactor = st.pref;
@@ -139,10 +139,10 @@ HT.register('image-enhancer', root => {
   const allowed = f => { const L = st.full ? Math.max(st.full.width, st.full.height) : 0; return L && L <= AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]; };
   function applyAI() {
     const full = st.full, fast = fastBatchOn(), okAny = [1, 2, 4].some(allowed);
-    let v = fast || st.pref == null ? 'off' : st.pref;
+    let v = fast || st.studio || st.pref == null ? 'off' : st.pref;
     if (v !== 'off' && !allowed(v)) v = [4, 2, 1].find(f => f <= v && allowed(f)) || [1, 2, 4].find(allowed) || 'off';
     st.ai = v;
-    aiSwitch.checked = v !== 'off'; aiSwitch.disabled = fast || !okAny;
+    aiSwitch.checked = v !== 'off'; aiSwitch.disabled = fast || st.studio || !okAny;
     aiSec.classList.toggle('enh-off', fast || st.studio);
     factorBtns.forEach(b => { const f = +b.dataset.f; b.classList.toggle('on', f === v); b.disabled = fast || v === 'off' || !allowed(f); b.title = allowed(f) ? '' : HT.t('For photos up to {0} px', AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]); });
     aiNote.textContent = fast ? 'AI HD is skipped for this fast batch.' : !full ? '' : !okAny
@@ -272,8 +272,8 @@ HT.register('image-enhancer', root => {
     HT.tick().then(() => {
       try {
         const src = (st.studio || st.ai !== 'off') && st.aiBase ? st.aiBase : st.before;
-        let out = E().apply(new ImageData(new Uint8ClampedArray(src.data), src.width, src.height), settings(), st.viewScale);
-        if (st.studio && st.studioData) out = E().studioFinish(out, st.studioData.mask);
+        const input = new ImageData(new Uint8ClampedArray(src.data), src.width, src.height);
+        const out = st.studio && st.studioData ? E().studioFinish(input, st.studioData.mask) : E().apply(input, settings(), st.viewScale);
         after.getContext('2d').putImageData(out, 0, 0);
       } catch (e) { HT.toast(e.message); }
       st.busy = false;

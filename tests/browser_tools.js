@@ -38,6 +38,27 @@ let pass = 0, fail = 0;
   const clickDownload = page => page.evaluate(async () => { [...document.querySelectorAll('button')].find(b => b.textContent === 'Download').click(); await new Promise(r => setTimeout(r, 2500)); });
 
   // ------------------------------------------------------------------ image tools
+  await T('image-enhancer: Studio preserves product pixels', async page => {
+    await go(page, 'image-enhancer');
+    const r = await page.evaluate(async () => {
+      await HT.loadScript('/assets/engine/image.js'); await HT.loadScript('/assets/engine/enhance.js');
+      const w = 64, h = 48, cut = HT.canvas(w, h), cx = cut.getContext('2d');
+      cx.fillStyle = '#fff'; cx.fillRect(8, 10, 48, 28); cx.clearRect(18, 16, 28, 16);
+      const mask = HT.enhance.studioMask(cut), img = new ImageData(w, h), d = img.data;
+      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const j = (y * w + x) * 4, ring = x >= 8 && x < 56 && y >= 10 && y < 38, lens = x >= 18 && x < 46 && y >= 16 && y < 32;
+        d[j] = lens ? 40 : ring ? 18 : 70; d[j + 1] = lens ? 80 : ring ? 24 : 90; d[j + 2] = lens ? 120 : ring ? 30 : 110; d[j + 3] = 255;
+      }
+      const out = HT.enhance.studioFinish(img, mask), px = (x, y) => [...out.data.slice((y * w + x) * 4, (y * w + x) * 4 + 4)];
+      return { dimensions: [out.width, out.height], frame: px(10, 12), lens: px(32, 24), background: px(2, 2), shadow: px(32, 39) };
+    });
+    if (JSON.stringify(r.dimensions) !== '[64,48]') throw new Error('Studio changed the image framing');
+    if (JSON.stringify(r.frame) !== '[18,24,30,255]') throw new Error('Studio changed the original product pixels');
+    if (JSON.stringify(r.lens) !== '[40,80,120,255]') throw new Error('Studio changed pixels visible through a lens');
+    if (JSON.stringify(r.background) !== '[255,255,255,255]') throw new Error('Studio did not make the background pure white');
+    if (!(r.shadow[0] < 255 && r.shadow[0] > 150)) throw new Error('Studio did not add a soft natural shadow');
+    return `original frame and lens preserved; white background; shadow ${r.shadow[0]}`;
+  });
   if (fs.existsSync(path.join(SAMPLES, 'face.jpg'))) await T('resize-image-to-kb: 200x230, 20-50 KB', async page => {
     await go(page, 'resize-image-to-kb'); await capture(page); await feed(page, 'face.jpg');
     await page.selectOption('select >> nth=0', 'photo-200x230'); await page.waitForTimeout(1800);
