@@ -22,7 +22,7 @@ HT.register('image-enhancer', root => {
     files: [], cur: null, look: LOOKS.some(l => l[0] === pre.look) ? pre.look : 'auto', deltas: {},
     ai: null,   // 'off' or 1 / 2 / 4; decided when the first photo arrives (it depends on the graphics card check)
     fastBatch: null, // null follows the 20-photo default; otherwise this is the visitor's choice
-    studio: false, studioPref: null,   // Studio: product on pure white, AI redraw (on by default for a product on a backdrop)
+    studio: false, studioPref: false, // Studio is opt-in because it redraws the full image and can take much longer
     full: null, base: null, before: null, aiBase: null, aiKey: '', viewScale: 1, token: 0, busy: false, again: false,
   };
   const aiFromPreset = pre.ai ? ({ restore: 1, '2x': 2, '1': 1, '2': 2, '4': 4 })[String(pre.ai)] || 1 : null;
@@ -121,12 +121,14 @@ HT.register('image-enhancer', root => {
   }
 
   // ---------------------------------------------------------------- state changes
-  function setStudio(on) { st.studioPref = !!on; st.studioAuto = false; paintStudio(); if (st.cur) { fill(); prepareView(); } }
+  function setStudio(on) { st.studioPref = !!on; paintStudio(); if (st.cur) { fill(); prepareView(); } }
   function paintStudio() {
     const fast = fastBatchOn();
     st.studio = !fast && !!st.studioPref; studioSwitch.checked = st.studio; studioSwitch.disabled = fast;
     studioSec.classList.toggle('enh-off', fast);
-    studioNote.textContent = st.studio ? HT.t('The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.') : '';
+    studioNote.textContent = st.studio
+      ? HT.t('The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.')
+      : HT.t('Off by default. Turn on only for product photos: Studio redraws the image, downloads a 51 MB model the first time, and takes about 20 seconds per photo on a graphics card (longer without one).');
   }
   function setAI(v) {
     st.pref = v === 'off' ? 'off' : +v; if (st.pref !== 'off') st.lastFactor = st.pref;
@@ -172,7 +174,6 @@ HT.register('image-enhancer', root => {
       // the analysis looks at a copy of up to 1100 px (it scales its noise and detail readings to the full photo)
       const k = Math.min(1, VIEW / Math.max(full.width, full.height)), probe = k < 1 ? HT.resample(full, full.width * k, full.height * k) : full;
       st.base = st.origBase = E().analyze(probe.getContext('2d').getImageData(0, 0, probe.width, probe.height), k); st.studioBase = null;
-      if (st.studioPref == null || st.studioAuto) { st.studioAuto = true; st.studioPref = st.origBase.backdrop > 0 && !/png|gif|svg/i.test(f.type); }   // a camera photo, not a screenshot   // a product on a backdrop: Studio
       if (st.pref == null) {   // first photo: AI HD is on by default when the device has a graphics card and the photo is small
         st.gpu = await E().hasGPU();
         const L = Math.max(full.width, full.height);
@@ -198,7 +199,7 @@ HT.register('image-enhancer', root => {
         const say = () => { if (my === st.token) busyOn(txt, f); };
         S = await E().studioPrep({ status: t => { txt = t; say(); }, progress: p => { f = p; say(); } }, st.cur, full);
         if (my !== st.token) return;
-      } catch (e) { busyOff(); HT.toast(e.message); st.studioPref = false; st.studioAuto = false; paintStudio(); fill(); return prepareView(); }
+      } catch (e) { busyOff(); HT.toast(e.message); st.studioPref = false; paintStudio(); fill(); return prepareView(); }
       outW = S.big.width; outH = S.big.height;
       if (!st.studioBase) { const pr = E().probeOf(S.big); st.studioBase = E().analyze(pr.img, pr.scale); }
       st.base = st.studioBase; st.studioData = S;
