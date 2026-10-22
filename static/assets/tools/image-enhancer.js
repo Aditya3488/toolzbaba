@@ -20,7 +20,7 @@ HT.register('image-enhancer', root => {
   const pre = (HT.pageMeta && HT.pageMeta.preset) || {};
   const st = {
     files: [], cur: null, look: LOOKS.some(l => l[0] === pre.look) ? pre.look : 'auto', deltas: {},
-    ai: null,   // 'off' or 1 / 2 / 4; decided when the first photo arrives (it depends on the graphics card check)
+    ai: null,   // 'off' or 1 / 2 / 4; AI HD stays off until the visitor enables it (unless a preset requests it)
     fastBatch: null, // null follows the 20-photo default; otherwise this is the visitor's choice
     studio: false, studioPref: false, // Studio is opt-in because it redraws the full image and can take much longer
     full: null, base: null, before: null, aiBase: null, aiKey: '', viewScale: 1, token: 0, busy: false, again: false,
@@ -147,7 +147,9 @@ HT.register('image-enhancer', root => {
     factorBtns.forEach(b => { const f = +b.dataset.f; b.classList.toggle('on', f === v); b.disabled = fast || v === 'off' || !allowed(f); b.title = allowed(f) ? '' : HT.t('For photos up to {0} px', AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]); });
     aiNote.textContent = fast ? 'AI HD is skipped for this fast batch.' : !full ? '' : !okAny
       ? HT.t('This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.', full.width, full.height)
-      : st.gpu ? HT.t('Runs on your graphics card: a few seconds.') : HT.t('Runs on the processor of this device: up to a minute per photo.');
+      : v === 'off' ? HT.t('Optional: Auto fix works without AI HD. Turn it on only when you want AI detail restoration; its model downloads the first time.')
+        : st.gpu ? HT.t('First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.')
+          : HT.t('First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.');
   }
   function paintThumbs() {
     thumbs.textContent = '';
@@ -174,13 +176,13 @@ HT.register('image-enhancer', root => {
       // the analysis looks at a copy of up to 1100 px (it scales its noise and detail readings to the full photo)
       const k = Math.min(1, VIEW / Math.max(full.width, full.height)), probe = k < 1 ? HT.resample(full, full.width * k, full.height * k) : full;
       st.base = st.origBase = E().analyze(probe.getContext('2d').getImageData(0, 0, probe.width, probe.height), k); st.studioBase = null;
-      if (st.pref == null) {   // first photo: AI HD is on by default when the device has a graphics card and the photo is small
+      if (st.pref == null) {   // AI HD is opt-in; ordinary Auto correction needs no AI model
         st.gpu = await E().hasGPU();
-        const L = Math.max(full.width, full.height);
-        st.pref = aiFromPreset || (st.gpu ? (L <= 600 ? 4 : 2) : 'off');
-        if (st.gpu || aiFromPreset) E().srWarm().catch(() => {});
+        st.pref = aiFromPreset || 'off';
       }
       applyAI(); paintStudio();
+      // Only warm AI after it has been requested and found useful for this image.
+      if (st.ai !== 'off') E().srWarm().catch(() => {});
       fill(); paintLooks();
       await prepareView();
     } catch (e) { busyOff(); HT.toast(e.message); }
