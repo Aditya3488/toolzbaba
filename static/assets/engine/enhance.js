@@ -525,8 +525,29 @@
   function studioMask(cut) {
     const w = cut.width, h = cut.height, n = w * h, d = cut.getContext('2d').getImageData(0, 0, w, h).data, A = new Float32Array(n);
     for (let i = 0; i < n; i++) A[i] = d[i * 4 + 3] / 255;
+    // Remove tiny isolated segmentation specks while keeping substantial detached product parts.
+    const outside = new Uint8Array(n), queue = new Int32Array(n); let tail = 0, largest = 0;
+    const addForeground = i => { if (!outside[i] && A[i] >= 0.5) { outside[i] = 1; queue[tail++] = i; } };
+    for (let i = 0; i < n; i++) if (A[i] >= 0.5 && !outside[i]) {
+      const start = tail; addForeground(i);
+      for (let head = start; head < tail; head++) {
+        const j = queue[head], x = j % w, y = (j / w) | 0;
+        if (x) addForeground(j - 1); if (x + 1 < w) addForeground(j + 1); if (y) addForeground(j - w); if (y + 1 < h) addForeground(j + w);
+      }
+      largest = Math.max(largest, tail - start);
+    }
+    outside.fill(0); tail = 0;
+    const minKeep = Math.max(8, largest * 0.001);
+    for (let i = 0; i < n; i++) if (A[i] >= 0.5 && !outside[i]) {
+      const start = tail; addForeground(i);
+      for (let head = start; head < tail; head++) {
+        const j = queue[head], x = j % w, y = (j / w) | 0;
+        if (x) addForeground(j - 1); if (x + 1 < w) addForeground(j + 1); if (y) addForeground(j - w); if (y + 1 < h) addForeground(j + w);
+      }
+      if (tail - start < minKeep) for (let j = start; j < tail; j++) A[queue[j]] = 0;
+    }
     // Treat enclosed transparent regions as part of the product. This preserves the original scene through tinted lenses.
-    const outside = new Uint8Array(n), queue = new Int32Array(n); let tail = 0;
+    outside.fill(0); tail = 0;
     const visit = i => { if (!outside[i] && A[i] < 0.5) { outside[i] = 1; queue[tail++] = i; } };
     for (let x = 0; x < w; x++) { visit(x); visit((h - 1) * w + x); }
     for (let y = 0; y < h; y++) { visit(y * w); visit(y * w + w - 1); }
