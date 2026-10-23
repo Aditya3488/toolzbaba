@@ -2,3 +2,9 @@
 /report      /takedown  301
 # the video downloader needed a server; it is not part of the static site
 /downloader  /          302
+
+# there is one sitemap, /sitemap.xml (the per-kind ones that were here before are gone)
+/sitemap-core.xml  /sitemap.xml  301
+/sitemap-formats.xml  /sitemap.xml  301
+/sitemap-languages.xml  /sitemap.xml  301
+/sitemap-saas.xml  /sitemap.xml  301
