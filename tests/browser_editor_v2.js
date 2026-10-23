@@ -205,9 +205,16 @@ let pass = 0, fail = 0;
     const r = await inspect(page, await download(page)); ex(r.raw.join('|').includes('Yearly') && !r.raw.join('|').includes('Quarterly'), 'the file says: ' + r.raw.slice(0, 4).join(' | ')); return 'Quarterly -> Yearly on a scan';
   });
 
-  await T('classic: /pdf-editor without ?v2 still opens the old editor', async page => {
+  await T('default: /pdf-editor opens the new editor, /pdf-editor?classic the old one', async page => {
     await page.goto(BASE + '/pdf-editor', { waitUntil: 'domcontentloaded' }); await page.waitForSelector('input[type=file]', { state: 'attached', timeout: 30000 });
-    await page.locator('input[type=file]').first().setInputFiles(S + 'doc_embedded.pdf'); await page.waitForSelector('.edlayer', { timeout: 30000 }); ex(await page.locator('.v2in, .v2ocr').count() === 0, 'new editor parts in the classic editor'); return 'classic editor opened';
+    await page.locator('input[type=file]').first().setInputFiles(S + 'doc_embedded.pdf'); await page.waitForSelector('.v2app:not(.hidden) .edpage', { timeout: 30000 });
+    await page.goto(BASE + '/pdf-editor?classic', { waitUntil: 'domcontentloaded' }); await page.waitForSelector('input[type=file]', { state: 'attached', timeout: 30000 });
+    await page.locator('input[type=file]').first().setInputFiles(S + 'doc_embedded.pdf'); await page.waitForSelector('.edlayer', { timeout: 30000 }); ex(await page.locator('.v2app:not(.hidden)').count() === 0, 'the new editor showed in the classic one');
+    return 'new by default, classic on ?classic';
+  });
+
+  await T('v2: the Tools menu links to the classic editor', async page => {
+    await open(page, 'doc_embedded.pdf'); await page.getByRole('button', { name: /Tools/ }).click(); await page.locator('.v2menu button', { hasText: 'Classic editor' }).click(); await page.waitForURL(/classic/, { timeout: 30000 }); return 'link works';
   });
 
   await browser.close(); console.log(`\n${pass}/${pass + fail} passed`); process.exit(fail ? 1 : 0);

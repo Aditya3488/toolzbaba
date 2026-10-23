@@ -83,7 +83,7 @@ let pass = 0, fail = 0;
 
   // ---------------------------------------------------------------- the editor
   const openEditor = async (page, file = 'five.pdf') => {
-    await go(page, '/pdf-editor'); await page.setInputFiles('input[type=file]', S + file); await page.waitForSelector('.edlayer'); await page.waitForTimeout(700);
+    await go(page, '/pdf-editor?classic'); await page.setInputFiles('input[type=file]', S + file); await page.waitForSelector('.edlayer'); await page.waitForTimeout(700);
     return await page.locator('.edlayer').boundingBox();
   };
   const dragOn = async (page, box, x0, y0, x1, y1) => { await page.mouse.move(box.x + x0, box.y + y0); await page.mouse.down(); await page.mouse.move(box.x + x1, box.y + y1, { steps: 6 }); await page.mouse.up(); };

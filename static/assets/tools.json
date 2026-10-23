@@ -2351,21 +2351,33 @@
    "aliases": [
     "edit-pdf"
    ],
-   "desc": "Edit a PDF in your browser: change text, add text with 50 fonts, pictures, shapes and highlights, then download as PDF, Word, images or text.",
-   "about": "Open a PDF and edit it right on the page. Click any line of text to change it, add new text in your choice of 50 free fonts (including Hindi and other Indian scripts), put in pictures, draw rectangles, circles, lines and arrows, highlight, draw by hand, white out parts you want gone, rotate or delete pages and add blank ones. When you are done, download the result as a PDF, a Word file, page images or plain text. Everything is done in your browser, so your PDF is never uploaded.",
+   "desc": "Edit a PDF in your browser like a desktop editor: change the text (it re-wraps and keeps its font), find and replace, add pictures, stickers and signatures, watermark, highlight, redact, crop, fill forms and protect with a password.",
+   "about": "Open a PDF and edit it right on the page. Click a paragraph to change it: the text re-wraps as you type, keeps its alignment and uses the PDF's own font where it can. Find and replace a word on every page at once, add pictures, stickers, stamps and your signature, put a watermark or page numbers on every page, highlight, underline and draw, hide private details with redaction, crop pages, fill in forms, rotate, move, add or delete pages, and protect the file with a password. Scanned PDFs can be read with OCR so their text can be changed too. Chinese, Japanese and Korean text works as well. Everything is done in your browser, so your PDF is never uploaded.",
    "steps": [
     "Open your PDF.",
-    "Click text to change it, or add text, pictures, shapes, highlights and drawings.",
-    "Download as PDF, Word, page images or text."
+    "Click text to change it, or use the tools on the left to add pictures, stickers, marks, a watermark and more.",
+    "Press Download PDF."
    ],
    "faq": [
     {
      "q": "How do I edit text in a PDF?",
-     "a": "Open the PDF and click the line of text you want to change, then type. You can also add new text in 50 free fonts."
+     "a": "Open the PDF and click the paragraph you want to change, then type. The text re-wraps as you type and keeps its font, size, colour and alignment."
     },
     {
-     "q": "Can I type in Hindi?",
-     "a": "Yes. The fonts include Hindi and other Indian scripts."
+     "q": "Can I replace a word everywhere in the PDF?",
+     "a": "Yes. Press Ctrl+F, type the word and the new word, and press Replace all. It changes the word on every page in one step, and you can undo it."
+    },
+    {
+     "q": "Can I edit a scanned PDF?",
+     "a": "Yes. When a page has no real text, press the OCR button on the page. The text is read in your browser and each line can then be changed."
+    },
+    {
+     "q": "Can I add a watermark, page numbers or my signature?",
+     "a": "Yes. Open the Tools menu for watermarks, headers, footers and page numbers, and use the Sign tool to draw, type or upload your signature."
+    },
+    {
+     "q": "Can I edit Chinese, Japanese or Korean text?",
+     "a": "Yes. Russian, Greek and Vietnamese work too. For Hindi and other Indian scripts the Tools menu has a link to the classic editor."
     },
     {
      "q": "Is my PDF uploaded?",
@@ -2373,7 +2385,7 @@
     }
    ],
    "title": "PDF Editor Online Free: Edit Text in PDF | Toolz Baba",
-   "metaDesc": "Edit PDF text, add text in 50 fonts including Hindi, pictures, shapes and highlights, and save as PDF or Word. Free, and the PDF is never uploaded."
+   "metaDesc": "Edit PDF text, find and replace, add pictures, stickers, signatures and watermarks, redact, crop, fill forms and protect with a password. Free, and the PDF is never uploaded."
   },
   {
    "slug": "crop-pdf",

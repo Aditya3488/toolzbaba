@@ -231,7 +231,7 @@ HT.pdfEditorV2 = root => {
   // ------------------------------------------------------------------ doing things to the PDF, one at a time
   const toast = HT.toast;
   function fail(e) {
-    if (e && e.message === 'INDIC') { note.classList.remove('hidden'); note.textContent = ''; note.append('Hindi and other Indian scripts can not be written in this new editor yet. ', el('a', { href: location.pathname, text: 'Use the classic editor for them.' })); return toast('Indian scripts are not supported here yet.'); }
+    if (e && e.message === 'INDIC') { note.classList.remove('hidden'); note.textContent = ''; note.append('Hindi and other Indian scripts can not be written in this new editor yet. ', el('a', { href: location.pathname + '?classic', text: 'Use the classic editor for them.' })); return toast('Indian scripts are not supported here yet.'); }
     if (e && e.message === 'SCRIPT') return toast('Arabic, Hebrew and Thai text can not be written in this editor yet (the letters change shape and order).');
     toast((e && e.message) || 'Something went wrong.');
   }
@@ -435,7 +435,7 @@ HT.pdfEditorV2 = root => {
   function openMenu(anchor) {
     document.querySelectorAll('.v2menu').forEach(n => n.remove()); if (!live) return;
     const items = [['Watermark…', watermarkDialog], ['Header & footer…', () => headerDialog()], ['Page numbers…', () => headerDialog(true)], ['Crop pages…', cropDialog], null, ['Insert pages from a PDF…', () => pdfIn.click()], ['Extract pages…', extractDialog], ['Duplicate this page', duplicateNow], null,
-      ['Document properties…', propsDialog], ['Protect & optimize…', protectDialog], null, ['Export page pictures (ZIP)…', exportImagesDialog], ['Export text (.txt)', exportText]];
+      ['Document properties…', propsDialog], ['Protect & optimize…', protectDialog], null, ['Export page pictures (ZIP)…', exportImagesDialog], ['Export text (.txt)', exportText], null, ['Classic editor (Hindi text, save as Word)…', openClassic]];
     const menu = el('div', { class: 'v2menu' }); const r = anchor.getBoundingClientRect(); Object.assign(menu.style, { left: Math.max(8, Math.min(innerWidth - 250, r.left)) + 'px', top: r.bottom + 4 + 'px' });
     for (const it of items) menu.append(it ? el('button', { type: 'button', text: it[0], onclick: () => { menu.remove(); it[1](); } }) : el('hr'));
     document.body.append(menu); const off = ev => { if (!menu.contains(ev.target) && ev.target !== anchor) { menu.remove(); removeEventListener('pointerdown', off, true); } }; setTimeout(() => addEventListener('pointerdown', off, true), 0);
@@ -595,6 +595,7 @@ HT.pdfEditorV2 = root => {
     dialog({ title: 'Extract pages', body: el('div', { class: 'v2form' }, row, el('p', { class: 'help', style: { gridColumn: '1/-1' }, text: 'The pages are saved as a new PDF. Your open document does not change.' })), apply: 'Extract', onApply: async () => { const list = parseRange(inp.value, live.count); HT.download(live.extractPages(list), HT.stem(file.name) + '_pages.pdf'); HT.toast(list.length + ' page' + (list.length > 1 ? 's' : '') + ' extracted'); } });
   }
 
+  function openClassic() { if (rev > 0 && !confirm('The changes you made here are not carried over to the classic editor. Open it anyway?')) return; location.href = location.pathname + '?classic'; }
   // ---- properties, protect and optimize, export
   function propsDialog() {
     const m = live.getMeta(), t = el('input', { type: 'text', value: m.title }), a = el('input', { type: 'text', value: m.author }), su = el('input', { type: 'text', value: m.subject }), k = el('input', { type: 'text', value: m.keywords });
