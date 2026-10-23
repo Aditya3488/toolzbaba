@@ -213,8 +213,24 @@ let pass = 0, fail = 0;
     return 'new by default, classic on ?classic';
   });
 
-  await T('v2: the Tools menu links to the classic editor', async page => {
-    await open(page, 'doc_embedded.pdf'); await page.getByRole('button', { name: /Tools/ }).click(); await page.locator('.v2menu button', { hasText: 'Classic editor' }).click(); await page.waitForURL(/classic/, { timeout: 30000 }); return 'link works';
+  await T('v2: the Tools menu opens the classic editor and the address stays /pdf-editor', async page => {
+    await open(page, 'doc_embedded.pdf'); const url = page.url().replace(/\?.*$/, ''); await page.getByRole('button', { name: /Tools/ }).click(); await page.locator('.v2menu button', { hasText: 'Classic editor' }).click();
+    await page.waitForSelector('text=You are using the classic editor', { timeout: 30000 }); ex(page.url() === url, 'the address changed to ' + page.url());
+    await page.getByRole('button', { name: 'Use the new editor' }).click(); await page.waitForSelector('input[type=file]', { state: 'attached', timeout: 30000 }); await page.locator('input[type=file]').first().setInputFiles(S + 'doc_embedded.pdf'); await page.waitForSelector('.v2app:not(.hidden) .edpage', { timeout: 30000 }); ex(page.url() === url, 'the address changed to ' + page.url());
+    return 'classic and back, the address is ' + url.replace(/^https?:\/\/[^/]+/, '');
+  });
+
+  await T('v2: the address does not change while editing, downloading or closing', async page => {
+    await open(page, 'doc_align_embedded.pdf'); const url = page.url(); const nav = []; page.on('framenavigated', f => { if (f === page.mainFrame()) nav.push(f.url()); });
+    for (const t of ['select', 'sticker', 'sign', 'form', 'highlight']) { await tool(page, t); if (await page.locator('.v2back').count()) await page.keyboard.press('Escape'); }
+    await page.keyboard.press('Control+f'); await page.locator('.v2find input[type=search]').fill('fox'); await page.keyboard.press('Enter'); await page.waitForTimeout(400); await page.getByRole('button', { name: /Tools/ }).click(); await page.locator('.v2menu button', { hasText: 'Export text' }).click().catch(() => { });
+    await download(page); await page.getByRole('button', { name: 'Close this PDF' }).click().catch(() => { }); await page.waitForTimeout(500);
+    ex(page.url() === url && nav.length === 0, 'the address changed: ' + page.url() + ' ' + nav.join(' ')); return 'still ' + url.replace(/^https?:\/\/[^/]+/, '');
+  });
+
+  await T('v2: old links with ?v2 or ?classic are cleaned to /pdf-editor', async page => {
+    await page.goto(BASE + '/pdf-editor?v2', { waitUntil: 'domcontentloaded' }); await page.waitForSelector('input[type=file]', { state: 'attached', timeout: 30000 }); await page.waitForTimeout(500); ex(!/\?/.test(page.url()), '?v2 stayed in the address: ' + page.url());
+    await page.goto(BASE + '/pdf-editor?classic', { waitUntil: 'domcontentloaded' }); await page.waitForSelector('text=You are using the classic editor', { timeout: 30000 }); ex(!/\?/.test(page.url()), '?classic stayed in the address: ' + page.url()); return 'both cleaned';
   });
 
   await browser.close(); console.log(`\n${pass}/${pass + fail} passed`); process.exit(fail ? 1 : 0);

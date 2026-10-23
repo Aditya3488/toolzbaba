@@ -231,7 +231,7 @@ HT.pdfEditorV2 = root => {
   // ------------------------------------------------------------------ doing things to the PDF, one at a time
   const toast = HT.toast;
   function fail(e) {
-    if (e && e.message === 'INDIC') { note.classList.remove('hidden'); note.textContent = ''; note.append('Hindi and other Indian scripts can not be written in this new editor yet. ', el('a', { href: location.pathname + '?classic', text: 'Use the classic editor for them.' })); return toast('Indian scripts are not supported here yet.'); }
+    if (e && e.message === 'INDIC') { note.classList.remove('hidden'); note.textContent = ''; note.append('Hindi and other Indian scripts can not be written in this new editor yet. ', el('a', { href: '#', text: 'Use the classic editor for them.', onclick: ev => { ev.preventDefault(); openClassic(); } })); return toast('Indian scripts are not supported here yet.'); }
     if (e && e.message === 'SCRIPT') return toast('Arabic, Hebrew and Thai text can not be written in this editor yet (the letters change shape and order).');
     toast((e && e.message) || 'Something went wrong.');
   }
@@ -595,7 +595,7 @@ HT.pdfEditorV2 = root => {
     dialog({ title: 'Extract pages', body: el('div', { class: 'v2form' }, row, el('p', { class: 'help', style: { gridColumn: '1/-1' }, text: 'The pages are saved as a new PDF. Your open document does not change.' })), apply: 'Extract', onApply: async () => { const list = parseRange(inp.value, live.count); HT.download(live.extractPages(list), HT.stem(file.name) + '_pages.pdf'); HT.toast(list.length + ' page' + (list.length > 1 ? 's' : '') + ' extracted'); } });
   }
 
-  function openClassic() { if (rev > 0 && !confirm('The changes you made here are not carried over to the classic editor. Open it anyway?')) return; location.href = location.pathname + '?classic'; }
+  function openClassic() { if (rev > 0 && !confirm('The changes you made here are not carried over to the classic editor. Open it anyway?')) return; try { sessionStorage.setItem('tz_classic', '1'); } catch { } rev = 0; location.reload(); }   // the address stays /pdf-editor
   // ---- properties, protect and optimize, export
   function propsDialog() {
     const m = live.getMeta(), t = el('input', { type: 'text', value: m.title }), a = el('input', { type: 'text', value: m.author }), su = el('input', { type: 'text', value: m.subject }), k = el('input', { type: 'text', value: m.keywords });

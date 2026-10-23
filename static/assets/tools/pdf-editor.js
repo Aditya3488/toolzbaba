@@ -16,8 +16,15 @@ const HINT = { select: 'Click any text of the PDF to change it. Click something 
 const SWATCH = ['#fff200', '#7CFC00', '#ff7ac8', '#4cc9ff', '#ffb347'];
 
 HT.register('pdf-editor', root => {
-  // the new editor (assets/tools/pdf-editor-v2.js) changes the PDF itself instead of putting a layer on it, and is what /pdf-editor shows. /pdf-editor?classic opens the old one (it can type Hindi and save as Word).
-  if (!new URLSearchParams(location.search).has('classic')) { HT.loadScript('/assets/tools/pdf-editor-v2.js').then(() => HT.pdfEditorV2(root)); return; }
+  // The address always stays /pdf-editor. The new editor (assets/tools/pdf-editor-v2.js) changes the PDF itself instead of putting a layer on it, and is what visitors get.
+  // The old one (it can type Hindi and save as Word) is chosen from the new editor's Tools menu, remembered for this tab, and has a button to go back; /pdf-editor?classic
+  // and ?v2 still work as links, and are taken out of the address bar at once.
+  const q = new URLSearchParams(location.search); let classic = false;
+  try { if (q.has('classic')) sessionStorage.setItem('tz_classic', '1'); if (q.has('v2')) sessionStorage.removeItem('tz_classic'); classic = sessionStorage.getItem('tz_classic') === '1'; } catch { classic = q.has('classic'); }
+  if (q.has('classic') || q.has('v2')) { q.delete('classic'); q.delete('v2'); try { history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); } catch { } }
+  if (!classic) { HT.loadScript('/assets/tools/pdf-editor-v2.js').then(() => HT.pdfEditorV2(root)); return; }
+  root.append($p('div', { class: 'help', style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '10px' } }, $p('span', { text: 'You are using the classic editor.' }),
+    $p('button', { type: 'button', class: 'btn sm', text: 'Use the new editor', onclick: () => { try { sessionStorage.removeItem('tz_classic'); } catch { } location.reload(); } })));
   const ready = Promise.all([HT.loadScript('/assets/tools/pdf-helpers.js'), HT.loadScript('/assets/tools/fonts-helpers.js')]);
   let F = null, file = null, pdf = null, slots = [], objs = [], cur = 0, zoom = 1, tool = 'select', sel = null, editing = null, view = null, nextId = 1, renderToken = 0, thumbToken = 0, renderTask = null;
   const imgs = new Map(), pageCache = new Map(), states = []; let sIdx = -1, measureEl = null;
