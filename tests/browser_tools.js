@@ -38,6 +38,28 @@ let pass = 0, fail = 0;
   const clickDownload = page => page.evaluate(async () => { [...document.querySelectorAll('button')].find(b => b.textContent === 'Download').click(); await new Promise(r => setTimeout(r, 2500)); });
 
   // ------------------------------------------------------------------ image tools
+  await T('image-enhancer: Studio preserves product pixels', async page => {
+    await go(page, 'image-enhancer');
+    const r = await page.evaluate(async () => {
+      await HT.loadScript('/assets/engine/image.js'); await HT.loadScript('/assets/engine/enhance.js');
+      const w = 64, h = 48, cut = HT.canvas(w, h), cx = cut.getContext('2d');
+      cx.fillStyle = '#fff'; cx.fillRect(8, 10, 48, 28); cx.clearRect(18, 16, 28, 16); cx.fillRect(62, 2, 1, 1);
+      const mask = HT.enhance.studioMask(cut), img = new ImageData(w, h), d = img.data;
+      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const j = (y * w + x) * 4, ring = x >= 8 && x < 56 && y >= 10 && y < 38, lens = x >= 18 && x < 46 && y >= 16 && y < 32;
+        d[j] = lens ? 40 : ring ? 18 : 70; d[j + 1] = lens ? 80 : ring ? 24 : 90; d[j + 2] = lens ? 120 : ring ? 30 : 110; d[j + 3] = 255;
+      }
+      const out = HT.enhance.studioFinish(img, mask), px = (x, y) => [...out.data.slice((y * w + x) * 4, (y * w + x) * 4 + 4)];
+      return { dimensions: [out.width, out.height], frame: px(10, 12), lens: px(32, 24), background: px(2, 2), speck: px(62, 2), shadow: px(32, 39) };
+    });
+    if (JSON.stringify(r.dimensions) !== '[64,48]') throw new Error('Studio changed the image framing');
+    if (JSON.stringify(r.frame) !== '[18,24,30,255]') throw new Error('Studio changed the original product pixels');
+    if (JSON.stringify(r.lens) !== '[40,80,120,255]') throw new Error('Studio changed pixels visible through a lens');
+    if (JSON.stringify(r.background) !== '[255,255,255,255]') throw new Error('Studio did not make the background pure white');
+    if (JSON.stringify(r.speck) !== '[255,255,255,255]') throw new Error('Studio kept an isolated background speck');
+    if (!(r.shadow[0] < 255 && r.shadow[0] > 150)) throw new Error('Studio did not add a soft natural shadow');
+    return `original frame and lens preserved; white background; shadow ${r.shadow[0]}`;
+  });
   if (fs.existsSync(path.join(SAMPLES, 'face.jpg'))) await T('resize-image-to-kb: 200x230, 20-50 KB', async page => {
     await go(page, 'resize-image-to-kb'); await capture(page); await feed(page, 'face.jpg');
     await page.selectOption('select >> nth=0', 'photo-200x230'); await page.waitForTimeout(1800);
@@ -47,6 +69,58 @@ let pass = 0, fail = 0;
     if (r.kb > 50.1 || r.kb < 20) throw new Error('kb ' + r.kb.toFixed(1));
     if (r.units !== 1 || r.dpi !== 200) throw new Error('dpi header ' + r.units + '/' + r.dpi);
     return `${r.w}x${r.h}px ${r.kb.toFixed(1)} KB ${r.dpi} DPI (${r.name})`;
+  });
+  await T('image-enhancer: 100-photo fast batch ZIP', async page => {
+    await go(page, 'image-enhancer'); await capture(page);
+    await page.evaluate(async () => {
+      const c = document.createElement('canvas'); c.width = 2400; c.height = 1600;
+      const x = c.getContext('2d'), g = x.createLinearGradient(0, 0, c.width, c.height);
+      g.addColorStop(0, '#365d99'); g.addColorStop(.5, '#c47d5d'); g.addColorStop(1, '#e5ae79'); x.fillStyle = g; x.fillRect(0, 0, c.width, c.height);
+      x.fillStyle = 'rgba(20,30,45,.35)'; for (let i = 0; i < 80; i++) x.fillRect(i * 31, (i * 43) % 1560, 18, 40);
+      const blob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', .86));
+      const dt = new DataTransfer();
+      for (let i = 0; i < 100; i++) dt.items.add(new File([blob], `batch-${String(i + 1).padStart(3, '0')}.jpg`, { type: 'image/jpeg' }));
+      const input = document.querySelector('#app input[type=file]'); input.files = dt.files; input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForFunction(() => document.querySelectorAll('.enh-thumb').length === 100, null, { timeout: 30000 });
+    await page.waitForFunction(() => document.querySelector('.enh-busy')?.classList.contains('hidden'), null, { timeout: 60000 });
+    if (!(await page.locator('.enh-sw-in').first().isChecked())) throw new Error('fast batch did not turn on automatically');
+    const t0 = Date.now(); await page.locator('.enh-go').click();
+    await page.waitForFunction(() => window.__dl && window.__dl.length, null, { timeout: 180000 });
+    const r = await page.evaluate(async () => {
+      const item = window.__dl[0], blob = typeof item.b === 'string' ? await (await fetch(item.b)).blob() : item.b;
+      const zip = await JSZip.loadAsync(blob), names = Object.keys(zip.files).filter(n => !zip.files[n].dir);
+      const image = await zip.file(names[0]).async('blob'), bitmap = await createImageBitmap(image);
+      return { name: item.n, count: names.length, width: bitmap.width, height: bitmap.height };
+    });
+    const seconds = (Date.now() - t0) / 1000;
+    if (r.count !== 100) throw new Error(`ZIP has ${r.count} images, expected 100`);
+    if (r.width !== 1600 || r.height !== 1067) throw new Error(`expected 1600x1067 output, got ${r.width}x${r.height}`);
+    if (seconds > 180) throw new Error(`100-image batch took ${seconds.toFixed(1)} s, exceeding 3 minutes`);
+    return `${r.count} large images → ${r.width}x${r.height}px; ${seconds.toFixed(1)} s after clicking Download`;
+  });
+  await T('image-enhancer: fast batch caps large outputs', async page => {
+    await go(page, 'image-enhancer'); await capture(page);
+    await page.evaluate(async () => {
+      const c = document.createElement('canvas'); c.width = 2400; c.height = 1600;
+      const x = c.getContext('2d'), g = x.createLinearGradient(0, 0, c.width, c.height);
+      g.addColorStop(0, '#244a80'); g.addColorStop(.5, '#b88061'); g.addColorStop(1, '#e6d39b'); x.fillStyle = g; x.fillRect(0, 0, c.width, c.height);
+      for (let i = 0; i < 40; i++) { x.fillStyle = `rgba(${i * 5},80,140,.18)`; x.fillRect(i * 59, (i * 83) % 1500, 28, 70); }
+      const blob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', .82));
+      const dt = new DataTransfer();
+      for (let i = 0; i < 20; i++) dt.items.add(new File([blob], `large-${String(i + 1).padStart(2, '0')}.jpg`, { type: 'image/jpeg' }));
+      const input = document.querySelector('#app input[type=file]'); input.files = dt.files; input.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForFunction(() => document.querySelectorAll('.enh-thumb').length === 20 && document.querySelector('.enh-busy')?.classList.contains('hidden'), null, { timeout: 90000 });
+    await page.locator('.enh-go').click(); await page.waitForFunction(() => window.__dl && window.__dl.length, null, { timeout: 180000 });
+    const r = await page.evaluate(async () => {
+      const item = window.__dl[0], blob = typeof item.b === 'string' ? await (await fetch(item.b)).blob() : item.b;
+      const zip = await JSZip.loadAsync(blob), names = Object.keys(zip.files).filter(n => !zip.files[n].dir);
+      const image = await zip.file(names[0]).async('blob'), bitmap = await createImageBitmap(image);
+      return { count: names.length, width: bitmap.width, height: bitmap.height };
+    });
+    if (r.count !== 20 || r.width !== 1600 || r.height !== 1067) throw new Error(`expected 20 images at 1600x1067, got ${r.count} at ${r.width}x${r.height}`);
+    return `${r.count} images capped at ${r.width}x${r.height}px`;
   });
   await T('resize-image-to-kb: padded to min KB', async page => {
     await go(page, 'resize-image-to-kb'); await capture(page);
@@ -122,7 +196,7 @@ let pass = 0, fail = 0;
 
   // ------------------------------------------------------------------ audio / video
   await T('audio-cutter (UI)', async page => {
-    await go(page, 'audio-cutter'); await feed(page, 'tone.mp3'); await page.waitForFunction(() => document.querySelector('video') && document.querySelector('video').duration > 1, null, { timeout: 15000 });
+    await go(page, 'split-audio'); await feed(page, 'tone.mp3'); await page.waitForFunction(() => document.querySelector('video') && document.querySelector('video').duration > 1, null, { timeout: 15000 });
     const vals = await page.evaluate(() => [...document.querySelectorAll('input[type=text]')].map(i => i.value)); if (vals[1] !== '0:05.0') throw new Error('end not auto-filled: ' + vals);
     await page.locator('input[type=text]').nth(0).fill('1'); await page.locator('input[type=text]').nth(1).fill('3'); await btn(page, /^Split audio/).click(); const t = await resultText(page);
     if (!(await page.evaluate(() => !!document.querySelector('.result audio')))) throw new Error('no audio player in result'); return t;

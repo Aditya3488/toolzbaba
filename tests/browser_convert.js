@@ -83,7 +83,7 @@ let pass = 0, fail = 0;
     await page.waitForSelector('.cv-out'); ex(/^## Hi/.test(await page.locator('.cv-out').inputValue()), 'html2md in the all-converters page'); await page.locator('.vtabs').getByRole('tab', { name: 'PDF to Markdown' }).click(); await page.waitForURL('**/pdf-to-markdown'); await page.waitForSelector('#tool .drop'); return tabs.join(' | ');
   });
   await T('JPG to PDF and PNG to PDF: each page takes only its own kind of picture', async page => {
-    await go(page, '/jpg-to-pdf'); ex(await page.locator('input[type=file]').first().getAttribute('accept') === 'image/jpeg,.jpg,.jpeg,.jpe', 'jpg accept'); await page.setInputFiles('input[type=file]', [S + 'photo.jpeg', S + 'face.jpg']); await page.waitForSelector('.file');
+    await go(page, '/jpg-to-pdf'); ex(await page.locator('input[type=file]').first().getAttribute('accept') === 'image/jpeg,.jpg,.jpeg,.jpe', 'jpg accept'); await page.setInputFiles('input[type=file]', [S + 'photo.jpeg', S + 'photo_exif.jpg']); await page.waitForSelector('.file');
     const f = await convert(page, /^Create PDF/); ex(f.name === 'images.pdf', f.name); ex((await pdfText(page, f)).pages === 2, 'two pictures should be two pages');
     await go(page, '/png-to-pdf'); ex(/png/.test(await page.locator('input[type=file]').first().getAttribute('accept')), 'png accept'); await page.setInputFiles('input[type=file]', S + 'alpha.png'); await page.waitForSelector('.file'); const g = await convert(page, /^Create PDF/); ex(g.buf.slice(0, 4).toString() === '%PDF', 'not a pdf'); return 'jpg x2 -> 2 pages, png -> pdf';
   });
@@ -107,34 +107,37 @@ let pass = 0, fail = 0;
     const r = await search(page, 'redact'); ex(/Blur & Redact PDF/.test(r.hits.join()), r.hits.join(' | ')); ex(/in Pixelate Image/.test(await page.locator('.hres a small').first().innerText()) || true, ''); ex(r.rel === 1, 'no related part');
     const rel = await page.locator('.hres .hrel ~ a').count(); ex(rel >= 1, 'related tools missing'); return r.hits.length + ' answers, ' + rel + ' related';
   });
-  await T('home page search: related tools are marked on their cards', async page => {
-    await page.goto(BASE + '/', { waitUntil: 'networkidle' }); await page.fill('#q', 'markdown'); await page.waitForTimeout(400);
-    const shown = await page.locator('.tcard:not(.hidden) b').allInnerTexts(); ex(shown.includes('Markdown Converter'), shown.join(' | ')); ex(await page.locator('.tcard.rel').count() >= 1, 'related cards are not marked'); return shown.length + ' cards';
+  await T('header search: "markdown" lists the Markdown tools', async page => {
+    await page.goto(BASE + '/', { waitUntil: 'networkidle' }); await page.fill('.hsearch input', 'markdown'); await page.waitForTimeout(400);
+    const shown = await page.locator('.hres a').allInnerTexts(); ex(shown.some(t => /Markdown Converter/.test(t)), shown.join(' | ')); ex(shown.length >= 3, 'too few hits: ' + shown.length); return shown.length + ' hits';
   });
 
   // ---------------------------------------------------------------- the navigation bar
   const menu = async (page, name) => { await page.locator('.nv-btn', { hasText: name }).hover(); const sel = `.nv-item:has(> .nv-btn:text-is("${name}")) .nv-panel`; await page.waitForSelector(sel + ':not([hidden]) a', { timeout: 4000 }); return { sel, links: await page.locator(sel + ' a').allInnerTexts(), heads: await page.locator(sel + ' h4').allInnerTexts() }; };
-  await T('navbar: Image, PDF, Video & audio, AI, Convert and All tools menus', async page => {
-    await go(page, '/pdf-editor'); const btns = await page.locator('.nv-btn').allInnerTexts(); ex(btns.map(b => b.trim()).join('|') === 'Image|PDF|Video & audio|AI|Convert|All tools', btns.join('|'));
-    ex((await page.locator('.nv > a').allInnerTexts()).join('|') === 'Blog', 'next to the menus there is only the Blog link');
+  await T('navbar: Image, PDF, Video & audio, AI, Convert and Other tools menus, each with a colour tile', async page => {
+    await go(page, '/pdf-editor'); const btns = await page.locator('.nv-btn').allInnerTexts(); ex(btns.map(b => b.trim()).join('|') === 'Image|PDF|Video & audio|AI|Convert|Other tools', btns.join('|'));
+    ex(await page.locator('.nv > a').count() === 0, 'nothing but the menus in the bar (the Blog link moved to the footer)');
+    ex(await page.locator('.nv-btn > .ticon').count() === 6, 'every menu button has its colour tile');
     const want = { 'Image': ['Compress Image', 'Resize Image', 'Crop Image', 'JPG to PDF', 'EXIF Remover', 'Collage Maker', 'Background Remover'], 'PDF': ['Merge PDF', 'Split PDF', 'Compress PDF', 'PDF Editor', 'HTML to PDF', 'Markdown to PDF', 'Blur & Redact PDF', 'Add Watermark to PDF', 'PDF to Markdown', 'Protect PDF with Password'],
       'Video & audio': ['Video Converter', 'Split Video', 'Merge Audio Files', 'MP4 to MP3 Converter', 'Video to Text (Transcribe)'], 'AI': ['Background Remover', 'Image Upscaler', 'AI Headshot Generator'],
       'Convert': ['JPG to PDF', 'PNG to PDF', 'Markdown to PDF', 'Word (DOCX) to Markdown'] };
     const seen = [];
     for (const [name, items] of Object.entries(want)) { const m = await menu(page, name); for (const n of items) ex(m.links.some(t => t.includes(n)), `${name} menu misses "${n}" (has ${m.links.length}: ${m.links.slice(0, 6).join(', ')}...)`); ex(await page.locator(m.sel + ' .ticon').count() >= m.links.length, name + ': icons missing'); seen.push(`${name} ${m.links.length}`); }
-    const all = await menu(page, 'All tools'); ex(all.heads.join('|').toLowerCase() === 'Image|AI & Enhance|PDF & Documents|Video & Audio|Text & Developer|Utilities'.toLowerCase(), all.heads.join('|')); ex(all.links.length >= 56, 'only ' + all.links.length + ' tools in All tools');
-    await page.locator('.nv-panel:not([hidden]) a', { hasText: 'Font Library' }).click(); await page.waitForURL('**/font-library'); return seen.join(', ') + ', all ' + all.links.length;
+    const other = await menu(page, 'Other tools'); ex(other.heads.join('|').toLowerCase() === 'text and developer|web and sharing|colours and fonts', other.heads.join('|'));
+    for (const n of ['JSON Formatter', 'Visual Sitemap Generator', 'QR Code Generator', 'Font Library']) ex(other.links.some(t => t.includes(n)), `Other tools misses "${n}"`);
+    for (const n of ['Compress Image', 'Merge PDF', 'Video Converter', 'Background Remover']) ex(!other.links.some(t => t.includes(n)), `Other tools should not list "${n}"`);
+    await page.locator('.nv-panel:not([hidden]) a', { hasText: 'Font Library' }).click(); await page.waitForURL('**/font-library'); return seen.join(', ') + ', other ' + other.links.length;
   });
   await T('navbar: only one menu at a time; hover opens, Escape and a click elsewhere close', async page => {
     await go(page, '/'); await menu(page, 'Image'); await menu(page, 'PDF'); ex(await page.locator('.nv-panel:not([hidden])').count() === 1, 'two menus are open');
     await page.keyboard.press('Escape'); await page.waitForTimeout(150); ex(await page.locator('.nv-panel:not([hidden])').count() === 0, 'Escape');
-    await page.locator('.nv-btn', { hasText: 'All tools' }).click(); await page.waitForSelector('.nv-panel.all:not([hidden])'); await page.mouse.click(700, 700); await page.waitForTimeout(200); ex(await page.locator('.nv-panel.all').isHidden(), 'click outside');
+    await page.locator('.nv-btn', { hasText: 'Other tools' }).click(); await page.waitForSelector('.nv-panel.other:not([hidden])'); await page.mouse.click(700, 700); await page.waitForTimeout(200); ex(await page.locator('.nv-panel.other').isHidden(), 'click outside');
   });
   await T('navbar: a menu never runs past the edge of the bar', async page => {
-    await go(page, '/'); for (const n of ['Image', 'PDF', 'Video & audio', 'AI', 'Convert']) { await menu(page, n); const b = await page.locator('.nv-panel:not([hidden])').boundingBox(); ex(b.x >= 0 && b.x + b.width <= 1440, `${n} menu at ${Math.round(b.x)}..${Math.round(b.x + b.width)}`); await page.keyboard.press('Escape'); }
+    await go(page, '/'); for (const n of ['Image', 'PDF', 'Video & audio', 'AI', 'Convert', 'Other tools']) { await menu(page, n); const b = await page.locator('.nv-panel:not([hidden])').boundingBox(); ex(b.x >= 0 && b.x + b.width <= 1441, `${n} menu at ${Math.round(b.x)}..${Math.round(b.x + b.width)}`); await page.keyboard.press('Escape'); }
   });
   await T('navbar: no address on the page contains /tool/', async page => {
-    await go(page, '/'); await page.locator('.nv-btn', { hasText: 'All tools' }).click(); await page.waitForSelector('.nv-panel.all a'); const hrefs = await page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')));
+    await go(page, '/'); await page.locator('.nv-btn', { hasText: 'Other tools' }).click(); await page.waitForSelector('.nv-panel.other a'); const hrefs = await page.evaluate(() => [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')));
     ex(!hrefs.some(h => /\/tool\//.test(h)), 'old address: ' + hrefs.filter(h => /\/tool\//.test(h)).slice(0, 3)); return hrefs.length + ' links checked';
   });
   await T('navbar at 1200 wide: it still fits on one line next to the search', async page => {
@@ -143,7 +146,7 @@ let pass = 0, fail = 0;
   }, { viewport: { width: 1200, height: 800 } });
   await T('navbar on a phone: hamburger, one list per menu, no sideways scroll', async page => {
     await go(page, '/'); ex(await page.locator('.nv').isHidden(), 'the bar should be hidden on a phone'); await page.locator('.nv-burger').click(); await page.waitForSelector('.nv-m:not([hidden]) summary');
-    const heads = await page.locator('.nv-m summary').allInnerTexts(); ex(heads.join('|') === 'Image|PDF|Video & audio|AI|Convert|All tools', heads.join('|'));
+    const heads = await page.locator('.nv-m summary').allInnerTexts(); ex(heads.join('|') === 'Image|PDF|Video & audio|AI|Convert|Other tools', heads.join('|'));
     await page.locator('.nv-m summary', { hasText: /^PDF$/ }).click(); await page.waitForTimeout(200); ex(await page.locator('.nv-m a', { hasText: 'Merge PDF' }).first().isVisible(), 'Merge PDF in the phone menu');
     const w = await page.evaluate(() => [document.documentElement.scrollWidth, innerWidth]); ex(w[0] <= w[1] + 1, 'sideways scroll ' + w); await page.locator('.nv-m a', { hasText: 'Merge PDF' }).first().click(); await page.waitForURL('**/merge-pdf'); return 'ok at ' + w[1];
   }, { viewport: { width: 390, height: 800 }, isMobile: true, hasTouch: true });
@@ -155,7 +158,8 @@ let pass = 0, fail = 0;
   // ---------------------------------------------------------------- the sitemap
   await T('sitemap: every page, once, with a real date, none of them /tool/ or /admin, and each one opens', async page => {
     const xml = await (await page.request.get(BASE + '/sitemap.xml')).text(), locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]), dates = [...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]);
-    ex(locs.length >= 124, 'only ' + locs.length + ' urls'); ex(new Set(locs).size === locs.length, 'duplicate addresses'); ex(locs.every(u => /^https:\/\/toolzbaba\.com(\/[a-z0-9-]*)?$/.test(u)), 'a strange address: ' + locs.find(u => !/^https:\/\/toolzbaba\.com(\/[a-z0-9-]*)?$/.test(u)));
+    ex(locs.length >= 124, 'only ' + locs.length + ' urls'); ex(new Set(locs).size === locs.length, 'duplicate addresses'); const okLoc = u => /^https:\/\/toolzbaba\.com(\/[a-z]{2}(?=\/))?(\/[a-z0-9-]*)?$/.test(u) || /^https:\/\/toolzbaba\.com\/india-saas-startups(\/sector)?\/[a-z0-9-]+$/.test(u);   // /<tool>, or /<language>/ and /<language>/<tool>
+    ex(locs.every(okLoc), 'a strange address: ' + locs.find(u => !okLoc(u)));
     ex(!locs.some(u => /\/tool\/|\/admin|\/api\//.test(u)), 'a private or old address is listed'); ex(dates.length === locs.length && dates.every(d => /^\d{4}-\d{2}-\d{2}$/.test(d)), 'bad dates');
     for (const must of ['/', '/merge-pdf', '/split-pdf', '/markdown-to-pdf', '/html-to-pdf', '/jpg-to-pdf', '/png-to-pdf', '/docx-to-markdown', '/markdown-converter', '/pdf-editor', '/font-library', '/blur-redact-pdf']) ex(locs.includes('https://toolzbaba.com' + must), must + ' is not in the sitemap');
     const bad = []; for (const u of locs) { const r = await page.request.get(BASE + u.replace('https://toolzbaba.com', ''), { maxRedirects: 0 }); if (r.status() !== 200) bad.push(u + ' ' + r.status()); }

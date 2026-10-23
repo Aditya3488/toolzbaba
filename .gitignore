@@ -35,3 +35,9 @@ dist/
 # ---- Cloudflare local dev: secrets and state
 .dev.vars
 .wrangler/
+
+# ---- India SaaS pipeline
+# the blanket "data/" rule above would hide the generated database too, so let that
+# one folder back in; only its HTTP cache stays out (it is rebuilt on demand)
+!india_saas/data/
+india_saas/data/cache/

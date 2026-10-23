@@ -26,6 +26,101 @@
     return n;
   };
   const el = HT.el;
+
+  // ---------------------------------------------------------------- languages
+  // English lives at the site root, every other language under /<code>/ (build.py writes the pages, with the tool texts already
+  // translated). The page's <html lang> says which one this is. Everything the scripts draw (buttons, menus, messages) is
+  // translated as it appears, from /assets/i18n/<code>.json: an exact English phrase, or a pattern like "Page {0} of {1}".
+  HT.lang = (document.documentElement.lang || 'en').toLowerCase();
+  HT.L = HT.lang === 'en' ? '' : '/' + HT.lang;
+  HT.href = slug => HT.L + '/' + slug;
+  let dict = null, patterns = [];
+  HT.t = (s, ...a) => { let t = (dict && dict[s]) || s; a.forEach((v, i) => { t = t.split('{' + i + '}').join(v); }); return t; };
+  const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const translate = s => {
+    if (!dict || !s || s.length > 600 || !/[A-Za-z]/.test(s)) return s;
+    if (dict[s]) return dict[s];
+    for (const p of patterns) {
+      if (p.head && !s.startsWith(p.head)) continue;
+      const m = p.re.exec(s); if (!m) continue;
+      let t = p.to; p.nums.forEach((n, i) => { t = t.split('{' + n + '}').join(p.plural.has(n) ? '' : m[i + 1]); }); return t;
+    }
+    return s;
+  };
+  const SKIP = 'script,style,textarea,pre,code,[contenteditable],[data-notr],#seo';
+  const doText = n => { const v = n.nodeValue, core = v.trim(); if (!core) return; const t = translate(core); if (t !== core) n.nodeValue = v.replace(core, t); };
+  const doAttrs = e => { for (const a of ['placeholder', 'title', 'aria-label']) { const v = e.getAttribute && e.getAttribute(a); if (v) { const t = translate(v); if (t !== v) e.setAttribute(a, t); } } };
+  const walkTr = root => {
+    if (root.nodeType === 3) { if (!(root.parentElement && root.parentElement.closest(SKIP))) doText(root); return; }
+    if (root.nodeType !== 1 || root.closest(SKIP)) return;
+    doAttrs(root);
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, { acceptNode: n => (n.nodeType === 1 && n.matches(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT) });
+    for (let n = w.nextNode(); n; n = w.nextNode()) (n.nodeType === 3 ? doText : doAttrs)(n);
+  };
+  HT.i18n = HT.lang === 'en' ? Promise.resolve(null) : fetch(HT.ver('/assets/i18n/' + HT.lang + '.json')).then(r => (r.ok ? r.json() : null)).catch(() => null).then(d => {
+    if (!d) return null;
+    dict = d;
+    patterns = Object.keys(d).filter(k => /\{\d+\}/.test(k)).map(k => {
+      const parts = k.split(/(\{\d+\})/), nums = [], plural = new Set(); let src = '^';
+      parts.forEach((part, i) => {
+        const m = /^\{(\d+)\}$/.exec(part); if (!m) { src += reEsc(part); return; }
+        const pl = /[a-z]$/.test(parts[i - 1] || ''); nums.push(m[1]); if (pl) plural.add(m[1]);
+        src += pl ? '([a-z]{0,2})' : '([\\s\\S]+?)';
+      });
+      return { head: parts[0], nums, plural, to: d[k], re: new RegExp(src + '$') };
+    }).sort((a, b) => b.head.length - a.head.length);
+    const go = () => {
+      walkTr(document.body);
+      new MutationObserver(ms => { for (const m of ms) {
+        if (m.type === 'characterData') { if (!(m.target.parentElement && m.target.parentElement.closest(SKIP))) doText(m.target); }
+        else if (m.type === 'attributes') { if (!m.target.closest(SKIP)) doAttrs(m.target); }
+        else m.addedNodes.forEach(walkTr);
+      } }).observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['placeholder', 'title', 'aria-label'] });
+    };
+    document.body ? go() : addEventListener('DOMContentLoaded', go);
+    return d;
+  });
+  // the page in another language (the same address, under that language's folder)
+  const LANG_PREFIX = /^\/(hi|bn|es|pt|id|fr|de|ru|ja|tr|vi|it|ar|pl)(?=\/|$)/;
+  HT.pathIn = code => { const rest = location.pathname.replace(LANG_PREFIX, '') || '/'; return (code === 'en' ? '' : '/' + code) + rest + location.search + location.hash; };
+  const langsP = () => fetch(HT.ver('/assets/langs.json')).then(r => (r.ok ? r.json() : [])).catch(() => []);
+  const langPicker = () => {
+    const b = el('button', { class: 'iconbtn langbtn', type: 'button', 'aria-label': 'Language', title: 'Language', 'aria-expanded': 'false', hidden: true },
+      HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg>'),
+      el('span', { class: 'langcode', text: HT.lang.toUpperCase() }));
+    const menu = el('div', { class: 'langmenu', hidden: true, role: 'menu' }), wrap = el('div', { class: 'langwrap' }, b, menu);
+    langsP().then(list => {
+      if (list.length < 2) return;
+      b.hidden = false;
+      for (const l of list) menu.append(el('a', { href: HT.pathIn(l.code), hreflang: l.code, lang: l.code, role: 'menuitem', class: l.code === HT.lang ? 'on' : null, 'data-notr': '', text: l.name,
+        onclick: () => { try { localStorage.setItem('tz_lang', l.code); } catch { } } }));
+    });
+    const close = () => { menu.hidden = true; b.setAttribute('aria-expanded', 'false'); };
+    b.onclick = e => { e.stopPropagation(); menu.hidden = !menu.hidden; b.setAttribute('aria-expanded', menu.hidden ? 'false' : 'true'); };
+    document.addEventListener('click', e => { if (!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    return wrap;
+  };
+  // an English page, a visitor whose browser speaks one of our languages: offer it once (never a forced redirect, so search engines and
+  // people who prefer English see English)
+  const suggestLang = () => {
+    if (HT.lang !== 'en') return;
+    let saved = null; try { saved = localStorage.getItem('tz_lang'); } catch { }
+    if (saved) return;
+    const want = (navigator.languages || [navigator.language || '']).map(x => String(x).toLowerCase().split('-')[0]).find(x => x && x !== 'en');
+    if (!want) return;
+    langsP().then(async list => {
+      const l = list.find(x => x.code === want); if (!l) return;
+      const d = await fetch(HT.ver('/assets/i18n/' + l.code + '.json')).then(r => r.json()).catch(() => null), say = s => (d && d[s]) || s;
+      const no = () => { try { localStorage.setItem('tz_lang', 'en'); } catch { } bar.remove(); };
+      const bar = el('div', { class: 'langbar', lang: l.code, dir: l.rtl ? 'rtl' : null, 'data-notr': '' },
+        el('span', { text: say('Use Toolz Baba in {0}?').replace('{0}', l.name) }),
+        el('a', { class: 'btn sm', href: HT.pathIn(l.code), text: say('Switch'), onclick: () => { try { localStorage.setItem('tz_lang', l.code); } catch { } } }),
+        el('button', { class: 'btn ghost sm', type: 'button', text: say('Not now'), onclick: no }));
+      document.body.append(bar);
+    });
+  };
+
   // small inline SVG icons (static strings only, never user data)
   const ICON = {
     upload: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>',
@@ -38,6 +133,8 @@
     auto: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8m-4-4v4"/></svg>',
     star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>',
     bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>',
+    again: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>',
   };
   HT.ICON = ICON;
   HT.svg = html => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; };
@@ -63,10 +160,21 @@
   HT.loadScript = src => (src = HT.ver(src), scripts[src] || (scripts[src] = new Promise((res, rej) => { const s = el('script', Object.assign({ src }, /\/assets\/tools\//.test(src) ? { type: 'module' } : {})); s.onload = res; s.onerror = () => rej(new Error('Could not load ' + src)); document.head.append(s); })));
 
   // ---------------------------------------------------------------- files / images / downloads
+  // files handed from one page to the next (the home page's message box -> the tool): kept in the browser's IndexedDB for one hop
+  HT.handoff = (() => {
+    const open = () => new Promise((res, rej) => { const r = indexedDB.open('tz-handoff', 1); r.onupgradeneeded = () => r.result.createObjectStore('f'); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+    const run = async (mode, fn) => { const db = await open(); return new Promise((res, rej) => { const t = db.transaction('f', mode), q = fn(t.objectStore('f')); t.oncomplete = () => { db.close(); res(q && q.result); }; t.onerror = () => { db.close(); rej(t.error); }; }); };
+    return { put: files => run('readwrite', s => s.put({ files, at: Date.now() }, 'next')).catch(() => { }),
+      take: async () => { try { const v = await run('readonly', s => s.get('next')); if (!v) return []; await run('readwrite', s => s.delete('next')); return Date.now() - v.at < 180e3 ? v.files : []; } catch { return []; } } };
+  })();
+  // one line into the data layer Tag Manager reads: GA4 sees it once a trigger for the event name exists in the container
+  HT.track = (event, data) => { try { (window.dataLayer = window.dataLayer || []).push({ event, ...data }); } catch { } };
   HT.download = (blobOrUrl, name) => {
+    HT.track('tool_download', { tool: (location.pathname.replace(LANG_PREFIX, '').match(/^\/([a-z0-9][a-z0-9-]*)$/) || [])[1] || 'home', ext: String(name || '').split('.').pop().toLowerCase().slice(0, 8) });
     const url = typeof blobOrUrl === 'string' ? blobOrUrl : URL.createObjectURL(blobOrUrl);
     const a = el('a', { href: url, download: name }); document.body.append(a); a.click(); a.remove();
-    try { bookmarkNudge(); } catch { }
+    lastFile = typeof blobOrUrl === 'string' ? { url: blobOrUrl, name } : { blob: blobOrUrl, name };
+    afterDownload();
     if (typeof blobOrUrl !== 'string') setTimeout(() => URL.revokeObjectURL(url), 4000);
   };
   HT.zip = async entries => {
@@ -142,6 +250,55 @@
 
   HT.matches = matches;
 
+
+  // ---------------------------------------------------------------- open files from Google Drive or Dropbox
+  // Shown under the drop box only when the site has the keys (build.py: GOOGLE_API_KEY + GOOGLE_CLIENT_ID + GOOGLE_APP_ID,
+  // DROPBOX_APP_KEY; see README). The file goes straight from Google or Dropbox into this browser: it is still never sent to us.
+  // Pages that run the AI with cross-origin isolation can't host the sign-in popups, so the buttons are left out there.
+  const loadJs = (src, attrs = {}) => new Promise((res, rej) => {
+    if (document.querySelector(`script[src="${src}"]`)) return res();
+    const s = el('script', { src, ...attrs }); s.onload = res; s.onerror = () => rej(new Error('Could not reach ' + new URL(src).hostname + '. Check your connection.')); document.head.append(s);
+  });
+  const EXT_MIME = { pdf: 'application/pdf', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', gif: 'image/gif', heic: 'image/heic', avif: 'image/avif', svg: 'image/svg+xml',
+    docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    xls: 'application/vnd.ms-excel', csv: 'text/csv', txt: 'text/plain', md: 'text/markdown', html: 'text/html', mp3: 'audio/mpeg', wav: 'audio/wav', m4a: 'audio/mp4', mp4: 'video/mp4', mov: 'video/quicktime', webm: 'video/webm' };
+  const WILD = { 'image/*': ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/avif'], 'video/*': ['video/mp4', 'video/quicktime', 'video/webm', 'video/x-matroska'], 'audio/*': ['audio/mpeg', 'audio/wav', 'audio/mp4', 'audio/ogg', 'audio/flac', 'audio/aac'] };
+  const acceptTokens = accept => String(accept || '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+  async function fromDropbox(accept, multiple, key) {
+    if (!window.Dropbox) await loadJs('https://www.dropbox.com/static/api/2/dropins.js', { id: 'dropboxjs', 'data-app-key': key });
+    const exts = [...new Set(acceptTokens(accept).map(t => (t.startsWith('.') ? t : t === 'image/*' ? 'images' : t === 'video/*' ? 'video' : t === 'audio/*' ? 'audio' : null)).filter(Boolean))];
+    const list = await new Promise(res => Dropbox.choose({ linkType: 'direct', multiselect: !!multiple, extensions: exts.length ? exts : undefined, success: res, cancel: () => res([]) }));
+    return Promise.all(list.map(async f => { const r = await fetch(f.link); if (!r.ok) throw new Error(`Could not download ${f.name} from Dropbox.`); return new File([await r.blob()], f.name); }));
+  }
+  let gToken = null;
+  async function fromDrive(accept, multiple, c) {
+    await loadJs('https://apis.google.com/js/api.js'); await new Promise(r => gapi.load('picker', r));
+    await loadJs('https://accounts.google.com/gsi/client');
+    if (!gToken || gToken.until < Date.now()) gToken = await new Promise((res, rej) => google.accounts.oauth2.initTokenClient({ client_id: c.googleClientId, scope: 'https://www.googleapis.com/auth/drive.file',
+      callback: r => (r.error ? rej(new Error('Google: ' + r.error)) : res({ token: r.access_token, until: Date.now() + (r.expires_in - 60) * 1000 })), error_callback: e => rej(new Error((e && e.message) || 'Google sign-in was closed.')) }).requestAccessToken({ prompt: '' }));
+    const mimes = [...new Set(acceptTokens(accept).flatMap(t => WILD[t] || (t.startsWith('.') ? [EXT_MIME[t.slice(1)]] : t.includes('/') ? [t] : [])).filter(Boolean))];
+    const docs = await new Promise(res => {
+      const view = new google.picker.DocsView(google.picker.ViewId.DOCS).setIncludeFolders(true); if (mimes.length) view.setMimeTypes(mimes.join(','));
+      const b = new google.picker.PickerBuilder().addView(view).setOAuthToken(gToken.token).setDeveloperKey(c.googleApiKey).setAppId(c.googleAppId).setOrigin(location.origin)
+        .setCallback(d => { if (d.action === google.picker.Action.PICKED) res(d.docs); else if (d.action === google.picker.Action.CANCEL) res([]); });
+      if (multiple) b.enableFeature(google.picker.Feature.MULTISELECT_ENABLED);
+      b.build().setVisible(true);
+    });
+    return Promise.all(docs.map(async d => {
+      const r = await fetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(d.id)}?alt=media`, { headers: { Authorization: 'Bearer ' + gToken.token } });
+      if (!r.ok) throw new Error(`Could not download ${d.name} from Google Drive${/google-apps/.test(d.mimeType) ? ' (Google Docs files must be downloaded as a normal file first)' : ''}.`);
+      return new File([await r.blob()], d.name, { type: d.mimeType });
+    }));
+  }
+  const cloudButtons = (box, accept, multiple, take) => HT.config().then(c => {
+    if (window.crossOriginIsolated || !(c.dropboxAppKey || (c.googleApiKey && c.googleClientId))) return;
+    const go = (fn, name) => async e => { e.stopPropagation(); try { HT.toast(HT.t('Opening {0}...', name)); const files = await fn(); if (files.length) take(files); } catch (x) { HT.toast(x.message || HT.t('Could not open {0}.', name)); } };
+    const row = el('div', { class: 'drop-cloud' }, el('span', { text: 'or open from' }),
+      c.googleApiKey && c.googleClientId ? el('button', { type: 'button', class: 'cloudbtn', onclick: go(() => fromDrive(accept, multiple, c), 'Google Drive') }, el('i', { class: 'gd' }), 'Google Drive') : null,
+      c.dropboxAppKey ? el('button', { type: 'button', class: 'cloudbtn', onclick: go(() => fromDropbox(accept, multiple, c.dropboxAppKey), 'Dropbox') }, el('i', { class: 'db' }), 'Dropbox') : null);
+    box.append(row);
+  }).catch(() => { });
+
   // ---------------------------------------------------------------- dropzone
   HT.dropzone = ({ accept, multiple = false, label, hint, onFiles }) => {
     const input = el('input', { type: 'file', hidden: true, accept: accept || null, multiple: multiple || null });
@@ -164,6 +321,7 @@
     box.addEventListener('drop', e => take(e.dataTransfer.files));
     const onPaste = e => { if (!document.body.contains(box)) return document.removeEventListener('paste', onPaste); const fs = [...(e.clipboardData?.files || [])]; if (fs.length) take(fs); };
     document.addEventListener('paste', onPaste);
+    cloudButtons(box, accept, multiple, take);
     return box;
   };
 
@@ -259,7 +417,7 @@
       console.warn(e);   // a message for the visitor (wrong password, no face found ...) is not a crash
       Object.assign(job, { status: 'error', error: (e && e.message) || 'Processing failed.' });
     });
-    job.done.then(() => HT.rum && HT.rum.run(slug, performance.now() - t0, job.status === 'done'));
+    job.done.then(() => { HT.rum && HT.rum.run(slug, performance.now() - t0, job.status === 'done'); HT.track('tool_run', { tool: slug, ok: job.status === 'done' ? 1 : 0, seconds: Math.round((performance.now() - t0) / 100) / 10 }); });
     return { id };
   };
   HT.poll = (id, onStatus) => new Promise((res, rej) => {
@@ -273,13 +431,21 @@
     job.done.then(tick);
   });
 
-  // A progress bar + status line pair
+  // A progress bar + status line pair. While a job runs the time so far ticks after the message ("12 s", shown by
+  // CSS from data-tm), and until there is a real percentage the bar sweeps, so a long job never looks stuck.
   HT.progress = () => {
     const fill = el('i'), bar = el('div', { class: 'bar' }, fill), st = el('div', { class: 'status' });
+    let t0 = 0, timer = 0;
+    const show = () => { const s = (performance.now() - t0) / 1000; st.dataset.tm = s < 1 ? '' : s < 60 ? Math.floor(s) + ' s' : Math.floor(s / 60) + ' min ' + Math.floor(s % 60) + ' s'; };
+    const stop = () => { clearInterval(timer); timer = 0; st.dataset.tm = ''; };
     return { bar, st, el: el('div', {}, bar, st),
-      set(p, msg) { bar.style.display = 'block'; fill.style.width = Math.max(0, Math.min(100, p)) + '%'; st.className = 'status'; st.textContent = msg || ''; },
-      error(msg) { bar.style.display = 'none'; st.className = 'status err'; st.textContent = msg; },
-      clear() { bar.style.display = 'none'; st.className = 'status'; st.textContent = ''; } };
+      set(p, msg) {
+        bar.style.display = 'block'; bar.classList.toggle('busy', p < 3); fill.style.width = Math.max(0, Math.min(100, p)) + '%';
+        st.className = 'status'; st.textContent = msg || '';
+        if (!timer) { t0 = performance.now(); timer = setInterval(show, 200); }
+      },
+      error(msg) { stop(); bar.style.display = 'none'; st.className = 'status err'; st.textContent = msg; },
+      clear() { stop(); bar.style.display = 'none'; st.className = 'status'; st.textContent = ''; } };
   };
 
   // The workbench: everything you can change in a left sidebar, the preview / result on the right (stacked on small screens).
@@ -332,6 +498,7 @@
     const list = HT.fileList({ reorder: cfg.reorder, onChange: sync });
     // a tab page can start the tool with some settings already chosen: "preset" in tools.json, e.g. /png-to-jpg -> { "format": "jpg" }
     const pre = (HT.pageMeta && HT.pageMeta.preset) || {};
+    const preExtra = Object.fromEntries(Object.entries(pre).filter(([k]) => !(cfg.fields || []).some(f => f.name === k)));   // preset keys with no field go straight to the engine
     const dz = HT.dropzone({ accept: cfg.accept, multiple, label: (HT.pageMeta && HT.pageMeta.dropLabel) || cfg.dropLabel, hint: cfg.hint, onFiles: fs => list.add(fs, multiple) });
     const form = HT.form((cfg.fields || []).map(f => f.name in pre ? { ...f, value: pre[f.name] } : f), () => toggleExtra());
     const prog = HT.progress(), resultBox = el('div');
@@ -376,7 +543,7 @@
       resultBox.textContent = ''; run.disabled = true;
       try {
         prog.set(0, 'Starting...');
-        const { id } = await HT.upload(cfg.slug, send, cfg.buildOptions ? cfg.buildOptions(vals, files) : vals);
+        const { id } = await HT.upload(cfg.slug, send, { ...preExtra, ...(cfg.buildOptions ? cfg.buildOptions(vals, files) : vals) });
         const job = await HT.poll(id, s => prog.set(s.progress || 0, (s.speed || (s.status === 'processing' ? 'Finishing up...' : `Processing ${Math.round(s.progress || 0)}%`))));
         prog.clear(); empty.classList.add('hidden');
         if (matchMedia('(max-width:900px)').matches) setTimeout(() => main.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);  // on a phone the result sits above the settings
@@ -460,6 +627,7 @@
     'image-to-svg': '<circle cx="5.8" cy="18.2" r="2.3"/><circle cx="18.2" cy="5.8" r="2.3"/><path d="M8 18.2c7 0 1.5-12.4 8-12.4"/>',
     'remove-background': '<path d="M4.5 19.5l11-11"/><path d="M15 8.5l1.5 1.5"/><path d="M15 3.5v3M13.5 5h3M19.5 10v3M18 11.5h3M8 3.5v2M7 4.5h2"/>',
     'replace-background': '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.7"/><path d="M4 18l5-5 4 4 3-3 4.5 4.5"/>',
+    'image-enhancer': '<path d="M4 20 15 9"/><path d="m14 6 1-3 1 3 3 1-3 1-1 3-1-3-3-1z"/><path d="M19.5 13.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/><path d="M7 3.5l.5 1.2 1.2.5-1.2.5L7 6.9l-.5-1.2-1.2-.5 1.2-.5z"/>',
     'upscale-image': '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4l5.1 5.1M7.8 10.5h5.4M10.5 7.8v5.4"/>',
     'face-blur': '<circle cx="12" cy="12" r="8.6"/><path d="M8.6 10h.01M15.4 10h.01" stroke-width="2.6"/><path d="M8.5 15.2h7" stroke-dasharray="1.4 2.2"/>',
     'anime-style': '<circle cx="12" cy="7" r="3"/><circle cx="17" cy="11" r="3"/><circle cx="15" cy="17" r="3"/><circle cx="9" cy="17" r="3"/><circle cx="7" cy="11" r="3"/>',
@@ -476,6 +644,7 @@
     'video-trimmer': '<circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8.2l12 9.3M8 15.8L20 6.5"/>',
     'compress-video': '<path d="M13.2 2.8L5 13.6h6.2L10 21.2l8.2-10.8H12z"/>',
     'image-color-palette-extractor': '<path d="M12 3a9 9 0 1 0 0 18c1.6 0 2.2-1.1 1.6-2.4-.6-1.4.3-2.9 1.9-2.9H18a3 3 0 0 0 3-3C21 7 17 3 12 3z"/><path d="M7.6 11.2h.01M10.2 7.6h.01M14.6 7.6h.01" stroke-width="2.6"/>',
+    'visual-sitemap-generator': '<rect x="9" y="2.5" width="6" height="5" rx="1.4"/><rect x="2.5" y="16.5" width="6" height="5" rx="1.4"/><rect x="15.5" y="16.5" width="6" height="5" rx="1.4"/><path d="M12 7.5V12M5.5 16.5V12h13v4.5"/>',
     'qr-code-generator': '<rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/><path d="M14 14h2.6v2.6M20.5 14v.01M14 20.5v.01M17.6 20.5h2.9v-2.9"/>',
     base64: '<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.6 5l-3.2 14"/>',
     'image-cdn': '<path d="M7 18.5a4.5 4.5 0 0 1-.6-8.9 6 6 0 0 1 11.7.9A4 4 0 0 1 17.5 18.5z"/><path d="M12 15.5v-5m0 0-2.2 2.2M12 10.5l2.2 2.2"/>',
@@ -516,7 +685,7 @@
     base64: 'teal', 'image-cdn': 'blue', lock: 'green', bolt: 'amber', toolbox: 'purple', grid: 'blue',
   };
   Object.assign(TOOL_COLOR, {
-    'resize-image-to-kb': 'green', 'passport-size-photo-maker': 'blue', 'image-to-text': 'purple', 'organize-pdf': 'orange', 'esign-pdf': 'indigo',
+    'visual-sitemap-generator': 'teal', 'resize-image-to-kb': 'green', 'passport-size-photo-maker': 'blue', 'image-to-text': 'purple', 'organize-pdf': 'orange', 'esign-pdf': 'indigo',
     'add-page-numbers-to-pdf': 'amber', 'protect-pdf': 'red', 'unlock-pdf': 'green', 'audio-cutter': 'pink', 'video-merger': 'blue', 'change-video-speed': 'teal',
     'json-formatter': 'indigo', 'word-counter': 'blue', 'text-case-converter': 'amber', 'password-generator': 'red', 'hash-uuid-generator': 'purple', 'url-encoder': 'teal',
   });
@@ -547,6 +716,20 @@
   GLYPH['mp4-to-mp3'] = GLYPH['video-to-audio']; TOOL_COLOR['mp4-to-mp3'] = TOOL_COLOR['video-to-audio'];
   for (const k of ['markdown-converter', 'markdown-to-pdf', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown', 'pdf-to-markdown']) { GLYPH[k] = GLYPH['markdown-converter']; TOOL_COLOR[k] = 'indigo'; }
   TOOL_COLOR['html-to-pdf'] = 'amber';
+  // batch 2: more PDF tools and the audio converter
+  Object.assign(GLYPH, {
+    'pdf-to-excel': '<rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M3.5 14.5h17M9.5 4v16"/>',
+    'pdf-to-powerpoint': '<rect x="3" y="4" width="18" height="12.5" rx="2.2"/><path d="M12 16.5V20M8.5 20h7M8 12.5v-3M12 12.5v-5M16 12.5v-2"/>',
+    'powerpoint-to-pdf': '<path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><rect x="8" y="11" width="8" height="6" rx="1"/>',
+    'crop-pdf': '<path d="M6 2.5v14a2 2 0 0 0 2 2h13.5"/><path d="M2.5 6H16a2 2 0 0 1 2 2v13.5"/>',
+    'flatten-pdf': '<path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+    'compare-pdf': '<rect x="3" y="4" width="8" height="16" rx="1.8"/><rect x="13" y="4" width="8" height="16" rx="1.8"/><path d="M5.5 9h3M5.5 12h3M15.5 9h3M15.5 12h3"/>',
+    'repair-pdf': '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5a2 2 0 0 0 2.9 2.9l5.8-5.8a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.5-.5-2.4z"/>',
+    'pdf-to-text': '<path d="M5 5h14M12 5v14M8.5 19h7"/>',
+    'audio-converter': '<path d="M9 17V5l10-2v12"/><circle cx="6.5" cy="17" r="2.5"/><circle cx="16.5" cy="15" r="2.5"/>',
+  });
+  Object.assign(TOOL_COLOR, { 'pdf-to-excel': 'green', 'pdf-to-powerpoint': 'orange', 'powerpoint-to-pdf': 'red', 'crop-pdf': 'teal', 'flatten-pdf': 'indigo',
+    'compare-pdf': 'blue', 'repair-pdf': 'amber', 'pdf-to-text': 'purple', 'audio-converter': 'pink' });
   // NEW-TOOL-ICONS-END
   // HT.toolIcon('compress-image') -> <span class="ticon"> gradient tile with the white glyph. size: 'xs' | undefined (fills its box)
   HT.toolIcon = (key, size) => {
@@ -593,7 +776,8 @@
   // A first-time visitor has no saved list yet: it is fetched together with tools.json (waiting at most 1.2 s for it), so an archived tool is never
   // shown at all. Later visits use the saved list straight away and refresh it in the background when it is older than 10 minutes.
   HT.loadTools = () => toolsP || (toolsP = (async () => {
-    const saved = statusCache(), tp = fetch(HT.ver('/assets/tools.json')).then(r => r.json());
+    const saved = statusCache(), tp = (HT.lang === 'en' ? Promise.reject() : fetch(HT.ver('/assets/tools.' + HT.lang + '.json')).then(r => (r.ok ? r.json() : Promise.reject())))
+      .catch(() => fetch(HT.ver('/assets/tools.json')).then(r => r.json()));
     if (!saved) await Promise.all([tp, Promise.race([HT.status.refresh(true), new Promise(r => setTimeout(r, 1200))])]);
     else if (Date.now() - saved.t >= STATUS_TTL) (window.requestIdleCallback || (f => setTimeout(f, 1500)))(() => HT.status.refresh(true));
     return sortOutArchived(await tp);
@@ -614,60 +798,164 @@
     if (android) return { key: null, steps: 'Tap the ⋮ menu in your browser, then the star ☆ ("Add to bookmarks"). You can also pick "Install app" or "Add to Home screen".' };
     return { key: mac ? ['⌘', 'D'] : ['Ctrl', 'D'], steps: 'Press these keys on your keyboard while you are on this page:' };
   };
-  // A centred popup: "Never miss free tools". Opened after a download, and from the footer's "Bookmark this site".
-  // "Bookmark" offers "Install app" where the browser supports it, otherwise it shows the keys / taps for this device.
-  const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze';
-  const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return Infinity; } };
-  const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Date.now() + ms)); } catch { } };
-  HT.bookmark = ({ fromDownload = false } = {}) => {
-    if (document.querySelector('.bmmodal')) return;
-    const k = keysFor(), before = document.activeElement;
-    const hide = el('input', { type: 'checkbox' });
-    const close = () => { if (fromDownload && hide.checked) snooze(HOUR); wrap.remove(); document.removeEventListener('keydown', esc); if (before && before.focus) before.focus(); };
-    const esc = e => { if (e.key === 'Escape') close(); };
-    const keys = () => k.key ? el('div', { class: 'bmkeys' }, el('kbd', { text: k.key[0] }), el('span', { text: '+' }), el('kbd', { text: k.key[1] })) : null;
-    const body = el('div', { class: 'bmbody' });
-    const howTo = () => {   // the browser cannot be asked to add a bookmark, so say exactly how
-      body.textContent = '';
-      body.append(el('p', { class: 'bmhow', text: k.key ? 'Press these keys now to bookmark this page:' : k.steps }), keys(),
-        el('div', { class: 'bmact' }, el('button', { class: 'btn', type: 'button', text: 'Done', onclick: close })));
-      body.querySelector('button').focus();
-    };
-    const bookmark = async () => {
-      snooze(30 * 24 * HOUR);   // they said yes: no reminders for a month
-      if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') return close(); } catch { installEvt = null; } }
-      howTo();
-    };
-    body.append(
-      el('label', { class: 'bmhide', hidden: fromDownload ? null : 'hidden' }, hide, el('span', { text: "Don't show this again for 1 hour" })),
-      el('div', { class: 'bmact' },
-        el('button', { class: 'btn', type: 'button', onclick: bookmark }, HT.svg(ICON.star), installEvt ? 'Install app' : 'Bookmark'),
-        el('button', { class: 'btn sec', type: 'button', text: 'Not now', onclick: close })));
-    const card = el('div', { class: 'bmcard', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'bm-title' },
-      el('button', { class: 'bmx', type: 'button', 'aria-label': 'Close', text: '×', onclick: close }),
-      el('div', { class: 'bmicon' }, HT.svg(ICON.star)),
-      el('h2', { id: 'bm-title', text: 'Never miss free tools' }),
-      el('p', { class: 'bmsub', text: 'Just bookmark this site. Every tool is free, with no sign-up, whenever you need it again.' }),
-      body);
-    const wrap = el('div', { class: 'bmmodal', onclick: e => { if (e.target === wrap) close(); } }, card);
-    document.body.append(wrap); document.addEventListener('keydown', esc);
-    card.querySelector('.bmact .btn').focus();
+  // ---- the star: one body with three faces (assets/brand/star-faces.webp, made by brand-source/make-star-faces.py).
+  // .tzstar shows the resting star; adding .play runs the animation once: the faces swap, the body moves smoothly (tzface and tzbody in app.css).
+  const STAR_SPRITE = '/assets/brand/star-faces.webp';
+  let starReady = false;
+  HT.star = (px, { play = false } = {}) => {
+    const s = el('span', { class: 'tzstar', 'aria-hidden': 'true' }); s.style.setProperty('--tzs', px + 'px');
+    if (play) HT.playStar(s);
+    return s;
   };
-  // after a finished download: the popup, unless it was snoozed, or already shown in the last 2 minutes (one popup for a batch of downloads)
+  HT.playStar = s => {   // starts only when the sprite has loaded, so the first frames are never played on an empty box
+    const go = () => { s.classList.remove('play'); void s.offsetWidth; s.classList.add('play'); };
+    if (starReady) return go();
+    const img = new Image(); img.onload = () => { starReady = true; go(); }; img.src = STAR_SPRITE;   // onload, not decode(): decode() waits while the tab is hidden
+  };
+  // the header's star plays on every page load, and again when the Bookmark button is hovered or tapped
+  const bookmarkButton = () => {
+    const star = HT.star(20, { play: true });
+    const b = el('button', { class: 'bmbtn', type: 'button', 'aria-label': 'Bookmark this site', title: 'Bookmark this site' }, star, el('span', { text: 'Bookmark' }));
+    b.addEventListener('mouseenter', () => HT.playStar(star));
+    b.onclick = () => { HT.playStar(star); HT.bookmark(); };
+    return b;
+  };
+
+  // "Never miss free tools": a toast at the top centre, a little under the header. It opens like a funnel (small to big,
+  // moving down), stays until the visitor answers, and leaves the other way (big to small, moving up).
+  // Answering: a tap on the toast = "yes, bookmark" (Install app where the browser offers it, otherwise the keys / taps
+  // for this device, since no browser lets a page add a bookmark by itself); x or Esc = "not now" (no reminder for 1 hour).
+  // Shown after a download, by the header's Bookmark button and by the footer link.
+  // How long it stays away: 30 days once we know it worked (Ctrl/Cmd+D pressed, or the app installed), 1 day after a tap
+  // that only showed how to bookmark (we cannot tell whether they did it), 1 hour after "not now". Browsers that block
+  // storage just see it after each download (at most once every 2 minutes); the installed app never sees it.
+  const HOUR = 3600e3, SNOOZE = 'tz_bm_snooze2';   // "2": the old key could hold 30 days from a tap that never bookmarked
+  const snoozedUntil = () => { try { return +localStorage.getItem(SNOOZE) || 0; } catch { return 0; } };
+  const snooze = ms => { try { localStorage.setItem(SNOOZE, String(Math.max(Date.now() + ms, snoozedUntil()))); } catch { } };   // the longer pause wins
+  HT.bookmark = ({ fromDownload = false } = {}) => {
+    const old = document.querySelector('.bmtoast'); if (old) old.remove();
+    const k = keysFor();
+    let done = false;
+    const close = ({ notNow = false } = {}) => {
+      if (done) return; done = true;
+      if (notNow && fromDownload) snooze(HOUR);
+      document.removeEventListener('keydown', onKey);
+      toast.classList.add('out'); setTimeout(() => toast.remove(), 420);
+    };
+    // Esc = not now; Ctrl+D / Cmd+D while the toast shows = they bookmarked: let the browser do it, then say goodbye
+    const onKey = e => { if (e.key === 'Escape') close({ notNow: true }); else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') { snooze(30 * 24 * HOUR); setTimeout(() => close(), 300); } };
+    // where the browser can install the site as an app (Chrome, Edge, Android), that is the better offer: it sits on the home screen
+    const sub = el('p', { class: 'bmsub', text: installEvt ? 'Install the free app: one tap from your home screen.' : 'Just bookmark this site.' });
+    const yes = async () => {
+      if (toast.classList.contains('how')) return;
+      snooze(24 * HOUR);   // they said yes, but may not finish: ask again tomorrow, not after every download
+      if (installEvt) { try { installEvt.prompt(); const c = await installEvt.userChoice; installEvt = null; if (c && c.outcome === 'accepted') { snooze(30 * 24 * HOUR); return close(); } } catch { installEvt = null; } }
+      toast.classList.add('how'); sub.textContent = '';
+      if (k.key) sub.append('Press ', el('kbd', { text: k.key[0] }), ' + ', el('kbd', { text: k.key[1] }), ' now');
+      else sub.textContent = k.steps;
+    };
+    const star = HT.star(40);
+    const toast = el('div', { class: 'bmtoast', role: 'button', tabindex: '0', 'aria-label': 'Never miss free tools: bookmark this site', title: installEvt ? 'Install Toolz Baba as an app' : 'Bookmark this site' },
+      el('button', { class: 'bmx', type: 'button', 'aria-label': 'Not now', title: 'Not now', text: '×', onclick: e => { e.stopPropagation(); close({ notNow: true }); } }),
+      star, el('div', { class: 'bmtext' }, el('b', { class: 'bmtitle', text: installEvt ? 'Get the Toolz Baba app' : 'Never miss free tools' }), sub));
+    toast.addEventListener('click', yes);
+    toast.addEventListener('keydown', e => { if (e.target === toast && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); yes(); } });
+    document.body.append(toast); document.addEventListener('keydown', onKey);
+    setTimeout(() => HT.playStar(star), 450);   // once the toast has opened (0.55 s), so the whole animation is seen
+  };
+  // after a finished download: the toast, unless it was snoozed, or already shown in the last 2 minutes (one toast for a batch of downloads)
   let lastNudge = 0;
+  const installed = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch { return false; } };
   const bookmarkNudge = () => {
-    if (Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmmodal')) return;
+    if (installed() || Date.now() < snoozedUntil() || Date.now() - lastNudge < 120e3 || document.querySelector('.bmtoast')) return;
     lastNudge = Date.now();
     setTimeout(() => HT.bookmark({ fromDownload: true }), 1200);
   };
   // download links a tool shows ("Download merged.pdf") count too, not only HT.download()
-  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#tool a[download]'); if (a) bookmarkNudge(); }, true);
+  document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('#tool a[download]'); if (a) { lastFile = { url: a.href, name: a.getAttribute('download') || '' }; afterDownload(); } }, true);
+
+  // ---------------------------------------------------------------- after a download: share it, do another, or go on to the next tool
+  // The next tools are the usual next step for this tool (NEXT), then good ones from its category (NEXT_CAT); slugs that don't exist are skipped.
+  const NEXT = {
+    'compress-image': ['resize-image-to-kb', 'convert-image', 'image-to-pdf', 'passport-size-photo-maker'],
+    'resize-image': ['compress-image', 'crop-image', 'convert-image', 'image-to-pdf'],
+    'resize-image-to-kb': ['passport-size-photo-maker', 'compress-image', 'image-to-pdf', 'crop-image'],
+    'passport-size-photo-maker': ['resize-image-to-kb', 'image-to-pdf', 'compress-image', 'remove-background'],
+    'convert-image': ['compress-image', 'resize-image', 'image-to-pdf', 'image-to-svg'],
+    'crop-image': ['resize-image', 'compress-image', 'add-watermark-to-image', 'image-to-pdf'],
+    'remove-background': ['replace-background', 'passport-size-photo-maker', 'upscale-image', 'compress-image'],
+    'replace-background': ['compress-image', 'upscale-image', 'passport-size-photo-maker', 'social-media-image-resizer'],
+    'upscale-image': ['compress-image', 'remove-background', 'convert-image', 'crop-image'],
+    'image-to-text': ['pdf-editor', 'word-counter', 'image-to-pdf', 'text-case-converter'],
+    'image-to-pdf': ['compress-pdf', 'merge-pdf', 'esign-pdf', 'pdf-editor'],
+    'pdf-to-image': ['compress-image', 'image-to-text', 'image-to-pdf', 'crop-image'],
+    'merge-pdf': ['compress-pdf', 'organize-pdf', 'add-page-numbers-to-pdf', 'esign-pdf'],
+    'split-pdf': ['merge-pdf', 'compress-pdf', 'pdf-to-image', 'organize-pdf'],
+    'compress-pdf': ['merge-pdf', 'pdf-editor', 'esign-pdf', 'protect-pdf'],
+    'word-to-pdf': ['compress-pdf', 'merge-pdf', 'esign-pdf', 'protect-pdf'],
+    'pdf-to-word': ['word-to-pdf', 'pdf-editor', 'compress-pdf', 'word-counter'],
+    'pdf-editor': ['compress-pdf', 'esign-pdf', 'merge-pdf', 'protect-pdf'],
+    'esign-pdf': ['compress-pdf', 'protect-pdf', 'merge-pdf', 'add-page-numbers-to-pdf'],
+    'video-converter': ['compress-video', 'video-trimmer', 'video-to-gif', 'mp4-to-mp3'],
+    'compress-video': ['video-trimmer', 'video-to-gif', 'mp4-to-mp3', 'video-converter'],
+    'video-trimmer': ['compress-video', 'video-to-gif', 'video-merger', 'mp4-to-mp3'],
+    'video-to-gif': ['compress-image', 'gif-to-video', 'video-trimmer', 'compress-video'],
+    'qr-code-generator': ['compress-image', 'add-watermark-to-image', 'password-generator', 'url-encoder'],
+    'pdf-to-excel': ['pdf-to-word', 'pdf-to-text', 'compress-pdf', 'merge-pdf'],
+    'pdf-to-powerpoint': ['compress-pdf', 'pdf-to-word', 'pdf-to-image', 'merge-pdf'],
+    'powerpoint-to-pdf': ['compress-pdf', 'merge-pdf', 'esign-pdf', 'add-page-numbers-to-pdf'],
+    'crop-pdf': ['compress-pdf', 'merge-pdf', 'organize-pdf', 'pdf-to-image'],
+    'compare-pdf': ['pdf-editor', 'esign-pdf', 'merge-pdf', 'pdf-to-word'],
+    'repair-pdf': ['compress-pdf', 'pdf-editor', 'merge-pdf', 'unlock-pdf'],
+    'flatten-pdf': ['protect-pdf', 'compress-pdf', 'esign-pdf', 'merge-pdf'],
+    'pdf-to-text': ['word-counter', 'pdf-to-word', 'text-case-converter', 'pdf-to-excel'],
+    'audio-converter': ['split-audio', 'merge-audio', 'video-to-text', 'compress-video'],
+  };
+  const NEXT_CAT = { image: ['compress-image', 'resize-image-to-kb', 'image-to-pdf', 'remove-background'], ai: ['compress-image', 'upscale-image', 'remove-background', 'passport-size-photo-maker'],
+    pdf: ['compress-pdf', 'merge-pdf', 'pdf-editor', 'esign-pdf'], video: ['compress-video', 'video-to-gif', 'mp4-to-mp3', 'video-trimmer'],
+    dev: ['qr-code-generator', 'password-generator', 'json-formatter', 'word-counter'], util: ['qr-code-generator', 'compress-image', 'image-color-palette-extractor', 'font-library'] };
+  let lastFile = null;   // what "Share" sends: { blob } or { url }, and its name
+  const canShareFiles = () => { try { return !!(navigator.canShare && navigator.canShare({ files: [new File(['x'], 'x.txt', { type: 'text/plain' })] })); } catch { return false; } };
+  const shareLast = async () => {
+    if (!lastFile) return HT.toast('Download a file first.');
+    try {
+      const blob = lastFile.blob || await fetch(lastFile.url).then(r => r.blob());
+      const file = new File([blob], lastFile.name || 'file', { type: blob.type || 'application/octet-stream' });
+      if (!navigator.canShare({ files: [file] })) return HT.toast('This browser cannot share this kind of file. It is in your downloads.');
+      await navigator.share({ files: [file], title: file.name });
+    } catch (e) { if (!e || e.name !== 'AbortError') HT.toast('Could not share: ' + (e && e.message || 'unknown error')); }
+  };
+  const nextSteps = async () => {
+    const app = document.getElementById('app'); if (!app || !document.getElementById('tool') || document.querySelector('.nextcard')) return;
+    const slug = location.pathname.split('/').filter(Boolean).pop() || '', data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t]));
+    const me = by.get(slug) || {}, base = me.base || slug;
+    const picks = [...(NEXT[slug] || NEXT[base] || []), ...(NEXT_CAT[me.cat] || [])].filter((s, i, a) => s !== slug && s !== base && a.indexOf(s) === i)
+      .map(s => by.get(s)).filter(t => t && t.base !== base).slice(0, 4);
+    const card = el('section', { class: 'nextcard', 'aria-label': 'What next' },
+      el('div', { class: 'next-h' }, HT.svg(ICON.check), el('b', { text: 'Done! What next?' }), el('span', { class: 'sp' }),
+        canShareFiles() ? el('button', { class: 'btn sec sm', type: 'button', onclick: shareLast }, HT.svg(ICON.share), 'Share') : null,
+        el('button', { class: 'btn ghost sm', type: 'button', onclick: () => location.reload() }, HT.svg(ICON.again), 'Do another file')),
+      el('div', { class: 'next-rate' }, el('span', { text: 'How did it go?' }), starRow(base, s => { HT.toast('Thanks for rating!'); showRating(s); })),
+      picks.length ? el('div', { class: 'next-row' }, picks.map(t => el('a', { class: 'next-t cat-' + t.cat, href: t.href },
+        el('i', {}, HT.toolIcon(iconKey(t), 'xs')), el('span', {}, el('b', { text: t.name }), el('small', { text: t.desc }))))) : null);
+    app.after(card);
+  };
+  const afterDownload = () => { try { bookmarkNudge(); } catch { } setTimeout(() => nextSteps().catch(() => { }), 500); };
+
+  // ---------------------------------------------------------------- the tools this visitor used last (kept in this browser only)
+  const RECENT = 'tz_recent';
+  HT.recent = {
+    list: () => { try { const a = JSON.parse(localStorage.getItem(RECENT) || '[]'); return Array.isArray(a) ? a.filter(s => typeof s === 'string' && /^[a-z0-9-]{1,80}$/.test(s)).slice(0, 8) : []; } catch { return []; } },
+    add: slug => { try { localStorage.setItem(RECENT, JSON.stringify([slug, ...HT.recent.list().filter(s => s !== slug)].slice(0, 8))); } catch { } },
+  };
 
   applyTheme(themeNow());
+  const themeName = t => (t === 'light' ? 'Light' : t === 'dark' ? 'Dark' : 'Automatic');
+  const cycleTheme = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); document.querySelectorAll('.bmbtn .tzstar').forEach(HT.playStar); HT.toast(HT.t('Theme: {0}', HT.t(themeName(next)))); };
   const themeButton = () => {
-    const b = el('button', { class: 'iconbtn', type: 'button', 'aria-label': 'Change theme' });
-    const paint = () => { const t = themeNow(); b.textContent = ''; b.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto)); b.title = 'Theme: ' + (t || 'auto') + ' (click to change)'; };
-    b.onclick = () => { const next = THEMES[(THEMES.indexOf(themeNow()) + 1) % 3]; try { localStorage.setItem('tz_theme', next); } catch { } applyTheme(next); paint(); HT.toast('Theme: ' + (next || 'automatic')); };
+    const b = el('button', { class: 'iconbtn themebtn', type: 'button', 'aria-label': 'Change theme' });
+    const paint = () => { const t = themeNow(); b.textContent = ''; b.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto)); b.title = HT.t('Theme: {0} (click to change)', HT.t(themeName(t))); };
+    b.onclick = () => { cycleTheme(); paint(); };
     paint(); return b;
   };
 
@@ -685,7 +973,7 @@
     trim: ['cut'], crop: ['cut'], rotate: ['flip'], flip: ['rotate'], qr: ['qrcode'], barcode: ['qr'], link: ['url', 'cdn'], upload: ['share', 'cdn'], share: ['link', 'upload'], font: ['fonts', 'typeface'], fonts: ['font'], edit: ['editor'], editor: ['edit'], web: ['website', 'html'], webpage: ['html', 'website'],
     tiktok: ['video', 'social'], instagram: ['social', 'carousel'], insta: ['instagram'], linkedin: ['social', 'carousel'], facebook: ['social'], youtube: ['thumbnail', 'video'], ig: ['instagram'], gif: ['video'], logo: ['favicon', 'watermark'], icon: ['favicon'], meme: ['meme'],
     bg: ['background'], remover: ['remove'], eraser: ['remove'], mp4: ['video'], mov: ['video'], avi: ['video'], mkv: ['video'], webm: ['video'], wav: ['audio'], m4a: ['audio'], aac: ['audio'],
-    powerpoint: ['ppt', 'office'], excel: ['xls', 'office'], kb: ['kb', 'size'], heic: ['iphone', 'image'], signatures: ['signature'] };
+    powerpoint: ['ppt', 'pptx', 'office', 'slides'], excel: ['xls', 'xlsx', 'office'], slides: ['powerpoint'], pptx: ['powerpoint'], txt: ['text'], diff: ['compare'], fix: ['repair'], corrupt: ['repair'], flat: ['flatten'], kb: ['kb', 'size'], heic: ['iphone', 'image'], signatures: ['signature'] };
   // a file type and the kind of tool that takes it, for "X to Y" searches: "pdf to jpg" must find PDF to Image and never JPG to PDF
   const KIND = { jpg: 'image', jpeg: 'image', png: 'image', webp: 'image', heic: 'image', avif: 'image', gif: 'image', bmp: 'image', tiff: 'image', photo: 'image', picture: 'image', img: 'image',
     doc: 'word', docx: 'word', mp4: 'video', mov: 'video', avi: 'video', mkv: 'video', webm: 'video', mp3: 'audio', wav: 'audio', md: 'markdown', xls: 'excel', xlsx: 'excel', ppt: 'powerpoint', pptx: 'powerpoint' };
@@ -694,11 +982,13 @@
   const direction = it => { for (const w of [words(it.slug), words(it.name)]) { const i = w.indexOf('to'); if (i > 0 && i < w.length - 1) return { from: w.slice(0, i), to: w.slice(i + 1) }; } return null; };
   const CAT_WORDS = { image: 'image photo picture', ai: 'ai artificial intelligence enhance', pdf: 'pdf document documents', video: 'video audio movie sound', dev: 'text developer code', util: 'utility utilities' };
   HT.searchItems = data => [
-    ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: '/' + t.slug, isTab: false, hay: '' })),
-    ...(data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base) || {}; return { ...v, cat: v.cat || b.cat, kind: v.kind || b.kind, icon: v.base, href: '/' + v.slug, isTab: true, keywords: (v.keywords || '') + ' ' + (b.keywords || ''), popular: 99 }; }),
+    ...data.tools.filter(t => !t.href).map(t => ({ ...t, base: t.slug, href: HT.href(t.slug), isTab: false, hay: '' })),
+    ...(data.variants || []).filter(v => v.group !== 'size' && !/^compress-/.test(v.slug)).map(v => { const b = data.tools.find(t => t.slug === v.base) || {}; return { ...v, cat: v.cat || b.cat, kind: v.kind || b.kind, icon: v.base, href: HT.href(v.slug), isTab: true, keywords: (v.keywords || '') + ' ' + (b.keywords || ''), popular: 99 }; }),
   ].filter(t => t.cat);
-  const words = s => String(s).toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g, ' ').trim().split(/\s+/).filter(Boolean);
+  const words = s => String(s).toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim().split(/\s+/).filter(Boolean);
   const near = (a, b) => { if (Math.abs(a.length - b.length) > 1 || a.length < 4) return false; for (let k = 0; k < a.length - 1; k++) if (a[k] !== b[k]) { if (a.length === b.length && a[k] === b[k + 1] && a[k + 1] === b[k] && a.slice(k + 2) === b.slice(k + 2)) return true; break; } let i = 0, j = 0, miss = 0; while (i < a.length && j < b.length) { if (a[i] === b[j]) { i++; j++; } else { if (++miss > 1) return false; if (a.length > b.length) i++; else if (a.length < b.length) j++; else { i++; j++; } } } return miss + (a.length - i) + (b.length - j) <= 1; };
+  // the same word with another ending: they share at least 4 letters, and all but the last 2 of the shorter one
+  const sameStem = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i >= 4 && i >= Math.min(a.length, b.length) - 2; };
   HT.searchTools = (data, query) => {
     const STOP = new Set(['to', 'a', 'an', 'the', 'and', 'or', 'of', 'for', 'in', 'on', 'my', 'into', 'from', 'free', 'online', 'tool', 'tools', 'converter', 'convert', 'make', 'maker', 'create', 'file', 'files', 'how', 'can', 'i', 'with']);
     const raw = words(query).flatMap(w => /^\d+(kb|mb)$/.test(w) ? [w.replace(/^\d+/, '')] : /^\d+$/.test(w) ? [] : [w]);   // "20kb" -> "kb": Resize to KB
@@ -716,7 +1006,8 @@
         alts.forEach((a, k) => { const w = k ? 0.6 : 1;
           if (nameW.includes(a) || slugW.includes(a)) best = Math.max(best, 10 * w); else if (nameW.some(x => x.startsWith(a)) || slugW.some(x => x.startsWith(a))) best = Math.max(best, 6 * w);
           else if (text.includes(a)) best = Math.max(best, 2.5 * w); else if (text.some(x => x.startsWith(a)) && a.length >= 3) best = Math.max(best, 1.5 * w);
-          else if (nameW.some(x => near(a, x)) || slugW.some(x => near(a, x))) best = Math.max(best, 4 * w); });
+          else if (nameW.some(x => near(a, x)) || slugW.some(x => near(a, x))) best = Math.max(best, 4 * w);
+          else if (a.length >= 4 && nameW.some(x => sameStem(a, x))) best = Math.max(best, 5 * w); });   // same word, other ending (сжать / сжатие, images / image)
         if (!best) { all = false; break; } score += best;
       }
       if (!all) continue;
@@ -749,7 +1040,7 @@
       if (!q || !data) return res.classList.add('hidden');
       const r = HT.searchTools(data, q); items = [...r.hits, ...r.related];
       if (!r.hits.length) { res.append(el('div', { class: 'help', style: { padding: '10px 12px' }, text: 'No matching tools. Try a shorter word like "pdf" or "image".' })); if (r.related.length) { } return res.classList.remove('hidden'); }
-      const row = t => el('a', { class: 'cat-' + t.cat, href: t.href || '/' + t.slug }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: t.isTab ? 'in ' + (data.tools.find(x => x.slug === t.base) || { name: '' }).name : catOf(data, t.cat).name }));
+      const row = t => el('a', { class: 'cat-' + t.cat, href: t.href || HT.href(t.slug) }, el('i', {}, HT.toolIcon(iconKey(t))), t.name, el('small', { text: t.isTab ? 'in ' + (data.tools.find(x => x.slug === t.base) || { name: '' }).name : catOf(data, t.cat).name }));
       r.hits.forEach(t => res.append(row(t)));
       if (r.related.length) { res.append(el('div', { class: 'hrel', text: 'Related' })); r.related.forEach(t => res.append(row(t))); }
       res.classList.remove('hidden');
@@ -760,7 +1051,7 @@
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
-      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || '/' + t.slug; }
+      else if (e.key === 'Enter') { const t = items[Math.max(0, sel)]; if (t) location.href = t.href || HT.href(t.slug); }
       else if (e.key === 'Escape') { input.value = ''; show(); input.blur(); }
     });
     document.addEventListener('click', e => { if (!box.contains(e.target)) res.classList.add('hidden'); });
@@ -773,40 +1064,48 @@
 
   // ---------------------------------------------------------------- the navigation bar
   // Image, PDF, Video & audio and AI each open a menu with everything related to them (the tools of that kind and the converters that belong to it),
-  // "Convert" collects every converter, "All tools" lists every category. Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // "Convert" collects every converter, "Other tools" holds everything else (text, developer, web and design helpers).
+  // Each menu wears the colour tile of one of its tools (the third value). Hover (or click) opens a menu. On a phone the same lists sit behind the hamburger.
+  // At most 7 links a group, so a menu of six groups (two rows of three) fits a laptop screen without scrolling; the foot link leads to the rest.
   // The lists are filled when a menu is first opened (the tool list is loaded by then). A slug that does not exist (or is archived) is skipped.
   const NAV_MENUS = [
-    ['Image', 'image', [
-      ['Compress and resize', ['compress-image', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'thumbnail-generator', 'social-media-image-resizer']],
-      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'image-to-svg', 'jpg-to-pdf', 'png-to-pdf', 'image-to-text', 'favicon-generator']],
-      ['Edit and design', ['add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'passport-size-photo-maker', 'exif-remover']],
-      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'ai-headshot-generator']],
+    ['Image', 'image', 'compress-image', [
+      ['Compress and resize', ['compress-image', 'image-optimizer', 'compress-webp', 'resize-image', 'resize-image-to-kb', 'crop-image', 'rotate-flip', 'social-media-image-resizer']],
+      ['Convert', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'svg-converter', 'ai-converter']],
+      ['Edit and design', ['image-enhancer', 'add-watermark-to-image', 'pixelate-image', 'meme-generator', 'photo-collage-maker', 'screenshot-beautifier', 'thumbnail-generator', 'favicon-generator']],
+      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style', 'passport-size-photo-maker', 'image-to-text']],
     ]],
-    ['PDF', 'pdf', [
+    ['PDF', 'pdf', 'merge-pdf', [
       ['Organize PDF', ['merge-pdf', 'split-pdf', 'organize-pdf', 'rotate-pdf', 'delete-pdf-pages', 'extract-pdf-pages', 'compress-pdf']],
-      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-image', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
-      ['Edit PDF', ['pdf-editor', 'font-library', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'esign-pdf']],
-      ['PDF security', ['protect-pdf', 'unlock-pdf']],
-      ['Markdown and documents', ['markdown-converter', 'markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
+      ['Edit PDF', ['pdf-editor', 'esign-pdf', 'add-page-numbers-to-pdf', 'add-watermark-to-pdf', 'blur-redact-pdf', 'crop-pdf', 'compare-pdf']],
+      ['Protect and repair', ['protect-pdf', 'unlock-pdf', 'flatten-pdf', 'repair-pdf']],
+      ['Convert to PDF', ['image-to-pdf', 'jpg-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'html-to-pdf', 'eml-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-markdown', 'ocr-pdf']],
+      ['Markdown and documents', ['document-converter', 'spreadsheet-converter', 'document-to-image', 'markdown-converter', 'docx-to-markdown', 'docx-to-txt', 'txt-to-docx']],
     ]],
-    ['Video & audio', 'video', [
+    ['Video & audio', 'video', 'video-converter', [
       ['Video', ['video-converter', 'compress-video', 'video-trimmer', 'split-video', 'video-merger', 'change-video-speed', 'add-watermark-to-video', 'video-to-gif', 'gif-to-video']],
-      ['Audio', ['split-audio', 'merge-audio', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio']],
+      ['Audio', ['audio-converter', 'wav-to-mp3', 'm4a-to-mp3', 'split-audio', 'merge-audio', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio']],
       ['Words from sound', ['video-to-text', 'text-to-audio']],
     ]],
-    ['AI', 'ai', [
-      ['AI for pictures', ['remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style']],
+    ['AI', 'ai', 'remove-background', [
+      ['AI for pictures', ['image-enhancer', 'unblur-image', 'remove-background', 'replace-background', 'upscale-image', 'face-blur', 'anime-style']],
       ['More with AI', ['ai-headshot-generator', 'passport-size-photo-maker', 'video-to-text', 'text-to-audio', 'image-to-text']],
     ]],
-    ['Convert', 'convert', [
-      ['Convert to PDF', ['jpg-to-pdf', 'png-to-pdf', 'word-to-pdf', 'excel-to-pdf', 'html-to-pdf', 'markdown-to-pdf', 'image-to-pdf']],
-      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-png', 'pdf-to-word', 'pdf-to-markdown', 'ocr-pdf']],
-      ['Markdown and documents', ['markdown-to-html', 'markdown-to-word', 'html-to-markdown', 'docx-to-markdown']],
-      ['Images', ['png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'webp-to-jpg', 'jpg-to-webp', 'convert-image', 'image-to-svg']],
-      ['Video and audio', ['video-converter', 'video-to-gif', 'gif-to-video', 'video-to-audio', 'mp4-to-mp3', 'text-to-audio', 'video-to-text']],
+    ['Convert', 'convert', 'convert-image', [
+      ['Convert to PDF', ['word-to-pdf', 'excel-to-pdf', 'powerpoint-to-pdf', 'jpg-to-pdf', 'html-to-pdf', 'epub-to-pdf', 'image-to-pdf']],
+      ['Convert from PDF', ['pdf-to-jpg', 'pdf-to-word', 'pdf-to-excel', 'pdf-to-powerpoint', 'pdf-to-text', 'pdf-to-svg', 'ocr-pdf']],
+      ['Images', ['convert-image', 'png-to-jpg', 'jpg-to-png', 'heic-to-jpg', 'jpg-to-webp', 'svg-converter', 'image-to-svg']],
+      ['Video and audio', ['video-converter', 'audio-converter', 'video-to-audio', 'mp4-to-mp3', 'wav-to-mp3', 'video-to-gif', 'gif-to-video']],
+      ['Documents and spreadsheets', ['spreadsheet-converter', 'document-converter', 'document-to-image', 'xlsx-to-csv', 'csv-to-xlsx', 'docx-to-markdown', 'eml-to-pdf']],
+      ['Fonts, vectors and archives', ['font-converter', 'ttf-to-woff2', 'ai-converter', 'ai-to-png', 'archive-converter', 'archive-extractor', 'create-zip']],
     ]],
-    ['All tools', 'all', null],
+    ['Other tools', 'other', 'toolbox', [
+      ['Text and developer', ['json-formatter', 'word-counter', 'text-case-converter', 'url-encoder', 'base64', 'hash-uuid-generator', 'password-generator']],
+      ['Web and sharing', ['visual-sitemap-generator', 'website-color-palette-extractor', 'qr-code-generator', 'image-cdn', 'temporary-file-upload-direct-link-share']],
+      ['Colours and fonts', ['image-color-palette-extractor', 'color-palette-generator', 'font-library', 'font-converter']],
+      ['Files and archives', ['archive-extractor', 'archive-converter', 'create-zip', 'extract-zip', 'extract-tar-gz']],
+    ]],
   ];
   const buildNav = () => {
     const here = location.pathname.replace(/\/+$/, '') || '/', chev = () => HT.svg('<svg class="nv-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>');
@@ -814,31 +1113,33 @@
     const sec = (title, items, wide) => el('div', { class: 'nv-sec' + (wide ? ' wide' : '') }, el('h4', { text: title }), el('ul', {}, items.map(t => el('li', {}, link(t)))));
     const sections = (data, key) => {
       const menu = NAV_MENUS.find(m => m[1] === key), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), box = el('div', { class: 'nv-grid ' + key });
-      if (menu[2]) { const groups = menu[2].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', Math.min(groups.length, 4)); for (const [title, items] of groups) box.append(sec(title, items)); }
-      else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: '/' + t.slug })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
+      if (menu[3]) { const groups = menu[3].map(([title, slugs]) => [title, slugs.map(s => by.get(s)).filter(Boolean)]).filter(g => g[1].length); box.style.setProperty('--cols', groups.length <= 4 ? groups.length : 3); for (const [title, items] of groups) box.append(sec(title, items)); }
+      else for (const c of data.categories) { const items = data.tools.filter(t => t.cat === c.id && !t.href).map(t => ({ ...t, href: HT.href(t.slug) })); if (items.length) box.append(sec(c.name, items, items.length > 9)); }
       return box;
     };
     // ---- computer: menus under the bar
     const nav = el('nav', { class: 'nv', 'aria-label': 'Main' }); let openItem = null, timer = 0;
     const close = focus => { clearTimeout(timer); if (!openItem) return; openItem.btn.setAttribute('aria-expanded', 'false'); openItem.panel.hidden = true; openItem.wrap.classList.remove('open'); if (focus) openItem.btn.focus(); openItem = null; };
     const place = it => {   // a menu opens under its button, but never past the edge of the bar
-      if (it.key === 'all') return; const host = it.wrap.closest('.top-in'), hb = host.getBoundingClientRect(), bb = it.btn.getBoundingClientRect(), w = it.panel.offsetWidth;
+      const host = it.wrap.closest('.top-in'), hb = host.getBoundingClientRect(), bb = it.btn.getBoundingClientRect(), w = it.panel.offsetWidth;
       it.panel.style.left = Math.max(0, Math.min(bb.left - hb.left - 10, hb.width - w)) + 'px';
     };
     const open = async it => {
       clearTimeout(timer); if (openItem === it) return; close();
-      if (!it.filled) { it.panel.append(sections(await HT.loadTools(), it.key)); if (it.key === 'all') it.panel.append(el('div', { class: 'nv-foot' }, el('a', { href: '/', text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true; }
+      if (!it.filled) {   // the groups show the most used tools; the foot leads to every tool of that kind
+        const data = await HT.loadTools(), cat = data.categories.find(c => c.id === it.key);
+        it.panel.append(sections(data, it.key), el('div', { class: 'nv-foot' }, el('a', { href: HT.L + '/' + (cat ? '#' + cat.id : ''), text: 'See them all on the home page \u2192' }), el('span', { text: 'Tip: press / to search' }))); it.filled = true;
+      }
       openItem = it; it.panel.hidden = false; place(it); it.btn.setAttribute('aria-expanded', 'true'); it.wrap.classList.add('open');
     };
-    for (const [label, key] of NAV_MENUS) {
-      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
+    for (const [label, key, icon] of NAV_MENUS) {
+      const btn = el('button', { class: 'nv-btn', type: 'button', 'aria-expanded': 'false', 'aria-haspopup': 'true' }, HT.toolIcon(icon, 'xs'), label, chev()), panel = el('div', { class: 'nv-panel ' + key, hidden: 'hidden' }), wrap = el('div', { class: 'nv-item ' + key }, btn, panel), it = { btn, panel, wrap, key, filled: false };
       btn.addEventListener('click', () => (openItem === it ? close() : open(it)));
       wrap.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => open(it), 90); } });
       wrap.addEventListener('mouseleave', () => { if (matchMedia('(hover:hover)').matches) { clearTimeout(timer); timer = setTimeout(() => close(), 220); } });
       wrap.addEventListener('focusout', e => { if (!wrap.contains(e.relatedTarget)) close(); });
       nav.append(wrap);
     }
-    nav.append(el('a', { class: 'nv-link' + (here.startsWith('/blog') ? ' on' : ''), href: '/blog', text: 'Blog' }));
     document.addEventListener('click', e => { if (openItem && !openItem.wrap.contains(e.target)) close(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(true); closeM(); } });
     addEventListener('resize', () => close());
@@ -846,14 +1147,21 @@
     const burger = el('button', { class: 'nv-burger', type: 'button', 'aria-label': 'Menu', 'aria-expanded': 'false' }, HT.svg('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'));
     const mobile = el('div', { class: 'nv-m', hidden: 'hidden' }); let mFilled = false;
     const closeM = () => { mobile.hidden = true; burger.setAttribute('aria-expanded', 'false'); };
-    burger.addEventListener('click', async () => {
-      if (!mobile.hidden) return closeM();
+    const openM = async () => {
       // on a phone the header has no search box, so the menu starts with one (the same search as the header's)
-      if (!mFilled) { const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search 55+ tools...'; mobile.append(s);
-        const data = await HT.loadTools(); for (const [label, key] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', { text: label }), sections(data, key))); mobile.append(el('a', { class: 'nv-mlink', href: '/blog', text: 'Blog' })); mFilled = true; }
+      if (!mFilled) { mFilled = true; const s = headerSearch(); s.className = 'nv-msearch'; s.querySelector('kbd').remove(); s.querySelector('input').placeholder = 'Search all tools...'; mobile.append(s);
+        const data = await HT.loadTools(), by = new Map(HT.searchItems(data).map(t => [t.slug, t])), recent = HT.recent.list().map(x => by.get(x)).filter(Boolean).slice(0, 4);
+        if (recent.length) mobile.append(el('div', { class: 'nv-mrecent' }, el('h4', { text: 'Your recent tools' }), el('ul', {}, recent.map(t => el('li', {}, link(t))))));
+        for (const [label, key, icon] of NAV_MENUS) mobile.append(el('details', { class: 'nv-md' }, el('summary', {}, HT.toolIcon(icon, 'xs'), label), sections(data, key)));
+        const tb = el('button', { class: 'nv-mlink nv-mtheme', type: 'button' }), paint = () => { tb.textContent = ''; const t = themeNow(); tb.append(HT.svg(t === 'light' ? ICON.sun : t === 'dark' ? ICON.moon : ICON.auto), HT.t('Theme: {0}', HT.t(themeName(t)))); };
+        tb.onclick = () => { cycleTheme(); paint(); }; paint(); mobile.append(tb); }
       mobile.hidden = false; burger.setAttribute('aria-expanded', 'true');
-    });
-    return { nav, burger, mobile };
+    };
+    burger.addEventListener('click', () => (mobile.hidden ? openM() : closeM()));
+    // a phone has no room for the search box: this button opens the menu with its search ready to type in
+    const msearch = el('button', { class: 'iconbtn nv-msbtn', type: 'button', 'aria-label': 'Search tools', title: 'Search tools' }, HT.svg(ICON.search));
+    msearch.addEventListener('click', async () => { await openM(); const i = mobile.querySelector('.nv-msearch input'); if (i) i.focus(); });
+    return { nav, burger, mobile, msearch };
   };
 
   HT.header = active => {
@@ -862,34 +1170,97 @@
     const name = el('span', { class: 'wm' });
     const setName = n => { name.textContent = ''; const [first, ...rest] = String(n).split(/\s+/); name.append(first, rest.length ? el('em', { text: rest.join(' ') }) : ''); };
     setName(h.dataset.site || 'Toolz Baba');
-    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), themeButton(), navbar.burger), navbar.mobile);
-    HT.config().then(c => setName(c.siteName));
+    h.append(el('div', { class: 'top-in' }, el('a', { class: 'brand', href: HT.L + '/', 'aria-label': 'Home' }, el('img', { src: '/assets/brand/mark-64.png', alt: '', width: 36, height: 36 }), name), navbar.nav, el('span', { class: 'top-sp' }), headerSearch(), navbar.msearch, langPicker(), bookmarkButton(), themeButton(), navbar.burger), navbar.mobile);
+    suggestLang();
+    // menu names differ in length per language (German, Russian ...): when the full menu does not fit the bar, show the
+    // hamburger instead, whatever the width (the CSS breakpoint at 1140px only fits English)
+    const bar = h.querySelector('.top-in');
+    const fit = () => { h.classList.remove('nv-tight'); if (bar.scrollWidth > bar.clientWidth + 1) h.classList.add('nv-tight'); };
+    fit(); addEventListener('resize', fit, { passive: true }); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    HT.i18n.then(() => { setTimeout(fit, 0); setTimeout(fit, 400); });   // again once the menu names are translated (the translator runs just after)
+    HT.config().then(c => { setName(c.siteName); fit(); });
     if (!document.querySelector('.skip')) { const m = document.querySelector('main, #tool, .page'); if (m) { m.id = m.id || 'content'; document.body.prepend(el('a', { class: 'skip', href: '#' + m.id, text: 'Skip to content' })); } }
   };
 
   HT.footer = () => {
     if (document.querySelector('footer.foot')) return;
-    const col = (title, links) => el('div', {}, el('h4', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
-    const popular = el('div', {}, el('h4', { text: 'Popular' }), el('ul', {}));
+    const col = (title, links) => el('div', {}, el('h2', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
+    const popular = el('div', {}, el('h2', { text: 'Popular' }), el('ul', {}));
     const f = el('footer', { class: 'foot' }, el('div', { class: 'foot-in' },
-      el('div', { class: 'foot-brand' }, el('a', { href: '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
-      col('Tools', [['Image tools', '/#image'], ['AI tools', '/#ai'], ['PDF & documents', '/#pdf'], ['Video & audio', '/#video'], ['Text & developer', '/#dev'], ['Utilities', '/#util']]),
+      el('div', { class: 'foot-brand' }, el('a', { href: HT.L + '/', 'aria-label': 'Toolz Baba home' }, el('img', { class: 'foot-logo logo-light', src: '/assets/brand/logo-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' }), el('img', { class: 'foot-logo logo-dark', src: '/assets/brand/logo-dark-315.webp', alt: 'Toolz Baba', width: 210, height: 140, loading: 'lazy', decoding: 'async' })), el('p', { text: 'Free everyday file tools that run right in your browser, so your files stay on your device.' })),
+      col('Tools', [['Image tools', '#image'], ['AI tools', '#ai'], ['PDF & documents', '#pdf'], ['Video & audio', '#video'], ['Text & developer', '#dev'], ['Utilities', '#util']].map(([t, h]) => [t, HT.L + '/' + h])),
       popular,
-      col('Company', [['Blog', '/blog'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
-      el('div', { class: 'foot-bottom' }, el('span', { text: '\u00a9 ' + new Date().getFullYear() + ' Toolz Baba. All rights reserved.' }), el('span', { text: 'Files are never sold or shared.' }))));
+      col('Company', [['Blog', '/blog'], ['India SaaS Database', '/india-saas-startups'], ['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Contact', '/contact'], ['Report content', '/takedown']]),
+      el('div', { class: 'foot-bottom' }, el('span', {}, '\u00a9 ' + new Date().getFullYear() + ' ', 'Toolz Baba', '. All rights reserved.'), el('span', { text: 'Files are never sold or shared.' }))));
     const bm = el('a', { href: '#bookmark', text: 'Bookmark this site', onclick: e => { e.preventDefault(); HT.bookmark(); } }); f.querySelector('.foot-in > div:nth-of-type(4) ul').append(el('li', {}, bm));
+    const all = el('nav', { class: 'foot-all', 'aria-label': 'All tools' }); f.querySelector('.foot-bottom').before(all);
+    // every language the site has, by its own name (people and search engines find the other versions from any page)
+    langsP().then(list => { if (list.length > 1) f.querySelector('.foot-bottom').before(el('nav', { class: 'foot-langs', 'aria-label': 'Language', 'data-notr': '' },
+      list.map(l => el('a', { href: HT.pathIn(l.code), hreflang: l.code, lang: l.code, class: l.code === HT.lang ? 'on' : null, text: l.name })))); });
     document.body.append(f);
-    HT.config().then(c => { f.querySelector('.foot-bottom span').textContent = '\u00a9 ' + new Date().getFullYear() + ' ' + c.siteName + '. All rights reserved.'; });
-    HT.loadTools().then(d => { const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: '/' + t.slug, text: t.name })))); });
+    // three pieces, so ". All rights reserved." is found in the translations (the glued "\u00a9 2026 Toolz Baba. All rights reserved." never was)
+    HT.config().then(c => { const sp = f.querySelector('.foot-bottom span'); sp.textContent = ''; sp.append('\u00a9 ' + new Date().getFullYear() + ' ', c.siteName, '. All rights reserved.'); });
+    HT.loadTools().then(d => {
+      const ul = popular.querySelector('ul'); d.tools.filter(t => t.popular).sort((a, b) => a.popular - b.popular).slice(0, 6).forEach(t => ul.append(el('li', {}, el('a', { href: HT.href(t.slug), text: t.name }))));
+      for (const c of d.categories) { const items = d.tools.filter(t => t.cat === c.id && !t.href); if (items.length) all.append(el('div', {}, el('h2', { text: c.name }), el('ul', {}, items.map(t => el('li', {}, el('a', { href: HT.href(t.slug), text: t.name })))))); }
+    });
   };
 
   // tools.json gives a tool an emoji in `icon` (not an icon name): only a plain name (a tab page uses the name of its tool) picks another icon
-  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || '/' + t.slug },
+  const cardFor = t => el('a', { class: 'tcard cat-' + t.cat, href: t.href || HT.href(t.slug) },
     el('div', { class: 'ic' }, HT.toolIcon(iconKey(t))),
     el('div', {}, el('b', { text: t.name }), el('span', { class: 'd', text: t.desc }),
       el('div', {}, t.kind === 'client' ? el('span', { class: 'tag local', text: 'In your browser' }) : null, t.cat === 'ai' ? el('span', { class: 'tag ai', text: 'AI' }) : null)),
     el('span', { class: 'go', text: '\u2192' }));
   HT.cardFor = cardFor;
+
+  // ---------------------------------------------------------------- "Rate this tool"
+  // Votes go to /api/rating (one per tool and visitor, it can be changed). A tool and its tab pages share one score. The average is shown by the
+  // tool's name, and added to the page's data for search engines, only once there are MIN_SHOWN real votes.
+  const RATED = 'tz_rated', MIN_SHOWN = 5, ratingCache = {};
+  const ratedMap = () => { try { const o = JSON.parse(localStorage.getItem(RATED) || '{}'); return o && typeof o === 'object' ? o : {}; } catch { return {}; } };
+  HT.rating = {
+    get: slug => ratingCache[slug] || (ratingCache[slug] = fetch('/api/rating?tool=' + encodeURIComponent(slug)).then(r => (r.ok ? r.json() : null)).catch(() => null)),
+    async send(slug, stars) {
+      const r = await fetch('/api/rating', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ tool: slug, stars }) });
+      const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.detail || 'error ' + r.status);
+      const m = ratedMap(); m[slug] = stars; try { localStorage.setItem(RATED, JSON.stringify(m)); } catch { }
+      ratingCache[slug] = Promise.resolve(j); return j;
+    },
+  };
+  const fmtVotes = n => HT.t(n === 1 ? '{0} vote' : '{0} votes', n.toLocaleString('en'));
+  const STAR_WORDS = ['', 'Poor', 'Could be better', 'Good', 'Very good', 'Excellent'];
+  // five star buttons; onDone(summary) after a vote
+  const starRow = (slug, onDone) => {
+    const row = el('div', { class: 'rstars', role: 'radiogroup', 'aria-label': 'Rate this tool' });
+    const paint = n => row.querySelectorAll('button').forEach((b, i) => { b.classList.toggle('on', i < n); b.setAttribute('aria-checked', i + 1 === +row.dataset.v ? 'true' : 'false'); });
+    for (let i = 1; i <= 5; i++) {
+      const b = el('button', { type: 'button', role: 'radio', 'aria-label': i + (i === 1 ? ' star: ' : ' stars: ') + STAR_WORDS[i], title: STAR_WORDS[i], text: '\u2605' });
+      b.addEventListener('mouseenter', () => paint(i));
+      b.onclick = async () => { try { const s = await HT.rating.send(slug, i); row.dataset.v = i; paint(i); document.querySelectorAll('.rstars').forEach(r => { if (r !== row) { r.dataset.v = i; r.querySelectorAll('button').forEach((x, k) => x.classList.toggle('on', k < i)); } }); document.querySelectorAll('.ratecard .rnote').forEach(n => { n.textContent = rateNote(s, true); }); if (onDone) onDone(s, i); } catch (e) { HT.toast('Could not save your rating: ' + e.message); } };
+      row.append(b);
+    }
+    row.addEventListener('mouseleave', () => paint(+row.dataset.v || 0));
+    row.dataset.v = ratedMap()[slug] || 0; paint(+row.dataset.v);
+    return row;
+  };
+  const showRating = s => {
+    const badges = document.querySelector('.thead .badges'); if (!badges) return;
+    let b = badges.querySelector('.badge.rate');
+    if (!s || !(s.count >= MIN_SHOWN) || s.avg == null) { if (b) b.remove(); return; }
+    if (!b) { b = el('a', { class: 'badge rate', href: '#rate' }); badges.prepend(b); }
+    b.textContent = ''; b.append(el('span', { class: 'st', text: '\u2605' }), ' ' + s.avg.toFixed(1) + ' ', el('small', { text: '(' + fmtVotes(s.count) + ')' }));
+    b.title = HT.t('{0} out of 5 from {1}', s.avg.toFixed(1), fmtVotes(s.count));
+    for (const sc of document.querySelectorAll('script[type="application/ld+json"]')) {
+      try { const j = JSON.parse(sc.textContent); if (j['@type'] === 'WebApplication') { j.aggregateRating = { '@type': 'AggregateRating', ratingValue: s.avg, ratingCount: s.count, bestRating: 5, worstRating: 1 }; sc.textContent = JSON.stringify(j); } } catch { }
+    }
+  };
+  const rateNote = (s, voted) => (voted ? HT.t('Thanks for rating!') + ' ' : '') + (s && s.count >= MIN_SHOWN ? HT.t('{0} out of 5 from {1}.', s.avg.toFixed(1), fmtVotes(s.count)) : voted ? '' : HT.t('Tell us how it worked for you.'));
+  HT.rateCard = slug => {
+    const note = el('p', { class: 'rnote' }), card = el('div', { class: 'sidecard ratecard', id: 'rate' }, el('h2', { text: 'Rate this tool' }), starRow(slug, s => { note.textContent = rateNote(s, true); showRating(s); }), note);
+    HT.rating.get(slug).then(s => { note.textContent = rateNote(s, false); showRating(s); });
+    return card;
+  };
 
   // what a visitor sees at the address of an archived tool
   HT.unavailable = (work, data, t) => {
@@ -899,7 +1270,7 @@
     work.append(el('div', { class: 'card', style: { textAlign: 'center', padding: '34px 22px' } },
       el('h1', { text: (t.name || 'This tool') + ' is taking a break', style: { fontSize: '1.5rem' } }),
       el('p', { class: 'help', style: { margin: '10px 0 18px' }, text: 'We switched it off for a while. Please try again later, or use one of the other tools.' }),
-      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: '/' + x.slug, text: x.name })))));
+      el('div', { class: 'actions', style: { justifyContent: 'center' } }, el('a', { class: 'btn', href: HT.L + '/', text: 'See all tools' }), ...same.map(x => el('a', { class: 'btn sec', href: HT.L + '/' + x.slug, text: x.name })))));
   };
 
   HT.mount = async () => {
@@ -917,24 +1288,27 @@
     if (!meta) {
       const gone = (data.archivedTools || []).find(t => t.slug === slug);
       if (gone) { document.querySelector('#crumb') && (document.getElementById('crumb').textContent = ''); document.getElementById('thead').textContent = ''; HT.unavailable(work, data, gone); }
-      else work.append(el('h1', { text: 'Tool not found' }), el('p', {}, el('a', { href: '/', text: '← Back to all tools' })));
+      else work.append(el('h1', { text: 'Tool not found' }), el('p', {}, el('a', { href: HT.L + '/', text: '← Back to all tools' })));
       return;
     }
     if (HT.isAdmin() && data.archivedSlugs && (data.archivedSlugs.has(slug) || data.archivedSlugs.has(baseSlug))) work.before(el('div', { class: 'help', style: { background: 'var(--warn-bg, #fff4d6)', border: '1px solid #f0d58a', borderRadius: '10px', padding: '8px 12px', marginBottom: '12px' }, text: 'This tool is archived. Visitors do not see it. You can, because you are signed in to the admin panel in this browser.' }));
     const cat = catOf(data, meta.cat), client = meta.kind === 'client';
+    HT.recent.add(slug);
     page.classList.add('cat-' + meta.cat);
-    const pathOf = s => '/' + s; // every tool and tab lives at the site root
+    const pathOf = s => HT.href(s); // every tool and tab lives at the site root (under /<language>/ for the other languages)
     const metaFor = s => {  // a tool, or a format page merged onto its base tool
       const t = data.tools.find(x => x.slug === s); if (t) return t;
       const v = (data.variants || []).find(x => x.slug === s), b = v && data.tools.find(x => x.slug === v.base); return b ? { ...b, ...v } : null;
     };
     const drawCrumb = (m, isVariant) => {
       const c = document.getElementById('crumb'); c.textContent = '';
-      c.append(el('a', { href: '/', text: 'All tools' }), ' / ', el('a', { href: '/#' + m.cat, text: cat.name }), ' / ',
+      c.append(el('a', { href: HT.L + '/', text: 'All tools' }), ' / ', el('a', { href: HT.L + '/#' + m.cat, text: cat.name }), ' / ',
         ...(isVariant ? [el('a', { href: pathOf(m.parent || baseSlug), text: (m.parent ? metaFor(m.parent) : data.tools.find(t => t.slug === baseSlug)).name }), ' / ' + m.name] : [m.name]));
     };
     drawCrumb(meta, !!variant);
-    document.getElementById('thead').append(el('div', { class: 'ic' }, HT.toolIcon(iconKey)), el('div', {}, el('h1', { text: meta.name }), el('p', { class: 'sub', text: meta.desc }),
+    const th = document.getElementById('thead');
+    if (th.querySelector('h1')) th.querySelector('.ic').append(HT.toolIcon(iconKey));   // build.py wrote the title block into the page
+    else th.append(el('div', { class: 'ic' }, HT.toolIcon(iconKey)), el('div', {}, el('h1', { text: meta.name }), el('p', { class: 'sub', text: meta.desc }),
       el('div', { class: 'badges' }, client ? el('span', { class: 'badge ok' }, HT.svg(ICON.lock).cloneNode(true), 'Runs in your browser') : el('span', { class: 'badge ok' }, meta.badge || 'Links last 90 days'),
         meta.cat === 'ai' ? el('span', { class: 'badge', text: 'AI powered' }) : null, el('span', { class: 'badge', text: 'Free \u00b7 no sign-up' }))));
     const app = el('div', { id: 'app' });
@@ -948,7 +1322,16 @@
     if (group.length) {
       // Format tabs (PNG / JPEG / JPG / GIF): real links, so search engines and "open in new tab" work, but a plain click
       // switches the tool in place without reloading the page; only the address, text and settings change.
-      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...group.filter(v => !v.tabOf).map(v => ({ slug: v.slug, label: v.tab || v.name }))], lit = homeOf(meta);
+      // With dozens of format pages this row became a directory: 92 tabs on one screen. Keep the ones that start
+      // from the same file type as this page, then fill up to TAB_MAX, and always keep the lit tab in the row.
+      const TAB_MAX = 14, lit = homeOf(meta);
+      let pages = group.filter(v => !v.tabOf);
+      if (pages.length > TAB_MAX) {
+        const src = s => String(s).split('-to-')[0];
+        const mine = src(slug), keep = p => p.slug === lit || src(p.slug) === mine;
+        pages = [...pages.filter(keep), ...pages.filter(p => !keep(p))].slice(0, TAB_MAX);
+      }
+      const items = [{ slug: baseSlug, label: data.tools.find(t => t.slug === baseSlug).tabAll || 'All formats' }, ...pages.map(v => ({ slug: v.slug, label: v.tab || v.name }))];
       work.append(el('nav', { class: 'vtabs', role: 'tablist', 'aria-label': 'Choose a version of this tool' }, items.map(t => {
         const a = el('a', { class: 'vtab' + (t.slug === lit ? ' on' : ''), href: pathOf(t.slug), role: 'tab', 'aria-selected': t.slug === lit ? 'true' : 'false', 'data-slug': t.slug, text: t.label });
         a.addEventListener('click', e => { if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button) return; e.preventDefault(); switchTo(t.slug, true); });
@@ -981,13 +1364,15 @@
           const ok = files.filter(f => HT.matches(f, current.accept));
           if (ok.length) { work.classList.add('has-file'); current.list.add(ok, true); }
           if (ok.length < files.length) HT.toast((files.length - ok.length) + ' file(s) removed: ' + (files.length - ok.length > 1 ? 'they are' : 'it is') + ' not ' + (m.tab || 'the right type') + '.');
+        } else if (current && current.list) {   // a file handed over by the home page's message box
+          HT.handoff.take().then(h => { const ok = h.filter(f => !current.accept || HT.matches(f, current.accept)); if (ok.length && current.list) { work.classList.add('has-file'); current.list.add(ok, true); } });
         }
       } catch (e) { app.append(el('div', { class: 'status err', text: 'Could not load this tool: ' + e.message })); console.error(e); }
     }
 
     async function switchTo(s, push) {
       const m = metaFor(s); if (!m || s === slugNow) return;
-      slugNow = s;
+      slugNow = s; HT.recent.add(s);
       const path = pathOf(s);
       if (push) history.pushState({ slug: s }, '', path);
       tabs.forEach(a => { const on = a.dataset.slug === homeOf(m); a.classList.toggle('on', on); a.setAttribute('aria-selected', on ? 'true' : 'false'); });
@@ -1009,6 +1394,7 @@
         document.querySelectorAll('script[type="application/ld+json"]').forEach(x => x.remove());
         d.querySelectorAll('script[type="application/ld+json"]').forEach(x => { const n = document.createElement('script'); n.type = 'application/ld+json'; n.textContent = x.textContent; document.head.append(n); });
         const seo = d.getElementById('seo'); if (seo) document.getElementById('seo').innerHTML = seo.innerHTML;
+        HT.rating.get(baseSlug).then(showRating);
       }).catch(() => { });
       await mountTool(s, true);
     }
@@ -1019,12 +1405,14 @@
     const how = meta.how ? meta.how : client && meta.cat === 'dev' ? ['<b>Type or paste</b> your text or pick your options', '<b>See</b> the result straight away', '<b>Copy</b> it or download it'] : client ? ['<b>Add your file</b>: it stays on your device', '<b>Adjust</b> the settings and watch the live preview', '<b>Download</b> the finished result']
       : ['<b>Add your images</b> (drag and drop or paste)', '<b>Wait</b> a moment while they upload', '<b>Copy</b> the links. They keep working for 90 days'];
     const side = document.getElementById('side');
-    const stepsUl = el('ol', { class: 'steps' }); how.forEach(h => { const li = el('li'), sp = el('span'); sp.innerHTML = h; li.append(sp); stepsUl.append(li); });
-    side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'How it works' }), stepsUl),
+    await HT.i18n;   // the steps hold <b> parts: translated whole, before they are split into pieces on the page
+    const stepsUl = el('ol', { class: 'steps' }); how.forEach(h => { const li = el('li'), sp = el('span'); sp.innerHTML = HT.t(h); li.append(sp); stepsUl.append(li); });
+    side.append(el('div', { class: 'sidecard' }, el('h2', { text: 'How it works' }), stepsUl),
       el('div', { class: 'sidecard privacy' }, HT.svg(client ? ICON.lock : ICON.shield), el('div', {}, el('b', { text: meta.privacyTitle || (client ? 'Private by design' : 'Shared by link') }),
         meta.privacy || (client ? 'This tool runs entirely in your browser. Nothing is uploaded.' : 'Images are stored on Cloudflare so their links work. Anyone with a link can see them, so upload nothing private.'))));
     const rel = data.tools.filter(t => t.cat === meta.cat && t.slug !== baseSlug && !t.href).slice(0, 6);
-    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h3', { text: 'More ' + cat.name + ' tools' }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: '/' + t.slug }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
+    side.append(HT.rateCard(baseSlug));
+    if (rel.length) side.append(el('div', { class: 'sidecard' }, el('h2', { text: HT.t('More {0} tools', cat.name) }), el('ul', { class: 'sidelist' }, rel.map(t => el('li', {}, el('a', { class: 'cat-' + t.cat, href: HT.href(t.slug) }, el('i', {}, HT.toolIcon(t.slug)), t.name))))));
 
     HT.footer();
     const later = window.requestIdleCallback || (f => setTimeout(f, 1500));
@@ -1039,7 +1427,7 @@
   // visitor leaves the page. /admin shows them per tool. Nothing is sent from the admin's own browser or when "Do Not Track" is on.
   HT.rum = (() => {
     const RATE = 0.1, runs = [];
-    const page = (() => { const p = location.pathname.replace(/\/+$/, ''); if (!p) return 'home'; const m = p.match(/^\/(?:tool\/)?([a-z0-9][a-z0-9-]*)$/); return m && !['privacy', 'terms', 'contact', 'takedown', 'admin', '404'].includes(m[1]) ? m[1] : null; })();
+    const page = (() => { const p = location.pathname.replace(/\/+$/, ''); if (!p || LANG_PREFIX.test(p) && !p.replace(LANG_PREFIX, '')) return 'home'; const m = p.replace(LANG_PREFIX, '').match(/^\/(?:tool\/)?([a-z0-9][a-z0-9-]*)$/); return m && !['privacy', 'terms', 'contact', 'takedown', 'admin', '404'].includes(m[1]) ? m[1] : null; })();
     const on = page && Math.random() < RATE && 'PerformanceObserver' in window && navigator.sendBeacon && navigator.doNotTrack !== '1' && !HT.isAdmin();
     const api = { run: (slug, ms, ok) => { if (on) runs.push({ s: slug, ms: Math.round(ms), ok: ok ? 1 : 0 }); } };
     if (!on) return api;
@@ -1062,5 +1450,37 @@
     };
     addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') send(); }); addEventListener('pagehide', send);
     return api;
+  })();
+  // ---------------------------------------------------------------- JavaScript errors (first-party: functions/api/errors.js, the admin's Errors tab)
+  // Unhandled exceptions and rejected promises, at most 5 kinds per page view, sent as one small beacon when they happen:
+  // the message (quoted text such as file names, e-mails, long numbers and the query part of addresses removed), the
+  // script and line, the top of the stack, the page, the browser family and the build. Errors from browser extensions
+  // are skipped, nothing is sent from the admin page, and "do not track" is honoured, like the speed beacon.
+  HT.version = VERSION;
+  HT.errors = (() => {
+    const p = location.pathname.replace(LANG_PREFIX, '').replace(/\/+$/, '') || '/';
+    const slug = p === '/' ? 'home' : (p.match(/^\/([a-z0-9][a-z0-9-]*)$/) || [])[1] || 'other';
+    const on = !!navigator.sendBeacon && navigator.doNotTrack !== '1' && !HT.isAdmin();
+    const EXT = /(?:chrome|moz|safari(?:-web)?|ms-browser|opera)-extension:|webkit-masked-url:|^resource:\/\//i, NOISE = /ResizeObserver loop|^Script error\.?$/i;
+    const scrub = s => String(s == null ? '' : s).replace(/https?:\/\/[^\s"')]+/g, u => u.split(/[?#]/)[0]).replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, '[email]')
+      .replace(/\b\d{6,}\b/g, '[number]').replace(/(^|[^A-Za-z0-9])(['"])(?:(?!\2)[^\n]){0,200}\2/g, '$1$2…$2').replace(/\s+/g, ' ').trim().slice(0, 300);
+    const browser = () => { const u = navigator.userAgent; return /Edg\//.test(u) ? 'edge' : /SamsungBrowser/.test(u) ? 'samsung' : /Firefox\//.test(u) ? 'firefox' : /Chrome\//.test(u) ? 'chrome' : /Safari\//.test(u) ? 'safari' : 'other'; };
+    const seen = new Set(), queue = []; let timer = 0;
+    const flush = () => { clearTimeout(timer); timer = 0; if (!queue.length) return; const e = queue.splice(0, 5);
+      try { navigator.sendBeacon('/api/errors', new Blob([JSON.stringify({ s: slug, v: VERSION, b: browser(), m: /Mobi|Android|iPhone/.test(navigator.userAgent) ? 1 : 0, e })], { type: 'text/plain' })); } catch { } };
+    const add = (msg, src, line, col, stack) => {
+      if (!on || seen.size >= 5) return;
+      src = String(src || '').split(/[?#]/)[0]; stack = String(stack || '');
+      const frames = stack.split('\n').filter(l => /:\/\/|@/.test(l));
+      if (EXT.test(src) || (frames.length && frames.every(l => EXT.test(l)))) return;   // an extension's problem, not ours
+      msg = scrub(msg); if (!msg || NOISE.test(msg)) return;
+      const key = msg.slice(0, 80) + '|' + src + '|' + (line | 0); if (seen.has(key)) return; seen.add(key);
+      queue.push({ msg, src: src.replace(location.origin, ''), line: line | 0, col: col | 0, stack: stack.split('\n').filter(l => l.trim() && !EXT.test(l)).slice(0, 8).map(scrub).join('\n').slice(0, 1200) });
+      if (!timer) timer = setTimeout(flush, 1500);
+    };
+    addEventListener('error', ev => { if (ev.message || ev.error) add(ev.message || ev.error.message, ev.filename, ev.lineno, ev.colno, ev.error && ev.error.stack); });
+    addEventListener('unhandledrejection', ev => { const r = ev.reason; add(r && r.message ? r.message : typeof r === 'string' ? r : 'Unhandled promise rejection', '', 0, 0, r && r.stack); });
+    addEventListener('pagehide', flush); addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+    return { add, flush, page: slug };
   })();
 })();

@@ -1,13 +1,13 @@
-const VID = 'video/*,.mkv,.avi,.mov,.flv,.wmv,.ts,.3gp,.gif';
+const VID = 'video/*,.mkv,.avi,.mov,.flv,.wmv,.ts,.mts,.m2ts,.3gp,.m4v,.mpg,.mpeg,.vob,.gif';  // .mts and .vob often arrive with no MIME type
 const RES = [['keep', 'Keep original'], ['2160', '4K (2160p)'], ['1440', '1440p'], ['1080', '1080p'], ['720', '720p'], ['480', '480p'], ['360', '360p'], ['240', '240p']];
 const BIG = 'Your device does the work, so nothing is uploaded. Long or 4K videos can take a while on phones.';
 
 HT.register('video-converter', root => HT.serverTool(root, {
   slug: 'video-converter', accept: VID + ',audio/*', max: 10, action: files => 'Convert ' + files.length + ' file' + (files.length > 1 ? 's' : ''), hint: BIG,
   fields: [
-    { name: 'format', label: 'Convert to', type: 'select', options: [['mp4', 'MP4 (works everywhere)'], ['webm', 'WebM (web, small)'], ['mkv', 'MKV'], ['mov', 'MOV'], ['avi', 'AVI'], ['mp3', 'MP3 (audio only)'], ['m4a', 'M4A / AAC (audio only)'], ['wav', 'WAV (audio only)'], ['ogg', 'OGG Opus (audio only)'], ['flac', 'FLAC (audio only)']] },
-    { name: 'quality', label: 'Quality', type: 'select', value: 'medium', options: [['high', 'High'], ['medium', 'Balanced'], ['low', 'Small file']], showIf: v => ['mp4', 'webm', 'mkv', 'mov', 'avi'].includes(v.format) },
-    { name: 'resolution', label: 'Resolution', type: 'select', options: RES, showIf: v => ['mp4', 'webm', 'mkv', 'mov', 'avi'].includes(v.format), help: 'Only ever scales down.' },
+    { name: 'format', label: 'Convert to', type: 'select', options: [['mp4', 'MP4 (works everywhere)'], ['webm', 'WebM (web, small)'], ['mkv', 'MKV'], ['mov', 'MOV'], ['avi', 'AVI'], ['wmv', 'WMV (Windows Media)'], ['flv', 'FLV'], ['m4v', 'M4V (Apple)'], ['3gp', '3GP (old phones)'], ['ts', 'TS'], ['mts', 'MTS (AVCHD)'], ['mpg', 'MPG'], ['mpeg', 'MPEG'], ['vob', 'VOB (DVD)'], ['mp3', 'MP3 (audio only)'], ['m4a', 'M4A (audio only)'], ['aac', 'AAC (audio only)'], ['wav', 'WAV (audio only)'], ['aiff', 'AIFF (audio only)'], ['flac', 'FLAC (audio only)'], ['ogg', 'OGG Opus (audio only)'], ['opus', 'Opus (audio only)'], ['wma', 'WMA (audio only)'], ['m4r', 'M4R iPhone ringtone (audio only)']] },
+    { name: 'quality', label: 'Quality', type: 'select', value: 'medium', options: [['high', 'High'], ['medium', 'Balanced'], ['low', 'Small file']], showIf: v => ['mp4', 'webm', 'mkv', 'mov', 'avi', 'wmv', 'flv', 'm4v', '3gp', 'ts', 'mts', 'mpg', 'mpeg', 'vob'].includes(v.format) },
+    { name: 'resolution', label: 'Resolution', type: 'select', options: RES, showIf: v => ['mp4', 'webm', 'mkv', 'mov', 'avi', 'wmv', 'flv', 'm4v', '3gp', 'ts', 'mts', 'mpg', 'mpeg', 'vob'].includes(v.format), help: 'Only ever scales down.' },
   ],
 }));
 
@@ -131,8 +131,8 @@ const n = (c, w) => c + ' ' + w + (c > 1 ? 's' : '');
 HT.register('video-to-audio', root => HT.serverTool(root, {
   slug: 'video-to-audio', accept: NOGIF + ',audio/*', max: 10, action: files => 'Get the audio from ' + n(files.length, 'file'), compare: false, hint: 'MP4, MOV, MKV, WebM, AVI... ' + BIG,
   fields: [
-    { name: 'format', label: 'Save the audio as', type: 'select', value: 'mp3', options: [['mp3', 'MP3 (works everywhere)'], ['m4a', 'M4A / AAC'], ['wav', 'WAV (uncompressed)'], ['ogg', 'OGG Opus'], ['flac', 'FLAC (lossless)']] },
-    { name: 'bitrate', label: 'Quality', type: 'select', value: '192', options: [['320', '320 kbps (best)'], ['256', '256 kbps'], ['192', '192 kbps (recommended)'], ['128', '128 kbps'], ['96', '96 kbps'], ['64', '64 kbps (voice, smallest)']], showIf: v => ['mp3', 'm4a', 'ogg'].includes(v.format) },
+    { name: 'format', label: 'Save the audio as', type: 'select', value: 'mp3', options: [['mp3', 'MP3 (works everywhere)'], ['m4a', 'M4A'], ['aac', 'AAC'], ['wav', 'WAV (uncompressed)'], ['aiff', 'AIFF (uncompressed, Apple)'], ['flac', 'FLAC (lossless)'], ['ogg', 'OGG Opus'], ['opus', 'Opus'], ['wma', 'WMA'], ['m4r', 'M4R (iPhone ringtone)']] },
+    { name: 'bitrate', label: 'Quality', type: 'select', value: '192', options: [['320', '320 kbps (best)'], ['256', '256 kbps'], ['192', '192 kbps (recommended)'], ['128', '128 kbps'], ['96', '96 kbps'], ['64', '64 kbps (voice, smallest)']], showIf: v => ['mp3', 'm4a', 'ogg', 'aac', 'opus', 'wma', 'm4r'].includes(v.format) },
   ],
 }));
 HT.register('mp4-to-mp3', root => HT.serverTool(root, {

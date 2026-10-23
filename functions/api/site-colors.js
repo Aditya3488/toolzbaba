@@ -2,21 +2,10 @@
 // Only the colour list goes back to the visitor, never the page itself. The browser can't do this alone (sites don't allow other
 // sites to read them), and Cloudflare Functions can only reach the public internet.
 import { fail, json } from '../../lib/cdn-store.js';
+import { checkUrl } from '../../lib/public-url.js';  // public web addresses only: no IP numbers, no local names, standard ports
 
 const MAX_PAGE = 1_500_000, MAX_SHEET = 800_000, MAX_SHEETS = 8, TIMEOUT = 9000;
 const UA = 'Mozilla/5.0 (compatible; ToolzBabaColorBot/1.0; +https://toolzbaba.com)';
-
-// public web addresses only: no IP numbers, no local names, standard ports
-function checkUrl(u, env) {
-  let url; try { url = new URL(u); } catch { return null; }
-  if (!/^https?:$/.test(url.protocol)) return null;
-  if (env.ALLOW_PRIVATE_HOSTS === '1') return url;  // local testing only (.dev.vars), never set on the live site
-  const h = url.hostname.toLowerCase();
-  if (!h.includes('.') || /^\d+\.\d+\.\d+\.\d+$/.test(h) || h.includes(':') || h.startsWith('[') || /(^|\.)(localhost|local|internal|lan|home|corp|test|invalid)$/.test(h)) return null;
-  if (url.port && !['80', '443'].includes(url.port)) return null;
-  if (url.username || url.password) return null;
-  return url;
-}
 async function get(url, env, max, accept) {
   let cur = url;
   for (let hop = 0; hop < 4; hop++) {  // follow a few redirects ourselves so every hop is checked

@@ -150,6 +150,15 @@ toolzbaba/
 │     ├─ tools/*.js      one file per tool group (browser tools and server-tool forms)
 │     ├─ brand/          logo, favicons, hero art (generated, see brand-source/)
 │     └─ vendor/         jszip, qrcode, pdf.js (PDF previews), tesseract.js + English/Hindi data (OCR): vendored, no CDN
+├─ site_board/           Site Map Board: crawl any website into a Miro-style board + a free offline Q&A bot (standard library only)
+├─ india_saas/           India SaaS Startups database: free open-source company data -> /india-saas-startups (standard library only)
+│  ├─ pipeline.py        the run: collect -> resolve -> enrich -> classify -> score -> companies.json
+│  ├─ sources/           one module per free source (YC, Wikidata, Wikipedia, homepage probe, archive/HN/GitHub)
+│  ├─ resolve.py         entity resolution: many lists -> one company per domain
+│  ├─ verify.py          the checks that stop a plausible wrong answer being published
+│  ├─ taxonomy.py        the sector tree and the rules that place a company in it
+│  ├─ score.py           the Baba Score (0-100), published with its own arithmetic
+│  └─ pages.py           the index, sector and company page bodies (build.py wraps them)
 ├─ tests/                smoke_api.py (every server tool), smoke_web.py (SEO, limits ...), browser_tools.js (UI flows)
 ├─ brand-source/         original logo/favicon + script that regenerates everything in assets/brand
 ├─ deploy/, docker-compose*.yml, Dockerfile, .env.example, DEPLOY.md     production setup
@@ -163,6 +172,74 @@ toolzbaba/
 3. **Server tools** send files to `POST /api/tools/<slug>`. `toolkit.py` saves them, runs your Python function in a
    worker thread and returns a job id; the page polls `/api/jobs/<id>` and downloads `/api/jobs/<id>/file`.
    Results are deleted automatically after 30 minutes.
+
+---
+
+## India SaaS Startups database
+
+A free directory of Indian SaaS and software companies at `/india-saas-startups`, with a page per
+sector and a page per company. It is the same shape as a paid private-market database (Tracxn,
+CB Insights) built only from sources that cost nothing and need no account.
+
+**It costs nothing to run.** Standard library only, no new dependency, no API key, no paid data.
+Every request is cached on disk, and the output is static HTML served by Cloudflare Pages.
+
+### Where the data comes from
+
+| Layer | Source | What it gives |
+|---|---|---|
+| Seed list | Y Combinator company API (`regions=India`) | funded Indian startups: batch, team size, status, tags |
+| Seed list | Wikidata SPARQL | any business headquartered in India with a website: inception, HQ, staff |
+| Seed list | Wikipedia category tree | ~38 categories by industry, city and founding year |
+| Product signals | each company's own homepage, one request | pricing/docs/login pages, tech stack, social links |
+| Age | Wayback Machine CDX | the year the domain first appeared |
+| Mindshare | Hacker News (Algolia index) | how often the company is discussed |
+| Public code | GitHub REST API | repos and stars, when the homepage links to an organisation |
+
+The seed lists are deliberately broad. Asking Wikidata for "Indian companies whose industry is
+software" returns a couple of hundred items, because most company entries never get an industry
+set; asking for "businesses headquartered in India that have a website" returns about ten times
+as many. Recall first, filtering second — the homepage probe decides what is actually software.
+
+That breadth is why `verify.is_software_business` measures consumer wording as well as product
+wording. Once the seed covers every Indian business, the sector alone proves nothing: a real bank
+matches "banking" exactly as well as banking software does, and its homepage has a login and a
+pricing page too. A company selling *to* banks still passes, because its own product words win.
+
+Deliberately **not** included: funding raised and valuation. Neither can be had for free and
+reliably, and a number nobody can check is worse than no number. (For reference, the way paid
+platforms get Indian cap tables is MCA `PAS-3` and `MGT-7` filings, which are public but charged
+per document.)
+
+### Running it
+
+```bash
+python -m india_saas.pipeline              # full run, ~20 minutes the first time
+python -m india_saas.pipeline --limit 40   # a quick slice while developing
+python -m india_saas.pipeline --fresh      # ignore the cache and refetch everything
+python build.py                            # render the pages into dist/
+```
+
+The run is resumable: every HTTP response is cached under `india_saas/data/cache` for a fortnight,
+so a second run costs almost no requests and an interrupted run picks up where it stopped. The
+cache is ignored by git; `india_saas/data/companies.json` is committed, so a deploy needs no network.
+
+### The score
+
+`score.py` gives each company 0-100 across six parts, and each company page prints the parts with
+the evidence behind them — product evidence (30), product vs services wording (15), years operating
+(15), public code (15), discussion (15), third-party validation (10). A paid database shows you a
+score and not its arithmetic; this one shows both, because a score built from free signals has no
+business pretending to be a valuation.
+
+### Why `verify.py` exists
+
+Free signals are noisy in specific, repeatable ways, and each check in `verify.py` was added because
+the first run got something visibly wrong: a homepage linking to someone else's GitHub gave a
+two-person startup 87,000 stars; a recycled domain the archive first saw in 1996 made a young
+company look twenty years old; a YC company with a San Francisco office was labelled an Indian city;
+and telecom operators appeared as SaaS because they have a login page. Read it before loosening a
+filter.
 
 ---
 
@@ -333,6 +410,8 @@ One page to archive or re-enable tools, see how fast they are for real visitors,
 * **Real visitors**: about 1 page view in 10 sends one beacon (`HT.rum`, no personal data, off for the admin and for Do Not Track) to `POST /api/rum`; `lib/rum-store.js` folds it into one JSON document of histograms per tool (server time, first paint, LCP, tool-ready, INP, CLS, errors, tool runs). Free KV allows 1,000 writes a day, so at most 700 beacons a day are saved (estimates). For exact numbers move this to D1 or Analytics Engine.
 * **Lab tests**: opens each tool in a hidden frame of the admin tab, measures ready time, load time, our own download weight vs ads/analytics weight, collects JS errors, and (optional) feeds the tool a generated sample (PNG/JPEG, PDF, WAV, a short video for heavy tools) and waits for a result or a download. AI/video/speech tools only run with "Include heavy tools". Results are stored in KV (`admin:lab`) so every admin sees them. Quick health check only; `tests/` stays the real safety net.
 * **Blog**: write, publish, edit, unpublish and delete posts (see below).
+* **Errors**: the JavaScript errors visitors hit (`HT.errors` in `common.js` → `POST /api/errors`, `lib/error-store.js`), grouped by message and place with counts per page, browser family and build, kept 14 days. A browser sends at most 5 kinds per page view, after removing quoted text (file names), e-mails, long numbers and query strings; browser-extension errors are dropped; nothing is sent from `/admin` or with Do Not Track. 300 beacons a day are saved (the KV write budget); the endpoint only takes same-origin posts under 8 KB and always answers 204.
+* **CSP reports**: the public pages carry a `Content-Security-Policy-Report-Only` (in `deploy/pages/_headers`; `build.py` fills in the hash of every inline script it built). Browsers report what the policy *would* block to `POST /api/csp-report` (`lib/csp-store.js`: both report shapes, hosts and paths only, extension noise dropped, 300 a day). Rows marked "ours" (inline, eval or this site) must be fixed before the policy can be enforced; "tag" rows are tags Google Tag Manager injects (add their hosts); "other" is usually an extension. Enforce only after a quiet observation period, by renaming the header in `_headers` (the `/admin` page keeps its own enforced policy either way).
 * Code: `static/admin.html`, `static/assets/admin.js`, `admin.css` (loaded only on `/admin`), `functions/api/admin/*`, `functions/api/tool-status.js`, `functions/api/rum.js`, `lib/admin-store.js`, `lib/rum-store.js`. Tests: `tests/functions_test.mjs` (API), `node tests/browser_admin.js` (needs `ADMIN_KEY` in `.dev.vars`).
 
 ### Blog (`/blog`)
@@ -345,11 +424,69 @@ A small CMS built into the admin panel (the Blog tab), free on Cloudflare: no Wo
 * **Renaming** a published post keeps the old address as a 301 redirect (`blog:moved:<old>`).
 * KV keys: `blog:index` (summaries), `blog:post:<slug>`, `blog:moved:<slug>`, `blogimg:<id>.<ext>`. Code: `functions/blog/*`, `functions/api/admin/blog/*`, `functions/api/admin/blog-image.js`, `lib/blog-store.js`.
 
+### Analytics events (what the site tells Tag Manager)
+
+The pages push two events into `dataLayer` (`HT.track` in `common.js`), nothing else: `tool_run` `{tool, ok, seconds}` when a
+tool job finishes, and `tool_download` `{tool, ext}` when a result is downloaded (the file's extension only, never its name).
+GA4 only sees them once the container has a *Custom Event* trigger for each name and a GA4 event tag that forwards `tool`,
+`ok`, `seconds` and `ext` as event parameters (then register them as custom dimensions in GA4). Until then GA4 has page views
+only; tool runs are still counted on `/admin → Real visitors`.
+
+### Ratings, next steps, recent tools
+* **Rate this tool** (`functions/api/rating.js`): votes live in the D1 database `toolzbaba-ratings` (binding `DB` in `wrangler.toml`, table `ratings`: one row per tool and visitor, the visitor being a salted hash of the IP, salt `RATING_SALT` or else `ADMIN_KEY`). A tool and its tab pages share one score. The average shows by the tool's name and as `aggregateRating` in the page data once there are 5 votes (`MIN_SHOWN` in `common.js`). Real votes only: Google penalises made-up ratings.
+* **After a download** (`nextSteps` in `common.js`): Share (the phone's share sheet), Do another file, the stars, and 4 next tools (`NEXT` per tool, `NEXT_CAT` per category).
+* **Recent tools**: the last 8 tools a visitor opened, in their own browser (`tz_recent`), shown on the home page and in the phone menu.
+
+### Open from Google Drive / Dropbox
+The buttons under each drop box appear only when `build.py` has the keys (environment variables, or the defaults in `build.py`; for the GitHub workflow add them to the build step's `env`). They are public browser keys, safe in the page because they are locked to the site's address:
+* **Dropbox**: dropbox.com/developers > Create app > Scoped access, App folder or Full Dropbox > in Settings add `toolzbaba.com` under "Chooser / Saver / Embedder domains". Put the App key in `DROPBOX_APP_KEY`.
+* **Google Drive**: console.cloud.google.com > new project > enable "Google Picker API" and "Google Drive API" > OAuth consent screen (External, scope `drive.file`, publish it) > Credentials: an API key (restrict it to HTTP referrer `https://toolzbaba.com/*` and to the Picker API) -> `GOOGLE_API_KEY`; an OAuth client ID of type Web application with authorised JavaScript origin `https://toolzbaba.com` -> `GOOGLE_CLIENT_ID`; the project number (Dashboard) -> `GOOGLE_APP_ID`.
+The file goes from Google or Dropbox straight into the browser; nothing passes through our server. The AI pages (cross-origin isolated) don't show the buttons.
+
 ### Keeping the site fast
 
 Rules that keep the numbers in the admin panel green: tool code and models load only when a tool is used; public pages never load admin code; the tool page reserves the room its script-built parts will need (`.thead`, `.shell`, the home page chips and list in `app.css`, "Layout stability"), and the side cards are added after the tool is in place, so nothing jumps (CLS was 0.5 to 1.4 before, now about 0.05); images are served in the size shown (`hero-art-330/540.webp`, `logo-315.webp`). The remaining weight on every page is ads/analytics from Google Tag Manager (about 200 KB): loading it after the page has settled would be the next big win.
 
+### Site Map Board (`site_board/`)
+
+Paste a website address and get one self-contained HTML board in the style of a Miro sitemap: every page from the menu, footer
+and sitemaps grouped into sections, a visit-to-purchase (shops) or visit-to-lead funnel, the ad pixels and tracking tags it uses
+(read from the page and its Google Tag Manager container), SEO health for every page, and for Shopify / WooCommerce shops the whole
+catalogue with prices, discounts, stock and ratings. The board has an **Ask about this site** bot that answers from the crawl
+(SEO, broken links, tracking, ads, funnel, contacts, products and prices, comparisons, advice; some Hinglish too). The bot is plain
+Python rules plus search: no AI service and no API key. Only the Python standard library is used (Pillow, if present, makes screenshots smaller).
+
+```bash
+python -m site_board https://example.com                      # writes example.com-sitemap-board.html
+python -m site_board https://shop.com --max-pages 1500 --json shop.json
+python -m site_board ask shop.json "Which products are under 1000?"
+python -m site_board serve                                     # paste-a-URL page at http://127.0.0.1:8765 (bot works there)
+python tests/smoke_site_board.py                               # offline test
+```
+
+With the FastAPI server the same page is at `/site-board` (routes in `site_board/api.py`, included in `main.py`;
+`/api/site-board/start` uses the `tool_heavy` rate limit). Screenshots need a local Chrome or Edge (`SITE_BOARD_CHROME` to point at one).
+Crawls follow `site-colors.js`'s address rules (public http(s) only, every redirect re-checked, private IPs refused), stop reading a
+page after its first H1, and slow down by themselves when a site answers 429. Reports are kept in `~/.site_board` (`SITE_BOARD_DIR`).
+The template is `site_board/assets/board_template.html`.
+
+**On the static site** it is the *Visual Sitemap Generator* (`/visual-sitemap-generator`). The same Python runs in the visitor's
+browser with Pyodide (`static/assets/vendor/pyodide-314.0.7/`): `build.py` zips the package (minus the server-only modules) to
+`/assets/site-board/site_board.zip`, `static/assets/tools/site-board-worker.js` loads it in a Web Worker, and `site-board.js` is the page.
+The crawl is written as steps (`site_board/driver.py`): on a PC `driver.run()` does them with threads, in the browser `site_board/web.py`
+does them as parallel `fetch()` calls through `functions/api/site-fetch.js`, which passes public pages on (same address rules as
+`site-colors`, shared in `lib/public-url.js`; this site's own pages only; text only; 12 MB and 30 s limits; served as an inert download).
+The chat in the board calls the worker, so it works with no server. Downloaded boards keep the map; their chat points back to the tool.
+
 ## Testing
+
+The browser tests need `tests/samples/` (not committed): `python tests/make_pdf_samples.py` and `python tests/make_image_samples.py`
+draw them. Two tests want files that cannot be generated and skip or fail without them: a real portrait as `samples/face.jpg`
+(passport photo, AI headshot) and a real Word document as `samples/real.docx` (Word to Markdown).
+
+After `python build.py`, `python tests/smoke_build.py` checks that the built site agrees with `tools.json`: unique slugs, every
+tool on the home page's HTML in every language, every slug the header menus name, the sitemap against the built pages (no
+alias in it, every alias redirected), the tool count in the page text, and robots.txt. Run it before every deploy.
 
 Start the app (`start.bat`), then in another terminal:
 

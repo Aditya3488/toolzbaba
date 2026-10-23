@@ -2,6 +2,12 @@
 // (upload limits, blocked types, download headers, deleting), the admin sign-in and the blog. Run:  node tests/functions_test.mjs
 import assert from 'node:assert/strict';
 import { onRequestGet as siteColors } from '../functions/api/site-colors.js';
+import { onRequestGet as siteFetch } from '../functions/api/site-fetch.js';
+import { withoutArchived } from '../functions/sitemap.xml.js';
+import { onRequestPost as jsErrors } from '../functions/api/errors.js';
+import { onRequestPost as cspReport } from '../functions/api/csp-report.js';
+import { onRequestGet as adminErrors } from '../functions/api/admin/errors.js';
+import { onRequestGet as adminCsp } from '../functions/api/admin/csp.js';
 import { onRequestPost as upload } from '../functions/api/files/index.js';
 import { onRequestDelete as remove } from '../functions/api/files/[id].js';
 import { onRequestGet as download } from '../functions/f/[id]/[name].js';
@@ -17,6 +23,7 @@ import { onRequestGet as blogPost } from '../functions/blog/[slug].js';
 import { onRequestPut as blogPut, onRequestDelete as blogDelete } from '../functions/api/admin/blog/[slug].js';
 import { onRequestGet as blogList } from '../functions/api/admin/blog/index.js';
 import { onRequestPost as blogImage } from '../functions/api/admin/blog-image.js';
+import { onRequestGet as rateGet, onRequestPost as rateSet } from '../functions/api/rating.js';
 
 globalThis.caches = { default: { match: async () => undefined, put: async () => { }, delete: async () => { } } };
 class KV { constructor() { this.m = new Map(); } async put(k, v) { this.m.set(k, v); } async get(k, o) { const v = this.m.get(k); if (v === undefined) return null; if (o && o.type === 'json') return JSON.parse(v); if (o && o.type === 'arrayBuffer') return v; return typeof v === 'string' ? v : new TextDecoder().decode(v); } async delete(k) { this.m.delete(k); } }
@@ -186,6 +193,123 @@ assert.match(cd, /^attachment; filename="[\x20-\x7e]+\.pdf"; filename\*=UTF-8''%
   assert.equal((await up('image/png', '<html>')).status, 415, 'fake PNG refused');
   assert.match((await (await up('image/png', png)).json()).url, /^\/blog\/images\/[A-Za-z0-9]+\.png$/);
   ok('blog: admin-only saving, private drafts, escaped posts, renames redirect');
+}
+
+// ---- ratings: one vote per tool and visitor (changeable), only real tools, stars 1-5
+{
+  const rows = new Map();
+  const DB = { prepare: sql => ({ bind: (...a) => ({ run: async () => { if (/^INSERT/.test(sql)) rows.set(a[0] + '|' + a[1], a[2]); return {}; },
+    first: async () => { const v = [...rows].filter(([k]) => k.startsWith(a[0] + '|')).map(([, s]) => s); return { n: v.length, a: v.length ? v.reduce((x, y) => x + y, 0) / v.length : null }; } }), run: async () => ({}) }) };
+  const E = { DB, ADMIN_KEY: 'salt-for-tests', ASSETS: { fetch: async () => new Response(JSON.stringify({ tools: [{ slug: 'compress-pdf' }], variants: [{ slug: 'compress-png' }] })) } };
+  const vote = (tool, stars, ip) => rateSet({ request: req('/api/rating', { method: 'POST', headers: { 'Content-Type': 'application/json', 'CF-Connecting-IP': ip }, body: JSON.stringify({ tool, stars }) }), env: E });
+  assert.equal((await vote('nope', 5, '1.1.1.1')).status, 400, 'unknown tool');
+  assert.equal((await vote('compress-pdf', 6, '1.1.1.1')).status, 400, 'stars out of range');
+  assert.equal((await vote('compress-pdf', 2.5, '1.1.1.1')).status, 400, 'half stars');
+  await vote('compress-pdf', 5, '1.1.1.1'); await vote('compress-pdf', 1, '1.1.1.1');   // the same visitor changes their vote
+  const r = await (await vote('compress-pdf', 4, '2.2.2.2')).json();
+  assert.equal(r.count, 2); assert.equal(r.avg, 2.5);
+  assert.ok(![...rows.keys()].some(k => k.includes('1.1.1.1')), 'the IP address is not stored');
+  const g = await (await rateGet({ request: req('/api/rating?tool=compress-pdf'), env: E, waitUntil: () => { } })).json();
+  assert.equal(g.count, 2);
+  ok('ratings: one changeable vote per visitor, real tools only, IPs never stored');
+}
+
+// ---- site-fetch (Visual Sitemap Generator): public pages only, every redirect checked, text only, size cap
+{
+  for (const bad of ['', 'http://localhost/', 'http://10.0.0.5/', 'https://example.com:8443/', 'file:///etc/passwd', 'https://toolzbaba.com/']) {
+    const r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent(bad)), env: {} });
+    assert.equal(r.status, 400, `${bad} should be refused (got ${r.status})`);
+  }
+  const cross = await siteFetch({ request: req('/api/site-fetch?url=https://example.com/', { headers: { 'Sec-Fetch-Site': 'cross-site' } }), env: {} });
+  assert.equal(cross.status, 403, 'other sites may not use it');
+  const realFetch = globalThis.fetch, seen = [];
+  globalThis.fetch = async (u, init) => {
+    seen.push(u);
+    if (u === 'https://example.com/old') return new Response(null, { status: 301, headers: { Location: '/new' } });
+    if (u === 'https://example.com/sneaky') return new Response(null, { status: 302, headers: { Location: 'http://127.0.0.1/admin' } });
+    if (u === 'https://example.com/logo.png') return new Response(new Uint8Array(50), { headers: { 'Content-Type': 'image/png' } });
+    if (u === 'https://example.com/busy') return new Response('slow down', { status: 429, headers: { 'Retry-After': '7' } });
+    return new Response('x'.repeat(50_000), { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+  };
+  try {
+    let r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/old'), { headers: { 'Sec-Fetch-Site': 'same-origin' } }), env: {} });
+    assert.equal(r.status, 200); assert.equal(r.headers.get('X-Upstream-Status'), '200'); assert.equal(r.headers.get('X-Final-Url'), 'https://example.com/new');
+    assert.equal(r.headers.get('X-Redirected'), '1'); assert.equal(r.headers.get('Content-Type'), 'text/plain; charset=utf-8', 'compressible, never text/html'); assert.equal(r.headers.get('X-Content-Type-Options'), 'nosniff'); assert.match(r.headers.get('Content-Security-Policy'), /sandbox/);
+    assert.equal((await r.text()).length, 50_000);
+    r = await siteFetch({ request: req('/api/site-fetch?max=20000&url=' + encodeURIComponent('https://example.com/big')), env: {} });
+    assert.equal((await r.arrayBuffer()).byteLength, 50_000, 'passed on whole: the worker stops reading at max itself (a cut here cost CPU time and truncated pages)');
+    assert.equal(r.headers.get('X-Max'), '20000');
+    r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/sneaky')), env: {} });
+    assert.equal(r.status, 422, 'a redirect to a private address is refused');
+    assert.ok(!seen.some(u => u.includes('127.0.0.1')), 'the private address was never fetched');
+    r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/logo.png')), env: {} });
+    assert.equal(r.headers.get('X-Skipped'), '1'); assert.equal((await r.arrayBuffer()).byteLength, 0, 'pictures are not passed on');
+    r = await siteFetch({ request: req('/api/site-fetch?url=' + encodeURIComponent('https://example.com/busy')), env: {} });
+    assert.equal(r.headers.get('X-Upstream-Status'), '429'); assert.equal(r.headers.get('X-Retry-After'), '7');
+  } finally { globalThis.fetch = realFetch; }
+  ok('site-fetch: public pages only, redirects checked, text only, size cap');
+}
+
+// ---- sitemap: a tool the admin switched off leaves the sitemap in every language, nothing else moves
+{
+  const xml = ['/', '/compress-image', '/hi/compress-image', '/anime-style', '/de/anime-style', '/anime-style-2', '/blog'].map(p => `<url><loc>https://toolzbaba.com${p}</loc><lastmod>2026-10-01</lastmod></url>`).join('\n') + '\n</urlset>';
+  const out = withoutArchived(xml, ['anime-style']);
+  assert.ok(!out.includes('/anime-style</loc>') && !out.includes('/de/anime-style</loc>'), 'the archived tool is gone in every language');
+  assert.ok(out.includes('/anime-style-2</loc>') && out.includes('/compress-image</loc>') && out.includes('/hi/compress-image</loc>') && out.includes('/blog</loc>'), 'other pages stay');
+  assert.equal(out.split('<url>').length - 1, 5);
+  ok('sitemap: archived tools are left out, other pages untouched');
+}
+
+// ---- error beacons: cleaned, grouped, noise and extensions dropped, budgets kept, always 204
+{
+  const E = { CDN: new KV() };
+  const post = (body, headers = {}) => jsErrors({ request: req('/api/errors', { method: 'POST', headers: { 'Content-Type': 'text/plain', 'Sec-Fetch-Site': 'same-origin', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body) }), env: E });
+  const stored = async () => (await E.CDN.get('admin:errors', { type: 'json' })) || { groups: {} };
+  let r = await post({ s: 'compress-image', v: 'abc123', b: 'chrome', m: 1, e: [{ msg: "Couldn't read 'my passport scan.jpg' as an image, mail me@example.com, id 123456789 at https://x.test/p?token=abc", src: 'https://toolzbaba.com/assets/engine/image.js?v=abc123', line: 12, col: 3, stack: 'Error: x\n    at f (https://toolzbaba.com/assets/engine/image.js?v=abc123:12:3)\n    at chrome-extension://abcdefghijklmnop/content.js:1:1' }] });
+  assert.equal(r.status, 204);
+  let g = Object.values((await stored()).groups); assert.equal(g.length, 1);
+  assert.equal(g[0].msg, "Couldn't read '…' as an image, mail [email], id [number] at https://x.test/p", 'quoted text, e-mail, number and query removed');
+  assert.equal(g[0].src, 'toolzbaba.com/assets/engine/image.js'); assert.equal(g[0].line, 12);
+  assert.ok(!g[0].stack.includes('chrome-extension') && g[0].stack.includes('image.js'), 'extension frames dropped, ours kept');
+  assert.deepEqual(g[0].pages, { 'compress-image': 1 }); assert.deepEqual(g[0].browsers, { 'chrome-phone': 1 }); assert.deepEqual(g[0].versions, { abc123: 1 });
+  await post({ s: 'home', b: 'firefox', e: [{ msg: "Couldn't read 'other file.png' as an image, mail you@example.org, id 987654321 at https://x.test/p?q=1", src: 'https://toolzbaba.com/assets/engine/image.js', line: 12 }] });
+  g = Object.values((await stored()).groups); assert.equal(g.length, 1, 'the same error from another visitor joins the group'); assert.equal(g[0].count, 2); assert.deepEqual(g[0].pages, { 'compress-image': 1, home: 1 });
+  for (const noise of [{ msg: 'Script error.', src: '' }, { msg: 'ResizeObserver loop completed with undelivered notifications.', src: '' }, { msg: 'boom', src: 'chrome-extension://abc/x.js' }, { msg: 'boom2', src: '', stack: 'at moz-extension://abc/x.js:1:1\nat moz-extension://abc/y.js:2:2' }]) {
+    await post({ s: 'home', b: 'chrome', e: [noise] });
+  }
+  assert.equal(Object.keys((await stored()).groups).length, 1, 'noise and extension errors are not stored');
+  assert.equal((await post({ s: 'home', e: [{ msg: 'x' }] }, { 'Sec-Fetch-Site': 'cross-site' })).status, 204); assert.equal(Object.keys((await stored()).groups).length, 1, 'cross-site posts are ignored');
+  assert.equal((await post('not json')).status, 204); assert.equal((await post('x'.repeat(9000))).status, 204); assert.equal((await post({ s: 'home', e: 'nope' })).status, 204);
+  const many = { s: 'home', b: 'chrome', e: Array.from({ length: 20 }, (_, i) => ({ msg: 'e' + i, src: '' })) }; await post(many);
+  assert.equal(Object.keys((await stored()).groups).length, 1 + 5, 'at most 5 errors a beacon');
+  const agg = await stored(); agg.writes = 300; await E.CDN.put('admin:errors', JSON.stringify(agg)); await post({ s: 'home', b: 'chrome', e: [{ msg: 'over budget', src: '' }] });
+  assert.ok(!Object.values((await stored()).groups).some(x => x.msg === 'over budget'), 'the daily write budget holds');
+  const old = JSON.parse(JSON.stringify(agg)); old.writes = 0; old.groups.stale = { ...Object.values(old.groups)[0], last: Date.now() - 20 * 86400000 }; await E.CDN.put('admin:errors', JSON.stringify(old));
+  await post({ s: 'home', b: 'chrome', e: [{ msg: 'fresh', src: '' }] }); assert.ok(!(await stored()).groups.stale, 'groups older than 14 days are forgotten');
+  const a = await adminErrors({ request: req('/api/admin/errors', { headers: ADMIN_H }), env: { ...E, ADMIN_USER: 'boss-admin', ADMIN_KEY: 'secret-admin-key' } }); assert.equal(a.status, 200); assert.ok((await a.json()).errors.groups);
+  assert.ok([401, 403, 503].includes((await adminErrors({ request: req('/api/admin/errors'), env: E })).status), 'admin data needs the admin headers (503 until the admin is set up)');
+  ok('errors: scrubbed, grouped, noise and extensions dropped, budgets and retention kept, always 204');
+}
+
+// ---- CSP reports: both report shapes, extensions dropped, hosts only, grouped
+{
+  const E = { CDN: new KV() };
+  const post = (body, type = 'application/csp-report') => cspReport({ request: req('/api/csp-report', { method: 'POST', headers: { 'Content-Type': type }, body: typeof body === 'string' ? body : JSON.stringify(body) }), env: E });
+  const stored = async () => (await E.CDN.get('admin:csp', { type: 'json' })) || { groups: {} };
+  let r = await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/compress-image?utm_source=x', 'effective-directive': 'script-src', 'blocked-uri': 'https://evil.example.net/x.js?session=abc', 'source-file': 'https://toolzbaba.com/assets/common.js?v=1', 'line-number': 42 } });
+  assert.equal(r.status, 204);
+  let g = Object.values((await stored()).groups); assert.equal(g.length, 1);
+  assert.equal(g[0].directive, 'script-src'); assert.equal(g[0].blocked, 'evil.example.net', 'other sites: host only'); assert.equal(g[0].doc, '/compress-image', 'our page: path only, no query'); assert.equal(g[0].source, '/assets/common.js'); assert.equal(g[0].line, 42);
+  await post([{ type: 'csp-violation', body: { documentURL: 'https://toolzbaba.com/compress-image', effectiveDirective: 'script-src', blockedURL: 'https://evil.example.net/other.js' } }], 'application/reports+json');
+  g = Object.values((await stored()).groups); assert.equal(g.length, 1, 'the Reporting API shape joins the same group'); assert.equal(g[0].count, 2);
+  await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/', 'effective-directive': 'script-src', 'blocked-uri': 'chrome-extension://abc/x.js' } });
+  await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/', 'effective-directive': 'script-src', 'blocked-uri': 'inline', 'source-file': 'moz-extension://abc/x.js' } });
+  assert.equal(Object.keys((await stored()).groups).length, 1, 'extension reports are dropped');
+  await post({ 'csp-report': { 'document-uri': 'https://toolzbaba.com/hi/merge-pdf', 'violated-directive': 'style-src-elem', 'blocked-uri': '' } });
+  g = (await stored()).groups; assert.ok(g['style-src-elem|inline|/hi/merge-pdf'], 'an empty blocked-uri means inline');
+  assert.equal((await post('garbage')).status, 204); assert.equal((await post({ x: 1 }, 'text/plain')).status, 204); assert.equal(Object.keys((await stored()).groups).length, 2);
+  assert.ok([401, 403, 503].includes((await adminCsp({ request: req('/api/admin/csp'), env: E })).status));
+  ok('csp reports: both shapes, hosts and paths only, extensions dropped, grouped, always 204');
 }
 
 console.log(`\n${pass}/${pass} passed`);

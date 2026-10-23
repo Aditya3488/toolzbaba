@@ -1,4 +1,4 @@
-// Document converters that run in the browser: Markdown <-> PDF / HTML / Word, HTML -> PDF / Markdown, Word -> Markdown, PDF -> Markdown.
+// Document converters that run in the browser: Markdown <-> PDF / HTML / Word / text, HTML -> PDF / Markdown, Word -> Markdown / text / PDF, PDF -> Markdown, text -> Word / PDF, email (.eml) -> PDF.
 // Libraries: marked (Markdown -> HTML), turndown (HTML -> Markdown), mammoth (Word -> HTML), MuPDF (HTML -> PDF), pdf.js (reading a PDF), JSZip (the .docx container).
 (() => {
   const V = '/assets/vendor/';
@@ -206,6 +206,114 @@
   const needFiles = (ctx, what) => { if (!ctx.files.length) throw new Error(`Add a ${what} file first.`); return ctx.files; };
   const blobOf = (text, type) => new Blob([text], { type: type + ';charset=utf-8' });
 
+  // ---------------------------------------------------------------- plain text <-> HTML, Markdown and Word
+  // paragraphs are separated by blank lines; a line break inside a paragraph stays a line break
+  const plainToHtml = text => String(text).replace(/\r\n?/g, '\n').trim().split(/\n{2,}/).map(p => '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>').join('\n');
+  // plain text is already Markdown. Bullets and numbering get the Markdown marks; a line break inside a paragraph is kept
+  // (two spaces at the end), so the rendered page looks like the text did. Anything else is left exactly as written.
+  const textToMarkdown = text => {
+    const lines = String(text).replace(/\r\n?/g, '\n').replace(/\t/g, '    ').split('\n'), out = [];
+    for (let i = 0; i < lines.length; i++) {
+      let l = lines[i].replace(/\s+$/, '');
+      const item = /^(\s*)([•●○▪■◦‣▸*+])\s+/.exec(l); if (item) l = item[1] + '- ' + l.slice(item[0].length);
+      const num = /^(\s*)(\d{1,3})[)]\s+/.exec(l); if (num) l = num[1] + num[2] + '. ' + l.slice(num[0].length);
+      const next = lines[i + 1] || '';
+      if (l && next.trim() && !/^\s*(- |\d+\. |#{1,6} |```)/.test(l) && !/^\s*([•●○▪■◦‣▸*+-] |\d{1,3}[.)] |```)/.test(next) && !/^[=-]{3,}\s*$/.test(next)) l += '  ';
+      out.push(l);
+    }
+    return out.join('\n').replace(/\n{3,}/g, '\n\n').trim() + '\n';
+  };
+  // the words of an HTML document as plain text: a blank line between blocks, list marks kept, table rows as "a | b | c"
+  function htmlToText(html) {
+    const dom = new DOMParser().parseFromString(html, 'text/html'); dom.querySelectorAll('script,style,noscript,head,iframe,svg').forEach(n => n.remove());
+    const out = []; let line = '';
+    const push = () => { const t = line.replace(/[ \t]+/g, ' ').replace(/ ?\n ?/g, '\n').trim(); if (t) out.push(t); line = ''; };
+    const walk = (n, pre) => {
+      if (n.nodeType === 3) { line += pre ? n.nodeValue : n.nodeValue.replace(/\s+/g, ' '); return; }
+      if (n.nodeType !== 1) return;
+      const tag = n.tagName.toLowerCase();
+      if (tag === 'br') { line += '\n'; return; }
+      if (tag === 'img') { const alt = n.getAttribute('alt'); if (alt) line += '[' + alt + ']'; return; }
+      if (tag === 'hr') { push(); out.push('---'); return; }
+      if (tag === 'tr') { push(); out.push('\u0001' + Array.from(n.children).map(c => c.textContent.replace(/\s+/g, ' ').trim()).join(' | ')); return; }   // \u0001 marks a table row
+      const block = /^(p|div|h[1-6]|li|blockquote|pre|section|article|header|footer|table|ul|ol|figure|figcaption|dt|dd|address)$/.test(tag);
+      if (block) push();
+      if (tag === 'li') { const ol = n.parentElement && n.parentElement.tagName === 'OL'; line += ol ? (Array.from(n.parentElement.children).indexOf(n) + 1) + '. ' : '- '; }
+      for (const c of n.childNodes) walk(c, pre || tag === 'pre');
+      if (block) push();
+    };
+    walk(dom.body, false); push();
+    // list items and table rows follow each other without a blank line
+    const kind = l => (/^(- |\d+\. )/.test(l) ? 'list' : l[0] === '\u0001' ? 'row' : '');
+    return out.reduce((acc, l, i) => acc + (i ? (kind(l) && kind(l) === kind(out[i - 1]) ? '\n' : '\n\n') : '') + l, '').replace(/\u0001/g, '').trim() + '\n';
+  }
+  async function docxToHtml(file) {
+    await HT.loadScript(V + 'mammoth-1.13.0/mammoth.browser.min.js');
+    const res = await mammoth.convertToHtml({ arrayBuffer: await file.arrayBuffer() }, { convertImage: mammoth.images.imgElement(async image => ({ src: `data:${image.contentType};base64,${await image.read('base64')}` })) });
+    const dom = new DOMParser().parseFromString('<body>' + res.value + '</body>', 'text/html'); headTables(dom.body);
+    return dom.body.innerHTML;
+  }
+  const isDocx = f => { if (HT.ext(f.name) !== 'docx') throw new Error(`'${f.name}' is not a .docx file. Open it in Word and save it as .docx first.`); return f; };
+  HT.convert.plainToHtml = plainToHtml; HT.convert.textToMarkdown = textToMarkdown; HT.convert.htmlToText = htmlToText;
+
+  // ---------------------------------------------------------------- email (.eml: RFC 822 / MIME) -> HTML
+  // The file is read as Latin-1 so every byte is one character; each part is decoded with its own charset afterwards.
+  const latin1 = b => { let s = ''; for (let i = 0; i < b.length; i += 8192) s += String.fromCharCode.apply(null, b.subarray(i, i + 8192)); return s; };
+  const bytesOf = s => Uint8Array.from(s, ch => ch.charCodeAt(0) & 255);
+  const b64enc = b => { let s = ''; for (let i = 0; i < b.length; i += 8192) s += String.fromCharCode.apply(null, b.subarray(i, i + 8192)); return btoa(s); };
+  const b64dec = s => { try { return bytesOf(atob(s.replace(/[^A-Za-z0-9+/=]/g, ''))); } catch { return new Uint8Array(); } };
+  const qpdec = s => bytesOf(s.replace(/=\r?\n/g, '').replace(/=([0-9A-Fa-f]{2})/g, (_, h) => String.fromCharCode(parseInt(h, 16))));
+  const decodeText = (bytes, charset) => { try { return new TextDecoder(String(charset || 'utf-8').replace(/^"|"$/g, '')).decode(bytes); } catch { return new TextDecoder().decode(bytes); } };
+  // "=?utf-8?B?...?=" words in a header
+  const decodeWords = s => String(s || '').replace(/=\?([^?]+)\?([BbQq])\?([^?]*)\?=(?:\s+(?==\?))?/g, (_, cs, enc, txt) => decodeText(enc.toUpperCase() === 'B' ? b64dec(txt) : qpdec(txt.replace(/_/g, ' ')), cs)).trim();
+  const param = (v, name) => {   // boundary=..., charset="...", filename*=utf-8''...
+    const m = new RegExp(name + '\\*?=\\s*(?:"([^"]*)"|([^;\\s]+))', 'i').exec(v || ''); if (!m) return '';
+    let x = m[1] != null ? m[1] : m[2];
+    if (/^[^']*'[^']*'/.test(x)) { const [, , val] = x.split("'"); try { x = decodeURIComponent(val); } catch { x = val; } }
+    return decodeWords(x);
+  };
+  function parseMime(raw) {
+    const cut = raw.search(/\r?\n\r?\n/), head = cut < 0 ? raw : raw.slice(0, cut), rest = cut < 0 ? '' : raw.slice(cut).replace(/^\r?\n\r?\n/, '');
+    const headers = {};
+    for (const line of head.replace(/\r?\n[ \t]+/g, ' ').split(/\r?\n/)) { const i = line.indexOf(':'); if (i > 0) { const k = line.slice(0, i).trim().toLowerCase(); headers[k] = headers[k] ? headers[k] + ', ' + line.slice(i + 1).trim() : line.slice(i + 1).trim(); } }
+    const ct = headers['content-type'] || 'text/plain', type = ct.split(';')[0].trim().toLowerCase();
+    const node = { headers, type, charset: param(ct, 'charset') || 'utf-8', parts: [], bytes: new Uint8Array() };
+    if (type.startsWith('multipart/')) {
+      const b = param(ct, 'boundary');
+      if (b) { const chunks = rest.split(new RegExp('(?:^|\\r?\\n)--' + b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:--)?(?:[ \\t]*\\r?\\n|[ \\t]*$)')); for (const c of chunks.slice(1)) if (c.trim()) node.parts.push(parseMime(c)); }
+      return node;
+    }
+    const enc = (headers['content-transfer-encoding'] || '').trim().toLowerCase();
+    node.bytes = enc === 'base64' ? b64dec(rest) : enc === 'quoted-printable' ? qpdec(rest) : bytesOf(rest);
+    return node;
+  }
+  const leavesOf = (n, acc = []) => { if (n.parts.length) n.parts.forEach(p => leavesOf(p, acc)); else acc.push(n); return acc; };
+  function emailToHtml(file, raw) {
+    const msg = parseMime(raw), H = msg.headers, leaves = leavesOf(msg);
+    const disp = n => (n.headers['content-disposition'] || '').split(';')[0].trim().toLowerCase();
+    const nameOf = n => param(n.headers['content-disposition'], 'filename') || param(n.headers['content-type'], 'name') || '';
+    const html = leaves.find(n => n.type === 'text/html' && disp(n) !== 'attachment'), plain = leaves.find(n => n.type === 'text/plain' && disp(n) !== 'attachment');
+    const inline = leaves.filter(n => n.headers['content-id'] && n.type.startsWith('image/'));
+    const attachments = leaves.filter(n => n !== html && n !== plain && (disp(n) === 'attachment' || (nameOf(n) && !inline.includes(n))));
+    let body;
+    if (html) {
+      const dom = new DOMParser().parseFromString(decodeText(html.bytes, html.charset), 'text/html');
+      dom.querySelectorAll('script,style,link,meta,iframe,object,embed,base,title').forEach(n => n.remove());
+      dom.querySelectorAll('img').forEach(img => {   // pictures inside the email are kept; pictures on the web are not fetched (the PDF is made on your device)
+        const src = img.getAttribute('src') || '', m = /^cid:(.+)$/i.exec(src);
+        if (m) { const p = inline.find(n => n.headers['content-id'].replace(/^<|>$/g, '') === m[1]); if (p) img.setAttribute('src', `data:${p.type};base64,${b64enc(p.bytes)}`); else img.remove(); }
+        else if (!/^data:/i.test(src)) img.replaceWith(dom.createTextNode(img.getAttribute('alt') ? '[' + img.getAttribute('alt') + ']' : ''));
+      });
+      body = dom.body.innerHTML.trim() || plainToHtml(plain ? decodeText(plain.bytes, plain.charset) : '');
+    } else body = plainToHtml(plain ? decodeText(plain.bytes, plain.charset) : '(This email has no text.)');
+    const row = (k, v) => (v ? `<tr><th>${esc(k)}</th><td>${esc(decodeWords(v))}</td></tr>` : '');
+    const subject = decodeWords(H.subject) || '(no subject)';
+    const head = `<h1 class="es">${esc(subject)}</h1><table class="eh">${row('From', H.from)}${row('To', H.to)}${row('Cc', H.cc)}${row('Date', H.date)}</table><hr>`;
+    const att = attachments.length ? `<p class="ea"><b>Attachments:</b> ${attachments.map(n => esc(nameOf(n) || n.type) + ' (' + HT.fmtBytes(n.bytes.length) + ')').join(', ')}</p>` : '';
+    return { html: head + body + att, subject, attachments: attachments.length };
+  }
+  const EML_CSS = ' .es{font-size:1.5em;margin:0 0 8pt} .eh th{text-align:left;font-weight:600;color:#555;padding:1pt 10pt 1pt 0;border:0;background:none;vertical-align:top} .eh td{border:0;padding:1pt 0} .ea{margin-top:12pt;color:#444;font-size:90%}';
+
   const MODES = {
     async md2pdf(ctx) {
       const P = HT.pdfEngine || (await HT.loadScript('/assets/engine/pdf.js'), HT.pdfEngine), o = ctx.opts, [w, h] = pageOf(o), outs = []; let pages = 0;
@@ -248,9 +356,51 @@
       for (const f of needFiles(ctx, 'PDF')) { ctx.status(`Reading ${f.name}...`); const r = await pdfToMarkdown(f, ctx.opts, ctx); text = r.text; chars += r.chars; outs.push({ name: HT.stem(f.name) + '.md', blob: blobOf(r.text, 'text/markdown') }); }
       ctx.info = { summary: chars ? 'Headings come from the bigger letters, lists and paragraphs from the layout. Tables and columns are not rebuilt: check the result.' : 'No text was found: this looks like a scanned PDF. Use Image to Text (OCR) first.', text: outs.length === 1 ? text : '' }; return outs;
     },
+    // ---- plain text, Word and email
+    async txt2md(ctx) {
+      const outs = []; let text = '';
+      for (const it of await textItems(ctx, 'text')) { text = textToMarkdown(it.text); outs.push({ name: it.name + '.md', blob: blobOf(text, 'text/markdown') }); }
+      ctx.info = { summary: 'Plain text is already Markdown. Bullets and numbering got the Markdown marks and line breaks are kept; everything else is exactly as you wrote it. Check the preview and add # headings where you want them.', text: outs.length === 1 ? text : '' }; return outs;
+    },
+    async txt2docx(ctx) {
+      const outs = [];
+      for (const it of await textItems(ctx, 'text')) { ctx.status(`Making the Word file of ${it.name}...`); await tick(); outs.push({ name: it.name + '.docx', blob: await htmlToDocx(plainToHtml(it.text), it.name) }); }
+      ctx.info = { summary: 'Each blank line starts a new paragraph; line breaks inside a paragraph are kept.' }; return outs;
+    },
+    async txt2pdf(ctx) {
+      const P = HT.pdfEngine || (await HT.loadScript('/assets/engine/pdf.js'), HT.pdfEngine), o = ctx.opts, [w, h] = pageOf(o), outs = []; let pages = 0;
+      for (const it of await textItems(ctx, 'text')) { ctx.status(`Making the PDF of ${it.name}...`); await tick(); const r = await P.htmlToPdf(plainToHtml(it.text), { css: pdfCss(o), w, h, em: +o.fontSize || 11 }); pages += r.pages; outs.push({ name: it.name + '.pdf', blob: r.blob }); }
+      ctx.info = { summary: `${pages} page(s).` }; return outs;
+    },
+    async md2txt(ctx) {
+      const outs = []; let text = '';
+      for (const it of await textItems(ctx, 'Markdown')) { text = htmlToText(await markdownToHtml(it.text)); outs.push({ name: it.name + '.txt', blob: blobOf(text, 'text/plain') }); }
+      ctx.info = { summary: 'The Markdown marks are gone: headings, bold and links are plain words now. Lists keep their marks and tables become one line per row.', text: outs.length === 1 ? text : '' }; return outs;
+    },
+    async docx2txt(ctx) {
+      const outs = []; let text = '';
+      for (const f of needFiles(ctx, 'Word (.docx)')) { ctx.status(`Reading ${f.name}...`); await tick(); text = htmlToText(await docxToHtml(isDocx(f))); outs.push({ name: HT.stem(f.name) + '.txt', blob: blobOf(text, 'text/plain') }); }
+      ctx.info = { summary: 'All the words, with a blank line between paragraphs. Lists keep their marks and tables become one line per row. Pictures and formatting are left out.', text: outs.length === 1 ? text : '' }; return outs;
+    },
+    async docx2pdf(ctx) {
+      const P = HT.pdfEngine || (await HT.loadScript('/assets/engine/pdf.js'), HT.pdfEngine), o = ctx.opts, [w, h] = pageOf(o), outs = []; let pages = 0;
+      for (const f of needFiles(ctx, 'Word (.docx)')) { ctx.status(`Making the PDF of ${f.name}...`); await tick(); const r = await P.htmlToPdf(await docxToHtml(isDocx(f)), { css: pdfCss(o), w, h, em: +o.fontSize || 11 }); pages += r.pages; outs.push({ name: HT.stem(f.name) + '.pdf', blob: r.blob }); }
+      ctx.info = { summary: `${pages} page(s). Headings, lists, tables, bold / italic and pictures are kept; the exact page layout of Word is not. For a faithful copy of the layout use Word to PDF.` }; return outs;
+    },
+    async eml2pdf(ctx) {
+      const P = HT.pdfEngine || (await HT.loadScript('/assets/engine/pdf.js'), HT.pdfEngine), o = ctx.opts, [w, h] = pageOf(o), outs = []; let pages = 0, att = 0;
+      for (const f of needFiles(ctx, 'email (.eml)')) {
+        ctx.status(`Reading ${f.name}...`); await tick();
+        const m = emailToHtml(f, latin1(new Uint8Array(await f.arrayBuffer())));
+        const r = await P.htmlToPdf(m.html, { css: pdfCss(o) + EML_CSS, w, h, em: +o.fontSize || 11 }); pages += r.pages; att += m.attachments;
+        outs.push({ name: HT.stem(f.name) + '.pdf', blob: r.blob });
+      }
+      ctx.info = { summary: `${pages} page(s).` + (att ? ` ${att} attachment(s) are listed by name at the end of the PDF; they are not converted.` : '') + ' Pictures embedded in the email are included; pictures from the web are not loaded, because the PDF is made on your device.' }; return outs;
+    },
   };
   HT.convert.MODES = Object.keys(MODES);
-  const SLUG = { 'markdown-to-pdf': 'md2pdf', 'html-to-pdf': 'html2pdf', 'markdown-to-html': 'md2html', 'markdown-to-word': 'md2docx', 'html-to-markdown': 'html2md', 'docx-to-markdown': 'docx2md', 'pdf-to-markdown': 'pdf2md' };
+  const SLUG = { 'markdown-to-pdf': 'md2pdf', 'html-to-pdf': 'html2pdf', 'markdown-to-html': 'md2html', 'markdown-to-word': 'md2docx', 'html-to-markdown': 'html2md', 'docx-to-markdown': 'docx2md', 'pdf-to-markdown': 'pdf2md',
+    'txt-to-md': 'txt2md', 'txt-to-docx': 'txt2docx', 'md-to-txt': 'md2txt', 'docx-to-txt': 'docx2txt', 'eml-to-pdf': 'eml2pdf' };
   for (const [slug, mode] of Object.entries(SLUG)) HT.engine(slug, async ctx => { const out = await MODES[mode](ctx); ctx.progress(1); return out; });
   HT.engine('markdown-converter', async ctx => { const m = MODES[ctx.opts.mode]; if (!m) throw new Error('Choose what to convert.'); const out = await m(ctx); ctx.progress(1); return out; });
   HT.convert.SLUG_OF_MODE = Object.fromEntries(Object.entries(SLUG).map(([s, m]) => [m, s]));
