@@ -16,6 +16,8 @@ const HINT = { select: 'Click any text of the PDF to change it. Click something 
 const SWATCH = ['#fff200', '#7CFC00', '#ff7ac8', '#4cc9ff', '#ffb347'];
 
 HT.register('pdf-editor', root => {
+  // /pdf-editor?v2 is the new editor, which changes the PDF itself instead of putting a layer on it (assets/tools/pdf-editor-v2.js)
+  if (new URLSearchParams(location.search).has('v2')) { HT.loadScript('/assets/tools/pdf-editor-v2.js').then(() => HT.pdfEditorV2(root)); return; }
   const ready = Promise.all([HT.loadScript('/assets/tools/pdf-helpers.js'), HT.loadScript('/assets/tools/fonts-helpers.js')]);
   let F = null, file = null, pdf = null, slots = [], objs = [], cur = 0, zoom = 1, tool = 'select', sel = null, editing = null, view = null, nextId = 1, renderToken = 0, thumbToken = 0, renderTask = null;
   const imgs = new Map(), pageCache = new Map(), states = []; let sIdx = -1, measureEl = null;

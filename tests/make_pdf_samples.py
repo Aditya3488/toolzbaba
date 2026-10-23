@@ -34,11 +34,31 @@ def columns(path):
     doc.addPageTemplates([PageTemplate(id='two', frames=[Frame(20 * mm, 20 * mm, (w - 50 * mm) / 2, hgt - 40 * mm, id='l'), Frame(30 * mm + (w - 50 * mm) / 2, 20 * mm, (w - 50 * mm) / 2, hgt - 40 * mm, id='r')])])
     doc.build([Paragraph('Left column heading', h), Paragraph(LOREM, p), FrameBreak(), Paragraph('Right column heading', h), Paragraph(LOREM, p)])
 
+def alignment(path, reg, bold):
+    """a page with a centred title and subtitle and a left, a justified, a right-aligned and a centred paragraph, then a short line (paragraph, alignment and reflow tests)"""
+    from reportlab.lib.enums import TA_CENTER, TA_RIGHT, TA_JUSTIFY, TA_LEFT
+    fox = ('The quick brown fox jumps over the lazy dog while the sun sets slowly behind the distant hills, and everyone in the village gathers to watch '
+           'the colours change from gold to deep orange across the whole evening sky.')
+    def st(name, al, size=11, font=None): return ParagraphStyle(name, fontName=font or reg, fontSize=size, leading=size * 1.35, alignment=al)
+    doc = SimpleDocTemplate(path, pagesize=A4, leftMargin=70, rightMargin=70, topMargin=70)
+    doc.build([Paragraph('Annual Report', st('t', TA_CENTER, 26, bold)), Spacer(1, 6), Paragraph('Centred subtitle line for the report', st('s', TA_CENTER, 12)), Spacer(1, 18),
+               Paragraph('Left aligned paragraph. ' + fox, st('l', TA_LEFT)), Spacer(1, 10), Paragraph('Justified paragraph. ' + fox + ' ' + fox, st('j', TA_JUSTIFY)), Spacer(1, 10),
+               Paragraph('Right aligned paragraph. ' + fox, st('r', TA_RIGHT)), Spacer(1, 10), Paragraph('Centred paragraph. ' + fox, st('c', TA_CENTER)), Spacer(1, 10),
+               Paragraph('A short closing line.', st('e', TA_LEFT))])
+
+def photo_page(path):
+    """a page with a heading and one big photo (stickers and pictures are put on top of it in the editor tests)"""
+    from reportlab.pdfgen import canvas
+    c = canvas.Canvas(path, pagesize=A4); c.setFont('Helvetica-Bold', 18); c.drawString(60, 790, 'Product photo')
+    c.drawImage(os.path.join(OUT, 'photo.jpeg'), 60, 250, width=475, height=500, preserveAspectRatio=True); c.save()
+
 if __name__ == '__main__':
     pdfmetrics.registerFont(TTFont('ArialEmb', 'C:/Windows/Fonts/arial.ttf')); pdfmetrics.registerFont(TTFont('ArialEmbBold', 'C:/Windows/Fonts/arialbd.ttf'))
     letter(os.path.join(OUT, 'doc_standard.pdf'), 'Helvetica', 'Helvetica-Bold')    # the 14 standard fonts (not embedded)
     letter(os.path.join(OUT, 'doc_embedded.pdf'), 'ArialEmb', 'ArialEmbBold')       # a TrueType font embedded as a subset, like Word makes
     columns(os.path.join(OUT, 'doc_columns.pdf'))
+    alignment(os.path.join(OUT, 'doc_align_embedded.pdf'), 'ArialEmb', 'ArialEmbBold'); alignment(os.path.join(OUT, 'doc_align_standard.pdf'), 'Helvetica', 'Helvetica-Bold')   # left, justified, right and centred text
+    if os.path.exists(os.path.join(OUT, 'photo.jpeg')): photo_page(os.path.join(OUT, 'photo_page.pdf'))
     try:   # a scan: the page of doc_standard as a picture only (no text), like a photocopier makes it (needs: pip install pymupdf)
         import pymupdf
         src = pymupdf.open(os.path.join(OUT, 'doc_standard.pdf')); pix = src[0].get_pixmap(dpi=150); scan = pymupdf.open(); pg = scan.new_page(width=595.28, height=841.89)
