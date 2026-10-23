@@ -43,6 +43,10 @@
     return { id: mono ? 'cousine' : serif ? 'tinos' : 'arimo', bold, italic, mono, serif };
   }
 
+  // Chinese, Japanese and Korean letters (and the full-width and punctuation forms around them): written without spaces, so lines can break after any of them
+  const isCJK = ch => { const c = ch.codePointAt(0); return (c >= 0x2E80 && c <= 0x9FFF) || (c >= 0xF900 && c <= 0xFAFF) || (c >= 0xFE30 && c <= 0xFE4F) || (c >= 0xFF00 && c <= 0xFFEF) || (c >= 0xAC00 && c <= 0xD7AF) || (c >= 0x1100 && c <= 0x11FF) || (c >= 0x20000 && c <= 0x2FA1F); };
+  const RTL_OR_THAI = /[\u0590-\u08FF\u0E00-\u0E7F\uFB1D-\uFDFF\uFE70-\uFEFF]/;   // Hebrew, Arabic, Thai ...: letters that change shape or order, which needs a text shaper
+
   class Live {
     constructor(m, doc) { this.m = m; this.doc = doc; this.count = doc.countPages(); this.native = new Map(); this.fontCache = new Map(); this.inkCache = new Map(); this.stCache = new Map(); this.learned = new Map(); }
     page(i) { if (i < 0 || i >= this.count) throw new Error('Page ' + (i + 1) + ' does not exist.'); return this.doc.loadPage(i); }
@@ -136,6 +140,8 @@
       return null;
     }
 
+    // MuPDF has a font for Chinese, Japanese and Korean built in (Droid Sans Fallback): it is embedded in the PDF when letters need it, and the file is subset when saved
+    cjkFont() { return this.native.get('cjk') || this.native.set('cjk', new this.m.Font('zh-Hans')).get('cjk'); }
     // ---------------------------------------------------------------- the font library as a fallback
     async fallbackFont(spec, text) {
       const F = HT.fonts; await F.ready();
@@ -180,7 +186,7 @@
         } else if (Math.abs(centre(first) - pw / 2) <= 3 && first.bbox.x > margin + 8) align = 'centre';
         else if (Math.abs(rt - (pw - margin)) <= 2 && first.bbox.x > margin + 20) align = 'right';
         const x = align === 'left' || align === 'justify' ? Math.min(...ls.slice(ls.length > 1 ? 1 : 0).map(l => l.ox)) : Math.min(...ls.map(l => l.ox)), chars = []; let text = '';
-        ls.forEach((l, k) => { if (k && chars.length && !/\s/.test(chars[chars.length - 1].c)) { chars.push({ ...chars[chars.length - 1], c: ' ' }); text += ' '; } chars.push(...l.chars); text += l.text; });
+        ls.forEach((l, k) => { if (k && chars.length && !/\s/.test(chars[chars.length - 1].c) && !isCJK(chars[chars.length - 1].c) && !isCJK(l.text[0])) { chars.push({ ...chars[chars.length - 1], c: ' ' }); text += ' '; } chars.push(...l.chars); text += l.text; });
         // the frame the text is wrapped in: left and justified text is as wide as the column (the longest line of the page that starts at the same place), centred text
         // is as wide as the page's margins allow around its middle, right-aligned text reaches back to the left margin
         let fx = x, fr = rt;
@@ -223,7 +229,7 @@
     // device point -> PDF user space, and the 4 numbers of a text matrix that makes text run along the screen's horizontal (so rotated pages work too)
     toPdf(page) {
       const [a, b, c, d, e, f] = page.getTransform(), det = a * d - b * c, inv = [d / det, -b / det, -c / det, a / det, (c * f - d * e) / det, (b * e - a * f) / det];
-      return { pt: (x, y) => [inv[0] * x + inv[2] * y + inv[4], inv[1] * x + inv[3] * y + inv[5]], lin: [inv[0], inv[1], -inv[2], -inv[3]] };
+      return { pt: (x, y) => [inv[0] * x + inv[2] * y + inv[4], inv[1] * x + inv[3] * y + inv[5]], vec: (dx, dy) => [inv[0] * dx + inv[2] * dy, inv[1] * dx + inv[3] * dy], lin: [inv[0], inv[1], -inv[2], -inv[3]] };
     }
     // makes sure the page draws its own text with the graphics state of a fresh page, then adds a stream after the original ones
     appendContent(page, text) {
@@ -251,17 +257,25 @@
       for (let k = 0; k < chars.length;) {
         let e = k + 1; while (e < chars.length && sig(chars[e].st) === sig(chars[k].st)) e++;
         const st = chars[k].st, text = chars.slice(k, e).map(c => c.ch).join('');
-        if (/[ऀ-෿]/.test(text) && !st.fontId) throw new Error('INDIC');
+        if (RTL_OR_THAI.test(text) && !st.fontId) throw new Error('SCRIPT');
         const info = st.name != null && !st.fontId ? pf.get(st.name) : null, reuse = this.codesFor(info, text);
         if (reuse) {
           const seg = { kind: 'pdf', info, size: st.size, color: st.color };
           reuse.codes.forEach((c, q) => { const ch = chars[k + q].ch, adv = this.advance(info, ch, st.name); units[k + q] = { seg, code: c, nb: reuse.nb, ch, w: (adv != null ? adv : 0.5) * st.size }; });
         } else {
+          if (/[\u0900-\u0DFF]/.test(text) && !st.fontId) throw new Error('INDIC');   // Hindi and the other Indian scripts need shaping too: only the PDF's own font may draw them
           const spec = st.fontId ? { id: st.fontId, bold: !!st.bold, italic: !!st.italic } : guessFont(st.name, st); let q = k;
           while (q < e) {
             const rest = chars.slice(q, e).map(c => c.ch), fb = await this.fallbackFont(spec, rest.join(''));
             let n = 0; while (n < rest.length && (/\s/.test(rest[n]) || fb.font.encodeCharacter(rest[n].codePointAt(0)))) n++;
-            const use = n ? fb : await this.fallbackFont({ ...spec, id: 'arimo' }, rest[0]), take = n || 1, piece = rest.slice(0, take);
+            let use, take;
+            if (n) { use = fb; take = n; }
+            else {   // the library font lacks the letter: the built-in Chinese / Japanese / Korean font takes it (and the letters after it that the library font lacks too)
+              const cj = this.cjkFont(), has = ch => !!cj.encodeCharacter(ch.codePointAt(0));
+              if (has(rest[0])) { let t = 1; while (t < rest.length && !/\s/.test(rest[t]) && has(rest[t]) && !fb.font.encodeCharacter(rest[t].codePointAt(0))) t++; use = { font: cj }; take = t; }
+              else { use = await this.fallbackFont({ ...spec, id: 'arimo' }, rest[0]); take = 1; }
+            }
+            const piece = rest.slice(0, take);
             const bytes = piece.map(winCode), simple = bytes.every(x => x != null), seg = { kind: 'fb', font: use.font, simple, size: st.size, color: st.color };
             piece.forEach((ch, p) => { const gid = use.font.encodeCharacter(ch.codePointAt(0)); units[q + p] = { seg, code: simple ? bytes[p] : gid, nb: simple ? 1 : 2, ch, w: use.font.advanceGlyph(gid) * st.size }; });
             q += take;
@@ -292,26 +306,36 @@
     }
 
     // paints the lines onto the page. lines: [{ units, from, to, x, y (baseline, device points), extra (points added after each space) }]
-    emit(page, lines) {
-      const doc = this.doc, T = this.toPdf(page), fd = this.fontDict(page), made = new Map(); let cnt = 0, out = '';
-      const nameOf = seg => {
+    // gives the resource name a segment's font is drawn with (library fonts are added to the page the first time they are used)
+    fontNamer(page) {
+      const doc = this.doc, fd = this.fontDict(page), made = new Map(); let cnt = 0;
+      return seg => {
         if (seg.kind === 'pdf') { if (fd.get(seg.info.key).isNull()) fd.put(seg.info.key, seg.info.ref); return seg.info.key; }   // redaction drops a font the page no longer uses: put it back
         const slot = seg.simple ? 's' : 'c', m = made.get(seg.font) || made.set(seg.font, {}).get(seg.font);
-        if (!m[slot]) { const ref = seg.simple ? doc.addSimpleFont(seg.font, 'Latin') : doc.addFont(seg.font), nm = 'TB' + Date.now().toString(36) + (++cnt); fd.put(nm, ref); m[slot] = nm; }
+        if (!m[slot]) { const ref = seg.simple ? doc.addSimpleFont(seg.font, 'Latin') : doc.addFont(seg.font), nm = 'TB' + Date.now().toString(36) + (this.fontN = (this.fontN || 0) + 1); fd.put(nm, ref); m[slot] = nm; }
         return m[slot];
       };
-      for (const ln of lines) {
-        const [px, py] = T.pt(ln.x, ln.y); let ops = '', k = ln.from;
-        while (k < ln.to) {
-          const seg = ln.units[k].seg; let e = k; while (e < ln.to && ln.units[e].seg === seg) e++;
-          const arr = []; let buf = [];
-          for (let q = k; q < e; q++) {
-            buf.push(ln.units[q].code);
-            if (ln.extra && ln.units[q].ch === ' ' && q < ln.to - 1) { arr.push(hex(buf, ln.units[q].nb)); buf = []; arr.push(num(-ln.extra / seg.size * 1000)); }
-          }
-          if (buf.length) arr.push(hex(buf, ln.units[e - 1].nb));
-          ops += `${seg.color.map(num).join(' ')} rg /${nameOf(seg)} ${num(seg.size)} Tf [${arr.join(' ')}] TJ\n`; k = e;
+    }
+    // the text operators for units[from..to): font changes, colours and the codes (extra = points added after each space, for justified text)
+    unitOps(units, from, to, extra, nameOf) {
+      let ops = '', k = from;
+      while (k < to) {
+        const seg = units[k].seg; let e = k; while (e < to && units[e].seg === seg) e++;
+        const arr = []; let buf = [];
+        for (let q = k; q < e; q++) {
+          buf.push(units[q].code);
+          if (extra && units[q].ch === ' ' && q < to - 1) { arr.push(hex(buf, units[q].nb)); buf = []; arr.push(num(-extra / seg.size * 1000)); }
         }
+        if (buf.length) arr.push(hex(buf, units[e - 1].nb));
+        ops += `${seg.color.map(num).join(' ')} rg /${nameOf(seg)} ${num(seg.size)} Tf [${arr.join(' ')}] TJ\n`; k = e;
+      }
+      return ops;
+    }
+    // paints the lines onto the page. lines: [{ units, from, to, x, y (baseline, device points), extra }]
+    emit(page, lines) {
+      const T = this.toPdf(page), nameOf = this.fontNamer(page); let out = '';
+      for (const ln of lines) {
+        const [px, py] = T.pt(ln.x, ln.y), ops = this.unitOps(ln.units, ln.from, ln.to, ln.extra, nameOf);
         if (ops) out += `q BT ${T.lin.map(num).join(' ')} ${num(px)} ${num(py)} Tm\n${ops}ET Q\n`;
       }
       if (out) this.appendContent(page, out);
@@ -375,15 +399,17 @@
       });
       this.emit(page, lines);
     }
+    // removes a paragraph's old lines and writes `chars` in their place (no operation of its own: replace-all runs many of these in one step)
+    async paragraphInner(i, page, para, chars, opts = {}) {
+      const pf = this.pageFonts(i);
+      this.removeLines(page, para.lines, !!para.ocr);
+      if (para.ocr && para.bg) for (const l of para.lines) this.fillRect(page, { x: l.bbox.x - 1, y: l.bbox.y - 1, w: l.bbox.w + 2, h: l.bbox.h + 2 }, para.bg);
+      await this.layout(page, pf, para, chars, opts);
+    }
     async editParagraph(i, para, text, opts = {}) {
       const page = this.page(i), d = this.doc; d.beginOperation('Edit text');
-      try {
-        const pf = this.pageFonts(i), chars = this.styledChars(para.chars, text, opts.style);
-        this.removeLines(page, para.lines, !!para.ocr);
-        if (para.ocr && para.bg) for (const l of para.lines) this.fillRect(page, { x: l.bbox.x - 1, y: l.bbox.y - 1, w: l.bbox.w + 2, h: l.bbox.h + 2 }, para.bg);
-        await this.layout(page, pf, para, chars, opts);
-        d.endOperation();
-      } catch (e) { d.abandonOperation(); throw e; } finally { page.destroy(); this.fontCache.clear(); this.inkCache.clear(); }
+      try { await this.paragraphInner(i, page, para, opts.chars || this.styledChars(para.chars, text, opts.style), opts); d.endOperation(); }
+      catch (e) { d.abandonOperation(); throw e; } finally { page.destroy(); this.fontCache.clear(); this.inkCache.clear(); }
     }
     deleteParagraph(i, para) { const page = this.page(i); try { this.op('Delete text', () => { this.removeLines(page, para.lines, !!para.ocr); if (para.ocr && para.bg) for (const l of para.lines) this.fillRect(page, { x: l.bbox.x - 1, y: l.bbox.y - 1, w: l.bbox.w + 2, h: l.bbox.h + 2 }, para.bg); }); } finally { page.destroy(); } }
     async addText(i, o) {
@@ -431,7 +457,7 @@
       const page = this.page(i); try { return page.toStructuredText('preserve-whitespace').highlight(p, q).map(v => Array.from(v)).filter(v => v.length === 8); } finally { page.destroy(); }
     }
     annots(i) {
-      const page = this.page(i), out = [], KIND = new Set(['Highlight', 'Underline', 'StrikeOut', 'Square', 'Circle', 'Line', 'Ink', 'Text', 'Stamp']);
+      const page = this.page(i), out = [], KIND = new Set(['Highlight', 'Underline', 'StrikeOut', 'Square', 'Circle', 'Line', 'Ink', 'Text', 'Stamp', 'Redact']);
       try {
         page.getAnnotations().forEach((a, idx) => {
           const type = a.getType(); if (!KIND.has(type)) return;
@@ -484,6 +510,217 @@
     }
     deleteAnnot(i, idx) { const page = this.page(i); try { this.op('Delete mark', () => page.deleteAnnotation(this.annotAt(page, idx))); } finally { page.destroy(); } }
 
+
+    // ================================================================ find and replace
+    // a regular expression for the words to find (plain text unless regex is on)
+    matcher(needle, { matchCase = false, wholeWord = false, regex = false } = {}) {
+      const esc = regex ? needle : needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), cjk = [...needle].some(isCJK);
+      return new RegExp(wholeWord && !cjk ? `(?<![\\p{L}\\p{N}_])(?:${esc})(?![\\p{L}\\p{N}_])` : esc, 'gu' + (matchCase ? '' : 'i'));
+    }
+    // the paragraphs of a page: its real text, plus the lines the editor read from a picture (OCR), which it hands over through extraParas
+    allParas(i) { return [...this.paragraphs(i), ...(this.extraParas ? this.extraParas(i) : [])]; }
+    // device rectangles (one per line piece) for letters [from, to) of a paragraph
+    hitRects(para, from, to) {
+      if (para.ocr) { const n = Math.max(1, para.chars.length), b = para.bbox; return [{ x: b.x + b.w * from / n, y: b.y, w: b.w * (to - from) / n, h: b.h }]; }   // an OCR line has no letter positions: the hit is placed in proportion
+      const rects = []; let cur = null;
+      for (let k = from; k < to; k++) {
+        const c = para.chars[k]; if (!c) continue; const top = c.oy - c.size * 0.82, h = c.size * 1.1;
+        if (cur && Math.abs(cur.oy - c.oy) < c.size * 0.4) { cur.x1 = Math.max(cur.x1, c.x1); cur.x0 = Math.min(cur.x0, c.x0); }
+        else { cur = { oy: c.oy, x0: c.x0, x1: c.x1, top, h }; rects.push(cur); }
+      }
+      return rects.map(r => ({ x: r.x0, y: r.top, w: r.x1 - r.x0, h: r.h }));
+    }
+    // every place the words are found: [{ page, pid (paragraph number on the page), k (nth match in it), from, to, text, context, rects }]
+    findAll(needle, opts = {}, pages = null) {
+      if (!needle) return []; const re = this.matcher(needle, opts), out = [];
+      for (const i of pages || [...Array(this.count).keys()]) {
+        this.allParas(i).forEach((para, pid) => {
+          let k = 0, m; re.lastIndex = 0;
+          while ((m = re.exec(para.text)) && m[0].length) {
+            const from = m.index, to = m.index + m[0].length;
+            out.push({ page: i, pid, k: k++, from, to, ocr: !!para.ocr, raw: para.raw, text: m[0], context: para.text.slice(Math.max(0, from - 24), from) + '\u0001' + m[0] + '\u0001' + para.text.slice(to, to + 24), rects: this.hitRects(para, from, to) });
+          }
+        });
+      }
+      return out;
+    }
+    // the paragraph's letters with the matches replaced (every one, or only the nth when only is a number): the new letters look like the first letter they replace
+    replaceChars(para, re, repl, only = null, over = null) {
+      const out = []; let last = 0, k = 0, m, n = 0; re.lastIndex = 0;
+      const sty = c => { const s0 = { name: c.name, size: c.size, color: c.color, bold: c.bold, italic: c.italic, mono: c.mono, serif: c.serif }; if (over) { s0.fontId = over.fontId; s0.bold = !!over.bold; s0.italic = !!over.italic; if (over.size) s0.size = over.size; } return s0; };
+      while ((m = re.exec(para.text)) && m[0].length) {
+        const from = m.index, to = from + m[0].length, hit = only == null || only === k; k++;
+        if (!hit) continue;
+        for (let q = last; q < from; q++) out.push({ ch: para.chars[q].c, st: sty(para.chars[q]) });
+        for (const ch of repl) out.push({ ch, st: sty(para.chars[from]) });
+        last = to; n++;
+      }
+      for (let q = last; q < para.chars.length; q++) out.push({ ch: para.chars[q].c, st: sty(para.chars[q]) });
+      return { chars: out, count: n };
+    }
+    async patchMatches(i, page, para, re, repl, only = null) {
+      if (para.reuse || para.ocr || !this.styleHook) return -1;
+      const ms = []; let m; re.lastIndex = 0; while ((m = re.exec(para.text)) && m[0].length) { if (only == null || only === ms.length) ms.push([m.index, m.index + m[0].length]); else ms.push(null); }
+      const real = ms.filter(Boolean); if (!real.length) return 0; const jobs = [], pf = this.pageFonts(i);
+      for (const [from, to] of real) {
+        const cs = para.chars.slice(from, to), c0 = cs[0]; if (!cs.length || cs.some(c => c.oy == null || Math.abs(c.oy - c0.oy) > c0.size * 0.4)) return -1;   // the match runs over two lines
+        const x0 = Math.min(...cs.map(c => c.x0)), x1 = Math.max(...cs.map(c => c.x1)), line = para.lines.find(l => Math.abs(l.oy - c0.oy) < c0.size * 0.4); if (!line) return -1;
+        const after = para.chars.slice(to).some(c => c.oy != null && Math.abs(c.oy - c0.oy) < c0.size * 0.4 && /\S/.test(c.c) && c.x0 >= x1 - 1);
+        const over = await this.styleHook(para, i, { x: x0, y: c0.oy - c0.size * 0.85, w: x1 - x0, h: c0.size * 1.15, text: para.text.slice(from, to) });
+        const st = { name: over ? null : c0.name, size: c0.size, color: c0.color, bold: over ? !!over.bold : c0.bold, italic: over ? !!over.italic : c0.italic, mono: c0.mono, serif: c0.serif, fontId: over ? over.fontId : undefined };
+        const units = await this.plan(pf, [...repl].map(ch => ({ ch, st }))), w = units.reduce((a, u) => a + u.w, 0);
+        if (after && Math.abs(w - (x1 - x0)) > 1.5) return -1;   // text after the match would have to move: the whole paragraph is written again instead
+        jobs.push({ rect: { x: x0 - 0.2, y: line.bbox.y, w: x1 - x0 + 0.4, h: line.bbox.h }, units, x: x0, y: c0.oy });
+      }
+      for (const j of jobs) this.removeLines(page, [{ bbox: j.rect }], false);
+      this.emit(page, jobs.map(j => ({ units: j.units, from: 0, to: j.units.length, x: j.x, y: j.y, extra: 0 })));
+      return jobs.length;
+    }
+    // replaces in the given pages (all by default); one undo step for the whole job. Bottom paragraphs first: text that grows must not be cut by the one below it.
+    async replaceAll(needle, repl, opts = {}, pages = null, onProgress = null, onTouch = null) {
+      if (!needle) return 0; const re = this.matcher(needle, opts), d = this.doc; let total = 0; d.beginOperation('Replace all');
+      try {
+        const list = pages || [...Array(this.count).keys()];
+        for (let n = 0; n < list.length; n++) {
+          const i = list[n], paras = this.allParas(i).map((q, pid) => ({ q, pid })).filter(({ q }) => { re.lastIndex = 0; return re.test(q.text); }).sort((a, b) => b.q.bbox.y - a.q.bbox.y);
+          if (paras.length) { const page = this.page(i); try { for (const { q } of paras) { const k = await this.patchMatches(i, page, q, re, repl); if (k > 0) { total += k; if (onTouch) onTouch(q); continue; } const over = !q.reuse && this.styleHook ? await this.styleHook(q, i) : null, r = this.replaceChars(q, re, repl, null, over); if (r.count) { await this.paragraphInner(i, page, q, r.chars, {}); total += r.count; if (onTouch) onTouch(q); } } } finally { page.destroy(); this.fontCache.clear(); this.inkCache.clear(); } }
+          if (onProgress) onProgress(n + 1, list.length);
+        }
+        d.endOperation();
+      } catch (e) { d.abandonOperation(); throw e; } finally { this.fontCache.clear(); this.inkCache.clear(); }
+      return total;
+    }
+    // replaces one match (the hit found by findAll)
+    async replaceOne(hit, needle, repl, opts = {}) {
+      const para = this.allParas(hit.page)[hit.pid], re = this.matcher(needle, opts); if (!para) throw new Error('That place has changed. Search again.');
+      const page = this.page(hit.page), d = this.doc; d.beginOperation('Replace');
+      try { if ((await this.patchMatches(hit.page, page, para, re, repl, hit.k)) > 0) { d.endOperation(); return; } const over = !para.reuse && this.styleHook ? await this.styleHook(para, hit.page) : null, r = this.replaceChars(para, re, repl, hit.k, over); if (!r.count) throw new Error('That place has changed. Search again.'); await this.paragraphInner(hit.page, page, para, r.chars, {}); d.endOperation(); } catch (e) { d.abandonOperation(); throw e; } finally { page.destroy(); this.fontCache.clear(); this.inkCache.clear(); }
+    }
+
+    // ================================================================ watermark, header and footer, page numbers
+    prependContent(page, text) {
+      const doc = this.doc, pg = page.getObject(), cur = pg.get('Contents'), arr = doc.newArray();
+      arr.push(doc.addStream(new TextEncoder().encode(text), doc.newDictionary()));
+      if (cur.isArray()) cur.forEach(x => arr.push(x)); else if (!cur.isNull()) arr.push(cur);
+      pg.put('Contents', arr);
+    }
+    gstate(page, opacity) {
+      const d = this.doc.newDictionary(), name = 'TBG' + Date.now().toString(36) + (this.gsN = (this.gsN || 0) + 1);
+      d.put('Type', this.doc.newName('ExtGState')); d.put('ca', this.doc.newReal(opacity)); d.put('CA', this.doc.newReal(opacity)); this.resDict(page, 'ExtGState').put(name, d); return name;
+    }
+    // o: { kind: 'text' | 'image', text, bytes, size, color, opacity, angle (degrees, counter-clockwise), layout: 'center' | 'tile', behind, pages (indexes, null = all), fontId, bold, italic, scale (image width as a part of the page), gap }
+    async addWatermark(o) {
+      const d = this.doc, m = this.m; d.beginOperation('Watermark');
+      try {
+        const targets = o.pages || [...Array(this.count).keys()], th = (o.angle || 0) * Math.PI / 180, cs = Math.cos(th), sn = Math.sin(th), xd = [cs, -sn], ud = [-sn, -cs];
+        let units = null, tw = 0, thh = 0, image = null, iref = null;
+        if (o.kind === 'image') { image = new m.Image(o.bytes); iref = d.addImage(image); }
+        else { const st = { name: null, size: o.size || 48, color: o.color || [0.6, 0.6, 0.6], bold: !!o.bold, italic: !!o.italic, fontId: o.fontId || 'arimo' }; units = await this.plan(new Map(), [...o.text].map(ch => ({ ch, st }))); tw = units.reduce((a, u) => a + u.w, 0); thh = st.size; }
+        for (const i of targets) {
+          const page = this.page(i);
+          try {
+            const [pw, ph] = this.size(i), T = this.toPdf(page), gs = this.gstate(page, o.opacity == null ? 0.3 : o.opacity);
+            let w = tw, h = thh; if (image) { w = pw * (o.scale || 0.5); h = w * image.getHeight() / image.getWidth(); }
+            const spots = []; if (o.layout === 'tile') { const gx = w + (o.gap == null ? w * 0.5 : o.gap), gy = h + (o.gap == null ? h * 2 : o.gap), R = Math.hypot(pw, ph); for (let y = -R / 2; y <= R * 1.5; y += gy) for (let x = -R / 2; x <= R * 1.5; x += gx) { const px = x, py = y; if (px > -w * 2 && px < pw + w * 2 && py > -h * 2 && py < ph + h * 2) spots.push([px, py]); } } else spots.push([pw / 2, ph / 2]);
+            let body = '', nameOf = null, iname = null;
+            if (image) { iname = 'TBI' + Date.now().toString(36) + (this.imgN = (this.imgN || 0) + 1); this.resDict(page, 'XObject').put(iname, iref); } else nameOf = this.fontNamer(page);
+            for (const [cx, cy] of spots) {
+              if (image) {
+                const X = T.vec(xd[0], xd[1]), U = T.vec(ud[0], ud[1]), bl = T.pt(cx - (w / 2) * xd[0] - (h / 2) * ud[0], cy - (w / 2) * xd[1] - (h / 2) * ud[1]);
+                body += `q /${gs} gs ${[X[0] * w, X[1] * w, U[0] * h, U[1] * h, bl[0], bl[1]].map(num).join(' ')} cm /${iname} Do Q\n`;
+              } else {
+                const X = T.vec(xd[0], xd[1]), U = T.vec(ud[0], ud[1]), st0 = T.pt(cx - (w / 2) * xd[0] - (h * 0.33) * ud[0], cy - (w / 2) * xd[1] - (h * 0.33) * ud[1]);
+                body += `q /${gs} gs BT ${[X[0], X[1], U[0], U[1], st0[0], st0[1]].map(num).join(' ')} Tm\n${this.unitOps(units, 0, units.length, 0, nameOf)}ET Q\n`;
+              }
+            }
+            if (o.behind) this.prependContent(page, body); else this.appendContent(page, body);
+          } finally { page.destroy(); }
+        }
+        d.endOperation();
+      } catch (e) { d.abandonOperation(); throw e; } finally { this.fontCache.clear(); }
+    }
+    // o: { pages, items: [{ pos: 'tl'|'tc'|'tr'|'bl'|'bc'|'br', text }], size, color, fontId, bold, italic, margin, startAt, name }. In the text: {page}, {page:3} (padded), {pages}, {date}, {name}
+    async addHeaderFooter(o) {
+      const d = this.doc; d.beginOperation('Header and footer');
+      try {
+        const targets = o.pages || [...Array(this.count).keys()], size = o.size || 10, margin = o.margin == null ? 36 : o.margin, st = { name: null, size, color: o.color || [0.2, 0.2, 0.2], bold: !!o.bold, italic: !!o.italic, fontId: o.fontId || 'arimo' }, cache = new Map();
+        const fill = (t, n) => t.replace(/\{page(?::(\d+))?\}/g, (_, w) => String(n).padStart(+w || 0, '0')).replace(/\{pages\}/g, String(this.count)).replace(/\{date\}/g, new Date().toLocaleDateString()).replace(/\{name\}/g, o.name || '');
+        for (const i of targets) {
+          const page = this.page(i);
+          try {
+            const [pw, ph] = this.size(i), lines = [];
+            for (const it of o.items || []) {
+              const text = fill(it.text || '', (o.startAt == null ? 1 : o.startAt) + i); if (!text) continue;
+              if (!cache.has(text)) cache.set(text, await this.plan(new Map(), [...text].map(ch => ({ ch, st }))));
+              const units = cache.get(text), w = units.reduce((a, u) => a + u.w, 0), col = it.pos[1], x = col === 'l' ? margin : col === 'r' ? pw - margin - w : (pw - w) / 2, y = it.pos[0] === 't' ? margin + size * 0.8 : ph - margin;
+              lines.push({ units, from: 0, to: units.length, x, y, extra: 0 });
+            }
+            if (lines.length) this.emit(page, lines);
+          } finally { page.destroy(); }
+        }
+        d.endOperation();
+      } catch (e) { d.abandonOperation(); throw e; } finally { this.fontCache.clear(); }
+    }
+
+    // ================================================================ redaction: mark first, apply later (the text, pictures and drawings under the marks are removed for good)
+    markRedactions(list) {   // [{ page, rect:{x,y,w,h} }]
+      this.op('Mark for redaction', () => { const by = new Map(); for (const r of list) (by.get(r.page) || by.set(r.page, []).get(r.page)).push(r.rect); for (const [i, rects] of by) { const page = this.page(i); try { for (const r of rects) { const an = page.createAnnotation('Redact'); an.setRect(this.devRect(r)); an.update(); } } finally { page.destroy(); } } });
+    }
+    countRedactions() { let n = 0; for (let i = 0; i < this.count; i++) { const page = this.page(i); try { n += page.getAnnotations().filter(a => a.getType() === 'Redact').length; } finally { page.destroy(); } } return n; }
+    applyRedactions() {
+      const m = this.m; let n = 0;
+      this.op('Apply redactions', () => { for (let i = 0; i < this.count; i++) { const page = this.page(i); try { const k = page.getAnnotations().filter(a => a.getType() === 'Redact').length; if (k) { page.applyRedactions(true, m.PDFPage.REDACT_IMAGE_PIXELS, m.PDFPage.REDACT_LINE_ART_REMOVE_IF_TOUCHED, m.PDFPage.REDACT_TEXT_REMOVE); n += k; } } finally { page.destroy(); } } });
+      return n;
+    }
+
+    // ================================================================ crop, links, pages
+    // rect: a device rectangle on the page `from`, or margins { top, right, bottom, left } in points; applied to every page in `pages`
+    cropPages(pages, { rect = null, margins = null } = {}) {
+      this.op('Crop pages', () => {
+        for (const i of pages) { const page = this.page(i); try { const [pw, ph] = this.size(i), r = rect || { x: margins.left, y: margins.top, w: pw - margins.left - margins.right, h: ph - margins.top - margins.bottom }; if (r.w < 20 || r.h < 20) throw new Error('The crop is too small.'); page.setPageBox('CropBox', this.rectToPdf(page, r)); } finally { page.destroy(); } }
+      });
+    }
+    // a link from a rectangle to a web address (uri) or to a page ('#page=3')
+    addLink(i, rect, uri) { const page = this.page(i); try { this.op('Add link', () => { page.createLink(this.devRect(rect), uri); }); } finally { page.destroy(); } }
+    insertPagesFrom(bytes, at, which = null) {
+      const src = this.m.Document.openDocument(bytes, 'application/pdf').asPDF(); if (src.needsPassword && src.needsPassword()) throw new Error('That PDF is password protected.');
+      const list = which || [...Array(src.countPages()).keys()]; this.op('Insert pages', () => { const map = this.doc.newGraftMap(); list.forEach((si, k) => map.graftPage(at + k, src, si)); }); this.refresh(); return list.length;
+    }
+    duplicatePage(i) { this.op('Duplicate page', () => { this.doc.newGraftMap().graftPage(i + 1, this.doc, i); }); this.refresh(); }
+    extractPages(list) {
+      const nd = new this.m.PDFDocument(), map = nd.newGraftMap(); list.forEach(si => map.graftPage(-1, this.doc, si));
+      return new Blob([nd.saveToBuffer({ garbage: 3, compress: 'yes' }).asUint8Array().slice()], { type: 'application/pdf' });
+    }
+
+    // ================================================================ forms: the fields of a page
+    widgets(i) {
+      const page = this.page(i), out = [];
+      try {
+        page.getWidgets().forEach((w, idx) => {
+          try {
+            const type = String(w.getFieldType()).toLowerCase(), bb = w.getBounds();
+            out.push({ idx, type, name: w.getName ? w.getName() : '', value: w.getValue ? w.getValue() : '', rect: { x: bb[0], y: bb[1], w: bb[2] - bb[0], h: bb[3] - bb[1] }, options: /combo|list|choice/.test(type) && w.getOptions ? w.getOptions() : [], readOnly: !!(w.isReadOnly && w.isReadOnly()), multiline: !!(w.isMultiline && w.isMultiline()) });
+          } catch { }
+        });
+      } finally { page.destroy(); }
+      return out;
+    }
+    setWidget(i, idx, value) {
+      const page = this.page(i);
+      try {
+        this.op('Fill form', () => {
+          const w = page.getWidgets()[idx]; if (!w) throw new Error('That field is gone.'); const type = String(w.getFieldType()).toLowerCase();
+          if (type === 'text') w.setTextValue(String(value)); else if (type === 'checkbox' || type === 'radiobutton') { if (w.toggle) w.toggle(); } else if (/combo|list/.test(type)) w.setChoiceValue(String(value));
+          w.update();
+        });
+      } finally { page.destroy(); }
+    }
+
+    // ================================================================ document facts, text and saving with options
+    getMeta() { const g = k => { try { const v = this.doc.getMetaData(k) || ''; return v === '(unspecified)' ? '' : v; } catch { return ''; } }; return { title: g('info:Title'), author: g('info:Author'), subject: g('info:Subject'), keywords: g('info:Keywords') }; }
+    setMeta(o) { this.op('Document properties', () => { for (const [k, v] of [['info:Title', o.title], ['info:Author', o.author], ['info:Subject', o.subject], ['info:Keywords', o.keywords]]) if (v != null) this.doc.setMetaData(k, v); }); }
+    allText() { const out = []; for (let i = 0; i < this.count; i++) out.push('--- Page ' + (i + 1) + ' ---\n' + this.paragraphs(i).map(p => p.text).join('\n')); return out.join('\n\n'); }
+
     canUndo() { return this.doc.canUndo(); }
     canRedo() { return this.doc.canRedo(); }
     undo() { this.doc.undo(); this.refresh(); }
@@ -495,24 +732,32 @@
     deletePage(i) { if (this.count < 2) throw new Error('Keep at least one page.'); this.op('Delete page', () => this.doc.deletePage(i)); this.refresh(); }
     addBlankPage(after) { const [w, h] = this.size(Math.max(0, Math.min(this.count - 1, after))); this.op('Add page', () => this.doc.insertPage(after + 1, this.doc.addPage([0, 0, w, h], 0, {}, ''))); this.refresh(); }
     movePage(i, to) { if (to < 0 || to >= this.count || to === i) return; const order = [...Array(this.count).keys()]; order.splice(to, 0, order.splice(i, 1)[0]); this.op('Move page', () => this.doc.rearrangePages(order)); this.refresh(); }
-    // the file to download. Fonts are subset on a copy, so the open document (and its undo history) stays as it is
-    save() {
-      const m = this.m, raw = this.doc.saveToBuffer('').asUint8Array().slice();   // plain save of the open document: garbage collection or compression would renumber its objects and break undo
+    // the file to download. Everything below is done on a copy, so the open document (and its undo history) stays as it is.
+    // o: { optimize (smaller file), sanitize (remove title, author ... and hidden extras), userPassword, ownerPassword, noPrint, noCopy, noEdit }
+    save(o = {}) {
+      const m = this.m, raw = this.doc.saveToBuffer(this.encrypted ? 'decrypt=yes' : '').asUint8Array().slice();   // plain save of the open document: garbage collection or compression would renumber its objects and break undo
       try {
         const copy = m.Document.openDocument(raw, 'application/pdf').asPDF(); copy.subsetFonts();
-        return new Blob([copy.saveToBuffer({ garbage: 3, compress: 'yes' }).asUint8Array().slice()], { type: 'application/pdf' });
-      } catch { return new Blob([raw], { type: 'application/pdf' }); }
+        if (o.sanitize) for (const k of ['info:Title', 'info:Author', 'info:Subject', 'info:Keywords', 'info:Creator', 'info:Producer']) { try { copy.setMetaData(k, ''); } catch { } }
+        const opts = ['garbage=' + (o.optimize ? 4 : 3), 'compress=yes']; if (o.optimize) opts.push('clean=yes', 'sanitize=yes');
+        if (o.userPassword || o.ownerPassword) {
+          // permissions: bit 3 print, 4 edit, 5 copy
+          let perm = -4 + 0; if (o.noPrint) perm &= ~4; if (o.noEdit) perm &= ~8; if (o.noCopy) perm &= ~16;
+          opts.push('encrypt=aes-256', 'owner-password=' + (o.ownerPassword || o.userPassword), 'user-password=' + (o.userPassword || ''), 'permissions=' + perm);
+        }
+        return new Blob([copy.saveToBuffer(opts.join(',')).asUint8Array().slice()], { type: 'application/pdf' });
+      } catch (e) { if (o.userPassword || o.ownerPassword) throw e; return new Blob([raw], { type: 'application/pdf' }); }
     }
   }
 
   HT.pdfLive = {
     guessFont,
-    async open(file) {
+    async open(file, password) {
       const m = await mu(); let doc;
       try { doc = m.Document.openDocument(file instanceof Uint8Array ? file : new Uint8Array(await file.arrayBuffer()), 'application/pdf').asPDF(); } catch { throw new Error('This is not a valid PDF.'); }
       if (!doc) throw new Error('This is not a valid PDF.');
-      if (doc.needsPassword()) throw new Error('This PDF is password protected. Remove the password first with the "Unlock PDF" tool.');
-      doc.enableJournal(); return new Live(m, doc);
+      if (doc.needsPassword()) { if (!password) throw new Error('PASSWORD'); if (!doc.authenticatePassword(password)) throw new Error('WRONGPASSWORD'); }   // the editor asks the visitor for the password
+      const lv = new Live(m, doc); lv.encrypted = !!password; doc.enableJournal(); return lv;
     },
   };
 })();

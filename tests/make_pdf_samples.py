@@ -52,12 +52,27 @@ def photo_page(path):
     c = canvas.Canvas(path, pagesize=A4); c.setFont('Helvetica-Bold', 18); c.drawString(60, 790, 'Product photo')
     c.drawImage(os.path.join(OUT, 'photo.jpeg'), 60, 250, width=475, height=500, preserveAspectRatio=True); c.save()
 
+def cjk(out):
+    """Chinese (a non-embedded CID font), and Korean and Japanese (embedded fonts, taken from Windows when they are there) for the foreign-language editor tests"""
+    from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+    from reportlab.pdfgen import canvas
+    pdfmetrics.registerFont(UnicodeCIDFont('STSong-Light'))
+    c = canvas.Canvas(os.path.join(out, 'doc_cjk_cid.pdf'), pagesize=A4); c.setFont('STSong-Light', 26); c.drawString(70, 770, '年度报告 2026'); c.setFont('STSong-Light', 12)
+    for i, t in enumerate(['这是一个中文段落，用来测试编辑功能。我们的工具可以在浏览器中直接修改文字，', '而且不会上传你的文件。']): c.drawString(70, 730 - i * 18, t)
+    c.save()
+    k, j = 'C:/Windows/Fonts/malgun.ttf', 'C:/Windows/Fonts/msgothic.ttc'
+    if os.path.exists(k) and os.path.exists(j):
+        pdfmetrics.registerFont(TTFont('Malgun', k)); pdfmetrics.registerFont(TTFont('MSGothic', j, subfontIndex=0))
+        c = canvas.Canvas(os.path.join(out, 'doc_cjk_embedded.pdf'), pagesize=A4); c.setFont('Malgun', 14); c.drawString(70, 690, '안녕하세요 세계, 한국어 편집 테스트입니다.')
+        c.setFont('MSGothic', 14); c.drawString(70, 650, 'こんにちは世界、日本語の編集テストです。'); c.save()
+
 if __name__ == '__main__':
     pdfmetrics.registerFont(TTFont('ArialEmb', 'C:/Windows/Fonts/arial.ttf')); pdfmetrics.registerFont(TTFont('ArialEmbBold', 'C:/Windows/Fonts/arialbd.ttf'))
     letter(os.path.join(OUT, 'doc_standard.pdf'), 'Helvetica', 'Helvetica-Bold')    # the 14 standard fonts (not embedded)
     letter(os.path.join(OUT, 'doc_embedded.pdf'), 'ArialEmb', 'ArialEmbBold')       # a TrueType font embedded as a subset, like Word makes
     columns(os.path.join(OUT, 'doc_columns.pdf'))
     alignment(os.path.join(OUT, 'doc_align_embedded.pdf'), 'ArialEmb', 'ArialEmbBold'); alignment(os.path.join(OUT, 'doc_align_standard.pdf'), 'Helvetica', 'Helvetica-Bold')   # left, justified, right and centred text
+    cjk(OUT)
     if os.path.exists(os.path.join(OUT, 'photo.jpeg')): photo_page(os.path.join(OUT, 'photo_page.pdf'))
     try:   # a scan: the page of doc_standard as a picture only (no text), like a photocopier makes it (needs: pip install pymupdf)
         import pymupdf

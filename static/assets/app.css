@@ -1069,3 +1069,57 @@ h1, h2 { font-weight:700; } h3 { font-weight:700; }
 .v2cats { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; } .v2emo { display:grid; grid-template-columns:repeat(auto-fill,minmax(40px,1fr)); gap:4px; max-height:190px; overflow:auto; padding:2px; }
 .v2e { font-size:1.45rem; line-height:1; padding:6px 0; border:1px solid transparent; border-radius:8px; background:transparent; cursor:pointer; } .v2e:hover { background:var(--accent-soft); } .v2e.armed, .v2stamp.armed { border-color:var(--accent); background:var(--accent-soft); }
 .v2stamps { display:flex; flex-wrap:wrap; gap:6px; } .v2stamp { font:800 .72rem/1 inherit; letter-spacing:.04em; padding:6px 8px; border:2px solid; border-radius:6px; background:transparent; cursor:pointer; }
+
+/* PDF editor v2, full-screen layout: a bar on top, the tools in a column, a strip with the properties, the pages and the page */
+html.v2-open, html.v2-open body { overflow:hidden; }
+.v2app { position:fixed; inset:0; z-index:950; display:flex; flex-direction:column; background:var(--bg2,#e9ebf0); color:var(--text); } .v2app.hidden { display:none; }
+.v2top { display:flex; align-items:center; gap:6px; padding:8px 12px; background:var(--card); border-bottom:1px solid var(--border); overflow-x:auto; flex:none; } .v2top .btn { white-space:nowrap; flex:none; } .v2sp { flex:1; min-width:8px; }
+.v2name { font-weight:650; max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:none; padding:0 4px; }
+.v2ctx { display:flex; align-items:center; gap:16px; padding:6px 12px; min-height:48px; background:var(--card); border-bottom:1px solid var(--border); overflow-x:auto; flex:none; font-size:.85rem; }
+.v2grp { display:flex; align-items:center; gap:14px; flex:none; } .v2grp .form, .v2grp .form > div { display:flex; align-items:center; gap:10px; margin:0; } .v2grp label { display:flex; align-items:center; gap:6px; margin:0; font-size:.78rem; color:var(--muted); flex:none; }
+.v2grp select { width:150px; min-width:0; } .v2grp input[type=number] { width:68px; } .v2grp input[type=color] { width:36px; padding:2px; } .v2row { display:flex; gap:4px; } .v2fill { display:flex; align-items:center; gap:6px; }
+.v2lab { font-weight:700; color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; flex:none; }
+.v2hint, .v2note { color:var(--muted); font-size:.82rem; margin-left:auto; min-width:0; flex:0 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .v2note { color:var(--warn,#b45309); margin-left:0; } .v2note.hidden { display:none; }
+.v2ctx .prog { flex:none; min-width:160px; margin:0; }
+.v2body { flex:1; min-height:0; display:flex; position:relative; }
+.v2rail { width:66px; flex:none; display:flex; flex-direction:column; gap:0; padding:6px 6px; background:var(--card); border-right:1px solid var(--border); overflow-y:auto; }
+.v2tool { display:flex; flex-direction:column; align-items:center; gap:2px; padding:5px 2px 4px; border:1px solid transparent; border-radius:10px; background:transparent; color:var(--muted); font:inherit; font-size:.64rem; line-height:1.1; text-align:center; cursor:pointer; } .v2tool svg { width:22px; height:22px; }
+.v2tool:hover { color:var(--text); background:var(--accent-soft); } .v2tool.on { background:var(--accent-soft); border-color:var(--accent); color:var(--accent); }
+.v2thumbs { width:136px; flex:none; display:flex; flex-direction:column; min-height:0; background:var(--card); border-right:1px solid var(--border); } .v2thumbs.hidden { display:none; }
+.v2pages { display:flex; flex-wrap:wrap; gap:4px; padding:8px; justify-content:center; border-bottom:1px solid var(--border); } .v2pages .btn { padding:4px 9px; }
+.v2thumbs .edthumbs { flex:1; min-height:0; flex-direction:column; align-items:center; gap:8px; overflow-y:auto; overflow-x:hidden; padding:10px 8px; }
+.v2scroll { flex:1; min-width:0; max-height:none; border-radius:0; padding:20px 14px 70px; overflow:auto; }
+.v2pop { position:absolute; left:74px; top:8px; z-index:30; width:340px; max-width:calc(100% - 90px); max-height:calc(100% - 16px); overflow:auto; background:var(--card); border:1px solid var(--border); border-radius:14px; box-shadow:0 14px 40px rgba(0,0,0,.28); padding:12px; } .v2pop.hidden { display:none; }
+.v2intro { max-width:760px; margin:0 auto; }
+@media (max-width:760px) { .v2thumbs { display:none !important; } .v2rail { width:54px; } .v2name { max-width:90px; } .v2pop { left:62px; } .v2hint { display:none; } }
+
+/* PDF editor v2: dialogs, the Tools menu, find and replace, form fields, areas, signature */
+.v2rail { width:116px; display:grid; grid-template-columns:1fr 1fr; align-content:start; gap:2px; } .v2tool { padding:5px 1px 4px; }
+.v2menu { position:fixed; z-index:1000; min-width:230px; background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:0 14px 40px rgba(0,0,0,.28); padding:6px; display:flex; flex-direction:column; } .v2menu button { text-align:left; padding:8px 12px; border:0; background:transparent; color:var(--text); font:inherit; font-size:.9rem; border-radius:8px; cursor:pointer; } .v2menu button:hover { background:var(--accent-soft); } .v2menu hr { border:0; border-top:1px solid var(--border); margin:4px 0; width:100%; }
+.v2back { position:fixed; inset:0; z-index:1100; background:rgba(10,15,30,.5); display:flex; align-items:center; justify-content:center; padding:16px; }
+.v2dlg { background:var(--card); color:var(--text); border-radius:16px; padding:18px 20px; width:min(460px,100%); max-height:92vh; overflow:auto; box-shadow:0 24px 70px rgba(0,0,0,.4); } .v2dlg.wide { width:min(620px,100%); } .v2dlg h3 { margin:0 0 12px; font-size:1.1rem; }
+.v2dact { display:flex; gap:8px; justify-content:flex-end; margin-top:14px; } .v2dmsg { color:#dc2626; font-size:.88rem; margin-top:8px; min-height:1em; }
+.v2form { display:grid; grid-template-columns:1fr 1fr; gap:10px 12px; } .v2f { display:flex; flex-direction:column; gap:4px; font-size:.8rem; color:var(--muted); } .v2f.wide, .v2form > .wide { grid-column:1/-1; } .v2f input[type=checkbox] { align-self:flex-start; } .v2f.hidden, .v2form .hidden { display:none; }
+.v2hf { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; } .v2hf label { display:flex; flex-direction:column; gap:3px; } .v2hf small { color:var(--muted); }
+.v2find { width:310px; flex:none; background:var(--card); border-left:1px solid var(--border); padding:12px; display:flex; flex-direction:column; gap:8px; overflow:auto; } .v2find.hidden { display:none; } .v2fh { display:flex; justify-content:space-between; align-items:center; } .v2opts { display:flex; flex-wrap:wrap; gap:8px 12px; font-size:.82rem; align-items:center; } .v2opts select { width:auto; }
+.v2hits { display:flex; flex-direction:column; gap:2px; } .v2hitrow { text-align:left; display:flex; gap:8px; align-items:baseline; padding:6px 8px; border:1px solid transparent; border-radius:8px; background:transparent; color:var(--text); font:inherit; font-size:.82rem; cursor:pointer; } .v2hitrow small { color:var(--muted); flex:none; } .v2hitrow:hover, .v2hitrow.on { background:var(--accent-soft); border-color:var(--accent); } .v2hitrow mark { background:#fde68a; color:inherit; border-radius:2px; padding:0 1px; }
+.v2hit { position:absolute; background:rgba(250,204,21,.4); border-radius:2px; pointer-events:none; z-index:2; } .v2hit.cur { background:rgba(249,115,22,.45); outline:2px solid #f97316; }
+.v2area { position:absolute; z-index:5; pointer-events:none; } .v2area.redact { background:rgba(0,0,0,.55); border:2px solid #dc2626; } .v2area.crop { border:2px dashed var(--accent); background:rgba(59,130,246,.12); } .v2area.link { border:2px solid #16a34a; background:rgba(22,163,74,.12); }
+.v2fld { position:absolute; z-index:4; box-sizing:border-box; border:1.5px solid var(--accent); background:rgba(219,234,254,.85); color:#111; font:inherit; padding:0 4px; border-radius:2px; cursor:text; } button.v2fld { cursor:pointer; padding:0; }
+.v2sigc { border:1px dashed var(--border); border-radius:10px; background:#fff; touch-action:none; cursor:crosshair; max-width:100%; }
+.edblock.edobj[title=Redact] { border-color:#dc2626 !important; background:rgba(220,38,38,.12); }
+@media (max-width:760px) { .v2rail { width:98px; } .v2find { position:absolute; right:0; top:0; bottom:0; z-index:25; } .v2form { grid-template-columns:1fr; } .v2hf { grid-template-columns:1fr; } }
+
+/* PDF editor v2: the tool column, in groups */
+.v2rail { display:block; width:124px; padding:6px 8px 12px; overflow-y:auto; }
+.v2tg { margin-bottom:6px; } .v2gh { font-size:.62rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); padding:8px 4px 5px; display:flex; align-items:center; gap:6px; } .v2gh::after { content:''; flex:1; height:1px; background:var(--border); }
+.v2tgrid { display:grid; grid-template-columns:1fr 1fr; gap:4px; }
+.v2tool { position:relative; padding:9px 2px 6px; border:1px solid var(--border); background:var(--card); border-radius:10px; transition:background .12s, border-color .12s, color .12s, transform .08s; }
+.v2tool:hover { border-color:var(--accent); background:var(--accent-soft); color:var(--text); } .v2tool:active { transform:scale(.96); } .v2tool.on { background:var(--accent); border-color:var(--accent); color:#fff; box-shadow:0 2px 8px rgba(37,99,235,.35); }
+.v2tool svg { width:22px; height:22px; } .v2tool span { font-size:.66rem; font-weight:600; }
+.v2tool kbd { position:absolute; top:3px; right:4px; font:600 .54rem/1 inherit; color:var(--muted); opacity:.75; background:transparent; border:0; padding:0; } .v2tool.on kbd { color:#fff; opacity:.85; }
+@media (max-height:760px) { .v2tool { padding:6px 2px 4px; } .v2tool span { display:none; } .v2rail { width:112px; } }
+@media (max-width:760px) { .v2rail { width:98px; } .v2tool kbd { display:none; } }
+
+.v2tgrid { grid-template-columns:repeat(2,minmax(0,1fr)); } .v2tool { min-height:54px; justify-content:center; min-width:0; } .v2tool span { max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.v2rail { width:140px; } .v2tool span { font-size:.64rem; letter-spacing:-.01em; } @media (max-height:760px) { .v2rail { width:120px; } } @media (max-width:760px) { .v2rail { width:104px; } .v2tool span { font-size:.58rem; } }
