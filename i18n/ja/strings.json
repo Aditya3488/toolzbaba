@@ -1947,5 +1947,16 @@
 "Pure white background, no shadows or smudges, crisper edges. For product listings.": "真っ白な背景、影や汚れなし、よりくっきりした輪郭。商品ページ向け。",
 "The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "AI が写真をくっきり描き直し（最大 4096 px）、商品を真っ白な背景に置きます。初回は AI をダウンロードします（51 MB）。その後はグラフィックカードで 1 枚約 20 秒です。",
 "Studio: the AI is redrawing the details and finding the product...": "スタジオ：AI がディテールを描き直し、商品を見つけています...",
-"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "スタジオ：AI がディテールを描き直し、商品を見つけています（この端末では 1 分ほどかかることがあります）..."
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "スタジオ：AI がディテールを描き直し、商品を見つけています（この端末では 1 分ほどかかることがあります）...",
+"Pure white background and soft shadow. Keeps original product details, logos and lens contents.": "真っ白な背景とやわらかな影。商品の元のディテール、ロゴ、レンズの中身はそのまま残ります。",
+"Fast batch mode": "高速一括モード",
+"For 20+ photos: skip AI and Studio, export at up to 1600 px": "20 枚以上の写真向け：AI とスタジオを省き、最大 1600 px で書き出し",
+"Studio keeps the original product pixels, replaces the background with pure white and adds a soft shadow. First use downloads a 46 MB model; your browser caches it for later visits when possible.": "スタジオは商品の元のピクセルを保ったまま、背景を真っ白にしてやわらかな影を付けます。初回は 46 MB のモデルをダウンロードします。可能な場合はブラウザーが次回のために保存します。",
+"Off by default. Turn on for product photos to keep their original details, replace the background with white and add a soft shadow. First use downloads a 46 MB model; your browser caches it for later visits when possible.": "初期設定はオフです。商品写真ではオンにすると、元のディテールを保ったまま背景を白にし、やわらかな影を付けます。初回は 46 MB のモデルをダウンロードします。可能な場合はブラウザーが次回のために保存します。",
+"AI HD is skipped for this fast batch.": "この高速一括処理では AI HD を使いません。",
+"Optional: Auto fix works without AI HD. Turn it on only when you want AI detail restoration; its model downloads the first time.": "任意：自動補正は AI HD なしでも使えます。AI でディテールを復元したいときだけオンにしてください。モデルは初回にダウンロードされます。",
+"First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "初回は AI モデルをブラウザーのキャッシュにダウンロードします。その後はグラフィックカードで数秒で動きます。",
+"First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "初回は AI モデルをブラウザーのキャッシュにダウンロードします。その後はこの端末のプロセッサーで動き、1 枚に最大 1 分ほどかかることがあります。",
+"Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "高速一括処理はオンです。AI HD とスタジオは使わず、出力は最大 {0} px になります。速度は端末と写真のサイズによります。",
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0} 枚以上の写真では、オンにすると処理時間が短くなります。オフのときはフル解像度と AI HD を使えます。"
 }

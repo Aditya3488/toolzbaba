@@ -1920,5 +1920,16 @@
 "Pure white background, no shadows or smudges, crisper edges. For product listings.": "Nền trắng tinh, không bóng hay vết bẩn, viền sắc nét hơn. Dành cho trang sản phẩm.",
 "The AI redraws the photo crisp (up to 4096 px) and puts the product on pure white. The first time it downloads its AI (51 MB); then about 20 seconds per photo on a graphics card.": "AI vẽ lại ảnh sắc nét (tới 4096 px) và đặt sản phẩm trên nền trắng tinh. Lần đầu nó tải AI về (51 MB); sau đó khoảng 20 giây mỗi ảnh với card đồ họa.",
 "Studio: the AI is redrawing the details and finding the product...": "Studio: AI đang vẽ lại chi tiết và tìm sản phẩm...",
-"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "Studio: AI đang vẽ lại chi tiết và tìm sản phẩm (trên thiết bị này có thể mất một phút)..."
+"Studio: the AI is redrawing the details and finding the product (on this device it can take a minute)...": "Studio: AI đang vẽ lại chi tiết và tìm sản phẩm (trên thiết bị này có thể mất một phút)...",
+"Pure white background and soft shadow. Keeps original product details, logos and lens contents.": "Nền trắng tinh và bóng đổ mềm. Giữ nguyên chi tiết gốc của sản phẩm, logo và phần bên trong tròng kính.",
+"Fast batch mode": "Chế độ xử lý hàng loạt nhanh",
+"For 20+ photos: skip AI and Studio, export at up to 1600 px": "Cho 20+ ảnh: bỏ qua AI và Studio, xuất tối đa 1600 px",
+"Studio keeps the original product pixels, replaces the background with pure white and adds a soft shadow. First use downloads a 46 MB model; your browser caches it for later visits when possible.": "Studio giữ nguyên điểm ảnh gốc của sản phẩm, thay nền bằng màu trắng tinh và thêm bóng đổ mềm. Lần đầu sẽ tải một mô hình 46 MB; trình duyệt sẽ lưu lại cho các lần sau khi có thể.",
+"Off by default. Turn on for product photos to keep their original details, replace the background with white and add a soft shadow. First use downloads a 46 MB model; your browser caches it for later visits when possible.": "Mặc định tắt. Bật cho ảnh sản phẩm để giữ chi tiết gốc, thay nền thành màu trắng và thêm bóng đổ mềm. Lần đầu sẽ tải một mô hình 46 MB; trình duyệt sẽ lưu lại cho các lần sau khi có thể.",
+"AI HD is skipped for this fast batch.": "Lô xử lý nhanh này bỏ qua AI HD.",
+"Optional: Auto fix works without AI HD. Turn it on only when you want AI detail restoration; its model downloads the first time.": "Tùy chọn: Tự sửa vẫn hoạt động mà không cần AI HD. Chỉ bật khi bạn muốn AI khôi phục chi tiết; mô hình sẽ được tải ở lần đầu.",
+"First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "Lần đầu, mô hình AI được tải vào bộ nhớ đệm của trình duyệt; sau đó chạy trên card đồ họa chỉ trong vài giây.",
+"First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "Lần đầu, mô hình AI được tải vào bộ nhớ đệm của trình duyệt; sau đó chạy trên bộ xử lý của thiết bị này, có thể mất tới một phút mỗi ảnh.",
+"Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Đã bật xử lý hàng loạt nhanh. Bỏ qua AI HD và Studio; mỗi ảnh xuất tối đa {0} px. Tốc độ tùy thiết bị và kích thước ảnh.",
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Với {0}+ ảnh, hãy bật để xử lý nhanh hơn. Khi tắt, vẫn dùng được độ phân giải đầy đủ và AI HD."
 }

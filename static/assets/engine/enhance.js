@@ -11,49 +11,85 @@
 
   // ---------------------------------------------------------------- fast blurs (three box passes ~ a gaussian), O(n) in the radius
   function boxH(src, dst, w, h, r) {
-    const inv = 1 / (2 * r + 1);
+    const inv = 1 / (2 * r + 1), mid = w - r - 1;
     for (let y = 0; y < h; y++) {
-      const o = y * w;
-      let acc = src[o] * (r + 1);
-      for (let x = 1; x <= r; x++) acc += src[o + Math.min(x, w - 1)];
-      for (let x = 0; x < w; x++) {
-        dst[o + x] = acc * inv;
-        acc += src[o + Math.min(x + r + 1, w - 1)] - src[o + Math.max(x - r, 0)];
-      }
+      const o = y * w, last = src[o + w - 1];
+      let acc = src[o] * (r + 1), x = 0;
+      for (let k = 1; k <= r; k++) acc += src[o + Math.min(k, w - 1)];
+      for (; x <= r && x < w; x++) { dst[o + x] = acc * inv; acc += src[o + Math.min(x + r + 1, w - 1)] - src[o]; }   // left edge
+      for (; x < mid; x++) { dst[o + x] = acc * inv; acc += src[o + x + r + 1] - src[o + x - r]; }                    // no edge: no checks
+      for (; x < w; x++) { dst[o + x] = acc * inv; acc += last - src[o + Math.max(x - r, 0)]; }                        // right edge
     }
   }
+  // vertical pass row by row (one running sum per column): reading memory in order is several times faster on big photos
   function boxV(src, dst, w, h, r) {
-    const inv = 1 / (2 * r + 1);
-    for (let x = 0; x < w; x++) {
-      let acc = src[x] * (r + 1);
-      for (let y = 1; y <= r; y++) acc += src[Math.min(y, h - 1) * w + x];
-      for (let y = 0; y < h; y++) {
-        dst[y * w + x] = acc * inv;
-        acc += src[Math.min(y + r + 1, h - 1) * w + x] - src[Math.max(y - r, 0) * w + x];
-      }
+    const inv = 1 / (2 * r + 1), acc = new Float64Array(w);
+    for (let x = 0; x < w; x++) acc[x] = src[x] * (r + 1);
+    for (let y = 1; y <= r; y++) { const o = Math.min(y, h - 1) * w; for (let x = 0; x < w; x++) acc[x] += src[o + x]; }
+    for (let y = 0; y < h; y++) {
+      const o = y * w, add = Math.min(y + r + 1, h - 1) * w, sub = Math.max(y - r, 0) * w;
+      for (let x = 0; x < w; x++) { dst[o + x] = acc[x] * inv; acc[x] += src[add + x] - src[sub + x]; }
     }
   }
+  let scratch = new Float32Array(0);   // the in-between pass, reused: a new 100 MB array per blur costs more than the blur
   function box(src, w, h, r) {   // one box blur
-    const out = new Float32Array(src.length), tmp = new Float32Array(src.length);
+    const out = new Float32Array(src.length);
     if (r < 1) { out.set(src); return out; }
+    if (scratch.length < src.length) scratch = new Float32Array(src.length);
+    const tmp = scratch.length === src.length ? scratch : scratch.subarray(0, src.length);
     boxH(src, tmp, w, h, r); boxV(tmp, out, w, h, r);
     return out;
   }
+  // shrink by s (the average of each s x s block) and enlarge back (bilinear): wide, smooth filters are worked out small
+  function down(p, w, h, s) {
+    const sw = Math.ceil(w / s), sh = Math.ceil(h / s), o = new Float32Array(sw * sh), c = new Float32Array(sw * sh);
+    for (let y = 0; y < h; y++) { const row = ((y / s) | 0) * sw, i0 = y * w; for (let x = 0; x < w; x++) { const k = row + ((x / s) | 0); o[k] += p[i0 + x]; c[k]++; } }
+    for (let k = 0; k < o.length; k++) o[k] /= c[k];
+    return { o, sw, sh };
+  }
+  function up(q, sw, sh, w, h, s) {
+    const out = new Float32Array(w * h), X0 = new Int32Array(w), X1 = new Int32Array(w), FX = new Float32Array(w);
+    for (let x = 0; x < w; x++) { const gx = Math.min(sw - 1, Math.max(0, (x + 0.5) / s - 0.5)); X0[x] = gx | 0; X1[x] = Math.min(sw - 1, X0[x] + 1); FX[x] = gx - X0[x]; }
+    for (let y = 0; y < h; y++) {
+      const gy = Math.min(sh - 1, Math.max(0, (y + 0.5) / s - 0.5)), y0 = gy | 0, y1 = Math.min(sh - 1, y0 + 1), fy = gy - y0, r0 = y0 * sw, r1 = y1 * sw, o = y * w;
+      for (let x = 0; x < w; x++) {
+        const a = q[r0 + X0[x]] + (q[r0 + X1[x]] - q[r0 + X0[x]]) * FX[x], b = q[r1 + X0[x]] + (q[r1 + X1[x]] - q[r1 + X0[x]]) * FX[x];
+        out[o + x] = a + (b - a) * fy;
+      }
+    }
+    return out;
+  }
   function blur(src, w, h, radius) {   // close to a gaussian of that radius
+    if (radius >= 16) {   // a wide blur is smooth anyway: worked out on a smaller copy
+      const s = Math.min(4, Math.floor(radius / 8)), d = down(src, w, h, s);
+      return up(blur(d.o, d.sw, d.sh, radius / s), d.sw, d.sh, w, h, s);
+    }
     const r = Math.max(1, Math.round(radius / 1.7));
     let a = box(src, w, h, r);
     a = box(a, w, h, r);
     return box(a, w, h, r);
   }
   // edge-preserving smoothing (He et al., guided filter with the image as its own guide)
+  // a wide radius uses the fast guided filter (He & Sun 2015): the coefficients are worked out on a smaller copy and
+  // enlarged, the edges still come from the full-size photo
   function guided(p, w, h, r, eps) {
+    const s = r >= 8 ? Math.min(4, Math.floor(r / 4)) : 1;
+    if (s > 1) {
+      const d = down(p, w, h, s), { ma, mb } = guidedAB(d.o, d.sw, d.sh, Math.max(1, Math.round(r / s)), eps);
+      const A = up(ma, d.sw, d.sh, w, h, s), B = up(mb, d.sw, d.sh, w, h, s);
+      for (let i = 0; i < A.length; i++) A[i] = A[i] * p[i] + B[i];
+      return A;
+    }
+    const { ma, mb } = guidedAB(p, w, h, r, eps), q = new Float32Array(p.length);
+    for (let i = 0; i < q.length; i++) q[i] = ma[i] * p[i] + mb[i];
+    return q;
+  }
+  function guidedAB(p, w, h, r, eps) {
     const n = p.length, pp = new Float32Array(n);
     for (let i = 0; i < n; i++) pp[i] = p[i] * p[i];
     const m = box(p, w, h, r), mm = box(pp, w, h, r), a = new Float32Array(n), b = new Float32Array(n);
     for (let i = 0; i < n; i++) { const v = mm[i] - m[i] * m[i], k = v / (v + eps); a[i] = k; b[i] = m[i] - k * m[i]; }
-    const ma = box(a, w, h, r), mb = box(b, w, h, r), q = new Float32Array(n);
-    for (let i = 0; i < n; i++) q[i] = ma[i] * p[i] + mb[i];
-    return q;
+    return { ma: box(a, w, h, r), mb: box(b, w, h, r) };
   }
 
   // ---------------------------------------------------------------- colour helpers
@@ -238,8 +274,10 @@
 
   // ---------------------------------------------------------------- apply
   // scale: how much smaller this copy is than the full photo (the preview), so radii match what the download will get
-  function apply(img, s, scale = 1) {
-    const P = split(img), { R, G, B, n, w, h } = P, size = Math.max(w, h) / scale;
+  // at (a strip of a large photo, see applyFast): { size, fullW, fullH, y0, bd } so sizes, the vignette and the backdrop
+  // follow the whole photo, not the strip
+  function apply(img, s, scale = 1, at = null) {
+    const P = split(img), { R, G, B, n, w, h } = P, size = at ? at.size : Math.max(w, h) / scale, oy = at ? at.y0 : 0;
     const px = r => Math.max(1, r * scale);   // a radius given in full-size pixels -> this copy's pixels
 
     // 1. faded-colour repair: stretch each channel to its own range (fixes the yellow / pink cast of old prints)
@@ -253,11 +291,11 @@
     // 1b. white backdrop: divide by the backdrop's own lighting, so grey paper and uneven light turn pure white and its colour cast goes;
     //     then the darks are deepened (lenses, black parts), so the product stands out crisp, as in a retouched catalogue photo
     if (s.backdrop > 0) {
-      const bd = backdropOf(R, G, B, w, h), k = s.backdrop / 100;
+      const bd = at && at.bd ? at.bd : backdropOf(R, G, B, w, h), k = s.backdrop / 100;
       if (bd.I) {
         const { I, gw, gh, f } = bd, [Ir, Ig, Ib] = I, gam = 1 + 0.35 * clamp01((0.96 - bd.level) / 0.15);   // a grey (dull) backdrop shot also gets deeper darks
         for (let y = 0; y < h; y++) {
-          const gy = Math.min(gh - 1, Math.max(0, (y + 0.5) / f - 0.5)), y0 = gy | 0, y1 = Math.min(gh - 1, y0 + 1), fy = gy - y0;
+          const gy = Math.min(gh - 1, Math.max(0, (y + oy + 0.5) / f - 0.5)), y0 = gy | 0, y1 = Math.min(gh - 1, y0 + 1), fy = gy - y0;
           for (let x = 0; x < w; x++) {
             const gx = Math.min(gw - 1, Math.max(0, (x + 0.5) / f - 0.5)), x0 = gx | 0, x1 = Math.min(gw - 1, x0 + 1), fx = gx - x0;
             const a = y0 * gw + x0, b = y0 * gw + x1, c = y1 * gw + x0, d = y1 * gw + x1;
@@ -297,7 +335,10 @@
       const k = s.denoise / 100, Y = new Float32Array(n), Cb = new Float32Array(n), Cr = new Float32Array(n);
       for (let i = 0; i < n; i++) { const y = luma(R[i], G[i], B[i]); Y[i] = y; Cb[i] = B[i] - y; Cr[i] = R[i] - y; }
       const rY = Math.max(1, Math.round(px(2))), Ys = guided(Y, w, h, rY, 0.0003 + k * k * 0.012);
-      const rC = Math.max(1, Math.round(px(2 + k * 5))), Cbs = guided(Cb, w, h, rC, 0.0004 + k * 0.004), Crs = guided(Cr, w, h, rC, 0.0004 + k * 0.004);
+      // colour noise is coarse (and JPEG keeps colour at half size anyway): cleaned on a half-size copy, four times faster
+      const rC = Math.max(1, Math.round(px(2 + k * 5))), half = rC >= 2, epsC = 0.0004 + k * 0.004;
+      const chroma = C => { if (!half) return guided(C, w, h, rC, epsC); const d = down(C, w, h, 2); return up(guided(d.o, d.sw, d.sh, Math.max(1, Math.round(rC / 2)), epsC), d.sw, d.sh, w, h, 2); };
+      const Cbs = chroma(Cb), Crs = chroma(Cr);
       for (let i = 0; i < n; i++) {
         const y = Y[i] + (Ys[i] - Y[i]) * Math.min(1, k * 2.2), cb = Cb[i] + (Cbs[i] - Cb[i]) * Math.min(1, k * 2.5), cr = Cr[i] + (Crs[i] - Cr[i]) * Math.min(1, k * 2.5);
         R[i] = y + cr; B[i] = y + cb; G[i] = (y - 0.299 * R[i] - 0.114 * B[i]) / 0.587;
@@ -366,9 +407,9 @@
     }
     // 10. vignette (darker or lighter corners)
     if (s.vignette) {
-      const k = s.vignette / 100, cx = w / 2, cy = h / 2, rr = Math.hypot(cx, cy);
+      const k = s.vignette / 100, cx = (at ? at.fullW : w) / 2, cy = (at ? at.fullH : h) / 2, rr = Math.hypot(cx, cy);
       for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
-        const d = Math.hypot(x - cx, y - cy) / rr, f = 1 + k * 0.6 * smooth(0.35, 1.0, d), i = y * w + x;
+        const d = Math.hypot(x - cx, y + oy - cy) / rr, f = 1 + k * 0.6 * smooth(0.35, 1.0, d), i = y * w + x;
         R[i] *= f; G[i] *= f; B[i] *= f;
       }
     }
@@ -383,7 +424,63 @@
     return H;
   }
 
-  HT.enhance = { analyze, apply, combine, histogram, PRESETS, KEYS, RANGE };
+  // ---------------------------------------------------------------- big photos: every processor core at once
+  // The photo is cut into horizontal strips, each worked on in its own worker (engine/enhance-worker.js). Each strip
+  // carries a margin wider than any filter reaches (5% of the photo), so the joins can not be seen; strips start on
+  // rows that are multiples of 8, so the shrunken copies of every strip line up with those of the whole photo.
+  let pool = null, jobSeq = 0;
+  const jobs = {};
+  function workers() {
+    if (pool) return pool;
+    const cores = navigator.hardwareConcurrency || 4, mem = navigator.deviceMemory || 4;
+    const n = Math.max(1, Math.min(cores - 1, Math.floor(mem / 2), mem >= 8 ? 6 : 4)), url = new URL(HT.ver('/assets/engine/enhance.js'), location.href).href;
+    pool = [];
+    for (let i = 0; i < n; i++) {
+      const w = new Worker(HT.ver('/assets/engine/enhance-worker.js'));
+      w.onmessage = ({ data: m }) => { const j = jobs[m.id]; if (!j) return; delete jobs[m.id]; if (m.error) j.rej(new Error(m.error)); else j.res(m.buf); };
+      w.onerror = e => { for (const k of Object.keys(jobs)) { jobs[k].rej(new Error(e.message || 'worker failed')); delete jobs[k]; } pool = null; };
+      w.postMessage({ type: 'init', url });
+      pool.push(w);
+    }
+    return pool;
+  }
+  // a small copy (block averages) for the backdrop's lighting, which must be the same for every strip
+  function shrinkRGB(img, q) {
+    const W = img.width, H = img.height, w = Math.ceil(W / q), h = Math.ceil(H / q), m = w * h, d = img.data;
+    const R = new Float32Array(m), G = new Float32Array(m), B = new Float32Array(m), c = new Float32Array(m);
+    for (let y = 0; y < H; y++) { const row = ((y / q) | 0) * w; for (let x = 0; x < W; x++) { const k = row + ((x / q) | 0), j = (y * W + x) * 4; R[k] += d[j]; G[k] += d[j + 1]; B[k] += d[j + 2]; c[k]++; } }
+    for (let k = 0; k < m; k++) { const v = 255 * c[k]; R[k] /= v; G[k] /= v; B[k] /= v; }
+    return { R, G, B, w, h };
+  }
+  async function applyFast(img, s, progress = () => {}) {
+    const W = img.width, H = img.height;
+    if (W * H < 3e6 || typeof Worker === 'undefined') return apply(img, s, 1);
+    let ws;
+    try { ws = workers(); } catch (e) { return apply(img, s, 1); }
+    // the margin: how far the widest filter in use reaches (document cleanup 2.5% blur, highlights / shadows 2%, clarity
+    // 1.2%, dehaze 1% of the photo; each reaches about twice its radius), plus a little for the shrunken copies
+    const size = Math.max(W, H);
+    const reach = Math.max(s.flatten > 0 ? 0.046 : 0, s.highlights || s.shadows ? 0.042 : 0, s.clarity ? 0.026 : 0, s.dehaze ? 0.02 : 0, 0.004);
+    const halo = Math.ceil((size * reach + 16) / 8) * 8;
+    let bd = null;
+    if (s.backdrop > 0) { const q = Math.max(1, Math.ceil(size / 900)), sm = shrinkRGB(img, q); bd = backdropOf(sm.R, sm.G, sm.B, sm.w, sm.h); bd.f *= q; }
+    const count = Math.max(ws.length, Math.ceil(W * H / 6e6)), rows = Math.ceil(H / count / 8) * 8, strips = [];
+    for (let y0 = 0; y0 < H; y0 += rows) strips.push([y0, Math.min(H, y0 + rows)]);
+    let done = 0, next = 0;
+    const run = async w => {
+      while (next < strips.length) {
+        const [y0, y1] = strips[next++], a = Math.max(0, y0 - halo), b = Math.min(H, y1 + halo), id = ++jobSeq;
+        const buf = img.data.slice(a * W * 4, b * W * 4).buffer;
+        const out = await new Promise((res, rej) => { jobs[id] = { res, rej }; w.postMessage({ id, buf, w: W, h: b - a, s, at: { size, fullW: W, fullH: H, y0: a, bd } }, [buf]); });
+        img.data.set(new Uint8ClampedArray(out, (y0 - a) * W * 4, (y1 - y0) * W * 4), y0 * W * 4);
+        progress(++done / strips.length);
+      }
+    };
+    try { await Promise.all(ws.map(run)); return img; }
+    catch (e) { return apply(img, s, 1); }   // a worker could not run (memory, an old browser): the same work here
+  }
+
+  HT.enhance = { analyze, apply, applyFast, combine, histogram, PRESETS, KEYS, RANGE };
 
   // ---------------------------------------------------------------- the batch job (Download): each photo analysed on its own
   // opts: { preset, deltas: {key: change}, ai: 'off'|'restore'|'2x', format, quality, maxSide, targetKB, fastBatch }
@@ -405,10 +502,10 @@
         }
         const requestedMax = +o.maxSide || 0, max = fastBatch ? Math.min(requestedMax || 1600, 1600) : requestedMax;
         if (max && Math.max(c.width, c.height) > max) { const k = max / Math.max(c.width, c.height); c = HT.resample(c, c.width * k, c.height * k); }
-        ctx.status(label + 'Enhancing...'); await HT.tick();
+        ctx.status(label + 'Enhancing...'); ctx.progress((i + 0.1) / ctx.files.length); await HT.tick();
         const x = c.getContext('2d'), img = x.getImageData(0, 0, c.width, c.height);
         const ai = !fastBatch && !!(o.studio || (o.ai && o.ai !== 'off')), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
-        x.putImageData(mask ? studioFinish(img, mask) : apply(img, s, 1), 0, 0);
+        x.putImageData(mask ? studioFinish(img, mask) : await applyFast(img, s, p => ctx.progress((i + 0.1 + p * 0.8) / ctx.files.length)), 0, 0);
         ctx.status(label + 'Saving...'); await HT.tick();
         const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), out = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
         outs.push({ name: HT.stem(f.name) + '_enhanced.' + (fmt === 'jpg' ? 'jpg' : fmt), blob: out });

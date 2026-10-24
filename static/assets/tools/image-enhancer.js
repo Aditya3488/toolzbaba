@@ -111,8 +111,8 @@ HT.register('image-enhancer', root => {
     batchSec.classList.toggle('hidden', st.files.length < 2);
     fastBatchSwitch.checked = on;
     fastBatchNote.textContent = on
-      ? `Fast batch is on. AI HD and Studio are skipped; each output is capped at ${FAST_BATCH_SIDE} px. Processing speed depends on your device and image sizes.`
-      : `For ${FAST_BATCH_AT}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.`;
+      ? HT.t('Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.', FAST_BATCH_SIDE)
+      : HT.t('For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.', FAST_BATCH_AT);
     if (on !== lastFastBatch) {
       lastFastBatch = on;
       paintStudio(); applyAI();
@@ -145,7 +145,7 @@ HT.register('image-enhancer', root => {
     aiSwitch.checked = v !== 'off'; aiSwitch.disabled = fast || st.studio || !okAny;
     aiSec.classList.toggle('enh-off', fast || st.studio);
     factorBtns.forEach(b => { const f = +b.dataset.f; b.classList.toggle('on', f === v); b.disabled = fast || v === 'off' || !allowed(f); b.title = allowed(f) ? '' : HT.t('For photos up to {0} px', AI_MAX[st.gpu ? 'gpu' : 'cpu'][f]); });
-    aiNote.textContent = fast ? 'AI HD is skipped for this fast batch.' : !full ? '' : !okAny
+    aiNote.textContent = fast ? HT.t('AI HD is skipped for this fast batch.') : !full ? '' : !okAny
       ? HT.t('This photo is already high resolution ({0} × {1} px), so AI HD is not needed: it is made for small, soft or low-quality photos. Auto fix still improves light, colour and detail.', full.width, full.height)
       : v === 'off' ? HT.t('Optional: Auto fix works without AI HD. Turn it on only when you want AI detail restoration; its model downloads the first time.')
         : st.gpu ? HT.t('First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.')
