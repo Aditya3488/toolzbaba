@@ -245,7 +245,8 @@ def head(title: str, desc: str, path: str, jsonld: list | None = None, noindex: 
 
 # trackers=False leaves out Tag Manager and HEAD_EXTRA: the admin page runs only the site's own scripts (see _headers)
 def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=False, extra: dict | None = None,
-           trackers: bool = True, lang: str = "en", tr=None, alts: list | None = None, prefix: str = "", canonical: str | None = None) -> str:
+           trackers: bool = True, lang: str = "en", tr=None, alts: list | None = None, prefix: str = "", canonical: str | None = None,
+           foot: str = "") -> str:
     text = (STATIC / file).read_text("utf-8")
     if lang != "en":
         dir_attr = ' dir="rtl"' if lang in RTL else ""
@@ -260,6 +261,8 @@ def render(file: str, *, title: str, desc: str, path: str, jsonld=None, noindex=
         text = text.replace("<body>", "<body>\n" + GTM_BODY.replace("{id}", GTM_ID), 1)
     for k, v in subs.items():
         text = text.replace("{{" + k + "}}", str(v) if k in RAW_SUBS else esc(v))
+    if foot:   # in the HTML, so search engines see every link without running the page's script (HT.footer leaves it as it is)
+        text = text.replace('\n<script src="/assets/common.js', "\n" + foot + '\n<script src="/assets/common.js', 1)
     return text
 
 
@@ -286,6 +289,60 @@ def tools_html(d: dict, tr=Tr({}), P: str = "") -> str:
         n = len(items)
         out.append(f'<section data-cat="{esc(c["id"])}" id="{esc(c["id"])}" class="cat-{esc(c["id"])}"><div class="sec-h"><h2>{esc(c["name"])}</h2>'
                    f'<span>{esc(tr("{0} tool" if n == 1 else "{0} tools", n))}</span></div><div class="grid">{"".join(cards)}</div></section>')
+    return "\n".join(out)
+
+
+FOOT_CATS = [("Image tools", "image"), ("AI tools", "ai"), ("PDF & documents", "pdf"), ("Video & audio", "video"), ("Text & developer", "dev"), ("Utilities", "util")]
+
+
+def footer_html(d: dict, tr=Tr({}), P: str = "", langs: list | None = None) -> str:
+    """The site footer as plain HTML in every page: every tool, the company pages, the directory of all pages, and this
+    same page in every language that has it. Search engines find all of it without running a script; the look is the
+    one HT.footer (common.js) used to draw. langs: [(code, name, address)]."""
+    li = lambda href, text: f'<li><a href="{esc(href)}">{esc(text)}</a></li>'
+    col = lambda title, items: f'<div><h2>{esc(tr(title))}</h2><ul>{"".join(items)}</ul></div>'
+    popular = sorted((t for t in d["tools"] if t.get("popular") and not t.get("href")), key=lambda t: t["popular"])[:6]
+    brand = (f'<div class="foot-brand"><a href="{P}/" aria-label="{esc(tr("Toolz Baba home"))}">'
+             '<img class="foot-logo logo-light" src="/assets/brand/logo-315.webp" alt="Toolz Baba" width="210" height="140" loading="lazy" decoding="async">'
+             '<img class="foot-logo logo-dark" src="/assets/brand/logo-dark-315.webp" alt="Toolz Baba" width="210" height="140" loading="lazy" decoding="async"></a>'
+             f'<p>{esc(tr("Free everyday file tools that run right in your browser, so your files stay on your device."))}</p></div>')
+    tools_col = col("Tools", [li(f"{P}/#{c}", tr(t)) for t, c in FOOT_CATS] + [li(f"{P}/all-tools", tr("All tools & pages"))])
+    pop_col = col("Popular", [li(f"{P}/{t['slug']}", t["name"]) for t in popular])
+    company = col("Company", [li(h, tr(t)) for t, h in (("Blog", "/blog"), ("India SaaS Database", "/india-saas-startups"), ("Privacy Policy", "/privacy"),
+                                                            ("Terms of Use", "/terms"), ("Contact", "/contact"), ("Report content", "/takedown"))]
+                  + [f'<li><a href="#bookmark" data-bookmark>{esc(tr("Bookmark this site"))}</a></li>'])
+    cols = []
+    for c in d["categories"]:
+        items = [t for t in d["tools"] if t.get("cat") == c["id"] and not t.get("href")]
+        if items:
+            cols.append(f'<div><h2>{esc(c["name"])}</h2><ul>{"".join(li(P + "/" + t["slug"], t["name"]) for t in items)}</ul></div>')
+    here = "en" if not P else P[1:]
+    lang_nav = ('<nav class="foot-langs" aria-label="Language" data-notr>' + "".join(
+        f'<a href="{esc(href)}" hreflang="{c}" lang="{c}"' + (' class="on"' if c == here else "") + f'>{esc(n)}</a>' for c, n, href in langs) + "</nav>") if langs and len(langs) > 1 else ""
+    bottom = (f'<div class="foot-bottom"><span>\u00a9 {time.gmtime().tm_year} {esc(SITE_NAME)}{esc(tr(". All rights reserved."))}</span>'
+              f'<span>{esc(tr("Files are never sold or shared."))}</span></div>')
+    return (f'<footer class="foot"><div class="foot-in">{brand}{tools_col}{pop_col}{company}'
+            f'<nav class="foot-all" aria-label="{esc(tr("All tools"))}">{"".join(cols)}</nav>{lang_nav}{bottom}</div></footer>')
+
+
+def directory_html(d: dict, variants: list, tr=Tr({}), P: str = "") -> str:
+    """Every page of one language, by category and tool: each tool with its tab and format pages, then its "under X KB"
+    pages. Linked from every footer, so no page is more than two clicks from any other."""
+    out = []
+    for c in d["categories"]:
+        items = [t for t in d["tools"] if t.get("cat") == c["id"] and not t.get("href")]
+        if not items:
+            continue
+        blocks, n = [], 0
+        for t in items:
+            vs = [v for v in variants if v["base"] == t["slug"]]
+            vs = [v for v in vs if v.get("group") != "size"] + [v for v in vs if v.get("group") == "size"]
+            n += 1 + len(vs)
+            sub = "".join(f'<li><a href="{P}/{esc(v["slug"])}">{esc(v["name"])}</a></li>' for v in vs)
+            blocks.append(f'<div class="dir-tool"><h3><a href="{P}/{esc(t["slug"])}">{esc(t["name"])}</a></h3><p>{esc(t.get("desc", ""))}</p>'
+                          + (f'<ul class="dir-sub">{sub}</ul>' if sub else "") + "</div>")
+        out.append(f'<section class="dir-cat cat-{esc(c["id"])}" id="{esc(c["id"])}"><h2>{esc(c["name"])} <span>{esc(tr("{0} pages", n))}</span></h2>'
+                   f'<div class="dir-grid">{"".join(blocks)}</div></section>')
     return "\n".join(out)
 
 
@@ -385,7 +442,7 @@ def build():
          "googleAppId": GOOGLE_APP_ID, "dropboxAppKey": DROPBOX_APP_KEY}), "utf-8")
     tools = data["tools"]
 
-    reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon",
+    reserved = set(LEGAL) | {"tool", "assets", "api", "i", "f", "report", "downloader", "index", "404", "robots", "sitemap", "favicon", "all-tools",
                              "functions", "admin", "apple-touch-icon", "site", "blog", "blog-shell",
                              "india-saas-startups"} | {c for c, _ in LANGS}
     variant_slugs = {v["slug"] for v in data.get("variants", [])}
@@ -423,7 +480,10 @@ def build():
             (DIST / "assets" / f"tools.{code}.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), "utf-8")
             (DIST / "assets" / "i18n").mkdir(exist_ok=True)
             (DIST / "assets" / "i18n" / f"{code}.json").write_text(json.dumps(ui, ensure_ascii=False, separators=(",", ":")), "utf-8")
-        page = lambda file, path, alt_langs=None, **kw: render(file, path=P + path, lang=code, tr=tr, alts=alts(path, alt_langs), prefix=P, **kw)
+        names = dict(built)
+        lang_links = lambda path, only=None: [(c, names[c], ("" if c == "en" else "/" + c) + path) for c, _ in built if only is None or c in only]
+        page = lambda file, path, alt_langs=None, **kw: render(file, path=P + path, lang=code, tr=tr, alts=alts(path, alt_langs), prefix=P,
+                                                              foot=footer_html(d, tr, P, lang_links(path, alt_langs)), **kw)
         out = lambda rel: (code + "/" + rel) if code != "en" else rel
 
         # home
@@ -434,6 +494,15 @@ def build():
                 "publisher": {"@id": SITE_URL + "/#org"}}
         write(out("index.html"), page("index.html", "/", title=f"{SITE_NAME} – {tr(TAGLINE)}", jsonld=[org, site], extra={"TOOLS": tools_html(d, tr, P)},
                                       desc=tr("Compress and resize images, edit PDFs, convert video, remove backgrounds with AI and more. {0} free online tools, no sign-up. They run right in your browser, so your files stay private.", f"{len(ltools) // 5 * 5}+")))
+
+        # every page of this language in one place (the footer of every page links here)
+        lvis = [v for v in lvariants if not v.get("archived") and not v.get("canonical") and code in variant_langs.get(v["slug"], {"en"})
+                and not lby.get(v["base"], {}).get("archived")]
+        live = [t for t in ltools if not t.get("archived")]
+        write(out("all-tools.html"), page("directory.html", "/all-tools", title=tr("All tools and pages – {0}", SITE_NAME),
+                                          desc=tr("Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.", SITE_NAME, len(live) + len(lvis)),
+                                          extra={"BODY": directory_html({**d, "tools": live}, lvis, tr, P), "H1": tr("All tools and pages"),
+                                                 "LEAD": tr("Every tool on {0}, with all its format and size pages. All free, no sign-up.", SITE_NAME)}))
 
         # one page per tool, at the site root: /<slug> (old /tool/<slug> links get a permanent redirect, see the end)
         for tool in ltools:
@@ -483,8 +552,9 @@ def build():
                                             desc=v.get("metaDesc") or tr("{0} Free, no sign-up.", v["desc"]), jsonld=ld, canonical=(P + "/" + v["canonical"]) if v.get("canonical") else None,
                                             extra={"SEO": seo_block(merged, ltools, lvariants, tr, P), "TOOL_NAME": v["name"], "THEAD": thead_html(merged, tr)}))
 
+    en_foot = footer_html(data, Tr({}), "", [(c, n, "/" if c == "en" else f"/{c}/") for c, n in built])
     for key, (file, title, desc) in LEGAL.items():
-        write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}"))
+        write(f"{key}.html", render(file, title=f"{title} – {SITE_NAME}", desc=desc.format(site=SITE_NAME), path=f"/{key}", foot=en_foot))
     # the India SaaS database: one index, one page per sector, one per company (built by india_saas/)
     saas, saas_urls = saas_pages.load(), []
     if saas:
@@ -496,7 +566,7 @@ def build():
             return node.replace("{SITE_URL}", SITE_URL) if isinstance(node, str) else node
         for rel, path, title, desc, body, ld in saas_pages.all_pages(saas):
             write(rel, render("saas.html", title=title, desc=desc, path=path, jsonld=_abs(ld),
-                              extra={"BODY": body}))
+                              extra={"BODY": body}, foot=en_foot))
             saas_urls.append(path)
         print(f"India SaaS database: {len(saas_urls)} pages from {saas['count']} companies")
     else:
@@ -505,8 +575,8 @@ def build():
     write("admin.html", render("admin.html", title=f"Admin – {SITE_NAME}", desc="Tool admin panel.", path="/admin", noindex=True,
                               trackers=False))
     # the blog's page frame: functions/blog/* fill in each post (title, description, address, content), see lib/blog-store.js
-    write("blog-shell.html", render("blog.html", title="%%TITLE%%", desc="%%DESC%%", path="%%PATH%%"))
-    write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True))
+    write("blog-shell.html", render("blog.html", title="%%TITLE%%", desc="%%DESC%%", path="%%PATH%%", foot=en_foot))
+    write("404.html", render("404.html", title=f"Page not found – {SITE_NAME}", desc="This page does not exist.", path="/404", noindex=True, foot=en_foot))
 
     # robots, sitemap, icons, manifest
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
@@ -518,7 +588,7 @@ def build():
     urls = []
     for code, _ in built:
         P = "" if code == "en" else "/" + code
-        urls += [(P + "/", "1.0")] + [(f"{P}/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
+        urls += [(P + "/", "1.0"), (P + "/all-tools", "0.6")] + [(f"{P}/{t['slug']}", "0.8") for t in tools if not t.get("href") and t["slug"] not in dead]
         # twins point at their canonical page instead; and a format page is only listed in a language that has it,
         # since an untranslated one is not built there (see translate_tools)
         urls += [(f"{P}/{v['slug']}", "0.5" if v.get("group") == "size" else "0.7")

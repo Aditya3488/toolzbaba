@@ -1950,5 +1950,11 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "প্রথমবার AI মডেল আপনার ব্রাউজার ক্যাশে ডাউনলোড হয়; তারপর এটি আপনার গ্রাফিক্স কার্ডে কয়েক সেকেন্ডে চলে।",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "প্রথমবার AI মডেল আপনার ব্রাউজার ক্যাশে ডাউনলোড হয়; তারপর এটি এই ডিভাইসের প্রসেসরে চলে, প্রতি ছবিতে এক মিনিট পর্যন্ত লাগতে পারে।",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "দ্রুত ব্যাচ চালু। AI HD ও স্টুডিও চলবে না; প্রতিটি ছবি সর্বোচ্চ {0} px হবে। গতি আপনার ডিভাইস ও ছবির আকারের উপর নির্ভর করে।",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0}+ ছবির জন্য এটি চালু করুন, সময় কম লাগবে। বন্ধ থাকলে পূর্ণ রেজোলিউশন ও AI HD পাওয়া যায়।"
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0}+ ছবির জন্য এটি চালু করুন, সময় কম লাগবে। বন্ধ থাকলে পূর্ণ রেজোলিউশন ও AI HD পাওয়া যায়।",
+"All tools & pages": "সব টুল ও পেজ",
+"All tools and pages": "সব টুল ও পেজ",
+"All tools and pages – {0}": "সব টুল ও পেজ – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "{0}-এর সব ফ্রি টুল এক তালিকায়: ছবি, PDF, ভিডিও, অডিও, AI ও টেক্সটের {1}টি পেজ, ফরম্যাট ও সাইজ পেজ সহ।",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "{0}-এর প্রতিটি টুল, তার সব ফরম্যাট ও সাইজ পেজ সহ। সব ফ্রি, সাইন-আপ ছাড়াই।",
+"{0} pages": "{0}টি পেজ"
 }

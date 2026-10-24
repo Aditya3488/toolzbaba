@@ -1931,5 +1931,12 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "Lần đầu, mô hình AI được tải vào bộ nhớ đệm của trình duyệt; sau đó chạy trên card đồ họa chỉ trong vài giây.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "Lần đầu, mô hình AI được tải vào bộ nhớ đệm của trình duyệt; sau đó chạy trên bộ xử lý của thiết bị này, có thể mất tới một phút mỗi ảnh.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Đã bật xử lý hàng loạt nhanh. Bỏ qua AI HD và Studio; mỗi ảnh xuất tối đa {0} px. Tốc độ tùy thiết bị và kích thước ảnh.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Với {0}+ ảnh, hãy bật để xử lý nhanh hơn. Khi tắt, vẫn dùng được độ phân giải đầy đủ và AI HD."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Với {0}+ ảnh, hãy bật để xử lý nhanh hơn. Khi tắt, vẫn dùng được độ phân giải đầy đủ và AI HD.",
+"All tools & pages": "Tất cả công cụ & trang",
+"All tools and pages": "Tất cả công cụ và trang",
+"All tools and pages – {0}": "Tất cả công cụ và trang – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Tất cả công cụ miễn phí của {0} trong một danh sách: {1} trang cho ảnh, PDF, video, âm thanh, AI và văn bản, kèm các trang định dạng và kích thước.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Mọi công cụ của {0}, cùng tất cả trang định dạng và kích thước. Hoàn toàn miễn phí, không cần đăng ký.",
+"{0} pages": "{0} trang",
+"Blog": "Blog"
 }

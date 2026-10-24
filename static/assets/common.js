@@ -1183,7 +1183,11 @@
   };
 
   HT.footer = () => {
-    if (document.querySelector('footer.foot')) return;
+    const built = document.querySelector('footer.foot');
+    if (built) {   // the page has its footer in the HTML (build.py footer_html): only the bookmark link needs this script
+      const bmk = built.querySelector('[data-bookmark]'); if (bmk && !bmk.onclick) bmk.onclick = e => { e.preventDefault(); HT.bookmark(); };
+      return;
+    }
     const col = (title, links) => el('div', {}, el('h2', { text: title }), el('ul', {}, links.map(([t, href]) => el('li', {}, el('a', { href, text: t })))));
     const popular = el('div', {}, el('h2', { text: 'Popular' }), el('ul', {}));
     const f = el('footer', { class: 'foot' }, el('div', { class: 'foot-in' },

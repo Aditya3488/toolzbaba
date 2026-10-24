@@ -1947,5 +1947,11 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "पहली बार AI मॉडल आपके ब्राउज़र कैश में डाउनलोड होता है; फिर यह आपके ग्राफ़िक्स कार्ड पर कुछ सेकंड में चलता है।",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "पहली बार AI मॉडल आपके ब्राउज़र कैश में डाउनलोड होता है; फिर यह इस डिवाइस के प्रोसेसर पर चलता है, जिसमें हर फ़ोटो पर एक मिनट तक लग सकता है।",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "तेज़ बैच चालू है। AI HD और स्टूडियो नहीं चलेंगे; हर फ़ोटो अधिकतम {0} px की बनेगी। स्पीड आपके डिवाइस और फ़ोटो के साइज़ पर निर्भर करती है।",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0}+ फ़ोटो के लिए इसे चालू करें, समय कम लगेगा। बंद रहने पर पूरा रेज़ोल्यूशन और AI HD उपलब्ध रहते हैं।"
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0}+ फ़ोटो के लिए इसे चालू करें, समय कम लगेगा। बंद रहने पर पूरा रेज़ोल्यूशन और AI HD उपलब्ध रहते हैं।",
+"All tools & pages": "सभी टूल और पेज",
+"All tools and pages": "सभी टूल और पेज",
+"All tools and pages – {0}": "सभी टूल और पेज – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "{0} के सभी फ़्री टूल एक सूची में: इमेज, PDF, वीडियो, ऑडियो, AI और टेक्स्ट के {1} पेज, उनके फ़ॉर्मेट और साइज़ पेज के साथ।",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "{0} का हर टूल, उसके सभी फ़ॉर्मेट और साइज़ पेज के साथ। सब फ़्री, बिना साइन-अप।",
+"{0} pages": "{0} पेज"
 }

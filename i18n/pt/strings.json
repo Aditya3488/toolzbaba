@@ -1920,5 +1920,13 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "Na primeira vez o modelo de IA é baixado para o cache do navegador; depois roda na sua placa de vídeo em poucos segundos.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "Na primeira vez o modelo de IA é baixado para o cache do navegador; depois roda no processador deste aparelho, o que pode levar até um minuto por foto.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "O lote rápido está ligado. IA HD e Estúdio são ignorados; cada resultado terá no máximo {0} px. A velocidade depende do seu aparelho e do tamanho das fotos.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Para {0}+ fotos, ative para levar menos tempo. Com ele desligado você tem resolução total e IA HD."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Para {0}+ fotos, ative para levar menos tempo. Com ele desligado você tem resolução total e IA HD.",
+"All tools & pages": "Todas as ferramentas e páginas",
+"All tools and pages": "Todas as ferramentas e páginas",
+"All tools and pages – {0}": "Todas as ferramentas e páginas – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Todas as ferramentas grátis do {0} em uma lista: {1} páginas de imagens, PDF, vídeo, áudio, IA e texto, com suas páginas de formato e tamanho.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Cada ferramenta do {0}, com todas as páginas de formato e tamanho. Tudo grátis, sem cadastro.",
+"{0} pages": "{0} páginas",
+"Popular": "Populares",
+"Blog": "Blog"
 }

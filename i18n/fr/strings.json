@@ -1880,5 +1880,13 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "La première fois, le modèle d’IA est téléchargé dans le cache du navigateur ; ensuite il tourne sur votre carte graphique en quelques secondes.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "La première fois, le modèle d’IA est téléchargé dans le cache du navigateur ; ensuite il tourne sur le processeur de cet appareil, ce qui peut prendre jusqu’à une minute par photo.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Le lot rapide est activé. L’IA HD et Studio sont ignorés ; chaque résultat fait au plus {0} px. La vitesse dépend de votre appareil et de la taille des photos.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Pour {0}+ photos, activez-le pour gagner du temps. Désactivé, la pleine résolution et l’IA HD restent disponibles."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Pour {0}+ photos, activez-le pour gagner du temps. Désactivé, la pleine résolution et l’IA HD restent disponibles.",
+"All tools & pages": "Tous les outils et pages",
+"All tools and pages": "Tous les outils et pages",
+"All tools and pages – {0}": "Tous les outils et pages – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Tous les outils gratuits de {0} en une liste : {1} pages pour les images, PDF, vidéo, audio, IA et texte, avec leurs pages de format et de taille.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Chaque outil de {0}, avec toutes ses pages de format et de taille. Tout est gratuit, sans inscription.",
+"{0} pages": "{0} pages",
+"Contact": "Contact",
+"Blog": "Blog"
 }

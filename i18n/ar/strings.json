@@ -1944,5 +1944,11 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "في أول استخدام يُنزَّل نموذج الذكاء الاصطناعي إلى ذاكرة المتصفح المؤقتة؛ ثم يعمل على بطاقة الرسومات خلال ثوانٍ.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "في أول استخدام يُنزَّل نموذج الذكاء الاصطناعي إلى ذاكرة المتصفح المؤقتة؛ ثم يعمل على معالج هذا الجهاز، وقد يستغرق حتى دقيقة لكل صورة.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "الدفعة السريعة مفعّلة. يُتخطّى HD بالذكاء الاصطناعي والاستوديو، ولا يتجاوز كل ناتج {0} بكسل. تعتمد السرعة على جهازك وأحجام الصور.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "لـ {0}+ صورة، فعّل هذا لتقليل وقت المعالجة. عند إيقافه تبقى الدقة الكاملة وHD بالذكاء الاصطناعي متاحتين."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "لـ {0}+ صورة، فعّل هذا لتقليل وقت المعالجة. عند إيقافه تبقى الدقة الكاملة وHD بالذكاء الاصطناعي متاحتين.",
+"All tools & pages": "كل الأدوات والصفحات",
+"All tools and pages": "كل الأدوات والصفحات",
+"All tools and pages – {0}": "كل الأدوات والصفحات – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "كل أدوات {0} المجانية في قائمة واحدة: {1} صفحة للصور وPDF والفيديو والصوت والذكاء الاصطناعي والنصوص، مع صفحات الصيغ والأحجام.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "كل أداة في {0} مع كل صفحات الصيغ والأحجام. كلها مجانية ودون تسجيل.",
+"{0} pages": "{0} صفحة"
 }

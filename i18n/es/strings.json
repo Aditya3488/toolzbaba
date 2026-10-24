@@ -1926,5 +1926,13 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "La primera vez el modelo de IA se descarga en la caché del navegador; después se ejecuta en tu tarjeta gráfica en pocos segundos.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "La primera vez el modelo de IA se descarga en la caché del navegador; después se ejecuta en el procesador de este dispositivo, lo que puede tardar hasta un minuto por foto.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "El lote rápido está activado. Se omiten IA HD y Estudio; cada resultado tendrá como máximo {0} px. La velocidad depende de tu dispositivo y del tamaño de las fotos.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Para {0}+ fotos, actívalo para tardar menos. Con él desactivado tienes resolución completa e IA HD."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Para {0}+ fotos, actívalo para tardar menos. Con él desactivado tienes resolución completa e IA HD.",
+"All tools & pages": "Todas las herramientas y páginas",
+"All tools and pages": "Todas las herramientas y páginas",
+"All tools and pages – {0}": "Todas las herramientas y páginas – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Todas las herramientas gratis de {0} en una lista: {1} páginas de imágenes, PDF, vídeo, audio, IA y texto, con sus páginas de formato y tamaño.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Cada herramienta de {0}, con todas sus páginas de formato y tamaño. Todo gratis, sin registro.",
+"{0} pages": "{0} páginas",
+"Popular": "Populares",
+"Blog": "Blog"
 }

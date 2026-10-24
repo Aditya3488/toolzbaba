@@ -1928,5 +1928,12 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "İlk kullanımda yapay zekâ modeli tarayıcı önbelleğine indirilir; sonra ekran kartınızda birkaç saniyede çalışır.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "İlk kullanımda yapay zekâ modeli tarayıcı önbelleğine indirilir; sonra bu cihazın işlemcisinde çalışır ve fotoğraf başına bir dakikayı bulabilir.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Hızlı toplu işlem açık. AI HD ve Stüdyo atlanır; her çıktı en fazla {0} px olur. Hız, cihazınıza ve fotoğraf boyutlarına bağlıdır.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0}+ fotoğraf için işlem süresini kısaltmak üzere açın. Kapalıyken tam çözünürlük ve AI HD kullanılabilir."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0}+ fotoğraf için işlem süresini kısaltmak üzere açın. Kapalıyken tam çözünürlük ve AI HD kullanılabilir.",
+"All tools & pages": "Tüm araçlar ve sayfalar",
+"All tools and pages": "Tüm araçlar ve sayfalar",
+"All tools and pages – {0}": "Tüm araçlar ve sayfalar – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "{0} üzerindeki tüm ücretsiz araçlar tek listede: görsel, PDF, video, ses, yapay zekâ ve metin için {1} sayfa; biçim ve boyut sayfalarıyla birlikte.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "{0} üzerindeki her araç, tüm biçim ve boyut sayfalarıyla. Hepsi ücretsiz, kayıt gerekmez.",
+"{0} pages": "{0} sayfa",
+"Blog": "Blog"
 }

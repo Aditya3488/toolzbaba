@@ -1904,5 +1904,12 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "La prima volta il modello di IA viene scaricato nella cache del browser; poi funziona sulla scheda grafica in pochi secondi.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "La prima volta il modello di IA viene scaricato nella cache del browser; poi funziona sul processore di questo dispositivo e può richiedere fino a un minuto per foto.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Il batch veloce è attivo. IA HD e Studio vengono saltati; ogni risultato è al massimo {0} px. La velocità dipende dal dispositivo e dalle dimensioni delle foto.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Per {0}+ foto, attivalo per ridurre i tempi. Quando è spento restano disponibili risoluzione piena e IA HD."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Per {0}+ foto, attivalo per ridurre i tempi. Quando è spento restano disponibili risoluzione piena e IA HD.",
+"All tools & pages": "Tutti gli strumenti e le pagine",
+"All tools and pages": "Tutti gli strumenti e le pagine",
+"All tools and pages – {0}": "Tutti gli strumenti e le pagine – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Tutti gli strumenti gratuiti di {0} in un elenco: {1} pagine per immagini, PDF, video, audio, IA e testo, con le loro pagine di formato e dimensione.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Ogni strumento di {0}, con tutte le sue pagine di formato e dimensione. Tutto gratis, senza registrazione.",
+"{0} pages": "{0} pagine",
+"Blog": "Blog"
 }

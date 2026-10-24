@@ -1876,5 +1876,14 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "Pertama kali, model AI diunduh ke cache browser Anda; setelah itu berjalan di kartu grafis dalam beberapa detik.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "Pertama kali, model AI diunduh ke cache browser Anda; setelah itu berjalan di prosesor perangkat ini, bisa sampai satu menit per foto.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Batch cepat aktif. AI HD dan Studio dilewati; setiap hasil maksimal {0} px. Kecepatan tergantung perangkat dan ukuran foto Anda.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Untuk {0}+ foto, nyalakan ini agar lebih cepat. Saat mati, resolusi penuh dan AI HD tetap tersedia."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Untuk {0}+ foto, nyalakan ini agar lebih cepat. Saat mati, resolusi penuh dan AI HD tetap tersedia.",
+"All tools & pages": "Semua alat & halaman",
+"All tools and pages": "Semua alat dan halaman",
+"All tools and pages – {0}": "Semua alat dan halaman – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Semua alat gratis {0} dalam satu daftar: {1} halaman untuk gambar, PDF, video, audio, AI, dan teks, beserta halaman format dan ukurannya.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Setiap alat di {0}, dengan semua halaman format dan ukurannya. Semua gratis, tanpa daftar.",
+"{0} pages": "{0} halaman",
+"Toolz Baba home": "Beranda Toolz Baba",
+"Video & audio": "Video & audio",
+"Blog": "Blog"
 }

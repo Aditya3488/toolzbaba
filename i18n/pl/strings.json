@@ -1927,5 +1927,12 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "Za pierwszym razem model AI pobiera się do pamięci podręcznej przeglądarki; potem działa na karcie graficznej w kilka sekund.",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "Za pierwszym razem model AI pobiera się do pamięci podręcznej przeglądarki; potem działa na procesorze tego urządzenia, co może trwać do minuty na zdjęcie.",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "Szybka partia jest włączona. AI HD i Studio są pomijane; każdy wynik ma najwyżej {0} px. Szybkość zależy od urządzenia i rozmiaru zdjęć.",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Dla {0}+ zdjęć włącz to, aby skrócić czas. Gdy jest wyłączone, dostępne są pełna rozdzielczość i AI HD."
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "Dla {0}+ zdjęć włącz to, aby skrócić czas. Gdy jest wyłączone, dostępne są pełna rozdzielczość i AI HD.",
+"All tools & pages": "Wszystkie narzędzia i strony",
+"All tools and pages": "Wszystkie narzędzia i strony",
+"All tools and pages – {0}": "Wszystkie narzędzia i strony – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "Wszystkie darmowe narzędzia {0} na jednej liście: {1} stron do obrazów, PDF, wideo, audio, AI i tekstu, z ich stronami formatów i rozmiarów.",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "Każde narzędzie {0} ze wszystkimi stronami formatów i rozmiarów. Wszystko za darmo, bez rejestracji.",
+"{0} pages": "{0} stron",
+"Blog": "Blog"
 }

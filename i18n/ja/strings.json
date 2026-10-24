@@ -1958,5 +1958,11 @@
 "First use downloads the AI model into your browser cache; then it runs on your graphics card in a few seconds.": "初回は AI モデルをブラウザーのキャッシュにダウンロードします。その後はグラフィックカードで数秒で動きます。",
 "First use downloads the AI model into your browser cache; then it runs on this device’s processor, which can take up to a minute per photo.": "初回は AI モデルをブラウザーのキャッシュにダウンロードします。その後はこの端末のプロセッサーで動き、1 枚に最大 1 分ほどかかることがあります。",
 "Fast batch is on. AI HD and Studio are skipped; each output is capped at {0} px. Processing speed depends on your device and image sizes.": "高速一括処理はオンです。AI HD とスタジオは使わず、出力は最大 {0} px になります。速度は端末と写真のサイズによります。",
-"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0} 枚以上の写真では、オンにすると処理時間が短くなります。オフのときはフル解像度と AI HD を使えます。"
+"For {0}+ photos, turn this on to reduce processing time. Full resolution and AI HD remain available when it is off.": "{0} 枚以上の写真では、オンにすると処理時間が短くなります。オフのときはフル解像度と AI HD を使えます。",
+"All tools & pages": "すべてのツールとページ",
+"All tools and pages": "すべてのツールとページ",
+"All tools and pages – {0}": "すべてのツールとページ – {0}",
+"Every free tool on {0} in one list: {1} pages for images, PDF, video, audio, AI and text, with their format and size pages.": "{0} の無料ツールをひとつのリストに：画像、PDF、動画、音声、AI、テキストの {1} ページ。形式別・サイズ別のページも含みます。",
+"Every tool on {0}, with all its format and size pages. All free, no sign-up.": "{0} のすべてのツールと、その形式別・サイズ別のページ。すべて無料、登録不要。",
+"{0} pages": "{0} ページ"
 }
