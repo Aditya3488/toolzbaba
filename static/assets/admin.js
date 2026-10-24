@@ -289,8 +289,8 @@
     body.append(el('p', { class: 'adm-small', text: 'Service account: ' + I.email + (I.updated ? ' · results saved ' + ago(I.updated) : '') }),
       el('button', { class: 'btn ghost sm', type: 'button', text: 'Forget all results', onclick: async () => { if (!(await ask('Forget every result?', 'The checks start again from the beginning.'))) return; await api('google-index', 'DELETE'); I.results = {}; draw(); } }));
   }
-  // 4 calls at once (each server call may keep only 6 connections to Google open), 40 addresses each, at most 560
-  // addresses a minute (Google allows 600); counters update after every call; results saved every 200 checks
+  // 8 calls at once (each server call may keep only 6 connections to Google open), 12 addresses each so the counters move
+  // every few seconds, at most 560 addresses a minute (Google allows 600); results saved every 60 checks
   function paintIdxCounts() {
     const c = { all: I.urls.length, yes: 0, no: 0, none: 0, error: 0, left: Math.max(0, I.limit - (I.busy ? I.liveUsed : I.used)) };
     for (const u of I.urls) c[idxState(I.results[u])]++;
@@ -313,17 +313,22 @@
     const gate = async n => { for (;;) { const now = Date.now(); while (launches.length && launches[0][0] < now - 60000) launches.shift(); if (launches.reduce((a, x) => a + x[1], 0) + n <= 560) { launches.push([now, n]); return; } await sleep(300); } };
     const show = () => {
       I.liveUsed = startUsed + done;
-      const p = document.querySelector('#adm-body .adm-bar2 i'); if (p) p.style.width = Math.round(done / list.length * 100) + '%';
-      const s = document.querySelector('#adm-body .adm-bar2 + .adm-small'), mins = (Date.now() - t0) / 60000;
-      if (s) s.textContent = `${done} of ${list.length}` + (mins > 0.2 ? ` · ${Math.round(done / mins)} a minute` : '');
+      const p = document.querySelector('#adm-body .adm-bar2 i'); if (p) p.style.width = Math.max(1, Math.round(done / list.length * 100)) + '%';
+      const s = document.querySelector('#adm-body .adm-bar2 + .adm-small'), secs = Math.round((Date.now() - t0) / 1000), mins = secs / 60;
+      if (s) s.textContent = `${done} of ${list.length} · ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}` + (!done ? ' · asking Google...' : mins > 0.2 ? ` · ${Math.round(Math.min(done / mins, 560))} a minute` : '') + ' · keep this page open (a refresh stops it)';
       paintIdxCounts();
     };
+    const ticker = setInterval(() => { if (I.busy) show(); }, 1000);
+    // leaving during a run: ask first, and send what is not saved yet on the way out (those checks count for today)
+    const stay = e => { e.preventDefault(); e.returnValue = ''; };
+    const leave = () => { if (!I.pendingUsed) return; try { fetch('/api/admin/google-index', { method: 'PUT', keepalive: true, credentials: 'same-origin', headers: { 'X-Requested-With': 'toolzbaba-admin', 'Content-Type': 'application/json' }, body: JSON.stringify({ results: pending, used: I.pendingUsed }) }); I.pendingUsed = 0; } catch { } };
+    addEventListener('beforeunload', stay); addEventListener('pagehide', leave);
     say('', `Checking ${list.length} address(es)...`);
     const lane = async () => {
       while (!halt && !I.stop && next < list.length) {
         const room = I.limit - startUsed - sent;
         if (room <= 0) { if (!halt) say('y', "Today's " + I.limit + ' checks are used up: run it again tomorrow, it continues from here.'); halt = true; break; }
-        const n = Math.min(I.perCall, room, list.length - next), batch = list.slice(next, next + n); next += n; sent += n;
+        const n = Math.min(12, I.perCall, room, list.length - next), batch = list.slice(next, next + n); next += n; sent += n;
         await gate(n);
         if (I.stop || halt) break;
         let r;
@@ -332,12 +337,15 @@
         if (r.site) I.site = r.site;
         Object.assign(I.results, r.results); Object.assign(pending, r.results); I.pendingUsed += n; done += n;
         show();
-        if (Object.keys(pending).length >= 200) flush();
+        if (Object.keys(pending).length >= 60) flush();
         if (r.quota) { if (!halt) say('y', 'Google says: too many checks for now. Try again later (the daily allowance may be used up).'); halt = true; }
       }
     };
-    await Promise.all([lane(), lane(), lane(), lane()]);
+    show();
+    await Promise.all(Array.from({ length: 8 }, lane));
+    clearInterval(ticker);
     await flush(); await saving;
+    removeEventListener('beforeunload', stay); removeEventListener('pagehide', leave);
     const yes = list.filter(u => idxState(I.results[u]) === 'yes').length, mins = Math.max(0.01, (Date.now() - t0) / 60000);
     say('g', `Done: ${done} checked in ${mins < 1 ? Math.round(mins * 60) + ' s' : mins.toFixed(1) + ' min'}, ${yes} of them indexed.`);
     I.used = Math.max(I.used, startUsed + done); I.busy = false; if (S.tab === 'index') draw();
@@ -714,7 +722,7 @@
 <h3>Archive and go live</h3><p>Archiving a tool puts its slug on a list at <code>/api/tool-status</code>. Every page keeps that list for 10 minutes and refreshes it when the browser is idle, so it never delays a page. The tool disappears from the home page, search and menus; its address shows "taking a break" (not indexed). A tool with tabs takes its tab pages with it; a single tab page can be archived on its own. For a permanent archive put <code>"archived": true</code> on the tool in <code>tools.json</code>: that also removes it from the sitemap. Until the next deploy the sitemap still lists tools archived here.</p>
 <h3>Blog</h3><p>Write posts in the Blog tab. "Save draft" keeps a post private; "Publish" puts it live at <code>/blog/your-post</code> straight away, with its own title and description for Google, a cover image for social media, and an entry in the site's one sitemap <code>/sitemap.xml</code> (also in <code>/blog/sitemap.xml</code>) and the RSS feed <code>/blog/feed.xml</code>. Images you upload are shrunk to WebP in your browser and kept for good at <code>/blog/images/</code>. Changing a published post's address keeps the old one working as a redirect. Posts are written in Markdown (the toolbar buttons type it for you): <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>[text](https://...)</code>, <code>- list</code>, <code>&gt; quote</code>; HTML in a post is shown as text, never run. Free KV allows 1,000 saves a day, far more than a blog needs.</p>
 <h3>Real visitors</h3><p>The speed numbers come from the visitors' own browsers: a sample (1 in 10) sends one small message per page view. Free KV allows 1,000 writes a day, so at most ${S.maxWrites} messages a day are saved. Counts are estimates. If the site grows, move this to D1 or Analytics Engine.</p>
-<h3>Google index</h3><p>The Google index tab asks Google, page by page, whether each address in <code>/sitemap.xml</code> is in its index, and if not why ("Discovered – currently not indexed", "Crawled – currently not indexed", a redirect, a different canonical...). It is the same answer as URL inspection in Search Console, read through the URL Inspection API with a service account (the key is the Pages secret <code>GSC_SERVICE_ACCOUNT</code>; the tab shows how to set it up). Google allows 2,000 checks a day, so the whole sitemap takes two or three days; results are kept in KV (one save per 200 checks) and every run continues where the last one stopped. Use "Download as CSV" for the list of pages to send to Google with "Request indexing" in Search Console (Google allows about 10 such requests a day there).</p>
+<h3>Google index</h3><p>The Google index tab asks Google, page by page, whether each address in <code>/sitemap.xml</code> is in its index, and if not why ("Discovered – currently not indexed", "Crawled – currently not indexed", a redirect, a different canonical...). It is the same answer as URL inspection in Search Console, read through the URL Inspection API with a service account (the key is the Pages secret <code>GSC_SERVICE_ACCOUNT</code>; the tab shows how to set it up). Google allows 2,000 checks a day, so the whole sitemap takes two or three days; results are kept in KV (one save per 60 checks) and every run continues where the last one stopped. Use "Download as CSV" for the list of pages to send to Google with "Request indexing" in Search Console (Google allows about 10 such requests a day there).</p>
 <h3>Lab tests</h3><p>Run them after every deploy: "Every tool" without heavy tools takes a few minutes. Anything red is worth a look. The full browser test files in <code>/tests</code> remain the real safety net.</p>
 <h3>Keeping the site fast</h3><p>Tools load their code only when used, models only when a button is pressed, and the admin code is never loaded on public pages. Watch "Weight", "Ready" and "LCP": a tool that turns red after a change is the one to fix. The limits used for the colours are Google's: LCP 2.5 s / 4 s, INP 200 ms / 500 ms, CLS 0.1 / 0.25.</p>`;
     body.append(h);
