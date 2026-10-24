@@ -207,7 +207,7 @@
   // ---- Google index: which pages of the sitemap Google has in its index (URL Inspection API, functions/api/admin/google-index.js)
   const LANGS = ['hi', 'bn', 'es', 'pt', 'id', 'fr', 'de', 'ru', 'ja', 'tr', 'vi', 'it', 'ar', 'pl'];
   const langOf = u => { const p = new URL(u).pathname.split('/')[1]; return LANGS.includes(p) ? p : 'en'; };
-  const I = { loaded: false, busy: false, stop: false, urls: [], results: {}, filter: 'all', lang: '', q: '', logLines: [] };
+  const I = { loaded: false, busy: false, stop: false, urls: [], results: {}, filter: 'all', lang: '', q: '', logLines: [], recheckIndexed: (() => { try { return !!localStorage.getItem('tz_idx_recheck'); } catch { return false; } })() };
   const idxState = r => (!r ? 'none' : r.e ? 'error' : r.v === 'PASS' ? 'yes' : 'no');
   const idxPill = r => { const s = idxState(r); return s === 'yes' ? pill('good', 'Indexed') : s === 'no' ? pill(r.v === 'FAIL' ? 'poor' : 'mid', 'Not indexed') : s === 'error' ? pill('poor', 'Check failed', r.e) : pill('', 'Not checked'); };
   const gscLink = u => 'https://search.google.com/search-console/inspect?resource_id=' + encodeURIComponent(I.site || 'sc-domain:' + location.host.replace(/^www\./, '')) + '&id=' + encodeURIComponent(u);
@@ -225,7 +225,7 @@
       loadIndex().then(() => S.tab === 'index' && draw()).catch(e => { body.textContent = ''; body.append(el('p', { class: 'adm-note', text: 'Could not load: ' + e.message }), el('button', { class: 'btn sm', type: 'button', text: 'Try again', onclick: () => draw() })); });
       return;
     }
-    body.append(el('p', { class: 'adm-note', text: 'Asks Google itself, for every address in /sitemap.xml, whether it is in Google\'s index and if not, why (the same answer as "URL inspection" in Search Console). Google allows ' + I.limit + ' checks a day, so the whole sitemap takes a few days: results are kept here and each run continues where the last one stopped. English pages are checked first.' }));
+    body.append(el('p', { class: 'adm-note', text: 'Asks Google itself, for every address in /sitemap.xml, whether it is in Google\'s index and if not, why (the same answer as "URL inspection" in Search Console). Google allows ' + I.limit + ' checks a day, so the whole sitemap takes a few days: results are kept here and "Continue checking" always carries on where the last run stopped. Pages already indexed are not checked again (unless you tick "Also re-check indexed pages"), so no check is wasted. English pages are checked first.' }));
     if (!I.setup) { body.append(indexSetup()); return; }
     const all = I.urls.map(u => [u, I.results[u]]), count = s => all.filter(([, r]) => idxState(r) === s).length;
     const yes = count('yes'), no = count('no'), none = count('none'), err = count('error'), left = Math.max(0, I.limit - I.used);
@@ -239,17 +239,31 @@
     // checking
     const howMany = el('select', { 'aria-label': 'How many' }, [[200, '200'], [500, '500'], [1000, '1,000'], [2000, 'all I can today']].map(([v, t]) => el('option', { value: v, text: t, selected: v === 500 ? 'selected' : null })));
     const progress = el('div', { class: 'adm-bar2', style: { flex: '1', maxWidth: '260px' } }, el('i', { style: { width: '0%' } })), status = el('span', { class: 'adm-small' });
+    // what "Continue" checks, in this order, so the daily allowance is never spent twice on the same answer:
+    //   1. pages never checked (a run stopped by the daily limit carries on from here the next day)
+    //   2. pages not indexed or whose check failed, last checked 3+ days ago (oldest first)
+    //   3. only when allowed: indexed pages last checked 7+ days ago (does Google still have them?)
+    const DAY = 864e5, ageOf = u => Date.now() - ((I.results[u] || {}).at || 0), oldest = (a, b) => ageOf(b) - ageOf(a);
+    const queue = () => {
+      const fresh = I.urls.filter(u => !I.results[u]);
+      const retry = I.urls.filter(u => ['no', 'error'].includes(idxState(I.results[u])) && ageOf(u) >= 3 * DAY).sort(oldest);
+      const kept = I.recheckIndexed ? I.urls.filter(u => idxState(I.results[u]) === 'yes' && ageOf(u) >= 7 * DAY).sort(oldest) : [];
+      return fresh.concat(retry, kept);
+    };
     const pick = kind => {
-      const n = +howMany.value, oldest = (a, b) => ((I.results[a] || {}).at || 0) - ((I.results[b] || {}).at || 0);
-      if (kind === 'new') return I.urls.filter(u => !I.results[u]).slice(0, n);
+      const n = +howMany.value;
       if (kind === 'no') return I.urls.filter(u => ['no', 'error'].includes(idxState(I.results[u]))).sort(oldest).slice(0, n);
-      return I.urls.slice().sort(oldest).slice(0, n);
+      return queue().slice(0, n);
     };
     const go = kind => runIndex(pick(kind));
+    const waiting = queue().length;
+    const recheck = el('label', { class: 'chk', title: 'Off: an indexed page is never checked again. On: indexed pages last checked a week or more ago are checked again, after everything else.' },
+      el('input', { type: 'checkbox', checked: !!I.recheckIndexed, onchange: e => { I.recheckIndexed = e.target.checked; try { localStorage.setItem('tz_idx_recheck', e.target.checked ? '1' : ''); } catch { } draw(); } }),
+      'Also re-check indexed pages (weekly)');
     body.append(el('div', { class: 'adm-bar' },
-      el('button', { class: 'btn sm', type: 'button', text: 'Check pages not checked yet', disabled: I.busy || !none || null, onclick: () => go('new') }),
-      el('button', { class: 'btn sec sm', type: 'button', text: 'Check again: not indexed', disabled: I.busy || !(no + err) || null, onclick: () => go('no') }),
-      el('button', { class: 'btn sec sm', type: 'button', text: 'Check again: oldest first', disabled: I.busy || null, onclick: () => go('old') }),
+      el('button', { class: 'btn sm', type: 'button', text: waiting ? `Continue checking (${waiting} waiting)` : 'Nothing waiting', title: 'Pages never checked first, then pages not indexed (last checked 3+ days ago). Indexed pages are skipped unless the box is ticked.', disabled: I.busy || !waiting || null, onclick: () => go('next') }),
+      el('button', { class: 'btn sec sm', type: 'button', text: 'Check again now: not indexed', disabled: I.busy || !(no + err) || null, onclick: () => go('no') }),
+      recheck,
       el('label', { class: 'chk' }, 'How many: ', howMany),
       el('button', { class: 'btn ghost sm', type: 'button', text: 'Stop', disabled: !I.busy || null, onclick: () => { I.stop = true; } }),
       progress, status));
