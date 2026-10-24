@@ -438,6 +438,7 @@
     for (let i = 0; i < n; i++) {
       const w = new Worker(HT.ver('/assets/engine/enhance-worker.js'));
       w.onmessage = ({ data: m }) => { const j = jobs[m.id]; if (!j) return; delete jobs[m.id]; if (m.error) j.rej(new Error(m.error)); else j.res(m.buf); };
+      w.busy = 0;
       w.onerror = e => { for (const k of Object.keys(jobs)) { jobs[k].rej(new Error(e.message || 'worker failed')); delete jobs[k]; } pool = null; };
       w.postMessage({ type: 'init', url });
       pool.push(w);
@@ -480,6 +481,20 @@
     catch (e) { return apply(img, s, 1); }   // a worker could not run (memory, an old browser): the same work here
   }
 
+  // a whole (not too large) photo in one worker: analysed and enhanced there, so a batch runs several photos at once
+  let rr = 0;
+  function enhanceInWorker(img, probe, o, ai) {
+    let ws; try { ws = workers(); } catch (e) { return null; }
+    const w = ws.reduce((a, b) => (b.busy < a.busy ? b : a), ws[rr++ % ws.length]), id = ++jobSeq, buf = img.data.buffer;
+    w.busy++;
+    return new Promise((res, rej) => {
+      jobs[id] = { res: b => { w.busy--; res(new ImageData(new Uint8ClampedArray(b), img.width, img.height)); }, rej: e => { w.busy--; rej(e); } };
+      w.postMessage({ id, whole: true, buf, w: img.width, h: img.height, probe: { buf: probe.img.data.buffer, w: probe.img.width, h: probe.img.height, scale: probe.scale },
+        preset: o.preset || 'auto', deltas: o.deltas || {}, ai }, [buf, probe.img.data.buffer]);
+    });
+  }
+  const poolSize = () => { try { return typeof Worker === 'undefined' ? 0 : workers().length; } catch (e) { return 0; } };
+
   HT.enhance = { analyze, apply, applyFast, combine, histogram, PRESETS, KEYS, RANGE };
 
   // ---------------------------------------------------------------- the batch job (Download): each photo analysed on its own
@@ -488,8 +503,16 @@
     await HT.loadScript('/assets/engine/image.js');
     const o = ctx.opts || {}, outs = [], rows = [], failures = [], fastBatch = !!o.fastBatch;
     HT.enhance.aiSkipped = 0;
-    for (const [i, f] of ctx.files.entries()) {
-      const label = ctx.files.length > 1 ? `${i + 1} of ${ctx.files.length}: ` : '';
+    // Several photos at once when nothing needs the one AI on the graphics card: each takes a worker (a large photo takes
+    // them all, it is cut into strips). The order of the results stays the order of the photos.
+    const N = ctx.files.length, serial = !fastBatch && (o.studio || (o.ai && o.ai !== 'off')), slots = serial ? 1 : Math.max(1, poolSize());
+    const results = new Array(N), progressOf = new Array(N).fill(0);
+    let free = slots, waiting = [], done = 0;
+    const acquire = k => new Promise(res => { const go = () => { if (free >= k) { free -= k; res(); return true; } return false; }; if (!go()) waiting.push(go); });
+    const release = k => { free += k; waiting = waiting.filter(go => !go()); };
+    const showProgress = () => ctx.progress(progressOf.reduce((a, b) => a + b, 0) / N);
+    const one = async (i, f, held) => {
+      const label = N > 1 ? `${i + 1} of ${N}: ` : '';
       try {
         ctx.status(label + 'Reading the photo...'); await HT.tick();
         let c = await HT.img.load(f), mask = null;
@@ -502,19 +525,35 @@
         }
         const requestedMax = +o.maxSide || 0, max = fastBatch ? Math.min(requestedMax || 1600, 1600) : requestedMax;
         if (max && Math.max(c.width, c.height) > max) { const k = max / Math.max(c.width, c.height); c = HT.resample(c, c.width * k, c.height * k); }
-        ctx.status(label + 'Enhancing...'); ctx.progress((i + 0.1) / ctx.files.length); await HT.tick();
+        ctx.status(N > 1 ? `Enhancing ${done + 1} of ${N}...` : 'Enhancing...'); progressOf[i] = 0.1; showProgress(); await HT.tick();
         const x = c.getContext('2d'), img = x.getImageData(0, 0, c.width, c.height);
-        const ai = !fastBatch && !!(o.studio || (o.ai && o.ai !== 'off')), probe = probeOf(c), s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
-        x.putImageData(mask ? studioFinish(img, mask) : await applyFast(img, s, p => ctx.progress((i + 0.1 + p * 0.8) / ctx.files.length)), 0, 0);
+        const ai = !fastBatch && !!(o.studio || (o.ai && o.ai !== 'off')), probe = probeOf(c);
+        let out = null;
+        if (!mask && slots > 1 && img.width * img.height >= 3e6) { release(held.k); held.k = 0; await acquire(slots); held.k = slots; }   // a large photo: every worker, in strips
+        if (mask) out = studioFinish(img, mask);
+        else if (img.width * img.height < 3e6 && slots > 1) {   // a normal photo: all of it in one worker
+          try { out = await enhanceInWorker(img, probe, o, ai); } catch (e) { out = null; }
+          if (!out) { const back = x.getImageData(0, 0, c.width, c.height), p2 = probeOf(c); out = apply(back, combine(analyze(p2.img, p2.scale), o.preset || 'auto', o.deltas || {}, ai), 1); }
+        } else {
+          const s = combine(analyze(probe.img, probe.scale), o.preset || 'auto', o.deltas || {}, ai);
+          out = await applyFast(img, s, p => { progressOf[i] = 0.1 + p * 0.8; showProgress(); });
+        }
+        x.putImageData(out, 0, 0);
         ctx.status(label + 'Saving...'); await HT.tick();
-        const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), out = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
-        outs.push({ name: HT.stem(f.name) + '_enhanced.' + (fmt === 'jpg' ? 'jpg' : fmt), blob: out });
-        rows.push(`${f.name}: ${HT.fmtBytes(f.size)} → ${HT.fmtBytes(out.size)}`);
+        const fmt = pickFormat(o.format, f, HT.img.hasAlpha(c)), blob = await encodeTo(c, fmt, +o.quality || 90, +o.targetKB || 0);
+        results[i] = { out: { name: HT.stem(f.name) + '_enhanced.' + (fmt === 'jpg' ? 'jpg' : fmt), blob }, row: `${f.name}: ${HT.fmtBytes(f.size)} → ${HT.fmtBytes(blob.size)}` };
       } catch (e) {
-        failures.push(`${f.name}: ${(e && e.message) || 'Could not process this image.'}`);
+        results[i] = { fail: `${f.name}: ${(e && e.message) || 'Could not process this image.'}` };
       }
-      ctx.progress((i + 1) / ctx.files.length);
-    }
+      progressOf[i] = 1; done++; showProgress();
+    };
+    // each photo holds one worker; a large one trades it for all of them once it is read (never holding while waiting)
+    await Promise.all(ctx.files.map(async (f, i) => {
+      const held = { k: 1 };
+      await acquire(1);
+      try { await one(i, f, held); } finally { release(held.k); }
+    }));
+    for (const r of results) { if (!r) continue; if (r.fail) failures.push(r.fail); else { outs.push(r.out); rows.push(r.row); } }
     if (!outs.length) throw new Error(failures[0] || 'Could not process any of the selected images.');
     const skipped = HT.enhance.aiSkipped ? ` AI HD was skipped for ${HT.enhance.aiSkipped} photo(s) that are already high resolution.` : '';
     const failed = failures.length ? ` ${failures.length} photo(s) could not be processed: ${failures.slice(0, 3).join(' · ')}${failures.length > 3 ? ' · …' : ''}` : '';
