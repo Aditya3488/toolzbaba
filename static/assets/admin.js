@@ -229,9 +229,9 @@
     if (!I.setup) { body.append(indexSetup()); return; }
     const all = I.urls.map(u => [u, I.results[u]]), count = s => all.filter(([, r]) => idxState(r) === s).length;
     const yes = count('yes'), no = count('no'), none = count('none'), err = count('error'), left = Math.max(0, I.limit - I.used);
-    const card = (n, l, f) => el('button', { type: 'button', class: 'adm-card', style: { textAlign: 'left', cursor: 'pointer', font: 'inherit', color: 'inherit', outline: I.filter === f ? '2px solid var(--accent)' : null }, onclick: () => { I.filter = I.filter === f ? 'all' : f; draw(); } }, el('b', { text: String(n) }), el('span', { text: l }));
+    const card = (n, l, f) => el('button', { type: 'button', class: 'adm-card', 'data-k': f, style: { textAlign: 'left', cursor: 'pointer', font: 'inherit', color: 'inherit', outline: I.filter === f ? '2px solid var(--accent)' : null }, onclick: () => { I.filter = I.filter === f ? 'all' : f; draw(); } }, el('b', { text: String(n) }), el('span', { text: l }));
     body.append(el('div', { class: 'adm-cards' }, card(I.urls.length, 'addresses in the sitemap', 'all'), card(yes, 'indexed by Google', 'yes'), card(no, 'not indexed', 'no'), card(none, 'not checked yet', 'none'), card(err, 'checks that failed', 'error'),
-      el('div', { class: 'adm-card' }, el('b', { text: String(left) }), el('span', { text: 'checks left today (of ' + I.limit + ')' }))));
+      el('div', { class: 'adm-card', 'data-k': 'left' }, el('b', { text: String(left) }), el('span', { text: 'checks left today (of ' + I.limit + ')' }))));
     // why pages are not indexed, as Google words it
     const reasons = {}; for (const [, r] of all) if (idxState(r) === 'no') reasons[r.s || 'Unknown'] = (reasons[r.s || 'Unknown'] || 0) + 1;
     const rlist = Object.entries(reasons).sort((a, b) => b[1] - a[1]);
@@ -245,7 +245,7 @@
       if (kind === 'no') return I.urls.filter(u => ['no', 'error'].includes(idxState(I.results[u]))).sort(oldest).slice(0, n);
       return I.urls.slice().sort(oldest).slice(0, n);
     };
-    const go = kind => runIndex(pick(kind), progress, status);
+    const go = kind => runIndex(pick(kind));
     body.append(el('div', { class: 'adm-bar' },
       el('button', { class: 'btn sm', type: 'button', text: 'Check pages not checked yet', disabled: I.busy || !none || null, onclick: () => go('new') }),
       el('button', { class: 'btn sec sm', type: 'button', text: 'Check again: not indexed', disabled: I.busy || !(no + err) || null, onclick: () => go('no') }),
@@ -289,33 +289,58 @@
     body.append(el('p', { class: 'adm-small', text: 'Service account: ' + I.email + (I.updated ? ' · results saved ' + ago(I.updated) : '') }),
       el('button', { class: 'btn ghost sm', type: 'button', text: 'Forget all results', onclick: async () => { if (!(await ask('Forget every result?', 'The checks start again from the beginning.'))) return; await api('google-index', 'DELETE'); I.results = {}; draw(); } }));
   }
-  // 40 addresses per call, at most about 550 a minute (Google allows 600), saved every 200 checks
-  async function runIndex(list, progress, status) {
+  // 4 calls at once (each server call may keep only 6 connections to Google open), 40 addresses each, at most 560
+  // addresses a minute (Google allows 600); counters update after every call; results saved every 200 checks
+  function paintIdxCounts() {
+    const c = { all: I.urls.length, yes: 0, no: 0, none: 0, error: 0, left: Math.max(0, I.limit - (I.busy ? I.liveUsed : I.used)) };
+    for (const u of I.urls) c[idxState(I.results[u])]++;
+    for (const b of document.querySelectorAll('#adm-body [data-k]')) if (b.dataset.k in c) b.querySelector('b').textContent = String(c[b.dataset.k]);
+  }
+  async function runIndex(list) {
     if (!list.length) return toast('Nothing to check');
     I.busy = true; I.stop = false; draw();
     const say = (c, t) => { I.logLines.push([c, new Date().toLocaleTimeString() + '  ' + t]); };
-    let pending = {}, pendingUsed = 0, done = 0;
-    const flush = async () => { if (!pendingUsed) return; try { const r = await api('google-index', 'PUT', { results: pending, used: pendingUsed }); I.used = r.used; I.updated = r.updated; pending = {}; pendingUsed = 0; } catch (e) { say('e', 'Could not save: ' + e.message); } };
-    say('', `Checking ${list.length} address(es)...`);
-    for (let k = 0; k < list.length && !I.stop; ) {
-      const room = I.limit - I.used - pendingUsed;
-      if (room <= 0) { say('y', 'Today\'s ' + I.limit + ' checks are used up: run it again tomorrow, it continues from here.'); break; }
-      const batch = list.slice(k, k + Math.min(I.perCall, room)), t0 = Date.now();
-      let r;
-      try { r = await api('google-index', 'POST', { urls: batch }); }
-      catch (e) { say('e', e.message); break; }
-      if (r.site) I.site = r.site;
-      Object.assign(I.results, r.results); Object.assign(pending, r.results); pendingUsed += batch.length; done += batch.length; k += batch.length;
+    const startUsed = I.used, launches = [], t0 = Date.now();
+    let pending = {}, done = 0, sent = 0, next = 0, halt = false, saving = Promise.resolve();
+    I.pendingUsed = 0;
+    const flush = () => (saving = saving.then(async () => {
+      if (!I.pendingUsed) return;
+      const batch = pending, used = I.pendingUsed; pending = {}; I.pendingUsed = 0;
+      try { const r = await api('google-index', 'PUT', { results: batch, used }); I.used = r.used; I.updated = r.updated; }
+      catch (e) { Object.assign(pending, batch); I.pendingUsed += used; say('e', 'Could not save: ' + e.message); }
+    }));
+    // no more than 560 addresses started in any minute
+    const gate = async n => { for (;;) { const now = Date.now(); while (launches.length && launches[0][0] < now - 60000) launches.shift(); if (launches.reduce((a, x) => a + x[1], 0) + n <= 560) { launches.push([now, n]); return; } await sleep(300); } };
+    const show = () => {
+      I.liveUsed = startUsed + done;
       const p = document.querySelector('#adm-body .adm-bar2 i'); if (p) p.style.width = Math.round(done / list.length * 100) + '%';
-      const s = document.querySelector('#adm-body .adm-bar2 + .adm-small'); if (s) s.textContent = `${done} of ${list.length}`;
-      if (Object.keys(pending).length >= 200) await flush();
-      if (r.quota) { say('y', 'Google says: too many checks for now. Try again later (the daily allowance may be used up).'); break; }
-      const wait = 4400 - (Date.now() - t0); if (wait > 0) await sleep(wait);   // 40 per 4.4 s: under 600 a minute
-    }
-    await flush();
-    const yes = list.filter(u => idxState(I.results[u]) === 'yes').length;
-    say('g', `Done: ${done} checked, ${yes} of them indexed.`);
-    I.busy = false; if (S.tab === 'index') draw();
+      const s = document.querySelector('#adm-body .adm-bar2 + .adm-small'), mins = (Date.now() - t0) / 60000;
+      if (s) s.textContent = `${done} of ${list.length}` + (mins > 0.2 ? ` · ${Math.round(done / mins)} a minute` : '');
+      paintIdxCounts();
+    };
+    say('', `Checking ${list.length} address(es)...`);
+    const lane = async () => {
+      while (!halt && !I.stop && next < list.length) {
+        const room = I.limit - startUsed - sent;
+        if (room <= 0) { if (!halt) say('y', "Today's " + I.limit + ' checks are used up: run it again tomorrow, it continues from here.'); halt = true; break; }
+        const n = Math.min(I.perCall, room, list.length - next), batch = list.slice(next, next + n); next += n; sent += n;
+        await gate(n);
+        if (I.stop || halt) break;
+        let r;
+        try { r = await api('google-index', 'POST', { urls: batch }); }
+        catch (e) { if (!halt) say('e', e.message); halt = true; break; }
+        if (r.site) I.site = r.site;
+        Object.assign(I.results, r.results); Object.assign(pending, r.results); I.pendingUsed += n; done += n;
+        show();
+        if (Object.keys(pending).length >= 200) flush();
+        if (r.quota) { if (!halt) say('y', 'Google says: too many checks for now. Try again later (the daily allowance may be used up).'); halt = true; }
+      }
+    };
+    await Promise.all([lane(), lane(), lane(), lane()]);
+    await flush(); await saving;
+    const yes = list.filter(u => idxState(I.results[u]) === 'yes').length, mins = Math.max(0.01, (Date.now() - t0) / 60000);
+    say('g', `Done: ${done} checked in ${mins < 1 ? Math.round(mins * 60) + ' s' : mins.toFixed(1) + ' min'}, ${yes} of them indexed.`);
+    I.used = Math.max(I.used, startUsed + done); I.busy = false; if (S.tab === 'index') draw();
   }
   function indexSetup() {
     const step = (n, title, ...rest) => el('li', {}, el('b', { text: title }), el('div', { class: 'adm-small', style: { color: 'var(--muted)', margin: '2px 0 10px' } }, ...rest));
