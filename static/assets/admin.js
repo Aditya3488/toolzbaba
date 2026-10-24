@@ -74,10 +74,10 @@
     const slow = S.rum && Object.entries(S.rum.tools).filter(([, t]) => t.views >= 3).map(([s, t]) => [s, pctl(t.h.lcp, 0.75)]).filter(x => x[1]).sort((a, b) => b[1] - a[1])[0];
     const card = (n, l) => el('div', { class: 'adm-card' }, el('b', { text: String(n) }), el('span', { text: l }));
     wrap.append(el('div', { class: 'adm-cards' }, card(live, 'tools live'), card(arch, 'tools archived'), card(labRows.length ? labRows.length : '–', 'tested in the lab'), card(labRows.length ? failing : '–', 'failing their last test'), card(views || '–', 'visitor page views measured'), card(slow ? slow[0] + ' (' + fmtMs(slow[1]) + ')' : '–', 'slowest to show (LCP, 75% of visits)')));
-    const tabs = [['tools', 'Tools'], ['blog', 'Blog'], ['rum', 'Real visitors'], ['errors', 'Errors'], ['csp', 'CSP reports'], ['lab', 'Lab tests'], ['log', 'History'], ['help', 'Help']];
+    const tabs = [['tools', 'Tools'], ['blog', 'Blog'], ['rum', 'Real visitors'], ['index', 'Google index'], ['errors', 'Errors'], ['csp', 'CSP reports'], ['lab', 'Lab tests'], ['log', 'History'], ['help', 'Help']];
     wrap.append(el('div', { class: 'adm-tabs', role: 'tablist' }, tabs.map(([id, t]) => el('button', { class: 'adm-tab' + (S.tab === id ? ' on' : ''), type: 'button', role: 'tab', 'aria-selected': S.tab === id ? 'true' : 'false', text: t, onclick: () => { S.tab = id; draw(); } }))));
     const body = el('div', { id: 'adm-body' }); wrap.append(body);
-    ({ tools: drawTools, blog: drawBlog, rum: drawRum, errors: drawErrors, csp: drawCsp, lab: drawLab, log: drawLog, help: drawHelp })[S.tab](body);
+    ({ tools: drawTools, blog: drawBlog, rum: drawRum, index: drawIndex, errors: drawErrors, csp: drawCsp, lab: drawLab, log: drawLog, help: drawHelp })[S.tab](body);
   }
 
   // ---- tools: archive / go live
@@ -204,6 +204,135 @@
     body.append(el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t' }, el('thead', {}, el('tr', {}, el('th', { text: '' }), el('th', { text: 'Directive' }), el('th', { text: 'Blocked' }), el('th', { text: 'Page' }), el('th', { text: 'Source' }), el('th', { text: 'Sample' }), el('th', { class: 'num', text: 'Times' }), el('th', { text: 'Last' }))), tb)));
   }
 
+  // ---- Google index: which pages of the sitemap Google has in its index (URL Inspection API, functions/api/admin/google-index.js)
+  const LANGS = ['hi', 'bn', 'es', 'pt', 'id', 'fr', 'de', 'ru', 'ja', 'tr', 'vi', 'it', 'ar', 'pl'];
+  const langOf = u => { const p = new URL(u).pathname.split('/')[1]; return LANGS.includes(p) ? p : 'en'; };
+  const I = { loaded: false, busy: false, stop: false, urls: [], results: {}, filter: 'all', lang: '', q: '', logLines: [] };
+  const idxState = r => (!r ? 'none' : r.e ? 'error' : r.v === 'PASS' ? 'yes' : 'no');
+  const idxPill = r => { const s = idxState(r); return s === 'yes' ? pill('good', 'Indexed') : s === 'no' ? pill(r.v === 'FAIL' ? 'poor' : 'mid', 'Not indexed') : s === 'error' ? pill('poor', 'Check failed', r.e) : pill('', 'Not checked'); };
+  const gscLink = u => 'https://search.google.com/search-console/inspect?resource_id=' + encodeURIComponent(I.site || 'sc-domain:' + location.host.replace(/^www\./, '')) + '&id=' + encodeURIComponent(u);
+  async function loadIndex() {
+    const [st, xml] = await Promise.all([api('google-index'), fetch('/sitemap.xml', { cache: 'no-cache' }).then(r => r.text())]);
+    Object.assign(I, { setup: st.setup, problem: st.problem, email: st.email, site: st.site || I.site, limit: st.limit, perCall: st.perCall, results: st.index.results || {}, used: st.index.used || 0, updated: st.index.updated });
+    const urls = [...new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim()))];
+    // English pages first (the home page and the tools lead), then each language
+    I.urls = urls.map((u, i) => [u, i]).sort((a, b) => (langOf(a[0]) === 'en' ? 0 : 1) - (langOf(b[0]) === 'en' ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
+    I.loaded = true;
+  }
+  function drawIndex(body) {
+    if (!I.loaded) {
+      body.append(el('p', { class: 'adm-note', text: 'Loading the sitemap and the results kept so far...' }));
+      loadIndex().then(() => S.tab === 'index' && draw()).catch(e => { body.textContent = ''; body.append(el('p', { class: 'adm-note', text: 'Could not load: ' + e.message }), el('button', { class: 'btn sm', type: 'button', text: 'Try again', onclick: () => draw() })); });
+      return;
+    }
+    body.append(el('p', { class: 'adm-note', text: 'Asks Google itself, for every address in /sitemap.xml, whether it is in Google\'s index and if not, why (the same answer as "URL inspection" in Search Console). Google allows ' + I.limit + ' checks a day, so the whole sitemap takes a few days: results are kept here and each run continues where the last one stopped. English pages are checked first.' }));
+    if (!I.setup) { body.append(indexSetup()); return; }
+    const all = I.urls.map(u => [u, I.results[u]]), count = s => all.filter(([, r]) => idxState(r) === s).length;
+    const yes = count('yes'), no = count('no'), none = count('none'), err = count('error'), left = Math.max(0, I.limit - I.used);
+    const card = (n, l, f) => el('button', { type: 'button', class: 'adm-card', style: { textAlign: 'left', cursor: 'pointer', font: 'inherit', color: 'inherit', outline: I.filter === f ? '2px solid var(--accent)' : null }, onclick: () => { I.filter = I.filter === f ? 'all' : f; draw(); } }, el('b', { text: String(n) }), el('span', { text: l }));
+    body.append(el('div', { class: 'adm-cards' }, card(I.urls.length, 'addresses in the sitemap', 'all'), card(yes, 'indexed by Google', 'yes'), card(no, 'not indexed', 'no'), card(none, 'not checked yet', 'none'), card(err, 'checks that failed', 'error'),
+      el('div', { class: 'adm-card' }, el('b', { text: String(left) }), el('span', { text: 'checks left today (of ' + I.limit + ')' }))));
+    // why pages are not indexed, as Google words it
+    const reasons = {}; for (const [, r] of all) if (idxState(r) === 'no') reasons[r.s || 'Unknown'] = (reasons[r.s || 'Unknown'] || 0) + 1;
+    const rlist = Object.entries(reasons).sort((a, b) => b[1] - a[1]);
+    if (rlist.length) body.append(el('div', { class: 'adm-bar' }, el('span', { class: 'adm-small', text: 'Why not indexed:' }), rlist.map(([s, n]) => el('button', { type: 'button', class: 'btn ' + (I.filter === 'r:' + s ? '' : 'ghost') + ' sm', text: `${s} (${n})`, onclick: () => { I.filter = I.filter === 'r:' + s ? 'all' : 'r:' + s; draw(); } }))));
+    // checking
+    const howMany = el('select', { 'aria-label': 'How many' }, [[200, '200'], [500, '500'], [1000, '1,000'], [2000, 'all I can today']].map(([v, t]) => el('option', { value: v, text: t, selected: v === 500 ? 'selected' : null })));
+    const progress = el('div', { class: 'adm-bar2', style: { flex: '1', maxWidth: '260px' } }, el('i', { style: { width: '0%' } })), status = el('span', { class: 'adm-small' });
+    const pick = kind => {
+      const n = +howMany.value, oldest = (a, b) => ((I.results[a] || {}).at || 0) - ((I.results[b] || {}).at || 0);
+      if (kind === 'new') return I.urls.filter(u => !I.results[u]).slice(0, n);
+      if (kind === 'no') return I.urls.filter(u => ['no', 'error'].includes(idxState(I.results[u]))).sort(oldest).slice(0, n);
+      return I.urls.slice().sort(oldest).slice(0, n);
+    };
+    const go = kind => runIndex(pick(kind), progress, status);
+    body.append(el('div', { class: 'adm-bar' },
+      el('button', { class: 'btn sm', type: 'button', text: 'Check pages not checked yet', disabled: I.busy || !none || null, onclick: () => go('new') }),
+      el('button', { class: 'btn sec sm', type: 'button', text: 'Check again: not indexed', disabled: I.busy || !(no + err) || null, onclick: () => go('no') }),
+      el('button', { class: 'btn sec sm', type: 'button', text: 'Check again: oldest first', disabled: I.busy || null, onclick: () => go('old') }),
+      el('label', { class: 'chk' }, 'How many: ', howMany),
+      el('button', { class: 'btn ghost sm', type: 'button', text: 'Stop', disabled: !I.busy || null, onclick: () => { I.stop = true; } }),
+      progress, status));
+    if (I.logLines.length) body.append(el('div', { class: 'adm-log', style: { height: '90px' } }, I.logLines.slice(-30).map(([c, t]) => el('div', { class: c, text: t }))));
+    // the list
+    const search = el('input', { type: 'search', placeholder: 'Search addresses...', value: I.q, 'aria-label': 'Search addresses', oninput: e => { I.q = e.target.value; list(); } });
+    const lang = el('select', { 'aria-label': 'Language', onchange: e => { I.lang = e.target.value; list(); } }, el('option', { value: '', text: 'All languages' }), ['en', ...LANGS].map(l => el('option', { value: l, text: l === 'en' ? 'English' : l, selected: I.lang === l ? 'selected' : null })));
+    const show = el('select', { 'aria-label': 'Show', onchange: e => { I.filter = e.target.value; draw(); } }, [['all', 'All'], ['yes', 'Indexed'], ['no', 'Not indexed'], ['none', 'Not checked yet'], ['error', 'Check failed']].map(([v, t]) => el('option', { value: v, text: t, selected: I.filter === v ? 'selected' : null })));
+    const holder = el('div');
+    const rows = () => {
+      const q = I.q.trim().toLowerCase();
+      return all.filter(([u, r]) => (!I.lang || langOf(u) === I.lang) && (!q || u.toLowerCase().includes(q)) &&
+        (I.filter === 'all' || (I.filter.startsWith('r:') ? idxState(r) === 'no' && (r.s || 'Unknown') === I.filter.slice(2) : idxState(r) === I.filter)));
+    };
+    const csv = () => {
+      const esc = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+      const lines = [['Address', 'Indexed', 'Google says', 'Last crawl', 'Google canonical', 'Checked'].join(',')].concat(rows().map(([u, r]) => [u, idxState(r), r ? r.s || r.e || '' : '', r && r.c ? r.c.slice(0, 10) : '', r && r.g || '', r && r.at ? new Date(r.at).toISOString().slice(0, 10) : ''].map(esc).join(',')));
+      HT.download(URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/csv' })), 'google-index-' + new Date().toISOString().slice(0, 10) + '.csv');
+    };
+    function list() {
+      holder.textContent = '';
+      const rs = rows(), shown = rs.slice(0, 400), tb = el('tbody');
+      for (const [u, r] of shown) {
+        const path = new URL(u).pathname;
+        tb.append(el('tr', {}, el('td', { class: 'l' }, el('a', { href: u, target: '_blank', rel: 'noopener', text: path })),
+          el('td', {}, idxPill(r)), el('td', { class: 'l', text: r ? (r.e || r.s || '') + (r.f ? ' · ' + r.f : '') + (r.i ? ' · ' + r.i : '') + (r.r ? ' · robots.txt blocks it' : '') : '' }),
+          el('td', { text: r && r.c ? ago(Date.parse(r.c)) : '–', title: r && r.c ? r.c : null }),
+          el('td', { class: 'l adm-small', text: r && r.g ? 'Google chose ' + new URL(r.g).pathname : '' }),
+          el('td', { text: r && r.at ? ago(r.at) : '–' }),
+          el('td', {}, el('a', { class: 'btn ghost sm', href: gscLink(u), target: '_blank', rel: 'noopener', text: 'Search Console', title: 'Open this address in Search Console (there you can ask Google to index it)' }))));
+      }
+      holder.append(el('div', { class: 'adm-bar' }, el('span', { class: 'adm-small', text: rs.length > shown.length ? `Showing ${shown.length} of ${rs.length}` : `${rs.length} address(es)` }), el('span', { class: 'sp' }),
+        el('button', { class: 'btn ghost sm', type: 'button', text: 'Download as CSV', onclick: csv })),
+        el('div', { class: 'adm-tablewrap' }, el('table', { class: 'adm-t' }, el('thead', {}, el('tr', {}, ['Page', 'Indexed', 'Google says', 'Last crawl', 'Canonical', 'Checked', ''].map(t => el('th', { text: t })))), tb)));
+    }
+    body.append(el('div', { class: 'adm-bar' }, search, lang, show), holder); list();
+    body.append(el('p', { class: 'adm-small', text: 'Service account: ' + I.email + (I.updated ? ' · results saved ' + ago(I.updated) : '') }),
+      el('button', { class: 'btn ghost sm', type: 'button', text: 'Forget all results', onclick: async () => { if (!(await ask('Forget every result?', 'The checks start again from the beginning.'))) return; await api('google-index', 'DELETE'); I.results = {}; draw(); } }));
+  }
+  // 40 addresses per call, at most about 550 a minute (Google allows 600), saved every 200 checks
+  async function runIndex(list, progress, status) {
+    if (!list.length) return toast('Nothing to check');
+    I.busy = true; I.stop = false; draw();
+    const say = (c, t) => { I.logLines.push([c, new Date().toLocaleTimeString() + '  ' + t]); };
+    let pending = {}, pendingUsed = 0, done = 0;
+    const flush = async () => { if (!pendingUsed) return; try { const r = await api('google-index', 'PUT', { results: pending, used: pendingUsed }); I.used = r.used; I.updated = r.updated; pending = {}; pendingUsed = 0; } catch (e) { say('e', 'Could not save: ' + e.message); } };
+    say('', `Checking ${list.length} address(es)...`);
+    for (let k = 0; k < list.length && !I.stop; ) {
+      const room = I.limit - I.used - pendingUsed;
+      if (room <= 0) { say('y', 'Today\'s ' + I.limit + ' checks are used up: run it again tomorrow, it continues from here.'); break; }
+      const batch = list.slice(k, k + Math.min(I.perCall, room)), t0 = Date.now();
+      let r;
+      try { r = await api('google-index', 'POST', { urls: batch }); }
+      catch (e) { say('e', e.message); break; }
+      if (r.site) I.site = r.site;
+      Object.assign(I.results, r.results); Object.assign(pending, r.results); pendingUsed += batch.length; done += batch.length; k += batch.length;
+      const p = document.querySelector('#adm-body .adm-bar2 i'); if (p) p.style.width = Math.round(done / list.length * 100) + '%';
+      const s = document.querySelector('#adm-body .adm-bar2 + .adm-small'); if (s) s.textContent = `${done} of ${list.length}`;
+      if (Object.keys(pending).length >= 200) await flush();
+      if (r.quota) { say('y', 'Google says: too many checks for now. Try again later (the daily allowance may be used up).'); break; }
+      const wait = 4400 - (Date.now() - t0); if (wait > 0) await sleep(wait);   // 40 per 4.4 s: under 600 a minute
+    }
+    await flush();
+    const yes = list.filter(u => idxState(I.results[u]) === 'yes').length;
+    say('g', `Done: ${done} checked, ${yes} of them indexed.`);
+    I.busy = false; if (S.tab === 'index') draw();
+  }
+  function indexSetup() {
+    const step = (n, title, ...rest) => el('li', {}, el('b', { text: title }), el('div', { class: 'adm-small', style: { color: 'var(--muted)', margin: '2px 0 10px' } }, ...rest));
+    const code = t => el('code', { text: t });
+    return el('div', { class: 'adm-help' },
+      el('h3', { text: 'Set it up once (about 10 minutes)' }),
+      I.problem ? el('p', { class: 'adm-msg', text: I.problem }) : null,
+      el('p', { text: 'Google answers these questions only to someone who may see the site in Search Console. A "service account" is a robot Google user made for this: you create it, give it read-only access to toolzbaba.com in Search Console, and hand its key to the site as a secret. The key stays on the server; this page never sees it.' }),
+      el('ol', {},
+        step(1, 'Google Cloud: switch on the Search Console API', 'Open ', el('a', { href: 'https://console.cloud.google.com/apis/library/searchconsole.googleapis.com', target: '_blank', rel: 'noopener', text: 'console.cloud.google.com → Google Search Console API' }), ', choose or create a project (any name, e.g. "toolzbaba"), and press Enable.'),
+        step(2, 'Create the service account and its key', 'In the same project: ', el('a', { href: 'https://console.cloud.google.com/iam-admin/serviceaccounts', target: '_blank', rel: 'noopener', text: 'IAM & Admin → Service accounts' }), ' → Create service account (name: "search-console-reader", no roles needed) → open it → Keys → Add key → Create new key → JSON. A .json file downloads: keep it private.'),
+        step(3, 'Give it read access in Search Console', 'Open ', el('a', { href: 'https://search.google.com/search-console/users', target: '_blank', rel: 'noopener', text: 'Search Console → Settings → Users and permissions' }), ' for toolzbaba.com → Add user → paste the e-mail from the file (the line ', code('"client_email"'), ', ending in ', code('.iam.gserviceaccount.com'), ') → Permission: Restricted → Add.'),
+        step(4, 'Give the key to the site', 'Cloudflare dashboard → Workers & Pages → toolzbaba → Settings → Variables and Secrets → Add → type "Secret", name ', code('GSC_SERVICE_ACCOUNT'), ', value: the whole contents of the .json file (open it in Notepad, select all, copy). Save. If your Search Console property is a URL prefix rather than a domain property, also add ', code('GSC_SITE'), ' = ', code('https://toolzbaba.com/'), '.'),
+        step(5, 'Deploy once', 'Secrets reach the site with the next deploy: push any change, or in GitHub open Actions → "Deploy to Cloudflare Pages" → Run workflow. Then come back here.')),
+      el('button', { class: 'btn sm', type: 'button', text: 'I have done it: check again', onclick: () => { I.loaded = false; draw(); } }));
+  }
+
   // ---- the lab: open every tool in a hidden frame, measure it, try it with a sample file
   const HEAVY_MS = 180000, RUN_MS = 60000;
   const canvasBlob = (w, h, draw, type = 'image/png') => new Promise(r => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); c.toBlob(r, type, 0.9); });
@@ -240,8 +369,15 @@
     if (want('pdf') && !/image|\.jpe?g|\.png/.test(a) && !any) return { blob: samplePdf(), name: 'lab-sample.pdf' };
     if (/audio|\.mp3|\.wav/.test(a)) return { blob: sampleWav(), name: 'lab-sample.wav' };
     if (/video|\.mp4|\.mov|\.webm/.test(a)) { if (!heavy) return { why: 'video tool (switch on "Include heavy tools")' }; const v = await sampleVideo(); return v ? { blob: v, name: 'lab-sample.mp4', type: 'video/mp4' } : { why: 'this browser cannot make a sample video' }; }
-    if (/image|\.jpe?g|\.png|\.webp/.test(a) || any) { const jpgOnly = !/png|image\/\*|webp/.test(a) && /jpe?g/.test(a); return jpgOnly ? { blob: await sampleImage('image/jpeg'), name: 'lab-sample.jpg' } : { blob: await sampleImage('image/png'), name: 'lab-sample.png' }; }
-    if (/\.gif/.test(a)) return { why: 'needs a GIF file' };
+    // the picture format the tool asks for (a "Compress WebP" page takes only WebP): PNG for any picture, else the first one named
+    if (/gif/.test(a) && !/png|jpe?g|webp|avif|image\/\*/.test(a)) return { why: 'needs a GIF file' };
+    if (/svg/.test(a) && !/png|jpe?g|webp|avif|image\/\*/.test(a)) return { blob: new Blob(['<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320"><rect width="480" height="320" fill="#4f46e5"/><circle cx="160" cy="160" r="90" fill="#fbbf24"/><text x="270" y="175" font-family="sans-serif" font-size="40" fill="#fff">lab</text></svg>'], { type: 'image/svg+xml' }), name: 'lab-sample.svg' };
+    if (/image|\.jpe?g|\.png|\.webp|\.avif/.test(a) || any) {
+      const want = any || /image\/\*|png/.test(a) ? 'image/png' : /jpe?g/.test(a) ? 'image/jpeg' : /webp/.test(a) ? 'image/webp' : /avif/.test(a) ? 'image/avif' : 'image/png';
+      const blob = await sampleImage(want);
+      if (!blob || blob.type !== want) return { why: 'this browser can not make a sample ' + want.split('/')[1].toUpperCase() + ' picture' };
+      return { blob, name: 'lab-sample.' + (want === 'image/jpeg' ? 'jpg' : want.split('/')[1]) };
+    }
     return { why: 'needs a ' + a.split(',')[0] + ' file' };
   }
   function labFrame() { const f = el('iframe', { title: 'lab', style: { position: 'fixed', left: '-12000px', top: '0', width: '1100px', height: '800px', border: '0' } }); document.body.append(f); return f; }
@@ -315,11 +451,14 @@
       const filledOut = () => [...d().querySelectorAll('#tool textarea[readonly], #tool pre, #tool output, #tool .out')].some(e => ((e.value || e.textContent || '').trim().length > 3));
       const errText = () => { const e = d().querySelector('#tool .status.err'); return e && e.textContent.trim(); };
       const busy = () => [...d().querySelectorAll('#tool .bar')].some(b => b.style.display === 'block');
+      // a full-screen editor (the PDF Editor) opens outside #tool: the file is showing in it, ready to edit
+      const editorOpen = () => { const a = d().querySelector('.v2app:not(.hidden)'); return a && a.querySelector('canvas, img') ? a : null; };
       let clicked = false;
       const outcome = await waitFor(() => {
         fillAsked(d, w);
         const e = errText(); if (e) return { state: 'err', msg: e };
         if (result()) return { state: 'ok' };
+        if (editorOpen()) return { state: 'ok', msg: 'the editor opened the file' };
         if (!clicked) { const b = findAction(d()); if (b && (performance.now() - tStart > 1500 || !fileIn)) { clicked = true; muts = 0; b.click(); } }
         if (clicked && dlReady()) return { state: 'ok' };
         if (filledOut() && performance.now() - lastMut > 800 && !busy()) return { state: 'ok', msg: 'the answer is on the page' };
@@ -429,7 +568,7 @@
       el('button', { class: 'btn sm', type: 'button', text: '+ New post', onclick: () => { B.edit = { isNew: true, slug: '', title: '', desc: '', body: '', cover: '', coverAlt: '', tags: [], status: 'draft' }; B.dirty = false; draw(); } }),
       el('a', { class: 'btn sec sm', href: '/blog', target: '_blank', rel: 'noopener', text: 'Open the blog' }),
       el('span', { class: 'sp' }), el('span', { class: 'adm-small', text: `${pub} published, ${B.posts.length - pub} other` })));
-    body.append(el('p', { class: 'adm-note', text: 'Posts appear at toolzbaba.com/blog as soon as you publish them, with their own page, search-engine details, a sitemap (/blog/sitemap.xml) and an RSS feed (/blog/feed.xml). Drafts are only visible here.' }));
+    body.append(el('p', { class: 'adm-note', text: 'Posts appear at toolzbaba.com/blog as soon as you publish them, with their own page, search-engine details, an entry in the sitemap (/sitemap.xml) and an RSS feed (/blog/feed.xml). Drafts are only visible here.' }));
     if (!B.posts.length) return body.append(el('div', { class: 'adm-card' }, el('span', { text: 'No posts yet. Press "New post" to write the first one.' })));
     const tb = el('tbody');
     for (const p of B.posts) {
@@ -548,8 +687,9 @@
     const h = el('div', { class: 'adm-help' });
     h.innerHTML = `<h3>Setting it up (once)</h3><p>The panel needs two secrets in the Cloudflare Pages project (Settings, Variables and Secrets): <code>ADMIN_USER</code> (your ID) and <code>ADMIN_KEY</code> (your password, 16 or more characters, used nowhere else). Signing in gives this browser a session cookie for 8 hours that page scripts can't read; the password is never stored. After 5 wrong tries from one visitor, or 50 from everyone within an hour, the door stays shut for a while. Scripts can also send the headers <code>X-Requested-With: toolzbaba-admin</code>, <code>X-Admin-User</code> and <code>X-Admin-Key</code> (e.g. to delete a hosted file). For one more lock, put Cloudflare Access in front of <code>/admin</code> and <code>/api/admin/*</code> (see README). Archive / history / lab results live in the KV namespace called CDN.</p>
 <h3>Archive and go live</h3><p>Archiving a tool puts its slug on a list at <code>/api/tool-status</code>. Every page keeps that list for 10 minutes and refreshes it when the browser is idle, so it never delays a page. The tool disappears from the home page, search and menus; its address shows "taking a break" (not indexed). A tool with tabs takes its tab pages with it; a single tab page can be archived on its own. For a permanent archive put <code>"archived": true</code> on the tool in <code>tools.json</code>: that also removes it from the sitemap. Until the next deploy the sitemap still lists tools archived here.</p>
-<h3>Blog</h3><p>Write posts in the Blog tab. "Save draft" keeps a post private; "Publish" puts it live at <code>/blog/your-post</code> straight away, with its own title and description for Google, a cover image for social media, and an entry in <code>/blog/sitemap.xml</code> and the RSS feed <code>/blog/feed.xml</code>. Images you upload are shrunk to WebP in your browser and kept for good at <code>/blog/images/</code>. Changing a published post's address keeps the old one working as a redirect. Posts are written in Markdown (the toolbar buttons type it for you): <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>[text](https://...)</code>, <code>- list</code>, <code>&gt; quote</code>; HTML in a post is shown as text, never run. Free KV allows 1,000 saves a day, far more than a blog needs.</p>
+<h3>Blog</h3><p>Write posts in the Blog tab. "Save draft" keeps a post private; "Publish" puts it live at <code>/blog/your-post</code> straight away, with its own title and description for Google, a cover image for social media, and an entry in the site's one sitemap <code>/sitemap.xml</code> (also in <code>/blog/sitemap.xml</code>) and the RSS feed <code>/blog/feed.xml</code>. Images you upload are shrunk to WebP in your browser and kept for good at <code>/blog/images/</code>. Changing a published post's address keeps the old one working as a redirect. Posts are written in Markdown (the toolbar buttons type it for you): <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>[text](https://...)</code>, <code>- list</code>, <code>&gt; quote</code>; HTML in a post is shown as text, never run. Free KV allows 1,000 saves a day, far more than a blog needs.</p>
 <h3>Real visitors</h3><p>The speed numbers come from the visitors' own browsers: a sample (1 in 10) sends one small message per page view. Free KV allows 1,000 writes a day, so at most ${S.maxWrites} messages a day are saved. Counts are estimates. If the site grows, move this to D1 or Analytics Engine.</p>
+<h3>Google index</h3><p>The Google index tab asks Google, page by page, whether each address in <code>/sitemap.xml</code> is in its index, and if not why ("Discovered – currently not indexed", "Crawled – currently not indexed", a redirect, a different canonical...). It is the same answer as URL inspection in Search Console, read through the URL Inspection API with a service account (the key is the Pages secret <code>GSC_SERVICE_ACCOUNT</code>; the tab shows how to set it up). Google allows 2,000 checks a day, so the whole sitemap takes two or three days; results are kept in KV (one save per 200 checks) and every run continues where the last one stopped. Use "Download as CSV" for the list of pages to send to Google with "Request indexing" in Search Console (Google allows about 10 such requests a day there).</p>
 <h3>Lab tests</h3><p>Run them after every deploy: "Every tool" without heavy tools takes a few minutes. Anything red is worth a look. The full browser test files in <code>/tests</code> remain the real safety net.</p>
 <h3>Keeping the site fast</h3><p>Tools load their code only when used, models only when a button is pressed, and the admin code is never loaded on public pages. Watch "Weight", "Ready" and "LCP": a tool that turns red after a change is the one to fix. The limits used for the colours are Google's: LCP 2.5 s / 4 s, INP 200 ms / 500 ms, CLS 0.1 / 0.25.</p>`;
     body.append(h);

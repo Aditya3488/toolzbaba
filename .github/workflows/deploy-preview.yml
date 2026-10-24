@@ -44,7 +44,7 @@ jobs:
         run: python build.py
 
       - name: Unit tests of the Cloudflare Functions
-        run: node tests/functions_test.mjs
+        run: node tests/functions_test.mjs && node tests/google_index_test.mjs
 
       - name: Deploy the preview
         env:
